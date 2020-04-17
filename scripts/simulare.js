@@ -81,6 +81,10 @@ slider.setAttribute("value", selectorZi);
 slider.oninput = function() {
     selectorZi = this.value;
     procentDinCapacitateMax = data[selectorZi]/maxValue;
+
+    //slider.setAttribute("value", selectorZi);
+    //console.log(selectorZi);
+    //console.log(slider.getAttribute("value"));
 }
 
 //captura apasare taste
@@ -90,10 +94,12 @@ input.onkeydown = modificaNivel;
 //buton prelucrare
 var buton_reluare = document.querySelector('button')
 buton_reluare.onclick = function() {
-    derulareAutomata = true;
     selectorZi = 0;
-    //procentDinCapacitateMax = data[selectorZi]/maxValue;
     slider.setAttribute("value", selectorZi);
+    derulareAutomata = true;
+    //console.log(slider.getAttribute("value"));
+    //procentDinCapacitateMax = data[selectorZi]/maxValue;
+
 }
 
 function modificaNivel(e){
@@ -228,11 +234,12 @@ function ActualizareSuprafataGrafica() {
             if (selectorZi < data.length - 1)
                     selectorZi += 1;
             else{
-                derulareAutomata = 0;
+                derulareAutomata = false;
             }
-
-            procentDinCapacitateMax = data[selectorZi]/maxValue;
+            //console.log(slider.getAttribute("value"));
             slider.setAttribute("value", selectorZi);
+            procentDinCapacitateMax = data[selectorZi]/maxValue;
+
     }
     procentDinCapacitate = procentDinCapacitateMax
     actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
