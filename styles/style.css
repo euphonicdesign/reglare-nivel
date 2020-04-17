@@ -54,6 +54,10 @@ img {
   margin: 0 0
 }
 
+.center {
+  text-align: center;
+}
+
 .slider {
   -webkit-appearance: none;
   width: 100%;

@@ -87,6 +87,15 @@ slider.oninput = function() {
 const input = document.querySelector('html');
 input.onkeydown = modificaNivel;
 
+//buton prelucrare
+var buton_reluare = document.querySelector('button')
+buton_reluare.onclick = function() {
+    derulareAutomata = true;
+    selectorZi = 0;
+    //procentDinCapacitateMax = data[selectorZi]/maxValue;
+    slider.setAttribute("value", selectorZi);
+}
+
 function modificaNivel(e){
     if (e.code === "ArrowDown" || e.code === "ArrowLeft"){
         /*if (procentDinCapacitateMax > 0)
@@ -117,14 +126,14 @@ function start() {
     procentDinCapacitateMax = data[selectorZi]/maxValue;
 
     //generare suprafata
-    suprafataGrafica.start();
+    suprafataGrafica.constructie();
 }
 
 var suprafataGrafica = {
     canvas : document.createElement("canvas"),
 
     //generare suprafata grafica
-    start : function() {
+    constructie : function() {
         //setare dimensiuni suprafata grafica
         this.canvas.width = lungimeSuprafataGrafica;
         this.canvas.height = inaltimeSuprafataGrafica;
