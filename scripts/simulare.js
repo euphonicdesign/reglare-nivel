@@ -107,7 +107,7 @@ function modificaNivel(e){
 
 function start() {
     //reincarcare date server
-    window.location.reload(true);
+    //window.location.reload(true);
 
     //prelucrare date
     for (let i = 0; i < data.length; i++) {
