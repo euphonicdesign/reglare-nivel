@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reglare nivel</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+      canvas {
+          border:1px solid #d3d3d3;
+          background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+
+  <body onload="start()">
+    <p></p>
+    <div class="slidecontainer">
+      <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+    </div>
+
+    <script src="scripts/simulare.js"></script>
+  </body>
+</html>
