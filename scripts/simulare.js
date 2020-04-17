@@ -5,10 +5,9 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             7.67,6.67,13.33,15,16.67,21.33,18.67,
             18,8,13.67,20.33,24,25,24.33,
             25.67,20.33,20.67,22,
-            3, 3, 3, 3, 3
           ];
 
-//actualizare versionare script in index
+//---->actualizare versionare script in index
 
 selectorZi = 0; //data.length - 1;
 maxValue = 0;
