@@ -9,9 +9,17 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
 
 //---->actualizare versionare script in index
 
-selectorZi = 0; //data.length - 1;
-maxValue = 0;
-derulareAutomata = true;
+var selectorZi = 0; //data.length - 1;
+var maxValue = 0;
+var derulareAutomata = true;
+
+var nivelCritic = 20;
+var nivelIntermediar = 15;
+var culoareApaNivelNormal = "#005ce6";
+var culoareApaNivelIntermediar = "#003d99";
+var culoareApaNivelCritic = "#001f4d";
+var culoareApa = culoareApaNivelNormal;
+var culoareValoareNivel = culoareApa;
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -172,15 +180,15 @@ function desenareVaseComunicante() {
     ctx.fillRect(xConductaIntrare, yConductaIntrare, lungimeConductaIntrare, inaltimeConductaIntrare);
 
     //conducta iesire
-    ctx.fillStyle = "#005ce6";
+    ctx.fillStyle = culoareApa;
     ctx.fillRect(xConductaIesire, yConductaIesire, lungimeConductaIesire, inaltimeConductaIesire);
 
     //apa intrare (L1)
-    ctx.fillStyle = "#005ce6";
+    ctx.fillStyle = culoareApa;
     ctx.fillRect(xApaIntrare1, yApaIntrare1, lungimeApaIntrare1, inaltimeApaIntrare1);
 
     //apa intrare (L2)
-    ctx.fillStyle = "#005ce6";
+    ctx.fillStyle = culoareApa;
     ctx.fillRect(xApaIntrare2, yApaIntrare2, lungimeApaIntrare2, inaltimeApaIntrare2);
 
     //valva conducta intrare (T1)
@@ -192,7 +200,7 @@ function desenareVaseComunicante() {
     ctx.fillRect(xValvaConductaIntrare2, yValvaConductaIntrare2, lungimeValvaConductaIntrare2, inaltimeValvaConductaIntrare2);
 
     //apa rezervor
-    ctx.fillStyle = "#005ce6";
+    ctx.fillStyle = culoareApa;
     ctx.fillRect(xApaRezervor, yApaRezervor, lungimeApaRezervor, inaltimeApaRezervor);
 
 }
@@ -201,10 +209,12 @@ function desenareZiValoare() {
     ctx = suprafataGrafica.context;
     ctx.fillStyle = "orange";
 
+    //Ziua
     ctx.font = "30px Arial";
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
 
-    ctx.fillStyle = "#005ce6";
+    //Nivelul
+    ctx.fillStyle = culoareValoareNivel;
     ctx.font = "30px Arial";
     ctx.fillText(Math.round(data[selectorZi]), lungimeSuprafataGrafica / 2 - 10, yRezervor - 15);
 }
@@ -241,7 +251,21 @@ function ActualizareSuprafataGrafica() {
             procentDinCapacitateMax = data[selectorZi]/maxValue;
 
     }
-    procentDinCapacitate = procentDinCapacitateMax
+    procentDinCapacitate = procentDinCapacitateMax;
+
+    //colorare apa in functie de valoare critica
+    nivel = Math.round(data[selectorZi]);
+
+    if (nivel > nivelCritic)
+        culoareApa = culoareApaNivelCritic;
+    else if (nivel > nivelIntermediar) {
+        culoareApa = culoareApaNivelIntermediar;
+    }
+    else
+        culoareApa = culoareApaNivelNormal;
+
+    culoareValoareNivel = culoareApa;
+
     actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
     desenareVaseComunicante();
     desenareZiValoare();
