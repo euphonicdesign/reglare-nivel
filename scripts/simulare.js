@@ -70,17 +70,24 @@ var inaltimeApaIntrare2 = inaltimeRezervor - inaltimeApaRezervor - (inaltimeCond
 var xApaIntrare2 = xApaRezervor;
 var yApaIntrare2 = yRezervor + (inaltimeConductaIntrare - inaltimeApaIntrare1);
 
-// valva conducta intrare (T1)
+// valva conducta intrare (T1) - vertical
 var lungimeValvaConductaIntrare1 = lungimeConductaIntrare / 15;
 var inaltimeValvaConductaIntrare1 = inaltimeConductaIntrare;
 var xValvaConductaIntrare1 = xRezervor - lungimeValvaConductaIntrare1;
 var yValvaConductaIntrare1 = yConductaIntrare - inaltimeApaIntrare1;
 
-// valva conducta intrare (T2)
+// valva conducta intrare (T2) - horizontal
 var lungimeValvaConductaIntrare2 = inaltimeValvaConductaIntrare1;
 var inaltimeValvaConductaIntrare2 = lungimeValvaConductaIntrare1;
 var xValvaConductaIntrare2 = xRezervor - (lungimeValvaConductaIntrare2 / 2) - (lungimeValvaConductaIntrare1 / 2);
 var yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2;
+
+//casuta 1
+//var lungimeCasuta1 = lungimeValvaConductaIntrare2 * 0.7;
+//var inaltimeCasuta1 = inaltimeValvaConductaIntrare2 * 1.1;
+//var xCasuta1 = xValvaConductaIntrare1;
+//var yCasuta1 = yValvaConductaIntrare2 - inaltimeCasuta1;
+
 
 var slider = document.getElementById("myRange");
 slider.setAttribute("max", data.length - 1);
@@ -203,6 +210,32 @@ function desenareVaseComunicante() {
     ctx.fillStyle = culoareApa;
     ctx.fillRect(xApaRezervor, yApaRezervor, lungimeApaRezervor, inaltimeApaRezervor);
 
+    //Casuta 1
+    /*
+    ctx.strokeStyle = 'grey';
+
+    //structura
+    ctx.strokeRect(xCasuta1, yCasuta1, lungimeCasuta1, inaltimeCasuta1);
+
+    //usa
+    lungimeUsa = lungimeCasuta1/4;
+    inaltimeUsa = inaltimeCasuta1 * 0.7;
+
+    xUsa = xCasuta1 + (lungimeCasuta1 - lungimeUsa) / 2;
+
+    yUsa = yCasuta1 + inaltimeCasuta1 - inaltimeUsa;
+
+    ctx.strokeRect(xUsa, yUsa, lungimeUsa, inaltimeUsa);
+
+    //acoperis
+    lungimeAcoperis = lungimeCasuta1 - lungimeCasuta1/6;
+    inaltimeAcoperis = inaltimeCasuta1 * 0.3;
+    xAcoperis = xCasuta1 + (lungimeCasuta1 - lungimeAcoperis) / 2;
+    yAcoperis = yCasuta1 - inaltimeAcoperis;
+
+    ctx.strokeRect(xAcoperis, yAcoperis, lungimeAcoperis, inaltimeAcoperis);
+    */
+
 }
 
 function desenareZiValoare() {
@@ -210,6 +243,7 @@ function desenareZiValoare() {
     ctx.fillStyle = "orange";
 
     //Ziua
+    //ctx.strokeStyle = 'black';
     ctx.font = "30px Arial";
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
 
@@ -237,6 +271,7 @@ function desenareGraficValori(){
       //maxValue = data[i];
     }
 }
+
 
 function ActualizareSuprafataGrafica() {
     suprafataGrafica.clear();
@@ -293,5 +328,10 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     // valva conducta intrare (T2)
     xValvaConductaIntrare2 = xRezervor - (lungimeValvaConductaIntrare2 / 2) - (lungimeValvaConductaIntrare1 / 2);
     yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2;
+
+    // casuta 1
+    //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
+    //yCasuta1 = yValvaConductaIntrare2 - inaltimeCasuta1 - 1;
+
 
 }
