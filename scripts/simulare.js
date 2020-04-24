@@ -292,7 +292,7 @@ function ActualizareSuprafataGrafica() {
     procentDinCapacitate = procentDinCapacitateMax;
 
     //colorare apa in functie de valoare critica
-    nivel = Math.round(data[selectorZi]);
+    nivel = data[selectorZi];
 
     if (nivel > nivelUltraCritic)
         culoareApa = culoareApaNivelUltraCritic;
