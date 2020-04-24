@@ -13,6 +13,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
 var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
 var derulareAutomata = true;
+var vitezaSimulare = 190;
 
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
@@ -169,7 +170,7 @@ var suprafataGrafica = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 
         //setare interval de actualizare
-        this.interval = setInterval(ActualizareSuprafataGrafica, 200);
+        this.interval = setInterval(ActualizareSuprafataGrafica, vitezaSimulare);
 
     },
 
