@@ -5,7 +5,8 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             7.67,6.67,13.33,15,16.67,21.33,18.67,
             18,8,13.67,20.33,24,25,24.33,
             25.67, 20.33, 20.67, 22.00, 23.00, 18.67, 15.00,
-            15.67, 17, 22, 24.67, 25.33
+            15.67, 17.00, 22.00, 24.67, 25.33, 23.00, 22.33,
+            27.00, 26.33, 
           ];
 
 //---->actualizare versionare script in index
@@ -13,7 +14,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
 var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
 var derulareAutomata = true;
-var vitezaSimulare = 190;
+var vitezaSimulare = 200;
 
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
