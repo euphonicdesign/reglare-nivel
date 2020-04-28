@@ -6,7 +6,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             18,8,13.67,20.33,24,25,24.33,
             25.67, 20.33, 20.67, 22.00, 23.00, 18.67, 15.00,
             15.67, 17.00, 22.00, 24.67, 25.33, 23.00, 22.33,
-            27.00, 26.33, 
+            27.00, 26.33,
           ];
 
 //---->actualizare versionare script in index
@@ -15,6 +15,8 @@ var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 200;
+var scalaY = 55;
+var valoareReferinta = 25;
 
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
@@ -25,6 +27,8 @@ var culoareApaNivelCritic = "#001f4d";
 var culoareApaNivelUltraCritic = "#001433";
 var culoareApa = culoareApaNivelNormal;
 var culoareValoareNivel = culoareApa;
+var culoareRobinet = "orange";
+var culoareLinieLimitaRegimNominal = "#cce0ff";
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -204,11 +208,11 @@ function desenareVaseComunicante() {
     ctx.fillRect(xApaIntrare2, yApaIntrare2, lungimeApaIntrare2, inaltimeApaIntrare2);
 
     //valva conducta intrare (T1)
-    ctx.fillStyle = "orange";
+    ctx.fillStyle = culoareRobinet;
     ctx.fillRect(xValvaConductaIntrare1, yValvaConductaIntrare1, lungimeValvaConductaIntrare1, inaltimeValvaConductaIntrare1);
 
     //valva conducta intrare (T2)
-    ctx.fillStyle = "orange";
+    ctx.fillStyle = culoareRobinet;
     ctx.fillRect(xValvaConductaIntrare2, yValvaConductaIntrare2, lungimeValvaConductaIntrare2, inaltimeValvaConductaIntrare2);
 
     //apa rezervor
@@ -248,7 +252,6 @@ function desenareZiValoare() {
     ctx.fillStyle = "orange";
 
     //Ziua
-    //ctx.strokeStyle = 'black';
     ctx.font = "30px Arial";
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
 
@@ -260,21 +263,22 @@ function desenareZiValoare() {
 
 function desenareGraficValori(){
     ctx = suprafataGrafica.context;
-
-    //desenare abscisa
-    //ctx.moveTo(5, inaltimeSuprafataGrafica - 10);
-    //ctx.lineTo(lungimeSuprafataGrafica-5, inaltimeSuprafataGrafica - 10)
-    //ctx.stroke();
+    ctx.strokeStyle = 'black';
 
     incrementX = lungimeSuprafataGrafica / data.length;
-    scalaY = 55;
 
+    
     for (let i = 0; i < data.length; i++) {
       ctx.moveTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10);
       ctx.lineTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue) );
       ctx.stroke();
       //maxValue = data[i];
     }
+
+    //desenare linie limita regim nominal
+    ctx.fillStyle = culoareLinieLimitaRegimNominal;
+    ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((valoareReferinta*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
+
 }
 
 
