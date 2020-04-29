@@ -9,6 +9,8 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             27.00, 26.33,
           ];
 
+let dataCumulativ = [];
+
 //---->actualizare versionare script in index
 
 var selectorZi = 0; //data.length - 1;
@@ -155,6 +157,19 @@ function start() {
 
     procentDinCapacitateMax = data[selectorZi]/maxValue;
 
+    //construire vector date cumulative
+    for (let i = 0; i < data.length; i++) {
+      cumul = 0;
+
+      for (let j = 0; j <= i ; j++) {
+        cumul = cumul + data[j];
+      }
+
+      dataCumulativ[i] = cumul;
+      //console.log(dataCumulativ[i]);
+    }
+
+
     //generare suprafata
     suprafataGrafica.constructie();
 }
@@ -255,6 +270,11 @@ function desenareZiValoare() {
     ctx.font = "30px Arial";
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
 
+
+    //Valoare cumulativa
+    ctx.font = "30px Arial";
+    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 120, inaltimeSuprafataGrafica - scalaY - 80);
+
     //Nivelul
     ctx.fillStyle = culoareValoareNivel;
     ctx.font = "30px Arial";
@@ -267,7 +287,7 @@ function desenareGraficValori(){
 
     incrementX = lungimeSuprafataGrafica / data.length;
 
-    
+
     for (let i = 0; i < data.length; i++) {
       ctx.moveTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10);
       ctx.lineTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue) );
