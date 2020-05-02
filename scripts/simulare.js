@@ -6,7 +6,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             18,8,13.67,20.33,24,25,24.33,
             25.67, 20.33, 20.67, 22.00, 23.00, 18.67, 15.00,
             15.67, 17.00, 22.00, 24.67, 25.33, 23.00, 22.33,
-            27.00, 26.33, 25.00
+            27.00, 26.33, 25.00,
           ];
 
 let dataCumulativ = [];
@@ -31,6 +31,7 @@ var culoareApa = culoareApaNivelNormal;
 var culoareValoareNivel = culoareApa;
 var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
+var culoareIndicatorRezervor = "#66a1ff";
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -41,6 +42,15 @@ var yRezervor = inaltimeSuprafataGrafica/4;
 var capacitateRezervor = 0.8;
 var procentDinCapacitateMax = 0.2;
 var incrementVariatieSimulare = 0.005;
+
+// valva
+var lungimeValva = lungimeRezervor / 15;
+
+//indicator Rezervor
+var lungimeIndicatorRezervor = lungimeValva;
+var inaltimeIndicatorRezervor = inaltimeRezervor / 30;
+var xIndicatorRezervor = xRezervor - lungimeIndicatorRezervor;
+var yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2; // - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
 
 //apa rezervor
 var lungimeApaRezervor = lungimeRezervor;
@@ -54,8 +64,7 @@ var inaltimeConductaIntrare = inaltimeRezervor / 6;
 var xConductaIntrare = 0;
 var yConductaIntrare = yRezervor;
 
-// valva
-var lungimeValva = lungimeRezervor / 15;
+
 
 //conducta iesire
 var lungimeConductaIesire = (lungimeSuprafataGrafica - lungimeRezervor) / 2 + lungimeValva;
@@ -207,7 +216,12 @@ function desenareVaseComunicante() {
     //rezervor
     ctx.fillRect(xRezervor, yRezervor, lungimeRezervor, inaltimeRezervor);
 
+    //indicator rezervor
+    ctx.fillStyle = culoareIndicatorRezervor;
+    ctx.fillRect(xIndicatorRezervor, yIndicatorRezervor, lungimeIndicatorRezervor, inaltimeIndicatorRezervor);
+
     //conducta intrare
+    ctx.fillStyle = "grey";
     ctx.fillRect(xConductaIntrare, yConductaIntrare, lungimeConductaIntrare, inaltimeConductaIntrare);
 
     //conducta iesire
@@ -359,6 +373,8 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     // valva conducta intrare (T2)
     xValvaConductaIntrare2 = xRezervor - (lungimeValvaConductaIntrare2 / 2) - (lungimeValvaConductaIntrare1 / 2);
     yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2;
+
+    yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
 
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
