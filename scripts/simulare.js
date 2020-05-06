@@ -7,7 +7,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             25.67, 20.33, 20.67, 22.00, 23.00, 18.67, 15.00,
             15.67, 17.00, 22.00, 24.67, 25.33, 23.00, 22.33,
             27.00, 26.33, 25.00, 22.33, 28.67, 31.33, 32.00,
-            21, 19.67, 18.67  
+            21, 19.67, 18.67
           ];
 
 let dataCumulativ = [];
@@ -32,7 +32,7 @@ var culoareApa = culoareApaNivelNormal;
 var culoareValoareNivel = culoareApa;
 var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
-var culoareIndicatorRezervor = "#66a1ff";
+var culoareIndicatorRezervor = "#cce0ff";
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -48,9 +48,9 @@ var incrementVariatieSimulare = 0.005;
 var lungimeValva = lungimeRezervor / 15;
 
 //indicator Rezervor
-var lungimeIndicatorRezervor = lungimeValva;
-var inaltimeIndicatorRezervor = inaltimeRezervor / 30;
-var xIndicatorRezervor = xRezervor - lungimeIndicatorRezervor;
+var lungimeIndicatorRezervor = lungimeValva + lungimeRezervor;
+var inaltimeIndicatorRezervor = inaltimeRezervor / 120;
+var xIndicatorRezervor = xRezervor - lungimeValva;
 var yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2; // - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
 
 //apa rezervor
