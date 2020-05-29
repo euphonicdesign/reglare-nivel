@@ -10,7 +10,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             21.00, 19.67, 18.67, 26.00, 24.33, 23.67, 22.67,
             25.33, 24.67, 25.33, 21.33, 24.67, 18.00, 21.67,
             17.00, 17.00, 15.00, 14.67, 14.67, 11.00, 9.67,
-            9.33, 12.66, 13.33, 13.33, 10.66,   
+            9.33, 12.66, 13.33, 13.33, 10.66,
           ];
 
 let dataCumulativ = [];
@@ -112,6 +112,9 @@ var yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntra
 //var xCasuta1 = xValvaConductaIntrare1;
 //var yCasuta1 = yValvaConductaIntrare2 - inaltimeCasuta1;
 
+var grafic_valori_desenat = false;
+var pauza = false;
+
 
 var slider = document.getElementById("myRange");
 slider.setAttribute("max", data.length - 1);
@@ -120,6 +123,7 @@ slider.setAttribute("value", selectorZi);
 slider.oninput = function() {
     selectorZi = this.value;
     procentDinCapacitateMax = data[selectorZi]/maxValue;
+    pauza = false;
 
     //slider.setAttribute("value", selectorZi);
     //console.log(selectorZi);
@@ -136,6 +140,7 @@ buton_reluare.onclick = function() {
     selectorZi = 0;
     slider.setAttribute("value", selectorZi);
     derulareAutomata = true;
+    pauza = false;
     //console.log(slider.getAttribute("value"));
     //procentDinCapacitateMax = data[selectorZi]/maxValue;
 
@@ -155,6 +160,10 @@ function modificaNivel(e){
           if (selectorZi < data.length - 1)
             selectorZi += 1;
 
+    }
+
+    if(e.code === "Space") {
+        pauza = !pauza;
     }
 
     procentDinCapacitateMax = data[selectorZi]/maxValue;
@@ -185,6 +194,8 @@ function start() {
 
     //generare suprafata
     suprafataGrafica.constructie();
+
+    //desenareGraficValori();
 }
 
 var suprafataGrafica = {
@@ -303,14 +314,18 @@ function desenareGraficValori(){
     ctx = suprafataGrafica.context;
     ctx.strokeStyle = 'black';
 
-    incrementX = lungimeSuprafataGrafica / data.length;
+    incrementX = lungimeSuprafataGrafica / (data.length + 1);
 
 
     for (let i = 0; i < data.length; i++) {
       ctx.moveTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10);
       ctx.lineTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue) );
+
       ctx.stroke();
       //maxValue = data[i];
+      //x = 10 + i*incrementX;
+      //y = inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue);
+      //console.log("i=" + i + " " + x + " " + y);
     }
 
     //desenare linie limita regim nominal
@@ -321,39 +336,44 @@ function desenareGraficValori(){
 
 
 function ActualizareSuprafataGrafica() {
-    suprafataGrafica.clear();
-    if (derulareAutomata){
-            if (selectorZi < data.length - 1)
-                    selectorZi += 1;
-            else{
-                derulareAutomata = false;
-            }
-            //console.log(slider.getAttribute("value"));
-            slider.setAttribute("value", selectorZi);
-            procentDinCapacitateMax = data[selectorZi]/maxValue;
+    if(!pauza){
+      suprafataGrafica.clear();
+      if (derulareAutomata){
+              if (selectorZi < data.length - 1)
+                      selectorZi += 1;
+              else{
+                  derulareAutomata = false;
+                  pauza = true;
+              }
+              //console.log(slider.getAttribute("value"));
+              slider.setAttribute("value", selectorZi);
+              procentDinCapacitateMax = data[selectorZi]/maxValue;
+
+      }
+      procentDinCapacitate = procentDinCapacitateMax;
+
+      //colorare apa in functie de valoare critica
+      nivel = data[selectorZi];
+
+      if (nivel > nivelUltraCritic)
+          culoareApa = culoareApaNivelUltraCritic;
+      else if (nivel > nivelCritic)
+          culoareApa = culoareApaNivelCritic;
+      else if (nivel > nivelIntermediar) {
+          culoareApa = culoareApaNivelIntermediar;
+      }
+      else
+          culoareApa = culoareApaNivelNormal;
+
+      culoareValoareNivel = culoareApa;
+
+      actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
+      desenareVaseComunicante();
+      desenareZiValoare();
+
+      desenareGraficValori();
 
     }
-    procentDinCapacitate = procentDinCapacitateMax;
-
-    //colorare apa in functie de valoare critica
-    nivel = data[selectorZi];
-
-    if (nivel > nivelUltraCritic)
-        culoareApa = culoareApaNivelUltraCritic;
-    else if (nivel > nivelCritic)
-        culoareApa = culoareApaNivelCritic;
-    else if (nivel > nivelIntermediar) {
-        culoareApa = culoareApaNivelIntermediar;
-    }
-    else
-        culoareApa = culoareApaNivelNormal;
-
-    culoareValoareNivel = culoareApa;
-
-    actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
-    desenareVaseComunicante();
-    desenareZiValoare();
-    desenareGraficValori();
 }
 
 function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
