@@ -11,7 +11,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             25.33, 24.67, 25.33, 21.33, 24.67, 18.00, 21.67,
             17.00, 17.00, 15.00, 14.67, 14.67, 11.00, 9.67,
             9.33, 12.67, 13.33, 13.33, 10.67, 10.00, 11.33,
-            11,  
+            11,
           ];
 
 let dataCumulativ = [];
@@ -23,7 +23,7 @@ var maxValue = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 200;
 var scalaY = 55;
-var valoareReferinta = 25;
+var valoareReferinta = 15;
 
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
@@ -399,7 +399,8 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     xValvaConductaIntrare2 = xRezervor - (lungimeValvaConductaIntrare2 / 2) - (lungimeValvaConductaIntrare1 / 2);
     yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2;
 
-    yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
+    //yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
+    yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - valoareReferinta * (inaltimeRezervor * capacitateRezervor)/maxValue;
 
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
