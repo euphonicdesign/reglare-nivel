@@ -12,7 +12,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             17.00, 17.00, 15.00, 14.67, 14.67, 11.00, 9.67,
             9.33, 12.67, 13.33, 13.33, 10.67, 10.00, 11.33,
             11.00, 13.00, 8.67, 8.67, 6.67, 9.67, 10.00,
-            9, 8.67, 9,    
+            9, 8.67, 9,
           ];
 
 let dataCumulativ = [];
@@ -25,6 +25,7 @@ var derulareAutomata = true;
 var vitezaSimulare = 200;
 var scalaY = 55;
 var valoareReferinta = 15;
+var valoareCumulativaTotal = 0;
 
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
@@ -193,6 +194,15 @@ function start() {
       //console.log(dataCumulativ[i]);
     }
 
+    //Calcul Total
+    //console.log(dataCumulativ.length);
+    valoareCumulativaTotal = Math.round(dataCumulativ[dataCumulativ.length-1]);
+    //console.log(valoareCumulativaTotal);
+
+    //Calcul valoare referinta(medie)
+    nr_zile = data.length - 1;
+    valoareReferinta = Math.round(valoareCumulativaTotal / nr_zile);
+    //console.log(valoareReferinta);
 
     //generare suprafata
     suprafataGrafica.constructie();
