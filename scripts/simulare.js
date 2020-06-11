@@ -316,10 +316,16 @@ function desenareZiValoare() {
     ctx.font = "30px Arial";
     ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 120, inaltimeSuprafataGrafica - scalaY - 80);
 
+
     //Nivelul
     ctx.fillStyle = culoareValoareNivel;
     ctx.font = "30px Arial";
     ctx.fillText(Math.round(data[selectorZi]), lungimeSuprafataGrafica / 2 - 10, yRezervor - 15);
+
+    //Valoare referinta dinamica
+    ctx.fillStyle = culoareLinieLimitaRegimNominal;
+    ctx.font = "30px Arial";
+    ctx.fillText("" + Math.round(valoareReferinta), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
 }
 
 function desenareGraficValori(){
