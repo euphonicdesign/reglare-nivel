@@ -317,10 +317,10 @@ function desenareZiValoare() {
     ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 120, inaltimeSuprafataGrafica - scalaY - 80);
 
 
-    //Nivelul
+    //Nivelul apei
     ctx.fillStyle = culoareValoareNivel;
     ctx.font = "30px Arial";
-    ctx.fillText(Math.round(data[selectorZi]), lungimeSuprafataGrafica / 2 - 10, yRezervor - 15);
+    ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 40, yApaRezervor - 4);
 
     //Valoare referinta dinamica
     ctx.fillStyle = culoareLinieLimitaRegimNominal;
