@@ -24,7 +24,7 @@ var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 190;
-var scalaY = 55;
+var scalaY = 70;//55; //grafic valori
 var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 
