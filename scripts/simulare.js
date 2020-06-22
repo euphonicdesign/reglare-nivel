@@ -14,10 +14,11 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             11.00, 13.00, 8.67, 8.67, 6.67, 9.67, 10.00,
             9.00, 8.67, 9.00, 11.33, 11.67, 11.67, 10.33,
             13.67, 15.67, 15.33, 13.67, 15.33, 15.67, 16.33,
-            13.00,  
+            13.00,
           ];
 
 let dataCumulativ = [];
+var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
 //---->actualizare versionare script in index
 
@@ -41,6 +42,8 @@ var culoareValoareNivel = culoareApa;
 var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
+var culoareLinieValoriGrafic = "#b3b3b3";
+var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -313,11 +316,9 @@ function desenareZiValoare() {
     ctx.font = "30px Arial";
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
 
-
     //Valoare cumulativa
     ctx.font = "30px Arial";
     ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 120, inaltimeSuprafataGrafica - scalaY - 80);
-
 
     //Nivelul apei
     ctx.fillStyle = culoareValoareNivel;
@@ -332,25 +333,45 @@ function desenareZiValoare() {
 
 function desenareGraficValori(){
     ctx = suprafataGrafica.context;
-    ctx.strokeStyle = 'black';
 
-    incrementX = lungimeSuprafataGrafica / (data.length + 1);
+    //desenare linie limita regim nominal
+    ctx.fillStyle = culoareLinieLimitaRegimNominal;
+    ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((valoareReferinta*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
 
 
     for (let i = 0; i < data.length; i++) {
-      ctx.moveTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10);
-      ctx.lineTo(10 + i*incrementX, inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue) );
+      x_valoare = i*incrementX;
+      y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
 
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, inaltimeSuprafataGrafica - 10);
+      ctx.lineTo(10 + x_valoare, y_valoare );
+      ctx.strokeStyle = culoareLinieValoriGrafic;
+      ctx.lineWidth = 2;
+      ctx.closePath();
       ctx.stroke();
+
+      //desenare punct valoare grafic_valori_desenat
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, y_valoare );
+      ctx.lineTo(10 + x_valoare, y_valoare + 2 );
+      ctx.strokeStyle = culoarePunctValoriGrafic;
+      ctx.lineWidth = 4;
+      ctx.closePath();
+      ctx.stroke();
+      //ctx.closePath();
+
       //maxValue = data[i];
       //x = 10 + i*incrementX;
       //y = inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue);
       //console.log("i=" + i + " " + x + " " + y);
     }
 
-    //desenare linie limita regim nominal
-    ctx.fillStyle = culoareLinieLimitaRegimNominal;
-    ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((valoareReferinta*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
+    //culoare implicita
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 1;
+
+
 
 }
 
