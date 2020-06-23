@@ -33,6 +33,7 @@ var scalaX = 65; //grafic valori vertical
 var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 
+var culoareRezervor = "grey";
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
 var nivelIntermediar = 15;
@@ -46,7 +47,7 @@ var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 var culoareLinieValoriGrafic = "#b3b3b3";
-var culoareLinieGraficVertical = "#bfbfbf";
+var culoareLinieGraficVertical = "#8c8c8c";
 var culoarePunctGraficVertical = "white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#b3b3b3";//"#595959";
@@ -54,7 +55,7 @@ var culoareTextReferinta = "#cce0ff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
 var culoareTextCompensator = "#d9d9d9";
-var culoareTextCompensatorFill = "#bfbfbf";
+var culoareTextCompensatorFill = "#8c8c8c";
 
 
 //rezervor
@@ -260,7 +261,7 @@ var suprafataGrafica = {
 
 function desenareVaseComunicante() {
     ctx = suprafataGrafica.context;
-    ctx.fillStyle = "grey";
+    ctx.fillStyle = culoareRezervor;
 
     //rezervor
     ctx.fillRect(xRezervor, yRezervor, lungimeRezervor, inaltimeRezervor);
