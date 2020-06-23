@@ -44,11 +44,11 @@ var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 var culoareLinieValoriGrafic = "#b3b3b3";
-var culoareLinieGraficVertical = "#cccccc";
+var culoareLinieGraficVertical = "#bfbfbf";
 var culoarePunctGraficVertical = "white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#b3b3b3";//"#595959";
-var culoareTextReferinta = "#d9d9d9";
+var culoareTextReferinta = "#bfbfbf";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
 
