@@ -25,8 +25,9 @@ var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
 var derulareAutomata = true;
-var vitezaSimulare = 190;
-var scalaY = 78;//55; //grafic valori
+var vitezaSimulare = 200;
+var scalaY = 78;//55; //grafic valori orizontal
+var scalaX = 65; //grafic valori vertical
 var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 
@@ -43,6 +44,8 @@ var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 var culoareLinieValoriGrafic = "#b3b3b3";
+var culoareLinieGraficVertical = "#cccccc";
+var culoarePunctGraficVertical = "white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#595959";
 
@@ -350,6 +353,8 @@ function desenareGraficValori(){
       x_valoare = i*incrementX;
       y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
 
+      //GRAFIC ORIZONTAL
+      //desenare linie sub valoare grafic
       ctx.beginPath();
       ctx.moveTo(10 + x_valoare, inaltimeSuprafataGrafica - 10);
       ctx.lineTo(10 + x_valoare, y_valoare );
@@ -361,17 +366,74 @@ function desenareGraficValori(){
       //desenare punct valoare grafic_valori_desenat
       ctx.beginPath();
       ctx.moveTo(10 + x_valoare, y_valoare );
-      ctx.lineTo(10 + x_valoare, y_valoare + 2 );
+      ctx.lineTo(10 + x_valoare, y_valoare + 2);
       ctx.strokeStyle = culoarePunctValoriGrafic;
       ctx.lineWidth = 4;
       ctx.closePath();
       ctx.stroke();
-      //ctx.closePath();
+
+      //GRAFIC VERTICAL
+      //desenare linie sub valoare grafic
+      x_valoare_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
+      x_valoare_2 = Math.round(x_valoare_1 + ((data[i]*scalaX)/maxValue));
+      lungime_segment = Math.round((x_valoare_2 - x_valoare_1) / 2);
+      x_valoare_1 = x_valoare_1 - lungime_segment; //i*incrementX;
+      x_valoare_2 = x_valoare_2 - lungime_segment;
+
+      y_valoare = inaltimeSuprafataGrafica - scalaY - 100 - i;
+
+      /*
+      ctx.beginPath();
+      ctx.moveTo(x_valoare_1, y_valoare);
+      ctx.lineTo(x_valoare_2, y_valoare);
+      ctx.strokeStyle = culoareLinieGraficVertical;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+
+      //desenare punct valoare grafic_valori_desenat
+      ctx.beginPath();
+      ctx.moveTo(x_valoare_2, y_valoare);
+      ctx.lineTo(x_valoare_2 + 2, y_valoare);
+      ctx.strokeStyle = culoarePunctGraficVertical;
+      ctx.lineWidth = 3;
+      ctx.closePath();
+      ctx.stroke();
+      //ctx.closePath();*/
 
       //maxValue = data[i];
       //x = 10 + i*incrementX;
       //y = inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue);
       //console.log("i=" + i + " " + x + " " + y);
+    }
+
+    for (let i = 0; i < selectorZi; i++) {
+      //GRAFIC VERTICAL - UMPLERE
+      //desenare linie sub valoare grafic
+      x_valoare_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
+      x_valoare_2 = Math.round(x_valoare_1 + ((data[i]*scalaX)/maxValue));
+      lungime_segment = Math.round((x_valoare_2 - x_valoare_1) / 2);
+      x_valoare_1 = x_valoare_1 - lungime_segment; //i*incrementX;
+      x_valoare_2 = x_valoare_2 - lungime_segment;
+
+      y_valoare = inaltimeSuprafataGrafica - scalaY - 100 - i;
+
+      ctx.beginPath();
+      ctx.moveTo(x_valoare_1, y_valoare);
+      ctx.lineTo(x_valoare_2, y_valoare);
+      ctx.strokeStyle = culoareLinieGraficVertical;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+
+      //desenare punct valoare grafic_valori_desenat
+      ctx.beginPath();
+      ctx.moveTo(x_valoare_2, y_valoare);
+      ctx.lineTo(x_valoare_2 + 2, y_valoare);
+      ctx.strokeStyle = culoarePunctGraficVertical;
+      ctx.lineWidth = 3;
+      ctx.closePath();
+      ctx.stroke();
     }
 
 }
@@ -408,6 +470,7 @@ function ActualizareSuprafataGrafica() {
           culoareApa = culoareApaNivelNormal;
 
       culoareValoareNivel = culoareApa;
+      //culoareLinieGraficVertical = culoareApa;
 
       actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
       desenareVaseComunicante();
