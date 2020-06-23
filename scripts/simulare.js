@@ -49,7 +49,7 @@ var culoarePunctGraficVertical = "white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#b3b3b3";//"#595959";
 var culoareTextReferinta = "#d9d9d9";
-var culoareLinieReferinta = "#d9d9d9";
+var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
 
 //rezervor
