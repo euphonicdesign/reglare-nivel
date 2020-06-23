@@ -54,7 +54,7 @@ var culoareTextReferinta = "#cce0ff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
 var culoareTextCompensator = "#d9d9d9";
-var culoareTextCompensatorFill = "#d9d9d9";
+var culoareTextCompensatorFill = "#bfbfbf";
 
 
 //rezervor
