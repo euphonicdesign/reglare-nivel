@@ -48,7 +48,7 @@ var culoareLinieGraficVertical = "#bfbfbf";
 var culoarePunctGraficVertical = "white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#b3b3b3";//"#595959";
-var culoareTextReferinta = "#bfbfbf";
+var culoareTextReferinta = "#cce0ff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
 
@@ -342,7 +342,7 @@ function desenareZiValoare() {
 
     //Valoare referinta dinamica
     ctx.fillStyle = culoareTextReferinta;
-    ctx.font = "30px Helvetica, Arial, sans-serif";
+    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
     //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
     ctx.fillText("" + Math.round(valoareReferinta), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
 }
