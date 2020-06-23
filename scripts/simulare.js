@@ -18,6 +18,8 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
           ];
 
 let dataCumulativ = [];
+let medieCumulativ = [];
+let comandaIdeala = [];
 var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
 //---->actualizare versionare script in index
@@ -51,6 +53,9 @@ var culoareTextZi = "#b3b3b3";//"#595959";
 var culoareTextReferinta = "#cce0ff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
+var culoareTextCompensator = "#d9d9d9";
+var culoareTextCompensatorFill = "#d9d9d9";
+
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -203,7 +208,12 @@ function start() {
       }
 
       dataCumulativ[i] = cumul;
-      //console.log(dataCumulativ[i]);
+      medieCumulativ[i] = Math.round(cumul/(i+1));
+
+      kp=1.7;
+      ki=0.2;
+      kd=0;
+      comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i]);
     }
 
     //Calcul Total
@@ -344,7 +354,50 @@ function desenareZiValoare() {
     ctx.fillStyle = culoareTextReferinta;
     ctx.font = "bold 30px Helvetica, Arial, sans-serif";
     //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
-    ctx.fillText("" + Math.round(valoareReferinta), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
+    ctx.fillText("" + medieCumulativ[selectorZi], lungimeSuprafataGrafica - 450, yIndicatorRezervor);
+}
+
+function desenareCompensatorValori() {
+    ctx = suprafataGrafica.context;
+    ctx.fillStyle = culoareTextCompensatorFill;
+    //culoare implicita
+    ctx.strokeStyle = culoareTextCompensator;
+    ctx.lineWidth = 1;
+    ctx.textAlign = "start";
+    ctx.font = "italic 12px system-ui, Arial, sans-serif";
+
+    //Referinta
+    ctx.fillText("Ref=0", 20, 200);
+
+    //Constante amplificare
+    ctx.fillText("Kp=1.7 Ki=0.2 Kd=0", 20, 220);
+
+    //Eroarea
+    //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
+
+    //Compensator
+    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi], 20, 260);
+
+    //Comanda ideala
+    ctx.font = "italic 12px system-ui, Arial, sans-serif";
+    ctx.fillText("C=" + comandaIdeala[selectorZi] + " (grad atentie!)", 20, 280);
+
+
+    //ctx.fillText("Kp*" + Math.round(data[selectorZi]), 20, 260);
+    //ctx.fillText("+ Ki*"+valoareReferinta, 20, 280);
+
+    /*
+    //Valoare cumulativa
+    ctx.textAlign = "center";
+    ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
+    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
+
+    //Nivelul apei
+    ctx.textAlign = "start";
+    ctx.fillStyle = culoareValoareNivel;
+    ctx.font = "bold 38px Helvetica, Arial, sans-serif";
+    ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 50, yApaRezervor - 4);
+    */
 }
 
 function desenareGraficValori(){
@@ -483,6 +536,7 @@ function ActualizareSuprafataGrafica() {
       desenareZiValoare();
 
       desenareGraficValori();
+      desenareCompensatorValori();
 
     }
 }
@@ -510,7 +564,7 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2;
 
     //yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
-    yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - valoareReferinta * (inaltimeRezervor * capacitateRezervor)/maxValue;
+    yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - medieCumulativ[selectorZi] * (inaltimeRezervor * capacitateRezervor)/maxValue;
 
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
