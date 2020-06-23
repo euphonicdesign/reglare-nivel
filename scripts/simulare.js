@@ -47,7 +47,10 @@ var culoareLinieValoriGrafic = "#b3b3b3";
 var culoareLinieGraficVertical = "#cccccc";
 var culoarePunctGraficVertical = "white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
-var culoareTextZi = "#595959";
+var culoareTextZi = "#b3b3b3";//"#595959";
+var culoareTextReferinta = "#d9d9d9";
+var culoareLinieReferinta = "#d9d9d9";
+var culoareLinieReferintaGrafic = "#cce0ff";
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -253,7 +256,7 @@ function desenareVaseComunicante() {
     ctx.fillRect(xRezervor, yRezervor, lungimeRezervor, inaltimeRezervor);
 
     //indicator rezervor
-    ctx.fillStyle = culoareIndicatorRezervor;
+    ctx.fillStyle = culoareLinieReferinta;//culoareIndicatorRezervor;
     ctx.fillRect(xIndicatorRezervor, yIndicatorRezervor, lungimeIndicatorRezervor, inaltimeIndicatorRezervor);
 
     //conducta intrare
@@ -318,24 +321,27 @@ function desenareZiValoare() {
     //culoare implicita
     ctx.strokeStyle = culoareTextZi;
     ctx.lineWidth = 1;
+    ctx.textAlign = "start";
 
     //Ziua
     //ctx.font = "30px Arial";
-    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
+    ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     //ctx.fillText("Ziua " + selectorZi, 10, 50);
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
 
     //Valoare cumulativa
-    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
-    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 130, inaltimeSuprafataGrafica - scalaY - 60);
+    ctx.textAlign = "center";
+    ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
+    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
 
     //Nivelul apei
+    ctx.textAlign = "start";
     ctx.fillStyle = culoareValoareNivel;
     ctx.font = "bold 36px Helvetica, Arial, sans-serif";
     ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 50, yApaRezervor - 4);
 
     //Valoare referinta dinamica
-    ctx.fillStyle = culoareLinieLimitaRegimNominal;
+    ctx.fillStyle = culoareTextReferinta;
     ctx.font = "bold 30px Helvetica, Arial, sans-serif";
     //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
     ctx.fillText("" + Math.round(valoareReferinta), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
@@ -345,7 +351,7 @@ function desenareGraficValori(){
     ctx = suprafataGrafica.context;
 
     //desenare linie limita regim nominal
-    ctx.fillStyle = culoareLinieLimitaRegimNominal;
+    ctx.fillStyle = culoareLinieReferintaGrafic;
     ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((valoareReferinta*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
 
 
