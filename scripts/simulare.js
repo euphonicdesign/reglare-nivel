@@ -380,7 +380,10 @@ function desenareCompensatorValori() {
 
     //Comanda ideala
     ctx.font = "italic bold 12px system-ui, Arial, sans-serif";
-    ctx.fillText("C=" + comandaIdeala[selectorZi] + " (grad atentie!)", 20, 280);
+    ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 300);
+    //Grad atentie
+    ctx.font = "italic 12px system-ui, Arial, sans-serif";
+    ctx.fillText("(grad de atentie)", 20, 280);
 
 
     //ctx.fillText("Kp*" + Math.round(data[selectorZi]), 20, 260);
