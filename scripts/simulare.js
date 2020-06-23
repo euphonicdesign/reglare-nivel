@@ -32,6 +32,9 @@ var scalaY = 78;//55; //grafic valori orizontal
 var scalaX = 65; //grafic valori vertical
 var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
+var kp=1.7;
+var ki=0.4;
+var kd=0;
 
 var culoareRezervor = "grey";
 var nivelUltraCritic = 25;
@@ -210,10 +213,6 @@ function start() {
 
       dataCumulativ[i] = cumul;
       medieCumulativ[i] = Math.round(cumul/(i+1));
-
-      kp=1.7;
-      ki=0.2;
-      kd=0;
       comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i]);
     }
 
@@ -371,7 +370,7 @@ function desenareCompensatorValori() {
     ctx.fillText("Ref=0", 20, 200);
 
     //Constante amplificare
-    ctx.fillText("Kp=1.7 Ki=0.2 Kd=0", 20, 220);
+    ctx.fillText("Kp=" + kp + " Ki=" + ki + " Kd=" + kd, 20, 220);
 
     //Eroarea
     //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
