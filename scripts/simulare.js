@@ -337,12 +337,12 @@ function desenareZiValoare() {
     //Nivelul apei
     ctx.textAlign = "start";
     ctx.fillStyle = culoareValoareNivel;
-    ctx.font = "bold 36px Helvetica, Arial, sans-serif";
+    ctx.font = "bold 38px Helvetica, Arial, sans-serif";
     ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 50, yApaRezervor - 4);
 
     //Valoare referinta dinamica
     ctx.fillStyle = culoareTextReferinta;
-    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
+    ctx.font = "30px Helvetica, Arial, sans-serif";
     //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
     ctx.fillText("" + Math.round(valoareReferinta), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
 }
