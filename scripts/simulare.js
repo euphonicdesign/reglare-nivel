@@ -44,6 +44,7 @@ var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 var culoareLinieValoriGrafic = "#b3b3b3";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
+var culoareTextZi = "#595959";
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -311,6 +312,9 @@ function desenareVaseComunicante() {
 function desenareZiValoare() {
     ctx = suprafataGrafica.context;
     ctx.fillStyle = "orange";
+    //culoare implicita
+    ctx.strokeStyle = culoareTextZi;
+    ctx.lineWidth = 1;
 
     //Ziua
     //ctx.font = "30px Arial";
@@ -324,12 +328,12 @@ function desenareZiValoare() {
 
     //Nivelul apei
     ctx.fillStyle = culoareValoareNivel;
-    ctx.font = "bold 36px Helvetica, Arial, sans-serif";
+    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
     ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 50, yApaRezervor - 4);
 
     //Valoare referinta dinamica
     ctx.fillStyle = culoareLinieLimitaRegimNominal;
-    ctx.font = "32px Helvetica, Arial, sans-serif";
+    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
     //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
     ctx.fillText("" + Math.round(valoareReferinta), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
 }
@@ -369,12 +373,6 @@ function desenareGraficValori(){
       //y = inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue);
       //console.log("i=" + i + " " + x + " " + y);
     }
-
-    //culoare implicita
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = 1;
-
-
 
 }
 
