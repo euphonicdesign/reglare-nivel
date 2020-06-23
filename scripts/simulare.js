@@ -313,21 +313,24 @@ function desenareZiValoare() {
     ctx.fillStyle = "orange";
 
     //Ziua
-    ctx.font = "30px Arial";
+    //ctx.font = "30px Arial";
+    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
+    //ctx.fillText("Ziua " + selectorZi, 10, 50);
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
 
     //Valoare cumulativa
-    ctx.font = "30px Arial";
-    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 120, inaltimeSuprafataGrafica - scalaY - 80);
+    ctx.font = "bold 30px Helvetica, Arial, sans-serif";
+    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 130, inaltimeSuprafataGrafica - scalaY - 60);
 
     //Nivelul apei
     ctx.fillStyle = culoareValoareNivel;
-    ctx.font = "30px Arial";
-    ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 40, yApaRezervor - 4);
+    ctx.font = "bold 36px Helvetica, Arial, sans-serif";
+    ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 50, yApaRezervor - 4);
 
     //Valoare referinta dinamica
     ctx.fillStyle = culoareLinieLimitaRegimNominal;
-    ctx.font = "30px Arial";
+    ctx.font = "32px Helvetica, Arial, sans-serif";
+    //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
     ctx.fillText("" + Math.round(valoareReferinta), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
 }
 
