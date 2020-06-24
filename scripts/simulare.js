@@ -51,9 +51,9 @@ var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 var culoareLinieValoriGrafic = "#b3b3b3";
 var culoareLinieGraficVertical = "white"//"#8c8c8c";
-var culoarePunctGraficVertical = "white"//"#bfbfbf";//"white";
+var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
-var culoareTextZi = "#b3b3b3";//"#595959";
+var culoareTextZi = "#999999";//"#595959";
 var culoareTextReferinta = "#cce0ff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
@@ -343,6 +343,7 @@ function desenareZiValoare() {
     ctx.textAlign = "center";
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     ctx.fillStyle = culoareLinieGraficVertical;
+    ctx.strokeStyle = culoarePunctGraficVertical;
     ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
     ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
 
@@ -446,24 +447,6 @@ function desenareGraficValori(){
 
       y_valoare = inaltimeSuprafataGrafica - scalaY - 100 - i;
 
-      /*
-      ctx.beginPath();
-      ctx.moveTo(x_valoare_1, y_valoare);
-      ctx.lineTo(x_valoare_2, y_valoare);
-      ctx.strokeStyle = culoareLinieGraficVertical;
-      ctx.lineWidth = 2;
-      ctx.closePath();
-      ctx.stroke();
-
-      //desenare punct valoare grafic_valori_desenat
-      ctx.beginPath();
-      ctx.moveTo(x_valoare_2, y_valoare);
-      ctx.lineTo(x_valoare_2 + 2, y_valoare);
-      ctx.strokeStyle = culoarePunctGraficVertical;
-      ctx.lineWidth = 3;
-      ctx.closePath();
-      ctx.stroke();
-      //ctx.closePath();*/
 
       //maxValue = data[i];
       //x = 10 + i*incrementX;
@@ -491,14 +474,13 @@ function desenareGraficValori(){
       ctx.stroke();
 
       //desenare punct valoare grafic_valori_desenat
-      /*
       ctx.beginPath();
       ctx.moveTo(x_valoare_2, y_valoare);
-      ctx.lineTo(x_valoare_2 + 2, y_valoare);
+      ctx.lineTo(x_valoare_2 + 1, y_valoare);
       ctx.strokeStyle = culoarePunctGraficVertical;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1;
       ctx.closePath();
-      ctx.stroke();*/
+      ctx.stroke();
     }
 
 }
