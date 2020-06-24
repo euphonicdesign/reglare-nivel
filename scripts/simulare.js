@@ -495,7 +495,7 @@ function desenareGraficValori(){
       ctx.beginPath();
       ctx.moveTo(x_valoare_2, y_valoare);
       ctx.lineTo(x_valoare_2 + 2, y_valoare);
-      ctx.strokeStyle = culoarePunctGraficVertical;
+      ctx.strokeStyle = culoareTextZi;
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
