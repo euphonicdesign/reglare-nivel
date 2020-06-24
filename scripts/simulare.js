@@ -421,7 +421,7 @@ function desenareGraficValori(){
     ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((valoareReferinta*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
 
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i <= selectorZi ; i++) {
       x_valoare = i*incrementX;
       y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
 
