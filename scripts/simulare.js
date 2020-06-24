@@ -49,14 +49,17 @@ var culoareValoareNivel = culoareApa;
 var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
+
 var culoareLinieValoriGrafic = "#b3b3b3";
 var culoareLinieGraficVertical = "white"//"#8c8c8c";
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#999999";//"#595959";
+
 var culoareTextReferinta = "#80b3ff";
 var culoareLinieReferinta = "#cce0ff";
-var culoareLinieReferintaGrafic = "#cce0ff";
+var culoareLinieReferintaGrafic = "#DDDDDD";//"#cce0ff";
+
 var culoareTextCompensator = "#d9d9d9";
 var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
 var culoareTextCompensatorFill2 = "#8c8c8c";
