@@ -343,7 +343,7 @@ function desenareZiValoare() {
     ctx.textAlign = "center";
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     ctx.fillStyle = culoareLinieGraficVertical;
-    //ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
+    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
     ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
 
     //Nivelul apei
@@ -491,14 +491,14 @@ function desenareGraficValori(){
       ctx.stroke();
 
       //desenare punct valoare grafic_valori_desenat
-
+      /*
       ctx.beginPath();
       ctx.moveTo(x_valoare_2, y_valoare);
       ctx.lineTo(x_valoare_2 + 2, y_valoare);
-      ctx.strokeStyle = culoareTextZi;
+      ctx.strokeStyle = culoarePunctGraficVertical;
       ctx.lineWidth = 2;
       ctx.closePath();
-      ctx.stroke();
+      ctx.stroke();*/
     }
 
 }
