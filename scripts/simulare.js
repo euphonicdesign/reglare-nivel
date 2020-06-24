@@ -388,7 +388,7 @@ function desenareCompensatorValori() {
     //Grad atentie
     ctx.fillStyle = culoareTextCompensatorFill2;
     ctx.font = "bold italic 12px system-ui, Arial, sans-serif";
-    ctx.fillText("Grad de atentie:", 20, 280);
+    ctx.fillText("Grad de atentie!", 20, 280);
 
     //Comanda ideala
     ctx.font = "italic bold 18px system-ui, Arial, sans-serif";
