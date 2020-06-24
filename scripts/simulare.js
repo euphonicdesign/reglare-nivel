@@ -29,7 +29,7 @@ var maxValue = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 200;
 var scalaY = 78;//55; //grafic valori orizontal
-var scalaX = 65; //grafic valori vertical
+var scalaX = 72; //grafic valori vertical
 var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -50,8 +50,8 @@ var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 var culoareLinieValoriGrafic = "#b3b3b3";
-var culoareLinieGraficVertical = "#8c8c8c";
-var culoarePunctGraficVertical = "white";
+var culoareLinieGraficVertical = "white"//"#8c8c8c";
+var culoarePunctGraficVertical = "white"//"#bfbfbf";//"white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#b3b3b3";//"#595959";
 var culoareTextReferinta = "#cce0ff";
@@ -489,13 +489,14 @@ function desenareGraficValori(){
       ctx.stroke();
 
       //desenare punct valoare grafic_valori_desenat
+      /*
       ctx.beginPath();
       ctx.moveTo(x_valoare_2, y_valoare);
       ctx.lineTo(x_valoare_2 + 2, y_valoare);
       ctx.strokeStyle = culoarePunctGraficVertical;
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 2;
       ctx.closePath();
-      ctx.stroke();
+      ctx.stroke();*/
     }
 
 }
