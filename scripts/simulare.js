@@ -56,7 +56,7 @@ var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#999999";//"#595959";
 
-var culoareTextReferinta = "#80b3ff";
+var culoareTextReferinta = "#76adff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#DDDDDD";//"#cce0ff";
 
