@@ -54,11 +54,12 @@ var culoareLinieGraficVertical = "white"//"#8c8c8c";
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#999999";//"#595959";
-var culoareTextReferinta = "#cce0ff";
+var culoareTextReferinta = "#80b3ff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#cce0ff";
 var culoareTextCompensator = "#d9d9d9";
-var culoareTextCompensatorFill = "#8c8c8c";
+var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
+var culoareTextCompensatorFill2 = "#8c8c8c";
 
 
 //rezervor
@@ -379,14 +380,17 @@ function desenareCompensatorValori() {
     //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
 
     //Compensator
-    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi], 20, 260);
+    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi], 20, 240);
+
+    //Grad atentie
+    ctx.fillStyle = culoareTextCompensatorFill2;
+    ctx.font = "bold italic 12px system-ui, Arial, sans-serif";
+    ctx.fillText("Grad de atentie:", 20, 280);
 
     //Comanda ideala
-    ctx.font = "italic bold 16px system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 18px system-ui, Arial, sans-serif";
     ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 300);
-    //Grad atentie
-    ctx.font = "italic 12px system-ui, Arial, sans-serif";
-    ctx.fillText("Grad de atentie:", 20, 280);
+
 
 
     //ctx.fillText("Kp*" + Math.round(data[selectorZi]), 20, 260);
