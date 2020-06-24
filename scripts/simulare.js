@@ -342,7 +342,9 @@ function desenareZiValoare() {
     //Valoare cumulativa
     ctx.textAlign = "center";
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
-    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
+    ctx.fillStyle = culoareLinieGraficVertical;
+    //ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
+    ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
 
     //Nivelul apei
     ctx.textAlign = "start";
