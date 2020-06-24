@@ -382,7 +382,7 @@ function desenareCompensatorValori() {
     ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi], 20, 260);
 
     //Comanda ideala
-    ctx.font = "italic bold 14px system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 16px system-ui, Arial, sans-serif";
     ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 300);
     //Grad atentie
     ctx.font = "italic 12px system-ui, Arial, sans-serif";
@@ -454,7 +454,7 @@ function desenareGraficValori(){
       //console.log("i=" + i + " " + x + " " + y);
     }
 
-    for (let i = 0; i < selectorZi; i++) {
+    for (let i = 0; i <= selectorZi; i++) {
       //GRAFIC VERTICAL - UMPLERE
       //desenare linie sub valoare grafic
       x_valoare_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
