@@ -64,6 +64,7 @@ var culoareTextCompensator = "#d9d9d9";
 var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
 var culoareTextCompensatorFill2 = "#8c8c8c";
 
+var textMaiMare10 = " (>10)";
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -391,8 +392,15 @@ function desenareCompensatorValori() {
     ctx.fillText("Grad de atentie!", 20, 280);
 
     //Comanda ideala
+
     ctx.font = "italic bold 18px system-ui, Arial, sans-serif";
-    ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 300);
+    if(comandaIdeala[selectorZi]>10){
+        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 300);
+    }
+    else{
+        ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 300);
+    }
+
 
 
 
