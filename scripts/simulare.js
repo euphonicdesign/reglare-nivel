@@ -22,6 +22,13 @@ let medieCumulativ = [];
 let comandaIdeala = [];
 var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
+var MOD_FOTOGRAFIE = 0;
+var MOD_REGULATOR = 1;
+var mod = MOD_REGULATOR;
+
+var fotografie = new Image();
+fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotografie.jpg";
+
 //---->actualizare versionare script in index
 
 var selectorZi = 0; //data.length - 1;
@@ -164,7 +171,7 @@ const input = document.querySelector('html');
 input.onkeydown = modificaNivel;
 
 //buton prelucrare
-var buton_reluare = document.querySelector('button')
+var buton_reluare = document.getElementById('derulare')
 buton_reluare.onclick = function() {
     selectorZi = 0;
     slider.setAttribute("value", selectorZi);
@@ -172,7 +179,17 @@ buton_reluare.onclick = function() {
     pauza = false;
     //console.log(slider.getAttribute("value"));
     //procentDinCapacitateMax = data[selectorZi]/maxValue;
+}
 
+//buton foto
+var buton_foto = document.getElementById('foto')
+buton_foto.onclick = function() {
+    if(mod == MOD_REGULATOR){
+      mod = MOD_FOTOGRAFIE;
+    }
+    else{
+      mod = MOD_REGULATOR;
+    }
 }
 
 function modificaNivel(e){
@@ -233,8 +250,13 @@ function start() {
 
     //generare suprafata
     suprafataGrafica.constructie();
+    ctx = suprafataGrafica.context;
 
-    //desenareGraficValori();
+    //incarcare imagine
+    fotografie.addEventListener("load", loadImage, false);
+    function loadImage(e) {
+        //ctx.drawImage(fotografie, 0, 0);
+    }
 }
 
 var suprafataGrafica = {
@@ -469,6 +491,11 @@ function desenareGraficValori(){
       //console.log("i=" + i + " " + x + " " + y);
     }
 
+}
+
+function desenareGraficVertical(){
+    ctx = suprafataGrafica.context;
+
     for (let i = 0; i <= selectorZi; i++) {
       //GRAFIC VERTICAL - UMPLERE
       //desenare linie sub valoare grafic
@@ -497,50 +524,53 @@ function desenareGraficValori(){
       ctx.closePath();
       ctx.stroke();
     }
-
 }
 
 
 function ActualizareSuprafataGrafica() {
     if(!pauza){
-      suprafataGrafica.clear();
-      if (derulareAutomata){
-              if (selectorZi < data.length - 1)
-                      selectorZi += 1;
-              else{
-                  derulareAutomata = false;
-                  pauza = true;
-              }
-              //console.log(slider.getAttribute("value"));
-              slider.setAttribute("value", selectorZi);
-              procentDinCapacitateMax = data[selectorZi]/maxValue;
+        suprafataGrafica.clear();
+        if (derulareAutomata){
+                if (selectorZi < data.length - 1)
+                        selectorZi += 1;
+                else{
+                    derulareAutomata = false;
+                    pauza = true;
+                }
+                //console.log(slider.getAttribute("value"));
+                slider.setAttribute("value", selectorZi);
+                procentDinCapacitateMax = data[selectorZi]/maxValue;
 
-      }
-      procentDinCapacitate = procentDinCapacitateMax;
+        }
+        procentDinCapacitate = procentDinCapacitateMax;
 
-      //colorare apa in functie de valoare critica
-      nivel = data[selectorZi];
+        //colorare apa in functie de valoare critica
+        nivel = data[selectorZi];
 
-      if (nivel > nivelUltraCritic)
-          culoareApa = culoareApaNivelUltraCritic;
-      else if (nivel > nivelCritic)
-          culoareApa = culoareApaNivelCritic;
-      else if (nivel > nivelIntermediar) {
-          culoareApa = culoareApaNivelIntermediar;
-      }
-      else
-          culoareApa = culoareApaNivelNormal;
+        if (nivel > nivelUltraCritic)
+            culoareApa = culoareApaNivelUltraCritic;
+        else if (nivel > nivelCritic)
+            culoareApa = culoareApaNivelCritic;
+        else if (nivel > nivelIntermediar) {
+            culoareApa = culoareApaNivelIntermediar;
+        }
+        else
+            culoareApa = culoareApaNivelNormal;
 
-      culoareValoareNivel = culoareApa;
-      //culoareLinieGraficVertical = culoareApa;
+        culoareValoareNivel = culoareApa;
+        //culoareLinieGraficVertical = culoareApa;
 
-      actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
-      desenareVaseComunicante();
-      desenareZiValoare();
-
-      desenareGraficValori();
-      desenareCompensatorValori();
-
+        actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
+        if(mod == MOD_REGULATOR){
+            desenareVaseComunicante();
+            desenareZiValoare();
+            desenareCompensatorValori();
+            desenareGraficValori();
+        }
+        else{//MOD_FOTOGRAFIE
+            ctx.drawImage(fotografie, 0, 0);
+        }
+        desenareGraficVertical();
     }
 }
 
