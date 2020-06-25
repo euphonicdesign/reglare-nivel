@@ -192,6 +192,12 @@ buton_foto.onclick = function() {
     }
 }
 
+//buton copac
+//var buton_copac = document.getElementById('copac')
+//buton_copac.onclick = function() {
+
+//}
+
 function modificaNivel(e){
     if (e.code === "ArrowDown" || e.code === "ArrowLeft"){
         /*if (procentDinCapacitateMax > 0)
