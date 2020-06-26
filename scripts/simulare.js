@@ -192,6 +192,9 @@ buton_foto.onclick = function() {
     else{
       mod = MOD_REGULATOR;
     }
+    if (pauza == true){
+        ActualizareSuprafataGraficaSingulara();
+    }
 }
 
 //buton copac
@@ -604,6 +607,40 @@ function ActualizareSuprafataGrafica() {
         }
         desenareGraficVertical();
     }
+}
+
+function ActualizareSuprafataGraficaSingulara() {
+        suprafataGrafica.clear();
+        procentDinCapacitate = procentDinCapacitateMax;
+
+        //colorare apa in functie de valoare critica
+        nivel = data[selectorZi];
+
+        if (nivel > nivelUltraCritic)
+            culoareApa = culoareApaNivelUltraCritic;
+        else if (nivel > nivelCritic)
+            culoareApa = culoareApaNivelCritic;
+        else if (nivel > nivelIntermediar) {
+            culoareApa = culoareApaNivelIntermediar;
+        }
+        else
+            culoareApa = culoareApaNivelNormal;
+
+        culoareValoareNivel = culoareApa;
+        //culoareLinieGraficVertical = culoareApa;
+
+        actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
+        if(mod == MOD_REGULATOR){
+            desenareVaseComunicante();
+            desenareZiValoare();
+            desenareCompensatorValori();
+            desenareGraficValori();
+        }
+        else{//MOD_FOTOGRAFIE
+            ctx.drawImage(fotografie, 0, 0);
+        }
+        desenareGraficVertical();
+
 }
 
 function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
