@@ -60,6 +60,7 @@ var culoareIndicatorRezervor = "#cce0ff";
 var culoareLinieValoriGrafic = "#b3b3b3";
 var culoareLinieGraficVertical = "white"//"#8c8c8c";
 var culoarePunctGraficVertical = "#999999";//"white";
+var culoarePunctGraficVerticalFoto = "#262626";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoareTextZi = "#999999";//"#595959";
 
@@ -521,14 +522,38 @@ function desenareGraficVertical(){
       ctx.closePath();
       ctx.stroke();
 
-      //desenare punct valoare grafic_valori_desenat
-      ctx.beginPath();
-      ctx.moveTo(x_valoare_2, y_valoare);
-      ctx.lineTo(x_valoare_2 + 1, y_valoare);
-      ctx.strokeStyle = culoarePunctGraficVertical;
-      ctx.lineWidth = 1;
-      ctx.closePath();
-      ctx.stroke();
+
+
+      //desnear punct inceput in modul foto
+      if(mod==MOD_FOTOGRAFIE){
+          ctx.beginPath();
+          ctx.moveTo(x_valoare_1, y_valoare);
+          ctx.lineTo(x_valoare_1 - 2, y_valoare);
+          ctx.strokeStyle = culoarePunctGraficVerticalFoto;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+
+          //desenare punct valoare grafic_valori_desenat_capat dreapta
+          ctx.beginPath();
+          ctx.moveTo(x_valoare_2, y_valoare);
+          ctx.lineTo(x_valoare_2 + 2, y_valoare);
+          ctx.strokeStyle = culoarePunctGraficVerticalFoto;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+      }
+      else{
+
+        //desenare punct valoare grafic_valori_desenat_capat dreapta
+        ctx.beginPath();
+        ctx.moveTo(x_valoare_2, y_valoare);
+        ctx.lineTo(x_valoare_2 + 1, y_valoare);
+        ctx.strokeStyle = culoarePunctGraficVertical;
+        ctx.lineWidth = 1;
+        ctx.closePath();
+        ctx.stroke();
+      }
     }
 }
 
