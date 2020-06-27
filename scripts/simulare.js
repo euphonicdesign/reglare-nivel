@@ -24,7 +24,7 @@ var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
 var MOD_FOTOGRAFIE = 0;
 var MOD_REGULATOR = 1;
-var mod = MOD_REGULATOR;
+var mod = MOD_FOTOGRAFIE;
 
 var fotografie = new Image();
 fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotografie.jpg";
@@ -191,16 +191,12 @@ buton_foto.onclick = function() {
     else{
       mod = MOD_REGULATOR;
     }
+    salvarePreferintaMod();
+
     if (pauza == true){
         ActualizareSuprafataGraficaSingulara();
     }
 }
-
-//buton copac
-//var buton_copac = document.getElementById('copac')
-//buton_copac.onclick = function() {
-
-//}
 
 function modificaNivel(e){
     if (e.code === "ArrowDown" || e.code === "ArrowLeft"){
@@ -267,6 +263,8 @@ function start() {
     function loadImage(e) {
         //ctx.drawImage(fotografie, 0, 0);
     }
+
+    setare_mod();
 }
 
 var suprafataGrafica = {
@@ -670,6 +668,20 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
     //yCasuta1 = yValvaConductaIntrare2 - inaltimeCasuta1 - 1;
+}
 
+function salvarePreferintaMod() {
+  //console.log("se salveaza modul " + mod);
+  localStorage.setItem('mod', mod);
+}
 
+function setare_mod() {
+  if(!localStorage.getItem('mod')) {
+    salvarePreferintaMod();
+    //console.log("setare mod initial " + mod);
+  } else {
+    mod = localStorage.getItem('mod');
+    //console.log("mod salvat " + mod + " . Se seteaza modul preferat.");
+    //actualizareMod();
+  }
 }
