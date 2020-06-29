@@ -15,7 +15,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             9.00, 8.67, 9.00, 11.33, 11.67, 11.67, 10.33,
             13.67, 15.67, 15.33, 13.67, 15.33, 15.67, 16.33,
             13.00, 13.00, 13.00, 14.33, 14.00, 13.33, 11.33,
-            15.67, 
+            15.67,
           ];
 
 let dataCumulativ = [];
@@ -72,6 +72,7 @@ var culoareLinieReferintaGrafic = "#DDDDDD";//"#cce0ff";
 var culoareTextCompensator = "#d9d9d9";
 var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
 var culoareTextCompensatorFill2 = "#8c8c8c";
+var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
 
 var textMaiMare10 = " (>10)";
 
@@ -423,7 +424,7 @@ function desenareCompensatorValori() {
     ctx.fillText("Grad de atentie!", 20, 280);
 
     //Comanda ideala
-
+    ctx.fillStyle = culoareTextCompensatorFill3;
     ctx.font = "italic bold 18px system-ui, Arial, sans-serif";
     if(comandaIdeala[selectorZi]>10){
         ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 300);
