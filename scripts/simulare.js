@@ -427,7 +427,7 @@ function desenareCompensatorValori() {
     //Grad atentie
     ctx.fillStyle = culoareTextCompensatorFill2;
     ctx.font = "bold italic 12px system-ui, Arial, sans-serif";
-    ctx.fillText("Grad de atentie!", 20, 280);
+    ctx.fillText("Grad de atentie!", 20, 95);
 
     //Comanda ideala
     if(data[selectorZi] > medieCumulativ[selectorZi]){
@@ -439,10 +439,10 @@ function desenareCompensatorValori() {
 
     ctx.font = "italic bold 18px system-ui, Arial, sans-serif";
     if(comandaIdeala[selectorZi]>10){
-        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 300);
+        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 115);
     }
     else{
-        ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 300);
+        ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 115);
     }
 
 
