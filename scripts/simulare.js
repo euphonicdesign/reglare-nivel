@@ -55,7 +55,7 @@ var culoareApaNivelCritic = "#001f4d";
 var culoareApaNivelUltraCritic = "#001433";
 var culoareApa = culoareApaNivelNormal;
 var culoareValoareNivel = culoareApa;
-var culoareRobinet = "orange";
+//var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 
@@ -72,10 +72,11 @@ var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#DDDDDD";//"#cce0ff";
 
 var culoareTextCompensator = "#d9d9d9";
+var culoareCompensator = "orange";
 var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
 var culoareTextCompensatorFill2 = "#8c8c8c";
 var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
-var culoareTextCompensatorRosu = "#be4141";//"#ff1a1a";//"red";
+var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
 
 var textMaiMare10 = " (>10)";
 
@@ -329,11 +330,11 @@ function desenareVaseComunicante() {
     ctx.fillRect(xApaIntrare2, yApaIntrare2, lungimeApaIntrare2, inaltimeApaIntrare2);
 
     //valva conducta intrare (T1)
-    ctx.fillStyle = culoareRobinet;
+    ctx.fillStyle = culoareCompensator;
     ctx.fillRect(xValvaConductaIntrare1, yValvaConductaIntrare1, lungimeValvaConductaIntrare1, inaltimeValvaConductaIntrare1);
 
     //valva conducta intrare (T2)
-    ctx.fillStyle = culoareRobinet;
+    ctx.fillStyle = culoareCompensator;
     ctx.fillRect(xValvaConductaIntrare2, yValvaConductaIntrare2, lungimeValvaConductaIntrare2, inaltimeValvaConductaIntrare2);
 
     //apa rezervor
@@ -430,13 +431,7 @@ function desenareCompensatorValori() {
     ctx.fillText("Grad de atentie!", 20, 95);
 
     //Comanda ideala
-    if(data[selectorZi] > medieCumulativ[selectorZi]){
-        ctx.fillStyle = culoareTextCompensatorRosu;
-    }
-    else{
-        ctx.fillStyle = culoareTextCompensatorFill3;
-    }
-
+    ctx.fillStyle = culoareCompensator;
     ctx.font = "italic bold 18px system-ui, Arial, sans-serif";
     if(comandaIdeala[selectorZi]>10){
         ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 115);
@@ -612,6 +607,14 @@ function ActualizareSuprafataGrafica() {
         culoareValoareNivel = culoareApa;
         //culoareLinieGraficVertical = culoareApa;
 
+        //Culoare compensator
+        if(data[selectorZi] > medieCumulativ[selectorZi]){
+            culoareCompensator = culoareTextCompensatorRosu;
+        }
+        else{
+            culoareCompensator = culoareTextCompensatorFill3;
+        }
+
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
             desenareVaseComunicante();
@@ -680,7 +683,7 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
 
     // valva conducta intrare (T2)
     xValvaConductaIntrare2 = xRezervor - (lungimeValvaConductaIntrare2 / 2) - (lungimeValvaConductaIntrare1 / 2);
-    yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2;
+    yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2 + 1;
 
     //yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
     yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - medieCumulativ[selectorZi] * (inaltimeRezervor * capacitateRezervor)/maxValue;
