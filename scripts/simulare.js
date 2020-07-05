@@ -163,6 +163,18 @@ var inaltimeF1 = inaltimeValvaConductaIntrare2 * 1.0;
 var xF1 = xValvaConductaIntrare1;
 var yF1 = yValvaConductaIntrare2 - inaltimeF1;
 
+//Text comanda
+var xTextComanda = xValvaConductaIntrare2 + lungimeValvaConductaIntrare2 / 2;
+var yTextComanda = yValvaConductaIntrare2 - 2;
+
+//Legenda
+var yLegenda = 230;
+var yl1 = yLegenda + 20;
+var yl2 = yLegenda + 40;
+var yl3 = yLegenda + 60;
+var yl4 = yLegenda + 80;
+var yl5 = yLegenda + 100;
+
 var grafic_valori_desenat = false;
 var pauza = false;
 
@@ -441,31 +453,40 @@ function desenareCompensatorValori() {
     ctx.font = "italic 12px system-ui, Arial, sans-serif";
 
     //Referinta
-    ctx.fillText("Ref=0", 20, 200);
+    ctx.fillText("Ref=0", 20, yLegenda);
 
     //Constante amplificare
-    ctx.fillText("Kp=" + kp + " Ki=" + ki + " Kd=" + kd, 20, 220);
+    ctx.fillText("Kp=" + kp + " Ki=" + ki + " Kd=" + kd, 20, yl1);
 
     //Eroarea
     //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
 
     //Compensator
-    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi], 20, 240);
+    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi], 20, yl2);
 
     //Grad atentie
-    ctx.fillStyle = culoareTextCompensatorFill2;
-    ctx.font = "bold italic 12px system-ui, Arial, sans-serif";
-    ctx.fillText("Grad de atentie!", 20, 95);
+    //ctx.fillStyle = culoareTextCompensatorFill;
+    //ctx.font = "italic 12px system-ui, Arial, sans-serif";
+    ctx.fillText("Grad de atentie:", 20, yl3);
+
+    //Comanda ideala C
+    //ctx.fillStyle = culoareTextCompensatorFill;
+    //ctx.font = "italic 12px system-ui, Arial, sans-serif";
+    ctx.fillText("C=" + comandaIdeala[selectorZi], 20, yl4);
 
     //Comanda ideala
     ctx.fillStyle = culoareCompensator;
-    ctx.font = "italic bold 20px system-ui, Arial, sans-serif";
+    ctx.textAlign = "center";
+    ctx.font = "italic bold 22px system-ui, Arial, sans-serif";
+    ctx.fillText(comandaIdeala[selectorZi], xTextComanda, yTextComanda);
+
+    /*
     if(comandaIdeala[selectorZi]>10){
         ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 115);
     }
     else{
         ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 115);
-    }
+    }*/
 
 
 
@@ -719,6 +740,9 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     xF1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeF1 / 2;
     inaltimeF1 = comandaIdeala[selectorZi] / maxCompensator * scalaGCompensator;
     yF1 = yValvaConductaIntrare2 - inaltimeF1 + 1;
+
+    //Text comanda
+    yTextComanda = yF1 - 3;
 
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
