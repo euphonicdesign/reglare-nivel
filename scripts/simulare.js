@@ -15,7 +15,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             9.00, 8.67, 9.00, 11.33, 11.67, 11.67, 10.33,
             13.67, 15.67, 15.33, 13.67, 15.33, 15.67, 16.33,
             13.00, 13.00, 13.00, 14.33, 14.00, 13.33, 11.33,
-            15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33, 
+            15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33,
           ];
 
 let dataCumulativ = [];
@@ -80,7 +80,7 @@ var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
 var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
 var culoareF = "#999999";
 
-var textMaiMare10 = " (>10)";
+var textMaiMare10 = "";//" (>10)";
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -451,7 +451,7 @@ function desenareCompensatorValori() {
 
     //Comanda ideala
     ctx.fillStyle = culoareCompensator;
-    ctx.font = "italic bold 18px system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 20px system-ui, Arial, sans-serif";
     if(comandaIdeala[selectorZi]>10){
         ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 115);
     }
