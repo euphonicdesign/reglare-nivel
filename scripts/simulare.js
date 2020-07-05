@@ -40,7 +40,7 @@ var derulareAutomata = true;
 var vitezaSimulare = 195;
 var scalaY = 78;//55; //grafic valori orizontal
 var scalaX = 72; //grafic valori vertical
-var scalaGCompensator = 30;
+var scalaGCompensator = 50;
 var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -79,6 +79,7 @@ var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
 var culoareTextCompensatorFill2 = "#8c8c8c";
 var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
 var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
+var culoareF = "#999999";
 
 var textMaiMare10 = " (>10)";
 
@@ -355,7 +356,7 @@ function desenareVaseComunicante() {
 
 
     //F1
-    ctx.strokeStyle = culoareTextCompensator;//culoareCompensator;
+    ctx.strokeStyle = culoareF;//culoareCompensator;
     ctx.setLineDash([1, 2]);
     ctx.strokeRect(xF1, yF1, lungimeF1, inaltimeF1);
     ctx.setLineDash([]);
