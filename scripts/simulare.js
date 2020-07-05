@@ -478,7 +478,7 @@ function desenareCompensatorValori() {
     ctx.fillStyle = culoareCompensator;
     ctx.textAlign = "center";
     ctx.font = "italic bold 23px system-ui, Arial, sans-serif";
-    ctx.fillText(comandaIdeala[selectorZi], xTextComanda, yTextComanda);
+    ctx.fillText(comandaIdeala[selectorZi] + "!", xTextComanda, yTextComanda);
 
     /*
     if(comandaIdeala[selectorZi]>10){
