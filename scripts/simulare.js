@@ -41,7 +41,7 @@ var vitezaSimulare = 195;
 var scalaY = 78;//55; //grafic valori orizontal
 var scalaX = 72; //grafic valori vertical
 var scalaGCompensator = 50;
-var valoareReferinta = 15;
+//var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
 var ki=0.4;
@@ -273,7 +273,7 @@ function start() {
 
     //Calcul valoare referinta(medie)
     nr_zile = data.length - 1;
-    valoareReferinta = Math.round(valoareCumulativaTotal / nr_zile);
+    //valoareReferinta = Math.round(valoareCumulativaTotal / nr_zile);
     //console.log(valoareReferinta);
 
     //generare suprafata
@@ -485,7 +485,7 @@ function desenareGraficValori(){
 
     //desenare linie limita regim nominal
     ctx.fillStyle = culoareLinieReferintaGrafic;
-    ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((valoareReferinta*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
+    ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((medieCumulativ[selectorZi]*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
 
 
     for (let i = 0; i <= selectorZi ; i++) {
