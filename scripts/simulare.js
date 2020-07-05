@@ -356,7 +356,7 @@ function desenareVaseComunicante() {
 
 
     //F1
-    ctx.strokeStyle = culoareF;//culoareCompensator;
+    ctx.strokeStyle = culoareCompensator;//culoareF;//culoareCompensator;
     ctx.setLineDash([1, 2]);
     ctx.strokeRect(xF1, yF1, lungimeF1, inaltimeF1);
     ctx.setLineDash([]);
@@ -711,7 +711,7 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     //F 1
     xF1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeF1 / 2;
     inaltimeF1 = comandaIdeala[selectorZi] / maxCompensator * scalaGCompensator;
-    yF1 = yValvaConductaIntrare2 - inaltimeF1 - 2;
+    yF1 = yValvaConductaIntrare2 - inaltimeF1 + 1;
 
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
