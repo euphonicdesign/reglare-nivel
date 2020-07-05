@@ -70,7 +70,7 @@ var culoareTextZi = "#999999";//"#595959";
 
 var culoareTextReferinta = "#76adff";
 var culoareLinieReferinta = "#cce0ff";
-var culoareLinieReferintaGrafic = "#DDDDDD";//"#cce0ff";
+var culoareLinieReferintaGrafic = "#d9d9d9";//"#DDDDDD";//"#cce0ff";
 
 var culoareTextCompensator = "#d9d9d9";
 var culoareCompensator = "orange";
