@@ -35,10 +35,12 @@ fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotograf
 
 var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
+var maxCompensator = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 195;
 var scalaY = 78;//55; //grafic valori orizontal
 var scalaX = 72; //grafic valori vertical
+var scalaGCompensator = 30;
 var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -155,6 +157,12 @@ var yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntra
 //var xCasuta1 = xValvaConductaIntrare1;
 //var yCasuta1 = yValvaConductaIntrare2 - inaltimeCasuta1;
 
+//F1
+var lungimeF1 = lungimeValvaConductaIntrare2 * 0.96;
+var inaltimeF1 = inaltimeValvaConductaIntrare2 * 1.0;
+var xF1 = xValvaConductaIntrare1;
+var yF1 = yValvaConductaIntrare2 - inaltimeF1;
+
 var grafic_valori_desenat = false;
 var pauza = false;
 
@@ -233,10 +241,12 @@ function start() {
     //console.log(incrementX);
 
     //prelucrare date
+    /*
     for (let i = 0; i < data.length; i++) {
         if (data[i]>maxValue)
           maxValue = data[i];
-    }
+    }*/
+    maxValue = Math.max(...data);
 
     procentDinCapacitateMax = data[selectorZi]/maxValue;
 
@@ -252,6 +262,8 @@ function start() {
       medieCumulativ[i] = Math.round(cumul/(i+1));
       comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i]);
     }
+
+    maxCompensator = Math.max(...comandaIdeala);
 
     //Calcul Total
     //console.log(dataCumulativ.length);
@@ -340,6 +352,13 @@ function desenareVaseComunicante() {
     //apa rezervor
     ctx.fillStyle = culoareApa;
     ctx.fillRect(xApaRezervor, yApaRezervor, lungimeApaRezervor, inaltimeApaRezervor);
+
+
+    //F1
+    ctx.strokeStyle = culoareTextCompensator;//culoareCompensator;
+    ctx.setLineDash([1, 2]);
+    ctx.strokeRect(xF1, yF1, lungimeF1, inaltimeF1);
+    ctx.setLineDash([]);
 
     //Casuta 1
     /*
@@ -687,6 +706,11 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
 
     //yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
     yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - medieCumulativ[selectorZi] * (inaltimeRezervor * capacitateRezervor)/maxValue;
+
+    //F 1
+    xF1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeF1 / 2;
+    inaltimeF1 = comandaIdeala[selectorZi] / maxCompensator * scalaGCompensator;
+    yF1 = yValvaConductaIntrare2 - inaltimeF1 - 2;
 
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
