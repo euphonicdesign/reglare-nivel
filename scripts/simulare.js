@@ -165,7 +165,7 @@ var yF1 = yValvaConductaIntrare2 - inaltimeF1;
 
 //Text comanda
 var xTextComanda = xValvaConductaIntrare2 + lungimeValvaConductaIntrare2 / 2;
-var yTextComanda = yValvaConductaIntrare2 - 2;
+var yTextComanda = yValvaConductaIntrare2 - 3;
 
 //Legenda
 var yLegenda = 230;
@@ -477,7 +477,7 @@ function desenareCompensatorValori() {
     //Comanda ideala
     ctx.fillStyle = culoareCompensator;
     ctx.textAlign = "center";
-    ctx.font = "italic bold 22px system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 23px system-ui, Arial, sans-serif";
     ctx.fillText(comandaIdeala[selectorZi], xTextComanda, yTextComanda);
 
     /*
@@ -742,7 +742,7 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     yF1 = yValvaConductaIntrare2 - inaltimeF1 + 1;
 
     //Text comanda
-    yTextComanda = yF1 - 3;
+    yTextComanda = yF1 - 4;
 
     // casuta 1
     //xCasuta1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeCasuta1 / 2;
