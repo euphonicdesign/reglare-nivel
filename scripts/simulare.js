@@ -185,13 +185,21 @@ slider.oninput = function() {
 const input = document.querySelector('html');
 input.onkeydown = modificaNivel;
 
+function restart(){
+    //console.log("pagina se va reincarca");
+    location.reload();
+    return false;
+}
+
 //buton prelucrare
 var buton_reluare = document.getElementById('derulare')
 buton_reluare.onclick = function() {
+    restart();
     selectorZi = 0;
     slider.setAttribute("value", selectorZi);
     derulareAutomata = true;
     pauza = false;
+
     //console.log(slider.getAttribute("value"));
     //procentDinCapacitateMax = data[selectorZi]/maxValue;
 }
