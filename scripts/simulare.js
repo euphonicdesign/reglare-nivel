@@ -209,10 +209,10 @@ function restart(){
 var buton_reluare = document.getElementById('derulare')
 buton_reluare.onclick = function() {
     restart();
-    selectorZi = 0;
+    /*selectorZi = 0;
     slider.setAttribute("value", selectorZi);
     derulareAutomata = true;
-    pauza = false;
+    pauza = false;*/
 
     //console.log(slider.getAttribute("value"));
     //procentDinCapacitateMax = data[selectorZi]/maxValue;
