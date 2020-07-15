@@ -17,7 +17,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             13.00, 13.00, 13.00, 14.33, 14.00, 13.33, 11.33,
             15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33,
             21.00, 20.00, 22.67, 22.33, 22.00, 16.00, 18.00,
-            16.67, 18.00, 
+            16.67, 18.00,
           ];
 
 let dataCumulativ = [];
@@ -46,7 +46,7 @@ var scalaGCompensator = 50;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
 var ki=0.4;
-var kd=0;
+var kd=0.02;
 
 var culoareRezervor = "grey";
 var nivelUltraCritic = 25;
@@ -85,7 +85,7 @@ var culoareF = "#999999";
 
 var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
-var textMaiMare10 = "";//" (>10)";
+var textMaiMare10 = " (>10!)";//" (>10)";
 
 var intervalProiectie = 90; //zile
 
@@ -287,7 +287,7 @@ function start() {
 
       dataCumulativ[i] = cumul;
       medieCumulativ[i] = Math.round(cumul/(i+1));
-      comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i]);
+      comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i] + (kd * medieCumulativ[i] * intervalProiectie));
     }
 
     maxCompensator = Math.max(...comandaIdeala);
@@ -469,7 +469,7 @@ function desenareCompensatorValori() {
     //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
 
     //Compensator
-    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi], 20, yl2);
+    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi] + " + Kd*" + medieCumulativ[selectorZi] * intervalProiectie, 20, yl2);
 
     //Grad atentie
     //ctx.fillStyle = culoareTextCompensatorFill;
@@ -479,7 +479,13 @@ function desenareCompensatorValori() {
     //Comanda ideala C
     //ctx.fillStyle = culoareTextCompensatorFill;
     //ctx.font = "italic 12px system-ui, Arial, sans-serif";
-    ctx.fillText("C=" + comandaIdeala[selectorZi], 20, yl4);
+    //ctx.fillText("C=" + comandaIdeala[selectorZi], 20, yl4);
+    if(comandaIdeala[selectorZi]>10){
+        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, yl4);
+    }
+    else{
+        ctx.fillText("C=" + comandaIdeala[selectorZi], 20, yl4);
+    }
 
     //Comanda ideala
     ctx.fillStyle = culoareCompensator;
