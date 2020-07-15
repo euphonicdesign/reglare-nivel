@@ -17,7 +17,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             13.00, 13.00, 13.00, 14.33, 14.00, 13.33, 11.33,
             15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33,
             21.00, 20.00, 22.67, 22.33, 22.00, 16.00, 18.00,
-            16.67, 18.00, 20.00, 
+            16.67, 18.00, 20.00,
           ];
 
 let dataCumulativ = [];
@@ -175,8 +175,8 @@ var xTextComanda = xValvaConductaIntrare2 + lungimeValvaConductaIntrare2 / 2;
 var yTextComanda = yValvaConductaIntrare2 - 3;
 
 //Legenda
-var yLegenda = 220;
-var xLegenda = 12;
+var yLegenda = 280;
+var xLegenda = 20;
 var yl1 = yLegenda + 20;
 var yl2 = yLegenda + 40;
 var yl3 = yLegenda + 60;
