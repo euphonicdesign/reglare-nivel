@@ -175,7 +175,8 @@ var xTextComanda = xValvaConductaIntrare2 + lungimeValvaConductaIntrare2 / 2;
 var yTextComanda = yValvaConductaIntrare2 - 3;
 
 //Legenda
-var yLegenda = 230;
+var yLegenda = 220;
+var xLegenda = 12;
 var yl1 = yLegenda + 20;
 var yl2 = yLegenda + 40;
 var yl3 = yLegenda + 60;
@@ -345,6 +346,12 @@ function desenareVaseComunicante() {
     ctx = suprafataGrafica.context;
     ctx.fillStyle = culoareRezervor;
 
+    //culoare implicita
+    ctx.strokeStyle = culoareTextCompensator;
+    ctx.lineWidth = 1;
+    ctx.textAlign = "start";
+    ctx.font = "italic 12px system-ui, Arial, sans-serif";
+
     //rezervor
     ctx.fillRect(xRezervor, yRezervor, lungimeRezervor, inaltimeRezervor);
 
@@ -460,31 +467,31 @@ function desenareCompensatorValori() {
     ctx.font = "italic 12px system-ui, Arial, sans-serif";
 
     //Referinta
-    ctx.fillText("Ref=0", 20, yLegenda);
+    ctx.fillText("Ref=0", xLegenda, yLegenda);
 
     //Constante amplificare
-    ctx.fillText("Kp=" + kp + " Ki=" + ki + " Kd=" + kd, 20, yl1);
+    ctx.fillText("Kp=" + kp + " Ki=" + ki + " Kd=" + kd, xLegenda, yl1);
 
     //Eroarea
     //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
 
     //Compensator
-    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + " + Ki*"+medieCumulativ[selectorZi] + " + Kd*" + medieCumulativ[selectorZi] * intervalProiectie, 20, yl2);
+    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + "+Ki*"+medieCumulativ[selectorZi] + "+Kd*" + medieCumulativ[selectorZi] * intervalProiectie, xLegenda, yl2);
 
     //Grad atentie
     //ctx.fillStyle = culoareTextCompensatorFill;
     //ctx.font = "italic 12px system-ui, Arial, sans-serif";
-    ctx.fillText("Grad de atentie:", 20, yl3);
+    ctx.fillText("Grad de atentie:", xLegenda, yl3);
 
     //Comanda ideala C
     //ctx.fillStyle = culoareTextCompensatorFill;
     //ctx.font = "italic 12px system-ui, Arial, sans-serif";
     //ctx.fillText("C=" + comandaIdeala[selectorZi], 20, yl4);
     if(comandaIdeala[selectorZi]>10){
-        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, yl4);
+        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, xLegenda, yl4);
     }
     else{
-        ctx.fillText("C=" + comandaIdeala[selectorZi], 20, yl4);
+        ctx.fillText("C=" + comandaIdeala[selectorZi], xLegenda, yl4);
     }
 
     //Comanda ideala
@@ -681,7 +688,6 @@ function desenareGraficVertical(){
     }
 }
 
-
 function ActualizareSuprafataGrafica() {
     if(!pauza){
         suprafataGrafica.clear();
@@ -725,9 +731,9 @@ function ActualizareSuprafataGrafica() {
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
+            desenareCompensatorValori();
             desenareVaseComunicante();
             desenareZiValoare();
-            desenareCompensatorValori();
             desenareGraficValori();
         }
         else{//MOD_FOTOGRAFIE
@@ -759,9 +765,9 @@ function ActualizareSuprafataGraficaSingulara() {
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
+            desenareCompensatorValori();
             desenareVaseComunicante();
             desenareZiValoare();
-            desenareCompensatorValori();
             desenareGraficValori();
         }
         else{//MOD_FOTOGRAFIE
