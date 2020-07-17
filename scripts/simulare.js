@@ -1,6 +1,7 @@
 var lungimeSuprafataGrafica = 600;
 var inaltimeSuprafataGrafica = 500;
 
+
 let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             7.67,6.67,13.33,15,16.67,21.33,18.67,
             18,8,13.67,20.33,24,25,24.33,
@@ -61,7 +62,7 @@ var maxCompensator = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 165;
 var scalaY = 55;//55; //grafic valori orizontal
-var scalaY_2 = 88;//55; //grafic valori orizontal
+var scalaY_2 = 102;//55; //grafic valori orizontal
 var scalaX = 72; //grafic valori vertical
 var scalaGCompensator = 50;
 //var valoareReferinta = 15;
