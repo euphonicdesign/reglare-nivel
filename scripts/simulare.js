@@ -554,6 +554,25 @@ function desenareCompensatorValori() {
     */
 }
 
+function desenarePuncteGraficOrizontal(){
+    ctx = suprafataGrafica.context;
+
+    for (let i = 0; i <= selectorZi ; i++) {
+      x_valoare = i*incrementX;
+      y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
+      y_valoare_2 = Math.round(inaltimeSuprafataGrafica - 10 - ((data_2[i]*scalaY_2)/maxValue_2));
+
+      //desenare punct valoare grafic_valori_desenat - data_1
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, y_valoare );
+      ctx.lineTo(10 + x_valoare, y_valoare + 2);
+      ctx.strokeStyle = culoarePunctValoriGrafic_2;
+      ctx.lineWidth = 1;
+      ctx.closePath();
+      ctx.stroke();
+    }
+}
+
 function desenareGraficValori(){
     ctx = suprafataGrafica.context;
 
@@ -612,7 +631,7 @@ function desenareGraficValori(){
       ctx.closePath();
       ctx.stroke();
 
-
+/*
 
       //GRAFIC VERTICAL
       //desenare linie sub valoare grafic
@@ -623,8 +642,7 @@ function desenareGraficValori(){
       x_valoare_2 = x_valoare_2 - lungime_segment;
 
       y_valoare = inaltimeSuprafataGrafica - scalaY - 100 - i;
-
-
+*/
       //maxValue = data[i];
       //x = 10 + i*incrementX;
       //y = inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue);
@@ -786,12 +804,12 @@ function ActualizareSuprafataGrafica() {
             desenareCompensatorValori();
             desenareVaseComunicante();
             desenareZiValoare();
-
         }
         else{//MOD_FOTOGRAFIE
             ctx.drawImage(fotografie, 0, 0);
         }
         desenareGraficVertical();
+        //desenarePuncteGraficOrizontal();
     }
 }
 
@@ -826,6 +844,7 @@ function ActualizareSuprafataGraficaSingulara() {
             ctx.drawImage(fotografie, 0, 0);
         }
         desenareGraficVertical();
+        //desenarePuncteGraficOrizontal();
 
 }
 
