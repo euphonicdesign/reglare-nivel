@@ -100,6 +100,7 @@ var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoarePunctValoriGrafic_2 = "white";//"grey";//"culoareApaNivelNormal"; //"#999999";
+var culoarePunctValoriGrafic_3 = "#737373";//"#808080";
 var culoareTextZi = "#999999";//"#595959";
 
 var culoareTextReferinta = "#76adff";
@@ -627,7 +628,7 @@ function desenareGraficeTrenduri(){
   ctx.beginPath();
   ctx.moveTo(10, yGrafic_2 + 5 );
   ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 5);
-  ctx.strokeStyle = culoareLinieReferintaGrafic;//culoarePunctValoriGrafic;
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
   ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
@@ -651,9 +652,9 @@ function desenareGraficeTrenduri(){
 
       //desenare punct valoare grafic_valori_desenat - data_2
       ctx.beginPath();
-      ctx.moveTo(10 + x_valoare, y_valoare_2 );
-      ctx.lineTo(10 + x_valoare, y_valoare_2 + 1);
-      ctx.strokeStyle = culoareLinieValoriGrafic;//culoarePunctValoriGrafic;
+      ctx.moveTo(12 + x_valoare, y_valoare_2 );
+      ctx.lineTo(12 + x_valoare, y_valoare_2 + 1);
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
       ctx.lineWidth = 4;
       ctx.closePath();
       ctx.stroke();
@@ -677,8 +678,8 @@ function desenareGraficeTrenduri(){
 
       //desenare punct valoare grafic_valori_desenat - data_1
       ctx.beginPath();
-      ctx.moveTo(10 + x_valoare, y_valoare );
-      ctx.lineTo(10 + x_valoare, y_valoare + 1);
+      ctx.moveTo(12 + x_valoare, y_valoare );
+      ctx.lineTo(12 + x_valoare, y_valoare + 1);
       ctx.strokeStyle = culoarePunctValoriGrafic;
       ctx.lineWidth = 4;
       ctx.closePath();
