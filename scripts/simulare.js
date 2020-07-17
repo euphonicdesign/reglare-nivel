@@ -48,6 +48,7 @@ var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
 var MOD_FOTOGRAFIE = 0;
 var MOD_REGULATOR = 1;
+var MOD_GRAFICE = 2;
 var mod = MOD_FOTOGRAFIE;
 
 var fotografie = new Image();
@@ -63,8 +64,12 @@ var derulareAutomata = true;
 var vitezaSimulare = 165;
 var scalaY = 55;//55; //grafic valori orizontal
 var scalaY_2 = 102;//55; //grafic valori orizontal
+var scalaY_trend = 100;
+var scalaX_trend = 72;
 var scalaX = 72; //grafic valori vertical
 var scalaGCompensator = 50;
+var yGrafic_2 = 190;
+var yGrafic_1 = yGrafic_2 + scalaY_trend + 50;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -253,8 +258,23 @@ buton_reluare.onclick = function() {
 //buton foto
 var buton_foto = document.getElementById('foto')
 buton_foto.onclick = function() {
-    if(mod == MOD_REGULATOR){
+    if(mod == MOD_REGULATOR || mod == MOD_GRAFICE){
       mod = MOD_FOTOGRAFIE;
+    }
+    else{
+      mod = MOD_REGULATOR;
+    }
+    salvarePreferintaMod();
+
+    if (pauza == true){
+        ActualizareSuprafataGraficaSingulara();
+    }
+}
+
+var buton_grafice = document.getElementById('grafice')
+buton_grafice.onclick = function() {
+    if(mod == MOD_REGULATOR || mod == MOD_FOTOGRAFIE){
+      mod = MOD_GRAFICE;
     }
     else{
       mod = MOD_REGULATOR;
@@ -450,6 +470,21 @@ function desenareVaseComunicante() {
 
 }
 
+function desenareZiValoareTrenduri(){
+    ctx = suprafataGrafica.context;
+    //ctx.fillStyle = "orange";
+    //culoare implicita
+    ctx.strokeStyle = culoareTextZi;
+    ctx.lineWidth = 1;
+    ctx.textAlign = "start";
+
+    //Ziua
+    //ctx.font = "30px Arial";
+    ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
+    //ctx.fillText("Ziua " + selectorZi, 10, 50);
+    ctx.strokeText("Ziua " + selectorZi, 10, 50);
+}
+
 function desenareZiValoare() {
     ctx = suprafataGrafica.context;
     ctx.fillStyle = "orange";
@@ -568,6 +603,84 @@ function desenarePuncteGraficOrizontal(){
       ctx.lineTo(10 + x_valoare, y_valoare + 2);
       ctx.strokeStyle = culoarePunctValoriGrafic_2;
       ctx.lineWidth = 1;
+      ctx.closePath();
+      ctx.stroke();
+    }
+}
+
+function desenareGraficeTrenduri(){
+  ctx = suprafataGrafica.context;
+
+  //desenare linie abscisa grafic
+  ctx.fillStyle = culoareLinieReferinta;
+  //ctx.fillRect(10, yGrafic_1, lungimeSuprafataGrafica-15, yGrafic_1);
+  //ctx.fillRect(10, yGrafic_2, lungimeSuprafataGrafica-15, yGrafic_2);
+
+  ctx.beginPath();
+  ctx.moveTo(10, yGrafic_1 + 5 );
+  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_1 + 5);
+  ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(10, yGrafic_2 + 5 );
+  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 5);
+  ctx.strokeStyle = culoareLinieReferintaGrafic;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
+  ctx.closePath();
+  ctx.stroke();
+
+
+  for (let i = 0; i <= selectorZi ; i++) {
+      x_valoare = i*incrementX;
+      y_valoare = Math.round(yGrafic_1 - ((data[i]*scalaY_trend)/maxValue));
+      y_valoare_2 = Math.round(yGrafic_2 - ((data_2[i]*scalaY_trend)/maxValue_2));
+
+
+      //desenare linie sub valoare grafic - data 2
+      /*
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, yGrafic_2);
+      ctx.lineTo(10 + x_valoare, y_valoare_2 );
+      ctx.strokeStyle = culoareLinieValoriGrafic_2;
+      ctx.lineWidth = 1;
+      ctx.closePath();
+      ctx.stroke();*/
+
+      //desenare punct valoare grafic_valori_desenat - data_2
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, y_valoare_2 );
+      ctx.lineTo(10 + x_valoare, y_valoare_2 + 1);
+      ctx.strokeStyle = culoareLinieValoriGrafic;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 4;
+      ctx.closePath();
+      ctx.stroke();
+
+      //GRAFIC ORIZONTAL
+      //desenare linie sub valoare grafic - data 1
+      /*
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, yGrafic_1);
+      ctx.lineTo(10 + x_valoare, y_valoare );
+      //if(data[selectorZi] > medieCumulativ[selectorZi]){
+      ctx.strokeStyle = culoareLinieGraficNuantat;
+      //}
+      //else{
+        //ctx.strokeStyle = culoareLinieGraficNuantat2;
+      //}
+
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();*/
+
+      //desenare punct valoare grafic_valori_desenat - data_1
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, y_valoare );
+      ctx.lineTo(10 + x_valoare, y_valoare + 1);
+      ctx.strokeStyle = culoarePunctValoriGrafic;
+      ctx.lineWidth = 4;
       ctx.closePath();
       ctx.stroke();
     }
@@ -804,12 +917,20 @@ function ActualizareSuprafataGrafica() {
             desenareCompensatorValori();
             desenareVaseComunicante();
             desenareZiValoare();
+            desenareGraficVertical();
+            //desenarePuncteGraficOrizontal();
         }
-        else{//MOD_FOTOGRAFIE
+        else if(mod == MOD_FOTOGRAFIE){//MOD_FOTOGRAFIE
             ctx.drawImage(fotografie, 0, 0);
+            desenareGraficVertical();
+            //desenarePuncteGraficOrizontal();
         }
-        desenareGraficVertical();
-        //desenarePuncteGraficOrizontal();
+        else{//MOD_GRAFICE
+          desenareZiValoareTrenduri();
+          desenareGraficeTrenduri();
+        }
+
+
     }
 }
 
@@ -839,12 +960,19 @@ function ActualizareSuprafataGraficaSingulara() {
             desenareCompensatorValori();
             desenareVaseComunicante();
             desenareZiValoare();
+            desenareGraficVertical();
+            //desenarePuncteGraficOrizontal();
         }
-        else{//MOD_FOTOGRAFIE
+        else if(mod == MOD_FOTOGRAFIE){//MOD_FOTOGRAFIE
             ctx.drawImage(fotografie, 0, 0);
+            desenareGraficVertical();
+            //desenarePuncteGraficOrizontal();
         }
-        desenareGraficVertical();
-        //desenarePuncteGraficOrizontal();
+        else{//MOD_GRAFICE
+            desenareZiValoareTrenduri();
+            desenareGraficeTrenduri();
+        }
+
 
 }
 
