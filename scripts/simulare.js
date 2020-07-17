@@ -18,8 +18,27 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33,
             21.00, 20.00, 22.67, 22.33, 22.00, 16.00, 18.00,
             16.67, 18.00, 20.00, 22.67, 23.33,
-
           ];
+
+let data_2 = [52.00, 89.33, 131.67, 157.67, 151.00, 176.67, 182.00,
+              243.67, 220.00, 264.33, 233.33, 262.00, 312.67, 384.33,
+              375.33, 291.33, 268.00, 299.00, 381.67, 350.00, 409.67,
+              366.00, 388.67, 296.33, 305.33, 358.00, 396.00, 400.67,
+              346.33, 289.67, 274.67, 321.33, 386.67, 391.67, 308.33,
+              313.33, 307.33, 327.00, 314.00, 300.33, 317.00, 251.33,
+              307.67, 315.00, 368.33, 314.67, 329.00, 324.67, 341.33,
+              287.67, 259.00, 215.67, 213.33, 219.67, 219.67, 234.00,
+              208.00, 199.67, 162.33, 172.00, 183.00, 173.67, 156.67,
+              161.67, 190.33, 190.67, 174.67, 169.33, 184.33, 179.67,
+              155.33, 138.67, 128.00, 137.33, 169.67, 195.33, 207.00,
+              190.67, 167.00, 153.00, 155.33, 192.67, 218.33, 244.67,
+              272.33, 253.67, 245.33, 253.67, 305.00, 328.33, 323.33,
+              321.67, 297.00, 258.33, 260.33, 331.67, 397.33, 398.67,
+              342.33, 295.00, 316.00, 327.67, 388.00, 398.67, 428.67,
+              409.00, 352.33, 346.00, 400.67, 522.00, 587.00, 634.67,
+              582.00, 522.33, 502.00, 563.67, 685.00,
+
+            ];
 
 let dataCumulativ = [];
 let medieCumulativ = [];
@@ -37,10 +56,12 @@ fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotograf
 
 var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
+var maxValue_2 = 0;
 var maxCompensator = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 165;
-var scalaY = 78;//55; //grafic valori orizontal
+var scalaY = 55;//55; //grafic valori orizontal
+var scalaY_2 = 88;//55; //grafic valori orizontal
 var scalaX = 72; //grafic valori vertical
 var scalaGCompensator = 50;
 //var valoareReferinta = 15;
@@ -65,11 +86,13 @@ var culoareIndicatorRezervor = "#cce0ff";
 
 var culoareLinieValoriGrafic = "#b3b3b3";
 var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
+var culoareLinieGraficNuantat2 = "white";
 var culoareLinieGraficVertical = "white"//"#8c8c8c";
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
+var culoarePunctValoriGrafic_2 = "white";//"grey";//"culoareApaNivelNormal"; //"#999999";
 var culoareTextZi = "#999999";//"#595959";
 
 var culoareTextReferinta = "#76adff";
@@ -266,7 +289,8 @@ function modificaNivel(e){
 }
 
 function start() {
-    incrementX = Math.round((lungimeSuprafataGrafica) / (data.length + 1)) - 1;
+    incrementX = 3;
+    //incrementX = Math.round((lungimeSuprafataGrafica) / (data.length + 1)) - 2;
     //console.log(incrementX);
 
     //prelucrare date
@@ -276,6 +300,7 @@ function start() {
           maxValue = data[i];
     }*/
     maxValue = Math.max(...data);
+    maxValue_2 = Math.max(...data_2);
 
     procentDinCapacitateMax = data[selectorZi]/maxValue;
 
@@ -442,8 +467,8 @@ function desenareZiValoare() {
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     ctx.fillStyle = culoareLinieGraficVertical;
     ctx.strokeStyle = culoarePunctGraficVertical;
-    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
-    ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
+    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - 138);
+    ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - 138);
 
     //Nivelul apei
     ctx.textAlign = "start";
@@ -538,9 +563,30 @@ function desenareGraficValori(){
     for (let i = 0; i <= selectorZi ; i++) {
       x_valoare = i*incrementX;
       y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
+      y_valoare_2 = Math.round(inaltimeSuprafataGrafica - 10 - ((data_2[i]*scalaY_2)/maxValue_2));
+
+
+      //desenare linie sub valoare grafic - data 2
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, inaltimeSuprafataGrafica - 10);
+      ctx.lineTo(10 + x_valoare, y_valoare_2 );
+      ctx.strokeStyle = culoareLinieValoriGrafic;
+      ctx.lineWidth = 1;
+      ctx.closePath();
+      ctx.stroke();
+
+      //desenare punct valoare grafic_valori_desenat - data_2
+      /*
+      ctx.beginPath();
+      ctx.moveTo(10 + x_valoare, y_valoare_2 );
+      ctx.lineTo(10 + x_valoare, y_valoare_2 + 2);
+      ctx.strokeStyle = culoarePunctValoriGrafic_2;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();*/
 
       //GRAFIC ORIZONTAL
-      //desenare linie sub valoare grafic
+      //desenare linie sub valoare grafic - data 1
       ctx.beginPath();
       ctx.moveTo(10 + x_valoare, inaltimeSuprafataGrafica - 10);
       ctx.lineTo(10 + x_valoare, y_valoare );
@@ -548,14 +594,14 @@ function desenareGraficValori(){
           ctx.strokeStyle = culoareLinieGraficNuantat;
       }
       else{
-          ctx.strokeStyle = culoareLinieValoriGrafic;
+          ctx.strokeStyle = culoareLinieGraficNuantat2;
       }
 
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
 
-      //desenare punct valoare grafic_valori_desenat
+      //desenare punct valoare grafic_valori_desenat - data_1
       ctx.beginPath();
       ctx.moveTo(10 + x_valoare, y_valoare );
       ctx.lineTo(10 + x_valoare, y_valoare + 2);
@@ -563,6 +609,8 @@ function desenareGraficValori(){
       ctx.lineWidth = 4;
       ctx.closePath();
       ctx.stroke();
+
+
 
       //GRAFIC VERTICAL
       //desenare linie sub valoare grafic
@@ -588,7 +636,7 @@ function desenareGraficVertical(){
 
     //desenare linie verticala medie
     x_val_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
-    y_val_1 = inaltimeSuprafataGrafica - scalaY - 100 - selectorZi;
+    y_val_1 = inaltimeSuprafataGrafica - 178 - selectorZi;
     y_val_2 = y_val_1 - intervalProiectie;
     //y_val_2 = inaltimeSuprafataGrafica - scalaY - 100 - selectorZi - intervalProiectie;
 
@@ -645,7 +693,7 @@ function desenareGraficVertical(){
       x_valoare_1 = x_valoare_1 - lungime_segment; //i*incrementX;
       x_valoare_2 = x_valoare_2 - lungime_segment;
 
-      y_valoare = inaltimeSuprafataGrafica - scalaY - 100 - i;
+      y_valoare = inaltimeSuprafataGrafica - 178 - i;
 
       ctx.beginPath();
       ctx.moveTo(x_valoare_1, y_valoare);
@@ -732,10 +780,11 @@ function ActualizareSuprafataGrafica() {
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
+            desenareGraficValori();
             desenareCompensatorValori();
             desenareVaseComunicante();
             desenareZiValoare();
-            desenareGraficValori();
+
         }
         else{//MOD_FOTOGRAFIE
             ctx.drawImage(fotografie, 0, 0);
@@ -766,10 +815,10 @@ function ActualizareSuprafataGraficaSingulara() {
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
+            desenareGraficValori();
             desenareCompensatorValori();
             desenareVaseComunicante();
             desenareZiValoare();
-            desenareGraficValori();
         }
         else{//MOD_FOTOGRAFIE
             ctx.drawImage(fotografie, 0, 0);
