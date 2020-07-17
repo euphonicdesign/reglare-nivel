@@ -259,12 +259,12 @@ buton_reluare.onclick = function() {
 //buton foto
 var buton_foto = document.getElementById('foto')
 buton_foto.onclick = function() {
-    if(mod == MOD_REGULATOR || mod == MOD_GRAFICE){
+    //if(mod == MOD_REGULATOR || mod == MOD_GRAFICE){
       mod = MOD_FOTOGRAFIE;
-    }
+    /*}
     else{
       mod = MOD_REGULATOR;
-    }
+    }*/
     salvarePreferintaMod();
 
     if (pauza == true){
@@ -274,12 +274,24 @@ buton_foto.onclick = function() {
 
 var buton_grafice = document.getElementById('grafice')
 buton_grafice.onclick = function() {
-    if(mod == MOD_REGULATOR || mod == MOD_FOTOGRAFIE){
+    //if(mod == MOD_REGULATOR || mod == MOD_FOTOGRAFIE){
       mod = MOD_GRAFICE;
-    }
+    /*}
     else{
       mod = MOD_REGULATOR;
+    }*/
+    salvarePreferintaMod();
+
+    if (pauza == true){
+        ActualizareSuprafataGraficaSingulara();
     }
+}
+
+var buton_rezervor = document.getElementById('rezervor')
+buton_rezervor.onclick = function() {
+
+    mod = MOD_REGULATOR;
+
     salvarePreferintaMod();
 
     if (pauza == true){
