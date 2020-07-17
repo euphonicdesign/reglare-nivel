@@ -200,7 +200,7 @@ var xTextComanda = xValvaConductaIntrare2 + lungimeValvaConductaIntrare2 / 2;
 var yTextComanda = yValvaConductaIntrare2 - 3;
 
 //Legenda
-var yLegenda = 280;
+var yLegenda = 230;
 var xLegenda = 20;
 var yl1 = yLegenda + 20;
 var yl2 = yLegenda + 40;
