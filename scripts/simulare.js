@@ -86,6 +86,7 @@ var culoareLinieLimitaRegimNominal = "#cce0ff";
 var culoareIndicatorRezervor = "#cce0ff";
 
 var culoareLinieValoriGrafic = "#b3b3b3";
+var culoareLinieValoriGrafic_2 = "#cccccc";//"#bfbfbf";
 var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
 var culoareLinieGraficNuantat2 = "white";
 var culoareLinieGraficVertical = "white"//"#8c8c8c";
@@ -571,7 +572,7 @@ function desenareGraficValori(){
       ctx.beginPath();
       ctx.moveTo(10 + x_valoare, inaltimeSuprafataGrafica - 10);
       ctx.lineTo(10 + x_valoare, y_valoare_2 );
-      ctx.strokeStyle = culoareLinieValoriGrafic;
+      ctx.strokeStyle = culoareLinieValoriGrafic_2;
       ctx.lineWidth = 1;
       ctx.closePath();
       ctx.stroke();
@@ -607,7 +608,7 @@ function desenareGraficValori(){
       ctx.moveTo(10 + x_valoare, y_valoare );
       ctx.lineTo(10 + x_valoare, y_valoare + 2);
       ctx.strokeStyle = culoarePunctValoriGrafic;
-      ctx.lineWidth = 4;
+      ctx.lineWidth = 1;
       ctx.closePath();
       ctx.stroke();
 
