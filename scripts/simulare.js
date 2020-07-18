@@ -648,54 +648,77 @@ function desenareGraficeTrenduri(){
   ctx.stroke();
 
 
-      //desenare linie trend grafic 1 (jos)
-      if(selectorZi > orizont_trend){
-          index1 = selectorZi - orizont_trend;
+  //desenare linie trend grafic 1 (jos)
+  if(selectorZi > orizont_trend){
+      index1 = selectorZi - orizont_trend;
+  }
+  else{
+      index1 = 0;
+  }
+
+  x_val_1 = index1*incrementX;
+  y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend)/maxValue));
+  x_val_2 = selectorZi*incrementX;
+  y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend)/maxValue));
+  //console.log("1st line: " + y_val_1);
+
+  procent_variatie_1 = Math.floor((data[selectorZi] - data[index1]) / data[index1] * 100);
+  procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) / data_2[index1] * 100);
+
+  if(index1 > 0){
+      if (procent_variatie_1>0){
+        eticheta_1 = " (+" + procent_variatie_1 + "%)";
       }
       else{
-          index1 = 0;
+        eticheta_1 = " (" + procent_variatie_1 + "%)";
       }
 
-      x_val_1 = index1*incrementX;
-      y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend)/maxValue));
-      x_val_2 = selectorZi*incrementX;
-      y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend)/maxValue));
-      //console.log("1st line: " + y_val_1);
+      if (procent_variatie_2>0){
+        eticheta_2 = " (+" + procent_variatie_2 + "%)";
+      }
+      else{
+        eticheta_2 = " (" + procent_variatie_2 + "%)";
+      }
+  }
+  else{
+    eticheta_1 = "";
+    eticheta_2 = "";
+  }
 
-      ctx.setLineDash([1, 2]);
-      ctx.beginPath();
-      ctx.moveTo(12 + x_val_1, y_val_1);
-      ctx.lineTo(12 + x_val_2, y_val_2);
-      ctx.strokeStyle = culoarePunctValoriGrafic;
-      ctx.lineWidth = 2;
-      ctx.closePath();
-      ctx.stroke();
+  ctx.setLineDash([1, 2]);
+  ctx.beginPath();
+  ctx.moveTo(12 + x_val_1, y_val_1);
+  ctx.lineTo(12 + x_val_2, y_val_2);
+  ctx.strokeStyle = culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
+  ctx.closePath();
+  ctx.stroke();
 
-      ctx.textAlign = "start";
-      ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
-      ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
-      ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
-      ctx.fillText("" + Math.round(data[selectorZi]), x_val_2 + 16, y_val_2 - 6);
+  ctx.textAlign = "start";
+  ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+  ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+  ctx.fillText("" + Math.round(data[selectorZi]) + eticheta_1, x_val_2 + 16, y_val_2 - 6);
 
-      y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend)/maxValue_2));
-      y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend)/maxValue_2));
+  y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend)/maxValue_2));
+  y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend)/maxValue_2));
 
-      //console.log("2nd line: " + y_val_1);
+  //console.log("2nd line: " + y_val_1);
 
-      ctx.beginPath();
-      ctx.moveTo(12 + x_val_1, y_val_1);
-      ctx.lineTo(12 + x_val_2, y_val_2);
-      ctx.strokeStyle = culoare_linie_trend;//culoarePunctValoriGrafic;
-      ctx.lineWidth = 2;
-      ctx.closePath();
-      ctx.stroke();
-      ctx.setLineDash([]);
+  ctx.beginPath();
+  ctx.moveTo(12 + x_val_1, y_val_1);
+  ctx.lineTo(12 + x_val_2, y_val_2);
+  ctx.strokeStyle = culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
+  ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
 
-      //ctx.textAlign = "start";
-      //ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
-      ctx.fillStyle = culoareTextCompensatorFill;
-      ctx.strokeStyle = culoareTextCompensatorFill;
-      ctx.fillText("" + Math.round(data_2[selectorZi]), x_val_2 + 16, y_val_2 - 6);
+  //ctx.textAlign = "start";
+  //ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillStyle = culoareTextCompensatorFill;
+  ctx.strokeStyle = culoareTextCompensatorFill;
+  ctx.fillText("" + Math.round(data_2[selectorZi]) + eticheta_2, x_val_2 + 16, y_val_2 - 6);
 
 
 
