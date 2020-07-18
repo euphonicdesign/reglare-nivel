@@ -1030,7 +1030,7 @@ function desenareGraficOrizontal(){
 
     //Valoare cumulativa
     ctx.textAlign = "start";
-    ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareTextCompensatorFill;
     ctx.strokeStyle = culoareTextCompensatorFill;
     ctx.fillText(Math.round(proiectie), x_val_2, y_val_1 + 6);
