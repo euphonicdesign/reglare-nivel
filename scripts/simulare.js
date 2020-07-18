@@ -72,6 +72,7 @@ var scalaX = 72; //grafic valori vertical
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + scalaY_trend + 50;
+var yGrafic_3 = yGrafic_1 + 85;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -974,6 +975,123 @@ function desenareGraficVertical(){
     }
 }
 
+function desenareGraficOrizontal(){
+    ctx = suprafataGrafica.context;
+
+    //desenare linie orizontala medie
+    //x_val_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
+    y_val_1 = yGrafic_3;
+
+    //y_val_1 = inaltimeSuprafataGrafica - 178 - selectorZi;
+    //y_val_2 = y_val_1 - intervalProiectie;
+    x_val_1 = 10 + Math.floor(selectorZi);
+    x_val_2 = x_val_1 + intervalProiectie;
+
+    //console.log("Selzi: " + selectorZi);
+    //console.log(x_val_1 + " " + x_val_2);
+
+    //y_val_2 = inaltimeSuprafataGrafica - scalaY - 100 - selectorZi - intervalProiectie;
+
+    /*
+    ctx.beginPath();
+    ctx.moveTo(x_val_1, y_val_1);
+    ctx.lineTo(x_val_1, y_val_2);
+    ctx.strokeStyle = culoareLinieMedieGraficVertical;
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();*/
+
+    //linie medie stanga
+    lungime_segment_medie = Math.round( ((medieCumulativ[selectorZi]*scalaX)/maxValue) / 2 );
+    y_ms_1 = y_val_1 - lungime_segment_medie;
+    y_md_1 = y_val_1 + lungime_segment_medie;
+
+    ctx.setLineDash([1, 16]);
+    ctx.beginPath();
+    ctx.moveTo(x_val_1, y_ms_1,);
+    ctx.lineTo(x_val_2, y_ms_1);
+    ctx.strokeStyle = culoareLinieMedieGraficVertical;
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
+
+    //linie medie dreapta
+    ctx.beginPath();
+    ctx.moveTo(x_val_1, y_md_1);
+    ctx.lineTo(x_val_2, y_md_1);
+    //ctx.strokeStyle = culoareLinieMedieGraficVertical;
+    //ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    //desenare text proiectie
+    proiectie = medieCumulativ[selectorZi] * intervalProiectie;
+
+    //Valoare cumulativa
+    ctx.textAlign = "start";
+    ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareTextCompensatorFill;
+    ctx.strokeStyle = culoareTextCompensatorFill;
+    ctx.fillText("" + Math.round(proiectie), x_val_2, y_val_1 + 6);
+
+    for (let i = 0; i <= selectorZi; i++) {
+
+      //GRAFIC VERTICAL - UMPLERE
+      //desenare linie sub valoare grafic
+      y_valoare_1 = y_val_1; //i*incrementX;
+      y_valoare_2 = Math.round(y_valoare_1 + ((data[i]*scalaX)/maxValue));
+      lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
+      y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
+      y_valoare_2 = y_valoare_2 - lungime_segment;
+
+      x_valoare = 10 + i;
+
+      ctx.beginPath();
+      ctx.moveTo(x_valoare, y_valoare_1);
+      ctx.lineTo(x_valoare, y_valoare_2);
+      ctx.strokeStyle = culoareLinieGraficVertical;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+
+      /*
+      //desenare punct inceput in modul foto
+      if(mod==MOD_FOTOGRAFIE){
+        /*
+          ctx.beginPath();
+          ctx.moveTo(x_valoare_1, y_valoare);
+          ctx.lineTo(x_valoare_1 - 2, y_valoare);
+          ctx.strokeStyle = culoarePunctGraficVerticalFoto;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+
+          //desenare punct valoare grafic_valori_desenat_capat dreapta
+          ctx.beginPath();
+          ctx.moveTo(x_valoare_2, y_valoare);
+          ctx.lineTo(x_valoare_2 + 2, y_valoare);
+          ctx.strokeStyle = culoarePunctGraficVerticalFoto;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+      }
+      else{
+
+        //desenare punct valoare grafic_valori_desenat_capat dreapta
+        ctx.beginPath();
+        ctx.moveTo(x_valoare, y_valoare_2);
+        ctx.lineTo(x_valoare, y_valoare_2 + 1);
+        ctx.strokeStyle = culoarePunctGraficVertical;
+        ctx.lineWidth = 1;
+        ctx.closePath();
+        ctx.stroke();
+      }
+      */
+
+    }
+}
+
 function ActualizareSuprafataGrafica() {
     if(!pauza){
         suprafataGrafica.clear();
@@ -1032,6 +1150,7 @@ function ActualizareSuprafataGrafica() {
         else{//MOD_GRAFICE
           desenareZiValoareTrenduri();
           desenareGraficeTrenduri();
+          desenareGraficOrizontal();
         }
 
 
@@ -1075,6 +1194,7 @@ function ActualizareSuprafataGraficaSingulara() {
         else{//MOD_GRAFICE
             desenareZiValoareTrenduri();
             desenareGraficeTrenduri();
+            desenareGraficOrizontal();
         }
 
 
