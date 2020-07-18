@@ -75,7 +75,9 @@ var valoareCumulativaTotal = 0;
 var kp=1.7;
 var ki=0.4;
 var kd=0.02;
+var orizont_trend=45;
 
+var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
@@ -94,7 +96,7 @@ var culoareLinieValoriGrafic = "#b3b3b3";
 var culoareLinieValoriGrafic_2 = "#cccccc";//"#bfbfbf";
 var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
 var culoareLinieGraficNuantat2 = "white";
-var culoareLinieGraficVertical = "white"//"#8c8c8c";
+var culoareLinieGraficVertical = "white";//"#8c8c8c";
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
@@ -644,6 +646,40 @@ function desenareGraficeTrenduri(){
   ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
+
+  if(selectorZi > orizont_trend){
+      //desenare linie trend grafic 1 (jos)
+      index1 = selectorZi - orizont_trend;
+      x_val_1 = index1*incrementX;
+      y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend)/maxValue));
+      x_val_2 = selectorZi*incrementX;
+      y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend)/maxValue));
+      //console.log("1st line: " + y_val_1);
+
+      ctx.setLineDash([1, 2]);
+      ctx.beginPath();
+      ctx.moveTo(12 + x_val_1, y_val_1);
+      ctx.lineTo(12 + x_val_2, y_val_2);
+      ctx.strokeStyle = culoare_linie_trend;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+
+      y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend)/maxValue_2));
+      y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend)/maxValue_2));
+
+      //console.log("2nd line: " + y_val_1);
+
+      ctx.beginPath();
+      ctx.moveTo(12 + x_val_1, y_val_1);
+      ctx.lineTo(12 + x_val_2, y_val_2);
+      //ctx.strokeStyle = culoareLinieMedieGraficVertical;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+      ctx.setLineDash([]);
+  }
+
 
 
   for (let i = 0; i <= selectorZi ; i++) {
