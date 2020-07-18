@@ -666,25 +666,32 @@ function desenareGraficeTrenduri(){
 
   procent_variatie_1 = Math.floor((data[selectorZi] - data[index1]) / data[index1] * 100);
   procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) / data_2[index1] * 100);
+  crestere_variatie_1 = Math.floor(data[selectorZi]/data[index1]*10)/10;
+  crestere_variatie_2 = Math.floor(data_2[selectorZi]/data_2[index1]*10)/10;
 
   if(index1 > 0){
       if (procent_variatie_1>0){
-        eticheta_1 = " (+" + procent_variatie_1 + "%)";
+        eticheta_1 = " +" + procent_variatie_1 + "%";
       }
       else{
-        eticheta_1 = " (" + procent_variatie_1 + "%)";
+        eticheta_1 = " " + procent_variatie_1 + "%";
       }
 
       if (procent_variatie_2>0){
-        eticheta_2 = " (+" + procent_variatie_2 + "%)";
+        eticheta_2 = " +" + procent_variatie_2 + "%";
       }
       else{
-        eticheta_2 = " (" + procent_variatie_2 + "%)";
+        eticheta_2 = " " + procent_variatie_2 + "%";
       }
+
+      crestere_1 = crestere_variatie_1 + "x";
+      crestere_2 = crestere_variatie_2 + "x";
   }
   else{
     eticheta_1 = "";
     eticheta_2 = "";
+    crestere_1 = "";
+    crestere_2 = "";
   }
 
   ctx.setLineDash([1, 2]);
@@ -697,10 +704,13 @@ function desenareGraficeTrenduri(){
   ctx.stroke();
 
   ctx.textAlign = "start";
-  ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
-  ctx.fillText("" + Math.round(data[selectorZi]) + eticheta_1, x_val_2 + 16, y_val_2 - 6);
+  ctx.fillText("" + Math.round(data[selectorZi]), x_val_2 + 16, y_val_2 - 6);
+  ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillText(eticheta_1, x_val_2 + 16, y_val_2 + 24);
+  ctx.fillText(crestere_1, x_val_2 + 16, y_val_2 + 10);
 
   y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend)/maxValue_2));
   y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend)/maxValue_2));
@@ -717,10 +727,13 @@ function desenareGraficeTrenduri(){
   ctx.setLineDash([]);
 
   //ctx.textAlign = "start";
-  //ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextCompensatorFill;
   ctx.strokeStyle = culoareTextCompensatorFill;
-  ctx.fillText("" + Math.round(data_2[selectorZi]) + eticheta_2, x_val_2 + 16, y_val_2 - 6);
+  ctx.fillText("" + Math.round(data_2[selectorZi]), x_val_2 + 16, y_val_2 - 6);
+  ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillText(eticheta_2, x_val_2 + 16, y_val_2 + 24);
+  ctx.fillText(crestere_2, x_val_2 + 16, y_val_2 + 10);
 
 
 
