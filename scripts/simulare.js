@@ -1033,7 +1033,9 @@ function desenareGraficOrizontal(){
     ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareTextCompensatorFill;
     ctx.strokeStyle = culoareTextCompensatorFill;
-    ctx.fillText("+" + Math.round(proiectie), x_val_2, y_val_1 + 6);
+    ctx.fillText(Math.round(proiectie), x_val_2, y_val_1 + 6);
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText("(+" + Math.round(dataCumulativ[selectorZi]) + ")", x_val_2, y_val_1 + 22);
 
     for (let i = 0; i <= selectorZi; i++) {
 
@@ -1054,6 +1056,7 @@ function desenareGraficOrizontal(){
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
+
 
       /*
       //desenare punct inceput in modul foto
