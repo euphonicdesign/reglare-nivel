@@ -919,7 +919,7 @@ function desenareGraficVertical(){
     ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareTextCompensatorFill;
     ctx.strokeStyle = culoareTextCompensatorFill;
-    ctx.fillText("" + Math.round(proiectie), x_val_1, y_val_2 - 4);
+    ctx.fillText("+" + Math.round(proiectie), x_val_1, y_val_2 - 4);
 
     for (let i = 0; i <= selectorZi; i++) {
 
@@ -1033,7 +1033,7 @@ function desenareGraficOrizontal(){
     ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareTextCompensatorFill;
     ctx.strokeStyle = culoareTextCompensatorFill;
-    ctx.fillText("" + Math.round(proiectie), x_val_2, y_val_1 + 6);
+    ctx.fillText("+" + Math.round(proiectie), x_val_2, y_val_1 + 6);
 
     for (let i = 0; i <= selectorZi; i++) {
 
