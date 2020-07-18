@@ -638,7 +638,7 @@ function desenareGraficeTrenduri(){
   ctx.moveTo(10, yGrafic_1 + 5 );
   ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_1 + 5);
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 1;
   ctx.closePath();
   ctx.stroke();
 
@@ -646,7 +646,7 @@ function desenareGraficeTrenduri(){
   ctx.moveTo(10, yGrafic_2 + 5 );
   ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 5);
   ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 1;
   ctx.closePath();
   ctx.stroke();
 
