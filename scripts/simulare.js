@@ -660,7 +660,7 @@ function desenareGraficeTrenduri(){
       ctx.beginPath();
       ctx.moveTo(12 + x_val_1, y_val_1);
       ctx.lineTo(12 + x_val_2, y_val_2);
-      ctx.strokeStyle = culoare_linie_trend;//culoarePunctValoriGrafic;
+      ctx.strokeStyle = culoarePunctValoriGrafic;
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
