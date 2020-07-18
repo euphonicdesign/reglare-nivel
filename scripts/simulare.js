@@ -647,9 +647,15 @@ function desenareGraficeTrenduri(){
   ctx.closePath();
   ctx.stroke();
 
-  if(selectorZi > orizont_trend){
+
       //desenare linie trend grafic 1 (jos)
-      index1 = selectorZi - orizont_trend;
+      if(selectorZi > orizont_trend){
+          index1 = selectorZi - orizont_trend;
+      }
+      else{
+          index1 = 0;
+      }
+
       x_val_1 = index1*incrementX;
       y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend)/maxValue));
       x_val_2 = selectorZi*incrementX;
@@ -690,7 +696,6 @@ function desenareGraficeTrenduri(){
       ctx.fillStyle = culoareTextCompensatorFill;
       ctx.strokeStyle = culoareTextCompensatorFill;
       ctx.fillText("" + Math.round(data_2[selectorZi]), x_val_2 + 16, y_val_2 - 6);
-  }
 
 
 
