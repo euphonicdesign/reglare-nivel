@@ -1035,7 +1035,7 @@ function desenareGraficOrizontal(){
     ctx.strokeStyle = culoareTextCompensatorFill;
     ctx.fillText("+" + Math.round(proiectie), x_val_2, y_val_1 + 6);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("(" + Math.round(dataCumulativ[selectorZi]) + ")", x_val_2, y_val_1 + 22);
+    ctx.fillText("(=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...)", x_val_2, y_val_1 + 22);
 
     for (let i = 0; i <= selectorZi; i++) {
 
