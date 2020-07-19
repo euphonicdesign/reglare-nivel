@@ -862,7 +862,13 @@ function desenareGraficeTrenduri(){
     //ctx.moveTo(12 + x_val_1 - 1, y_val_1 + 1);
     //ctx.lineTo(12 + x_val_1 + 1, y_val_1 - 1);
     //ctx.fillStyle = "#d9d9d9";
-    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+    if(procent_variatie_2 > 0){
+        ctx.strokeStyle = culoareCrestere;//culoareTextCompensatorFill;
+    }
+    else{
+        ctx.strokeStyle = culoareScadere;
+    }
+    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
     ctx.lineWidth = 2;
     ctx.closePath();
     ctx.stroke();
