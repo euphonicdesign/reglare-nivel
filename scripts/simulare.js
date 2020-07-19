@@ -78,6 +78,9 @@ var ki=0.4;
 var kd=0.02;
 var orizont_trend=45;
 
+var xc2 = 0;
+var yc2 = 0;
+
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
 var nivelUltraCritic = 25;
@@ -1072,24 +1075,28 @@ function desenareGraficOrizontal(){
     y_ms_1 = y_val_1 - lungime_segment_medie;
     y_md_1 = y_val_1 + lungime_segment_medie;
 
-    ctx.setLineDash([1, 16]);
-    ctx.beginPath();
-    ctx.moveTo(x_val_1, y_ms_1,);
-    ctx.lineTo(x_val_2, y_ms_1);
+
     ctx.strokeStyle = culoareLinieMedieGraficVertical;
     ctx.lineWidth = 2;
+    ctx.setLineDash([1, 16]);
+
+    ctx.beginPath();
+    ctx.moveTo(x_val_1, y_ms_1);
+    ctx.lineTo(x_val_2, y_ms_1);
     ctx.closePath();
     ctx.stroke();
 
     //linie medie dreapta
+    //ctx.setLineDash([1, 16]);
     ctx.beginPath();
     ctx.moveTo(x_val_1, y_md_1);
     ctx.lineTo(x_val_2, y_md_1);
-    //ctx.strokeStyle = culoareLinieMedieGraficVertical;
-    //ctx.lineWidth = 2;
     ctx.closePath();
     ctx.stroke();
-    ctx.setLineDash([]);
+
+    ctx.beginPath();
+    ctx.closePath();
+    //ctx.stroke();
 
     //desenare text proiectie
     proiectie = medieCumulativ[selectorZi] * intervalProiectie;
@@ -1102,6 +1109,27 @@ function desenareGraficOrizontal(){
     ctx.fillText("+" + Math.round(proiectie), x_val_2, y_val_1 + 6);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText("(=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...)", x_val_2, y_val_1 + 22);
+
+
+    //Calcul coordonate ultima linie a graficului
+    y_valoare_1 = y_val_1; //i*incrementX;
+    y_valoare_2 = Math.round(y_valoare_1 + ((data[data.length-1]*scalaX)/maxValue));
+    lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
+    y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
+    y_valoare_2 = y_valoare_2 - lungime_segment;
+
+    x_valoare = 10 + selectorZi;
+
+    //linie conectare
+    ctx.setLineDash([1, 10]);
+    //ctx.beginPath();
+    ctx.moveTo(12 + xc2, yc2);
+    ctx.lineTo(x_valoare, y_valoare_1);
+    ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+    ctx.lineWidth = 1;
+    //ctx.closePath();
+    ctx.stroke();
+    ctx.setLineDash([]);
 
     for (let i = 0; i <= selectorZi; i++) {
 
@@ -1122,7 +1150,6 @@ function desenareGraficOrizontal(){
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
-
 
       /*
       //desenare punct inceput in modul foto
