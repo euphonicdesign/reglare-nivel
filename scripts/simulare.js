@@ -18,7 +18,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             13.00, 13.00, 13.00, 14.33, 14.00, 13.33, 11.33,
             15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33,
             21.00, 20.00, 22.67, 22.33, 22.00, 16.00, 18.00,
-            16.67, 18.00, 20.00, 22.67, 23.33, 19.00,
+            16.67, 18.00, 20.00, 22.67, 23.33, 19.00, 19.00,
 
           ];
 
@@ -38,9 +38,7 @@ let data_2 = [52.00, 89.33, 131.67, 157.67, 151.00, 176.67, 182.00,
               321.67, 297.00, 258.33, 260.33, 331.67, 397.33, 398.67,
               342.33, 295.00, 316.00, 327.67, 388.00, 398.67, 428.67,
               409.00, 352.33, 346.00, 400.67, 522.00, 587.00, 634.67,
-              582.00, 522.33, 502.00, 563.67, 685.00, 739.00,
-
-
+              582.00, 522.33, 502.00, 563.67, 685.00, 739.00, 821.67, 
             ];
 
 let dataCumulativ = [];
@@ -736,17 +734,17 @@ function desenareGraficeTrenduri(){
   ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
-
+  ctx.setLineDash([]);
 
   //linie conectare
-  ctx.beginPath();
+  ctx.setLineDash([1, 10]);
+  //ctx.beginPath();
   ctx.moveTo(12 + xc1, yc1);
   ctx.lineTo(12 + xc2, yc2);
   ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
   ctx.lineWidth = 1;
-  ctx.closePath();
+  //ctx.closePath();
   ctx.stroke();
-
   ctx.setLineDash([]);
 
   //punct linie conectare
