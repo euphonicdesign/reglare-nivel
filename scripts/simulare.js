@@ -100,6 +100,7 @@ var culoareLinieValoriGrafic_2 = "#cccccc";//"#bfbfbf";
 var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
 var culoareLinieGraficNuantat2 = "white";
 var culoareLinieGraficVertical = "white";//"#8c8c8c";
+var culoareLinieLegatura = "#d9d9d9";
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
@@ -107,6 +108,7 @@ var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoarePunctValoriGrafic_2 = "white";//"grey";//"culoareApaNivelNormal"; //"#999999";
 var culoarePunctValoriGrafic_3 = "#737373";//"#808080";
 var culoareTextZi = "#999999";//"#595959";
+
 
 var culoareTextReferinta = "#76adff";
 var culoareLinieReferinta = "#cce0ff";
@@ -713,11 +715,20 @@ function desenareGraficeTrenduri(){
   ctx.fillText(eticheta_1, x_val_2 + 16, y_val_2 + 24);
   ctx.fillText(crestere_1, x_val_2 + 16, y_val_2 + 10);
 
+
+  //linie conectare
+  xc2 = x_val_2;
+  yc2 = y_val_2;
+
   y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend)/maxValue_2));
   y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend)/maxValue_2));
 
+  xc1 = (x_val_2 - x_val_1) * 0.7 + x_val_1;
+  yc1 = (y_val_2 - y_val_1) * 0.7 + y_val_1;
+
   //console.log("2nd line: " + y_val_1);
 
+  //linie grafic 2
   ctx.beginPath();
   ctx.moveTo(12 + x_val_1, y_val_1);
   ctx.lineTo(12 + x_val_2, y_val_2);
@@ -725,6 +736,17 @@ function desenareGraficeTrenduri(){
   ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
+
+
+  //linie conectare
+  ctx.beginPath();
+  ctx.moveTo(12 + xc1, yc1);
+  ctx.lineTo(12 + xc2, yc2);
+  ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 1;
+  ctx.closePath();
+  ctx.stroke();
+
   ctx.setLineDash([]);
 
   //ctx.textAlign = "start";
