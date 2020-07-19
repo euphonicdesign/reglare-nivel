@@ -855,7 +855,7 @@ function desenareGraficeTrenduri(){
     //ctx.lineTo(12 + x_val_1 + 1, y_val_1 - 1);
     //ctx.fillStyle = "#d9d9d9";
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
     ctx.closePath();
     ctx.stroke();
 }
@@ -1110,27 +1110,6 @@ function desenareGraficOrizontal(){
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText("(=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...)", x_val_2, y_val_1 + 22);
 
-
-    //Calcul coordonate ultima linie a graficului
-    y_valoare_1 = y_val_1; //i*incrementX;
-    y_valoare_2 = Math.round(y_valoare_1 + ((data[data.length-1]*scalaX)/maxValue));
-    lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
-    y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
-    y_valoare_2 = y_valoare_2 - lungime_segment;
-
-    x_valoare = 10 + selectorZi;
-
-    //linie conectare
-    ctx.setLineDash([1, 10]);
-    //ctx.beginPath();
-    ctx.moveTo(12 + xc2, yc2);
-    ctx.lineTo(x_valoare, y_valoare_1);
-    ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
-    ctx.lineWidth = 1;
-    //ctx.closePath();
-    ctx.stroke();
-    ctx.setLineDash([]);
-
     for (let i = 0; i <= selectorZi; i++) {
 
       //GRAFIC VERTICAL - UMPLERE
@@ -1143,6 +1122,7 @@ function desenareGraficOrizontal(){
 
       x_valoare = 10 + i;
 
+      ctx.setLineDash([]);
       ctx.beginPath();
       ctx.moveTo(x_valoare, y_valoare_1);
       ctx.lineTo(x_valoare, y_valoare_2);
@@ -1150,6 +1130,32 @@ function desenareGraficOrizontal(){
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.closePath();
+      ctx.stroke();
+
+      if(i==selectorZi){
+        //linie conectare
+        ctx.setLineDash([1, 10]);
+        //ctx.beginPath();
+        ctx.moveTo(12 + xc2, yc2);
+        ctx.lineTo(x_valoare + 2, y_valoare_1 - 2);
+        ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+        ctx.lineWidth = 1;
+        //ctx.closePath();
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        //punct linie conectare
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(x_valoare, y_valoare_1, 4, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+      }
+
 
       /*
       //desenare punct inceput in modul foto
