@@ -38,7 +38,7 @@ let data_2 = [52.00, 89.33, 131.67, 157.67, 151.00, 176.67, 182.00,
               321.67, 297.00, 258.33, 260.33, 331.67, 397.33, 398.67,
               342.33, 295.00, 316.00, 327.67, 388.00, 398.67, 428.67,
               409.00, 352.33, 346.00, 400.67, 522.00, 587.00, 634.67,
-              582.00, 522.33, 502.00, 563.67, 685.00, 739.00, 821.67, 
+              582.00, 522.33, 502.00, 563.67, 685.00, 739.00, 821.67,
             ];
 
 let dataCumulativ = [];
@@ -695,6 +695,17 @@ function desenareGraficeTrenduri(){
     crestere_2 = "";
   }
 
+
+  //punct linie grafic 1
+  ctx.beginPath();
+  ctx.arc(12 + x_val_2, y_val_2, 4, 0, 2 * Math.PI);
+  //ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
+  //ctx.lineTo(12 + x_val_2 + 1, y_val_2 - 1);
+  ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 1;
+  ctx.closePath();
+  ctx.stroke();
+
   ctx.setLineDash([1, 2]);
   ctx.beginPath();
   ctx.moveTo(12 + x_val_1, y_val_1);
@@ -747,6 +758,17 @@ function desenareGraficeTrenduri(){
   ctx.stroke();
   ctx.setLineDash([]);
 
+
+
+  //punct linie grafic 2 - capat
+  ctx.beginPath();
+  ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
+  ctx.lineTo(12 + x_val_2 + 1, y_val_2 - 1);
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 4;
+  ctx.closePath();
+  ctx.stroke();
+
   //punct linie conectare
   ctx.beginPath();
   ctx.moveTo(12 + xc1 - 1, yc1 + 1);
@@ -755,6 +777,8 @@ function desenareGraficeTrenduri(){
   ctx.lineWidth = 4;
   ctx.closePath();
   ctx.stroke();
+
+
 
   //ctx.textAlign = "start";
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
@@ -818,6 +842,18 @@ function desenareGraficeTrenduri(){
       ctx.closePath();
       ctx.stroke();
     }
+
+    //punct linie grafic 2 - inceput
+    ctx.beginPath();
+    ctx.arc(12 + x_val_1, y_val_1, 4, 0, 2 * Math.PI);
+
+    //ctx.moveTo(12 + x_val_1 - 1, y_val_1 + 1);
+    //ctx.lineTo(12 + x_val_1 + 1, y_val_1 - 1);
+    //ctx.fillStyle = "#d9d9d9";
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+    ctx.lineWidth = 1;
+    ctx.closePath();
+    ctx.stroke();
 }
 
 function desenareGraficValori(){
