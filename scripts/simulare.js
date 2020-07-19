@@ -771,10 +771,11 @@ function desenareGraficeTrenduri(){
 
   //punct linie conectare
   ctx.beginPath();
-  ctx.moveTo(12 + xc1 - 1, yc1 + 1);
-  ctx.lineTo(12 + xc1 + 1, yc1 - 1);
+  ctx.arc(12 + xc1, yc1, 4, 0, 2 * Math.PI);
+  //ctx.moveTo(12 + xc1 - 1, yc1 + 1);
+  //ctx.lineTo(12 + xc1 + 1, yc1 - 1);
   ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 4;
+  ctx.lineWidth = 1;
   ctx.closePath();
   ctx.stroke();
 
