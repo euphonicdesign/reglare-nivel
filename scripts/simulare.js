@@ -122,6 +122,8 @@ var culoareTextCompensatorFill2 = "#8c8c8c";
 var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
 var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
 var culoareF = "#999999";
+var culoareCrestere = culoareTextCompensatorRosu;
+var culoareScadere = "green";
 
 var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
@@ -790,9 +792,15 @@ function desenareGraficeTrenduri(){
   ctx.strokeStyle = culoareTextCompensatorFill;
   ctx.fillText("" + Math.round(data_2[selectorZi]), x_val_2 + 16, y_val_2 - 6);
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText(eticheta_2, x_val_2 + 16, y_val_2 + 24);
   ctx.fillText(crestere_2, x_val_2 + 16, y_val_2 + 10);
 
+  if(procent_variatie_2 > 0){
+      ctx.fillStyle = culoareCrestere;//culoareTextCompensatorFill;
+  }
+  else{
+      ctx.fillStyle = culoareScadere;
+  }
+  ctx.fillText(eticheta_2, x_val_2 + 16, y_val_2 + 24);
 
 
   for (let i = 0; i <= selectorZi ; i++) {
