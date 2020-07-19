@@ -100,7 +100,7 @@ var culoareLinieValoriGrafic_2 = "#cccccc";//"#bfbfbf";
 var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
 var culoareLinieGraficNuantat2 = "white";
 var culoareLinieGraficVertical = "white";//"#8c8c8c";
-var culoareLinieLegatura = "#d9d9d9";
+var culoareLinieLegatura = "#999999";
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
@@ -748,6 +748,15 @@ function desenareGraficeTrenduri(){
   ctx.stroke();
 
   ctx.setLineDash([]);
+
+  //punct linie conectare
+  ctx.beginPath();
+  ctx.moveTo(12 + xc1 - 1, yc1 + 1);
+  ctx.lineTo(12 + xc1 + 1, yc1 - 1);
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 4;
+  ctx.closePath();
+  ctx.stroke();
 
   //ctx.textAlign = "start";
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
