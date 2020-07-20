@@ -128,6 +128,7 @@ var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
 var culoareF = "#999999";
 var culoareCrestere = culoareTextCompensatorRosu;
 var culoareScadere = "green";
+var culoareTrend = culoarePunctValoriGrafic_3;
 
 var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
@@ -682,6 +683,13 @@ function desenareGraficeTrenduri(){
   crestere_variatie_1 = Math.floor(data[selectorZi]/data[index1]*10)/10;
   crestere_variatie_2 = Math.floor(data_2[selectorZi]/data_2[index1]*10)/10;
 
+  if(procent_variatie_2 > 0){
+      culoareTrend = culoareCrestere;//culoareTextCompensatorFill;
+  }
+  else{
+      culoareTrend = culoareScadere;
+  }
+
   if(index1 > 0){
       if (procent_variatie_1>0){
         eticheta_1 = " +" + procent_variatie_1 + "%";
@@ -711,10 +719,8 @@ function desenareGraficeTrenduri(){
   //punct LINIE TREND grafic 1 - capat dreapta
   ctx.beginPath();
   ctx.arc(12 + x_val_2, y_val_2, 4, 0, 2 * Math.PI);
-  //ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
-  //ctx.lineTo(12 + x_val_2 + 1, y_val_2 - 1);
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 1;
+  ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
 
@@ -755,7 +761,7 @@ function desenareGraficeTrenduri(){
   ctx.beginPath();
   ctx.moveTo(12 + x_val_1, y_val_1);
   ctx.lineTo(12 + x_val_2, y_val_2);
-  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.strokeStyle = culoareTrend;//culoare_linie_trend;//culoarePunctValoriGrafic;
   ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
@@ -785,20 +791,21 @@ function desenareGraficeTrenduri(){
 
   //punct linie grafic 2 - capat
   ctx.beginPath();
-  ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
-  ctx.lineTo(12 + x_val_2 + 1, y_val_2 - 1);
-  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 4;
+  //ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
+  //ctx.lineTo(12 + x_val_2 + 1, y_val_2 - 1);
+  ctx.arc(12 + x_val_2, y_val_2, 4, 0, 2 * Math.PI);
+  ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
 
-  //punct linie conectare
+  //punct linie conectare - mijloc
   ctx.beginPath();
   ctx.arc(12 + xc1, yc1, 4, 0, 2 * Math.PI);
   //ctx.moveTo(12 + xc1 - 1, yc1 + 1);
   //ctx.lineTo(12 + xc1 + 1, yc1 - 1);
-  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 1;
+  ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
 
@@ -811,12 +818,7 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(crestere_2, x_val_2 + 16, y_val_2 + 10);
 
-  if(procent_variatie_2 > 0){
-      ctx.fillStyle = culoareCrestere;//culoareTextCompensatorFill;
-  }
-  else{
-      ctx.fillStyle = culoareScadere;
-  }
+  ctx.fillStyle = culoareTrend;
   ctx.fillText(eticheta_2, x_val_2 + 16, y_val_2 + 24);
 
 
@@ -877,17 +879,7 @@ function desenareGraficeTrenduri(){
     //punct linie grafic 2 - inceput - cerculet
     ctx.beginPath();
     ctx.arc(12 + x_val_1, y_val_1, 4, 0, 2 * Math.PI);
-
-    //ctx.moveTo(12 + x_val_1 - 1, y_val_1 + 1);
-    //ctx.lineTo(12 + x_val_1 + 1, y_val_1 - 1);
-    //ctx.fillStyle = "#d9d9d9";
-    if(procent_variatie_2 > 0){
-        ctx.strokeStyle = culoareCrestere;//culoareTextCompensatorFill;
-    }
-    else{
-        ctx.strokeStyle = culoareScadere;
-    }
-    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+    ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
     ctx.lineWidth = 2;
     ctx.closePath();
     ctx.stroke();
