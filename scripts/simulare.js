@@ -1155,7 +1155,7 @@ function desenareGraficOrizontal(){
         //ctx.beginPath();
         ctx.moveTo(12 + xc2, yc2);
         ctx.lineTo(x_valoare + 2, y_valoare_1 - 2);
-        ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+        ctx.strokeStyle = culoarePunctValoriGrafic;//culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
         ctx.lineWidth = 1;
         //ctx.closePath();
         ctx.stroke();
