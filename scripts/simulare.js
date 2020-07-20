@@ -1145,7 +1145,7 @@ function desenareGraficOrizontal(){
     ctx.fillText("Ziua " + (selectorZi + intervalProiectie), x_val_2, y_val_1 + 22);
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    ctx.fillText(Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2, y_val_1 + 38);
+    ctx.fillText("=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2, y_val_1 + 38);
 
     for (let i = 0; i <= selectorZi; i++) {
 
