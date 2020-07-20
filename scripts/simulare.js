@@ -753,7 +753,13 @@ function desenareGraficeTrenduri(){
   ctx.setLineDash([]);
 
   //linie conectare
-  ctx.setLineDash([1, 10]);
+  dist = Math.pow((xc2 - xc1),2) + Math.pow((yc2 - yc1),2);
+  dist = Math.floor(10 * Math.sqrt(dist)/100);
+  //console.log(dist);
+  //linie conectare
+  ctx.setLineDash([1, 1 + dist]);
+
+  //ctx.setLineDash([1, 10]);
   //ctx.beginPath();
   ctx.moveTo(12 + xc1, yc1);
   ctx.lineTo(12 + xc2, yc2);
@@ -1150,8 +1156,18 @@ function desenareGraficOrizontal(){
       ctx.stroke();
 
       if(i==selectorZi){
+        dist = Math.pow((x_valoare - xc2 - 10),2) + Math.pow((y_valoare_1 - yc2 - 2),2);
+        dist = Math.floor(10 * Math.sqrt(dist)/100);
+        //console.log(dist);
         //linie conectare
-        ctx.setLineDash([1, 10]);
+        ctx.setLineDash([1, 8 + 1 + dist]);
+
+        //dist = Math.pow((x_valoare - xc2 - 10),2) + Math.pow((y_valoare_1 - yc2 - 2),2);
+        //dist = 3 * Math.sqrt(dist)/100;
+        //console.log(dist);
+        //linie conectare
+        //ctx.setLineDash([1, 8 + 2 * dist]);
+
         //ctx.beginPath();
         ctx.moveTo(12 + xc2, yc2);
         ctx.lineTo(x_valoare + 2, y_valoare_1 - 2);
