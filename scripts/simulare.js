@@ -754,7 +754,7 @@ function desenareGraficeTrenduri(){
 
   //linie conectare
   dist = Math.pow((xc2 - xc1),2) + Math.pow((yc2 - yc1),2);
-  dist = Math.floor(10 * Math.sqrt(dist)/100);
+  dist = Math.floor(5 * Math.sqrt(dist)/100);
   //console.log(dist);
   //linie conectare
   ctx.setLineDash([1, 1 + dist]);
@@ -1157,10 +1157,10 @@ function desenareGraficOrizontal(){
 
       if(i==selectorZi){
         dist = Math.pow((x_valoare - xc2 - 10),2) + Math.pow((y_valoare_1 - yc2 - 2),2);
-        dist = Math.floor(10 * Math.sqrt(dist)/100);
+        dist = Math.floor(5 * Math.sqrt(dist)/100);
         //console.log(dist);
         //linie conectare
-        ctx.setLineDash([1, 8 + 1 + dist]);
+        ctx.setLineDash([1, 1 + dist]);
 
         //dist = Math.pow((x_valoare - xc2 - 10),2) + Math.pow((y_valoare_1 - yc2 - 2),2);
         //dist = 3 * Math.sqrt(dist)/100;
