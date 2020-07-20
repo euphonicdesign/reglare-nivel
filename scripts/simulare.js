@@ -41,12 +41,12 @@ let data_2 = [52.00, 89.33, 131.67, 157.67, 151.00, 176.67, 182.00,
               409.00, 352.33, 346.00, 400.67, 522.00, 587.00, 634.67,
               582.00, 522.33, 502.00, 563.67, 685.00, 739.00, 821.67,
               818.33,
-
             ];
 
 let dataCumulativ = [];
 let medieCumulativ = [];
 let comandaIdeala = [];
+let proiectie = [];
 var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
 var MOD_FOTOGRAFIE = 0;
@@ -79,8 +79,14 @@ var valoareCumulativaTotal = 0;
 var kp=1.7;
 var ki=0.4;
 var kd=0.02;
-var orizont_trend=45;
+var orizont_trend = 45;
 var procent_index2_orizont_trend = 0.7;
+
+
+//Parametrii Predictie (A,r)
+var coefA = 1.0;
+var bazaR = 1.0;
+var orizont_regresie = Math.floor(orizont_trend / 2);
 
 var xc2 = 0;
 var yc2 = 0;
@@ -389,7 +395,65 @@ function start() {
         //ctx.drawImage(fotografie, 0, 0);
     }
 
+    //Calcul Parametrii Predictie (coefA,bazaR)
+    calcul_parametrii_Predictie();
+
+    //construire proiectie
+
+
+
     setare_mod();
+}
+
+function calcul_parametrii_Predictie(){
+    n = orizont_regresie;
+    //console.log(n);
+    //console.log(data_2.length);
+    zi_start = data_2.length - n;
+
+    sumX = 0;
+    sumY = 0;
+    sumXY = 0;
+    sumX2 = 0;
+
+    for(let i = zi_start; i < data_2.length; i++){
+      //console.log(i);
+      //SumX
+      sumX += i;
+
+      //SumY(SumLn(y))
+      sumY += Math.log(data_2[i]);
+
+      //SumXY(SumXLn(y))
+      sumXY += i*Math.log(data_2[i]);
+
+      //SumX^2
+      sumX2 += i*i;
+
+      //data_2[i];
+    }
+
+    m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
+    b = (sumY - m*sumX) / n;
+
+    bazaR = Math.exp(m);
+    coefA = Math.exp(b);
+
+    yp = coefA * Math.pow(bazaR, 110);
+
+    /*
+    console.log("n: " + n);
+    console.log("SumX: " + sumX);
+    console.log("SumY(lnY): " + sumY);
+    console.log("SumXY(lnY): " + sumXY);
+    console.log("SumX^2: " + sumX2);
+    console.log("m: " + m);
+    console.log("b: " + b);
+    console.log("bazaR: " + bazaR);
+    console.log("coefA: " + coefA);
+    console.log("i start: " + zi_start);
+    console.log("data2[zi_start]: " + data_2[zi_start]);
+    console.log("yp: " + yp);*/
 }
 
 var suprafataGrafica = {
@@ -659,6 +723,47 @@ function desenareGraficeTrenduri(){
   ctx.lineWidth = 1;
   ctx.closePath();
   ctx.stroke();
+
+
+  //desenare proiectie
+  ziStart = data_2.length - orizont_regresie;
+  ziFinal = data_2.length + Math.floor(orizont_regresie / 2) + 1;
+  if(selectorZi > ziStart){
+      for (let i = ziStart; i <= ziFinal ; i++) {
+          x1_1 = (i-1)*incrementX;
+          //x1_2 = i*incrementX;
+
+          yp1 = coefA * Math.pow(bazaR, (i-1));
+          //yp2 = coefA * Math.pow(bazaR, i);
+
+          //console.log("x1_1: " + x1_1 + "x1_2: " +x1_2);
+          //console.log("yp1: " + yp1 + "yp2: " +yp2);
+
+          //y1_1 = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend)/maxValue));
+          y1_1 = Math.round(yGrafic_2 - ((yp1*scalaY_trend)/maxValue_2));
+          //y1_2 = Math.round(yGrafic_2 - ((yp2*scalaY_trend)/maxValue_2));
+
+          //desenare linii conectare puncte valori grafic 1
+          /*
+          ctx.beginPath();
+          ctx.moveTo(12 + x1_1, y1_1);
+          ctx.lineTo(12 + x1_2, y1_2);
+          ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();*/
+
+          ctx.beginPath();
+          ctx.arc(12 + x1_1, y1_1, 1, 0, 2 * Math.PI);
+          //ctx.filStyle = "black";
+          ctx.strokeStyle = culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 1;
+          ctx.closePath();
+          //ctx.fill();
+          ctx.stroke();
+      }
+
+  }
 
 
   //desenare LINIE TREND (pe orizont de timp) grafic 1 (jos)
