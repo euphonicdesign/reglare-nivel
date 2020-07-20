@@ -80,6 +80,7 @@ var kp=1.7;
 var ki=0.4;
 var kd=0.02;
 var orizont_trend=45;
+var procent_index2_orizont_trend = 0.7;
 
 var xc2 = 0;
 var yc2 = 0;
@@ -662,12 +663,15 @@ function desenareGraficeTrenduri(){
   //desenare LINIE TREND (pe orizont de timp) grafic 1 (jos)
   if(selectorZi > orizont_trend){
       index1 = selectorZi - orizont_trend;
+      index2 = selectorZi - orizont_trend + Math.floor(procent_index2_orizont_trend * orizont_trend);
+      //console.log(index2);
   }
   else{
       index1 = 0;
+      index2 = 0;
   }
 
-  x_val_1 = index1*incrementX;
+  x_val_1 = index1 * incrementX;
   y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend)/maxValue));
   x_val_2 = selectorZi*incrementX;
   y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend)/maxValue));
@@ -742,8 +746,8 @@ function desenareGraficeTrenduri(){
   y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend)/maxValue_2));
   y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend)/maxValue_2));
 
-  xc1 = (x_val_2 - x_val_1) * 0.7 + x_val_1;
-  yc1 = (y_val_2 - y_val_1) * 0.7 + y_val_1;
+  xc1 = (x_val_2 - x_val_1) * procent_index2_orizont_trend + x_val_1;
+  yc1 = (y_val_2 - y_val_1) * procent_index2_orizont_trend + y_val_1;
 
   //console.log("2nd line: " + y_val_1);
 
@@ -778,11 +782,6 @@ function desenareGraficeTrenduri(){
   //ctx.closePath();
   ctx.stroke();
   ctx.setLineDash([]);
-
-/*
-  ctx.beginPath();
-  ctx.closePath();
-  ctx.stroke();*/
 
   //punct linie grafic 2 - capat
   ctx.beginPath();
@@ -875,7 +874,7 @@ function desenareGraficeTrenduri(){
       ctx.stroke();*/
     }
 
-    //punct linie grafic 2 - inceput
+    //punct linie grafic 2 - inceput - cerculet
     ctx.beginPath();
     ctx.arc(12 + x_val_1, y_val_1, 4, 0, 2 * Math.PI);
 
@@ -892,6 +891,61 @@ function desenareGraficeTrenduri(){
     ctx.lineWidth = 2;
     ctx.closePath();
     ctx.stroke();
+
+    //desenare indicator Zi capat stanga Grafic 2 (sus)
+    if(selectorZi > orizont_trend){
+      //capat stanga
+      ctx.beginPath();
+      ctx.moveTo(12 + x_val_1, yGrafic_2 + 3);
+      ctx.lineTo(12 + x_val_1, yGrafic_2 + 7);
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.textAlign = "center";
+      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.fillText("Ziua " + index1, 12 + x_val_1, yGrafic_2 + 21);
+
+      //capat dreapta
+      ctx.beginPath();
+      ctx.moveTo(12 + x_valoare, yGrafic_2 + 3);
+      ctx.lineTo(12 + x_valoare, yGrafic_2 + 7);
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.textAlign = "center";
+      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.fillText(selectorZi, 12 + x_valoare, yGrafic_2 + 21);
+
+      ctx.beginPath();
+      ctx.closePath();
+      ctx.stroke();
+
+      //centru mijloc - index2
+      ctx.beginPath();
+      ctx.moveTo(12 + xc1, yGrafic_2 + 3);
+      ctx.lineTo(12 + xc1, yGrafic_2 + 7);
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.textAlign = "center";
+      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.fillText(index2, 12 + xc1, yGrafic_2 + 21);
+
+
+    }
+
 }
 
 function desenareGraficValori(){
