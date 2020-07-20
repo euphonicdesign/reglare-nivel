@@ -683,12 +683,7 @@ function desenareGraficeTrenduri(){
   crestere_variatie_1 = Math.floor(data[selectorZi]/data[index1]*10)/10;
   crestere_variatie_2 = Math.floor(data_2[selectorZi]/data_2[index1]*10)/10;
 
-  if(procent_variatie_2 > 0){
-      culoareTrend = culoareCrestere;//culoareTextCompensatorFill;
-  }
-  else{
-      culoareTrend = culoareScadere;
-  }
+
 
   if(index1 > 0){
       if (procent_variatie_1>0){
@@ -700,9 +695,11 @@ function desenareGraficeTrenduri(){
 
       if (procent_variatie_2>0){
         eticheta_2 = " +" + procent_variatie_2 + "%";
+        culoareTrend = culoareCrestere;//culoareTextCompensatorFill;
       }
       else{
         eticheta_2 = " " + procent_variatie_2 + "%";
+        culoareTrend = culoareScadere;
       }
 
       crestere_1 = crestere_variatie_1 + "x";
