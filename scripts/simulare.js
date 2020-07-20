@@ -729,6 +729,8 @@ function desenareGraficeTrenduri(){
   ziStart = data_2.length - orizont_regresie;
   ziFinal = data_2.length + Math.floor(orizont_regresie / 2) + 1;
   if(selectorZi > ziStart){
+      var y1_1 = 0;
+      var x1_1 = 0;
       for (let i = ziStart; i <= ziFinal ; i++) {
           x1_1 = (i-1)*incrementX;
           //x1_2 = i*incrementX;
@@ -763,7 +765,12 @@ function desenareGraficeTrenduri(){
           ctx.stroke();
       }
 
+      //desenare valoare bazaR
+      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoare_linie_trend;//culoarePunctValoriGrafic_3;
+      ctx.fillText("r=" + (Math.floor(bazaR*100))/100, x1_1 + 18, y1_1 + 4);
   }
+
 
 
   //desenare LINIE TREND (pe orizont de timp) grafic 1 (jos)
@@ -922,7 +929,6 @@ function desenareGraficeTrenduri(){
 
   ctx.fillStyle = culoareTrend;
   ctx.fillText(eticheta_2, x_val_2 + 16, y_val_2 + 24);
-
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
   for (let i = 0; i <= selectorZi ; i++) {
