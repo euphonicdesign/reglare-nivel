@@ -656,7 +656,7 @@ function desenareGraficeTrenduri(){
   ctx.stroke();
 
 
-  //desenare linie trend grafic 1 (jos)
+  //desenare LINIE TREND (pe orizont de timp) grafic 1 (jos)
   if(selectorZi > orizont_trend){
       index1 = selectorZi - orizont_trend;
   }
@@ -701,7 +701,7 @@ function desenareGraficeTrenduri(){
   }
 
 
-  //punct linie grafic 1
+  //punct LINIE TREND grafic 1 - capat dreapta
   ctx.beginPath();
   ctx.arc(12 + x_val_2, y_val_2, 4, 0, 2 * Math.PI);
   //ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
@@ -711,6 +711,7 @@ function desenareGraficeTrenduri(){
   ctx.closePath();
   ctx.stroke();
 
+  //LINIE TREND - grafic 1 (jos)
   ctx.setLineDash([1, 2]);
   ctx.beginPath();
   ctx.moveTo(12 + x_val_1, y_val_1);
@@ -720,6 +721,7 @@ function desenareGraficeTrenduri(){
   ctx.closePath();
   ctx.stroke();
 
+  //INFO PUNCT Grafic 1 (jos)
   ctx.textAlign = "start";
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
@@ -730,7 +732,7 @@ function desenareGraficeTrenduri(){
   ctx.fillText(crestere_1, x_val_2 + 16, y_val_2 + 10);
 
 
-  //linie conectare
+  //LINIE TREND Grafic 2(sus)
   xc2 = x_val_2;
   yc2 = y_val_2;
 
@@ -742,34 +744,42 @@ function desenareGraficeTrenduri(){
 
   //console.log("2nd line: " + y_val_1);
 
-  //linie grafic 2
+  //desenare LINIE TREND GRAFIC 2(sus)
   ctx.beginPath();
   ctx.moveTo(12 + x_val_1, y_val_1);
   ctx.lineTo(12 + x_val_2, y_val_2);
-  ctx.strokeStyle = culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoare_linie_trend;//culoarePunctValoriGrafic;
   ctx.lineWidth = 2;
   ctx.closePath();
   ctx.stroke();
   ctx.setLineDash([]);
 
-  //linie conectare
+  ctx.beginPath();
+  ctx.closePath();
+  ctx.stroke();
+
+  //linie conectare grafic 2 cu grafic 1
   dist = Math.pow((xc2 - xc1),2) + Math.pow((yc2 - yc1),2);
   dist = Math.floor(5 * Math.sqrt(dist)/100);
   //console.log(dist);
-  //linie conectare
+
+  //desenare linie conectare grafic 2 cu grafic 1
   ctx.setLineDash([1, 1 + dist]);
 
   //ctx.setLineDash([1, 10]);
   //ctx.beginPath();
   ctx.moveTo(12 + xc1, yc1);
   ctx.lineTo(12 + xc2, yc2);
-  ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
   ctx.lineWidth = 1;
   //ctx.closePath();
   ctx.stroke();
   ctx.setLineDash([]);
 
-
+/*
+  ctx.beginPath();
+  ctx.closePath();
+  ctx.stroke();*/
 
   //punct linie grafic 2 - capat
   ctx.beginPath();
@@ -790,12 +800,11 @@ function desenareGraficeTrenduri(){
   ctx.closePath();
   ctx.stroke();
 
-
-
+  //INFO GRAFIC 2 sus
   //ctx.textAlign = "start";
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillStyle = culoareTextCompensatorFill;
-  ctx.strokeStyle = culoareTextCompensatorFill;
+  ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
   ctx.fillText("" + Math.round(data_2[selectorZi]), x_val_2 + 16, y_val_2 - 6);
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(crestere_2, x_val_2 + 16, y_val_2 + 10);
@@ -809,56 +818,58 @@ function desenareGraficeTrenduri(){
   ctx.fillText(eticheta_2, x_val_2 + 16, y_val_2 + 24);
 
 
+  //desenare valori grafice (grafic 1 jos, grafic 2 sus)
   for (let i = 0; i <= selectorZi ; i++) {
       x_valoare = i*incrementX;
       y_valoare = Math.round(yGrafic_1 - ((data[i]*scalaY_trend)/maxValue));
       y_valoare_2 = Math.round(yGrafic_2 - ((data_2[i]*scalaY_trend)/maxValue_2));
 
-
-      //desenare linie sub valoare grafic - data 2
-      /*
-      ctx.beginPath();
-      ctx.moveTo(10 + x_valoare, yGrafic_2);
-      ctx.lineTo(10 + x_valoare, y_valoare_2 );
-      ctx.strokeStyle = culoareLinieValoriGrafic_2;
-      ctx.lineWidth = 1;
-      ctx.closePath();
-      ctx.stroke();*/
-
       //desenare punct valoare grafic_valori_desenat - data_2
+      /*
       ctx.beginPath();
       ctx.moveTo(12 + x_valoare, y_valoare_2 );
       ctx.lineTo(12 + x_valoare, y_valoare_2 + 1);
       ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
       ctx.lineWidth = 4;
       ctx.closePath();
-      ctx.stroke();
-
-      //GRAFIC ORIZONTAL
-      //desenare linie sub valoare grafic - data 1
-      /*
-      ctx.beginPath();
-      ctx.moveTo(10 + x_valoare, yGrafic_1);
-      ctx.lineTo(10 + x_valoare, y_valoare );
-      //if(data[selectorZi] > medieCumulativ[selectorZi]){
-      ctx.strokeStyle = culoareLinieGraficNuantat;
-      //}
-      //else{
-        //ctx.strokeStyle = culoareLinieGraficNuantat2;
-      //}
-
-      ctx.lineWidth = 2;
-      ctx.closePath();
       ctx.stroke();*/
 
+      //desenare linii conectare puncte grafic 2 sus
+      if(i>0){
+          x1_valoare = (i-1)*incrementX;
+          y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend)/maxValue));
+          y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend)/maxValue_2));
+
+
+          //desenare linii conectare puncte valori grafic 1
+          ctx.beginPath();
+          ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
+          ctx.lineTo(12 + x_valoare, y_valoare_2);
+          ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+
+          //desenare linii conectare puncte valori grafic 2
+          ctx.beginPath();
+          ctx.moveTo(12 + x1_valoare, y1_valoare);
+          ctx.lineTo(12 + x_valoare, y_valoare);
+          ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+
+      }
+
       //desenare punct valoare grafic_valori_desenat - data_1
+      /*
       ctx.beginPath();
       ctx.moveTo(12 + x_valoare, y_valoare );
       ctx.lineTo(12 + x_valoare, y_valoare + 1);
       ctx.strokeStyle = culoarePunctValoriGrafic;
       ctx.lineWidth = 4;
       ctx.closePath();
-      ctx.stroke();
+      ctx.stroke();*/
     }
 
     //punct linie grafic 2 - inceput
@@ -1124,8 +1135,8 @@ function desenareGraficOrizontal(){
     //Valoare cumulativa
     ctx.textAlign = "start";
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareTextCompensatorFill;
-    ctx.strokeStyle = culoareTextCompensatorFill;
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText("+" + Math.round(proiectie), x_val_2, y_val_1 + 6);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText("(=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...)", x_val_2, y_val_1 + 22);
