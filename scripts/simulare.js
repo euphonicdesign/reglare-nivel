@@ -1474,24 +1474,26 @@ function desenareGraficOrizontal(){
 
     //Valoare cumulativa
     ctx.textAlign = "start";
-    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("+" + Math.round(proiectie), x_val_2 + 8, y_val_1 - 22);
+
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie), x_val_2 + 8, y_val_1 - 6);
-    ctx.fillText(zi_p + " " + luna_p, x_val_2 + 8, y_val_1 + 10);
+    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie), x_val_2 + 8, y_val_1 - 27);
+
+    //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText(zi_p + " " + luna_p, x_val_2 + 8, y_val_1 -11);
+
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText("+" + Math.round(proiectie), x_val_2 + 8, y_val_1 + 7);
+
+    //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
+    ctx.fillStyle = culoarePunctValoriGrafic_3;
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText("=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 + 8, y_val_1 + 26);
-
-
-    ctx.beginPath();
-    ctx.closePath();
-    ctx.stroke();
-
-
-
+    //ctx.fillStyle = culoarePunctValoriGrafic_3;
+    //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
 
     for (let i = 0; i <= selectorZi; i++) {
 
@@ -1548,43 +1550,10 @@ function desenareGraficOrizontal(){
         ctx.closePath();
         ctx.stroke();
       }
-
-
-      /*
-      //desenare punct inceput in modul foto
-      if(mod==MOD_FOTOGRAFIE){
-        /*
-          ctx.beginPath();
-          ctx.moveTo(x_valoare_1, y_valoare);
-          ctx.lineTo(x_valoare_1 - 2, y_valoare);
-          ctx.strokeStyle = culoarePunctGraficVerticalFoto;
-          ctx.lineWidth = 2;
-          ctx.closePath();
-          ctx.stroke();
-
-          //desenare punct valoare grafic_valori_desenat_capat dreapta
-          ctx.beginPath();
-          ctx.moveTo(x_valoare_2, y_valoare);
-          ctx.lineTo(x_valoare_2 + 2, y_valoare);
-          ctx.strokeStyle = culoarePunctGraficVerticalFoto;
-          ctx.lineWidth = 2;
-          ctx.closePath();
-          ctx.stroke();
-      }
-      else{
-
-        //desenare punct valoare grafic_valori_desenat_capat dreapta
-        ctx.beginPath();
-        ctx.moveTo(x_valoare, y_valoare_2);
-        ctx.lineTo(x_valoare, y_valoare_2 + 1);
-        ctx.strokeStyle = culoarePunctGraficVertical;
-        ctx.lineWidth = 1;
-        ctx.closePath();
-        ctx.stroke();
-      }
-      */
-
     }
+
+    ctx.fillStyle = culoarePunctValoriGrafic_3;
+    ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 30, y_val_1 + 5);
 }
 
 function ActualizareSuprafataGrafica() {
