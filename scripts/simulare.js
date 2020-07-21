@@ -1380,6 +1380,22 @@ function desenareGraficOrizontal(){
     y_ms_1 = y_val_1 - lungime_segment_medie;
     y_md_1 = y_val_1 + lungime_segment_medie;
 
+    //Punct linie proiectie capat dreapta (3)
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//"white";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(x_val_2 - 4, y_ms_1, 4, 0, 2 * Math.PI);
+    //ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+
+    //Desenare numar punct (3)
+    ctx.textAlign = "end";
+    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
+    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText("(3)", x_val_2 - 4, y_ms_1 - 10);
+
 
     ctx.strokeStyle = culoareLinieMedieGraficVertical;
     ctx.lineWidth = 2;
@@ -1404,21 +1420,7 @@ function desenareGraficOrizontal(){
     ctx.stroke();
     ctx.setLineDash([]);
 
-    //Punct linie proiectie capat dreapta (3)
-    ctx.strokeStyle = culoarePunctValoriGrafic_3;//"white";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.arc(x_val_2, y_ms_1, 4, 0, 2 * Math.PI);
-    //ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
 
-    //Desenare numar punct (3)
-    ctx.textAlign = "end";
-    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
-    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("(3)", x_val_2, y_ms_1 - 10);
 
     //desenare text proiectie
     proiectie = medieCumulativ[selectorZi] * intervalProiectie;
