@@ -870,12 +870,12 @@ function desenareGraficeTrenduri(){
       //desenare punct valoare estimata
       ctx.beginPath();
       ctx.arc(12 + x1_1, y1_1, 4, 0, 2 * Math.PI);
-      //ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
 
-      //desenar indicator abscisa
+      //desenare indicator abscisa
       ctx.beginPath();
       ctx.moveTo(12 + x1_1, yGrafic_2 + 3);
       ctx.lineTo(12 + x1_1, yGrafic_2 + 7);
@@ -973,10 +973,10 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
-  ctx.fillText("" + Math.round(data[selectorZi]), x_val_2 + 16, y_val_2 - 6);
+  ctx.fillText("" + Math.round(data[selectorZi]), x_val_2 + 20, y_val_2 - 6);
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText(eticheta_1, x_val_2 + 16, y_val_2 + 24);
-  ctx.fillText(crestere_1, x_val_2 + 16, y_val_2 + 10);
+  ctx.fillText(eticheta_1, x_val_2 + 20, y_val_2 + 24);
+  ctx.fillText(crestere_1, x_val_2 + 20, y_val_2 + 10);
 
 
   //LINIE TREND Grafic 2(sus)
@@ -1056,12 +1056,12 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
   ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-  ctx.fillText("" + Math.round(data_2[selectorZi]), x_val_2 + 16, y_val_2 - 6);
+  ctx.fillText("" + Math.round(data_2[selectorZi]), x_val_2 + 20, y_val_2 - 6);
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText(crestere_2, x_val_2 + 16, y_val_2 + 10);
+  ctx.fillText(crestere_2, x_val_2 + 20, y_val_2 + 10);
 
   ctx.fillStyle = culoareTrend;
-  ctx.fillText(eticheta_2, x_val_2 + 16, y_val_2 + 24);
+  ctx.fillText(eticheta_2, x_val_2 + 20, y_val_2 + 24);
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
   for (let i = 0; i <= selectorZi ; i++) {
