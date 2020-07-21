@@ -1040,6 +1040,16 @@ function desenareGraficeTrenduri(){
   //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
   ctx.fillText("(2)", 12 + x_val_2, y_val_2 - 8);
 
+  //desenare proiectie punct (2) pe abscisa
+  ctx.setLineDash([2,4]);
+  ctx.moveTo(12 + x_val_2, y_val_2);
+  ctx.lineTo(12 + x_val_2, yGrafic_2);
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
+  //ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
+
   //punct linie conectare - mijloc
   ctx.beginPath();
   ctx.arc(12 + xc1, yc1, 4, 0, 2 * Math.PI);
