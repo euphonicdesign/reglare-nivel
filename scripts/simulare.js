@@ -860,12 +860,12 @@ function desenareGraficeTrenduri(){
       ctx.textAlign = "start";
       ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
       ctx.fillStyle = culoarePunctValoriGrafic_3;
-      ctx.fillText("" + Math.round(yp1), x1_1 + 17, y1_1 + 4);
+      ctx.fillText("" + Math.round(yp1), x1_1 + 19, y1_1 + 10);
 
       //desenare valoare bazaR
       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
       ctx.fillStyle = culoare_linie_trend;//culoarePunctValoriGrafic_3;
-      ctx.fillText("r=" + (Math.floor(bazaR*100))/100, x1_1 + 18, y1_1 + 20);
+      ctx.fillText("r=" + (Math.floor(bazaR*100))/100, x1_1 + 20, y1_1 + 26);
 
 
   }
