@@ -19,7 +19,8 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33,
             21.00, 20.00, 22.67, 22.33, 22.00, 16.00, 18.00,
             16.67, 18.00, 20.00, 22.67, 23.33, 19.00, 19.00,
-            18.33,
+            18.33, 16.67,
+
 
           ];
 
@@ -40,7 +41,8 @@ let data_2 = [52.00, 89.33, 131.67, 157.67, 151.00, 176.67, 182.00,
               342.33, 295.00, 316.00, 327.67, 388.00, 398.67, 428.67,
               409.00, 352.33, 346.00, 400.67, 522.00, 587.00, 634.67,
               582.00, 522.33, 502.00, 563.67, 685.00, 739.00, 821.67,
-              818.33,
+              818.33, 779.00,
+
             ];
 
 let data_data = [
@@ -1412,11 +1414,11 @@ function desenareGraficOrizontal(){
     ctx.stroke();
 
     //Desenare numar punct (3)
-    ctx.textAlign = "center";
+    ctx.textAlign = "end";
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
     //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("(3)", x_val_2 + 1, y_ms_1 - 10);
+    ctx.fillText("(3)", x_val_2, y_ms_1 - 10);
 
     //desenare text proiectie
     proiectie = medieCumulativ[selectorZi] * intervalProiectie;
@@ -1431,13 +1433,13 @@ function desenareGraficOrizontal(){
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("+" + Math.round(proiectie), x_val_2, y_val_1 + 6);
+    ctx.fillText("+" + Math.round(proiectie), x_val_2 + 8, y_val_1 - 22);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie), x_val_2, y_val_1 + 22);
-    ctx.fillText(zi_p + " " + luna_p, x_val_2, y_val_1 + 38);
+    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie), x_val_2 + 8, y_val_1 - 6);
+    ctx.fillText(zi_p + " " + luna_p, x_val_2 + 8, y_val_1 + 10);
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    ctx.fillText("=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2, y_val_1 + 52);
+    ctx.fillText("=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 + 8, y_val_1 + 26);
 
 
     ctx.beginPath();
