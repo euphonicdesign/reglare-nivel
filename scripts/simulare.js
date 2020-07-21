@@ -875,9 +875,27 @@ function desenareGraficeTrenduri(){
       ctx.closePath();
       ctx.stroke();
 
+      //desenar indicator abscisa
+      ctx.beginPath();
+      ctx.moveTo(12 + x1_1, yGrafic_2 + 3);
+      ctx.lineTo(12 + x1_1, yGrafic_2 + 7);
+      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 2;
+      ctx.closePath();
+      ctx.stroke();
 
+      ctx.textAlign = "start";
+      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.fillText(ziFinal, 11 + x1_1 , yGrafic_2 + 21);
+
+      //Afisare data - zi curenta
+      data_zi_luna = data_data[ziFinal].split("/");
+      zi = data_zi_luna[0];
+      luna = data_luni[data_zi_luna[1]-1];
+      ctx.fillText(zi + " " + luna, 11 + x1_1, yGrafic_2 + 35);
   }
-
 
 
   //desenare LINIE TREND (pe orizont de timp) grafic 1 (jos)
