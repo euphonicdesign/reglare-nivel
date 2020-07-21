@@ -1481,19 +1481,21 @@ function desenareGraficOrizontal(){
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie), x_val_2 + 8, y_val_1 - 27);
+    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie), x_val_2 + 8, y_val_1 - 7);
 
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(zi_p + " " + luna_p, x_val_2 + 8, y_val_1 -11);
+    ctx.fillText(zi_p + " " + luna_p, x_val_2 + 8, y_val_1 + 7);
 
+    ctx.textAlign = "center";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("+" + Math.round(proiectie), x_val_2 + 8, y_val_1 + 7);
+    ctx.fillText("+" + Math.round(proiectie), x_val_2 - 45, y_val_1 + 7);
 
+    ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 + 8, y_val_1 + 26);
+    ctx.fillText("=" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 + 8, y_val_1 + 21);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
     //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
 
