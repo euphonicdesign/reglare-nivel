@@ -123,8 +123,6 @@ let data_luni = [
               "Dec",
             ];
 
-
-
 let dataCumulativ = [];
 let medieCumulativ = [];
 let comandaIdeala = [];
@@ -731,11 +729,19 @@ function desenareCompensatorValori() {
         ctx.fillText("C=" + comandaIdeala[selectorZi], xLegenda, yl4);
     }
 
+    //Afisare data - zi curenta
+    data_zi_luna = data_data[selectorZi].split("/");
+    zi = data_zi_luna[0];
+    luna = data_luni[data_zi_luna[1]-1];
+    ctx.fillText(zi + " " + luna, xLegenda, yl5);
+
     //Comanda ideala
     ctx.fillStyle = culoareCompensator;
     ctx.textAlign = "center";
     ctx.font = "italic bold 23px system-ui, Arial, sans-serif";
     ctx.fillText(comandaIdeala[selectorZi] + "!", xTextComanda, yTextComanda);
+
+
 
     /*
     if(comandaIdeala[selectorZi]>10){
