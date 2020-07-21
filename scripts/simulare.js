@@ -1132,6 +1132,14 @@ function desenareGraficeTrenduri(){
     //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText("(1)", 12 + x_val_1, y_val_1 - 8);
 
+    //INFO GRAFIC 2 sus
+    //ctx.textAlign = "start";
+    ctx.textAlign = "start";
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText("" + Math.round(data_2[index1]), x_val_1 + 20, y_val_1 - 6);
+
     //desenare indicator Zi capat stanga Grafic 2 (sus)
     if(selectorZi > orizont_trend){
       //capat stanga
