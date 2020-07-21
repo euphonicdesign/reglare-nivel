@@ -1143,6 +1143,7 @@ function desenareGraficeTrenduri(){
     //desenare indicator Zi capat stanga Grafic 2 (sus)
     if(selectorZi > orizont_trend){
       //capat stanga
+      //desenare indicator abscisa
       ctx.beginPath();
       ctx.moveTo(12 + x_val_1, yGrafic_2 + 3);
       ctx.lineTo(12 + x_val_1, yGrafic_2 + 7);
@@ -1164,6 +1165,7 @@ function desenareGraficeTrenduri(){
       ctx.fillText(zi + " " + luna, 12 + x_val_1, yGrafic_2 + 35);
 
       //capat dreapta
+      //desenare indicator abscisa
       ctx.beginPath();
       ctx.moveTo(12 + x_valoare, yGrafic_2 + 3);
       ctx.lineTo(12 + x_valoare, yGrafic_2 + 7);
@@ -1173,7 +1175,7 @@ function desenareGraficeTrenduri(){
       ctx.stroke();
 
       ctx.textAlign = "center";
-      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
       ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
       ctx.fillText(selectorZi, 12 + x_valoare, yGrafic_2 + 21);
