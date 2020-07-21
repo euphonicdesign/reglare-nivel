@@ -200,7 +200,7 @@ var culoarePunctGraficVerticalFoto = "#262626";
 var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
 var culoarePunctValoriGrafic_2 = "white";//"grey";//"culoareApaNivelNormal"; //"#999999";
 var culoarePunctValoriGrafic_3 = "#737373";//"#808080";
-var culoareNumarPunct = "#404040";
+var culoareNumarPunct = "#b3b3b3";//"#404040";
 var culoareTextZi = "#999999";//"#595959";
 
 
