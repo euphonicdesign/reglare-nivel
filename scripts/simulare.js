@@ -1601,7 +1601,7 @@ function desenareGraficOrizontal(){
       }
     }
 
-    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 30, y_val_1 + 5);
 }
