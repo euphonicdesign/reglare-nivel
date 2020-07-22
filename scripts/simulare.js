@@ -1476,7 +1476,7 @@ function desenareGraficOrizontal(){
 
     ctx.strokeStyle = "white";//culoareLinieMedieGraficVertical;
     ctx.lineWidth = 2;
-    ctx.setLineDash([2, 8]);
+    ctx.setLineDash([2, 4]);
 
     //ctx.beginPath();
     ctx.moveTo(x_val_1, y_ms_1);
@@ -1494,7 +1494,7 @@ function desenareGraficOrizontal(){
 
     //linie medie capat verticala
     //ctx.beginPath();
-    ctx.setLineDash([2, 8]);
+    ctx.setLineDash([2, 4]);
     ctx.moveTo(x_val_2, y_ms_1);
     ctx.lineTo(x_val_2, y_md_1);
     //ctx.closePath();
@@ -1582,13 +1582,22 @@ function desenareGraficOrizontal(){
         ctx.stroke();
         ctx.setLineDash([]);
 
-        //punct linie conectare
+        //punct linie conectare (sus)
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x_valoare, y_valoare_1, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.stroke();
+
+        //punct (jos)
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(x_valoare, y_valoare_2, 4, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+
       }
     }
 
