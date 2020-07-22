@@ -19,8 +19,7 @@ let data = [0.67,2.33,3.67,3.67,3.33,4.33,5.33,
             15.67, 18.33, 20.67, 18.33, 17.67, 19.00, 21.33,
             21.00, 20.00, 22.67, 22.33, 22.00, 16.00, 18.00,
             16.67, 18.00, 20.00, 22.67, 23.33, 19.00, 19.00,
-            18.33, 16.67, 21.67,
-
+            18.33, 16.67, 21.67, 25.00,
 
           ];
 
@@ -41,7 +40,7 @@ let data_2 = [52.00, 89.33, 131.67, 157.67, 151.00, 176.67, 182.00,
               342.33, 295.00, 316.00, 327.67, 388.00, 398.67, 428.67,
               409.00, 352.33, 346.00, 400.67, 522.00, 587.00, 634.67,
               582.00, 522.33, 502.00, 563.67, 685.00, 739.00, 821.67,
-              818.33, 779.00, 814.00,
+              818.33, 779.00, 814.00, 901.67,
 
             ];
 
@@ -1434,11 +1433,20 @@ function desenareGraficOrizontal(){
     y_ms_1 = y_val_1 - lungime_segment_medie;
     y_md_1 = y_val_1 + lungime_segment_medie;
 
-    //Punct linie proiectie capat dreapta (3)
+    //Punct linie proiectie capat dreapta (3) - sus
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//"white";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.arc(x_val_2 - 4, y_ms_1, 4, 0, 2 * Math.PI);
+    ctx.arc(x_val_2, y_ms_1, 4, 0, 2 * Math.PI);
+    //ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+
+    //Punct linie proiectie capat dreapta (3) - jos
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//"white";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(x_val_2, y_md_1, 4, 0, 2 * Math.PI);
     //ctx.fill();
     ctx.closePath();
     ctx.stroke();
@@ -1448,7 +1456,7 @@ function desenareGraficOrizontal(){
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
     //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("(3)", x_val_2 - 4, y_ms_1 - 10);
+    ctx.fillText("(3)", x_val_2, y_ms_1 - 10);
 
 
     ctx.strokeStyle = culoareLinieMedieGraficVertical;
@@ -1472,6 +1480,16 @@ function desenareGraficOrizontal(){
     ctx.beginPath();
     ctx.closePath();
     ctx.stroke();
+
+    //linie medie capat verticala
+    //ctx.beginPath();
+    ctx.setLineDash([1, 7]);
+    ctx.moveTo(x_val_2, y_ms_1);
+    ctx.lineTo(x_val_2, y_md_1);
+    //ctx.closePath();
+    ctx.stroke();
+
+
     ctx.setLineDash([]);
 
 
