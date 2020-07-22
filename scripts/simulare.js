@@ -957,6 +957,14 @@ function desenareGraficeTrenduri(){
   ctx.closePath();
   ctx.stroke();
 
+  //punct LINIE TREND grafic 1 - capat stanga
+  ctx.beginPath();
+  ctx.arc(12 + x_val_1, y_val_1, 4, 0, 2 * Math.PI);
+  ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
+  ctx.closePath();
+  ctx.stroke();
+
   //LINIE TREND - grafic 1 (jos)
   ctx.setLineDash([1, 2]);
   ctx.beginPath();
@@ -967,7 +975,7 @@ function desenareGraficeTrenduri(){
   ctx.closePath();
   ctx.stroke();
 
-  //INFO PUNCT Grafic 1 (jos)
+  //INFO PUNCT Grafic 1 (jos) - dreapta
   ctx.textAlign = "start";
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
@@ -976,6 +984,13 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(eticheta_1, x_val_2 + 20, y_val_2 + 24);
   ctx.fillText(crestere_1, x_val_2 + 20, y_val_2 + 10);
+
+  //INFO PUNCT Grafic 1 (jos) - stanga
+  ctx.textAlign = "start";
+  ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+  ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+  ctx.fillText("" + Math.round(data[index1]), x_val_1 + 20, y_val_1 - 6);
 
 
   //LINIE TREND Grafic 2(sus)
