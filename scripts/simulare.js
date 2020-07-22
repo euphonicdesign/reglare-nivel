@@ -1434,8 +1434,8 @@ function desenareGraficOrizontal(){
     y_md_1 = y_val_1 + lungime_segment_medie;
 
     //Punct linie proiectie capat dreapta (3) - sus
-    ctx.strokeStyle = culoarePunctValoriGrafic_3;//"white";
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = "white";//culoarePunctValoriGrafic_3;//"white";
+    ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.arc(x_val_2, y_ms_1, 4, 0, 2 * Math.PI);
     //ctx.fill();
@@ -1443,8 +1443,8 @@ function desenareGraficOrizontal(){
     ctx.stroke();
 
     //Punct linie proiectie capat dreapta (3) - jos
-    ctx.strokeStyle = culoarePunctValoriGrafic_3;//"white";
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = "white";//culoarePunctValoriGrafic_3;//"white";
+    ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.arc(x_val_2, y_md_1, 4, 0, 2 * Math.PI);
     //ctx.fill();
@@ -1459,40 +1459,33 @@ function desenareGraficOrizontal(){
     ctx.fillText("(3)", x_val_2, y_ms_1 - 10);
 
 
-    ctx.strokeStyle = culoareLinieMedieGraficVertical;
+    ctx.strokeStyle = "white";//culoareLinieMedieGraficVertical;
     ctx.lineWidth = 2;
-    ctx.setLineDash([1, 16]);
+    ctx.setLineDash([2, 8]);
 
-    ctx.beginPath();
+    //ctx.beginPath();
     ctx.moveTo(x_val_1, y_ms_1);
     ctx.lineTo(x_val_2, y_ms_1);
-    ctx.closePath();
+    //ctx.closePath();
     ctx.stroke();
 
     //linie medie dreapta
     //ctx.setLineDash([1, 16]);
-    ctx.beginPath();
+    //ctx.beginPath();
     ctx.moveTo(x_val_1, y_md_1);
     ctx.lineTo(x_val_2, y_md_1);
-    ctx.closePath();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.closePath();
+    //ctx.closePath();
     ctx.stroke();
 
     //linie medie capat verticala
     //ctx.beginPath();
-    ctx.setLineDash([1, 7]);
+    ctx.setLineDash([2, 8]);
     ctx.moveTo(x_val_2, y_ms_1);
     ctx.lineTo(x_val_2, y_md_1);
     //ctx.closePath();
     ctx.stroke();
 
-
     ctx.setLineDash([]);
-
-
 
     //desenare text proiectie
     proiectie = medieCumulativ[selectorZi] * intervalProiectie;
