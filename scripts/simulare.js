@@ -1188,6 +1188,29 @@ function desenareGraficeTrenduri(){
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText("" + Math.round(data_2[index1]), x_val_1 + 20, y_val_1 - 6);
 
+
+    //capat dreapta
+    //desenare indicator abscisa
+    ctx.beginPath();
+    ctx.moveTo(12 + x_valoare, yGrafic_2 + 3);
+    ctx.lineTo(12 + x_valoare, yGrafic_2 + 7);
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.textAlign = "center";
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText(selectorZi, 12 + x_valoare, yGrafic_2 + 21);
+
+    //Afisare data - zi curenta
+    data_zi_luna = data_data[selectorZi].split("/");
+    zi = data_zi_luna[0];
+    luna = data_luni[data_zi_luna[1]-1];
+    ctx.fillText(zi + " " + luna, 12 + x_valoare, yGrafic_2 + 35);
+
     //desenare indicator Zi capat stanga Grafic 2 (sus)
     if(selectorZi > orizont_trend){
       //capat stanga
@@ -1211,28 +1234,6 @@ function desenareGraficeTrenduri(){
       zi = data_zi_luna[0];
       luna = data_luni[data_zi_luna[1]-1];
       ctx.fillText(zi + " " + luna, 12 + x_val_1, yGrafic_2 + 35);
-
-      //capat dreapta
-      //desenare indicator abscisa
-      ctx.beginPath();
-      ctx.moveTo(12 + x_valoare, yGrafic_2 + 3);
-      ctx.lineTo(12 + x_valoare, yGrafic_2 + 7);
-      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
-      ctx.lineWidth = 2;
-      ctx.closePath();
-      ctx.stroke();
-
-      ctx.textAlign = "center";
-      ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(selectorZi, 12 + x_valoare, yGrafic_2 + 21);
-
-      //Afisare data - zi curenta
-      data_zi_luna = data_data[selectorZi].split("/");
-      zi = data_zi_luna[0];
-      luna = data_luni[data_zi_luna[1]-1];
-      ctx.fillText(zi + " " + luna, 12 + x_valoare, yGrafic_2 + 35);
 
       ctx.beginPath();
       ctx.closePath();
