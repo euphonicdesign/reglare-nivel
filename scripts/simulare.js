@@ -966,12 +966,17 @@ function desenareGraficeTrenduri(){
   ctx.stroke();
 
   //LINIE TREND - grafic 1 (jos)
-  ctx.setLineDash([1, 2]);
-  ctx.beginPath();
+  ctx.setLineDash([2, 1]);
+  //ctx.beginPath();
   ctx.moveTo(12 + x_val_1, y_val_1);
   ctx.lineTo(12 + x_val_2, y_val_2);
   ctx.strokeStyle = culoarePunctValoriGrafic;
   ctx.lineWidth = 2;
+  //ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.beginPath();
   ctx.closePath();
   ctx.stroke();
 
@@ -1006,12 +1011,13 @@ function desenareGraficeTrenduri(){
   //console.log("2nd line: " + y_val_1);
 
   //desenare LINIE TREND GRAFIC 2(sus)
-  ctx.beginPath();
+  //ctx.beginPath();
+  ctx.setLineDash([2, 1]);
   ctx.moveTo(12 + x_val_1, y_val_1);
   ctx.lineTo(12 + x_val_2, y_val_2);
   ctx.strokeStyle = culoareTrend;//culoare_linie_trend;//culoarePunctValoriGrafic;
   ctx.lineWidth = 2;
-  ctx.closePath();
+  //ctx.closePath();
   ctx.stroke();
   ctx.setLineDash([]);
 
@@ -1025,6 +1031,7 @@ function desenareGraficeTrenduri(){
   //console.log(dist);
 
   //desenare linie conectare grafic 2 cu grafic 1
+  //ctx.setLineDash([]);
   ctx.setLineDash([1, 1 + dist]);
 
   //ctx.setLineDash([1, 10]);
@@ -1032,10 +1039,14 @@ function desenareGraficeTrenduri(){
   ctx.moveTo(12 + xc1, yc1);
   ctx.lineTo(12 + xc2, yc2);
   ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 1;
+  ctx.lineWidth = 2;
   //ctx.closePath();
   ctx.stroke();
   ctx.setLineDash([]);
+
+  ctx.beginPath();
+  ctx.closePath();
+  ctx.stroke();
 
 
 
