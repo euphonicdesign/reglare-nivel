@@ -1037,15 +1037,7 @@ function desenareGraficeTrenduri(){
   ctx.stroke();
   ctx.setLineDash([]);
 
-  //punct linie grafic 2 - capat
-  ctx.beginPath();
-  //ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
-  //ctx.lineTo(12 + x_val_2 + 1, y_val_2 - 1);
-  ctx.arc(12 + x_val_2, y_val_2, 4, 0, 2 * Math.PI);
-  ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 2;
-  ctx.closePath();
-  ctx.stroke();
+
 
   //Desenare numar punct (2)
   ctx.textAlign = "end";
@@ -1063,6 +1055,17 @@ function desenareGraficeTrenduri(){
   //ctx.closePath();
   ctx.stroke();
   ctx.setLineDash([]);
+
+  //desenare proiectie punct (1) pe abscisa
+  ctx.setLineDash([2,4]);
+  ctx.moveTo(12 + x_val_1, y_val_1);
+  ctx.lineTo(12 + x_val_1, yGrafic_2);
+  ctx.strokeStyle = culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 2;
+  //ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
+
 
   //punct linie conectare - mijloc
   ctx.beginPath();
@@ -1140,6 +1143,16 @@ function desenareGraficeTrenduri(){
       ctx.closePath();
       ctx.stroke();*/
     }
+
+    //punct linie grafic 2 - capat
+    ctx.beginPath();
+    //ctx.moveTo(12 + x_val_2 - 1, y_val_2 + 1);
+    //ctx.lineTo(12 + x_val_2 + 1, y_val_2 - 1);
+    ctx.arc(12 + x_val_2, y_val_2, 4, 0, 2 * Math.PI);
+    ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
 
     //punct linie grafic 2 - inceput - cerculet
     ctx.beginPath();
