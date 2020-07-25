@@ -142,6 +142,7 @@ fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotograf
 
 var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
+//var maxValueAfisareRezervor = 32;
 var maxValue_2 = 0;
 var maxCompensator = 0;
 var derulareAutomata = true;
@@ -232,6 +233,7 @@ var yRezervor = inaltimeSuprafataGrafica/4;
 
 var capacitateRezervor = 0.8;
 var procentDinCapacitateMax = 0.2;
+var nivelMaxAfisatRezervor = 25;
 var incrementVariatieSimulare = 0.005;
 
 // valva
@@ -328,7 +330,7 @@ slider.setAttribute("value", selectorZi);
 
 slider.oninput = function() {
     selectorZi = this.value;
-    procentDinCapacitateMax = data[selectorZi]/maxValue;
+    procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
     pauza = false;
 
     //slider.setAttribute("value", selectorZi);
@@ -422,7 +424,7 @@ function modificaNivel(e){
         pauza = !pauza;
     }
 
-    procentDinCapacitateMax = data[selectorZi]/maxValue;
+    procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
     slider.setAttribute("value", selectorZi);
 }
 
@@ -440,7 +442,7 @@ function start() {
     maxValue = Math.max(...data);
     maxValue_2 = Math.max(...data_2);
 
-    procentDinCapacitateMax = data[selectorZi]/maxValue;
+    procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
 
     //construire vector date cumulative
     for (let i = 0; i < data.length; i++) {
@@ -481,8 +483,6 @@ function start() {
     calcul_parametrii_Predictie();
 
     //construire proiectie
-
-
 
     setare_mod();
 }
@@ -1736,7 +1736,7 @@ function ActualizareSuprafataGrafica() {
                 }
                 //console.log(slider.getAttribute("value"));
                 slider.setAttribute("value", selectorZi);
-                procentDinCapacitateMax = data[selectorZi]/maxValue;
+                procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
 
         }
         procentDinCapacitate = procentDinCapacitateMax;
@@ -1764,6 +1764,7 @@ function ActualizareSuprafataGrafica() {
         else{
             culoareCompensator = culoareTextCompensatorFill3;
         }
+
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
@@ -1809,6 +1810,7 @@ function ActualizareSuprafataGraficaSingulara() {
         culoareValoareNivel = culoareApa;
         //culoareLinieGraficVertical = culoareApa;
 
+
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
             desenareGraficValori();
@@ -1833,8 +1835,13 @@ function ActualizareSuprafataGraficaSingulara() {
 }
 
 function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
+    //desenare un procent de maxim 100%
+    if (procentDinCapacitate > 1){
+      procentDinCapacitate = 1;
+    }
+
     //apa rezervor
-    inaltimeApaRezervor =  (inaltimeRezervor * capacitateRezervor) * procentDinCapacitateMax;
+    inaltimeApaRezervor =  (inaltimeRezervor * capacitateRezervor) * procentDinCapacitate;
     yApaRezervor = yRezervor + inaltimeRezervor - inaltimeApaRezervor;
 
     //apa intrare (L1)
