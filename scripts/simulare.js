@@ -1868,7 +1868,13 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
     yValvaConductaIntrare2 = yValvaConductaIntrare1 - inaltimeValvaConductaIntrare2 + 1;
 
     //yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelUltraCritic * (inaltimeRezervor * capacitateRezervor)/maxValue;
-    yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - medieCumulativ[selectorZi] * (inaltimeRezervor * capacitateRezervor)/maxValue;
+    nivelMaxIndicator = nivelMaxAfisatRezervor * capacitateRezervor;
+
+    if(medieCumulativ[selectorZi] <= nivelMaxIndicator)
+        yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - medieCumulativ[selectorZi] * (inaltimeRezervor * capacitateRezervor)/nivelMaxAfisatRezervor;
+    else {
+        yIndicatorRezervor = yRezervor + inaltimeRezervor - inaltimeIndicatorRezervor / 2 - nivelMaxIndicator * (inaltimeRezervor * capacitateRezervor)/nivelMaxAfisatRezervor;
+    }
 
     //F 1
     xF1 = xValvaConductaIntrare1 + lungimeValvaConductaIntrare1 / 2 - lungimeF1 / 2;
