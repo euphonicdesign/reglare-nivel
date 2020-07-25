@@ -175,6 +175,7 @@ var yc2 = 0;
 
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
+var nivelDepasireCapacitate = 35;
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
 var nivelIntermediar = 15;
@@ -182,6 +183,7 @@ var culoareApaNivelNormal = "#005ce6";
 var culoareApaNivelIntermediar = "#003d99";
 var culoareApaNivelCritic = "#001f4d";
 var culoareApaNivelUltraCritic = "#001433";
+var culoareApaNivelDepasireCapacitate = "#000a1a";
 var culoareApa = culoareApaNivelNormal;
 var culoareValoareNivel = culoareApa;
 //var culoareRobinet = "orange";
@@ -1744,7 +1746,9 @@ function ActualizareSuprafataGrafica() {
         //colorare apa in functie de valoare critica
         nivel = data[selectorZi];
 
-        if (nivel > nivelUltraCritic)
+        if (nivel> nivelDepasireCapacitate)
+            culoareApa = culoareApaNivelDepasireCapacitate;
+        else if (nivel > nivelUltraCritic)
             culoareApa = culoareApaNivelUltraCritic;
         else if (nivel > nivelCritic)
             culoareApa = culoareApaNivelCritic;
@@ -1797,7 +1801,9 @@ function ActualizareSuprafataGraficaSingulara() {
         //colorare apa in functie de valoare critica
         nivel = data[selectorZi];
 
-        if (nivel > nivelUltraCritic)
+        if (nivel> nivelDepasireCapacitate)
+            culoareApa = culoareApaNivelDepasireCapacitate;
+        else if (nivel > nivelUltraCritic)
             culoareApa = culoareApaNivelUltraCritic;
         else if (nivel > nivelCritic)
             culoareApa = culoareApaNivelCritic;
