@@ -497,6 +497,8 @@ function calcul_parametrii_Predictie(){
     sumY = 0;
     sumXY = 0;
     sumX2 = 0;
+    sumY2 = 0;
+    contor = 0;
 
     for(let i = zi_start; i < data_2.length; i++){
       //console.log(i);
@@ -512,7 +514,10 @@ function calcul_parametrii_Predictie(){
       //SumX^2
       sumX2 += i*i;
 
+      sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
+
       //data_2[i];
+      contor++;
     }
 
     m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
@@ -521,7 +526,91 @@ function calcul_parametrii_Predictie(){
     bazaR = Math.exp(m);
     coefA = Math.exp(b);
 
-    yp = coefA * Math.pow(bazaR, 110);
+    //logaritmat
+    medieY = sumY / n;
+
+
+    const mx = sumX / n;
+    const my = sumY / n;
+    const yy = n * sumY2 - sumY * sumY;
+    const xx = n * sumX2 - sumX * sumX;
+    const xy = n * sumXY - sumX * sumY;
+    const m2 = xy / xx;
+    const b2 = my - m2 * mx;
+    r = xy / Math.sqrt(xx * xy);
+    r2 = Math.pow(r,2);
+
+    /*
+    console.log("mx: " + mx);
+    console.log("my: " + my);
+    console.log("yy: " + yy);
+    console.log("xx: " + xx);
+    console.log("xy: " + xy);
+    console.log("m2: " + m2);
+    console.log("b2: " + b2);
+    //corelatie
+    console.log("r: " + r);
+    //determinatie
+    console.log("r2: " + r2);
+    console.log(" ");*/
+
+    varianta = 0;
+    //sst = eroare regresie + eroare reziduala (varianta)
+    sst = 0;
+    for (let i = zi_start; i < data_2.length; i++) {
+       varianta += Math.pow((Math.log(data_2[i]) - medieY), 2);
+       sst += Math.pow(Math.log(data_2[i]) - my, 2);
+    }
+    devst = Math.sqrt(varianta / (n-1));
+
+    varianta2 = Math.floor(Math.exp(varianta)*100) / 100;
+    devst2 = Math.floor(Math.exp(devst)*100) / 100;
+
+    //1. sst = eroare regresie + eroare reziduala (varianta) - eroare totala
+    //2. sse = eroare regresie
+    //3. see = eroare standard de estimare (deviatie standard)
+    //4. ssr = eroare totala - eroare regresie = eroare reziduala (y - y model)
+
+    //eroare regresie
+    sse = sst - r2 * sst;
+
+    //deviatia standard - eroare standard de estimare
+    see = Math.sqrt(sse / (n - 2));
+
+    //eroare reziduala (y-ymodel)
+    ssr = sst - sse;
+
+    sst2 = Math.floor(Math.exp(sst)*100) / 100;
+    sse2 = Math.floor(Math.exp(sse)*100) / 100;
+    see2 = Math.floor(Math.exp(see)*100) / 100;
+    ssr2 = Math.floor(Math.exp(ssr)*100) / 100;
+
+
+
+    /*
+    console.log("sst (varianta): " + sst);
+    console.log("sse (eroar std estimare): " + sse);
+    console.log("see (deviatie std): " + see);
+    console.log("ssr (eroare reziduala): " + ssr);
+    console.log(" ");
+
+    console.log("sst (varianta): " + Math.floor(Math.exp(sst)*100) / 100);
+    console.log("sse (eroar std estimare): " + Math.floor(Math.exp(sse)*100) / 100);
+    console.log("see (deviatie std): " + Math.floor(Math.exp(see)*100) / 100);
+    console.log("ssr (eroare reziduala): " + Math.floor(Math.exp(ssr)*100) / 100);
+    console.log(" "); */
+
+    //nelogaritmat
+    /*
+    console.log("orizont t: " + orizont_trend);
+    console.log("orizont r: " + orizont_regresie);
+    console.log("contor: " + contor);
+    console.log("medie: " + Math.floor(Math.exp(medieY)*100) / 100);
+    console.log("varianta: " + Math.floor(Math.exp(varianta)*100) / 100);
+    console.log("devst: " + Math.floor(Math.exp(devst)*100) / 100);*/
+
+
+    //yp = coefA * Math.pow(bazaR, 110);
 
     /*
     console.log("n: " + n);
@@ -865,6 +954,10 @@ function desenareGraficeTrenduri(){
       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
       ctx.fillStyle = culoare_linie_trend;//culoarePunctValoriGrafic_3;
       ctx.fillText("r=" + (Math.floor(bazaR*100))/100, x1_1 + 20, y1_1 + 24);
+
+      //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
+      //desenare deviatie standard
+      ctx.fillText("e=" + see2, x1_1 + 20, y1_1 + 38);
 
       //desenare punct valoare estimata
       ctx.beginPath();
