@@ -1507,7 +1507,12 @@ function desenareGraficVertical(){
       ctx.beginPath();
       ctx.moveTo(x_valoare_1, y_valoare);
       ctx.lineTo(x_valoare_2, y_valoare);
-      ctx.strokeStyle = culoareLinieGraficVertical;
+      if(procentDinCapacitate > 1 && mod == MOD_REGULATOR){
+          ctx.strokeStyle = culoareApa;
+      }
+      else{
+          ctx.strokeStyle = culoareLinieGraficVertical;
+      }
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
