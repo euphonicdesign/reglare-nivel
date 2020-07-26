@@ -959,7 +959,7 @@ function desenareGraficeTrenduri(){
 
       //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
       //desenare deviatie standard
-      ctx.fillText("e=" + see2, x1_1 + 20, y1_1 + 38);
+      ctx.fillText("E=" + see2, x1_1 + 20, y1_1 + 38);
 
       //desenare punct valoare estimata
       ctx.beginPath();
