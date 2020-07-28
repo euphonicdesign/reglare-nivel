@@ -964,7 +964,7 @@ function desenareGraficeTrenduri(){
       //desenare valoare bazaR
       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
       ctx.fillStyle = culoare_linie_trend;//culoarePunctValoriGrafic_3;
-      ctx.fillText("r=" + (Math.floor(bazaR*100))/100, x1_1 + 20, y1_1 + 24);
+      ctx.fillText("r=" + (Math.floor(bazaR*1000))/1000, x1_1 + 20, y1_1 + 24);
 
       //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
       //desenare deviatie standard
