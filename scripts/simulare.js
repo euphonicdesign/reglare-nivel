@@ -152,12 +152,14 @@ var derulareAutomata = true;
 var vitezaSimulare = 165;
 var scalaY = 65;//55; //grafic valori orizontal
 var scalaY_2 = 95;//55; //grafic valori orizontal
-var scalaY_trend = 100;
+var scalaY_trend_2 = 160; // grafic sus
+var scalaY_trend_1 = 90; // grafic jos (mijloc)
+
 var scalaX_trend = 72;
 var scalaX = 72; //grafic valori vertical
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
-var yGrafic_1 = yGrafic_2 + scalaY_trend + 50;
+var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -490,7 +492,7 @@ function start() {
     maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
     //console.log(maxValueProiectie);
 
-    maxValueGrafic2 = 0.6 * Math.max(maxValue_2, maxValueProiectie) //- Math.abs(Math.floor((maxValue_2 - maxValueProiectie) * 0.7));
+    maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) //- Math.abs(Math.floor((maxValue_2 - maxValueProiectie) * 0.7));
     //console.log("maxValue_2: " + maxValue_2);
     //console.log("maxValueProiectie: " + maxValueProiectie);
     //console.log("maxValueGrafic2 (max): " + maxValueGrafic2);
@@ -932,7 +934,7 @@ function desenareGraficeTrenduri(){
           //console.log("yp1: " + yp1 + "yp2: " +yp2);
 
           //y1_1 = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend)/maxValue));
-          y1_1 = Math.round(yGrafic_2 - ((yp1*scalaY_trend)/maxValueGrafic2));
+          y1_1 = Math.round(yGrafic_2 - ((yp1*scalaY_trend_2)/maxValueGrafic2));
           //y1_2 = Math.round(yGrafic_2 - ((yp2*scalaY_trend)/maxValue_2));
 
           //desenare linii conectare puncte valori grafic 1
@@ -1013,9 +1015,9 @@ function desenareGraficeTrenduri(){
   }
 
   x_val_1 = index1 * incrementX;
-  y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend)/maxValue));
+  y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend_1)/maxValue));
   x_val_2 = selectorZi*incrementX;
-  y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend)/maxValue));
+  y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend_1)/maxValue));
   //console.log("1st line: " + y_val_1);
 
   procent_variatie_1 = Math.floor((data[selectorZi] - data[index1]) / data[index1] * 100);
@@ -1106,8 +1108,8 @@ function desenareGraficeTrenduri(){
   xc2 = x_val_2;
   yc2 = y_val_2;
 
-  y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend)/maxValueGrafic2));
-  y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend)/maxValueGrafic2));
+  y_val_1 = Math.round(yGrafic_2 - ((data_2[index1]*scalaY_trend_2)/maxValueGrafic2));
+  y_val_2 = Math.round(yGrafic_2 - ((data_2[selectorZi]*scalaY_trend_2)/maxValueGrafic2));
 
   xc1 = (x_val_2 - x_val_1) * procent_index2_orizont_trend + x_val_1;
   yc1 = (y_val_2 - y_val_1) * procent_index2_orizont_trend + y_val_1;
@@ -1208,8 +1210,8 @@ function desenareGraficeTrenduri(){
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
   for (let i = 0; i <= selectorZi ; i++) {
       x_valoare = i*incrementX;
-      y_valoare = Math.round(yGrafic_1 - ((data[i]*scalaY_trend)/maxValue));
-      y_valoare_2 = Math.round(yGrafic_2 - ((data_2[i]*scalaY_trend)/maxValueGrafic2));
+      y_valoare = Math.round(yGrafic_1 - ((data[i]*scalaY_trend_1)/maxValue));
+      y_valoare_2 = Math.round(yGrafic_2 - ((data_2[i]*scalaY_trend_2)/maxValueGrafic2));
 
       //desenare punct valoare grafic_valori_desenat - data_2
       /*
@@ -1224,8 +1226,8 @@ function desenareGraficeTrenduri(){
       //desenare linii conectare puncte grafic 2 sus
       if(i>0){
           x1_valoare = (i-1)*incrementX;
-          y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend)/maxValue));
-          y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend)/maxValueGrafic2));
+          y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend_1)/maxValue));
+          y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend_2)/maxValueGrafic2));
 
 
           //desenare linii conectare puncte valori grafic 1
