@@ -965,11 +965,20 @@ function desenareGraficeTrenduri(){
 
       //desenare valoare bazaR
       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-      ctx.fillStyle = culoare_linie_trend;//culoarePunctValoriGrafic_3;
-      ctx.fillText("r=" + (Math.floor(bazaR*1000))/1000, x1_1 + 20, y1_1 + 24);
+      //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+      if(bazaR > 1){
+        ctx.fillStyle = culoareTextCompensatorRosu;
+        ctx.fillText("r=" + (Math.floor(bazaR*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
+      }
+      else{
+        ctx.fillStyle = culoareScadere;
+        ctx.fillText("r=" + (Math.floor(bazaR*1000))/1000, x1_1 + 20, y1_1 + 24);
+      }
+
 
       //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
       //desenare deviatie standard
+      ctx.fillStyle = culoare_linie_trend;
       ctx.fillText("E=" + see2, x1_1 + 20, y1_1 + 38);
 
       //desenare punct valoare estimata
