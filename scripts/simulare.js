@@ -174,7 +174,7 @@ var procent_index2_orizont_trend = 0.7;
 var coefA = 1.0;
 var bazaR = 1.0;
 var orizont_regresie = Math.floor(orizont_trend / 2);
-var orizont_proiectie = 12;
+var orizont_proiectie = 21;
 
 var xc2 = 0;
 var yc2 = 0;
