@@ -1778,9 +1778,10 @@ function desenareGraficOrizontal(){
       }
     }
 
+    ctx.textAlign = "end";
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoarePunctValoriGrafic_3;
-    ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 28, y_val_1 + 6);
+    ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), x_valoare - 12, y_val_1 + 6);
 }
 
 function ActualizareSuprafataGrafica() {
