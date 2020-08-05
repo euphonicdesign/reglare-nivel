@@ -1699,10 +1699,10 @@ function desenareGraficOrizontal(){
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(zi_p + " " + luna_p, x_val_2 + 8, y_val_1 + 7);
 
-    ctx.textAlign = "center";
+    ctx.textAlign = "start";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("+" + Math.round(proiectie), x_val_2 - 55, y_val_1 + 6);
+    ctx.fillText("+" + Math.round(proiectie), x_val_2 - 78, y_val_1 + 6);
 
     ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
