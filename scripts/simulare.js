@@ -183,7 +183,7 @@ var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
 var scalaX_trend = 72;
-var scalaX = 90; //grafic valori vertical
+var scalaX = 92; //grafic valori vertical
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
