@@ -1081,7 +1081,7 @@ function desenareGraficeTrenduri(){
       crestere_1 = crestere_variatie_1 + "x";
       crestere_2 = crestere_variatie_2 + "x";
       if(data_3[selectorZi]){
-        ratap_2 = "(p=" + data_3[selectorZi]*100 + "%)";
+        ratap_2 = "(p+=" + data_3[selectorZi]*100 + "%)";
       }
 
   }
