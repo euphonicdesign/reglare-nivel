@@ -1552,10 +1552,13 @@ function desenareGraficVertical(){
       ctx.beginPath();
       ctx.moveTo(x_valoare_1, y_valoare);
       ctx.lineTo(x_valoare_2, y_valoare);
+
+
+      //schimbare culoare daca s-a depasit capacitatea maxima
       if(procentDinCapacitate > 1 && mod == MOD_REGULATOR){
           ctx.strokeStyle = culoareApa;
       }
-      else{
+      else {
           ctx.strokeStyle = culoareLinieGraficVertical;
       }
       ctx.lineWidth = 2;
@@ -1709,14 +1712,14 @@ function desenareGraficOrizontal(){
     ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.fillStyle = culoarePunctValoriGrafic_3;
-    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 + 8, y_val_1 + 21);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
     //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
 
     for (let i = 0; i <= selectorZi; i++) {
 
-      //GRAFIC VERTICAL - UMPLERE
+      //GRAFIC ORIZONTAL(VERTICAL) - UMPLERE
       //desenare linie sub valoare grafic
       y_valoare_1 = y_val_1; //i*incrementX;
       y_valoare_2 = Math.round(y_valoare_1 + ((data[i]*scalaX)/maxValue));
@@ -1730,7 +1733,15 @@ function desenareGraficOrizontal(){
       ctx.beginPath();
       ctx.moveTo(x_valoare, y_valoare_1);
       ctx.lineTo(x_valoare, y_valoare_2);
-      ctx.strokeStyle = culoareLinieGraficVertical;
+
+      //colorare diferit daca capacitatea a fost depasita
+      if(procentDinCapacitate > 1){
+          ctx.strokeStyle = "#00111a";//culoareApa;
+          //console.log("mod grafice: colorare grafic vertical");
+      }
+      else{
+        ctx.strokeStyle = culoareLinieGraficVertical;
+      }
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
@@ -1782,7 +1793,15 @@ function desenareGraficOrizontal(){
 
     ctx.textAlign = "end";
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoarePunctValoriGrafic_3;
+
+    //colorare text diferit daca capacitatea a fost depasita
+    if(procentDinCapacitate > 1){
+      ctx.fillStyle = "white";
+    }
+    else{
+      ctx.fillStyle = culoarePunctValoriGrafic_3;
+    }
+
     ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), x_valoare - 12, y_val_1 + 6);
 }
 
