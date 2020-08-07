@@ -1711,7 +1711,7 @@ function desenareGraficOrizontal(){
 
     ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    ctx.fillStyle = culoarePunctValoriGrafic_3;
+    ctx.fillStyle = culoarePunctValoriGrafic;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 + 8, y_val_1 + 24);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
@@ -1736,7 +1736,7 @@ function desenareGraficOrizontal(){
 
       //colorare diferit daca capacitatea a fost depasita
       if(procentDinCapacitate > 1){
-          ctx.strokeStyle = "#00111a";//culoareApa;
+          ctx.strokeStyle = culoarePunctValoriGrafic;//"#00111a";//culoareApa;
           //console.log("mod grafice: colorare grafic vertical");
       }
       else{
