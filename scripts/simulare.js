@@ -1799,7 +1799,7 @@ function desenareGraficOrizontal(){
       ctx.fillStyle = "white";
     }
     else{
-      ctx.fillStyle = culoarePunctValoriGrafic_3;
+      ctx.fillStyle = culoarePunctValoriGrafic;
     }
 
     ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), x_valoare - 12, y_val_1 + 6);
