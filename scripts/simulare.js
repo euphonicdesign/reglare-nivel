@@ -1855,7 +1855,7 @@ function desenareGraficOrizontal(){
     ctx.textAlign = "start";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("+" + Math.round(proiectie), x_val_2 - 78, y_val_1 + 6);
+    ctx.fillText("+" + Math.round(proiectie) + "!", x_val_2 - 78, y_val_1 + 6);
 
     ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
