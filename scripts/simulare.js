@@ -155,6 +155,8 @@ let dataCumulativ = [];
 let medieCumulativ = [];
 let comandaIdeala = [];
 let proiectie = [];
+let vector_r = [];
+let vector_r_normalizat = [];
 var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
 var MOD_FOTOGRAFIE = 0;
@@ -171,13 +173,18 @@ var selectorZi = 0; //data.length - 1;
 var maxValue = 0;
 //var maxValueAfisareRezervor = 32;
 var maxValue_2 = 0;
+var maxValue_3 = 0; //p+
+var maxValue_4 = 0; //vector_r_normalizat
 var maxValueProiectie = 0;
+
 var maxCompensator = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 165;
 var scalaY = 65;//55; //grafic valori orizontal
 var scalaY_2 = 95;//55; //grafic valori orizontal
 var scalaY_trend_2 = 160; // grafic sus
+var scalaY_trend_3 = 80; // grafic sus - p+
+var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
 var scalaX_trend = 72;
@@ -227,6 +234,9 @@ var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
 var culoareLinieGraficNuantat2 = "white";
 var culoareLinieGraficVertical = "white";//"#8c8c8c";
 var culoareLinieLegatura = "#999999";
+var culoareLinieGraficP = "#ffffe6";
+var culoareTextGraficP = "#ffcf66";
+var culoareGraficVectorR = "#996633";//"#ac7339";
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
@@ -474,6 +484,8 @@ function start() {
     }*/
     maxValue = Math.max(...data);
     maxValue_2 = Math.max(...data_2);
+    maxValue_3 = Math.max(...data_3); //p+
+
 
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
 
@@ -513,6 +525,8 @@ function start() {
     }
 
     //Calcul Parametrii Predictie (coefA,bazaR)
+    generare_vector_r();
+    maxValue_4 = Math.max(...vector_r_normalizat);
     calcul_parametrii_Predictie();
     maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
     //console.log(maxValueProiectie);
@@ -523,6 +537,60 @@ function start() {
     //console.log("maxValueGrafic2 (max): " + maxValueGrafic2);
 
     setare_mod();
+}
+
+function generare_vector_r(){
+    n = orizont_regresie;
+    //console.log(n);
+    //console.log(data_2.length);
+    for(let k = 0; k < n; k++){
+      vector_r[k] = 0;
+      vector_r_normalizat[k] = 0;
+    }
+
+    for(let k = n; k <= data_2.length; k++){
+        zi_start = k - n;
+
+        sumX = 0;
+        sumY = 0;
+        sumXY = 0;
+        sumX2 = 0;
+        sumY2 = 0;
+        contor = 0;
+
+        for(let i = zi_start; i < k; i++){
+          //console.log(i);
+          //SumX
+          sumX += i;
+
+          //SumY(SumLn(y))
+          sumY += Math.log(data_2[i]);
+
+          //SumXY(SumXLn(y))
+          sumXY += i*Math.log(data_2[i]);
+
+          //SumX^2
+          sumX2 += i*i;
+
+          sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
+
+          //data_2[i];
+          contor++;
+        }
+
+        m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
+        b = (sumY - m*sumX) / n;
+
+        bazaR = Math.exp(m);
+        vector_r[k] = bazaR;
+        vector_r_normalizat[k] = (bazaR - 1) * 1000;
+    }
+
+    /*
+    console.log("vector r generat");
+    for (let k = 0; k < vector_r.length; k++){
+      console.log("v_r[" + k + "]: " + vector_r[k]);
+    }*/
 }
 
 function calcul_parametrii_Predictie(){
@@ -926,20 +994,95 @@ function desenareGraficeTrenduri(){
   //ctx.fillRect(10, yGrafic_2, lungimeSuprafataGrafica-15, yGrafic_2);
 
   ctx.beginPath();
-  ctx.moveTo(10, yGrafic_1 + 5 );
-  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_1 + 5);
+  ctx.moveTo(10, yGrafic_1 + 0 );
+  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_1 + 0);
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
   ctx.lineWidth = 1;
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.moveTo(10, yGrafic_2 + 5 );
-  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 5);
+  ctx.moveTo(10, yGrafic_2 + 0 );
+  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 0);
   ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
   ctx.lineWidth = 1;
   ctx.closePath();
   ctx.stroke();
+
+
+  //desenare grafic p+ si vector_r
+  //desenare valori grafice (grafic 1 jos, grafic 2 sus)
+  for (let i = 0; i <= selectorZi ; i++) {
+      x_p = i*incrementX;
+      y_p = Math.round(yGrafic_2 - ((data_3[i]*scalaY_trend_3)/maxValue_3));
+      //y_r = Math.round(yGrafic_2 - ((vector_r[i]*scalaY_trend_4)/maxValue_4));
+      // normalizat in jurul lui 1
+      y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
+      //console.log("zi " + i + ": " + (vector_r[i]*1000 - 1000) );
+
+      //desenare punct valoare grafic_valori_desenat - data_3 - p+
+      ctx.beginPath();
+      ctx.moveTo(12 + x_p, yGrafic_2 - 2);
+      ctx.lineTo(12 + x_p, y_p - 2);
+      ctx.strokeStyle = culoareLinieGraficP;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 4;
+      ctx.closePath();
+      ctx.stroke();
+
+      //desenare punct valoare grafic_valori_desenat - vector_r
+      if(i > orizont_regresie){
+          ctx.beginPath();
+          ctx.moveTo(12 + x_p, y_r - 1);
+          ctx.lineTo(12 + x_p, y_r + 1);
+          if(vector_r_normalizat[i] >= 0){
+              ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
+          }
+          else {
+              ctx.strokeStyle = culoareScadere;
+          }
+          ctx.lineWidth = 1;
+          ctx.closePath();
+          ctx.stroke();
+      }
+
+      //desenare linii conectare puncte grafic 2 sus
+      /*
+      if(i>0){
+          x1_valoare = (i-1)*incrementX;
+          y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend_1)/maxValue));
+          y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend_2)/maxValueGrafic2));
+
+
+          //desenare linii conectare puncte valori grafic 1
+          ctx.beginPath();
+          ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
+          ctx.lineTo(12 + x_valoare, y_valoare_2);
+          ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+
+          //desenare linii conectare puncte valori grafic 2
+          ctx.beginPath();
+          ctx.moveTo(12 + x1_valoare, y1_valoare);
+          ctx.lineTo(12 + x_valoare, y_valoare);
+          ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+
+      }*/
+
+      //desenare punct valoare grafic_valori_desenat - data_1
+      /*
+      ctx.beginPath();
+      ctx.moveTo(12 + x_valoare, y_valoare );
+      ctx.lineTo(12 + x_valoare, y_valoare + 1);
+      ctx.strokeStyle = culoarePunctValoriGrafic;
+      ctx.lineWidth = 4;
+      ctx.closePath();
+      ctx.stroke();*/
+    }
 
 
   //desenare proiectie
