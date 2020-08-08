@@ -1227,11 +1227,11 @@ function desenareGraficeTrenduri(){
 
       //if data_3 value is defined
       if(data_3[selectorZi]){
-        ratap_2 = "(p+:" + data_3[selectorZi]*100 + "%)";
+        ratap_2 = "(p+:" + Math.round(data_3[selectorZi]*100) + "%)";
       }
       else{
         //else take last available value
-        ratap_2 = "(p+:" + data_3[data_3.length-1]*100 + "%)";
+        ratap_2 = "(p+:" + Math.round(data_3[data_3.length-1]*100) + "%)";
       }
 
 
