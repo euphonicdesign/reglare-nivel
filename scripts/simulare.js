@@ -1135,7 +1135,7 @@ function desenareGraficeTrenduri(){
       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
       //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
       if(bazaR > 1){
-        ctx.fillStyle = culoareTextCompensatorRosu;
+        ctx.fillStyle = culoareGraficVectorR;
         ctx.fillText("r=" + (Math.floor(bazaR*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
       }
       else{
