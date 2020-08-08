@@ -1394,9 +1394,13 @@ function desenareGraficeTrenduri(){
   ctx.fillText(crestere_2, x_val_2 + 20, y_val_2 + 10);
   ctx.fillStyle = culoareTrend;
   ctx.fillText(eticheta_2, x_val_2 + 20, y_val_2 + 24);
-  ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-  ctx.fillText(ratap_2, x_val_2 + 20, y_val_2 + 36);
 
+  if(selectorZi > orizont_trend){
+    ctx.fillStyle = culoareLinieGraficP;
+    ctx.fillRect(x_val_2 + 20, y_val_2 + 25, 50, 12);
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText(ratap_2, x_val_2 + 20, y_val_2 + 36);
+  }
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
   for (let i = 0; i <= selectorZi ; i++) {
