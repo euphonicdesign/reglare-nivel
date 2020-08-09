@@ -182,15 +182,16 @@ var maxValueProiectie = 0;
 var maxCompensator = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 165;
-var scalaY = 65;//55; //grafic valori orizontal
-var scalaY_2 = 95;//55; //grafic valori orizontal
+var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
+var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 80; // grafic sus - p+
 var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
 var scalaX_trend = 72;
-var scalaX = 92; //grafic valori vertical
+//SCALA GRAFIC VERTICAL/ORIZONTAL
+var scalaX = 100; //grafic valori vertical - cumulativ - foto, trend, regulator
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
