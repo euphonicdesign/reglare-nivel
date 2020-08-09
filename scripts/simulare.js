@@ -585,8 +585,8 @@ function generare_vector_r(){
         b = (sumY - m*sumX) / n;
 
         bazaR = Math.exp(m);
-        vector_r[k] = bazaR;
-        vector_r_normalizat[k] = (bazaR - 1) * 1000;
+        vector_r[k-1] = bazaR;
+        vector_r_normalizat[k-1] = (bazaR - 1) * 1000;
     }
 
     /*
@@ -972,7 +972,7 @@ function desenareCompensatorValori() {
 function desenarePuncteGraficOrizontal(){
     ctx = suprafataGrafica.context;
 
-    for (let i = 0; i <= selectorZi ; i++) {
+    for (let i = 0; i <= selectorZi; i++) {
       x_valoare = i*incrementX;
       y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
       //y_valoare_2 = Math.round(inaltimeSuprafataGrafica - 10 - ((data_2[i]*scalaY_2)/maxValue_2));
@@ -985,6 +985,7 @@ function desenarePuncteGraficOrizontal(){
       ctx.lineWidth = 1;
       ctx.closePath();
       ctx.stroke();
+
     }
 }
 
@@ -1015,7 +1016,7 @@ function desenareGraficeTrenduri(){
 
   //desenare grafic p+ si vector_r
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
-  for (let i = 0; i <= selectorZi ; i++) {
+  for (let i = 0; i <= selectorZi; i++) {
       x_p = i*incrementX;
       y_p = Math.round(yGrafic_2 - ((data_3[i]*scalaY_trend_3)/maxValue_3));
       //y_r = Math.round(yGrafic_2 - ((vector_r[i]*scalaY_trend_4)/maxValue_4));
@@ -1047,6 +1048,7 @@ function desenareGraficeTrenduri(){
           ctx.closePath();
           ctx.stroke();
       }
+
 
       //desenare linii conectare puncte grafic 2 sus
       /*
@@ -1086,6 +1088,7 @@ function desenareGraficeTrenduri(){
       ctx.closePath();
       ctx.stroke();*/
     }
+  //desenare
 
 
   //desenare proiectie
@@ -1406,27 +1409,16 @@ function desenareGraficeTrenduri(){
   }
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
-  for (let i = 0; i <= selectorZi ; i++) {
+  for (let i = 0; i <= selectorZi; i++) {
       x_valoare = i*incrementX;
       y_valoare = Math.round(yGrafic_1 - ((data[i]*scalaY_trend_1)/maxValue));
       y_valoare_2 = Math.round(yGrafic_2 - ((data_2[i]*scalaY_trend_2)/maxValueGrafic2));
-
-      //desenare punct valoare grafic_valori_desenat - data_2
-      /*
-      ctx.beginPath();
-      ctx.moveTo(12 + x_valoare, y_valoare_2 );
-      ctx.lineTo(12 + x_valoare, y_valoare_2 + 1);
-      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
-      ctx.lineWidth = 4;
-      ctx.closePath();
-      ctx.stroke();*/
 
       //desenare linii conectare puncte grafic 2 sus
       if(i>0){
           x1_valoare = (i-1)*incrementX;
           y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend_1)/maxValue));
           y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend_2)/maxValueGrafic2));
-
 
           //desenare linii conectare puncte valori grafic 1
           ctx.beginPath();
@@ -1445,18 +1437,7 @@ function desenareGraficeTrenduri(){
           ctx.lineWidth = 2;
           ctx.closePath();
           ctx.stroke();
-
       }
-
-      //desenare punct valoare grafic_valori_desenat - data_1
-      /*
-      ctx.beginPath();
-      ctx.moveTo(12 + x_valoare, y_valoare );
-      ctx.lineTo(12 + x_valoare, y_valoare + 1);
-      ctx.strokeStyle = culoarePunctValoriGrafic;
-      ctx.lineWidth = 4;
-      ctx.closePath();
-      ctx.stroke();*/
     }
 
     //punct linie grafic 2 - capat
@@ -1570,7 +1551,7 @@ function desenareGraficValori(){
     ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((medieCumulativ[selectorZi]*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
 
 
-    for (let i = 0; i <= selectorZi ; i++) {
+    for (let i = 0; i <= selectorZi; i++) {
       x_valoare = i*incrementX;
       y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
       y_valoare_2 = Math.round(inaltimeSuprafataGrafica - 10 - ((data_2[i]*scalaY_2)/maxValue_2));
