@@ -1371,7 +1371,7 @@ function desenareGraficeTrenduri(){
     //desenare valoare vector_r (in procente %)
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("r:" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%", x_val_2 + 40, y_val_2 + 50);
+      ctx.fillText("r:+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%", x_val_2 + 40, y_val_2 + 50);
     }
     else{
       ctx.fillStyle = culoareScadere;
