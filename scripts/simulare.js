@@ -1381,7 +1381,7 @@ function desenareGraficeTrenduri(){
 
     //desenare predictie zi urmatoare
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("Ziua " + (selectorZi + 1) + ":", x_val_2 + 40, y_val_2 + 64);
+    ctx.fillText("Ziua " + Math.round(selectorZi + 1) + ":", x_val_2 + 40, y_val_2 + 64);
 
     if(vector_r[selectorZi] > 1){
       text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
