@@ -1047,48 +1047,9 @@ function desenareGraficeTrenduri(){
           ctx.lineWidth = 1;
           ctx.closePath();
           ctx.stroke();
+
       }
-
-
-      //desenare linii conectare puncte grafic 2 sus
-      /*
-      if(i>0){
-          x1_valoare = (i-1)*incrementX;
-          y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend_1)/maxValue));
-          y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend_2)/maxValueGrafic2));
-
-
-          //desenare linii conectare puncte valori grafic 1
-          ctx.beginPath();
-          ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
-          ctx.lineTo(12 + x_valoare, y_valoare_2);
-          ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
-          ctx.lineWidth = 2;
-          ctx.closePath();
-          ctx.stroke();
-
-          //desenare linii conectare puncte valori grafic 2
-          ctx.beginPath();
-          ctx.moveTo(12 + x1_valoare, y1_valoare);
-          ctx.lineTo(12 + x_valoare, y_valoare);
-          ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
-          ctx.lineWidth = 2;
-          ctx.closePath();
-          ctx.stroke();
-
-      }*/
-
-      //desenare punct valoare grafic_valori_desenat - data_1
-      /*
-      ctx.beginPath();
-      ctx.moveTo(12 + x_valoare, y_valoare );
-      ctx.lineTo(12 + x_valoare, y_valoare + 1);
-      ctx.strokeStyle = culoarePunctValoriGrafic;
-      ctx.lineWidth = 4;
-      ctx.closePath();
-      ctx.stroke();*/
     }
-  //desenare
 
 
   //desenare proiectie
@@ -1403,9 +1364,19 @@ function desenareGraficeTrenduri(){
 
   if(selectorZi > orizont_trend){
     ctx.fillStyle = culoareLinieGraficP;
-    ctx.fillRect(x_val_2 + 20, y_val_2 + 25, 50, 12);
+    ctx.fillRect(x_val_2 + 40, y_val_2 + 25, 50, 12);
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText(ratap_2, x_val_2 + 20, y_val_2 + 36);
+    ctx.fillText(ratap_2, x_val_2 + 40, y_val_2 + 36);
+
+    //desenare valoare vector_r (in procente %)
+    if(vector_r[selectorZi] > 1){
+      ctx.fillStyle = culoareGraficVectorR;
+      ctx.fillText("r:" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%", x_val_2 + 40, y_val_2 + 50);
+    }
+    else{
+      ctx.fillStyle = culoareScadere;
+      ctx.fillText("r:" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%", x_val_2 + 40, y_val_2 + 50);
+    }
   }
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
