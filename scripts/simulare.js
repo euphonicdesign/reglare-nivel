@@ -1369,14 +1369,27 @@ function desenareGraficeTrenduri(){
     ctx.fillText(ratap_2, x_val_2 + 40, y_val_2 + 36);
 
     //desenare valoare vector_r (in procente %)
+    text_r = "r:+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%";
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("r:+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%", x_val_2 + 40, y_val_2 + 50);
+      ctx.fillText(text_r, x_val_2 + 40, y_val_2 + 50);
     }
     else{
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("r:" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%", x_val_2 + 40, y_val_2 + 50);
+      ctx.fillText(text_r, x_val_2 + 40, y_val_2 + 50);
     }
+
+    //desenare predictie zi urmatoare
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText("Ziua " + (selectorZi + 1) + ":", x_val_2 + 40, y_val_2 + 64);
+
+    if(vector_r[selectorZi] > 1){
+      text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
+    }
+    else{
+      text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
+    }
+    ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 78);
   }
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
