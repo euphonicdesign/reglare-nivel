@@ -1391,18 +1391,50 @@ function desenareGraficeTrenduri(){
     */
 
     if(vector_r[selectorZi] > 1){
+
+      ctx.fillStyle = culoareGraficVectorR;
+      ctx.fillText("dif=+" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 84);
+
       text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 84);
-      ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("dif=+" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 98);
+      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 98);
+
     }
     else{
+      ctx.fillStyle = culoareScadere;
+      ctx.fillText("dif=" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 84);
+
       text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 84);
-      ctx.fillStyle = culoareScadere;
-      ctx.fillText("dif=" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 98);
+      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 98);
+
+    }
+
+    //calcul derivate
+    vr0 = vector_r[selectorZi-2];
+    vr1 = vector_r[selectorZi-1];
+    vr2 = vector_r[selectorZi];
+    d1r1 = vr1 - vr0;
+    d1r2 = vr2 - vr1;
+    d2r2 = d1r2 - d1r1;
+
+    //derivata ordin 1 (viteza de crestere sau scadere)
+    ctx.fillStyle = culoarePunctValoriGrafic_3;;
+    if(d1r2>0){
+        ctx.fillText("dR=+" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
+    }
+    else {
+      ctx.fillText("dR=" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
+    }
+
+
+    //derivata ordin 2 (acceleratia - crestere sau scadere)
+    ctx.fillStyle = culoarePunctValoriGrafic_3;;
+    if(d2r2>0){
+        ctx.fillText("d2R=+" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
+    }
+    else{
+        ctx.fillText("d2R=" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
     }
 
   }
