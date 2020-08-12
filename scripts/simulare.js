@@ -1411,12 +1411,12 @@ function desenareGraficeTrenduri(){
     }
 
     //calcul derivate
-    vr0 = vector_r[selectorZi-2];
-    vr1 = vector_r[selectorZi-1];
+    vr0 = vector_r[selectorZi-8];
+    vr1 = vector_r[selectorZi-4];
     vr2 = vector_r[selectorZi];
-    d1r1 = vr1 - vr0;
-    d1r2 = vr2 - vr1;
-    d2r2 = d1r2 - d1r1;
+    d1r1 = (vr1 - vr0)/4;
+    d1r2 = (vr2 - vr1)/4;
+    d2r2 = (d1r2 - d1r1)/4;
 
     //derivata ordin 1 (viteza de crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
