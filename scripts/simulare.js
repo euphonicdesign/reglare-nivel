@@ -1426,7 +1426,7 @@ function desenareGraficeTrenduri(){
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("   - dR=" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
+        ctx.fillText("   - dR=" + Math.floor(d1r2*1000)/100 + "%(<0)", x_val_2 + 40, y_val_2 + 112);
     }
 
 
