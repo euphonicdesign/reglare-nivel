@@ -1370,13 +1370,15 @@ function desenareGraficeTrenduri(){
     ctx.fillText(ratap_2, x_val_2 + 40, y_val_2 + 56);
 
     //desenare valoare vector_r (in procente %)
-    text_r = "r:+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%";
+
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
+      text_r = "r=+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%";
       ctx.fillText(text_r, x_val_2 + 40, y_val_2 + 70);
     }
     else{
       ctx.fillStyle = culoareScadere;
+      text_r = "r=" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%";
       ctx.fillText(text_r, x_val_2 + 40, y_val_2 + 70);
     }
 
@@ -1388,12 +1390,19 @@ function desenareGraficeTrenduri(){
 
     if(vector_r[selectorZi] > 1){
       text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
+      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 84);
+      ctx.fillStyle = culoareGraficVectorR;
+      ctx.fillText("dif=+" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 98);
     }
     else{
       text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
+      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 84);
+      ctx.fillStyle = culoareScadere;
+      ctx.fillText("dif=" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 98);
     }
-    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 84);
+
   }
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
