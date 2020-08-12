@@ -162,6 +162,7 @@ let comandaIdeala = [];
 let proiectie = [];
 let vector_r = [];
 let vector_r_normalizat = [];
+let vector_coefA = [];
 var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 
 var MOD_FOTOGRAFIE = 0;
@@ -187,6 +188,7 @@ var derulareAutomata = true;
 var vitezaSimulare = 165;
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
+var scala_grafic_2 = 1.3; //scalare suplimentara grafic 2 sus 1.5 = 150%
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 80; // grafic sus - p+
 var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
@@ -199,6 +201,9 @@ var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
+
+var yLegendaDerivate = yGrafic_3 - 95;
+var xLegendaDerivate = 450;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -531,13 +536,13 @@ function start() {
     }
 
     //Calcul Parametrii Predictie (coefA,bazaR)
-    generare_vector_r();
+    generare_vector_r_coefA();
     maxValue_4 = Math.max(...vector_r_normalizat);
     calcul_parametrii_Predictie();
     maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
     //console.log(maxValueProiectie);
 
-    maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) //- Math.abs(Math.floor((maxValue_2 - maxValueProiectie) * 0.7));
+    maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2; //- Math.abs(Math.floor((maxValue_2 - maxValueProiectie) * 0.7));
     //console.log("maxValue_2: " + maxValue_2);
     //console.log("maxValueProiectie: " + maxValueProiectie);
     //console.log("maxValueGrafic2 (max): " + maxValueGrafic2);
@@ -545,13 +550,14 @@ function start() {
     setare_mod();
 }
 
-function generare_vector_r(){
+function generare_vector_r_coefA(){
     n = orizont_regresie;
     //console.log(n);
     //console.log(data_2.length);
     for(let k = 0; k < n; k++){
       vector_r[k] = 0;
       vector_r_normalizat[k] = 0;
+      vector_coefA[k] = 0;
     }
 
     for(let k = n; k <= data_2.length; k++){
@@ -588,7 +594,10 @@ function generare_vector_r(){
         b = (sumY - m*sumX) / n;
 
         bazaR = Math.exp(m);
+        coefA = Math.exp(b);
+
         vector_r[k-1] = bazaR;
+        vector_coefA[k-1] = coefA;
         vector_r_normalizat[k-1] = (bazaR - 1) * 1000;
     }
 
@@ -1065,7 +1074,8 @@ function desenareGraficeTrenduri(){
           x1_1 = (i-1)*incrementX;
           //x1_2 = i*incrementX;
 
-          yp1 = coefA * Math.pow(bazaR, (i-1));
+          //yp1 = coefA * Math.pow(bazaR, (i-1));
+          yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
           //yp2 = coefA * Math.pow(bazaR, i);
 
           //console.log("x1_1: " + x1_1 + "x1_2: " +x1_2);
@@ -1367,47 +1377,57 @@ function desenareGraficeTrenduri(){
 
   if(selectorZi > orizont_trend){
     ctx.fillStyle = culoareLinieGraficP;
-    ctx.fillRect(x_val_2 + 40, y_val_2 + 45, 50, 12);
+    ctx.fillRect(xLegendaDerivate, yLegendaDerivate + 45, 50, 12);
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText(ratap_2, x_val_2 + 40, y_val_2 + 56);
+    ctx.fillText(ratap_2, xLegendaDerivate, yLegendaDerivate + 56);
 
     //desenare valoare vector_r (in procente %)
 
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
       text_r = "r=+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%";
-      ctx.fillText(text_r, x_val_2 + 40, y_val_2 + 70);
+      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 70);
     }
     else{
       ctx.fillStyle = culoareScadere;
       text_r = "r=" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%";
-      ctx.fillText(text_r, x_val_2 + 40, y_val_2 + 70);
+      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 70);
     }
 
     //desenare predictie zi urmatoare
     /*
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("Ziua " + (Math.round(selectorZi) + Math.round(1.0)) + ":", x_val_2 + 40, y_val_2 + 74);
+    ctx.fillText("Ziua " + (Math.round(selectorZi) + Math.round(1.0)) + ":", xLegendaDerivate, yLegendaDerivate + 74);
     */
+
+    if(selectorZi < (data.length - orizont_regresie)){
+      //valoarea actuala
+      valZiCur = data_2[selectorZi];
+    }
+    else{
+      //media din predictie
+      valZiCur = coefA * Math.pow(bazaR, (selectorZi-1));
+      //console.log(Math.round(coefA * Math.pow(bazaR, (selectorZi-1))));
+      //console.log("test");
+    }
 
     if(vector_r[selectorZi] > 1){
 
       ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("dif=+" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 84);
+      ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 84);
 
-      text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
+      text_zi_urmatoare = "" + Math.round(valZiCur) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 98);
+      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 112);
 
     }
     else{
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("dif=" + Math.round(data_2[selectorZi] * (vector_r[selectorZi] - 1)), x_val_2 + 40, y_val_2 + 84);
+      ctx.fillText("dif=" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 84);
 
-      text_zi_urmatoare = "" + Math.round(data_2[selectorZi]) + "" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(data_2[selectorZi] * vector_r[selectorZi]);
+      text_zi_urmatoare = "" + Math.round(valZiCur) + "" + ((Math.floor((vector_r[selectorZi] - 1)*1000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, x_val_2 + 40, y_val_2 + 98);
-
+      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 112);
     }
 
     //calcul derivate
@@ -1422,21 +1442,21 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestere;
-        ctx.fillText("   - dR=+" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
+        ctx.fillText("- dR=+" + Math.floor(d1r2*1000)/100 + "%", xLegendaDerivate, yLegendaDerivate + 126);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("   - dR=" + Math.floor(d1r2*1000)/100 + "%(<0)", x_val_2 + 40, y_val_2 + 112);
+        ctx.fillText("- dR=" + Math.floor(d1r2*1000)/100 + "%(<0)", xLegendaDerivate, yLegendaDerivate + 126);
     }
 
 
     //derivata ordin 2 (acceleratia - crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     if(d2r2>0){
-        ctx.fillText("   - d2R=+" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
+        ctx.fillText("- d2R=+" + Math.floor(d2r2*1000)/100 + "%", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else{
-        ctx.fillText("   - d2R=" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
+        ctx.fillText("- d2R=" + Math.floor(d2r2*1000)/100 + "%", xLegendaDerivate, yLegendaDerivate + 140);
     }
 
   }
