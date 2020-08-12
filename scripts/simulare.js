@@ -1422,21 +1422,21 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestere;
-        ctx.fillText("dR=+" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
+        ctx.fillText("   - dR=+" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("dR=" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
+        ctx.fillText("   - dR=" + Math.floor(d1r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 112);
     }
 
 
     //derivata ordin 2 (acceleratia - crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     if(d2r2>0){
-        ctx.fillText("d2R=+" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
+        ctx.fillText("   - d2R=+" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
     }
     else{
-        ctx.fillText("d2R=" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
+        ctx.fillText("   - d2R=" + Math.floor(d2r2*1000)/100 + "%", x_val_2 + 40, y_val_2 + 126);
     }
 
   }
