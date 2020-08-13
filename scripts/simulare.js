@@ -1442,6 +1442,7 @@ function desenareGraficeTrenduri(){
     d2r2 = (d1r2 - d1r1)/4;
 
     //derivata ordin 1 (viteza de crestere sau scadere)
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestere;
@@ -1451,6 +1452,7 @@ function desenareGraficeTrenduri(){
         ctx.fillStyle = culoareScadere;
         ctx.fillText("- dR=" + Math.floor(d1r2*10000)/100 + "(<0)", xLegendaDerivate, yLegendaDerivate + 84);
     }
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
     //84, 126, 140
 
