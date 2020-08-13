@@ -163,7 +163,8 @@ let proiectie = [];
 let vector_r = [];
 let vector_r_normalizat = [];
 let vector_coefA = [];
-var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
+//var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
+var incrementX = 2.8;
 
 var MOD_FOTOGRAFIE = 0;
 var MOD_REGULATOR = 1;
@@ -485,7 +486,7 @@ function modificaNivel(e){
 }
 
 function start() {
-    incrementX = 3;
+    //incrementX = 2.9;
     //incrementX = Math.round((lungimeSuprafataGrafica) / (data.length + 1)) - 2;
     //console.log(incrementX);
 
