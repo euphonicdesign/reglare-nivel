@@ -1119,11 +1119,11 @@ function desenareGraficeTrenduri(){
       //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
       if(bazaR > 1){
         ctx.fillStyle = culoareGraficVectorR;
-        ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
+        ctx.fillText("r0=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
       }
       else{
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, x1_1 + 20, y1_1 + 24);
+        ctx.fillText("r0=" + (Math.floor(vector_r[selectorZi]*1000))/1000, x1_1 + 20, y1_1 + 24);
       }
 
 
