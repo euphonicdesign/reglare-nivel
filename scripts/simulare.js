@@ -1385,7 +1385,7 @@ function desenareGraficeTrenduri(){
     ctx.fillText(ratap_2, xLegendaDerivate, yLegendaDerivate + 56);
 
     //desenare valoare vector_r (in procente %)
-    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
       text_r = "R=+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
@@ -1396,7 +1396,7 @@ function desenareGraficeTrenduri(){
       text_r = "R=" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
       ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 70);
     }
-    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
     //desenare predictie zi urmatoare
     /*
