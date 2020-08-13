@@ -188,7 +188,9 @@ var derulareAutomata = true;
 var vitezaSimulare = 165;
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
-var scala_grafic_2 = 1.3; //scalare suplimentara grafic 2 sus 1.5 = 150%
+
+var scala_grafic_2 = 1.4; //scalare suplimentara grafic 2 sus 1.5 = 150%
+
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 80; // grafic sus - p+
 var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
@@ -1116,11 +1118,11 @@ function desenareGraficeTrenduri(){
       //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
       if(bazaR > 1){
         ctx.fillStyle = culoareGraficVectorR;
-        ctx.fillText("r=" + (Math.floor(bazaR*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
+        ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
       }
       else{
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("r=" + (Math.floor(bazaR*1000))/1000, x1_1 + 20, y1_1 + 24);
+        ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, x1_1 + 20, y1_1 + 24);
       }
 
 
