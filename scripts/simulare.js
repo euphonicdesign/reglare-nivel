@@ -1451,7 +1451,7 @@ function desenareGraficeTrenduri(){
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("- dR=" + Math.floor(d1r2*10000)/100 + "(<0)", xLegendaDerivate, yLegendaDerivate + 84);
+        ctx.fillText("- dR=" + Math.floor(d1r2*10000)/100 + " (<0)", xLegendaDerivate, yLegendaDerivate + 84);
     }
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
