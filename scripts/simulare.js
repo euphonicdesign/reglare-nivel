@@ -161,6 +161,7 @@ let proiectie = [];
 let vector_r = [];
 let vector_r_normalizat = [];
 let vector_coefA = [];
+let vector_E = [];
 //var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 var incrementX = 2.8;
 
@@ -559,6 +560,7 @@ function generare_vector_r_coefA(){
       vector_r[k] = 0;
       vector_r_normalizat[k] = 0;
       vector_coefA[k] = 0;
+      vector_E[k] = 0;
     }
 
     for(let k = n; k <= data_2.length; k++){
@@ -569,7 +571,9 @@ function generare_vector_r_coefA(){
         sumXY = 0;
         sumX2 = 0;
         sumY2 = 0;
-        contor = 0;
+        //contor = 0;
+        sumY_raw = 0;
+        medieY_raw = 0;
 
         for(let i = zi_start; i < k; i++){
           //console.log(i);
@@ -578,6 +582,7 @@ function generare_vector_r_coefA(){
 
           //SumY(SumLn(y))
           sumY += Math.log(data_2[i]);
+          sumY_raw += data_2[i];
 
           //SumXY(SumXLn(y))
           sumXY += i*Math.log(data_2[i]);
@@ -588,7 +593,7 @@ function generare_vector_r_coefA(){
           sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
 
           //data_2[i];
-          contor++;
+          //contor++;
         }
 
         m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
@@ -597,9 +602,24 @@ function generare_vector_r_coefA(){
         bazaR = Math.exp(m);
         coefA = Math.exp(b);
 
+        //console.log("n=" + n + " contor=" + contor);
+
+        medieY_raw = sumY_raw / n;
+
+        let varianta = 0;
+        for (let i = zi_start; i < k; i++) {
+           varianta += Math.pow((data_2[i] - medieY_raw), 2);
+        }
+        let devst = Math.sqrt(varianta / (n-1));
+
+        //varianta2 = Math.floor(varianta*100) / 100;
+        //devst2 = Math.round(devst);
+
+
         vector_r[k-1] = bazaR;
         vector_coefA[k-1] = coefA;
         vector_r_normalizat[k-1] = (bazaR - 1) * 1000;
+        vector_E[k-1] = devst;
     }
 
     /*
@@ -620,7 +640,9 @@ function calcul_parametrii_Predictie(){
     sumXY = 0;
     sumX2 = 0;
     sumY2 = 0;
-    contor = 0;
+    //contor = 0;
+
+    sumY_nelog = 0;
 
     for(let i = zi_start; i < data_2.length; i++){
       //console.log(i);
@@ -629,6 +651,7 @@ function calcul_parametrii_Predictie(){
 
       //SumY(SumLn(y))
       sumY += Math.log(data_2[i]);
+      sumY_nelog += data_2[i];
 
       //SumXY(SumXLn(y))
       sumXY += i*Math.log(data_2[i]);
@@ -639,7 +662,7 @@ function calcul_parametrii_Predictie(){
       sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
 
       //data_2[i];
-      contor++;
+      //contor++;
     }
 
     m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
@@ -650,6 +673,7 @@ function calcul_parametrii_Predictie(){
 
     //logaritmat
     medieY = sumY / n;
+    medieY_nelog = sumY_nelog / n;
 
 
     const mx = sumX / n;
@@ -680,13 +704,13 @@ function calcul_parametrii_Predictie(){
     //sst = eroare regresie + eroare reziduala (varianta)
     sst = 0;
     for (let i = zi_start; i < data_2.length; i++) {
-       varianta += Math.pow((Math.log(data_2[i]) - medieY), 2);
-       sst += Math.pow(Math.log(data_2[i]) - my, 2);
+       varianta += Math.pow((data_2[i] - medieY_nelog), 2);
+       sst += Math.pow((data_2[i] - medieY_nelog), 2);
     }
     devst = Math.sqrt(varianta / (n-1));
 
-    varianta2 = Math.floor(Math.exp(varianta)*100) / 100;
-    devst2 = Math.floor(Math.exp(devst)*100) / 100;
+    varianta2 = Math.floor(varianta*100) / 100;
+    devst2 = Math.round(devst);
 
     //1. sst = eroare regresie + eroare reziduala (varianta) - eroare totala
     //2. sse = eroare regresie
@@ -702,10 +726,10 @@ function calcul_parametrii_Predictie(){
     //eroare reziduala (y-ymodel)
     ssr = sst - sse;
 
-    sst2 = Math.floor(Math.exp(sst)*100) / 100;
-    sse2 = Math.floor(Math.exp(sse)*100) / 100;
-    see2 = Math.floor(Math.exp(see)*100) / 100;
-    ssr2 = Math.floor(Math.exp(ssr)*100) / 100;
+    sst2 = Math.floor(sst*100) / 100;
+    sse2 = Math.floor(sse*100) / 100;
+    see2 = Math.floor(see*100) / 100;
+    ssr2 = Math.floor(ssr*100) / 100;
 
 
 
@@ -1115,7 +1139,7 @@ function desenareGraficeTrenduri(){
       //desenare valoare bazaR
       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
       //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-      if(bazaR > 1){
+      if(vector_r[selectorZi] > 1){
         ctx.fillStyle = culoareGraficVectorR;
         ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
       }
@@ -1128,7 +1152,10 @@ function desenareGraficeTrenduri(){
       //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
       //desenare deviatie standard
       ctx.fillStyle = culoare_linie_trend;
-      ctx.fillText("E=" + see2, x1_1 + 20, y1_1 + 38);
+      //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
+      //devstd
+      ctx.fillText("E=" + Math.floor(vector_E[selectorZi]), x1_1 + 20, y1_1 + 38);
+
 
       //desenare punct valoare estimata
       ctx.beginPath();
