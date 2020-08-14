@@ -1092,7 +1092,7 @@ function desenareGraficeTrenduri(){
           //cerculet grafic vector r (in capat)
           if(i == selectorZi){
             ctx.beginPath();
-            ctx.arc(12 + x_p, y_r, 4, 0, 2 * Math.PI);
+            ctx.arc(12 + x_p, y_r, 5, 0, 2 * Math.PI);
             //ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
             ctx.lineWidth = 2;
             ctx.closePath();
