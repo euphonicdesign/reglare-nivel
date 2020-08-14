@@ -387,9 +387,13 @@ slider.setAttribute("max", data.length - 1);
 slider.setAttribute("value", selectorZi);
 
 slider.oninput = function() {
-    selectorZi = this.value;
+    selectorZi = Math.round(this.value);
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
     pauza = false;
+    /*
+    if (pauza == true){
+        ActualizareSuprafataGraficaSingulara();
+    }*/
 
     //slider.setAttribute("value", selectorZi);
     //console.log(selectorZi);
@@ -1103,101 +1107,104 @@ function desenareGraficeTrenduri(){
 
 
   //desenare proiectie
-  ziStart = data_2.length - orizont_regresie;
-  ziFinal = data_2.length + orizont_proiectie;
-  if(selectorZi > ziStart){
-      var y1_1 = 0;
-      var x1_1 = 0;
-      for (let i = ziStart; i <= ziFinal ; i++) {
-          x1_1 = (i-1)*incrementX;
-          //x1_2 = i*incrementX;
+  //ziStart = data_2.length - orizont_regresie;
+  if(selectorZi > orizont_trend){
+      ziStart = selectorZi - orizont_regresie;
+      ziFinal = selectorZi + orizont_proiectie;
+      if(selectorZi > ziStart){
+          var y1_1 = 0;
+          var x1_1 = 0;
+          for (let i = ziStart; i <= ziFinal ; i++) {
+              x1_1 = (i-1)*incrementX;
+              //x1_2 = i*incrementX;
 
-          //yp1 = coefA * Math.pow(bazaR, (i-1));
-          yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
-          //yp2 = coefA * Math.pow(bazaR, i);
+              //yp1 = coefA * Math.pow(bazaR, (i-1));
+              yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
+              //yp2 = coefA * Math.pow(bazaR, i);
 
-          //console.log("x1_1: " + x1_1 + "x1_2: " +x1_2);
-          //console.log("yp1: " + yp1 + "yp2: " +yp2);
+              //console.log("x1_1: " + x1_1 + "x1_2: " +x1_2);
+              //console.log("yp1: " + yp1 + "yp2: " +yp2);
 
-          //y1_1 = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend)/maxValue));
-          y1_1 = Math.round(yGrafic_2 - ((yp1*scalaY_trend_2)/maxValueGrafic2));
-          //y1_2 = Math.round(yGrafic_2 - ((yp2*scalaY_trend)/maxValue_2));
+              //y1_1 = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend)/maxValue));
+              y1_1 = Math.round(yGrafic_2 - ((yp1*scalaY_trend_2)/maxValueGrafic2));
+              //y1_2 = Math.round(yGrafic_2 - ((yp2*scalaY_trend)/maxValue_2));
 
-          //desenare linii conectare puncte valori grafic 1
-          /*
+              //desenare linii conectare puncte valori grafic 1
+              /*
+              ctx.beginPath();
+              ctx.moveTo(12 + x1_1, y1_1);
+              ctx.lineTo(12 + x1_2, y1_2);
+              ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+              ctx.lineWidth = 2;
+              ctx.closePath();
+              ctx.stroke();*/
+
+              ctx.beginPath();
+              ctx.arc(12 + x1_1, y1_1, 1, 0, 2 * Math.PI);
+              //ctx.filStyle = "black";
+              ctx.strokeStyle = culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+              ctx.lineWidth = 1;
+              ctx.closePath();
+              //ctx.fill();
+              ctx.stroke();
+          }
+
+          //desenare valoare estimata
+          ctx.textAlign = "start";
+          ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+          ctx.fillStyle = culoarePunctValoriGrafic_3;
+          ctx.fillText("" + Math.round(yp1), x1_1 + 19, y1_1 + 8);
+
+          //desenare valoare bazaR
+          ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+          //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+          if(vector_r[selectorZi] > 1){
+            ctx.fillStyle = culoareGraficVectorR;
+            ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
+          }
+          else{
+            ctx.fillStyle = culoareScadere;
+            ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, x1_1 + 20, y1_1 + 24);
+          }
+
+
+          //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
+          //desenare deviatie standard
+          ctx.fillStyle = culoare_linie_trend;
+          //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
+          //devstd
+          ctx.fillText("E=" + Math.floor(vector_E[selectorZi]), x1_1 + 20, y1_1 + 38);
+
+
+          //desenare punct valoare estimata
           ctx.beginPath();
-          ctx.moveTo(12 + x1_1, y1_1);
-          ctx.lineTo(12 + x1_2, y1_2);
+          ctx.arc(12 + x1_1, y1_1, 4, 0, 2 * Math.PI);
+          ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
+
+          //desenare indicator abscisa
+          ctx.beginPath();
+          ctx.moveTo(12 + x1_1, yGrafic_2 + 3);
+          ctx.lineTo(12 + x1_1, yGrafic_2 + 7);
           ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
           ctx.lineWidth = 2;
           ctx.closePath();
-          ctx.stroke();*/
-
-          ctx.beginPath();
-          ctx.arc(12 + x1_1, y1_1, 1, 0, 2 * Math.PI);
-          //ctx.filStyle = "black";
-          ctx.strokeStyle = culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-          ctx.lineWidth = 1;
-          ctx.closePath();
-          //ctx.fill();
           ctx.stroke();
+
+          ctx.textAlign = "start";
+          ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+          ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+          //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+          ctx.fillText(ziFinal, 11 + x1_1 , yGrafic_2 + 21);
+
+          //Afisare data - zi curenta
+          data_zi_luna = data_data[ziFinal].split("/");
+          zi = data_zi_luna[0];
+          luna = data_luni[data_zi_luna[1]-1];
+          ctx.fillText(zi + " " + luna, 11 + x1_1, yGrafic_2 + 35);
       }
-
-      //desenare valoare estimata
-      ctx.textAlign = "start";
-      ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-      ctx.fillStyle = culoarePunctValoriGrafic_3;
-      ctx.fillText("" + Math.round(yp1), x1_1 + 19, y1_1 + 8);
-
-      //desenare valoare bazaR
-      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-      //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-      if(vector_r[selectorZi] > 1){
-        ctx.fillStyle = culoareGraficVectorR;
-        ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
-      }
-      else{
-        ctx.fillStyle = culoareScadere;
-        ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, x1_1 + 20, y1_1 + 24);
-      }
-
-
-      //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
-      //desenare deviatie standard
-      ctx.fillStyle = culoare_linie_trend;
-      //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
-      //devstd
-      ctx.fillText("E=" + Math.floor(vector_E[selectorZi]), x1_1 + 20, y1_1 + 38);
-
-
-      //desenare punct valoare estimata
-      ctx.beginPath();
-      ctx.arc(12 + x1_1, y1_1, 4, 0, 2 * Math.PI);
-      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-      ctx.lineWidth = 2;
-      ctx.closePath();
-      ctx.stroke();
-
-      //desenare indicator abscisa
-      ctx.beginPath();
-      ctx.moveTo(12 + x1_1, yGrafic_2 + 3);
-      ctx.lineTo(12 + x1_1, yGrafic_2 + 7);
-      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
-      ctx.lineWidth = 2;
-      ctx.closePath();
-      ctx.stroke();
-
-      ctx.textAlign = "start";
-      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(ziFinal, 11 + x1_1 , yGrafic_2 + 21);
-
-      //Afisare data - zi curenta
-      data_zi_luna = data_data[ziFinal].split("/");
-      zi = data_zi_luna[0];
-      luna = data_luni[data_zi_luna[1]-1];
-      ctx.fillText(zi + " " + luna, 11 + x1_1, yGrafic_2 + 35);
   }
 
 
@@ -2104,8 +2111,6 @@ function ActualizareSuprafataGrafica() {
           desenareGraficeTrenduri();
           desenareGraficOrizontal();
         }
-
-
     }
 }
 
