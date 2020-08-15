@@ -252,6 +252,9 @@ var culoareLinieLegatura = "#999999";
 var culoareLinieGraficP = "#ffffe6";
 var culoareTextGraficP = "#ffcf66";
 var culoareGraficVectorR = "#996633";//"#ac7339";
+var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
+var culoarePuncteProiectieCrestere = "#33adff";
+var culoarePuncteProiectieScadere = culoare_linie_trend;
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
@@ -1134,7 +1137,13 @@ function desenareGraficeTrenduri(){
               ctx.beginPath();
               ctx.arc(12 + x1_1, y1_1, 1, 0, 2 * Math.PI);
               //ctx.filStyle = "black";
-              ctx.strokeStyle = culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+              if(vector_r[selectorZi] > 1){
+                  ctx.strokeStyle = culoarePuncteProiectieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+              }
+              else{
+                  ctx.strokeStyle = culoarePuncteProiectieScadere;//culoare_linie_trend;
+              }
+
               ctx.lineWidth = 1;
               ctx.closePath();
               //ctx.fill();
@@ -1644,7 +1653,7 @@ function desenareGraficeTrenduri(){
     if(selectorZi > orizont_regresie){
       if(vector_r_normalizat[selectorZi] >= 0){
           ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
-          ctx.fillStyle = "#80ffff";
+          ctx.fillStyle = culoareCerculetR;
 
       }
       else {
