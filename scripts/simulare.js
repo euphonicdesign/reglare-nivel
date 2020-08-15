@@ -200,7 +200,7 @@ var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
-var scalaX = 100; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaX = 110; //grafic valori vertical - cumulativ - foto, trend, regulator
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
