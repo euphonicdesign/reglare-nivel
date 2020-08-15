@@ -1032,6 +1032,46 @@ function desenarePuncteGraficOrizontal(){
     }
 }
 
+
+function desenareGraficPVectorR(){
+  //desenare grafic p+ si vector_r
+  //desenare valori grafice (grafic 1 jos, grafic 2 sus)
+  for (let i = 0; i <= selectorZi; i++) {
+      x_p = i*incrementX;
+      y_p = Math.round(yGrafic_2 - ((data_3[i]*scalaY_trend_3)/maxValue_3));
+      //y_r = Math.round(yGrafic_2 - ((vector_r[i]*scalaY_trend_4)/maxValue_4));
+      // normalizat in jurul lui 1
+      y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
+      //console.log("zi " + i + ": " + (vector_r[i]*1000 - 1000) );
+
+      //desenare punct valoare grafic_valori_desenat - data_3 - p+
+      ctx.beginPath();
+      ctx.moveTo(12 + x_p, yGrafic_2 - 2);
+      ctx.lineTo(12 + x_p, y_p - 2);
+      ctx.strokeStyle = culoareLinieGraficP;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 4;
+      ctx.closePath();
+      ctx.stroke();
+
+      //desenare punct valoare grafic_valori_desenat - vector_r
+      if(i > orizont_regresie){
+          ctx.beginPath();
+          ctx.moveTo(12 + x_p, y_r - 1);
+          ctx.lineTo(12 + x_p, y_r + 1);
+          if(vector_r_normalizat[i] >= 0){
+              ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
+          }
+          else {
+              ctx.strokeStyle = culoareScadere;
+          }
+          ctx.lineWidth = 1;
+          ctx.closePath();
+          ctx.stroke();
+
+      }
+    }
+}
+
 function desenareGraficeTrenduri(){
   ctx = suprafataGrafica.context;
 
@@ -1056,55 +1096,7 @@ function desenareGraficeTrenduri(){
   ctx.closePath();
   ctx.stroke();
 
-
-  //desenare grafic p+ si vector_r
-  //desenare valori grafice (grafic 1 jos, grafic 2 sus)
-  for (let i = 0; i <= selectorZi; i++) {
-      x_p = i*incrementX;
-      y_p = Math.round(yGrafic_2 - ((data_3[i]*scalaY_trend_3)/maxValue_3));
-      //y_r = Math.round(yGrafic_2 - ((vector_r[i]*scalaY_trend_4)/maxValue_4));
-      // normalizat in jurul lui 1
-      y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
-      //console.log("zi " + i + ": " + (vector_r[i]*1000 - 1000) );
-
-      //desenare punct valoare grafic_valori_desenat - data_3 - p+
-      ctx.beginPath();
-      ctx.moveTo(12 + x_p, yGrafic_2 - 2);
-      ctx.lineTo(12 + x_p, y_p - 2);
-      ctx.strokeStyle = culoareLinieGraficP;//culoarePunctValoriGrafic;
-      ctx.lineWidth = 4;
-      ctx.closePath();
-      ctx.stroke();
-
-
-
-      //desenare punct valoare grafic_valori_desenat - vector_r
-      if(i > orizont_regresie){
-          ctx.beginPath();
-          ctx.moveTo(12 + x_p, y_r - 1);
-          ctx.lineTo(12 + x_p, y_r + 1);
-          if(vector_r_normalizat[i] >= 0){
-              ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
-          }
-          else {
-              ctx.strokeStyle = culoareScadere;
-          }
-          ctx.lineWidth = 1;
-          ctx.closePath();
-          ctx.stroke();
-
-          //cerculet grafic vector r (in capat)
-          if(i == selectorZi){
-            ctx.beginPath();
-            ctx.arc(12 + x_p, y_r, 5, 0, 2 * Math.PI);
-            //ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-            ctx.lineWidth = 2;
-            ctx.closePath();
-            ctx.stroke();
-          }
-      }
-    }
-
+  desenareGraficPVectorR();
 
   //desenare proiectie
   //ziStart = data_2.length - orizont_regresie;
@@ -1646,6 +1638,38 @@ function desenareGraficeTrenduri(){
       ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
       ctx.fillText(index2, 12 + xc1, yGrafic_2 + 21);
 
+    }
+
+    //cerculet grafic vector r (in capat)
+    if(selectorZi > orizont_regresie){
+      if(vector_r_normalizat[selectorZi] >= 0){
+          ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
+          ctx.fillStyle = "#80ffff";
+
+      }
+      else {
+          ctx.strokeStyle = culoareScadere;
+          ctx.fillStyle = culoareLinieGraficP;
+      }
+
+
+      ctx.beginPath();
+      ctx.arc(12 + x_p, y_r, 4, 0, 2 * Math.PI);
+      //ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+      ctx.lineWidth = 4;
+      ctx.closePath();
+      ctx.stroke();
+      ctx.fill();
+
+      /*
+      ctx.fillStyle = ctx.strokeStyle;//"#80ffff";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(12 + x_p, y_r, 3, 0, 2 * Math.PI);
+      //ctx.strokeStyle = culoareTrend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+      ctx.closePath();
+      ctx.fill();
+      //ctx.stroke();*/
     }
 
 }
