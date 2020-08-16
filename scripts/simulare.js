@@ -1189,51 +1189,62 @@ function desenareEntitate(){
 
     diff = raza_transmisie - raza_pop;
 
+    /*
+    if(pulsatie == true){
+        culoare_pop = "#ffbb33";//"#ffdd99";
+    }
+    else {
+        culoare_pop = "#ffffe6";
+    }*/
 
     if(diff > 0){
         //crestere
         //transmisie (proiectie pe orizont de proiectie)
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 10;
         ctx.fillStyle = culoareCerculetR;
-        ctx.strokeStyle = culoareGraficVectorR;
+        ctx.strokeStyle = "#007acc";//culoareGraficVectorR;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_transmisie, 0, 2 * Math.PI);
         ctx.closePath();
-        //ctx.stroke();
+        if(pulsatie)
+            ctx.stroke();
         ctx.fill();
 
         //populatie
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 8;
         ctx.fillStyle = culoare_pop;
-        ctx.strokeStyle = culoareGraficVectorR;
+        ctx.strokeStyle = "#e67300";//"#ffbb33";//culoareGraficVectorR;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_pop, 0, 2 * Math.PI);
         ctx.closePath();
-        //ctx.stroke();
+        //if(pulsatie)
+          //ctx.stroke();
         ctx.fill();
     }
     else {
         //scadere
         //populatie cu culoare de transmisie
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 10;
         ctx.fillStyle =  "#79d279";//culoareScadere;//culoareLinieGraficP;
         ctx.strokeStyle = culoareScadere;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_pop, 0, 2 * Math.PI);
         ctx.closePath();
-        //ctx.stroke();
+        if(pulsatie)
+          ctx.stroke();
         ctx.fill();
 
 
         //transmisie cu culoare de populatie
         //transmisie (proiectie pe orizont de proiectie)
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 8;
         ctx.fillStyle = culoare_pop;//culoare_pop;
-        ctx.strokeStyle = culoareScadere;
+        ctx.strokeStyle = "#e67300"//"#ffbb33";//culoareScadere;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_transmisie, 0, 2 * Math.PI);
         ctx.closePath();
-        //ctx.stroke();
+        //if(pulsatie)
+          //ctx.stroke();
         ctx.fill();
     }
 
@@ -2357,18 +2368,14 @@ function ActualizareSuprafataGrafica() {
             culoareCompensator = culoareTextCompensatorFill3;
         }
 
-        /*
-        if(selectorZi < (data.length - orizont_regresie)){
-          //valoarea actuala
-          valZiCur = data_2[selectorZi];
-        }
-        else{
-          */
-          //media din predictie
         valZiCur = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi-1));
-          //console.log(Math.round(coefA * Math.pow(bazaR, (selectorZi-1))));
-          //console.log("test");
-        //}
+
+        pulsatie = false;
+        for(let j = 0; j < evenimente.length; j++){
+            if(data_data[selectorZi] == evenimente[j]){
+                pulsatie = true;
+            }
+        }
 
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
@@ -2415,6 +2422,22 @@ function ActualizareSuprafataGraficaSingulara() {
         culoareValoareNivel = culoareApa;
         //culoareLinieGraficVertical = culoareApa;
 
+        //Culoare compensator
+        if(data[selectorZi] > medieCumulativ[selectorZi]){
+            culoareCompensator = culoareTextCompensatorRosu;
+        }
+        else{
+            culoareCompensator = culoareTextCompensatorFill3;
+        }
+
+        valZiCur = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi-1));
+
+        pulsatie = false;
+        for(let j = 0; j < evenimente.length; j++){
+            if(data_data[selectorZi] == evenimente[j]){
+                pulsatie = true;
+            }
+        }
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
@@ -2435,7 +2458,6 @@ function ActualizareSuprafataGraficaSingulara() {
             desenareGraficeTrenduri();
             desenareGraficOrizontal();
         }
-
 
 }
 
