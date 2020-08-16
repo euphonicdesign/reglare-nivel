@@ -159,6 +159,27 @@ let data_luni = [
               "Dec",
             ];
 
+let evenimente = [
+              '15/5',
+              '1/6',
+              '15/6',
+              '1/7',
+              '1/8',
+];
+
+let evenimente_actiuni = [
+              'set masuri relaxare', //15/5
+              'set masuri relaxare', //1/6
+              'set masuri relaxare', //15/6
+              'set masuri relaxare', //1/7
+              'set masuri preventie', //1/8
+];
+
+var xTextZi = 10;
+var yTextZi = 50;
+var xTextEveniment = xTextZi + 130;
+var yTextEveniment = yTextZi;
+
 let dataCumulativ = [];
 let medieCumulativ = [];
 let comandaIdeala = [];
@@ -904,7 +925,7 @@ function desenareZiValoareTrenduri(){
     //ctx.font = "30px Arial";
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     //ctx.fillText("Ziua " + selectorZi, 10, 50);
-    ctx.strokeText("Ziua " + selectorZi, 10, 50);
+    ctx.strokeText("Ziua " + selectorZi, xTextZi, yTextZi);
 }
 
 function desenareZiValoare() {
@@ -1100,8 +1121,25 @@ function desenareGraficPVectorR(){
     }
 }
 
+function desenareEvenimente(){
+    ctx.textAlign = "start";
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
+
+    for(let i = 0; i < evenimente.length; i++){
+      //console.log(evenimente[i]);
+      if(data_data[selectorZi] == evenimente[i]){
+          //console.log(evenimente[i]);
+          ctx.fillText(evenimente_actiuni[i], xTextEveniment, yTextEveniment);
+      }
+    }
+}
+
 function desenareGraficeTrenduri(){
+
+
   ctx = suprafataGrafica.context;
+  desenareEvenimente();
 
   //desenare linie abscisa grafic
   ctx.fillStyle = culoareLinieReferinta;
