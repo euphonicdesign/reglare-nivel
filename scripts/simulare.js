@@ -1185,6 +1185,7 @@ function desenareEntitate(){
     }
     else{
         raza_transmisie = 0;
+        raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;;
     }
 
     diff = raza_transmisie - raza_pop;
@@ -1224,8 +1225,13 @@ function desenareEntitate(){
     else {
         //scadere
         //populatie cu culoare de transmisie
-        ctx.lineWidth = 10;
-        ctx.fillStyle =  "#79d279";//culoareScadere;//culoareLinieGraficP;
+        ctx.lineWidth = 6;
+        if(raza_transmisie == 0){
+            ctx.fillStyle = culoare_pop;
+        }
+        else {
+            ctx.fillStyle = "#9fdf9f"; //"#79d279";//culoareScadere;//culoareLinieGraficP;
+        }
         ctx.strokeStyle = culoareScadere;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_pop, 0, 2 * Math.PI);
@@ -1315,8 +1321,7 @@ function desenareGraficeTrenduri(){
 
   ctx = suprafataGrafica.context;
   desenareEvenimente();
-  if(selectorZi > orizont_trend)
-      desenareEntitate();
+  desenareEntitate();
 
   //desenare linie abscisa grafic
   ctx.fillStyle = culoareLinieReferinta;
