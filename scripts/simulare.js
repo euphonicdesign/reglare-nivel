@@ -1532,7 +1532,7 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestere;
-        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "(>0!)", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + " (>0!)", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else {
         ctx.fillStyle = culoareScadere;
@@ -1545,7 +1545,7 @@ function desenareGraficeTrenduri(){
     //derivata ordin 2 (acceleratia - crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     if(d2r2>0){
-        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 + "(^)", xLegendaDerivate, yLegendaDerivate + 154);
+        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 + " (^)", xLegendaDerivate, yLegendaDerivate + 154);
     }
     else{
         if(d1r2<0)
