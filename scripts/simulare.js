@@ -1460,13 +1460,13 @@ function desenareGraficeTrenduri(){
     zi = data_zi_luna[0];
     luna = data_luni[data_zi_luna[1]-1];
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(zi + " " + luna + ":", xLegendaDerivate, yLegendaDerivate + 42);
+    ctx.fillText(zi + " " + luna + "", xLegendaDerivate, yLegendaDerivate + 42);
 
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
+      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
 
       text_r = "R=+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
       ctx.fillText(text_r, xLegendaDerivate + ident, yLegendaDerivate + 84);
