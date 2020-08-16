@@ -58,6 +58,11 @@ img {
   text-align: center;
 }
 
+#inactiv {
+  color: green;
+  visibility: hidden;
+}
+
 .slider {
   -webkit-appearance: none;
   width: 100%;

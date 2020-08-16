@@ -418,6 +418,7 @@ slider.oninput = function() {
     selectorZi = Math.round(this.value);
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
     pauza = false;
+    //ActualizareSuprafataGraficaSingulara();
     /*
     if (pauza == true){
         ActualizareSuprafataGraficaSingulara();
@@ -439,7 +440,7 @@ function restart(){
 }
 
 //buton prelucrare
-var buton_reluare = document.getElementById('derulare')
+var buton_reluare = document.getElementById('derulare');
 buton_reluare.onclick = function() {
     restart();
     /*selectorZi = 0;
@@ -450,6 +451,27 @@ buton_reluare.onclick = function() {
     //console.log(slider.getAttribute("value"));
     //procentDinCapacitateMax = data[selectorZi]/maxValue;
 }
+
+/*
+var buton_derulare_inapoi = document.getElementById('derulareinapoi');
+buton_derulare_inapoi.onclick = function() {
+  if (selectorZi > 0){
+      selectorZi -= 1;
+      procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
+      slider.setAttribute("value", selectorZi);
+      ActualizareSuprafataGraficaSingulara();
+  }
+}
+
+var buton_derulare_inainte = document.getElementById('derulareinainte');
+buton_derulare_inainte.onclick = function() {
+  if (selectorZi < data.length - 1){
+      selectorZi += 1;
+      procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
+      slider.setAttribute("value", selectorZi);
+      ActualizareSuprafataGraficaSingulara();
+  }
+}*/
 
 //buton foto
 var buton_foto = document.getElementById('foto')
@@ -516,6 +538,8 @@ function modificaNivel(e){
 
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
     slider.setAttribute("value", selectorZi);
+    slider.value = selectorZi;
+    ActualizareSuprafataGraficaSingulara();
 }
 
 function start() {
