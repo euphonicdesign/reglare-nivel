@@ -299,7 +299,7 @@ var culoarePunctValoriGrafic_3 = "#737373";//"#808080";
 var culoareNumarPunct = "#b3b3b3";//"#404040";
 var culoareTextZi = "#999999";//"#595959";
 
-var culoare_pop = "#4d94ff";//"#005ce6";//"#1a75ff";//culoareApaNivelNormal;//culoarePunctValoriGrafic;//"#EFEFEF";
+var culoare_pop = culoareLinieGraficP;//"#4d94ff";//"#005ce6";//"#1a75ff";//culoareApaNivelNormal;//culoarePunctValoriGrafic;//"#EFEFEF";
 
 var culoareTextReferinta = "#76adff";
 var culoareLinieReferinta = "#cce0ff";
@@ -1216,19 +1216,19 @@ function desenareEntitate(){
         //scadere
         //populatie cu culoare de transmisie
         ctx.lineWidth = 1;
-        ctx.fillStyle =  culoareLinieGraficP;
+        ctx.fillStyle =  "#79d279";//culoareScadere;//culoareLinieGraficP;
         ctx.strokeStyle = culoareScadere;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_pop, 0, 2 * Math.PI);
         ctx.closePath();
-        ctx.stroke();
+        //ctx.stroke();
         ctx.fill();
 
 
         //transmisie cu culoare de populatie
         //transmisie (proiectie pe orizont de proiectie)
         ctx.lineWidth = 4;
-        ctx.fillStyle = culoare_pop;
+        ctx.fillStyle = culoare_pop;//culoare_pop;
         ctx.strokeStyle = culoareScadere;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_transmisie, 0, 2 * Math.PI);
