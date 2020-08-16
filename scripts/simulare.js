@@ -414,6 +414,7 @@ var slider = document.getElementById("myRange");
 slider.setAttribute("max", data.length - 1);
 slider.setAttribute("value", selectorZi);
 
+
 slider.oninput = function() {
     selectorZi = Math.round(this.value);
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
@@ -529,7 +530,6 @@ function modificaNivel(e){
           procentDinCapacitateMax += incrementVariatieSimulare;*/
           if (selectorZi < data.length - 1)
             selectorZi += 1;
-
     }
 
     if(e.code === "Space") {
@@ -537,8 +537,8 @@ function modificaNivel(e){
     }
 
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
-    //slider.setAttribute("value", selectorZi);
-    slider.value = selectorZi;
+    slider.setAttribute("value", selectorZi);
+    //slider.value = selectorZi;
     ActualizareSuprafataGraficaSingulara();
 }
 
@@ -1154,7 +1154,7 @@ function desenareEvenimente(){
       //console.log(evenimente[i]);
       if(data_data[selectorZi] == evenimente[i]){
           //console.log(evenimente[i]);
-          ctx.fillText(evenimente_actiuni[i], xTextEveniment, yTextEveniment);
+          ctx.fillText("(" + evenimente_actiuni[i] + ")", xTextEveniment, yTextEveniment);
       }
     }
 }
