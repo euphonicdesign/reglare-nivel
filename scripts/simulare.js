@@ -228,7 +228,7 @@ var scalaY_trend_3 = 80; // grafic sus - p+
 var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
-var scalaEntitate = 30;
+var scalaEntitate = 70;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
@@ -299,7 +299,7 @@ var culoarePunctValoriGrafic_3 = "#737373";//"#808080";
 var culoareNumarPunct = "#b3b3b3";//"#404040";
 var culoareTextZi = "#999999";//"#595959";
 
-var culoare_pop = "#1a75ff";//culoareApaNivelNormal;//culoarePunctValoriGrafic;//"#EFEFEF";
+var culoare_pop = "#4d94ff";//"#005ce6";//"#1a75ff";//culoareApaNivelNormal;//culoarePunctValoriGrafic;//"#EFEFEF";
 
 var culoareTextReferinta = "#76adff";
 var culoareLinieReferinta = "#cce0ff";
