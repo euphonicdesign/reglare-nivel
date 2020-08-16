@@ -206,7 +206,7 @@ var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 
-var yLegendaDerivate = yGrafic_3 - 95;
+var yLegendaDerivate = yGrafic_3 - 105;
 var xLegendaDerivate = 450;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -1455,13 +1455,17 @@ function desenareGraficeTrenduri(){
     //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
+      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", xLegendaDerivate, yLegendaDerivate + 70);
+
       text_r = "R=+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
-      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 70);
+      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 84);
     }
     else{
       ctx.fillStyle = culoareScadere;
+      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, xLegendaDerivate, yLegendaDerivate + 70);
+
       text_r = "R=" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
-      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 70);
+      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 84);
     }
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
@@ -1485,20 +1489,20 @@ function desenareGraficeTrenduri(){
     if(vector_r[selectorZi] > 1){
 
       ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 84);
+      ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 98);
 
       text_zi_urmatoare = "" + Math.round(valZiCur) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 98);
+      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 112);
 
     }
     else{
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("dif=" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 84);
+      ctx.fillText("dif=" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 98);
 
       text_zi_urmatoare = "" + Math.round(valZiCur) + "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 98);
+      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 112);
     }
 
     //calcul derivate
@@ -1514,11 +1518,11 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestere;
-        ctx.fillText("dR=+" + Math.floor(d1r2*10000)/100 + "", xLegendaDerivate, yLegendaDerivate + 126);
+        ctx.fillText("dR=+" + Math.floor(d1r2*10000)/100 + "", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + " (<0)", xLegendaDerivate, yLegendaDerivate + 126);
+        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + " (<0)", xLegendaDerivate, yLegendaDerivate + 140);
     }
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
@@ -1527,12 +1531,12 @@ function desenareGraficeTrenduri(){
     //derivata ordin 2 (acceleratia - crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     if(d2r2>0){
-        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 + "", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 + "", xLegendaDerivate, yLegendaDerivate + 154);
     }
     else{
         if(d1r2<0)
           ctx.fillStyle = culoareScadere;
-        ctx.fillText("d2R=" + Math.floor(d2r2*10000)/100 + "", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("d2R=" + Math.floor(d2r2*10000)/100 + "", xLegendaDerivate, yLegendaDerivate + 154);
     }
 
   }
