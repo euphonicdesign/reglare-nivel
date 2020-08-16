@@ -206,8 +206,9 @@ var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 
-var yLegendaDerivate = yGrafic_3 - 105;
+var yLegendaDerivate = yGrafic_3 - 100;
 var xLegendaDerivate = 450;
+var ident = 10;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -1447,25 +1448,35 @@ function desenareGraficeTrenduri(){
 
   if(selectorZi > orizont_trend){
     ctx.fillStyle = culoareLinieGraficP;
-    ctx.fillRect(xLegendaDerivate, yLegendaDerivate + 45, 50, 12);
+    ctx.fillRect(xLegendaDerivate + ident, yLegendaDerivate + 45, 50, 12);
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText(ratap_2, xLegendaDerivate, yLegendaDerivate + 56);
+    ctx.fillText(ratap_2, xLegendaDerivate + ident, yLegendaDerivate + 56);
 
     //desenare valoare vector_r (in procente %)
     //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+
+    //Afisare data - zi curenta
+    data_zi_luna = data_data[selectorZi].split("/");
+    zi = data_zi_luna[0];
+    luna = data_luni[data_zi_luna[1]-1];
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText(zi + " " + luna + ":", xLegendaDerivate, yLegendaDerivate + 42);
+
+
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", xLegendaDerivate, yLegendaDerivate + 70);
+      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
 
       text_r = "R=+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
-      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 84);
+      ctx.fillText(text_r, xLegendaDerivate + ident, yLegendaDerivate + 84);
     }
     else{
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, xLegendaDerivate, yLegendaDerivate + 70);
+      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, xLegendaDerivate + ident, yLegendaDerivate + 70);
 
       text_r = "R=" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
-      ctx.fillText(text_r, xLegendaDerivate, yLegendaDerivate + 84);
+      ctx.fillText(text_r, xLegendaDerivate + ident, yLegendaDerivate + 84);
     }
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
@@ -1489,20 +1500,20 @@ function desenareGraficeTrenduri(){
     if(vector_r[selectorZi] > 1){
 
       ctx.fillStyle = culoareGraficVectorR;
-      ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 98);
+      ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate + ident, yLegendaDerivate + 98);
 
       text_zi_urmatoare = "" + Math.round(valZiCur) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 112);
+      ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
 
     }
     else{
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("dif=" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate, yLegendaDerivate + 98);
+      ctx.fillText("dif=" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate + ident, yLegendaDerivate + 98);
 
       text_zi_urmatoare = "" + Math.round(valZiCur) + "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, xLegendaDerivate, yLegendaDerivate + 112);
+      ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
     }
 
     //calcul derivate
