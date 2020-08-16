@@ -1059,17 +1059,38 @@ function desenareGraficPVectorR(){
       //desenare punct valoare grafic_valori_desenat - vector_r
       if(i > orizont_regresie){
           ctx.beginPath();
-          ctx.moveTo(12 + x_p, y_r - 1);
-          ctx.lineTo(12 + x_p, y_r + 1);
+          ctx.arc(12 + x_p, y_r, 2, 0, 2 * Math.PI);
+          //ctx.moveTo(12 + x_p, y_r - 1);
+          //ctx.lineTo(12 + x_p, y_r + 1);
           if(vector_r_normalizat[i] >= 0){
               ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
+              ctx.fillStyle = culoareGraficVectorR;//culoareGraficVectorR;
           }
           else {
               ctx.strokeStyle = culoareScadere;
+              ctx.fillStyle = culoareScadere;
           }
           ctx.lineWidth = 1;
           ctx.closePath();
           ctx.stroke();
+          //ctx.fill();
+
+
+          /*
+          ctx.beginPath();
+          ctx.arc(12 + x1_1, y1_1, 1, 0, 2 * Math.PI);
+          //ctx.filStyle = "black";
+          if(vector_r[selectorZi] > 1){
+              ctx.strokeStyle = culoarePuncteProiectieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+          }
+          else{
+              ctx.strokeStyle = culoarePuncteProiectieScadere;//culoare_linie_trend;
+          }
+
+          ctx.lineWidth = 1;
+          ctx.closePath();
+          //ctx.fill();
+          ctx.stroke();*/
 
       }
     }
