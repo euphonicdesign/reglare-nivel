@@ -1207,8 +1207,8 @@ function desenareEntitate(){
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_transmisie, 0, 2 * Math.PI);
         ctx.closePath();
-        if(pulsatie)
-            ctx.stroke();
+        //if(pulsatie)
+            //ctx.stroke();
         ctx.fill();
 
         //populatie
@@ -1218,8 +1218,8 @@ function desenareEntitate(){
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_pop, 0, 2 * Math.PI);
         ctx.closePath();
-        //if(pulsatie)
-          //ctx.stroke();
+        ////if(pulsatie)
+          ////ctx.stroke();
         ctx.fill();
     }
     else {
@@ -1236,8 +1236,8 @@ function desenareEntitate(){
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_pop, 0, 2 * Math.PI);
         ctx.closePath();
-        if(pulsatie)
-          ctx.stroke();
+        //if(pulsatie)
+          //ctx.stroke();
         ctx.fill();
 
 
@@ -1249,8 +1249,8 @@ function desenareEntitate(){
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_transmisie, 0, 2 * Math.PI);
         ctx.closePath();
-        //if(pulsatie)
-          //ctx.stroke();
+        ////if(pulsatie)
+          ////ctx.stroke();
         ctx.fill();
     }
 
