@@ -168,17 +168,19 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              'set masuri relaxare', //15/5
-              'set masuri relaxare', //1/6
-              'set masuri relaxare', //15/6
-              'set masuri relaxare', //1/7
-              'set masuri preventie', //1/8
+              '1.set masuri relaxare', //15/5
+              '2.set masuri relaxare', //1/6
+              '3.set masuri relaxare', //15/6
+              '4.set masuri relaxare', //1/7
+              '5.set masuri preventie', //1/8
 ];
 
 var xTextZi = 10;
 var yTextZi = 50;
 var xTextEveniment = xTextZi + 130;
 var yTextEveniment = yTextZi;
+
+var indicatorZiEveniment = false;
 
 let dataCumulativ = [];
 let medieCumulativ = [];
@@ -1086,29 +1088,57 @@ function desenarePuncteGraficOrizontal(){
 
 
 function desenareGraficPVectorR(){
+
   //desenare grafic p+ si vector_r
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
+
   for (let i = 0; i <= selectorZi; i++) {
       x_p = i*incrementX;
-      y_p = Math.round(yGrafic_2 - ((data_3[i]*scalaY_trend_3)/maxValue_3));
+      //y_p = Math.round(yGrafic_2 - ((data_3[i]*scalaY_trend_3)/maxValue_3));
       //y_r = Math.round(yGrafic_2 - ((vector_r[i]*scalaY_trend_4)/maxValue_4));
       // normalizat in jurul lui 1
       y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
       //console.log("zi " + i + ": " + (vector_r[i]*1000 - 1000) );
 
       //desenare punct valoare grafic_valori_desenat - data_3 - p+
+
       ctx.beginPath();
-      ctx.moveTo(12 + x_p, yGrafic_2 - 2);
-      ctx.lineTo(12 + x_p, y_p - 2);
-      ctx.strokeStyle = culoareLinieGraficP;//culoarePunctValoriGrafic;
-      ctx.lineWidth = 4;
       ctx.closePath();
       ctx.stroke();
+      ctx.fill();
+      ctx.setLineDash([]);
 
+
+      //ctx.beginPath();
+      ctx.strokeStyle = culoareLinieGraficP;
+      ctx.fillStyle = culoareLinieGraficP;
+      ctx.fillRect(12 + x_p, yGrafic_2 - 2, 3, -((data_3[i]*scalaY_trend_3)/maxValue_3) );
+      //ctx.moveTo(12 + x_p, yGrafic_2 - 2);
+      //ctx.lineTo(12 + x_p, y_p - 2);
+      //ctx.strokeStyle = culoareLinieGraficP;//culoarePunctValoriGrafic;
+      //ctx.lineWidth = 3;
+      //ctx.closePath();
+      //ctx.stroke();
+
+
+      var raza_cerculet = 2;
+      var raza_pulsatie = 0;
+      var plin = false;
+      for(let j = 0; j < evenimente.length; j++){
+        //console.log(evenimente[i]);
+        if(data_data[i] == evenimente[j]){
+            //console.log(evenimente[i]);
+            raza_cerculet = 3;
+            plin = true;
+        }
+        if(data_data[selectorZi] == evenimente[j]){
+            raza_pulsatie = 1;
+        }
+      }
       //desenare punct valoare grafic_valori_desenat - vector_r
       if(i > orizont_regresie){
           ctx.beginPath();
-          ctx.arc(12 + x_p, y_r, 2, 0, 2 * Math.PI);
+          ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
           //ctx.moveTo(12 + x_p, y_r - 1);
           //ctx.lineTo(12 + x_p, y_r + 1);
           if(vector_r_normalizat[i] >= 0){
@@ -1122,25 +1152,8 @@ function desenareGraficPVectorR(){
           ctx.lineWidth = 1;
           ctx.closePath();
           ctx.stroke();
-          //ctx.fill();
-
-
-          /*
-          ctx.beginPath();
-          ctx.arc(12 + x1_1, y1_1, 1, 0, 2 * Math.PI);
-          //ctx.filStyle = "black";
-          if(vector_r[selectorZi] > 1){
-              ctx.strokeStyle = culoarePuncteProiectieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-          }
-          else{
-              ctx.strokeStyle = culoarePuncteProiectieScadere;//culoare_linie_trend;
-          }
-
-          ctx.lineWidth = 1;
-          ctx.closePath();
-          //ctx.fill();
-          ctx.stroke();*/
-
+          if(plin)
+              ctx.fill();
       }
     }
 }
