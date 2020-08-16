@@ -169,9 +169,9 @@ let evenimente = [
 
 let evenimente_actiuni = [
               '1.set masuri relaxare', //15/5
-              '2.set masuri relaxare', //1/6
-              '3.set masuri relaxare', //15/6
-              '4.set masuri relaxare', //1/7
+              '2.set masuri relaxare?', //1/6
+              '3.set masuri relaxare??', //15/6
+              '4.set masuri relaxare???', //1/7
               '5.set masuri preventie', //1/8
 ];
 
