@@ -169,9 +169,9 @@ let evenimente = [
 
 let evenimente_actiuni = [
               '1.relaxare', //15/5
-              '2.relaxare?', //1/6
-              '3.relaxare??', //15/6
-              '4.relaxare???', //1/7
+              '2.vectorizare?', //1/6
+              '3.vectorizare??', //15/6
+              '4.vectorizare???', //1/7
               '5.preventie...', //1/8
 ];
 
