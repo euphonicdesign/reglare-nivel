@@ -537,7 +537,7 @@ function modificaNivel(e){
     }
 
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
-    slider.setAttribute("value", selectorZi);
+    //slider.setAttribute("value", selectorZi);
     slider.value = selectorZi;
     ActualizareSuprafataGraficaSingulara();
 }
