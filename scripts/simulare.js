@@ -168,11 +168,11 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              '1.set masuri relaxare', //15/5
-              '2.set masuri relaxare?', //1/6
-              '3.set masuri relaxare??', //15/6
-              '4.set masuri relaxare???', //1/7
-              '5.set masuri preventie...', //1/8
+              '1.relaxare', //15/5
+              '2.relaxare?', //1/6
+              '3.relaxare??', //15/6
+              '4.relaxare???', //1/7
+              '5.preventie...', //1/8
 ];
 
 var xTextZi = 10;
