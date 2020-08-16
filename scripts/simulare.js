@@ -1529,7 +1529,7 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestere;
-        ctx.fillText("dR=+" + Math.floor(d1r2*10000)/100 + "", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=+" + Math.floor(d1r2*10000)/100 + "(>0!)", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else {
         ctx.fillStyle = culoareScadere;
