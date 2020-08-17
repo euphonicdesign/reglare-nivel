@@ -168,11 +168,11 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              '1.relaxare', //15/5
+              '1.vectorizare', //15/5
               '2.vectorizare?', //1/6
               '3.vectorizare??', //15/6
               '4.vectorizare???', //1/7
-              '5.preventie...', //1/8
+              '5.limitare...', //1/8
 ];
 
 var xTextZi = 10;
