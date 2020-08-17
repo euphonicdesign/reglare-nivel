@@ -177,8 +177,8 @@ let evenimente_actiuni = [
 
 var xTextZi = 10;
 var yTextZi = 50;
-var xTextEveniment = xTextZi + 130;
-var yTextEveniment = yTextZi;
+var xTextEveniment = xTextZi; //+ 130;
+var yTextEveniment = yTextZi + 20;
 var xEntitate = 558;
 var yEntitate = 468;
 
