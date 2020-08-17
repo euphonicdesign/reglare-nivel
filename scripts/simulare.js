@@ -1672,6 +1672,9 @@ function desenareGraficeTrenduri(){
   if(selectorZi > orizont_trend){
     ctx.fillStyle = culoareLinieGraficP;
     ctx.fillRect(xLegendaDerivate + ident, yLegendaDerivate + 45, 50, 12);
+    ctx.fillStyle = culoareLinieGraficP;
+    ctx.fillRect(xLegendaDerivate + ident, yLegendaDerivate + 101, 31, 12);
+
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(ratap_2, xLegendaDerivate + ident, yLegendaDerivate + 56);
 
