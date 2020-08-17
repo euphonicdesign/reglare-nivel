@@ -1184,7 +1184,10 @@ function desenareEntitate(){
         raza_transmisie = valZiUrm/maxValZiCur * scalaEntitate;
     }
     else{
-        raza_transmisie = 0;
+        //raza_transmisie = 0;
+        valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]), (orizont_proiectie - 1));
+        raza_transmisie = valZiUrm/maxValZiCur * scalaEntitate;
+
         raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;;
     }
 
