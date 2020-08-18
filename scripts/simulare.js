@@ -74,7 +74,7 @@ let data_3 = [0.04, 0.04, 0.05, 0.05, 0.07, 0.08, 0.09,
               0.04, 0.04, 0.05, 0.05, 0.05, 0.05, 0.05,
               0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
               0.06, 0.06, 0.06, 0.07, 0.07, 0.07, 0.07,
-              0.07, 0.07, 0.07, 0.07, 0.07, 0.07, 
+              0.07, 0.07, 0.07, 0.07, 0.07, 0.07,
 
 
             ];
@@ -1385,7 +1385,7 @@ function desenareGraficeTrenduri(){
               ctx.beginPath();
               ctx.arc(12 + x1_1, y1_1, 1, 0, 2 * Math.PI);
               //ctx.filStyle = "black";
-              if(vector_r[selectorZi] > 1){
+              if((Math.floor(vector_r[selectorZi]*1000))/1000 > 1){
                   ctx.strokeStyle = culoarePuncteProiectieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
               }
               else{
@@ -1407,7 +1407,7 @@ function desenareGraficeTrenduri(){
           //desenare valoare bazaR
           ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
           //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-          if(vector_r[selectorZi] > 1){
+          if((Math.floor(vector_r[selectorZi]*1000))/1000 > 1){
             ctx.fillStyle = culoareGraficVectorR;
             ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
           }
@@ -1693,7 +1693,7 @@ function desenareGraficeTrenduri(){
 
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    if(vector_r[selectorZi] > 1){
+    if((Math.floor(vector_r[selectorZi]*1000))/1000 > 1){
       ctx.fillStyle = culoareGraficVectorR;
       ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
 
@@ -1716,7 +1716,7 @@ function desenareGraficeTrenduri(){
     */
 
 
-    if(vector_r[selectorZi] > 1){
+    if((Math.floor(vector_r[selectorZi]*1000))/1000 > 1){
 
       ctx.fillStyle = culoareGraficVectorR;
       ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate + ident, yLegendaDerivate + 98);
