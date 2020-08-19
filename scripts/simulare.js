@@ -289,7 +289,7 @@ var culoareTextGraficP = "#ffcf66";
 var culoareGraficVectorR = "#996633";//"#ac7339";
 var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
 var culoarePuncteProiectieCrestere = "#33adff";
-var culoarePuncteProiectieScadere = culoare_linie_trend;
+var culoarePuncteProiectieScadere = "green"; //culoare_linie_trend;
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
