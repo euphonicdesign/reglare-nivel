@@ -1408,17 +1408,17 @@ function desenareGraficeTrenduri(){
           //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
           if(vector_r[selectorZi] >= 1){
             ctx.fillStyle = culoareGraficVectorR;
-            if((Math.floor(vector_r[selectorZi]*1000))/1000 == 1){
-                ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (~1!)", x1_1 + 20, y1_1 + 24);
+            if((Math.floor(vector_r[selectorZi]*10000))/10000 == 1){
+                ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (~1!)", x1_1 + 20, y1_1 + 24);
             }
             else{
-                ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000 + " (>1!)", x1_1 + 20, y1_1 + 24);
+                ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (>1!)", x1_1 + 20, y1_1 + 24);
             }
 
           }
           else{
             ctx.fillStyle = culoareScadere;
-            ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, x1_1 + 20, y1_1 + 24);
+            ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000, x1_1 + 20, y1_1 + 24);
           }
 
 
@@ -1700,11 +1700,11 @@ function desenareGraficeTrenduri(){
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] >= 1){
       ctx.fillStyle = culoareGraficVectorR;
-      if((Math.floor(vector_r[selectorZi]*1000))/1000 == 1){
-          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (~1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
+      if((Math.floor(vector_r[selectorZi]*10000))/10000 == 1){
+          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*100000))/100000 + " (~1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
       }
       else{
-          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
+          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*100000))/100000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
       }
 
 
@@ -1713,7 +1713,7 @@ function desenareGraficeTrenduri(){
     }
     else{
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*1000))/1000, xLegendaDerivate + ident, yLegendaDerivate + 70);
+      ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000, xLegendaDerivate + ident, yLegendaDerivate + 70);
 
       text_r = "R=" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
       ctx.fillText(text_r, xLegendaDerivate + ident, yLegendaDerivate + 84);
