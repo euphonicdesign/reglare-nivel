@@ -1701,10 +1701,10 @@ function desenareGraficeTrenduri(){
     if(vector_r[selectorZi] >= 1){
       ctx.fillStyle = culoareGraficVectorR;
       if((Math.floor(vector_r[selectorZi]*10000))/10000 == 1){
-          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*100000))/100000 + " (~1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
+          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (~1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
       }
       else{
-          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*100000))/100000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
+          ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (>1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
       }
 
 
