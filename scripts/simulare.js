@@ -315,6 +315,7 @@ var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
 var culoareF = "#999999";
 var culoareCrestere = culoareTextCompensatorRosu;
 var culoareScadere = "green";
+var culoare_scadere_entitate = "#9fdf9f";
 var culoareTrend = culoarePunctValoriGrafic_3;
 
 var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
@@ -638,12 +639,12 @@ function start() {
     var buton_grafice = document.getElementById("grafice");
     if(vector_r[(data_2.length-1)] > 1){
       //console.log("up");
-      buton_grafice.innerHTML = "<i class='material-icons' style='color:#001f4d'>trending_up</i>";
+      buton_grafice.innerHTML = "<i class='material-icons' style='color:#996633'>trending_up</i>";
 
     }
     else{
       //console.log("down");
-      buton_grafice.innerHTML = "<i class='material-icons' style='color:#001f4d'>trending_down</i>";
+      buton_grafice.innerHTML = "<i class='material-icons' style='color:green'>trending_down</i>";
     }
 }
 
@@ -1250,9 +1251,9 @@ function desenareEntitate(){
             ctx.fillStyle = culoare_pop;
         }
         else {
-            ctx.fillStyle = "#9fdf9f"; //"#79d279";//culoareScadere;//culoareLinieGraficP;
+            ctx.fillStyle = culoare_scadere_entitate; //"#9fdf9f"; //"#79d279";//culoareScadere;//culoareLinieGraficP;
         }
-        ctx.strokeStyle = culoareScadere;
+        ctx.strokeStyle = culoare_scadere_entitate;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_pop, 0, 2 * Math.PI);
         ctx.closePath();
