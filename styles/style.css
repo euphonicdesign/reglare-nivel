@@ -63,6 +63,16 @@ img {
   visibility: hidden;
 }
 
+
+button {
+  height: 48px;
+  width: 40px;
+}
+button#grafice {
+  width: 46px;
+  height: 50px;
+}
+
 .slider {
   -webkit-appearance: none;
   width: 100%;
