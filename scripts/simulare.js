@@ -191,6 +191,7 @@ let vector_r = [];
 let vector_r_normalizat = [];
 let vector_coefA = [];
 let vector_E = [];
+let vector_E_procentual = [];
 let vector_valZiCurenta = [];
 //var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
 var incrementX = 2.8;
@@ -618,10 +619,13 @@ function start() {
 
 
     for(let i=0; i < data_2.length; i++ ){
-        if(i>orizont_regresie)
+        if(i>orizont_regresie){
           vector_valZiCurenta[i] = vector_coefA[i] * Math.pow(vector_r[i], (i-1));
+          vector_E_procentual[i] = vector_E[i] / vector_valZiCurenta[i];
+        }
         else {
           vector_valZiCurenta[i] = 0;
+          vector_E_procentual[i] = 0;
         }
     }
     maxValZiCur = Math.max(...vector_valZiCurenta);
@@ -1427,7 +1431,7 @@ function desenareGraficeTrenduri(){
           ctx.fillStyle = culoare_linie_trend;
           //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
           //devstd
-          ctx.fillText("E=" + Math.floor(vector_E[selectorZi]), x1_1 + 20, y1_1 + 38);
+          ctx.fillText("E=" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
 
 
           //desenare punct valoare estimata
