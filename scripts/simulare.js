@@ -50,7 +50,7 @@ let data_2 = [52.00, 89.33, 131.67, 157.67, 151.00, 176.67, 182.00,
               1174.33, 1169.33, 1125.00, 1145.67, 1229.67, 1277.67, 1292.00,
               1198.33, 1041.00, 1043.33, 1121.33, 1295.33, 1344.00, 1357.67,
               1291.00, 1091.33, 1046.33, 1136.33, 1361.33, 1428.00, 1399.00,
-              1276.67, 1049.33, 944.67, 1052, 1256.33, 1382.33, 
+              1276.67, 1049.33, 944.67, 1052, 1256.33, 1382.33,
 
             ];
 
@@ -565,6 +565,8 @@ function start() {
         if (data[i]>maxValue)
           maxValue = data[i];
     }*/
+
+
     maxValue = Math.max(...data);
     maxValue_2 = Math.max(...data_2);
     maxValue_3 = Math.max(...data_3); //p+
@@ -632,6 +634,17 @@ function start() {
     maxValZiCur = Math.max(...vector_valZiCurenta);
 
     setare_mod();
+
+    var buton_grafice = document.getElementById("grafice");
+    if(vector_r[(data_2.length-1)] > 1){
+      //console.log("up");
+      buton_grafice.innerHTML = "<i class='material-icons' style='color:#001f4d'>trending_up</i>";
+
+    }
+    else{
+      //console.log("down");
+      buton_grafice.innerHTML = "<i class='material-icons' style='color:#001f4d'>trending_down</i>";
+    }
 }
 
 function generare_vector_r_coefA(){
