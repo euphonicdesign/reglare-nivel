@@ -492,24 +492,29 @@ var buton_foto = document.getElementById('foto');
 var buton_rezervor = document.getElementById('rezervor');
 var buton_grafice = document.getElementById('grafice');
 
+var b3_width = "44px";
+var b3_height = "50px";
+
+var b_grafice_width = "48px";
+var b_grafice_height = "54px";
+
+function resetare_dim_butoane(){
+  buton_foto.style.height = b3_height;
+  buton_foto.style.width = b3_width;
+
+  buton_rezervor.style.height = b3_height;
+  buton_rezervor.style.width = b3_width;
+
+  buton_grafice.style.height = b3_height;
+  buton_grafice.style.width = b3_width;
+}
+
 buton_foto.onclick = function() {
-    //if(mod == MOD_REGULATOR || mod == MOD_GRAFICE){
     mod = MOD_FOTOGRAFIE;
-    /*}
-    else{
-      mod = MOD_REGULATOR;
-    }*/
 
-    /*
-    buton_foto.style.backgroundColor = "aqua";
-
-    buton_rezervor.style.backgroundColor = "#EFEFEF";
-    buton_rezervor.style.border = "1px solid #767676";
-    buton_rezervor.style.borderRadius = "3px";
-
-    buton_grafice.style.backgroundColor = "#EFEFEF";
-    buton_grafice.style.border = "1px solid #767676";
-    buton_grafice.style.borderRadius = "3px";*/
+    resetare_dim_butoane();
+    buton_foto.style.height = b_grafice_height;
+    buton_foto.style.width = b_grafice_width;
 
     salvarePreferintaMod();
 
@@ -521,11 +526,11 @@ buton_foto.onclick = function() {
 
 buton_grafice.onclick = function() {
     //if(mod == MOD_REGULATOR || mod == MOD_FOTOGRAFIE){
-      mod = MOD_GRAFICE;
-    /*}
-    else{
-      mod = MOD_REGULATOR;
-    }*/
+    mod = MOD_GRAFICE;
+    resetare_dim_butoane();
+    buton_grafice.style.height = b_grafice_height;
+    buton_grafice.style.width = b_grafice_width;
+
     salvarePreferintaMod();
 
     if (pauza == true){
@@ -537,6 +542,9 @@ buton_grafice.onclick = function() {
 buton_rezervor.onclick = function() {
 
     mod = MOD_REGULATOR;
+    resetare_dim_butoane();
+    buton_rezervor.style.height = b_grafice_height;
+    buton_rezervor.style.width = b_grafice_width;
 
     salvarePreferintaMod();
 
@@ -661,6 +669,19 @@ function start() {
       //console.log("down");
       buton_grafice.innerHTML = "<i class='material-icons' style='color:green'>trending_down</i>";
     }
+
+    resetare_dim_butoane();
+    if(mod == MOD_GRAFICE){
+        buton_grafice.style.height = b_grafice_height;
+        buton_grafice.style.width = b_grafice_width;
+    } else if(mod == MOD_REGULATOR){
+        buton_rezervor.style.height = b_grafice_height;
+        buton_rezervor.style.width = b_grafice_width;
+    } else{
+        buton_foto.style.height = b_grafice_height;
+        buton_foto.style.width = b_grafice_width;
+    }
+
 }
 
 function generare_vector_r_coefA(){
