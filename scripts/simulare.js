@@ -488,14 +488,29 @@ buton_derulare_inainte.onclick = function() {
 }*/
 
 //buton foto
-var buton_foto = document.getElementById('foto')
+var buton_foto = document.getElementById('foto');
+var buton_rezervor = document.getElementById('rezervor');
+var buton_grafice = document.getElementById('grafice');
+
 buton_foto.onclick = function() {
     //if(mod == MOD_REGULATOR || mod == MOD_GRAFICE){
-      mod = MOD_FOTOGRAFIE;
+    mod = MOD_FOTOGRAFIE;
     /*}
     else{
       mod = MOD_REGULATOR;
     }*/
+
+    /*
+    buton_foto.style.backgroundColor = "aqua";
+
+    buton_rezervor.style.backgroundColor = "#EFEFEF";
+    buton_rezervor.style.border = "1px solid #767676";
+    buton_rezervor.style.borderRadius = "3px";
+
+    buton_grafice.style.backgroundColor = "#EFEFEF";
+    buton_grafice.style.border = "1px solid #767676";
+    buton_grafice.style.borderRadius = "3px";*/
+
     salvarePreferintaMod();
 
     if (pauza == true){
@@ -503,7 +518,7 @@ buton_foto.onclick = function() {
     }
 }
 
-var buton_grafice = document.getElementById('grafice')
+
 buton_grafice.onclick = function() {
     //if(mod == MOD_REGULATOR || mod == MOD_FOTOGRAFIE){
       mod = MOD_GRAFICE;
@@ -518,7 +533,7 @@ buton_grafice.onclick = function() {
     }
 }
 
-var buton_rezervor = document.getElementById('rezervor')
+
 buton_rezervor.onclick = function() {
 
     mod = MOD_REGULATOR;
