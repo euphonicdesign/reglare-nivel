@@ -68,8 +68,15 @@ button {
   height: 48px;
   width: 40px;
 }
+
 button#grafice {
   width: 46px;
+  height: 52px;
+}
+
+button#foto,
+button#rezervor {
+  width: 44px;
   height: 50px;
 }
 
