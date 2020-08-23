@@ -474,7 +474,7 @@ buton_reluare.onclick = function() {
     //procentDinCapacitateMax = data[selectorZi]/maxValue;
 }
 
-/*
+
 var buton_derulare_inapoi = document.getElementById('derulareinapoi');
 buton_derulare_inapoi.onclick = function() {
   if (selectorZi > 0){
@@ -493,7 +493,7 @@ buton_derulare_inainte.onclick = function() {
       slider.setAttribute("value", selectorZi);
       ActualizareSuprafataGraficaSingulara();
   }
-}*/
+}
 
 //buton foto
 var buton_foto = document.getElementById('foto');
