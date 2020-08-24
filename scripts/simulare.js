@@ -203,7 +203,7 @@ let vector_E = [];
 let vector_E_procentual = [];
 let vector_valZiCurenta = [];
 //var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
-var incrementX = 2.8;
+var incrementX = 2.5;
 
 var MOD_FOTOGRAFIE = 0;
 var MOD_REGULATOR = 1;
@@ -1266,7 +1266,7 @@ function desenarePuncteTrendMedie(){
       y_medie = Math.round(yGrafic_2 - ((vector_valZiCurenta[i]*scalaY_trend_2)/maxValueGrafic2));
 
       ctx.beginPath();
-      ctx.arc(12 + x_medie, y_medie, 2, 0, 2 * Math.PI);
+      ctx.arc(12 + x_medie, y_medie, 3, 0, 2 * Math.PI);
       ctx.fillStyle = "grey";
       ctx.strokeStyle = "aqua";
       if(vector_r[i] >= 1){
