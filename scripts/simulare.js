@@ -186,6 +186,26 @@ let evenimente_actiuni = [
               '5.limitare...', //1/8
 ];
 
+var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
+var culoareCrestere = culoareTextCompensatorRosu;
+var culoareScadere = "green";
+
+var culoare_scadere_entitate = "#9fdf9f";
+var culoareLinieGraficP = "#ffffe6";
+var culoareTextGraficP = "#ffcf66";
+var culoareGraficVectorR = "#996633";//"#ac7339";
+var culoareGalben = culoareLinieGraficP;
+var culoareRosu = "#e4b4b4";//"#d78e8e";//culoareCrestere;//culoareGraficVectorR;//"brown";
+var culoareVerde = culoare_scadere_entitate;//"green";
+
+let evenimente_tip = [
+              culoareGalben, //15/5
+              culoareRosu, //1/6
+              culoareRosu, //15/6
+              culoareRosu, //1/7
+              culoareVerde, //1/8
+]
+
 var xTextZi = 10;
 var yTextZi = 50;
 var xTextEveniment = xTextZi; //+ 130;
@@ -296,9 +316,8 @@ var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
 var culoareLinieGraficNuantat2 = "white";
 var culoareLinieGraficVertical = "white";//"#8c8c8c";
 var culoareLinieLegatura = "#999999";
-var culoareLinieGraficP = "#ffffe6";
-var culoareTextGraficP = "#ffcf66";
-var culoareGraficVectorR = "#996633";//"#ac7339";
+
+
 var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
 var culoarePuncteProiectieCrestere = "#33adff";
 var culoareMedieCrestere = "#99d6ff";//"#80ccff";
@@ -324,11 +343,10 @@ var culoareCompensator = "orange";
 var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
 var culoareTextCompensatorFill2 = "#8c8c8c";
 var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
-var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
+
 var culoareF = "#999999";
-var culoareCrestere = culoareTextCompensatorRosu;
-var culoareScadere = "green";
-var culoare_scadere_entitate = "#9fdf9f";
+
+
 var culoareTrend = culoarePunctValoriGrafic_3;
 
 var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
@@ -1199,67 +1217,69 @@ function desenareGraficPVectorR(){
 
   for (let i = 0; i <= selectorZi; i++) {
       x_p = i*incrementX;
-      //y_p = Math.round(yGrafic_2 - ((data_3[i]*scalaY_trend_3)/maxValue_3));
-      //y_r = Math.round(yGrafic_2 - ((vector_r[i]*scalaY_trend_4)/maxValue_4));
-      // normalizat in jurul lui 1
-      y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
-      //console.log("zi " + i + ": " + (vector_r[i]*1000 - 1000) );
 
-      //desenare punct valoare grafic_valori_desenat - data_3 - p+
-
-      ctx.beginPath();
-      ctx.closePath();
-      ctx.stroke();
-      ctx.fill();
-      ctx.setLineDash([]);
-
-
-      //ctx.beginPath();
       ctx.strokeStyle = culoareLinieGraficP;
       ctx.fillStyle = culoareLinieGraficP;
-      ctx.fillRect(12 + x_p, yGrafic_2 - 2, 3, -((data_3[i]*scalaY_trend_3)/maxValue_3) );
-      //ctx.moveTo(12 + x_p, yGrafic_2 - 2);
-      //ctx.lineTo(12 + x_p, y_p - 2);
-      //ctx.strokeStyle = culoareLinieGraficP;//culoarePunctValoriGrafic;
-      //ctx.lineWidth = 3;
-      //ctx.closePath();
-      //ctx.stroke();
+      ctx.fillRect(12 + x_p, yGrafic_2 - 2, 2, -((data_3[i]*scalaY_trend_3)/maxValue_3) );
 
+  }
 
-      var raza_cerculet = 2;
-      var raza_pulsatie = 0;
-      var plin = false;
-      for(let j = 0; j < evenimente.length; j++){
-        //console.log(evenimente[i]);
-        if(data_data[i] == evenimente[j]){
-            //console.log(evenimente[i]);
-            raza_cerculet = 3;
-            plin = true;
-        }
-        if(data_data[selectorZi] == evenimente[j]){
-            raza_pulsatie = 1;
-        }
+  for(let i = 0; i <= selectorZi; i++){
+    x_p = i*incrementX;
+    y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
+
+    var raza_cerculet = 2;
+    var raza_pulsatie = 0;
+    var plin = false;
+    var nr_ev = 0;
+    for(let j = 0; j < evenimente.length; j++){
+      //console.log(evenimente[i]);
+      if(data_data[i] == evenimente[j]){
+          //console.log(evenimente[i]);
+          raza_cerculet = 5;
+          plin = true;
+          nr_ev = j;
       }
-      //desenare punct valoare grafic_valori_desenat - vector_r
-      if(i > orizont_regresie){
-          ctx.beginPath();
-          ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
-          //ctx.moveTo(12 + x_p, y_r - 1);
-          //ctx.lineTo(12 + x_p, y_r + 1);
-          if(vector_r_normalizat[i] >= 0){
-              ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
-              ctx.fillStyle = culoareGraficVectorR;//culoareGraficVectorR;
-          }
-          else {
+      if(data_data[selectorZi] == evenimente[j]){
+          raza_pulsatie = 1;
+      }
+    }
+    //desenare punct valoare grafic_valori_desenat - vector_r
+    if(i > orizont_regresie){
+        ctx.beginPath();
+        ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
+        //ctx.moveTo(12 + x_p, y_r - 1);
+        //ctx.lineTo(12 + x_p, y_r + 1);
+        if(vector_r_normalizat[i] >= 0){
+            ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
+            //ctx.fillStyle = culoareGraficVectorR;//culoareGraficVectorR;
+        }
+        else {
+            ctx.strokeStyle = culoareScadere;
+            //ctx.fillStyle = culoareScadere;
+        }
+        ctx.closePath();
+
+        if(plin){
+            ctx.lineWidth = 1;
+            ctx.fillStyle = evenimente_tip[nr_ev];
+            if(evenimente_tip[nr_ev] == culoareRosu){
+              ctx.strokeStyle = culoareCrestere;//culoareGraficVectorR;
+            }
+            else if(evenimente_tip[nr_ev] == culoareVerde){
               ctx.strokeStyle = culoareScadere;
-              ctx.fillStyle = culoareScadere;
-          }
-          ctx.lineWidth = 1;
-          ctx.closePath();
-          ctx.stroke();
-          if(plin)
-              ctx.fill();
-      }
+            }
+            else if(evenimente_tip[nr_ev] == culoareGalben){
+              ctx.strokeStyle = culoareScadere;
+            }
+            ctx.fill();
+            ctx.stroke();
+        }
+        else{
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+    }
   }
 }
 
