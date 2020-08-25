@@ -495,6 +495,12 @@ rangeSlider.oninput = function(){
 var buton_afisaretrend = document.getElementById('afisaretrend');
 buton_afisaretrend.onclick = function() {
     afisaretrend = !afisaretrend;
+    if(afisaretrend){
+      buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:#005ce6;'>palette</i>";
+    }
+    else{
+      buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:grey;'>palette</i>";
+    }
     //console.log(afisaretrend);
     ActualizareSuprafataGraficaSingulara();
 }
