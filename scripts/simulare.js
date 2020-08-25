@@ -240,6 +240,8 @@ fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotograf
 
 var selectorZi = 0; //data.length - 1;
 var selectorZiStart = 0;
+var paginare = 140;
+
 var maxValue = 0;
 //var maxValueAfisareRezervor = 32;
 var maxValue_2 = 0;
@@ -2522,7 +2524,7 @@ function ActualizareSuprafataGrafica() {
                 //slider.setAttribute("value", selectorZi);
                 procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
 
-                if(selectorZi > 120){
+                if(selectorZi > paginare){
                   selectorZiStart += 1;
                   rangeSlider.value = Math.round(selectorZiStart);
                 }
