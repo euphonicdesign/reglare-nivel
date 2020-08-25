@@ -192,6 +192,7 @@ var culoareCrestere = culoareTextCompensatorRosu;
 var culoareScadere = "green";
 
 var culoare_scadere_entitate = "#9fdf9f";
+var culoare_crestere_entitate = "#99d6ff";
 var culoareLinieGraficP = "#ffffe6";
 var culoareTextGraficP = "#ffcf66";
 var culoareGraficVectorR = "#996633";//"#ac7339";
@@ -325,9 +326,9 @@ var culoareLinieLegatura = "#999999";
 
 var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
 var culoarePuncteProiectieCrestere = "#33adff";
-var culoareMedieCrestere = "#99d6ff";//"#80ccff";
+var culoareMedieCrestere = "#80ccff";//"#99d6ff";//"#80ccff";
 var culoarePuncteProiectieScadere = "green"; //culoare_linie_trend;
-var culoareMedieScadere = "#85e085";
+var culoareMedieScadere = "#53c653";//"#79d279";//"#71da71";//"#85e085";
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
@@ -1378,7 +1379,7 @@ function desenareEntitate(){
         //crestere
         //transmisie (proiectie pe orizont de proiectie)
         ctx.lineWidth = 10;
-        ctx.fillStyle = culoareCerculetR;
+        ctx.fillStyle = culoare_crestere_entitate;
         ctx.strokeStyle = "#007acc";//culoareGraficVectorR;
         ctx.beginPath();
         ctx.arc(12 + xEntitate, yEntitate, raza_transmisie, 0, 2 * Math.PI);
