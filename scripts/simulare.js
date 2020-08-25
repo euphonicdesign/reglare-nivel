@@ -736,14 +736,17 @@ function start() {
     setare_mod();
 
     var buton_grafice = document.getElementById("grafice");
+    var buton_copac = document.getElementById("copac");
     if(vector_r[(data_2.length-1)] > 1){
       //console.log("up");
       buton_grafice.innerHTML = "<i class='material-icons' style='color:#996633'>trending_up</i>";
+      buton_copac.innerHTML = "<i class='material-icons' style='color:#996633'>nature_people</i>";
 
     }
     else{
       //console.log("down");
       buton_grafice.innerHTML = "<i class='material-icons' style='color:green'>trending_down</i>";
+      buton_copac.innerHTML = "<i class='material-icons' style='color:green'>nature_people</i>";
     }
 
     resetare_dim_butoane();
