@@ -241,6 +241,7 @@ fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotograf
 var selectorZi = 0; //data.length - 1;
 var selectorZiStart = 0;
 var paginare = 140;
+var afisaretrend = true;
 
 var maxValue = 0;
 //var maxValueAfisareRezervor = 32;
@@ -487,6 +488,14 @@ rangeSlider.oninput = function(){
    selectorZiStart = Math.round(this.value);
 
    ActualizareSuprafataGraficaSingulara();
+}
+
+//buton afisare trend
+var buton_afisaretrend = document.getElementById('afisaretrend');
+buton_afisaretrend.onclick = function() {
+    afisaretrend = !afisaretrend;
+    //console.log(afisaretrend);
+    ActualizareSuprafataGraficaSingulara();
 }
 
 //captura apasare taste
@@ -1955,13 +1964,16 @@ function desenareGraficeTrenduri(){
           y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend_2)/maxValueGrafic2));
 
           //desenare linii conectare puncte valori grafic 1
-          ctx.beginPath();
-          ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
-          ctx.lineTo(12 + x_valoare, y_valoare_2);
-          ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
-          ctx.lineWidth = 2;
-          ctx.closePath();
-          ctx.stroke();
+          if(afisaretrend){
+              ctx.beginPath();
+              ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
+              ctx.lineTo(12 + x_valoare, y_valoare_2);
+              ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+              ctx.lineWidth = 2;
+              ctx.closePath();
+              ctx.stroke();
+          }
+
 
           //desenare linii conectare puncte valori grafic 2
           ctx.beginPath();
@@ -1971,7 +1983,10 @@ function desenareGraficeTrenduri(){
           ctx.lineWidth = 2;
           ctx.closePath();
           ctx.stroke();
+
+
       }
+
     }
 
     //punct linie grafic 2 - capat
