@@ -226,7 +226,7 @@ let vector_E = [];
 let vector_E_procentual = [];
 let vector_valZiCurenta = [];
 //var incrementX = Math.round(lungimeSuprafataGrafica / (data.length + 1));
-var incrementX = 2.5;
+var incrementX = 3;
 
 var MOD_FOTOGRAFIE = 0;
 var MOD_REGULATOR = 1;
@@ -239,6 +239,7 @@ fotografie.src = "https://euphonicdesign.github.io/reglare-nivel/images/fotograf
 //---->actualizare versionare script in index
 
 var selectorZi = 0; //data.length - 1;
+var selectorZiStart = 0;
 var maxValue = 0;
 //var maxValueAfisareRezervor = 32;
 var maxValue_2 = 0;
@@ -454,11 +455,12 @@ var grafic_valori_desenat = false;
 var pauza = false;
 
 
-var slider = document.getElementById("myRange");
-slider.setAttribute("max", data.length - 1);
-slider.setAttribute("value", selectorZi);
+//var slider = document.getElementById("myRange");
+//slider.setAttribute("max", data.length - 1);
+//slider.setAttribute("value", selectorZi);
 
 
+/*
 slider.oninput = function() {
     selectorZi = Math.round(this.value);
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
@@ -472,6 +474,17 @@ slider.oninput = function() {
     //slider.setAttribute("value", selectorZi);
     //console.log(selectorZi);
     //console.log(slider.getAttribute("value"));
+//}
+
+
+var rangeSlider = document.getElementById("selectorzistart");
+rangeSlider.max = Math.round(data_20.length - 1);
+//slider.setAttribute("value", selectorZi);
+
+rangeSlider.oninput = function(){
+   selectorZiStart = Math.round(this.value);
+
+   ActualizareSuprafataGraficaSingulara();
 }
 
 //captura apasare taste
@@ -503,7 +516,7 @@ buton_derulare_inapoi.onclick = function() {
   if (selectorZi > 0){
       selectorZi -= 1;
       procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
-      slider.setAttribute("value", selectorZi);
+      //slider.setAttribute("value", selectorZi);
       ActualizareSuprafataGraficaSingulara();
   }
 }
@@ -513,7 +526,7 @@ buton_derulare_inainte.onclick = function() {
   if (selectorZi < data.length - 1){
       selectorZi += 1;
       procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
-      slider.setAttribute("value", selectorZi);
+      //slider.setAttribute("value", selectorZi);
       ActualizareSuprafataGraficaSingulara();
   }
 }
@@ -604,7 +617,7 @@ function modificaNivel(e){
     }
 
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
-    slider.setAttribute("value", selectorZi);
+    //slider.setAttribute("value", selectorZi);
     //slider.value = selectorZi;
     ActualizareSuprafataGraficaSingulara();
 }
@@ -1215,8 +1228,10 @@ function desenareGraficPVectorR(){
   //desenare grafic p+ si vector_r
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
 
+  //x_p = 0;
   for (let i = 0; i <= selectorZi; i++) {
-      x_p = i*incrementX;
+      x_p = (i-selectorZiStart)*incrementX;
+      //x_p += incrementX;
 
       ctx.strokeStyle = culoareLinieGraficP;
       ctx.fillStyle = culoareLinieGraficP;
@@ -1224,8 +1239,10 @@ function desenareGraficPVectorR(){
 
   }
 
+  //x_p = 0;
   for(let i = 0; i <= selectorZi; i++){
-    x_p = i*incrementX;
+    x_p = (i - selectorZiStart)*incrementX;
+    //x_p += incrementX;
     y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
 
     var raza_cerculet = 2;
@@ -1284,8 +1301,12 @@ function desenareGraficPVectorR(){
 }
 
 function desenarePuncteTrendMedie(){
+  //x_medie = 0; //(orizont_regresie + 1)
   for (let i = (orizont_regresie + 1); i <= selectorZi; i++) {
-      x_medie = i*incrementX;
+      //x_medie += incrementX;
+      //if(i > (orizont_regresie + 1)){
+      x_medie = (i - selectorZiStart)*incrementX;
+
       y_medie = Math.round(yGrafic_2 - ((vector_valZiCurenta[i]*scalaY_trend_2)/maxValueGrafic2));
 
       ctx.beginPath();
@@ -1303,6 +1324,7 @@ function desenarePuncteTrendMedie(){
       ctx.closePath();
       ctx.fill();
       //ctx.stroke();
+      //}
   }
 }
 
@@ -1489,7 +1511,7 @@ function desenareGraficeTrenduri(){
           var y1_1 = 0;
           var x1_1 = 0;
           for (let i = ziStart; i <= ziFinal ; i++) {
-              x1_1 = (i-1)*incrementX;
+              x1_1 = (i-1-selectorZiStart)*incrementX;
               //x1_2 = i*incrementX;
 
               //yp1 = coefA * Math.pow(bazaR, (i-1));
@@ -1605,9 +1627,9 @@ function desenareGraficeTrenduri(){
       index2 = 0;
   }
 
-  x_val_1 = index1 * incrementX;
+  x_val_1 = (index1 - selectorZiStart) * incrementX;
   y_val_1 = Math.round(yGrafic_1 - ((data[index1]*scalaY_trend_1)/maxValue));
-  x_val_2 = selectorZi*incrementX;
+  x_val_2 = (selectorZi - selectorZiStart) * incrementX;
   y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend_1)/maxValue));
   //console.log("1st line: " + y_val_1);
 
@@ -1915,14 +1937,18 @@ function desenareGraficeTrenduri(){
   }
 
   //desenare valori grafice (grafic 1 jos, grafic 2 sus)
+  //x_valoare = 0;
   for (let i = 0; i <= selectorZi; i++) {
-      x_valoare = i*incrementX;
+
+      x_valoare = (i-selectorZiStart)*incrementX;
+      //x_valoare += incrementX;
       y_valoare = Math.round(yGrafic_1 - ((data[i]*scalaY_trend_1)/maxValue));
       y_valoare_2 = Math.round(yGrafic_2 - ((data_2[i]*scalaY_trend_2)/maxValueGrafic2));
 
       //desenare linii conectare puncte grafic 2 sus
       if(i>0){
-          x1_valoare = (i-1)*incrementX;
+          //x1_valoare = (i-1)*incrementX;
+          x1_valoare = x_valoare - incrementX;
           y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend_1)/maxValue));
           y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend_2)/maxValueGrafic2));
 
@@ -2088,9 +2114,10 @@ function desenareGraficValori(){
     ctx.fillStyle = culoareLinieReferintaGrafic;
     ctx.fillRect(10, inaltimeSuprafataGrafica - 10 - ((medieCumulativ[selectorZi]*scalaY)/maxValue), lungimeSuprafataGrafica-15, 2);
 
-
+    //x_valoare = 0;
     for (let i = 0; i <= selectorZi; i++) {
-      x_valoare = i*incrementX;
+      x_valoare = (i-selectorZiStart)*incrementX;
+      //x_valoare += incrementX;
       y_valoare = Math.round(inaltimeSuprafataGrafica - 10 - ((data[i]*scalaY)/maxValue));
       y_valoare_2 = Math.round(inaltimeSuprafataGrafica - 10 - ((data_2[i]*scalaY_2)/maxValue_2));
 
@@ -2482,18 +2509,26 @@ function desenareGraficOrizontal(){
 function ActualizareSuprafataGrafica() {
     if(!pauza){
         suprafataGrafica.clear();
+
         if (derulareAutomata){
-                if (selectorZi < data.length - 1)
-                        selectorZi += 1;
+                if (selectorZi < data.length - 1){
+                    selectorZi += 1;
+                }
                 else{
                     derulareAutomata = false;
                     pauza = true;
                 }
                 //console.log(slider.getAttribute("value"));
-                slider.setAttribute("value", selectorZi);
+                //slider.setAttribute("value", selectorZi);
                 procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
 
+                if(selectorZi > 120){
+                  selectorZiStart += 1;
+                  rangeSlider.value = Math.round(selectorZiStart);
+                }
+
         }
+
         procentDinCapacitate = procentDinCapacitateMax;
 
         //colorare apa in functie de valoare critica
@@ -2552,6 +2587,8 @@ function ActualizareSuprafataGrafica() {
           desenareGraficOrizontal();
         }
     }
+
+
 }
 
 function ActualizareSuprafataGraficaSingulara() {

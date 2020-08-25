@@ -67,6 +67,7 @@ img {
 button {
   height: 48px;
   width: 40px;
+  outline: none;
 }
 
 button#grafice {
@@ -84,6 +85,11 @@ button#foto,
 button#rezervor {
   width: 44px;
   height: 50px;
+}
+
+#selectorzistart {
+    width: 100%;
+    outline: none;
 }
 
 .slider {

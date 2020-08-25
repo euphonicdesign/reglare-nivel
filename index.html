@@ -6,7 +6,7 @@
     <meta property='og:image' content='https://euphonicdesign.github.io/reglare-nivel/images/imagine_reglare_nivel.jpg'/>
 
     <title>Reglare Nivel</title>
-    <link href="styles/style.css?v=1.23" rel="stylesheet" type="text/css">
+    <link href="styles/style.css?v=1.24" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
       canvas {
@@ -18,9 +18,15 @@
 
   <body onload="start()">
     <p></p>
+    <!--
     <div class="slidecontainer">
       <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+    </div>-->
+
+    <div>
+      <input type="range" id="selectorzistart" name="selectorzistart" min="0" max="100" value="0" onkeydown="return false" tabindex="-1">
     </div>
+
     <div class="center">
       <p></p>
       <button id="derulare" style="font-size:36px" ><i class="material-icons" style="color:#005ce6">skip_next</i></button>
@@ -35,7 +41,7 @@
       <button id="derulareinainte" style="font-size:36px" ><i class="material-icons" style="color:#001f4d">keyboard_arrow_right</i></button>
     </div>
 
-    <script src="scripts/simulare.js?version=55.12"></script>
+    <script src="scripts/simulare.js?version=55.13"></script>
     <!--
     <footer>
       <p>Acest site foloseste "cookies" pentru a retine preferintele de vizualizare ale utilizatorului</p>
