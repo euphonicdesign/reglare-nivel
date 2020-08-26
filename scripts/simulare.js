@@ -58,7 +58,7 @@ let data_20 = [
             1378, 	1350, 	1145, 	779, 	1215, 	1415, 	1454,
             1415, 	1328, 	1087, 	733, 	1014, 	1409, 	1346,
             1392, 	1189, 961,
-            805, 1060, 1256, 
+            805, 1060, 1256,
           ];
 
 
@@ -259,7 +259,7 @@ var vitezaSimulare = 165;
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
-var scala_grafic_2 = 1.3; //scalare suplimentara grafic 2 sus 1.5 = 150%
+var scala_grafic_2 = 1.0; //scalare suplimentara grafic 2 sus 1.5 = 150%
 
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 80; // grafic sus - p+
