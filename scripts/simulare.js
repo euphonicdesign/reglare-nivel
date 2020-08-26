@@ -188,7 +188,8 @@ let evenimente_actiuni = [
 ];
 
 var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
-var culoareCrestere = "#996633";//culoareTextCompensatorRosu;
+var culoareCrestereMaro = "#996633";//culoareTextCompensatorRosu;
+var culoareCrestereRosu = culoareTextCompensatorRosu;
 var culoareScadere = "green";
 
 var culoare_scadere_entitate = "#9fdf9f";
@@ -1321,7 +1322,7 @@ function desenareGraficPVectorR(){
         //ctx.moveTo(12 + x_p, y_r - 1);
         //ctx.lineTo(12 + x_p, y_r + 1);
         if(vector_r_normalizat[i] >= 0){
-            ctx.strokeStyle = culoareCrestere;//culoareGraficVectorR;//culoareTextCompensatorRosu;
+            ctx.strokeStyle = culoareCrestereMaro;//culoareGraficVectorR;//culoareTextCompensatorRosu;
             //ctx.fillStyle = culoareGraficVectorR;//culoareGraficVectorR;
         }
         else {
@@ -1337,7 +1338,7 @@ function desenareGraficPVectorR(){
               ctx.strokeStyle = culoareScadere;//culoareGraficVectorR;
             }
             else {
-              ctx.strokeStyle = culoareCrestere;
+              ctx.strokeStyle = culoareCrestereMaro;
             }
 
             ctx.fill();
@@ -1612,7 +1613,7 @@ function desenareGraficeTrenduri(){
           ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
           //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
           if(vector_r[selectorZi] >= 1){
-            ctx.fillStyle = culoareCrestere;
+            ctx.fillStyle = culoareCrestereMaro;
             if((Math.floor(vector_r[selectorZi]*10000))/10000 == 1){
                 ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (~1!)", x1_1 + 20, y1_1 + 24);
             }
@@ -1701,7 +1702,7 @@ function desenareGraficeTrenduri(){
 
       if (procent_variatie_2>0){
         eticheta_2 = " +" + procent_variatie_2 + "%";
-        culoareTrend = culoareCrestere;//culoareTextCompensatorFill;
+        culoareTrend = culoareCrestereRosu;//culoareTextCompensatorFill;
       }
       else{
         eticheta_2 = " " + procent_variatie_2 + "%";
@@ -1904,7 +1905,7 @@ function desenareGraficeTrenduri(){
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] >= 1){
-      ctx.fillStyle = culoareCrestere;
+      ctx.fillStyle = culoareCrestereMaro;
       if((Math.floor(vector_r[selectorZi]*10000))/10000 == 1){
           ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (~1!)", xLegendaDerivate + ident, yLegendaDerivate + 70);
       }
@@ -1934,7 +1935,7 @@ function desenareGraficeTrenduri(){
 
     if(vector_r[selectorZi] >= 1){
 
-      ctx.fillStyle = culoareCrestere;
+      ctx.fillStyle = culoareCrestereMaro;
       ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate + ident, yLegendaDerivate + 98);
 
       text_zi_urmatoare = "" + Math.round(valZiCur) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
@@ -1963,7 +1964,7 @@ function desenareGraficeTrenduri(){
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
-        ctx.fillStyle = culoareCrestere;
+        ctx.fillStyle = culoareCrestereRosu;
         ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + " (>0!)", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else {
@@ -2133,7 +2134,7 @@ function desenareGraficeTrenduri(){
     //cerculet grafic vector r (in capat)
     if(selectorZi > orizont_regresie){
       if(vector_r_normalizat[selectorZi] >= 0){
-          ctx.strokeStyle = culoareCrestere;//culoareTextCompensatorRosu;
+          ctx.strokeStyle = culoareCrestereMaro;//culoareTextCompensatorRosu;
           ctx.fillStyle = culoareCerculetRCrestere;
 
       }
