@@ -91,6 +91,8 @@ button#rezervor {
     width: 100%;
     margin: 10px 0;
     outline: none;
+    -webkit-appearance: none;
+    /*background: #d3d3d3;*/
 }
 
 #myRange {
