@@ -494,15 +494,17 @@ rangeSlider.oninput = function(){
 //buton afisare trend
 var buton_afisaretrend = document.getElementById('afisaretrend');
 buton_afisaretrend.onclick = function() {
-    afisaretrend = !afisaretrend;
-    if(afisaretrend){
-      buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:#005ce6;'>palette</i>";
+    if(mod == MOD_GRAFICE){
+      afisaretrend = !afisaretrend;
+      if(afisaretrend){
+        buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:#005ce6;'>palette</i>";
+      }
+      else{
+        buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:grey;'>palette</i>";
+      }
+      //console.log(afisaretrend);
+      ActualizareSuprafataGraficaSingulara();
     }
-    else{
-      buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:grey;'>palette</i>";
-    }
-    //console.log(afisaretrend);
-    ActualizareSuprafataGraficaSingulara();
 }
 
 //captura apasare taste
@@ -549,6 +551,30 @@ buton_derulare_inainte.onclick = function() {
       slider.value = Math.round(selectorZi);
       ActualizareSuprafataGraficaSingulara();
   }
+}
+
+var buton_scalare_plus = document.getElementById('scalare_plus');
+buton_scalare_plus.onclick = function() {
+    if(mod == MOD_GRAFICE){
+        if(scala_grafic_2 < 1.3){
+            scala_grafic_2 += 0.1;
+            maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
+            ActualizareSuprafataGraficaSingulara();
+            //console.log(scala_grafic_2);
+        }
+    }
+}
+
+var buton_scalare_minus = document.getElementById('scalare_minus');
+buton_scalare_minus.onclick = function() {
+    if(mod == MOD_GRAFICE){
+        if(scala_grafic_2 > 0.5){
+          scala_grafic_2 -= 0.1;
+          maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
+          ActualizareSuprafataGraficaSingulara();
+          //console.log(scala_grafic_2);
+        }
+    }
 }
 
 //buton foto
