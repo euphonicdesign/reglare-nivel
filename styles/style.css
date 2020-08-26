@@ -97,6 +97,7 @@ button#rezervor {
     border-radius: 5px;
 }
 
+
 #myRange {
     width: 100%;
     outline: none;
@@ -121,7 +122,7 @@ button#rezervor {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #005ce6;
+  background: #2e65b8;
   cursor: pointer;
 }
 
@@ -129,6 +130,6 @@ button#rezervor {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #005ce6;
+  background: #2e65b8;
   cursor: pointer;
 }

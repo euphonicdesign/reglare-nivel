@@ -187,13 +187,13 @@ let evenimente_actiuni = [
               '5.limitare...', //1/8
 ];
 
-var culoareTextCompensatorRosu = "#c45454";//"#be4141";//"#ff1a1a";//"red";
+var culoareTextCompensatorRosu = "#ba5e5e";//"#c45454";//"#be4141";//"#ff1a1a";//"red";
 var culoareCrestereMaro = "#996633";//culoareTextCompensatorRosu;
 var culoareCrestereRosu = culoareTextCompensatorRosu;
 var culoareScadere = "green";
 
 var culoare_scadere_entitate = "#9fdf9f";
-var culoare_crestere_entitate = "#99d6ff";
+var culoare_crestere_entitate = "#a8d3f0";//"#99d6ff";
 var culoareLinieGraficP = "#ffffe6";
 var culoareTextGraficP = "#ffcf66";
 var culoareGraficVectorR = "#996633";//"#ac7339";
@@ -308,20 +308,20 @@ var nivelDepasireCapacitate = 35;
 var nivelUltraCritic = 25;
 var nivelCritic = 20;
 var nivelIntermediar = 15;
-var culoareApaNivelNormal = "#005ce6";
-var culoareApaNivelIntermediar = "#003d99";
-var culoareApaNivelCritic = "#001f4d";
-var culoareApaNivelUltraCritic = "#001433";
-var culoareApaNivelDepasireCapacitate = "#000a1a";
+var culoareApaNivelNormal = "#2e65b8";//"#005ce6";
+var culoareApaNivelIntermediar = "#1f437a";//"#003d99";
+var culoareApaNivelCritic = "#0f223d";//"#001f4d";
+var culoareApaNivelUltraCritic = "#0a1629";//"#001433";
+var culoareApaNivelDepasireCapacitate = "#050b14";//"#000a1a";
 var culoareApa = culoareApaNivelNormal;
 var culoareValoareNivel = culoareApa;
 //var culoareRobinet = "orange";
 var culoareLinieLimitaRegimNominal = "#cce0ff";
-var culoareIndicatorRezervor = "#cce0ff";
+var culoareIndicatorRezervor = "#d5e2f6";//"#cce0ff";
 
 var culoareLinieValoriGrafic = "#b3b3b3";
 var culoareLinieValoriGrafic_2 = "#cccccc";//"#bfbfbf";
-var culoareLinieGraficNuantat = "#d88d8d";//"#d88d8d";
+var culoareLinieGraficNuantat = "#c98282";//"#d88d8d";
 var culoareLinieGraficNuantat2 = "white";
 var culoareLinieGraficVertical = "white";//"#8c8c8c";
 var culoareLinieLegatura = "#999999";
