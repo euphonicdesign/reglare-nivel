@@ -328,7 +328,7 @@ var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
 var culoarePuncteProiectieCrestere = "#33adff";
 var culoareMedieCrestere = "#80ccff";//"#99d6ff";//"#80ccff";
 var culoarePuncteProiectieScadere = "green"; //culoare_linie_trend;
-var culoareMedieScadere = "#53c653";//"#79d279";//"#71da71";//"#85e085";
+var culoareMedieScadere = "green";//"#53c653";//"#79d279";//"#71da71";//"#85e085";
 
 var culoarePunctGraficVertical = "#999999";//"white";
 var culoarePunctGraficVerticalFoto = "#262626";
