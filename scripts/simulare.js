@@ -192,7 +192,7 @@ var culoareCrestereMaro = "#996633";//culoareTextCompensatorRosu;
 var culoareCrestereRosu = culoareTextCompensatorRosu;
 var culoareScadere = "green";
 
-var culoare_scadere_entitate = "#9fdf9f";
+var culoare_scadere_entitate = "#a9d6a9";//"#9fdf9f";
 var culoare_crestere_entitate = "#a8d3f0";//"#99d6ff";
 var culoareLinieGraficP = "#ffffe6";
 var culoareTextGraficP = "#ffcf66";
