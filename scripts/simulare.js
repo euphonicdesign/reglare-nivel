@@ -460,12 +460,11 @@ var grafic_valori_desenat = false;
 var pauza = false;
 
 
-//var slider = document.getElementById("myRange");
-//slider.setAttribute("max", data.length - 1);
+var slider = document.getElementById("myRange");
+slider.max = Math.round(data_20.length - 3);
 //slider.setAttribute("value", selectorZi);
 
 
-/*
 slider.oninput = function() {
     selectorZi = Math.round(this.value);
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
@@ -479,11 +478,11 @@ slider.oninput = function() {
     //slider.setAttribute("value", selectorZi);
     //console.log(selectorZi);
     //console.log(slider.getAttribute("value"));
-//}
+}
 
 
 var rangeSlider = document.getElementById("selectorzistart");
-rangeSlider.max = Math.round(data_20.length - 1);
+rangeSlider.max = Math.round(data_20.length - 3);
 //slider.setAttribute("value", selectorZi);
 
 rangeSlider.oninput = function(){
@@ -536,6 +535,7 @@ buton_derulare_inapoi.onclick = function() {
       selectorZi -= 1;
       procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
       //slider.setAttribute("value", selectorZi);
+      slider.value = Math.round(selectorZi);
       ActualizareSuprafataGraficaSingulara();
   }
 }
@@ -546,6 +546,7 @@ buton_derulare_inainte.onclick = function() {
       selectorZi += 1;
       procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
       //slider.setAttribute("value", selectorZi);
+      slider.value = Math.round(selectorZi);
       ActualizareSuprafataGraficaSingulara();
   }
 }
@@ -627,7 +628,7 @@ function modificaNivel(e){
     if (e.code === "ArrowUp" || e.code === "ArrowRight"){
         /*if (procentDinCapacitateMax < 1.0)
           procentDinCapacitateMax += incrementVariatieSimulare;*/
-          if (selectorZi < data.length - 1)
+          if (selectorZi < (data.length - 1))
             selectorZi += 1;
     }
 
@@ -637,7 +638,7 @@ function modificaNivel(e){
 
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
     //slider.setAttribute("value", selectorZi);
-    //slider.value = selectorZi;
+    slider.value = Math.round(selectorZi);
     ActualizareSuprafataGraficaSingulara();
 }
 
@@ -2547,7 +2548,8 @@ function ActualizareSuprafataGrafica() {
                     pauza = true;
                 }
                 //console.log(slider.getAttribute("value"));
-                //slider.setAttribute("value", selectorZi);
+                //slider.setAttribute("value", Math.round(selectorZi));
+                slider.value = Math.round(selectorZi);
                 procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
 
                 if(selectorZi > paginare){
@@ -2621,6 +2623,9 @@ function ActualizareSuprafataGrafica() {
 
 function ActualizareSuprafataGraficaSingulara() {
         suprafataGrafica.clear();
+        //slider.setAttribute("value", Math.round(selectorZi));
+        slider.value = Math.round(selectorZi);
+
         procentDinCapacitate = procentDinCapacitateMax;
 
         //colorare apa in functie de valoare critica
