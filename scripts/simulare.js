@@ -221,6 +221,7 @@ var xEntitate = 558;
 var yEntitate = 468;
 
 var indicatorZiEveniment = false;
+var semn = "+";
 
 let dataCumulativ = [];
 let medieCumulativ = [];
@@ -1337,15 +1338,28 @@ function desenareGraficPVectorR(){
         if(plin){
             ctx.lineWidth = 2;
             ctx.fillStyle = evenimente_tip[nr_ev];
+            //desenare semn crestere
+            ctx.textAlign = "center";
+            ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+
             if(evenimente_tip[nr_ev] == culoareVerde){
               ctx.strokeStyle = culoareScadere;//culoareGraficVectorR;
+              ctx.fill();
+              ctx.stroke();
+
+              ctx.fillStyle = culoareScadere;
+              ctx.fillText("- -" , 26 + x_p, y_r);
             }
             else {
-              ctx.strokeStyle = culoareCrestereMaro;
-            }
+              //ctx.fillStyle = culoareMaro;
+              ctx.strokeStyle = culoareCrestereMaro;//evenimente_tip[nr_ev];
+              ctx.fill();
+              ctx.stroke();
 
-            ctx.fill();
-            ctx.stroke();
+
+              ctx.fillStyle = culoareCrestereMaro;
+              ctx.fillText("++" , 26 + x_p, y_r);
+            }
         }
         else{
             ctx.lineWidth = 1;
