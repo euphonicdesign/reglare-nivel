@@ -1348,7 +1348,7 @@ function desenareGraficPVectorR(){
               ctx.stroke();
 
               ctx.fillStyle = culoareScadere;
-              ctx.fillText("- -" , 26 + x_p, y_r);
+              ctx.fillText("--" , 26 + x_p, y_r);
             }
             else {
               //ctx.fillStyle = culoareMaro;
