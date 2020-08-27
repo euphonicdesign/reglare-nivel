@@ -1340,7 +1340,13 @@ function desenareGraficPVectorR(){
             ctx.fillStyle = evenimente_tip[nr_ev];
             //desenare semn crestere
             ctx.textAlign = "center";
-            ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+            if(raza_pulsatie == 1){
+                ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+            }
+            else{
+                ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+            }
+
 
             if(evenimente_tip[nr_ev] == culoareVerde){
               ctx.strokeStyle = culoareScadere;//culoareGraficVectorR;
