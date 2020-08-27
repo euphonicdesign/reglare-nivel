@@ -331,7 +331,8 @@ var culoareLinieLegatura = "#999999";
 var culoareCerculetRScadere = culoareVerde;
 var culoareCerculetRCrestere = culoareMaro;//"#99d6ff";
 var culoarePuncteProiectieCrestere = "#33adff";
-var culoareMedieCrestere = "#8cbad9";//"#80ccff";//"#99d6ff";//"#80ccff";
+
+var culoareMedieCrestere = "#dba670";//culoareMaro;//"#8cbad9";//"#80ccff";//"#99d6ff";//"#80ccff";
 var culoarePuncteProiectieScadere = "green"; //culoare_linie_trend;
 var culoareMedieScadere = "#45a145";//"green";//"#53c653";//"#79d279";//"#71da71";//"#85e085";
 
