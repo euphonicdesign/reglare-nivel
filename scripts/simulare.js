@@ -1,6 +1,26 @@
 var lungimeSuprafataGrafica = 600;
 var inaltimeSuprafataGrafica = 500;
 
+var contorVectorizare = 0;
+var contorLimitare = 0;
+
+var culoareTextCompensatorRosu = "#ba5e5e";//"#c45454";//"#be4141";//"#ff1a1a";//"red";
+var culoareCrestereMaro = "#996633";//culoareTextCompensatorRosu;
+var culoareCrestereRosu = culoareTextCompensatorRosu;
+var culoareScadere = "green";
+
+var culoare_scadere_entitate = "#a9d6a9";//"#9fdf9f";
+var culoare_crestere_entitate = "#a8d3f0";//"#99d6ff";
+var culoareLinieGraficP = "#ffffe6";
+var culoareTextGraficP = "#ffcf66";
+var culoareGraficVectorR = "#996633";//"#ac7339";
+var culoareGalben = culoareLinieGraficP;
+var culoareRosu = "#e4b4b4";//"#d78e8e";//culoareCrestere;//culoareGraficVectorR;//"brown";
+var culoareVerde = culoare_scadere_entitate;//"green";
+var culoareMaro = "#cc9966";
+var culoareAlbastru = culoare_crestere_entitate;
+
+
 let data = [];
 let data_2 = [];
 let data_3 = [];
@@ -192,21 +212,6 @@ let evenimente_actiuni = [
               '7.vectorizare?(x5)', //15/9
 ];
 
-var culoareTextCompensatorRosu = "#ba5e5e";//"#c45454";//"#be4141";//"#ff1a1a";//"red";
-var culoareCrestereMaro = "#996633";//culoareTextCompensatorRosu;
-var culoareCrestereRosu = culoareTextCompensatorRosu;
-var culoareScadere = "green";
-
-var culoare_scadere_entitate = "#a9d6a9";//"#9fdf9f";
-var culoare_crestere_entitate = "#a8d3f0";//"#99d6ff";
-var culoareLinieGraficP = "#ffffe6";
-var culoareTextGraficP = "#ffcf66";
-var culoareGraficVectorR = "#996633";//"#ac7339";
-var culoareGalben = culoareLinieGraficP;
-var culoareRosu = "#e4b4b4";//"#d78e8e";//culoareCrestere;//culoareGraficVectorR;//"brown";
-var culoareVerde = culoare_scadere_entitate;//"green";
-var culoareMaro = "#cc9966";
-var culoareAlbastru = culoare_crestere_entitate;
 
 let evenimente_tip = [
               culoareMaro, //15/5
@@ -214,7 +219,11 @@ let evenimente_tip = [
               culoareMaro, //15/6
               culoareMaro, //1/7
               culoareVerde, //1/8
+              culoareMaro, //1/9
+              culoareMaro, //15/9
 ]
+
+let evenimente_contor = [];
 
 var xTextZi = 10;
 var yTextZi = 50;
@@ -778,6 +787,17 @@ function start() {
         }
     }
     maxValZiCur = Math.max(...vector_valZiCurenta);
+
+    for(let i=0; i < evenimente_tip.length; i++){
+        if(evenimente_tip[i] == culoareVerde){
+          contorLimitare++;
+          evenimente_contor[i] = contorLimitare;
+        }
+        else{
+          contorVectorizare++;
+          evenimente_contor[i] = contorVectorizare;
+        }
+    }
 
     setare_mod();
 
@@ -1357,7 +1377,7 @@ function desenareGraficPVectorR(){
               ctx.stroke();
 
               ctx.fillStyle = culoareScadere;
-              ctx.fillText("--" , 26 + x_p, y_r);
+              ctx.fillText(evenimente_contor[nr_ev] + "-" , 26 + x_p, y_r);
             }
             else {
               //ctx.fillStyle = culoareMaro;
@@ -1367,7 +1387,7 @@ function desenareGraficPVectorR(){
 
 
               ctx.fillStyle = culoareCrestereMaro;
-              ctx.fillText("++" , 26 + x_p, y_r);
+              ctx.fillText(evenimente_contor[nr_ev] + "+" , 26 + x_p, y_r);
             }
         }
         else{
