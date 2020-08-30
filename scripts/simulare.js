@@ -1692,8 +1692,8 @@ function desenareGraficeTrenduri(){
 
           //desenare indicator abscisa
           ctx.beginPath();
-          ctx.moveTo(12 + x1_1, yGrafic_2 + 3);
-          ctx.lineTo(12 + x1_1, yGrafic_2 + 7);
+          ctx.moveTo(12 + x1_1, yGrafic_2);
+          ctx.lineTo(12 + x1_1, yGrafic_2 + 4);
           ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
           ctx.lineWidth = 2;
           ctx.closePath();
@@ -2113,8 +2113,8 @@ function desenareGraficeTrenduri(){
     //capat dreapta
     //desenare indicator abscisa
     ctx.beginPath();
-    ctx.moveTo(12 + x_valoare, yGrafic_2 + 3);
-    ctx.lineTo(12 + x_valoare, yGrafic_2 + 7);
+    ctx.moveTo(12 + x_valoare, yGrafic_2);
+    ctx.lineTo(12 + x_valoare, yGrafic_2 + 4);
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
     ctx.lineWidth = 2;
     ctx.closePath();
@@ -2137,8 +2137,8 @@ function desenareGraficeTrenduri(){
       //capat stanga
       //desenare indicator abscisa
       ctx.beginPath();
-      ctx.moveTo(12 + x_val_1, yGrafic_2 + 3);
-      ctx.lineTo(12 + x_val_1, yGrafic_2 + 7);
+      ctx.moveTo(12 + x_val_1, yGrafic_2);
+      ctx.lineTo(12 + x_val_1, yGrafic_2 + 4);
       ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
       ctx.lineWidth = 2;
       ctx.closePath();
@@ -2156,18 +2156,21 @@ function desenareGraficeTrenduri(){
       luna = data_luni[data_zi_luna[1]-1];
       ctx.fillText(zi + " " + luna, 12 + x_val_1, yGrafic_2 + 35);
 
-      ctx.beginPath();
-      ctx.closePath();
-      ctx.stroke();
+      //ctx.setLineDash([]);
+      //ctx.closePath();
+      //ctx.stroke();
+      //ctx.fill();
 
+      //indicator abscisa
       //centru mijloc - index2
-      ctx.beginPath();
-      ctx.moveTo(12 + xc1, yGrafic_2 + 3);
-      ctx.lineTo(12 + xc1, yGrafic_2 + 7);
+      //ctx.beginPath();
+      ctx.moveTo(12 + xc1, yGrafic_2);
+      ctx.lineTo(12 + xc1, yGrafic_2 + 4);
       ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
       ctx.lineWidth = 2;
-      ctx.closePath();
+      //ctx.closePath();
       ctx.stroke();
+
 
       ctx.textAlign = "center";
       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
