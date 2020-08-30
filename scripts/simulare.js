@@ -2567,9 +2567,30 @@ function desenareGraficOrizontal(){
       ctx.closePath();
       ctx.stroke();
 
+      //desenare capat nuantat
+      if(procentDinCapacitate > 1){
+          ctx.beginPath();
+          ctx.moveTo(x_valoare, y_valoare_1);
+          ctx.lineTo(x_valoare, y_valoare_1 - 5);
+          ctx.strokeStyle = culoareGalben;
+          ctx.closePath();
+          ctx.stroke();
+
+          /*
+          ctx.beginPath();
+          ctx.moveTo(x_valoare, y_valoare_2);
+          ctx.lineTo(x_valoare, y_valoare_2 + 4);
+          ctx.strokeStyle = culoareGalben;
+          ctx.closePath();
+          ctx.stroke();*/
+      }
+
       ctx.beginPath();
       ctx.closePath();
       ctx.stroke();
+
+
+
 
       if(i==selectorZi){
         dist = Math.pow((x_valoare - xc2 - 10),2) + Math.pow((y_valoare_1 - yc2 - 2),2);
