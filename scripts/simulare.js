@@ -232,13 +232,15 @@ var raza_pulsatie = 0;
 let evenimente_contor = [];
 let zile_contor_vectorizare = [];
 let zile_contor_limitare = [];
+let zile_evenimente_actiuni = [];
 
 var xTextZi = 10;
 var yTextZi = 50;
-var xCerculeteAcumulate = xTextZi + 5; //+ 130;
-var yCerculeteAcumulate = yTextZi + 18;
 var xTextEveniment = xTextZi; //+ 130;
-var yTextEveniment = yTextZi + 45;
+var yTextEveniment = yTextZi + 20;
+var xCerculeteAcumulate = xTextZi + 0; //+ 130;
+var yCerculeteAcumulate = yTextZi + 35;
+
 
 var xEntitate = 558;
 var yEntitate = 468;
@@ -755,6 +757,7 @@ function start() {
     }
 
     //construire vector date cumulative
+    var nr_eveniment = -1;
     for (let i = 0; i < data.length; i++) {
       cumul = 0;
 
@@ -774,11 +777,13 @@ function start() {
               else{
                 contorVectorizare2++;
               }
+              nr_eveniment = k;
           }
       }
 
       zile_contor_limitare[i] = contorLimitare2;
       zile_contor_vectorizare[i] = contorVectorizare2;
+      zile_evenimente_actiuni[i] = nr_eveniment;
 
     }
 
@@ -1205,49 +1210,53 @@ function desenareEvenimente(){
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
 
-    for(let i = 0; i < evenimente.length; i++){
+    /*for(let i = 0; i < evenimente.length; i++){
       //console.log(evenimente[i]);
       if(data_data[selectorZi] == evenimente[i]){
           //console.log(evenimente[i]);
           ctx.fillText("(" + evenimente_actiuni[i] + ")", xTextEveniment, yTextEveniment);
       }
+    }*/
+
+    if(zile_evenimente_actiuni[selectorZi]> -1){
+        ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[selectorZi]], xTextEveniment, yTextEveniment);
+
+        //desenare cerculete acumulate
+
+        //desenare cerculet vectorizare maro
+        ctx.beginPath();
+        ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+        ctx.closePath();
+
+        ctx.lineWidth = 2;
+        ctx.fillStyle = culoareMaro; //culoareVerde
+        ctx.strokeStyle = culoareCrestereMaro;//evenimente_tip[nr_ev];//culoareScadere
+        ctx.fill();
+        ctx.stroke();
+
+        //desenare
+        ctx.textAlign = "start";
+        ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+        ctx.fillStyle = culoareCrestereMaro;
+        ctx.fillText(zile_contor_vectorizare[selectorZi], xCerculeteAcumulate + 10 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
+
+        //desenare cerculet limitare verde
+        ctx.beginPath();
+        ctx.arc(xCerculeteAcumulate + 35 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+        ctx.closePath();
+
+        //ctx.lineWidth = 2;
+        ctx.fillStyle = culoareVerde;
+        ctx.strokeStyle = culoareScadere;
+        ctx.fill();
+        ctx.stroke();
+
+        //desenare
+        //ctx.textAlign = "start";
+        //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+        ctx.fillStyle = culoareScadere;
+        ctx.fillText(zile_contor_limitare[selectorZi], xCerculeteAcumulate + 45 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
     }
-
-    //desenare cerculete acumulate
-
-    //desenare cerculet vectorizare maro
-    ctx.beginPath();
-    ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
-    ctx.closePath();
-
-    ctx.lineWidth = 2;
-    ctx.fillStyle = culoareMaro; //culoareVerde
-    ctx.strokeStyle = culoareCrestereMaro;//evenimente_tip[nr_ev];//culoareScadere
-    ctx.fill();
-    ctx.stroke();
-
-    //desenare
-    ctx.textAlign = "start";
-    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareCrestereMaro;
-    ctx.fillText(zile_contor_vectorizare[selectorZi], xCerculeteAcumulate + 10 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
-
-    //desenare cerculet limitare verde
-    ctx.beginPath();
-    ctx.arc(xCerculeteAcumulate + 35 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
-    ctx.closePath();
-
-    //ctx.lineWidth = 2;
-    ctx.fillStyle = culoareVerde;
-    ctx.strokeStyle = culoareScadere;
-    ctx.fill();
-    ctx.stroke();
-
-    //desenare
-    //ctx.textAlign = "start";
-    //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareScadere;
-    ctx.fillText(zile_contor_limitare[selectorZi], xCerculeteAcumulate + 45 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
 }
 
 
