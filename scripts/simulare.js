@@ -1473,7 +1473,7 @@ function desenareGraficPVectorR(){
               ctx.stroke();
 
               ctx.fillStyle = culoareScadere;
-              ctx.fillText(evenimente_contor[nr_ev] + "-" , 26 + x_p, y_r);
+              ctx.fillText("-" + evenimente_contor[nr_ev], 26 + x_p, y_r);
             }
             else {
               //ctx.fillStyle = culoareMaro;
@@ -1483,7 +1483,7 @@ function desenareGraficPVectorR(){
 
 
               ctx.fillStyle = culoareCrestereMaro;
-              ctx.fillText(evenimente_contor[nr_ev] + "+" , 26 + x_p, y_r);
+              ctx.fillText("+" + evenimente_contor[nr_ev], 26 + x_p, y_r);
             }
         }
         else{
