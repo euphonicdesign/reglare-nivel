@@ -206,13 +206,13 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              '1.vectorizare', //15/5
-              '2.vectorizare (?)', //1/6
-              '3.vectorizare (??)', //15/6
-              '4.vectorizare (???)', //1/7
-              '5.limitare (...)', //1/8
-              '6.vectorizare (?x4)', //1/9
-              '7.vectorizare (?x5)', //15/9
+              '1 -> vectorizare', //15/5
+              '2 -> vectorizare (?)', //1/6
+              '3 -> vectorizare (??)', //15/6
+              '4 -> vectorizare (???)', //1/7
+              '5 -> limitare (...)', //1/8
+              '6 -> vectorizare (?x4)', //1/9
+              '7 -> vectorizare (?x5)', //15/9
 ];
 
 
