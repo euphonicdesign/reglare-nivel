@@ -523,6 +523,9 @@ buton_afisaretrend.onclick = function() {
       else{
         buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:grey;'>palette</i>";
       }
+
+      salvarePreferintaMod();
+
       //console.log(afisaretrend);
       ActualizareSuprafataGraficaSingulara();
     }
@@ -825,6 +828,16 @@ function start() {
     } else{
         buton_foto.style.height = b_grafice_height;
         buton_foto.style.width = b_grafice_width;
+    }
+
+    //console.log("la start afisaretrend =" + afisaretrend);
+    if(afisaretrend){
+      //console.log("se seteaza culoarea albastra");
+      buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:#005ce6;'>palette</i>";
+    }
+    else{
+      //console.log("se seteaza culoarea gri");
+      buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:grey;'>palette</i>";
     }
 
 }
@@ -2815,6 +2828,8 @@ function actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate) {
 function salvarePreferintaMod() {
   //console.log("se salveaza modul " + mod);
   localStorage.setItem('mod', mod);
+  //console.log("se salveaza modul afisaretrend " + afisaretrend);
+  localStorage.setItem('afisaretrend', afisaretrend);
 }
 
 function setare_mod() {
@@ -2826,4 +2841,19 @@ function setare_mod() {
     //console.log("mod salvat " + mod + " . Se seteaza modul preferat.");
     //actualizareMod();
   }
+
+  if(!localStorage.getItem('afisaretrend')) {
+    salvarePreferintaMod();
+  } else {
+    if(localStorage.getItem('afisaretrend') == "true"){
+        afisaretrend = true;
+    }
+    else{
+        afisaretrend = false;
+    }
+    //afisaretrend = localStorage.getItem('afisaretrend');
+    //console.log("s-a incarcat afisare trend: " + afisaretrend)
+  }
+
+
 }
