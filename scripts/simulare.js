@@ -1861,14 +1861,14 @@ function desenareGraficeTrenduri(){
 
   //desenare linie conectare grafic 2 cu grafic 1
   //ctx.setLineDash([]);
-  ctx.setLineDash([1, 1 + dist]);
+  ctx.setLineDash([3, 1 + dist]);
 
   //ctx.setLineDash([1, 10]);
   //ctx.beginPath();
   ctx.moveTo(12 + xc1, yc1);
   ctx.lineTo(12 + xc2, yc2);
-  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = culoareTrend;//culoarePunctValoriGrafic_3;//culoareLinieLegatura;//culoare_linie_trend;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 1;
   //ctx.closePath();
   ctx.stroke();
   ctx.setLineDash([]);
