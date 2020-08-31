@@ -308,8 +308,8 @@ var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 
 var yLegendaDerivate = yGrafic_3 - 100;
-var xLegendaDerivate = 448;
-var ident = 10;
+var xLegendaDerivate = 440;
+var ident = 9;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
