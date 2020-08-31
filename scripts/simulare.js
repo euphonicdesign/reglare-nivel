@@ -53,7 +53,7 @@ let data_10 = [
             41, 	29, 	35, 	43, 	53, 	44, 	50,
             37, 	38, 	45, 	32, 	48, 	42, 	37,
             39,
-            37, 58, 54, 38, 48, 32, 39, 43, 
+            37, 58, 54, 38, 48, 32, 39, 43,
 
 ];
 
@@ -211,7 +211,7 @@ let evenimente_actiuni = [
               '3 -> vectorizare (??)', //15/6
               '4 -> vectorizare (???)', //1/7
               '5 -> limitare (...)', //1/8
-              '6 -> vectorizare (?x4)', //1/9
+              '6 -> vectorizare (?!)', //1/9
               '7 -> vectorizare (?x5)', //15/9
 ];
 
@@ -308,7 +308,7 @@ var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 
 var yLegendaDerivate = yGrafic_3 - 100;
-var xLegendaDerivate = 450;
+var xLegendaDerivate = 448;
 var ident = 10;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -2079,18 +2079,18 @@ function desenareGraficeTrenduri(){
     if(vector_r[selectorZi] >= 1){
 
       ctx.fillStyle = culoareCrestereMaro;
-      ctx.fillText("dif=+" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate + ident, yLegendaDerivate + 98);
+      ctx.fillText("dif=+" + Math.floor(valZiCur * (vector_r[selectorZi] - 1)*10)/10, xLegendaDerivate + ident, yLegendaDerivate + 98);
 
-      text_zi_urmatoare = "" + Math.round(valZiCur) + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
+      text_zi_urmatoare = "" + Math.floor(valZiCur*10)/10 + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10;
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
       ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
 
     }
     else{
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("dif=" + Math.round(valZiCur * (vector_r[selectorZi] - 1)), xLegendaDerivate + ident, yLegendaDerivate + 98);
+      ctx.fillText("dif=" + Math.floor(valZiCur * (vector_r[selectorZi] - 1)*10)/10, xLegendaDerivate + ident, yLegendaDerivate + 98);
 
-      text_zi_urmatoare = "" + Math.round(valZiCur) + "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.round(valZiCur * vector_r[selectorZi]);
+      text_zi_urmatoare = "" + Math.floor(valZiCur*10)/10 + "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10;
       ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
       ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
     }
