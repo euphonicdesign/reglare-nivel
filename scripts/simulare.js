@@ -2033,12 +2033,17 @@ function desenareGraficeTrenduri(){
     //desenare valoare vector_r (in procente %)
     //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
 
-    //Afisare data - zi curenta
+    //Afisare data - zi precedenta - zi curenta
+    data_zi_luna = data_data[selectorZi-1].split("/");
+    zi = data_zi_luna[0];
+    luna = data_luni[data_zi_luna[1]-1];
+    dataDeAfisat = zi + "-";
     data_zi_luna = data_data[selectorZi].split("/");
     zi = data_zi_luna[0];
     luna = data_luni[data_zi_luna[1]-1];
+    dataDeAfisat = dataDeAfisat + zi + " " + luna + ":";
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(zi + " " + luna + "", xLegendaDerivate, yLegendaDerivate + 42);
+    ctx.fillText(dataDeAfisat, xLegendaDerivate, yLegendaDerivate + 42);
 
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
