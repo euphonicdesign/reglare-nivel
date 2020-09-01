@@ -241,7 +241,7 @@ let info_explicatii = [
               \nSistemul a intrat in regim de suprasarcina... \
               \nPierderile sunt enorme!', //1/8
 
-              'Masurile curente de preventie sunt insuficiente. \
+              'Masurile actuale de preventie sunt insuficiente. \
               \nValoare curenta a referintei este 22! \
               \nEa trebuie setata la valoarea 0...', //1/9
 
