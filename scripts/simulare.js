@@ -235,8 +235,8 @@ let info_explicatii = [
 
               'Cresterea este accelerata!', //1/7
 
-              'Sistemul a intrat in regim de suprasarcina... \
-              \nMasurile preventive au fost luate mult prea tarziu...', //1/8
+              'Masurile preventive au fost luate mult prea tarziu... \
+              \nSistemul a intrat in regim de suprasarcina...', //1/8
 
               'Nivelul actual al referintei este 22! \
               \nEl trebuie setat la valoarea 0... \
