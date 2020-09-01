@@ -230,7 +230,9 @@ let info_explicatii = [
               \nfara masuri preventive.', //15/5
 
               'Rata de propagare este in crestere!', //1/6
-              'Atat rata de propagare cat si nivelul sunt in crestere!', //15/6
+              'Atat rata de propagare cat si numarul de propagari \
+              \nsunt in crestere!', //15/6
+
               'Cresterea este accelerata!', //1/7
 
               'Sistemul a intrat in regim de suprasarcina... \
