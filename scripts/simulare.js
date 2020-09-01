@@ -237,7 +237,8 @@ let info_explicatii = [
               \nMasurile preventive au fost luate mult prea tarziu...', //1/8
 
               'Nivelul actual al referintei este 22! \
-              \nEl trebuie setat la valoarea 0...', //1/9
+              \nEl trebuie setat la valoarea 0... \
+              \nMasurile curente de preventie sunt insuficiente...', //1/9
 
               'Rata de propagare este constanta. \nNivelul referintei a ajuns \
               la 22.'//'15/9'
