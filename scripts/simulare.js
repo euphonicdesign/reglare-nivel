@@ -54,7 +54,7 @@ let data_10 = [
             37, 	38, 	45, 	32, 	48, 	42, 	37,
             39,
             37, 58, 54, 38, 48, 32, 39,
-            43, 60, 
+            43, 60,
 
 ];
 
@@ -241,9 +241,9 @@ let info_explicatii = [
               \nSistemul a intrat in regim de suprasarcina... \
               \nPierderile sunt enorme!', //1/8
 
-              'Nivelul actual al referintei este 22! El trebuie setat la valoarea 0... \
-              \nMasurile curente de preventie sunt insuficiente pentru \
-              \nreducerea nivelului...', //1/9
+              'Masurile curente de preventie sunt insuficiente. \
+              \nValoare curenta a referintei este 22! \
+              \nEa trebuie setata la valoarea 0...', //1/9
 
               'Rata de propagare este din nou in crestere. \
               \nNumarul de propagari este in afara limitelor controlabile. \
