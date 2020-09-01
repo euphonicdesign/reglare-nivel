@@ -215,6 +215,34 @@ let evenimente_actiuni = [
               '7 -> vectorizare (?x5)', //15/9
 ];
 
+let info_date = [
+              '15/5',
+              '1/6',
+              '15/6',
+              '1/7',
+              '1/8',
+              '1/9',
+              '15/9',
+];
+
+let info_explicatii = [
+              'In urmatoarele 90 de zile se vor pierde inca 1710 \
+              \nfara masuri preventive.', //15/5
+
+              'Rata de propagare este in crestere!', //1/6
+              'Atat rata de propagare cat si nivelul sunt in crestere!', //15/6
+              'Cresterea este accelerata!', //1/7
+
+              'Sistemul a intrat in regim de suprasarcina... \
+              \nMasurile preventive au fost luate mult prea tarziu...', //1/8
+
+              'Nivelul actual al referintei este 22! \
+              \nEl trebuie setat la valoarea 0...', //1/9
+
+              'Rata de propagare este constanta. \nNivelul referintei a ajuns \
+              la 22.'//'15/9'
+];
+
 
 let evenimente_tip = [
               culoareMaro, //15/5
@@ -233,6 +261,7 @@ let evenimente_contor = [];
 let zile_contor_vectorizare = [];
 let zile_contor_limitare = [];
 let zile_evenimente_actiuni = [];
+let zile_info_explicatii = [];
 
 var xTextZi = 10;
 var yTextZi = 50;
@@ -240,6 +269,9 @@ var xTextEveniment = xTextZi; //+ 130;
 var yTextEveniment = yTextZi + 20;
 var xCerculeteAcumulate = xTextZi + 0; //+ 130;
 var yCerculeteAcumulate = yTextZi + 35;
+
+var xTextInfoExplicatii = xTextZi;
+var yTextInfoExplicatii = yTextZi + 60;
 
 
 var xEntitate = 558;
@@ -758,34 +790,44 @@ function start() {
 
     //construire vector date cumulative
     var nr_eveniment = -1;
+    var nr_info = -1;
     for (let i = 0; i < data.length; i++) {
-      cumul = 0;
+        cumul = 0;
 
-      for (let j = 0; j <= i ; j++) {
-        cumul = cumul + data[j];
-      }
+        for (let j = 0; j <= i ; j++) {
+          cumul = cumul + data[j];
+        }
 
-      dataCumulativ[i] = cumul;
-      medieCumulativ[i] = Math.round(cumul/(i+1));
-      comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i] + (kd * medieCumulativ[i] * intervalProiectie));
+        dataCumulativ[i] = cumul;
+        medieCumulativ[i] = Math.round(cumul/(i+1));
+        comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i] + (kd * medieCumulativ[i] * intervalProiectie));
 
-      for(let k=0; k < evenimente_tip.length; k++){
-          if(data_data[i] == evenimente[k]){
-              if(evenimente_tip[k] == culoareVerde){
-                contorLimitare2++;
-              }
-              else{
-                contorVectorizare2++;
-              }
-              nr_eveniment = k;
-          }
-      }
+        for(let k=0; k < evenimente_tip.length; k++){
+            if(data_data[i] == evenimente[k]){
+                if(evenimente_tip[k] == culoareVerde){
+                  contorLimitare2++;
+                }
+                else{
+                  contorVectorizare2++;
+                }
+                nr_eveniment = k;
+            }
+        }
 
-      zile_contor_limitare[i] = contorLimitare2;
-      zile_contor_vectorizare[i] = contorVectorizare2;
-      zile_evenimente_actiuni[i] = nr_eveniment;
+        zile_contor_limitare[i] = contorLimitare2;
+        zile_contor_vectorizare[i] = contorVectorizare2;
+        zile_evenimente_actiuni[i] = nr_eveniment;
+
+        for(let k=0; k < info_date.length; k++){
+            if(data_data[i] == info_date[k]){
+                nr_info = k;
+            }
+        }
+
+        zile_info_explicatii[i] = nr_info;
 
     }
+
 
     maxCompensator = Math.max(...comandaIdeala);
 
@@ -833,10 +875,6 @@ function start() {
         }
     }
     maxValZiCur = Math.max(...vector_valZiCurenta);
-
-
-
-
 
     setare_mod();
 
@@ -1257,6 +1295,7 @@ function desenareEvenimente(){
         ctx.fillStyle = culoareScadere;
         ctx.fillText(zile_contor_limitare[selectorZi], xCerculeteAcumulate + 45 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
     }
+
 }
 
 
@@ -1659,7 +1698,28 @@ function desenareEntitate(){
 
 }
 
+function desenareInfoExplicatii(){
+  if(afisaretrend == false){
+      if(zile_info_explicatii[selectorZi]> -1){
+          ctx.textAlign = "start";
+          ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+          ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
 
+
+          text = info_explicatii[zile_info_explicatii[selectorZi]];
+
+          linii = text.split("\n");
+          linia1 = linii[0];
+          linia2 = linii[1];
+          ctx.fillText(linia1, xTextInfoExplicatii, yTextInfoExplicatii);
+
+          if(linia2)
+              ctx.fillText(linia2, xTextInfoExplicatii, yTextInfoExplicatii + 14);
+
+          //ctx.fillText(info_explicatii[zile_info_explicatii[selectorZi]], xTextInfoExplicatii, yTextInfoExplicatii);
+      }
+    }
+}
 
 function desenareGraficeTrenduri(){
 
@@ -1691,6 +1751,7 @@ function desenareGraficeTrenduri(){
 
   desenareGraficPVectorR();
   desenarePuncteTrendMedie();
+  desenareInfoExplicatii();
 
   //desenare proiectie
   //ziStart = data_2.length - orizont_regresie;
