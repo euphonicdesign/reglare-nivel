@@ -239,9 +239,9 @@ let info_explicatii = [
               \nSistemul a intrat in regim de suprasarcina... \
               \nPierderile sunt enorme!', //1/8
 
-              'Nivelul actual al referintei este 22! \
-              \nEl trebuie setat la valoarea 0... \
-              \nMasurile curente de preventie sunt insuficiente...', //1/9
+              'Nivelul actual al referintei este 22! El trebuie setat la valoarea 0... \
+              \nMasurile curente de preventie sunt insuficiente pentru \
+              \nreducerea nivelului...', //1/9
 
               'Rata de propagare este din nou in crestere. \
               \nNumarul de propagari este in afara limitelor controlabile. \
@@ -1714,16 +1714,11 @@ function desenareInfoExplicatii(){
           text = info_explicatii[zile_info_explicatii[selectorZi]];
 
           linii = text.split("\n");
-          linia1 = linii[0];
-          linia2 = linii[1];
-          linia3 = linii[2];
-          ctx.fillText(linia1, xTextInfoExplicatii, yTextInfoExplicatii);
 
-          if(linia2)
-              ctx.fillText(linia2, xTextInfoExplicatii, yTextInfoExplicatii + 14);
-
-          if(linia3)
-              ctx.fillText(linia3, xTextInfoExplicatii, yTextInfoExplicatii + 28);
+          for(let i=0; i<linii.length; i++){
+              yInfo = yTextInfoExplicatii + i * 14;
+              ctx.fillText(linii[i], xTextInfoExplicatii, yInfo);
+          }
 
           //ctx.fillText(info_explicatii[zile_info_explicatii[selectorZi]], xTextInfoExplicatii, yTextInfoExplicatii);
       }
