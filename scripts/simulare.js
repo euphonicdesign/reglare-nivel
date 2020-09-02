@@ -1821,6 +1821,7 @@ function desenareGraficeTrenduri(){
           //ctx.fillStyle = culoareTextCompensatorRosu;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
           if(vector_r[selectorZi] >= 1){
             ctx.fillStyle = culoareCrestereMaro;
+            ctx.strokeStyle = culoarePuncteProiectieCrestere;
             if((Math.floor(vector_r[selectorZi]*10000))/10000 == 1){
                 ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 + " (~1!)", x1_1 + 20, y1_1 + 24);
             }
@@ -1831,9 +1832,17 @@ function desenareGraficeTrenduri(){
           }
           else{
             ctx.fillStyle = culoareScadere;
+            ctx.strokeStyle = culoarePuncteProiectieScadere;
             ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000, x1_1 + 20, y1_1 + 24);
           }
 
+          //desenare punct valoare estimata
+          ctx.beginPath();
+          ctx.arc(12 + x1_1, y1_1, 4, 0, 2 * Math.PI);
+          //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+          ctx.lineWidth = 2;
+          ctx.closePath();
+          ctx.stroke();
 
           //desenare valoare eroare totala sst2 (eroare regresie + eroare reziduala = varianta)
           //desenare deviatie standard
@@ -1841,15 +1850,6 @@ function desenareGraficeTrenduri(){
           //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
           //devstd
           ctx.fillText("E=" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
-
-
-          //desenare punct valoare estimata
-          ctx.beginPath();
-          ctx.arc(12 + x1_1, y1_1, 4, 0, 2 * Math.PI);
-          ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-          ctx.lineWidth = 2;
-          ctx.closePath();
-          ctx.stroke();
 
           //desenare indicator abscisa
           ctx.beginPath();
