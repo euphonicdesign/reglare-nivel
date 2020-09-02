@@ -216,7 +216,7 @@ let evenimente_actiuni = [
               '4 -> vectorizare (???)', //1/7
               '5 -> limitare (...)', //1/8
               '6 -> vectorizare (?!)', //1/9
-              '7 -> vectorizare (?x5)', //15/9
+              '7 -> vectorizare (...)', //15/9
 ];
 
 let info_date = [
