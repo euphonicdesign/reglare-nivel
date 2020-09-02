@@ -54,7 +54,7 @@ let data_10 = [
             37, 	38, 	45, 	32, 	48, 	42, 	37,
             39,
             37, 58, 54, 38, 48, 32, 39,
-            43, 60, 40, 
+            43, 60, 40,
 
 ];
 
@@ -331,7 +331,7 @@ var vitezaSimulare = 165;
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
-var scala_grafic_2 = 1.0; //scalare suplimentara grafic 2 sus 1.5 = 150%
+var scala_grafic_2 = 0.9; //scalare suplimentara grafic 2 sus 1.5 = -150%
 
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 80; // grafic sus - p+
