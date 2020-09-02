@@ -247,9 +247,11 @@ let info_explicatii = [
               \nValoare curenta a referintei este 22! \
               \nEa trebuie setata la valoarea 0...', //1/9
 
+              '',
+              /*
               'Rata de propagare este din nou in crestere. \
               \nNumarul de propagari este in afara limitelor controlabile. \
-              \nNivelul referintei a crescut la 23.'//'15/9'
+              \nNivelul referintei a crescut la 23.'//'15/9'*/
 ];
 
 
