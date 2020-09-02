@@ -244,7 +244,7 @@ let info_explicatii = [
               \nPierderile sunt enorme!', //1/8
 
               'Masurile actuale de preventie sunt insuficiente. \
-              \nValoare curenta a referintei este 22! \
+              \nValoarea curenta a referintei este 22! \
               \nEa trebuie setata la valoarea 0...', //1/9
 
               '',
