@@ -2216,7 +2216,7 @@ function desenareGraficeTrenduri(){
     }
     else{
         if(d1r2<0)
-          ctx.fillStyle = culoareScadere;
+          //ctx.fillStyle = culoareScadere;
         ctx.fillText("d2R=" + Math.floor(d2r2*10000)/100 + "▼", xLegendaDerivate, yLegendaDerivate + 154);
     }
 
