@@ -1997,7 +1997,7 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
-  ctx.fillText("" + Math.round(data[selectorZi]), x_val_2 + 20, y_val_2 - 6);
+  ctx.fillText("" + Math.round(data[selectorZi]) + "✈", x_val_2 + 20, y_val_2 - 6);
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(eticheta_1, x_val_2 + 20, y_val_2 + 24);
   ctx.fillText(crestere_1, x_val_2 + 20, y_val_2 + 10);
