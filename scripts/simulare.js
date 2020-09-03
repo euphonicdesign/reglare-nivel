@@ -420,7 +420,7 @@ var culoare_pop = culoareLinieGraficP;//"#4d94ff";//"#005ce6";//"#1a75ff";//culo
 var culoareTextReferinta = "#76adff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#d9d9d9";//"#DDDDDD";//"#cce0ff";
-var culoareDreptunghiReferintaGraficTrenduri = "#bfbfbf";
+var culoareDreptunghiReferintaGraficTrenduri = "#999999";//"#bfbfbf";
 
 var culoareTextCompensator = "#d9d9d9";
 var culoareCompensator = "orange";
