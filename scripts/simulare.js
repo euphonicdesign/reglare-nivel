@@ -1748,10 +1748,10 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
   if(data[selectorZi] > medieCumulativ[selectorZi]){
-      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... ▲", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... \u25B2", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
   }
   else{
-      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... ▼", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... \u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
   }
 
 
@@ -1997,7 +1997,7 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
-  ctx.fillText("" + Math.round(data[selectorZi]) + "✈", x_val_2 + 20, y_val_2 - 6);
+  ctx.fillText("" + Math.round(data[selectorZi]) + "\u2708", x_val_2 + 20, y_val_2 - 6);
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(eticheta_1, x_val_2 + 20, y_val_2 + 24);
   ctx.fillText(crestere_1, x_val_2 + 20, y_val_2 + 10);
@@ -2199,11 +2199,11 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestereRosu;
-        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "⬆", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "\u21E7", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + "⬇", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + "\u21E9", xLegendaDerivate, yLegendaDerivate + 140);
     }
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
