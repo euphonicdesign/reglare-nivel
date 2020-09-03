@@ -2199,11 +2199,11 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestereRosu;
-        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + " ⬆", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "⬆", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + " ⬇", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + "⬇", xLegendaDerivate, yLegendaDerivate + 140);
     }
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
