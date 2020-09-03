@@ -54,7 +54,7 @@ let data_10 = [
             37, 	38, 	45, 	32, 	48, 	42, 	37,
             39,
             37, 58, 54, 38, 48, 32, 39,
-            43, 60, 40,
+            43, 60, 40, 44,
 
 ];
 
@@ -83,7 +83,7 @@ let data_20 = [
             1415, 	1328, 	1087, 	733, 	1014, 	1409, 	1346,
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
-            755, 1053, 1298,
+            755, 1053, 1298, 1365,
           ];
 
 
@@ -1747,7 +1747,13 @@ function desenareGraficeTrenduri(){
   ctx.textAlign = "end";
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-  ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "...", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+  if(data[selectorZi] > medieCumulativ[selectorZi]){
+      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... ▲", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+  }
+  else{
+      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... ▼", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+  }
+
 
 
 
@@ -2193,11 +2199,11 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestereRosu;
-        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + " (>0!)", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + " ▲!", xLegendaDerivate, yLegendaDerivate + 140);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + " (<0)", xLegendaDerivate, yLegendaDerivate + 140);
+        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + " ▼", xLegendaDerivate, yLegendaDerivate + 140);
     }
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
@@ -2206,7 +2212,7 @@ function desenareGraficeTrenduri(){
     //derivata ordin 2 (acceleratia - crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     if(d2r2>0){
-        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 + " (^)", xLegendaDerivate, yLegendaDerivate + 154);
+        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 + " ▲", xLegendaDerivate, yLegendaDerivate + 154);
     }
     else{
         if(d1r2<0)
