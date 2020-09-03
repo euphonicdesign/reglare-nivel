@@ -1748,10 +1748,16 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
   if(data[selectorZi] > medieCumulativ[selectorZi]){
-      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... \u25B2", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "...", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+      //ctx.fillStyle = culoareCrestereRosu;
+      ctx.fillText("\u25B2", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
   }
   else{
-      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... \u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "...", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+      //ctx.fillStyle = culoareScadere;
+      ctx.fillText("\u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
   }
 
 
@@ -1997,6 +2003,7 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+  //desenare avion
   ctx.fillText("" + Math.round(data[selectorZi]) + "\u2708", x_val_2 + 20, y_val_2 - 6);
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(eticheta_1, x_val_2 + 20, y_val_2 + 24);
