@@ -1746,7 +1746,7 @@ function desenareGraficeTrenduri(){
   //desenare valoare Ref_a
   ctx.textAlign = "end";
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillStyle = culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+  ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
   if(data[selectorZi] > medieCumulativ[selectorZi]){
       ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "... ▲", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
   }
