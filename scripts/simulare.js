@@ -420,6 +420,7 @@ var culoare_pop = culoareLinieGraficP;//"#4d94ff";//"#005ce6";//"#1a75ff";//culo
 var culoareTextReferinta = "#76adff";
 var culoareLinieReferinta = "#cce0ff";
 var culoareLinieReferintaGrafic = "#d9d9d9";//"#DDDDDD";//"#cce0ff";
+var culoareDreptunghiReferintaGraficTrenduri = "#bfbfbf";
 
 var culoareTextCompensator = "#d9d9d9";
 var culoareCompensator = "orange";
@@ -1738,10 +1739,23 @@ function desenareGraficeTrenduri(){
   desenareEvenimente();
   desenareEntitate();
 
+  //desenare linie referinta Grafic trenduri 1
+  ctx.fillStyle = culoareLinieReferintaGrafic;
+  ctx.fillRect(10, yGrafic_1, lungimeSuprafataGrafica-20, - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue));
+
+  //desenare valoare Ref_a
+  ctx.textAlign = "end";
+  ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillStyle = culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+  ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "...", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+
+
+
   //desenare linie abscisa grafic
   ctx.fillStyle = culoareLinieReferinta;
   //ctx.fillRect(10, yGrafic_1, lungimeSuprafataGrafica-15, yGrafic_1);
   //ctx.fillRect(10, yGrafic_2, lungimeSuprafataGrafica-15, yGrafic_2);
+
 
   ctx.beginPath();
   ctx.moveTo(10, yGrafic_1 + 0 );
