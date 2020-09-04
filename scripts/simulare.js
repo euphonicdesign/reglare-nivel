@@ -1258,7 +1258,7 @@ function desenareVaseComunicante() {
 function desenareEvenimente(){
     ctx.textAlign = "start";
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
+    //ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
 
     /*for(let i = 0; i < evenimente.length; i++){
       //console.log(evenimente[i]);
@@ -1269,6 +1269,14 @@ function desenareEvenimente(){
     }*/
 
     if(zile_evenimente_actiuni[selectorZi]> -1){
+        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+            ctx.fillStyle = culoareCrestereMaro;
+        }
+        else{
+            ctx.fillStyle = culoareScadere;
+        }
+
+        //ctx.fillStyle = evenimente_tip[zile_evenimente_actiuni[selectorZi]];
         ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[selectorZi]], xTextEveniment, yTextEveniment);
 
         //desenare cerculete acumulate
