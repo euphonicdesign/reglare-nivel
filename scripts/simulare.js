@@ -1768,7 +1768,7 @@ function desenareGraficeTrenduri(){
       ctx.fillStyle = culoareCrestereMaro;
       ctx.fillText("\u25B2", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
       ctx.fillStyle = culoarePunctValoriGrafic_3;
-      ctx.fillText("\u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 11);
+      ctx.fillText("\u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 14);
   }
   else{
       ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "...", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
@@ -1777,7 +1777,7 @@ function desenareGraficeTrenduri(){
       ctx.fillStyle = culoarePunctValoriGrafic_3;
       ctx.fillText("\u25B2", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
       ctx.fillStyle = culoareScadere;
-      ctx.fillText("\u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 11);
+      ctx.fillText("\u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 14);
   }
 
 
