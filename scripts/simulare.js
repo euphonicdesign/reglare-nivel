@@ -54,7 +54,7 @@ let data_10 = [
             37, 	38, 	45, 	32, 	48, 	42, 	37,
             39,
             37, 58, 54, 38, 48, 32, 39,
-            43, 60, 40, 44, 47, 
+            43, 60, 40, 44, 47,
 
 ];
 
@@ -244,7 +244,7 @@ let info_explicatii = [
               \nPierderile sunt enorme!', //1/8
 
               'Masurile actuale de preventie sunt insuficiente. \
-              \nValoarea curenta a referintei este 22! \
+              \nValoarea curenta a referintei a depasit 22! \
               \nEa trebuie setata la valoarea 0...', //1/9
 
               '',
