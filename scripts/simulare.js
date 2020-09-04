@@ -231,22 +231,22 @@ let info_date = [
 ];
 
 let info_explicatii = [
-              'In urmatoarele 90 de zile se vor pierde inca 1710 \
-              \nfara masuri preventive.', //15/5
+              'In următoarele 90 de zile se vor pierde incă 1710 \
+              \nfără măsuri preventive.', //15/5
 
-              'Rata de propagare este in crestere!', //1/6
-              'Atat rata de propagare cat si numarul de propagari \
-              \nsunt in crestere!', //15/6
+              'Rata de propagare este în creștere!', //1/6
+              'Atât rata de propagare cât și numărul de propagări \
+              \nsunt în creștere!', //15/6
 
-              'Cresterea este accelerata!', //1/7
+              'Creșterea este accelerată!', //1/7
 
-              'Masurile preventive au fost luate mult prea tarziu... \
-              \nSistemul a intrat in regim de suprasarcina... \
+              'Măsurile preventive au fost luate mult prea târziu... \
+              \nSistemul a intrat in regim de suprasarcină... \
               \nPierderile sunt enorme!', //1/8
 
-              'Masurile actuale de preventie sunt insuficiente. \
-              \nValoarea curenta a referintei a depasit 22! \
-              \nEa trebuie setata la valoarea 0...', //1/9
+              'Măsurile actuale de prevenție sunt insuficiente. \
+              \nValoarea curentă a referinței a depășit 22! \
+              \nEa trebuie setată la valoarea 0...', //1/9
 
               '',
               /*
