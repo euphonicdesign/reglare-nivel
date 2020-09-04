@@ -1936,11 +1936,11 @@ function desenareGraficeTrenduri(){
       }
 
       if (procent_variatie_2>0){
-        eticheta_2 = " +" + procent_variatie_2 + "%";
+        eticheta_2 = " +" + procent_variatie_2 + "%\u21E7";
         culoareTrend = culoareCrestereRosu;//culoareTextCompensatorFill;
       }
       else{
-        eticheta_2 = " " + procent_variatie_2 + "%";
+        eticheta_2 = " " + procent_variatie_2 + "%\u21E9";
         culoareTrend = culoareScadere;
       }
 
