@@ -231,7 +231,7 @@ let info_date = [
 ];
 
 let info_explicatii = [
-              'In următoarele 90 de zile se vor pierde incă 1710 \
+              'In următoarele 90 de zile se vor pierde încă 1710 \
               \nfără măsuri preventive.', //15/5
 
               'Rata de propagare este în creștere!', //1/6
