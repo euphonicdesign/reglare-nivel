@@ -1498,7 +1498,7 @@ function desenareGraficPVectorR(){
       //console.log(evenimente[i]);
       if(data_data[i] == evenimente[j]){
           //console.log(evenimente[i]);
-          raza_cerculet = 5;
+          raza_cerculet = 6;
           plin = true;
           nr_ev = j;
       }
@@ -1509,7 +1509,13 @@ function desenareGraficPVectorR(){
     //desenare punct valoare grafic_valori_desenat - vector_r
     if(i > orizont_regresie){
         ctx.beginPath();
-        ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
+        if(plin && raza_pulsatie == 1){
+            ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie + 2, 0, 2 * Math.PI);
+        }
+        else {
+            ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
+        }
+
         //ctx.moveTo(12 + x_p, y_r - 1);
         //ctx.lineTo(12 + x_p, y_r + 1);
         if(vector_r_normalizat[i] >= 0){
