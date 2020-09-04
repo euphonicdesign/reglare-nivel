@@ -112,7 +112,7 @@ let data_30 = [
             0.074, 	0.070, 	0.064, 	0.066, 	0.065, 	0.064, 	0.065,
             0.064, 	0.063, 	0.061, 	0.060,  0.060,  0.061,  0.059,
             0.057,  0.059,  0.059,  0.057,  0.057,  0.057,  0.057,
-            0.057,  0.055,  0.055,  0.057, 
+            0.057,  0.055,  0.055,  0.057,
 
 
 
@@ -1760,10 +1760,11 @@ function desenareGraficeTrenduri(){
 
   //desenare valoare Ref_a
   ctx.textAlign = "end";
-  ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+  ctx.fillText("Ref. actuala", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 21);
   if(data[selectorZi] > medieCumulativ[selectorZi]){
-      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "...", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.fillText("" + Math.round(medieCumulativ[selectorZi]) + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
       ctx.font = "16px Helvetica, system-ui, Arial, sans-serif";
       //ctx.fillStyle = culoareCrestereRosu;
       ctx.fillStyle = culoareCrestereMaro;
@@ -1772,7 +1773,7 @@ function desenareGraficeTrenduri(){
       ctx.fillText("\u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 14);
   }
   else{
-      ctx.fillText("RefAct=" + Math.round(medieCumulativ[selectorZi]) + "...", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
+      ctx.fillText("" + Math.round(medieCumulativ[selectorZi]) + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 7);
       ctx.font = "16px Helvetica, system-ui, Arial, sans-serif";
       //ctx.fillStyle = culoareScadere;
       ctx.fillStyle = culoarePunctValoriGrafic_3;
