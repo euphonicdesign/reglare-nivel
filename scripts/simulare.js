@@ -1257,7 +1257,7 @@ function desenareVaseComunicante() {
 
 function desenareEvenimente(){
     ctx.textAlign = "start";
-    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
 
     /*for(let i = 0; i < evenimente.length; i++){
