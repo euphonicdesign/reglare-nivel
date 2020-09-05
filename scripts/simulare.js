@@ -211,13 +211,13 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              '1: vectorizare\u279A', //15/5
-              '2: vectorizare\u279A (?)', //1/6
-              '3: vectorizare\u279A (??)', //15/6
-              '4: vectorizare\u279A (???)', //1/7
-              '5: limitare\u2798 (...)', //1/8
-              '6: vectorizare\u279A (?!)', //1/9
-              '7: vectorizare\u279A (...)', //15/9
+              '15 Mai: vectorizare\u279A', //15/5
+              '1 Iun: vectorizare\u279A (?)', //1/6
+              '15 Iun: vectorizare\u279A (??)', //15/6
+              '1 Iul: vectorizare\u279A (???)', //1/7
+              '1 Aug: limitare\u2798 (...)', //1/8
+              '1 Sep: vectorizare\u279A (?!)', //1/9
+              //'7: vectorizare\u279A (...)', //15/9
 ];
 
 let info_date = [
@@ -227,7 +227,7 @@ let info_date = [
               '1/7',
               '1/8',
               '1/9',
-              '15/9',
+              //'15/9',
 ];
 
 let info_explicatii = [
@@ -1325,6 +1325,7 @@ function desenareZiValoareTrenduri(){
     //ctx.fillStyle = "orange";
     //culoare implicita
     ctx.strokeStyle = culoareTextZi;
+    ctx.fillStyle = culoareTextZi;
     ctx.lineWidth = 1;
     ctx.textAlign = "start";
 
@@ -1332,7 +1333,16 @@ function desenareZiValoareTrenduri(){
     //ctx.font = "30px Arial";
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     //ctx.fillText("Ziua " + selectorZi, 10, 50);
-    ctx.strokeText("Ziua " + selectorZi, xTextZi, yTextZi);
+    //Afisare data - zi curenta
+    data_zi_luna = data_data[selectorZi].split("/");
+    zi = data_zi_luna[0];
+    luna = data_luni[data_zi_luna[1]-1];
+    //ctx.fillText(zi + " " + luna, xLegenda, yl5);
+
+    ctx.strokeText("Ziua " + selectorZi , xTextZi, yTextZi);
+
+    ctx.font = "italic 16px Helvetica, Arial, sans-serif";
+    ctx.fillText( "(" + zi + " " + luna + ")", xTextZi + 75 + (String(selectorZi).length) * 18, yTextZi);
 
 }
 
@@ -1548,7 +1558,7 @@ function desenareGraficPVectorR(){
               ctx.stroke();
 
               ctx.fillStyle = culoareScadere;
-              ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[i]][0] + /*"-"*/ "\u2798", 28 + x_p, y_r - 2);
+              ctx.fillText((evenimente_actiuni.indexOf(evenimente_actiuni[zile_evenimente_actiuni[i]]) + 1)  + /*"-"*/ "\u2798", 28 + x_p, y_r - 2);
               //ctx.fillText("-" + evenimente_contor[nr_ev], 26 + x_p, y_r);
             }
             else {
@@ -1558,7 +1568,7 @@ function desenareGraficPVectorR(){
               ctx.stroke();
 
               ctx.fillStyle = culoareCrestereMaro;
-              ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[i]][0] + /*"+"*/ "\u279A", 28 + x_p, y_r - 2);
+              ctx.fillText((evenimente_actiuni.indexOf(evenimente_actiuni[zile_evenimente_actiuni[i]]) + 1) + /*"+"*/ "\u279A", 28 + x_p, y_r - 2);
               //ctx.fillText("+" + evenimente_contor[nr_ev], 26 + x_p, y_r);
             }
         }
