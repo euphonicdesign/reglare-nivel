@@ -211,13 +211,13 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              '1 -> vectorizare', //15/5
-              '2 -> vectorizare (?)', //1/6
-              '3 -> vectorizare (??)', //15/6
-              '4 -> vectorizare (???)', //1/7
-              '5 -> limitare (...)', //1/8
-              '6 -> vectorizare (?!)', //1/9
-              '7 -> vectorizare (...)', //15/9
+              '1: vectorizare\u279A', //15/5
+              '2: vectorizare\u279A (?)', //1/6
+              '3: vectorizare\u279A (??)', //15/6
+              '4: vectorizare\u279A (???)', //1/7
+              '5: limitare\u2798 (...)', //1/8
+              '6: vectorizare\u279A (?!)', //1/9
+              '7: vectorizare\u279A (...)', //15/9
 ];
 
 let info_date = [
