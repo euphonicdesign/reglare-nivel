@@ -298,7 +298,7 @@ var xCerculeteAcumulate = xTextZi + 0; //+ 130;
 var yCerculeteAcumulate = yTextZi + 35;
 
 var xTextInfoExplicatii = xTextZi;
-var yTextInfoExplicatii = yTextZi + 60;
+var yTextInfoExplicatii = yTextZi + 195;
 
 
 var xEntitate = 558;
