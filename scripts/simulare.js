@@ -200,6 +200,21 @@ let data_luni = [
               "Dec",
             ];
 
+let data_luni_lung = [
+              "Ianuarie",
+              "Februarie",
+              "Martie",
+              "Aprilie",
+              "Mai",
+              "Iunie",
+              "Iulie",
+              "August",
+              "Septembrie",
+              "Octombrie",
+              "Noiembrie",
+              "Decembrie",
+            ];
+
 let evenimente = [
               '15/5',
               '1/6',
@@ -1336,7 +1351,7 @@ function desenareZiValoareTrenduri(){
     //Afisare data - zi curenta
     data_zi_luna = data_data[selectorZi].split("/");
     zi = data_zi_luna[0];
-    luna = data_luni[data_zi_luna[1]-1];
+    luna = data_luni_lung[data_zi_luna[1]-1];
     //ctx.fillText(zi + " " + luna, xLegenda, yl5);
 
     ctx.strokeText("Ziua " + selectorZi , xTextZi, yTextZi);
