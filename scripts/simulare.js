@@ -1548,7 +1548,7 @@ function desenareGraficPVectorR(){
               ctx.stroke();
 
               ctx.fillStyle = culoareScadere;
-              ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[i]][0] + "-", 26 + x_p, y_r);
+              ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[i]][0] + /*"-"*/ "\u2798", 28 + x_p, y_r - 2);
               //ctx.fillText("-" + evenimente_contor[nr_ev], 26 + x_p, y_r);
             }
             else {
@@ -1558,7 +1558,7 @@ function desenareGraficPVectorR(){
               ctx.stroke();
 
               ctx.fillStyle = culoareCrestereMaro;
-              ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[i]][0] + "+", 26 + x_p, y_r);
+              ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[i]][0] + /*"+"*/ "\u279A", 28 + x_p, y_r - 2);
               //ctx.fillText("+" + evenimente_contor[nr_ev], 26 + x_p, y_r);
             }
         }
