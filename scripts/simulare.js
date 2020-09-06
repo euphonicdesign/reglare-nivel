@@ -1942,10 +1942,10 @@ function desenareRadar(){
   //ctx.strokeStyle = culoareTraiectorieAvionRadar;
 
   for (let i = 0; i < selectorZi; i++){
-    nuantar = (255 - (i % 255));
+    nuantar = (255 - ((i+60) % 255));
     nuantag = nuantar;
     nuantab = nuantar/2;
-    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", 0.7)";
+    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", 0.8)";
     ctx.beginPath();
     ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1, 0, 2 * Math.PI);
     ctx.closePath();
