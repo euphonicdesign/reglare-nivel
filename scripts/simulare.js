@@ -1860,7 +1860,8 @@ function desenareRadar(){
       ctx.lineWidth = 1;
 
 
-      var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
+      //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
+      var xAvion = xRadar + vector_r_normalizat[selectorZi]/maxValue_4 * (razaCerc1);
       var yAvion = yRadar - valZiCur/maxValZiCur * (razaCerc1);
 
       //if(pulsatie){
@@ -1887,7 +1888,7 @@ function desenareRadar(){
       ctx.fill();
       ctx.stroke();
 
-    //Desenare Origine
+    //Desenare Origine Radar
     ctx.fillStyle = "white";
     ctx.strokeStyle = "white";
     if(pulsatie){
@@ -1909,6 +1910,14 @@ function desenareRadar(){
       ctx.closePath();
     }
     ctx.fill();
+
+  //Desenare Origine Aeroport
+  ctx.fillStyle = "green";
+  ctx.strokeStyle = "white";
+  ctx.beginPath();
+  ctx.arc(xRadar - razaCerc1, yRadar, 2, 0, 2 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
 
 
   //Linie Rotativa Radar
