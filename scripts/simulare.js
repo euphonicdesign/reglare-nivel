@@ -1942,15 +1942,17 @@ function desenareRadar(){
   //ctx.strokeStyle = culoareTraiectorieAvionRadar;
 
   for (let i = (selectorZi - 255); i < selectorZi; i++){
-    nuantar = (255 - (( i + 255 - selectorZi) % 255));
+    nuantar = (255 - (( i + 160 - selectorZi) % 255));
     nuantag = nuantar;
     nuantab = nuantar/2;
     ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", 0.8)";
-    ctx.beginPath();
-    ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1, 0, 2 * Math.PI);
-    ctx.closePath();
-    ctx.fill();
-    //ctx.stroke();
+    if(vectorXAvion[i] > 0){
+        ctx.beginPath();
+        ctx.arc(vectorXAvion[i], vectorYAvion[i] , 2 * i/selectorZi, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        //ctx.stroke();
+    }
   }
 
 
