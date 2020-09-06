@@ -478,6 +478,7 @@ var razaOrigineAeroport = 2 + 2;
 var xRadar = xEntitate + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
 var yRadar = 376; //120;//96;//76;
 var razaPunctAvion = 3 + 1;
+var scalaPozitieXAvion = 100; //nescalat ar fi 1000; 100 scalat de 10 ori
 
 
 var textMaiMare10 = " (>10!)";//" (>10)";
@@ -1888,7 +1889,7 @@ function desenareRadar(){
 
 
   //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
-  var xAvion = xRadar + vector_r_normalizat[selectorZi]/maxValue_4 * (razaCerc1);
+  var xAvion = xRadar + vector_r_normalizat[selectorZi] / scalaPozitieXAvion * (razaCerc1);
   var yAvion = yRadar - valZiCur/maxValZiCur * (razaCerc1);
 
   //if(pulsatie){
