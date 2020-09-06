@@ -481,6 +481,12 @@ var razaPunctAvion = 3 + 1;
 var scalaPozitieXAvion = 100; //nescalat ar fi 1000; 100 scalat de 10 ori
 var maxRadarY = 1100;
 
+var curbura = 4;
+var pistaLungime = razaCerc1 + curbura;
+var pistaLatime = razaOrigineAeroport / 2 + curbura + 2;
+var rectX = xRadar - pistaLungime;
+var rectY = yRadar - pistaLatime / 2;
+
 
 var textMaiMare10 = " (>10!)";//" (>10)";
 
@@ -1835,10 +1841,7 @@ function desenareRadar(){
     ////ctx.stroke();
   ctx.fill();
 
-
-
   //Desenare Axe radar
-
   ctx.moveTo(xRadar - razaCerc1, yRadar);
   ctx.lineTo(xRadar + razaCerc1, yRadar);
   ctx.stroke();
@@ -1847,9 +1850,33 @@ function desenareRadar(){
   ctx.lineTo(xRadar, yRadar + razaCerc1);
   ctx.stroke();
 
+  //Desenare Origine Aeroport
+  ctx.fillStyle = "grey";//culoare_scadere_entitate;
+  ctx.strokeStyle = "white";
+  //ctx.lineWidth = 3;
+  ctx.lineJoin = "round";
+  ctx.lineWidth = curbura;
+  ctx.strokeRect(rectX+(curbura/2), rectY+(curbura/2), pistaLungime-curbura, pistaLatime-curbura);
+  ctx.fillRect(rectX+(curbura/2), rectY+(curbura/2), pistaLungime-curbura, pistaLatime-curbura);
 
+  //ctx.beginPath();
+  //ctx.arc(xRadar - razaCerc1, yRadar, razaOrigineAeroport, 0, 2 * Math.PI);
+  //ctx.closePath();
+  //ctx.fill();
+  //ctx.stroke();
 
+  //Desenare linie punctata Pista
+  ctx.beginPath();
+  ctx.closePath();
 
+  ctx.lineWidth = 2;
+  //ctx.strokeStyle = "white";
+
+  ctx.setLineDash([3,5]);
+  ctx.moveTo(xRadar - razaCerc1, yRadar);
+  ctx.lineTo(xRadar, yRadar);
+  ctx.stroke();
+  ctx.setLineDash([]);
 
   //Desenare Origine Radar
   ctx.fillStyle = "white";
@@ -1873,6 +1900,8 @@ function desenareRadar(){
     ctx.closePath();
   }
   ctx.fill();
+
+
 
 
   if(selectorZi > orizont_regresie){
@@ -1917,16 +1946,6 @@ function desenareRadar(){
       ctx.stroke();
 
   }
-
-  //Desenare Origine Aeroport
-  ctx.fillStyle = "green";
-  ctx.strokeStyle = "white";
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.arc(xRadar - razaCerc1, yRadar, razaOrigineAeroport, 0, 2 * Math.PI);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
 
 
   //Linie Rotativa Radar
