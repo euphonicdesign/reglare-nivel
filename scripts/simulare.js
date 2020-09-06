@@ -72,8 +72,10 @@ var culoareCerculetRCrestere = culoareMaro;//"#99d6ff";
 var culoareRadarCercuri = culoareTextZi;
 var culoareRadarLinieDetectie = "rgba(255,255,255,0.7)";
 var culoareRadarLinieDetectieAccentuat = "rgba(255,255,255,1.0)";
-var culoareRadarLinieDetectieCrestere = "rgba(153,102,51,0.7)";
-var culoareRadarLinieDetectieScadere = "rgba(169,214,169,0.7)";
+var culoareRadarLinieDetectieCrestere = "rgba(153,102,51,1)";
+var culoareRadarLinieDetectieScadere = "rgba(169,214,169,1)";
+var culoareRadarLinieDetectieCrestereTransparent = "rgba(153,102,51,0.7)";
+var culoareRadarLinieDetectieScadereTransparent = "rgba(38,145,31,0.7)";//"rgba(169,214,169,0.7)";
 var culoarePunctAvion = "white";//culoarePuncteProiectieCrestere;//"#2B9433";//culoare_scadere_entitate;
 var culoarePunctAvionMargine = culoarePunctValoriGrafic; //"#2B9433";
 
@@ -1847,10 +1849,10 @@ function desenareRadar(){
 
       //desenare Avion pe radar
       if(vector_r[selectorZi] > 1){
-          ctx.fillStyle = culoareMaro;
+          ctx.fillStyle = culoareCrestereMaro;
       }
       else{
-          ctx.fillStyle = culoare_scadere_entitate;
+          ctx.fillStyle = culoareScadere;
       }
       //ctx.fillStyle = culoarePunctAvion;//culoarePunctValoriGrafic;
       //ctx.strokeStyle = culoarePunctAvionMargine;
@@ -1913,10 +1915,10 @@ function desenareRadar(){
   radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar;
 
   if(vector_r[selectorZi] > 1){
-      ctx.fillStyle = culoareRadarLinieDetectieCrestere;
+      ctx.fillStyle = culoareRadarLinieDetectieCrestereTransparent;
   }
   else{
-      ctx.fillStyle = culoareRadarLinieDetectieScadere;
+      ctx.fillStyle = culoareRadarLinieDetectieScadereTransparent;
   }
 
   //ctx.fillStyle = culoareRadarLinieDetectie;
