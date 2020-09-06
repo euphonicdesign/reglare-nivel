@@ -129,7 +129,7 @@ let data_10 = [
             39,
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
-            
+
 
 ];
 
@@ -1801,8 +1801,6 @@ function desenareInfoExplicatii(){
 
 function desenareRadar(){
 
-
-
   ctx.lineWidth = 2;
   ctx.fillStyle = culoareRadarCercuri;
   ctx.strokeStyle = culoareRadarCercuri;//"#ffbb33";//culoareGraficVectorR;
@@ -1847,7 +1845,6 @@ function desenareRadar(){
   if(selectorZi < orizont_regresie)
     return;
 
-
       //desenare Avion pe radar
       if(vector_r[selectorZi] > 1){
           ctx.fillStyle = culoareMaro;
@@ -1861,7 +1858,7 @@ function desenareRadar(){
       ctx.lineWidth = 1;
 
 
-      var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc2);
+      var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
       var yAvion = yRadar - valZiCur/maxValZiCur * (razaCerc1);
 
       //if(pulsatie){
