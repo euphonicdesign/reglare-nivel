@@ -7,6 +7,46 @@ var contorLimitare = 0;
 var contorVectorizare2 = 0;
 var contorLimitare2 = 0;
 
+
+var culoare_canvas = "#EFEFEF";
+
+var culoare_linie_trend = "#999999";//"#b3b3b3";
+var culoareRezervor = "grey";
+var nivelDepasireCapacitate = 35;
+var nivelUltraCritic = 25;
+var nivelCritic = 20;
+var nivelIntermediar = 15;
+var culoareApaNivelNormal = "#2e65b8";//"#005ce6";
+var culoareApaNivelIntermediar = "#1f437a";//"#003d99";
+var culoareApaNivelCritic = "#0f223d";//"#001f4d";
+var culoareApaNivelUltraCritic = "#0a1629";//"#001433";
+var culoareApaNivelDepasireCapacitate = "#050b14";//"#000a1a";
+var culoareApa = culoareApaNivelNormal;
+var culoareValoareNivel = culoareApa;
+//var culoareRobinet = "orange";
+var culoareLinieLimitaRegimNominal = "#cce0ff";
+var culoareIndicatorRezervor = "#d5e2f6";//"#cce0ff";
+
+var culoareLinieValoriGrafic = "#b3b3b3";
+var culoareLinieValoriGrafic_2 = "#cccccc";//"#bfbfbf";
+var culoareLinieGraficNuantat = "#c98282";//"#d88d8d";
+var culoareLinieGraficNuantat2 = "white";
+var culoareLinieGraficVertical = "white";//"#8c8c8c";
+var culoareLinieLegatura = "#999999";
+
+
+var culoareMedieCrestere = "#dba670";//culoareMaro;//"#8cbad9";//"#80ccff";//"#99d6ff";//"#80ccff";
+var culoarePuncteProiectieScadere = "green"; //culoare_linie_trend;
+var culoareMedieScadere = "#45a145";//"green";//"#53c653";//"#79d279";//"#71da71";//"#85e085";
+
+var culoarePunctGraficVertical = "#999999";//"white";
+var culoarePunctGraficVerticalFoto = "#262626";
+var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
+var culoarePunctValoriGrafic_2 = "white";//"grey";//"culoareApaNivelNormal"; //"#999999";
+var culoarePunctValoriGrafic_3 = "#737373";//"#808080";
+var culoareNumarPunct = "#b3b3b3";//"#404040";
+
+
 var culoareTextCompensatorRosu = "#ba5e5e";//"#c45454";//"#be4141";//"#ff1a1a";//"red";
 var culoareCrestereMaro = "#996633";//culoareTextCompensatorRosu;
 var culoareCrestereRosu = culoareTextCompensatorRosu;
@@ -22,6 +62,40 @@ var culoareRosu = "#e4b4b4";//"#d78e8e";//culoareCrestere;//culoareGraficVectorR
 var culoareVerde = culoare_scadere_entitate;//"green";
 var culoareMaro = "#cc9966";
 var culoareAlbastru = culoare_crestere_entitate;
+var culoareTextZi = "#999999";//"#595959";
+var culoarePuncteProiectieCrestere = "#33adff";
+
+//var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
+var culoareCerculetRScadere = culoareVerde;
+var culoareCerculetRCrestere = culoareMaro;//"#99d6ff";
+
+var culoareRadarCercuri = culoareTextZi;
+var culoareRadarLinieDetectie = "rgba(255,255,255,0.7)";
+var culoareRadarLinieDetectieAccentuat = "rgba(255,255,255,1.0)";
+var culoareRadarLinieDetectieCrestere = "rgba(153,102,51,0.7)";
+var culoareRadarLinieDetectieScadere = "rgba(169,214,169,0.7)";
+var culoarePunctAvion = "white";//culoarePuncteProiectieCrestere;//"#2B9433";//culoare_scadere_entitate;
+var culoarePunctAvionMargine = culoarePunctValoriGrafic; //"#2B9433";
+
+var culoare_pop = culoareLinieGraficP;//"#4d94ff";//"#005ce6";//"#1a75ff";//culoareApaNivelNormal;//culoarePunctValoriGrafic;//"#EFEFEF";
+
+var culoareTextReferinta = "#76adff";
+var culoareLinieReferinta = "#cce0ff";
+var culoareLinieReferintaGrafic = "#d9d9d9";//"#DDDDDD";//"#cce0ff";
+var culoareDreptunghiReferintaGraficTrenduri = "#999999";//"#bfbfbf";
+
+var culoareTextCompensator = "#d9d9d9";
+var culoareCompensator = "orange";
+var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
+var culoareTextCompensatorFill2 = "#8c8c8c";
+var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
+
+var culoareF = "#999999";
+
+
+var culoareTrend = culoarePunctValoriGrafic_3;
+
+var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
 
 let data = [];
@@ -54,7 +128,7 @@ let data_10 = [
             37, 	38, 	45, 	32, 	48, 	42, 	37,
             39,
             37, 58, 54, 38, 48, 32, 39,
-            43, 60, 40, 44, 47, 38, 
+            43, 60, 40, 44, 47, 38,
 
 ];
 
@@ -301,8 +375,7 @@ var xTextInfoExplicatii = xTextZi;
 var yTextInfoExplicatii = yTextZi + 195;
 
 
-var xEntitate = 558;
-var yEntitate = 468;
+
 
 var indicatorZiEveniment = false;
 var semn = "+";
@@ -340,6 +413,7 @@ var maxValue = 0;
 var maxValue_2 = 0;
 var maxValue_3 = 0; //p+
 var maxValue_4 = 0; //vector_r_normalizat
+var maxValueR = 0; //vector_r
 var maxValueProiectie = 0;
 var maxValZiCur = 0;
 
@@ -387,69 +461,19 @@ var orizont_proiectie = 21;
 var xc2 = 0;
 var yc2 = 0;
 
-var culoare_canvas = "#EFEFEF";
+//entitate
+var xEntitate = 558;
+var yEntitate = 468;
 
-var culoare_linie_trend = "#999999";//"#b3b3b3";
-var culoareRezervor = "grey";
-var nivelDepasireCapacitate = 35;
-var nivelUltraCritic = 25;
-var nivelCritic = 20;
-var nivelIntermediar = 15;
-var culoareApaNivelNormal = "#2e65b8";//"#005ce6";
-var culoareApaNivelIntermediar = "#1f437a";//"#003d99";
-var culoareApaNivelCritic = "#0f223d";//"#001f4d";
-var culoareApaNivelUltraCritic = "#0a1629";//"#001433";
-var culoareApaNivelDepasireCapacitate = "#050b14";//"#000a1a";
-var culoareApa = culoareApaNivelNormal;
-var culoareValoareNivel = culoareApa;
-//var culoareRobinet = "orange";
-var culoareLinieLimitaRegimNominal = "#cce0ff";
-var culoareIndicatorRezervor = "#d5e2f6";//"#cce0ff";
+//radar
+var vitezaRadar = 12;
+var razaCerc1 = 18;
+var razaCerc2 = 12;
+var razaCerc3 = 5;
+var xRadar = xEntitate + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
+var yRadar = 376; //120;//96;//76;
+var razaPunctAvion = 3;
 
-var culoareLinieValoriGrafic = "#b3b3b3";
-var culoareLinieValoriGrafic_2 = "#cccccc";//"#bfbfbf";
-var culoareLinieGraficNuantat = "#c98282";//"#d88d8d";
-var culoareLinieGraficNuantat2 = "white";
-var culoareLinieGraficVertical = "white";//"#8c8c8c";
-var culoareLinieLegatura = "#999999";
-
-
-//var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
-var culoareCerculetRScadere = culoareVerde;
-var culoareCerculetRCrestere = culoareMaro;//"#99d6ff";
-var culoarePuncteProiectieCrestere = "#33adff";
-
-var culoareMedieCrestere = "#dba670";//culoareMaro;//"#8cbad9";//"#80ccff";//"#99d6ff";//"#80ccff";
-var culoarePuncteProiectieScadere = "green"; //culoare_linie_trend;
-var culoareMedieScadere = "#45a145";//"green";//"#53c653";//"#79d279";//"#71da71";//"#85e085";
-
-var culoarePunctGraficVertical = "#999999";//"white";
-var culoarePunctGraficVerticalFoto = "#262626";
-var culoarePunctValoriGrafic = culoareApaNivelIntermediar;
-var culoarePunctValoriGrafic_2 = "white";//"grey";//"culoareApaNivelNormal"; //"#999999";
-var culoarePunctValoriGrafic_3 = "#737373";//"#808080";
-var culoareNumarPunct = "#b3b3b3";//"#404040";
-var culoareTextZi = "#999999";//"#595959";
-
-var culoare_pop = culoareLinieGraficP;//"#4d94ff";//"#005ce6";//"#1a75ff";//culoareApaNivelNormal;//culoarePunctValoriGrafic;//"#EFEFEF";
-
-var culoareTextReferinta = "#76adff";
-var culoareLinieReferinta = "#cce0ff";
-var culoareLinieReferintaGrafic = "#d9d9d9";//"#DDDDDD";//"#cce0ff";
-var culoareDreptunghiReferintaGraficTrenduri = "#999999";//"#bfbfbf";
-
-var culoareTextCompensator = "#d9d9d9";
-var culoareCompensator = "orange";
-var culoareTextCompensatorFill = "#999999";//#8c8c8c;//"#A9A9A9";
-var culoareTextCompensatorFill2 = "#8c8c8c";
-var culoareTextCompensatorFill3 = "orange";//"#ff9933";//"#8c8c8c";
-
-var culoareF = "#999999";
-
-
-var culoareTrend = culoarePunctValoriGrafic_3;
-
-var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
 var textMaiMare10 = " (>10!)";//" (>10)";
 
@@ -882,6 +906,7 @@ function start() {
     //Calcul Parametrii Predictie (coefA,bazaR)
     generare_vector_r_coefA();
     maxValue_4 = Math.max(...vector_r_normalizat);
+    maxValueR = Math.max(...vector_r);
     calcul_parametrii_Predictie();
     maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
     //console.log(maxValueProiectie);
@@ -1773,12 +1798,169 @@ function desenareInfoExplicatii(){
     }
 }
 
+function desenareRadar(){
+
+
+
+  ctx.lineWidth = 2;
+  ctx.fillStyle = culoareRadarCercuri;
+  ctx.strokeStyle = culoareRadarCercuri;//"#ffbb33";//culoareGraficVectorR;
+
+  //Cerc 1 exterior
+  ctx.beginPath();
+  ctx.arc(xRadar, yRadar, razaCerc1, 0, 2 * Math.PI);
+  ctx.closePath();
+  ////if(pulsatie)
+    ////ctx.stroke();
+  ctx.stroke();
+
+  //Cerc 2 mijloc
+  ctx.beginPath();
+  ctx.arc(xRadar, yRadar, razaCerc2, 0, 2 * Math.PI);
+  ctx.closePath();
+  ////if(pulsatie)
+    ////ctx.stroke();
+  ctx.stroke();
+
+  //Cerc 3 interior
+  ctx.beginPath();
+  ctx.arc(xRadar, yRadar, razaCerc3, 0, 2 * Math.PI);
+  ctx.closePath();
+  ////if(pulsatie)
+    ////ctx.stroke();
+  ctx.fill();
+
+
+
+  //Desenare Axe radar
+
+  ctx.moveTo(xRadar - razaCerc1, yRadar);
+  ctx.lineTo(xRadar + razaCerc1, yRadar);
+  ctx.stroke();
+
+  ctx.moveTo(xRadar, yRadar - razaCerc1);
+  ctx.lineTo(xRadar, yRadar + razaCerc1);
+  ctx.stroke();
+
+  //daca nu exista eveniment
+  if(selectorZi < orizont_regresie)
+    return;
+
+
+      //desenare Avion pe radar
+      if(vector_r[selectorZi] > 1){
+          ctx.fillStyle = culoareMaro;
+      }
+      else{
+          ctx.fillStyle = culoare_scadere_entitate;
+      }
+      //ctx.fillStyle = culoarePunctAvion;//culoarePunctValoriGrafic;
+      //ctx.strokeStyle = culoarePunctAvionMargine;
+      ctx.strokeStyle = "white";
+      ctx.lineWidth = 1;
+
+
+      var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc2);
+      var yAvion = yRadar - valZiCur/maxValZiCur * (razaCerc1);
+
+      //if(pulsatie){
+          //ctx.beginPath();
+          //ctx.arc(xAvion, yAvion , razaPunctAvion + 1, 0, 2 * Math.PI);
+          //ctx.closePath();
+          /*
+          if(zile_evenimente_actiuni[selectorZi] > -1){
+              if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+                  ctx.fillStyle = culoareMaro;
+              }
+              else{
+                  ctx.fillStyle = culoare_scadere_entitate;
+              }
+          }*/
+          //ctx.strokeStyle = "white";
+      //}
+      //else{
+        ctx.beginPath();
+        ctx.arc(xAvion, yAvion , razaPunctAvion, 0, 2 * Math.PI);
+        ctx.closePath();
+      //}
+
+      ctx.fill();
+      ctx.stroke();
+
+    //Desenare Origine
+    ctx.fillStyle = "white";
+    ctx.strokeStyle = "white";
+    if(pulsatie){
+        ctx.beginPath();
+        ctx.arc(xRadar, yRadar, 4, 0, 2 * Math.PI);
+        ctx.closePath();
+        if(zile_evenimente_actiuni[selectorZi] > -1){
+            if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+                ctx.fillStyle = culoareCrestereMaro;
+            }
+            else{
+                ctx.fillStyle = culoareScadere;
+            }
+        }
+    }
+    else{
+      ctx.beginPath();
+      ctx.arc(xRadar, yRadar, 3, 0, 2 * Math.PI);
+      ctx.closePath();
+    }
+    ctx.fill();
+
+
+  //Linie Rotativa Radar
+  radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar;
+
+  if(vector_r[selectorZi] > 1){
+      ctx.fillStyle = culoareRadarLinieDetectieCrestere;
+  }
+  else{
+      ctx.fillStyle = culoareRadarLinieDetectieScadere;
+  }
+
+  //ctx.fillStyle = culoareRadarLinieDetectie;
+  ctx.beginPath();
+  ctx.moveTo(xRadar, yRadar + 0 );
+  ctx.arc(xRadar, yRadar, razaCerc1, radianiZi, radianiZi + Math.PI/6);
+  /*
+  if(pulsatie){
+    if(zile_evenimente_actiuni[selectorZi] > -1){
+        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+            ctx.fillStyle = culoareRadarLinieDetectieCrestere;
+        }
+        else{
+            ctx.fillStyle = culoareRadarLinieDetectieScadere;
+        }
+    }
+  }*/
+
+  ctx.closePath();
+  ctx.fill();
+
+
+
+  /*
+  ctx.beginPath();
+  ctx.moveTo(10, yGrafic_2 + 0 );
+  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 0);
+  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+  ctx.lineWidth = 1;
+  ctx.closePath();
+  ctx.stroke();*/
+
+}
+
 function desenareGraficeTrenduri(){
 
 
   ctx = suprafataGrafica.context;
+
   desenareEvenimente();
   desenareEntitate();
+  desenareRadar();
 
   //desenare linie referinta Grafic trenduri 1
   ctx.fillStyle = culoareLinieReferintaGrafic;
