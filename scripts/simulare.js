@@ -1889,7 +1889,7 @@ function desenareRadar(){
 
       //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
       var xAvion = xRadar + vector_r_normalizat[selectorZi] / scalaPozitieXAvion * (razaCerc1);
-      var yAvion = yRadar - valZiCur/maxValZiCur * (razaCerc1);
+      var yAvion = yRadar - valZiCur/1100 /*maxValZiCur*/ * (razaCerc1);
 
       //if(pulsatie){
           //ctx.beginPath();
