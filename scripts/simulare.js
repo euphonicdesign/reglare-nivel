@@ -1941,8 +1941,8 @@ function desenareRadar(){
   //ctx.fillStyle = culoareTraiectorieAvionRadar;
   //ctx.strokeStyle = culoareTraiectorieAvionRadar;
 
-  for (let i = 0; i < selectorZi; i++){
-    nuantar = (255 - ((i+60) % 255));
+  for (let i = (selectorZi - 160); i < selectorZi; i++){
+    nuantar = (255 - (( i + 160 - selectorZi) % 255));
     nuantag = nuantar;
     nuantab = nuantar/2;
     ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", 0.8)";
