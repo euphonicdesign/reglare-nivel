@@ -469,7 +469,7 @@ var xEntitate = 558;
 var yEntitate = 468;
 
 //radar
-var vitezaRadar = 12;
+var vitezaRadar = 8; // 45 zile
 var razaCerc1 = 18 + 4;
 var razaCerc2 = 12 + 2;
 var razaCerc3 = 5 + 1;
