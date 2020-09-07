@@ -132,7 +132,7 @@ let data_10 = [
             39,
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
-            33, 
+            33,
 
 
 ];
@@ -472,19 +472,19 @@ var xc2 = 0;
 var yc2 = 0;
 
 //entitate
-var xEntitate = 558 - 12 - 2;
+var xEntitate = 558 - 12 - 4;
 var yEntitate = 468;
 
 //radar
 var vitezaRadar = 8; // 45 zile
-var razaCerc1 = 18 + 4 + 4 + 4 + 4;
-var razaCerc2 = 12 + 2 + 2 + 2 + 2;
+var razaCerc1 = 18 + 4 * 5;
+var razaCerc2 = 12 + 2 * 5;
 var razaCerc3 = 5 + 1 + 1;
 var razaOrigineRadar = 4 + 1 + 1;
-var razaOrigineAeroport = 2 + 2 + 2 + 2 + 2;
+var razaOrigineAeroport = 2 + 2 + 2 + 0;
 var xRadar = xEntitate + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
-var yRadar = 376 + 14; //120;//96;//76;
-var razaPunctAvion = 3 + 1 + 1 + 1;
+var yRadar = 376 + 18; //120;//96;//76;
+var razaPunctAvion = 3 + 1 + 1 + 0;
 var scalaPozitieXAvion = 100; //nescalat ar fi 1000; 100 scalat de 10 ori
 var maxRadarY = 1100;
 
@@ -2141,7 +2141,7 @@ function desenareGraficeTrenduri(){
 
   desenareEvenimente();
   desenareEntitate();
-  desenareRadar();
+
 
   //desenare linie referinta Grafic trenduri 1
   ctx.fillStyle = culoareLinieReferintaGrafic;
@@ -2590,19 +2590,22 @@ function desenareGraficeTrenduri(){
       ctx.fillStyle = culoareCrestereMaro;
       ctx.fillText("dif=+" + Math.floor(valZiCur * (vector_r[selectorZi] - 1)*10)/10, xLegendaDerivate + ident, yLegendaDerivate + 98);
 
-      text_zi_urmatoare = "" + Math.floor(valZiCur*10)/10 + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10;
-      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
+      text_zi_urmatoare = "" + Math.floor(valZiCur*10)/10 + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
+      //ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+      //ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
 
     }
     else{
       ctx.fillStyle = culoareScadere;
       ctx.fillText("dif=" + Math.floor(valZiCur * (vector_r[selectorZi] - 1)*10)/10, xLegendaDerivate + ident, yLegendaDerivate + 98);
 
-      text_zi_urmatoare = "" + Math.floor(valZiCur*10)/10 + "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%=" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10;
-      ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-      ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
+      text_zi_urmatoare = "" + Math.floor(valZiCur*10)/10 + "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
+
     }
+
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
+    ctx.fillText("   =" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10, xLegendaDerivate + ident, yLegendaDerivate + 126);
 
     //calcul derivate
     vr0 = vector_r[selectorZi-16];
@@ -2817,6 +2820,8 @@ function desenareGraficeTrenduri(){
       ctx.fill();
       //ctx.stroke();*/
     }
+
+    desenareRadar();
 
 }
 
