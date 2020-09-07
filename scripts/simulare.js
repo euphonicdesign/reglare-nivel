@@ -2625,6 +2625,7 @@ function desenareGraficeTrenduri(){
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText("   =" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10, xLegendaDerivate + ident, yLegendaDerivate + 126);
 
     //calcul derivate
