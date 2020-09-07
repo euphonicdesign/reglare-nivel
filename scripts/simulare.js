@@ -1948,7 +1948,7 @@ function desenareRadar(){
     ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", 0.8)";
     if(vectorXAvion[i] > 0){
         ctx.beginPath();
-        ctx.arc(vectorXAvion[i], vectorYAvion[i] , 2 * i/selectorZi, 0, 2 * Math.PI);
+        ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1 * (2 + 1 * (selectorZi-i)/selectorZi), 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
         //ctx.stroke();
