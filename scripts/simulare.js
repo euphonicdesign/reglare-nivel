@@ -1921,18 +1921,25 @@ function desenareRadar(){
   //Desenare Origine Radar
   ctx.fillStyle = "white";
   ctx.strokeStyle = "white";
-  if(pulsatie){
+  if(pulsatie_2){
       ctx.beginPath();
       ctx.arc(xRadar, yRadar, razaOrigineRadar, 0, 2 * Math.PI);
       ctx.closePath();
+      if(culoare_pulsatie == culoareMaro){
+          ctx.fillStyle = culoareMaro;//culoareCrestereMaro;
+      }
+      else {
+          ctx.fillStyle = culoareVerde;//culoareScadere;
+      }
+      /*
       if(zile_evenimente_actiuni[selectorZi] > -1){
           if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-              ctx.fillStyle = culoareCrestereMaro;
+              ctx.fillStyle = culoareMaro;//culoareCrestereMaro;
           }
           else{
-              ctx.fillStyle = culoareScadere;
+              ctx.fillStyle = culoareVerde;//culoareScadere;
           }
-      }
+      }*/
   }
   else{
     ctx.beginPath();
@@ -3210,9 +3217,20 @@ function ActualizareSuprafataGrafica() {
         valZiCur = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi-1));
 
         pulsatie = false;
+        pulsatie_2 = false;
         for(let j = 0; j < evenimente.length; j++){
             if(data_data[selectorZi] == evenimente[j]){
                 pulsatie = true;
+                pulsatie_2 = true;
+                culoare_pulsatie = evenimente_tip[j];
+            }
+            if(data_data[selectorZi + 1] == evenimente[j]){
+                pulsatie_2 = true;
+                culoare_pulsatie = evenimente_tip[j];
+            }
+            if(data_data[selectorZi - 1] == evenimente[j]){
+                pulsatie_2 = true;
+                culoare_pulsatie = evenimente_tip[j];
             }
         }
 
@@ -3277,9 +3295,20 @@ function ActualizareSuprafataGraficaSingulara() {
         valZiCur = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi-1));
 
         pulsatie = false;
+        pulsatie_2 = false;
         for(let j = 0; j < evenimente.length; j++){
             if(data_data[selectorZi] == evenimente[j]){
                 pulsatie = true;
+                pulsatie_2 = true;
+                culoare_pulsatie = evenimente_tip[j];
+            }
+            if(data_data[selectorZi + 1] == evenimente[j]){
+                pulsatie_2 = true;
+                culoare_pulsatie = evenimente_tip[j];
+            }
+            if(data_data[selectorZi - 1] == evenimente[j]){
+                pulsatie_2 = true;
+                culoare_pulsatie = evenimente_tip[j];
             }
         }
 
