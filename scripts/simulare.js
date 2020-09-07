@@ -314,7 +314,7 @@ let evenimente_actiuni = [
               '1 Iul: vectorizare (???)', //1/7
               '1 Aug: limitare (...)', //1/8
               '1 Sep: vectorizare (?!)', //1/9
-              //'7: vectorizare\u279A (...)', //15/9
+              //'7: vectorizare (... .)', //15/9
 ];
 
 let info_date = [
@@ -356,9 +356,7 @@ let info_explicatii = [
 
               '',
               /*
-              'Rata de propagare este din nou in crestere. \
-              \nNumarul de propagari este in afara limitelor controlabile. \
-              \nNivelul referintei a crescut la 23.'//'15/9'*/
+              '.'*/
 ];
 
 
