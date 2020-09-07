@@ -2109,7 +2109,7 @@ function desenareRadar(){
 
   //if(selectorZi > orizont_regresie){
       //desenare Avion pe radar
-      if(vector_r[selectorZi] > 1){
+      if(vectorXAvion[selectorZi] - xRadar > 0){
           ctx.fillStyle = culoareCrestereMaro;
       }
       else{
