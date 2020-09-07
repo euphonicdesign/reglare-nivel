@@ -449,7 +449,7 @@ var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 
 var yLegendaDerivate = yGrafic_3 - 100;
-var xLegendaDerivate = 440 - 12;
+var xLegendaDerivate = 440 - 12 - 16;
 var ident = 9;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -470,23 +470,23 @@ var xc2 = 0;
 var yc2 = 0;
 
 //entitate
-var xEntitate = 558 - 12;
+var xEntitate = 558 - 12 - 2;
 var yEntitate = 468;
 
 //radar
 var vitezaRadar = 8; // 45 zile
-var razaCerc1 = 18 + 4 + 4 + 4;
-var razaCerc2 = 12 + 2 + 2 + 2;
+var razaCerc1 = 18 + 4 + 4 + 4 + 4;
+var razaCerc2 = 12 + 2 + 2 + 2 + 2;
 var razaCerc3 = 5 + 1 + 1;
 var razaOrigineRadar = 4 + 1 + 1;
-var razaOrigineAeroport = 2 + 2 + 2 + 2;
+var razaOrigineAeroport = 2 + 2 + 2 + 2 + 2;
 var xRadar = xEntitate + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
-var yRadar = 376 + 12; //120;//96;//76;
-var razaPunctAvion = 3 + 1 + 1;
+var yRadar = 376 + 14; //120;//96;//76;
+var razaPunctAvion = 3 + 1 + 1 + 1;
 var scalaPozitieXAvion = 100; //nescalat ar fi 1000; 100 scalat de 10 ori
 var maxRadarY = 1100;
 
-var curbura = 4;
+var curbura = 5;
 var pistaLungime = razaCerc1 + curbura;
 var pistaLatime = razaOrigineAeroport / 2 + curbura + 2;
 var rectX = xRadar - pistaLungime;
