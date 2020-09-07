@@ -308,14 +308,14 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              '15 Aprilie: limitare\u2798',//1/5
-              '1 Mai: limitare\u2798',//1/5
-              '15 Mai: vectorizare\u279A', //15/5
-              '1 Iun: vectorizare\u279A (?)', //1/6
-              '15 Iun: vectorizare\u279A (??)', //15/6
-              '1 Iul: vectorizare\u279A (???)', //1/7
-              '1 Aug: limitare\u2798 (...)', //1/8
-              '1 Sep: vectorizare\u279A (?!)', //1/9
+              '15 Aprilie: limitare',//1/5
+              '1 Mai: limitare',//1/5
+              '15 Mai: vectorizare', //15/5
+              '1 Iun: vectorizare (?)', //1/6
+              '15 Iun: vectorizare (??)', //15/6
+              '1 Iul: vectorizare (???)', //1/7
+              '1 Aug: limitare (...)', //1/8
+              '1 Sep: vectorizare (?!)', //1/9
               //'7: vectorizare\u279A (...)', //15/9
 ];
 
