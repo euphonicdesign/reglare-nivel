@@ -1603,7 +1603,7 @@ function desenareGraficPVectorR(){
     //desenare punct valoare grafic_valori_desenat - vector_r
     if(i > orizont_regresie){
         ctx.beginPath();
-        if(plin && raza_pulsatie == 1){
+        if(plin && pulsatie_2/*raza_pulsatie == 1*/){
             ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie + 2, 0, 2 * Math.PI);
         }
         else {
