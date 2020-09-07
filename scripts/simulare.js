@@ -314,7 +314,7 @@ let evenimente_actiuni = [
               '1 Iul: vectorizare (???)', //1/7
               '1 Aug: limitare (...)', //1/8
               '1 Sep: vectorizare (?!)', //1/9
-              //'7: vectorizare (... .)', //15/9
+              '7: vectorizare (...)', //15/9
 ];
 
 let info_date = [
@@ -326,7 +326,7 @@ let info_date = [
               '1/7',
               '1/8',
               '1/9',
-              //'15/9',
+              '15/9',
 ];
 
 let info_explicatii = [
@@ -354,9 +354,7 @@ let info_explicatii = [
               \nValoarea curentă a referinței a depășit 22! \
               \nEa trebuie setată la valoarea 0...', //1/9
 
-              '',
-              /*
-              '.'*/
+              '... .',
 ];
 
 
