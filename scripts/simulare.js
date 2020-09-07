@@ -296,6 +296,8 @@ let data_luni_lung = [
             ];
 
 let evenimente = [
+              '15/4',
+              '1/5',
               '15/5',
               '1/6',
               '15/6',
@@ -306,6 +308,8 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
+              '15 Aprilie: limitare\u2798',//1/5
+              '1 Mai: limitare\u2798',//1/5
               '15 Mai: vectorizare\u279A', //15/5
               '1 Iun: vectorizare\u279A (?)', //1/6
               '15 Iun: vectorizare\u279A (??)', //15/6
@@ -316,6 +320,8 @@ let evenimente_actiuni = [
 ];
 
 let info_date = [
+              '15/4',
+              '1/5',
               '15/5',
               '1/6',
               '15/6',
@@ -326,10 +332,17 @@ let info_date = [
 ];
 
 let info_explicatii = [
-              'In următoarele 90 de zile se vor pierde încă 1710 \
-              \nfără măsuri preventive.', //15/5
+              'Măsurile de prevenție au avut efect. Numărul și \
+              \nrata de propagare au început să scadă.', //1/5
+
+              'Numărul și rata de propagare continuă să scadă.', //1/5
+
+              'O mare parte din măsurile preventive au fost eliminate. \
+              \nIn următoarele 90 de zile se vor pierde încă 1710 \
+              \nfără o atenție deosebită.', //15/5
 
               'Rata de propagare este în creștere!', //1/6
+
               'Atât rata de propagare cât și numărul de propagări \
               \nsunt în creștere!', //15/6
 
@@ -352,6 +365,8 @@ let info_explicatii = [
 
 
 let evenimente_tip = [
+              culoareVerde, //15/4
+              culoareVerde, //1/5
               culoareMaro, //15/5
               culoareMaro, //1/6
               culoareMaro, //15/6
