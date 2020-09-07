@@ -2467,11 +2467,11 @@ function desenareGraficeTrenduri(){
     //Afisare data - zi precedenta - zi curenta
     data_zi_luna = data_data[selectorZi-1].split("/");
     zi = data_zi_luna[0];
-    luna = data_luni[data_zi_luna[1]-1];
+    //luna = data_luni[data_zi_luna[1]-1];
     dataDeAfisat = zi + "-";
     data_zi_luna = data_data[selectorZi].split("/");
     zi = data_zi_luna[0];
-    luna = data_luni[data_zi_luna[1]-1];
+    luna = data_luni_lung[data_zi_luna[1]-1];
     dataDeAfisat = dataDeAfisat + zi + " " + luna + ":";
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(dataDeAfisat, xLegendaDerivate, yLegendaDerivate + 42);
@@ -3026,7 +3026,7 @@ function desenareGraficOrizontal(){
     //Afisare data
     data_zi_luna_p = data_data[(Math.floor(selectorZi) + intervalProiectie)].split("/");
     zi_p = data_zi_luna_p[0];
-    luna_p = data_luni[data_zi_luna_p[1]-1];
+    luna_p = data_luni_lung[data_zi_luna_p[1]-1];
 
     //Valoare cumulativa
     ctx.textAlign = "start";
