@@ -1965,6 +1965,7 @@ function desenareRadar(){
   lungimeStalp = 22;
   lungimeSoseta = 18;
 
+  //desenare stalp soseta
   ctx.moveTo(xStalp, yStalp);
   ctx.lineTo(xStalp, yStalp - lungimeStalp);
   ctx.stroke();
@@ -1980,42 +1981,61 @@ function desenareRadar(){
   ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
 
   ctx.lineWidth = 4;
+  /*
   if(pulsatie_2){
       if(culoare_pulsatie == culoareMaro){
           ctx.strokeStyle = culoareMaro;//culoareCrestereMaro;
+          ctx.fillStyle = culoareMaro;
       }
       else {
-          ctx.strokeStyle = culoareVerde;//culoareScadere;
+          ctx.strokeStyle = culoareScadere	;//culoareScadere;
+          ctx.fillStyle = culoareScadere;
       }
   }
-  else{
+  else{*/
       if(vector_r[selectorZi] > 1){
           ctx.strokeStyle = culoareCrestereMaro;
-          //ctx.fillStyle = culoareCrestereMaro;
+          ctx.fillStyle = culoareCrestereMaro;
       }
       else{
           ctx.strokeStyle = culoareScadere;
-          //ctx.fillStyle = culoareScadere;
+          ctx.fillStyle = culoareScadere;
       }
-  }
+  /*}*/
 
 
-  if(selectorZi > orizont_regresie){
-    ctx.moveTo(xStalp, yStalp - lungimeStalp);
-    ctx.lineTo(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta);
-    ctx.stroke();
-  }
-  else{
+  if(selectorZi <= orizont_regresie){
     ctx.strokeStyle = culoareCrestereMaro;
+    ctx.fillStyle = culoareCrestereMaro;
     xsos = data_3[selectorZi]*1000 / scalaPozitieXAvion * 1.5 * 90;
     //console.log(xsos);
     xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
     ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
-
-    ctx.moveTo(xStalp, yStalp - lungimeStalp);
-    ctx.lineTo(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta);
-    ctx.stroke();
   }
+
+  //desenare cerc baza soseta
+  //ctx.fillStyle = "#4d4d4d";
+
+  ctx.beginPath();
+  ctx.arc(xStalp, yStalp - lungimeStalp, 4, 0, 2 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  //desenare cerc capat soseta
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta, 2, 0, 2 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.closePath();
+
+  //desenare soseta
+  ctx.moveTo(xStalp, yStalp - lungimeStalp);
+  ctx.lineTo(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta);
+  ctx.stroke();
+
 
   ctx.beginPath();
   ctx.closePath();
@@ -2088,6 +2108,9 @@ function desenareRadar(){
 
       ctx.fill();
       ctx.stroke();
+
+
+
 
   }
 
