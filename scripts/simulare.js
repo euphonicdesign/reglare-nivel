@@ -1948,8 +1948,84 @@ function desenareRadar(){
   }
   ctx.fill();
 
+  ctx.beginPath();
+  ctx.closePath();
+
+  //Desenare Soseta Vant
+  ctx.lineJoin = "round";
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "#4d4d4d";
+  ctx.fillStyle = "#4d4d4d";
+
+
+  xStalp = xRadar - razaCerc1 - razaCerc3*3;
+  yStalp = yRadar;
+  lungimeStalp = 22;
+  lungimeSoseta = 18;
+
+  ctx.moveTo(xStalp, yStalp);
+  ctx.lineTo(xStalp, yStalp - lungimeStalp);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.closePath();
+
+  //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
+  //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+  xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+
+  xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
+  ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+
+  ctx.lineWidth = 4;
+  if(pulsatie_2){
+      if(culoare_pulsatie == culoareMaro){
+          ctx.strokeStyle = culoareMaro;//culoareCrestereMaro;
+      }
+      else {
+          ctx.strokeStyle = culoareVerde;//culoareScadere;
+      }
+  }
+  else{
+      if(vector_r[selectorZi] > 1){
+          ctx.strokeStyle = culoareCrestereMaro;
+          //ctx.fillStyle = culoareCrestereMaro;
+      }
+      else{
+          ctx.strokeStyle = culoareScadere;
+          //ctx.fillStyle = culoareScadere;
+      }
+  }
+
+
+  if(selectorZi > orizont_regresie){
+    ctx.moveTo(xStalp, yStalp - lungimeStalp);
+    ctx.lineTo(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta);
+    ctx.stroke();
+  }
+  else{
+    ctx.strokeStyle = culoareCrestereMaro;
+    xsos = data_3[selectorZi]*1000 / scalaPozitieXAvion * 1.5 * 90;
+    //console.log(xsos);
+    xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
+    ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+
+    ctx.moveTo(xStalp, yStalp - lungimeStalp);
+    ctx.lineTo(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta);
+    ctx.stroke();
+  }
+
+  ctx.beginPath();
+  ctx.closePath();
+
+
+  //console.log("xsoseta: " + xsoseta);
+  //console.log("ysoseta: " + ysoseta);
+
+
 
   //Desenare traiectorie Avion
+  ctx.strokeStyle = "white";
   ctx.lineWidth = 2;
   //ctx.fillStyle = culoareTraiectorieAvionRadar;
   //ctx.strokeStyle = culoareTraiectorieAvionRadar;
@@ -2471,7 +2547,7 @@ function desenareGraficeTrenduri(){
     dataDeAfisat = zi + "-";
     data_zi_luna = data_data[selectorZi].split("/");
     zi = data_zi_luna[0];
-    luna = data_luni_lung[data_zi_luna[1]-1];
+    luna = data_luni[data_zi_luna[1]-1];
     dataDeAfisat = dataDeAfisat + zi + " " + luna + ":";
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(dataDeAfisat, xLegendaDerivate, yLegendaDerivate + 42);
