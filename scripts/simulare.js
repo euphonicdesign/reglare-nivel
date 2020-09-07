@@ -1863,15 +1863,8 @@ function desenareRadar(){
     ////ctx.stroke();
   ctx.stroke();
 
-  //Cerc 3 interior
-  ctx.beginPath();
-  ctx.arc(xRadar, yRadar, razaCerc3, 0, 2 * Math.PI);
-  ctx.closePath();
-  ////if(pulsatie)
-    ////ctx.stroke();
-  ctx.fill();
-
   //Desenare Axe radar
+  ctx.strokeStyle = culoareRadarCercuri;
   ctx.moveTo(xRadar - razaCerc1, yRadar);
   ctx.lineTo(xRadar + razaCerc1, yRadar);
   ctx.stroke();
@@ -1880,10 +1873,23 @@ function desenareRadar(){
   ctx.lineTo(xRadar, yRadar + razaCerc1);
   ctx.stroke();
 
+  //Cerc 3 interior
+  ctx.strokeStyle = "#4d4d4d";
+  ctx.fillStyle = "#4d4d4d";
+  ctx.beginPath();
+  ctx.arc(xRadar, yRadar, razaCerc3, 0, 2 * Math.PI);
+  ctx.closePath();
+  ////if(pulsatie)
+    ////ctx.stroke();
+  ctx.fill();
+  ctx.stroke();
+  //ctx.beginPath();
+  //ctx.closePath();
+
 
   //Desenare Pista Aeroport
   ctx.fillStyle = "grey";//culoare_scadere_entitate;
-  ctx.strokeStyle = "white";
+  ctx.strokeStyle = "#4d4d4d";//"white";
   //ctx.lineWidth = 3;
   ctx.lineJoin = "round";
   ctx.lineWidth = curbura;
@@ -1901,7 +1907,7 @@ function desenareRadar(){
   ctx.closePath();
 
   ctx.lineWidth = 2;
-  //ctx.strokeStyle = "white";
+  ctx.strokeStyle = "white";
 
   ctx.setLineDash([3,5]);
   ctx.moveTo(xRadar - razaCerc1, yRadar);
