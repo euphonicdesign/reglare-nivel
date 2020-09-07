@@ -1945,7 +1945,8 @@ function desenareRadar(){
     nuantar = (255 - (( i + 160 - selectorZi) % 255));
     nuantag = nuantar;
     nuantab = nuantar/2;
-    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", 0.8)";
+    transp = 0.0 + i / selectorZi / 2;
+    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
     if(vectorXAvion[i] > 0){
         ctx.beginPath();
         ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1 * (2 + 1 * (selectorZi-i)/selectorZi), 0, 2 * Math.PI);
