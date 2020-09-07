@@ -2094,44 +2094,22 @@ function desenareRadar(){
 
   //Linie Rotativa Radar
   radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar;
-
-  /*
-  if(vector_r[selectorZi] > 1){
-      ctx.fillStyle = culoareRadarLinieDetectieCrestereTransparent;
-  }
-  else{
-      ctx.fillStyle = culoareRadarLinieDetectieScadereTransparent;
-  }*/
-
   ctx.fillStyle = culoareRadarLinieDetectie;
   ctx.beginPath();
   ctx.moveTo(xRadar, yRadar + 0 );
   ctx.arc(xRadar, yRadar, razaCerc1, radianiZi, radianiZi + Math.PI/6);
-  /*
-  if(pulsatie){
-    if(zile_evenimente_actiuni[selectorZi] > -1){
-        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-            ctx.fillStyle = culoareRadarLinieDetectieCrestere;
-        }
-        else{
-            ctx.fillStyle = culoareRadarLinieDetectieScadere;
-        }
+
+  if(pulsatie_2){
+    if(culoare_pulsatie == culoareMaro){
+        ctx.fillStyle = culoareRadarLinieDetectieCrestereTransparent;//culoareMaro;//culoareCrestereMaro;
     }
-  }*/
+    else {
+        ctx.fillStyle = culoareRadarLinieDetectieScadereTransparent;//culoareVerde;//culoareScadere;
+    }
+  }
 
   ctx.closePath();
   ctx.fill();
-
-
-
-  /*
-  ctx.beginPath();
-  ctx.moveTo(10, yGrafic_2 + 0 );
-  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 0);
-  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
-  ctx.lineWidth = 1;
-  ctx.closePath();
-  ctx.stroke();*/
 
 }
 
