@@ -2095,14 +2095,15 @@ function desenareRadar(){
   //Linie Rotativa Radar
   radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar;
 
+  /*
   if(vector_r[selectorZi] > 1){
       ctx.fillStyle = culoareRadarLinieDetectieCrestereTransparent;
   }
   else{
       ctx.fillStyle = culoareRadarLinieDetectieScadereTransparent;
-  }
+  }*/
 
-  //ctx.fillStyle = culoareRadarLinieDetectie;
+  ctx.fillStyle = culoareRadarLinieDetectie;
   ctx.beginPath();
   ctx.moveTo(xRadar, yRadar + 0 );
   ctx.arc(xRadar, yRadar, razaCerc1, radianiZi, radianiZi + Math.PI/6);
