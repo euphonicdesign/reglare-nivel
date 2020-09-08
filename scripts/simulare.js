@@ -2629,7 +2629,7 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(" =" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10, xLegendaDerivate + ident, yLegendaDerivate + 126);
+    ctx.fillText(" =" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10, xLegendaDerivate + ident, yLegendaDerivate + 128);
 
     //calcul derivate
     /*
@@ -2647,11 +2647,11 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestereRosu;
-        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "\u21E7", xLegendaDerivate, yLegendaDerivate + 146);
+        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "\u21E7", xLegendaDerivate, yLegendaDerivate + 148);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + "\u21E9", xLegendaDerivate, yLegendaDerivate + 146);
+        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + "\u21E9", xLegendaDerivate, yLegendaDerivate + 148);
     }
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
@@ -2660,12 +2660,12 @@ function desenareGraficeTrenduri(){
     //derivata ordin 2 (acceleratia - crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     if(d2r2>0){
-        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 /*+ " ▲"*/, xLegendaDerivate, yLegendaDerivate + 160);
+        ctx.fillText("d2R=+" + Math.floor(d2r2*10000)/100 /*+ " ▲"*/, xLegendaDerivate, yLegendaDerivate + 162);
     }
     else{
         if(d1r2<0)
           //ctx.fillStyle = culoareScadere;
-        ctx.fillText("d2R=" + Math.floor(d2r2*10000)/100 /*+ "▼"*/, xLegendaDerivate, yLegendaDerivate + 160);
+        ctx.fillText("d2R=" + Math.floor(d2r2*10000)/100 /*+ "▼"*/, xLegendaDerivate, yLegendaDerivate + 162);
     }
 
   }
