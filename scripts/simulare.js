@@ -77,6 +77,7 @@ var culoareRadarLinieDetectieCrestere = "rgba(153,102,51,1)";
 var culoareRadarLinieDetectieScadere = "rgba(169,214,169,1)";
 var culoareRadarLinieDetectieCrestereTransparent = "rgba(153,102,51,0.7)";
 var culoareRadarLinieDetectieScadereTransparent = "rgba(38,145,31,0.7)";//"rgba(169,214,169,0.7)";
+var culoareRadarLinieDetectieCadran4Transparent = "rgba(38,145,31,0.2)";
 var culoarePunctAvion = "white";//culoarePuncteProiectieCrestere;//"#2B9433";//culoare_scadere_entitate;
 var culoarePunctAvionMargine = culoarePunctValoriGrafic; //"#2B9433";
 
@@ -132,7 +133,7 @@ let data_10 = [
             39,
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
-            33,
+            33, 41,
 
 
 ];
@@ -163,7 +164,7 @@ let data_20 = [
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
-            883,
+            883, 1136, 
           ];
 
 
@@ -489,6 +490,9 @@ var yEntitate = 468;
 
 //radar
 var vitezaRadar = 8; // 45 zile
+var cadranStart = (360 / vitezaRadar) * 2 / 4 - 30/360 * (360 / vitezaRadar); // al treilea cadran (cadr IV)
+var cadranFinal = (360 / vitezaRadar) * 3 / 4 - 30/360 * (360 / vitezaRadar); // al treilea cadran (cadr IV)
+
 var razaCerc1 = 18 + 4 * 5;
 var razaCerc2 = 12 + 2 * 5;
 var razaCerc3 = 5 + 1 + 1;
@@ -501,6 +505,8 @@ var scalaPozitieXAvion = 100; //nescalat ar fi 1000; 100 scalat de 10 ori
 var maxRadarY = 1100;
 var contorSens = 0;
 var sensRadar = +1;
+
+
 
 var curbura = 5;
 var pistaLungime = razaCerc1 + curbura;
@@ -1889,6 +1895,13 @@ function desenareRadar(){
     ////ctx.stroke();
   ctx.stroke();
 
+  ctx.fillStyle = culoareRadarLinieDetectieCadran4Transparent;
+  ctx.beginPath();
+  ctx.moveTo(xRadar,yRadar);
+  ctx.arc(xRadar, yRadar, razaCerc1, Math.PI, Math.PI * 3/2);
+  ctx.closePath();
+  ctx.fill();
+
   //Cerc 2 mijloc
   ctx.beginPath();
   ctx.arc(xRadar, yRadar, razaCerc2, 0, 2 * Math.PI);
@@ -1896,6 +1909,8 @@ function desenareRadar(){
   ////if(pulsatie)
     ////ctx.stroke();
   ctx.stroke();
+
+
 
   //Desenare Axe radar
   ctx.strokeStyle = culoareRadarCercuri;
@@ -2109,7 +2124,16 @@ function desenareRadar(){
 
 
   //Desenare Raza Radar
-  radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar;
+  radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar; //360/8 = 45
+
+  /*
+  grade = selectorZi % (360 / vitezaRadar);
+  //console.log("grade: " + grade);
+  //console.log(cadranStart + " " + cadranFinal);
+  //console.log(radianiZi);
+  if(grade > cadranStart && grade < cadranFinal ){
+     //console.log("cadranul 4");
+  }*/
 
   ctx.fillStyle = culoareRadarLinieDetectie;
   ctx.beginPath();
