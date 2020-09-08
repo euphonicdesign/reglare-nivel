@@ -1533,7 +1533,7 @@ function desenareCompensatorValori() {
     ctx.font = "italic 12px system-ui, Arial, sans-serif";
 
     //Referinta
-    ctx.fillText("Ref=0 (actuală=" + medieCumulativ[selectorZi] + "!)" , xLegenda, yLegenda);
+    ctx.fillText("Ref=0 (actuală=" + medieCumulativ[selectorZi] + "...)" , xLegenda, yLegenda);
 
     //Constante amplificare
     ctx.fillText("Kp=" + kp + " Ki=" + ki + " Kd=" + kd, xLegenda, yl1);
