@@ -508,6 +508,10 @@ var scalaPozitieXAvion = 100; //nescalat ar fi 1000; 100 scalat de 10 ori
 var maxRadarY = 1100;
 var contorSens = 0;
 var sensRadar = +1;
+var xStalp = xRadar - razaCerc1 - razaCerc3*3;
+var yStalp = yRadar;
+var lungimeStalp = 22;
+var lungimeSoseta = 18;
 
 
 
@@ -1898,6 +1902,7 @@ function desenareRadar(){
     ////ctx.stroke();
   ctx.stroke();
 
+  //desenare cadran 4
   ctx.fillStyle = culoareRadarLinieDetectieCadran4Transparent;
   ctx.beginPath();
   ctx.moveTo(xRadar,yRadar);
@@ -2008,17 +2013,26 @@ function desenareRadar(){
   ctx.beginPath();
   ctx.closePath();
 
+
+  //Desenare Vant
+  ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
+  //ctx.fillStyle = culoarePunctValoriGrafic_3;;
+  if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+      ctx.fillStyle = "rgba(204,153,102,0.4)";
+      ctx.fillText("\u21E8", xStalp, yStalp - lungimeStalp - 6);
+  }
+  else{
+    ctx.fillStyle = culoareRadarLinieDetectieCadran4Transparent;//culoareScadere;
+    ctx.fillText("\u21E6", xStalp, yStalp - lungimeStalp - 6);
+  }
+
+
   //Desenare Soseta Vant
   ctx.lineJoin = "round";
   ctx.lineWidth = 2;
   ctx.strokeStyle = "#4d4d4d";
   ctx.fillStyle = "#4d4d4d";
 
-
-  xStalp = xRadar - razaCerc1 - razaCerc3*3;
-  yStalp = yRadar;
-  lungimeStalp = 22;
-  lungimeSoseta = 18;
 
   //desenare stalp soseta
   ctx.moveTo(xStalp, yStalp);
