@@ -465,7 +465,7 @@ var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 
 var yLegendaDerivate = yGrafic_3 - 100;
-var xLegendaDerivate = 440 - 12 - 16;
+var xLegendaDerivate = 440 - 12 - 30;
 var ident = 9;
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -486,7 +486,7 @@ var xc2 = 0;
 var yc2 = 0;
 
 //entitate
-var xEntitate = 558 - 12 - 4;
+var xEntitate = 558 - 12 - 8;
 var yEntitate = 468;
 
 //radar
