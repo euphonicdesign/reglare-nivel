@@ -2275,7 +2275,13 @@ function desenareGraficeTrenduri(){
           //desenare valoare estimata
           ctx.textAlign = "start";
           ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-          ctx.fillStyle = culoarePunctValoriGrafic_3;
+          //ctx.fillStyle = culoarePunctValoriGrafic_3;
+          if(vector_r[selectorZi] >= 1){
+              ctx.fillStyle = culoarePuncteProiectieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
+          }
+          else{
+              ctx.strokeStyle = culoarePuncteProiectieScadere;//culoare_linie_trend;
+          }
           ctx.fillText("" + Math.round(yp1), x1_1 + 19, y1_1 + 8);
 
           //desenare valoare bazaR
