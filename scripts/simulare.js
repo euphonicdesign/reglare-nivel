@@ -2018,11 +2018,11 @@ function desenareRadar(){
   ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
   //ctx.fillStyle = culoarePunctValoriGrafic_3;;
   if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-      ctx.fillStyle = "rgba(204,153,102,0.4)";
+      ctx.fillStyle = "rgba(204,153,102,0.8)";
       ctx.fillText("\u21E8", xStalp, yStalp - lungimeStalp - 6);
   }
   else{
-    ctx.fillStyle = culoareRadarLinieDetectieCadran4Transparent;//culoareScadere;
+    ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
     ctx.fillText("\u21E6", xStalp, yStalp - lungimeStalp - 6);
   }
 
