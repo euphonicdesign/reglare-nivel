@@ -1483,7 +1483,7 @@ function desenareZiValoareTrenduri(){
 
 function desenareZiValoare() {
     ctx = suprafataGrafica.context;
-    ctx.fillStyle = "orange";
+    ctx.fillStyle = culoareTextZi;
     //culoare implicita
     ctx.strokeStyle = culoareTextZi;
     ctx.lineWidth = 1;
@@ -1494,6 +1494,13 @@ function desenareZiValoare() {
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     //ctx.fillText("Ziua " + selectorZi, 10, 50);
     ctx.strokeText("Ziua " + selectorZi, 10, 50);
+
+    data_zi_luna = data_data[selectorZi].split("/");
+    zi = data_zi_luna[0];
+    luna = data_luni_lung[data_zi_luna[1]-1];
+    ctx.font = "italic 16px Helvetica, Arial, sans-serif";
+    ctx.fillText( "(" + zi + " " + luna + ")", xTextZi, yTextZi + 22);
+
 
     //Valoare cumulativa
     ctx.textAlign = "center";
@@ -1554,10 +1561,11 @@ function desenareCompensatorValori() {
     }
 
     //Afisare data - zi curenta
+    /*
     data_zi_luna = data_data[selectorZi].split("/");
     zi = data_zi_luna[0];
     luna = data_luni[data_zi_luna[1]-1];
-    ctx.fillText(zi + " " + luna, xLegenda, yl5);
+    ctx.fillText(zi + " " + luna, xLegenda, yl5);*/
 
     //Comanda ideala
     ctx.fillStyle = culoareCompensator;
@@ -1565,32 +1573,6 @@ function desenareCompensatorValori() {
     ctx.font = "italic bold 23px system-ui, Arial, sans-serif";
     ctx.fillText(comandaIdeala[selectorZi] + "!", xTextComanda, yTextComanda);
 
-
-
-    /*
-    if(comandaIdeala[selectorZi]>10){
-        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, 20, 115);
-    }
-    else{
-        ctx.fillText("C=" + comandaIdeala[selectorZi], 20, 115);
-    }*/
-
-
-    //ctx.fillText("Kp*" + Math.round(data[selectorZi]), 20, 260);
-    //ctx.fillText("+ Ki*"+valoareReferinta, 20, 280);
-
-    /*
-    //Valoare cumulativa
-    ctx.textAlign = "center";
-    ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
-    ctx.strokeText("" + Math.round(dataCumulativ[selectorZi]), lungimeSuprafataGrafica - 96, inaltimeSuprafataGrafica - scalaY - 60);
-
-    //Nivelul apei
-    ctx.textAlign = "start";
-    ctx.fillStyle = culoareValoareNivel;
-    ctx.font = "bold 38px Helvetica, Arial, sans-serif";
-    ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 50, yApaRezervor - 4);
-    */
 }
 
 function desenarePuncteGraficOrizontal(){
