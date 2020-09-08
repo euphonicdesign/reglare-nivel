@@ -502,6 +502,8 @@ var razaOrigineAeroport = 2 + 2 + 2 + 0;
 var xRadar = xEntitate + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
 var yRadar = 376 + 18; //120;//96;//76;
 var razaPunctAvion = 3 + 1 + 1 + 0;
+var razaPunctAvionMin = 4;
+var scalaDimensiuneAvion = 10;
 var scalaPozitieXAvion = 100; //nescalat ar fi 1000; 100 scalat de 10 ori
 var maxRadarY = 1100;
 var contorSens = 0;
@@ -2083,55 +2085,6 @@ function desenareRadar(){
   //console.log("xsoseta: " + xsoseta);
   //console.log("ysoseta: " + ysoseta);
 
-
-
-  //Desenare traiectorie Avion
-  ctx.strokeStyle = "white";
-  ctx.lineWidth = 2;
-  //ctx.fillStyle = culoareTraiectorieAvionRadar;
-  //ctx.strokeStyle = culoareTraiectorieAvionRadar;
-
-  for (let i = (selectorZi - 255); i < selectorZi; i++){
-    nuantar = (255 - (( i + 160 - selectorZi) % 255));
-    nuantag = nuantar;
-    nuantab = nuantar/2;
-    transp = 0.0 + i / selectorZi / 2;
-    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
-    //if(vectorXAvion[i] > 0){
-        ctx.beginPath();
-        ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1 * (2 + 1 * (selectorZi-i)/selectorZi), 0, 2 * Math.PI);
-        ctx.closePath();
-        ctx.fill();
-        //ctx.stroke();
-    //}
-  }
-
-
-  //if(selectorZi > orizont_regresie){
-      //desenare Avion pe radar
-      if(vectorXAvion[selectorZi] - xRadar > 0){
-          ctx.fillStyle = culoareCrestereMaro;
-      }
-      else{
-          ctx.fillStyle = culoareScadere;
-      }
-
-      ctx.strokeStyle = "white";
-      ctx.lineWidth = 1;
-
-
-      ctx.beginPath();
-      ctx.arc(vectorXAvion[selectorZi], vectorYAvion[selectorZi] , razaPunctAvion, 0, 2 * Math.PI);
-      ctx.closePath();
-
-      ctx.fill();
-      ctx.stroke();
-
-      //console.log("xAv:" + vectorXAvion[selectorZi] + " yAv:" + vectorYAvion[selectorZi]);
-
-  //}
-
-
   //Desenare Raza Radar
   radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar; //360/8 = 45
 
@@ -2160,6 +2113,47 @@ function desenareRadar(){
 
   ctx.closePath();
   ctx.fill();
+
+
+  //Desenare traiectorie Avion
+  ctx.strokeStyle = "white";
+  ctx.lineWidth = 2;
+  //ctx.fillStyle = culoareTraiectorieAvionRadar;
+  //ctx.strokeStyle = culoareTraiectorieAvionRadar;
+
+  for (let i = (selectorZi - 255); i < selectorZi; i++){
+    nuantar = (255 - (( i + 160 - selectorZi) % 255));
+    nuantag = nuantar;
+    nuantab = nuantar/2;
+    transp = 0.0 + i / selectorZi / 2;
+    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
+
+    ctx.beginPath();
+    ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
+
+  }
+
+
+  //desenare Avion pe radar
+  if(vectorXAvion[selectorZi] - xRadar > 0){
+      ctx.fillStyle = culoareCrestereMaro;
+  }
+  else{
+      ctx.fillStyle = culoareScadere;
+  }
+  ctx.strokeStyle = "white";
+  ctx.lineWidth = 1;
+
+  dimensiuneAvion = razaPunctAvionMin + medieCumulativ[selectorZi]/scalaDimensiuneAvion;
+  //console.log(dimensiuneAvion);
+
+  ctx.beginPath();
+  ctx.arc(vectorXAvion[selectorZi], vectorYAvion[selectorZi] , dimensiuneAvion, 0, 2 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
 
 }
 
