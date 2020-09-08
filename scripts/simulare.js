@@ -2560,10 +2560,12 @@ function desenareGraficeTrenduri(){
   ctx.fillText(eticheta_2, x_val_2 + 20, y_val_2 + 24);
 
   if(selectorZi > orizont_trend){
+
     ctx.fillStyle = culoareLinieGraficP;
     ctx.fillRect(xLegendaDerivate + ident, yLegendaDerivate + 45, 50, 12);
+
     ctx.fillStyle = culoareLinieGraficP;
-    ctx.fillRect(xLegendaDerivate + ident, yLegendaDerivate + 101, 31, 12);
+    ctx.fillRect(xLegendaDerivate + ident + 8, yLegendaDerivate + 114, 62, 16);
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(ratap_2, xLegendaDerivate + ident, yLegendaDerivate + 56);
@@ -2635,7 +2637,7 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(" =" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10, xLegendaDerivate + ident, yLegendaDerivate + 128);
+    ctx.fillText("  =" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10, xLegendaDerivate + ident, yLegendaDerivate + 128);
 
     //calcul derivate
     /*
