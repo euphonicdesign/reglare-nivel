@@ -76,6 +76,7 @@ var culoareRadarLinieDetectieAccentuat = "rgba(255,255,255,1.0)";
 var culoareRadarLinieDetectieCrestere = "rgba(153,102,51,1)";
 var culoareRadarLinieDetectieScadere = "rgba(169,214,169,1)";
 var culoareRadarLinieDetectieCrestereTransparent = "rgba(153,102,51,0.7)";
+var culoareRadarLinieDetectieCadran1Transparent = "rgba(153,102,51,0.2)";
 var culoareRadarLinieDetectieScadereTransparent = "rgba(38,145,31,0.7)";//"rgba(169,214,169,0.7)";
 var culoareRadarLinieDetectieCadran4Transparent = "rgba(38,145,31,0.2)";
 var culoarePunctAvion = "white";//culoarePuncteProiectieCrestere;//"#2B9433";//culoare_scadere_entitate;
@@ -164,7 +165,7 @@ let data_20 = [
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
-            883, 1136, 
+            883, 1136,
           ];
 
 
@@ -1901,6 +1902,14 @@ function desenareRadar(){
   ctx.arc(xRadar, yRadar, razaCerc1, Math.PI, Math.PI * 3/2);
   ctx.closePath();
   ctx.fill();
+
+  /*
+  ctx.fillStyle = culoareRadarLinieDetectieCadran1Transparent;
+  ctx.beginPath();
+  ctx.moveTo(xRadar,yRadar);
+  ctx.arc(xRadar, yRadar, razaCerc1, Math.PI * 3/2, Math.PI * 4/2);
+  ctx.closePath();
+  ctx.fill();*/
 
   //Cerc 2 mijloc
   ctx.beginPath();
