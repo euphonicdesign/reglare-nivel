@@ -3076,6 +3076,8 @@ function desenareGraficOrizontal(){
     y_ms_1 = y_val_1 - lungime_segment_medie;
     y_md_1 = y_val_1 + lungime_segment_medie;
 
+
+
     //Punct linie proiectie capat dreapta (3) - sus
     ctx.strokeStyle = "white";//culoarePunctValoriGrafic_3;//"white";
     ctx.lineWidth = 2;
@@ -3084,6 +3086,8 @@ function desenareGraficOrizontal(){
     //ctx.fill();
     ctx.closePath();
     ctx.stroke();
+
+
 
     //Punct linie proiectie capat dreapta (3) - jos
     ctx.strokeStyle = "white";//culoarePunctValoriGrafic_3;//"white";
@@ -3101,10 +3105,21 @@ function desenareGraficOrizontal(){
     //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText("(3)", x_val_2, y_ms_1 - 10);
 
+    //ctx.strokeStyle = "white";//culoareLinieMedieGraficVertical;
+    //colorare text diferit daca capacitatea a fost depasita
 
-    ctx.strokeStyle = "white";//culoareLinieMedieGraficVertical;
+    ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
+    ctx.strokeStyle = culoareNumarPunct;//culoarePunctValoriGrafic;
     ctx.lineWidth = 2;
-    ctx.setLineDash([2, 4]);
+    ctx.setLineDash([2, 8]);
+
+
+    //ctx.setLineDash([2, 4]);
 
     //ctx.beginPath();
     ctx.moveTo(x_val_1, y_ms_1);
@@ -3122,13 +3137,18 @@ function desenareGraficOrizontal(){
 
     //linie medie capat verticala
     //ctx.beginPath();
-    ctx.setLineDash([2, 4]);
+    //ctx.setLineDash([2, 4]);
     ctx.moveTo(x_val_2, y_ms_1);
     ctx.lineTo(x_val_2, y_md_1);
     //ctx.closePath();
     ctx.stroke();
 
     ctx.setLineDash([]);
+
+    ctx.beginPath();
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
 
     //desenare text proiectie
     proiectie = medieCumulativ[selectorZi] * intervalProiectie;
@@ -3153,7 +3173,7 @@ function desenareGraficOrizontal(){
     ctx.textAlign = "start";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("+" + Math.round(proiectie) + "!", x_val_2 - 78, y_val_1 + 6);
+    ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_2 - 78, y_val_1 + 6);
 
     ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
