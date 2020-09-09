@@ -63,6 +63,7 @@ var culoareVerde = culoare_scadere_entitate;//"green";
 var culoareMaro = "#cc9966";
 var culoareAlbastru = culoare_crestere_entitate;
 var culoareTextZi = "#999999";//"#595959";
+var culoareTextZiTransparent = "rgba(153,153,153,0.9)";
 var culoarePuncteProiectieCrestere = "#33adff";
 
 //var culoareCerculetR = "#99d6ff";//"#33adff";//"#80ffff";
@@ -134,7 +135,7 @@ let data_10 = [
             39,
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
-            33, 41, 51, 
+            33, 41, 51,
 
 
 ];
@@ -165,7 +166,7 @@ let data_20 = [
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
-            883, 1136, 1271
+            883, 1136, 1271,
           ];
 
 
@@ -1822,6 +1823,36 @@ function desenareEntitate(){
           ////ctx.stroke();
         ctx.fill();
     }
+
+    //Desenare centru si raza xEntitate
+
+    //Centru
+
+    /*
+    ctx.fillStyle = culoareTextZiTransparent;
+    ctx.beginPath();
+    ctx.arc(12 + xEntitate, yEntitate, 1, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();*/
+
+
+    /*
+    //ctx.fillStyle = culoareTextZi;
+    ctx.beginPath();
+    ctx.arc(12 + xEntitate - raza_pop - diff, yEntitate, 1, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();*/
+
+    ctx.beginPath();
+    ctx.closePath();
+
+    ctx.setLineDash([2,8]);
+    ctx.strokeStyle = culoareTextZiTransparent;
+    ctx.lineWidth = 2;
+    ctx.moveTo(12 + xEntitate, yEntitate);
+    ctx.lineTo(12 + xEntitate + (raza_pop + diff) * Math.cos(Math.PI) , yEntitate - (raza_pop + diff) * Math.sin(Math.PI));
+    ctx.stroke();
+    ctx.setLineDash([]);
 
     //cerculet grafic vector r (in capat)
     /*
