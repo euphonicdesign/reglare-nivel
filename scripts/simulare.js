@@ -467,6 +467,10 @@ var yGrafic_3 = yGrafic_1 + 85;
 var yLegendaDerivate = yGrafic_3 - 100;
 var xLegendaDerivate = 440 - 12 - 30;
 var ident = 9;
+
+var xMagnificareGrafice = lungimeSuprafataGrafica - 15;
+var yMagnificareGrafice = yGrafic_2 - 7;
+
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -2189,6 +2193,15 @@ function desenareRadar(){
 
 }
 
+function desenareNivelMagnificareGrafice(){
+    ctx.textAlign = "end";
+    ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+    ctx.fillText("\u2222:         ", xMagnificareGrafice, yMagnificareGrafice);
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
+}
+
 function desenareGraficeTrenduri(){
 
 
@@ -2196,6 +2209,7 @@ function desenareGraficeTrenduri(){
 
   desenareEvenimente();
   desenareEntitate();
+  desenareNivelMagnificareGrafice();
 
 
   //desenare linie referinta Grafic trenduri 1
