@@ -2611,7 +2611,15 @@ function desenareGraficeTrenduri(){
     ctx.fillRect(xLegendaDerivate + ident, yLegendaDerivate + 45, 50, 12);
 
     ctx.fillStyle = culoareLinieGraficP;
-    ctx.fillRect(xLegendaDerivate + ident + 8, yLegendaDerivate + 114, 62, 16);
+    ctx.fillRect(xLegendaDerivate + ident + 8, yLegendaDerivate + 114, 50, 16);
+
+    if(vector_r[selectorZi] >= 1){
+        ctx.fillStyle = culoare_crestere_entitate;
+    }
+    else{
+        ctx.fillStyle = culoare_scadere_entitate;
+    }
+    ctx.fillRect(xLegendaDerivate + ident + 60, yLegendaDerivate + 114, 50, 16);
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(ratap_2, xLegendaDerivate + ident, yLegendaDerivate + 56);
@@ -2642,7 +2650,7 @@ function desenareGraficeTrenduri(){
           ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 /*+ " (>1!)"*/, xLegendaDerivate + ident, yLegendaDerivate + 70);
       }
 
-
+      ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
       text_r = "R=+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
       ctx.fillText(text_r, xLegendaDerivate + ident, yLegendaDerivate + 84);
     }
@@ -2650,6 +2658,7 @@ function desenareGraficeTrenduri(){
       ctx.fillStyle = culoareScadere;
       ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000, xLegendaDerivate + ident, yLegendaDerivate + 70);
 
+      ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
       text_r = "R=" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
       ctx.fillText(text_r, xLegendaDerivate + ident, yLegendaDerivate + 84);
     }
@@ -2661,7 +2670,7 @@ function desenareGraficeTrenduri(){
     ctx.fillText("Ziua " + (Math.round(selectorZi) + Math.round(1.0)) + ":", xLegendaDerivate, yLegendaDerivate + 74);
     */
 
-
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] >= 1){
 
       ctx.fillStyle = culoareCrestereMaro;
@@ -2683,7 +2692,17 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 112);
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("  =" + Math.floor(valZiCur * vector_r[selectorZi] * 10)/10, xLegendaDerivate + ident, yLegendaDerivate + 128);
+    ctx.fillText("  =" + Math.floor(valZiCur * vector_r[selectorZi] * 1)/1, xLegendaDerivate + ident, yLegendaDerivate + 128);
+
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+    if(vector_r[selectorZi] >= 1){
+        ctx.fillText("+" + Math.floor((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 128);
+    }
+    else{
+        ctx.fillText("" + Math.floor((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 128);
+    }
+
 
     //calcul derivate
     /*
