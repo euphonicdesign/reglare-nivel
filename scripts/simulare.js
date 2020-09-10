@@ -3313,7 +3313,7 @@ function desenareGraficOrizontal(){
 
     ctx.textAlign = "center";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    if(pulsatie_2){
+    if(pulsatie_2 && culoare_pulsatie == culoareMaro){
         ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
     }
     else{
