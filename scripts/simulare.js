@@ -166,7 +166,7 @@ let data_20 = [
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
-            883, 1136, 1271, 1389, 
+            883, 1136, 1271, 1389,
           ];
 
 
@@ -2432,7 +2432,7 @@ function desenareGraficeTrenduri(){
           ctx.closePath();
           ctx.stroke();
 
-          ctx.textAlign = "start";
+          ctx.textAlign = "center";
           ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
           ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
           //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
