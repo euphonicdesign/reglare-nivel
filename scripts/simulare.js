@@ -2755,12 +2755,14 @@ function desenareGraficeTrenduri(){
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    //if(vector_r[selectorZi] >= 1){
-    ctx.fillText("+" + Math.round((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 128);
-    //}
-    //else{
-    //    ctx.fillText("" + Math.round((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 128);
-    //}
+    if(vector_r[selectorZi] >= 1){
+        //+
+        ctx.fillText("+" + Math.round((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 128);
+    }
+    else{
+        //- (fara semn)
+        ctx.fillText("" + Math.round((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 128);
+    }
 
     ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
