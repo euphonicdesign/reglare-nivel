@@ -1965,7 +1965,8 @@ function desenareRadar(){
   ctx.fillStyle = culoareRadarLinieDetectieCadran4Transparent;
   ctx.beginPath();
   ctx.moveTo(xRadar,yRadar);
-  ctx.arc(xRadar, yRadar, razaCerc1, Math.PI, Math.PI * 3/2);
+  //ctx.arc(xRadar, yRadar, razaCerc1, Math.PI, Math.PI * 3/2);
+  ctx.arc(xRadar, yRadar, razaCerc1, Math.PI/2, Math.PI);
   ctx.closePath();
   ctx.fill();
 
