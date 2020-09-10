@@ -465,7 +465,7 @@ var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
 var yGrafic_3 = yGrafic_1 + 85;
 
-var yLegendaDerivate = yGrafic_3 - 100;
+var yLegendaDerivate = yGrafic_3 - 103;
 var xLegendaDerivate = 440 - 12 - 30;
 var ident = 9;
 
@@ -1848,7 +1848,15 @@ function desenareEntitate(){
 
     ctx.setLineDash([2,8]);
     ctx.strokeStyle = culoareTextZiTransparent;
-    ctx.lineWidth = 2;
+
+    if(d1r2>0){
+        ctx.strokeStyle = culoareCrestereRosu;
+    }
+    else {
+        ctx.strokeStyle = culoareScadere;
+    }
+
+    ctx.lineWidth = 4;
     ctx.moveTo(12 + xEntitate, yEntitate);
     ctx.lineTo(12 + xEntitate + (raza_pop + diff) * Math.cos(Math.PI) , yEntitate - (raza_pop + diff) * Math.sin(Math.PI));
     ctx.stroke();
@@ -2737,7 +2745,7 @@ function desenareGraficeTrenduri(){
     ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
     ctx.fillStyle = culoarePunctValoriGrafic_3;
-    ctx.fillText("(" + Math.round(yp1) + ")", xEntitate + 12, yLegendaDerivate + 128);
+    ctx.fillText("" + Math.round(yp1) + "", xEntitate + 12, yLegendaDerivate + 128);
 
 
     //calcul derivate
@@ -2752,16 +2760,16 @@ function desenareGraficeTrenduri(){
     d2r2 = vectorD2R[selectorZi];
 
     //derivata ordin 1 (viteza de crestere sau scadere)
-    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
     ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(d1r2>0){
         ctx.fillStyle = culoareCrestereRosu;
-        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "\u21E7", xLegendaDerivate, yLegendaDerivate + 148);
+        ctx.fillText("dR=+" + Math.floor(d1r2*100000)/1000 + "\u21E7", xLegendaDerivate, yLegendaDerivate + 150);
     }
     else {
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + "\u21E9", xLegendaDerivate, yLegendaDerivate + 148);
+        ctx.fillText("dR=" + Math.floor(d1r2*10000)/100 + "\u21E9", xLegendaDerivate, yLegendaDerivate + 150);
     }
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
 
@@ -2770,12 +2778,12 @@ function desenareGraficeTrenduri(){
     //derivata ordin 2 (acceleratia - crestere sau scadere)
     ctx.fillStyle = culoarePunctValoriGrafic_3;
     if(d2r2>0){
-        ctx.fillText("d\u00B2R=+" + Math.floor(d2r2*10000)/100 /*+ " ▲"*/, xLegendaDerivate, yLegendaDerivate + 162);
+        ctx.fillText("d\u00B2R=+" + Math.floor(d2r2*10000)/100 /*+ " ▲"*/, xLegendaDerivate, yLegendaDerivate + 164);
     }
     else{
         //if(d1r2<0)
           //ctx.fillStyle = culoareScadere;
-        ctx.fillText("d\u00B2R=" + Math.floor(d2r2*10000)/100 /*+ "▼"*/, xLegendaDerivate, yLegendaDerivate + 162);
+        ctx.fillText("d\u00B2R=" + Math.floor(d2r2*10000)/100 /*+ "▼"*/, xLegendaDerivate, yLegendaDerivate + 164);
     }
 
   }
