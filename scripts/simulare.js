@@ -3353,7 +3353,7 @@ function desenareGraficOrizontal(){
 
     ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    ctx.fillStyle = culoarePunctValoriGrafic;
+    ctx.fillStyle = "rgba(31, 67, 122, 0.7)";//culoarePunctValoriGrafic;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie2) + "!", x_val_2 + 26, y_val_1 + 61);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
