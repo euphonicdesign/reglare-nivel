@@ -2483,9 +2483,8 @@ function desenareGraficeTrenduri(){
 
   procent_variatie_1 = Math.floor((data[selectorZi] - data[index1]) / data[index1] * 100);
   procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) / data_2[index1] * 100);
-  crestere_variatie_1 = Math.floor(data[selectorZi]/data[index1]*10)/10;
-  crestere_variatie_2 = Math.floor(data_2[selectorZi]/data_2[index1]*10)/10;
-
+  crestere_variatie_1 = Math.floor(Math.round(data[selectorZi]/data[index1]*10))/10;
+  crestere_variatie_2 = Math.floor(Math.round(data_2[selectorZi]/data_2[index1]*10))/10;
 
 
   if(index1 > 0){
