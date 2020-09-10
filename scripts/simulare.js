@@ -530,6 +530,7 @@ var rectY = yRadar - pistaLatime / 2;
 var textMaiMare10 = " (>10!)";//" (>10)";
 
 var intervalProiectie = 90; //zile
+var intervalProiectie2 = 180; //zile
 
 //rezervor
 var lungimeRezervor = lungimeSuprafataGrafica / 3;
@@ -3328,6 +3329,36 @@ function desenareGraficOrizontal(){
     ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 + 8, y_val_1 + 24);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
     //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
+
+
+    //desenare text proiectie2
+    proiectie2 = medieCumulativ[selectorZi] * intervalProiectie2;
+
+    //Afisare data
+    data_zi_luna_p = data_data[(Math.floor(selectorZi) + intervalProiectie2)].split("/");
+    zi_p = data_zi_luna_p[0];
+    luna_p = data_luni[data_zi_luna_p[1]-1];
+
+    //Valoare cumulativa 2 - 180 zile
+    ctx.textAlign = "start";
+
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), x_val_2 + 8, y_val_1 + 40);
+
+    //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText(zi_p + " " + luna_p, x_val_2 + 18, y_val_1 + 40);
+
+    ctx.textAlign = "start";
+    //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
+    ctx.fillStyle = culoarePunctValoriGrafic;
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie2) + "!", x_val_2 + 18, y_val_1 + 54);
+    //ctx.fillStyle = culoarePunctValoriGrafic_3;
+    //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
+
 
     for (let i = 0; i <= selectorZi; i++) {
 
