@@ -135,7 +135,7 @@ let data_10 = [
             39,
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
-            33, 41, 51,
+            33, 41, 51, 47,
 
 
 ];
@@ -166,7 +166,7 @@ let data_20 = [
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
-            883, 1136, 1271,
+            883, 1136, 1271, 1389, 
           ];
 
 
@@ -3310,10 +3310,16 @@ function desenareGraficOrizontal(){
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(zi_p + " " + luna_p, x_val_2 + 8, y_val_1 + 7);
 
-    ctx.textAlign = "start";
+    ctx.textAlign = "center";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_2 - 78, y_val_1 + 6);
+    if(pulsatie_2){
+        ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
+    }
+    else{
+        ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+    }
+
+    ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_2 - 48, y_val_1 + 6);
 
     ctx.textAlign = "start";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
