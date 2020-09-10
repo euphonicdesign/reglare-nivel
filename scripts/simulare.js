@@ -2263,8 +2263,8 @@ function desenareGraficeTrenduri(){
   if(data[selectorZi] > medieCumulativ[selectorZi]){
       ctx.fillText("" + Math.round(medieCumulativ[selectorZi]) + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
       ctx.font = "16px Helvetica, system-ui, Arial, sans-serif";
-      //ctx.fillStyle = culoareCrestereRosu;
-      ctx.fillStyle = culoareCrestereMaro;
+      ctx.fillStyle = culoareCrestereRosu;
+      //ctx.fillStyle = culoareCrestereMaro;
       ctx.fillText("\u25B2", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
       ctx.fillStyle = culoarePunctValoriGrafic_3;
       ctx.fillText("\u25BC", lungimeSuprafataGrafica - 10, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 14);
