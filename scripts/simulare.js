@@ -1999,8 +1999,18 @@ function desenareRadar(){
   ctx.stroke();
 
   //Cerc 3 interior
-  ctx.strokeStyle = "#4d4d4d";
-  ctx.fillStyle = "#4d4d4d";
+  //ctx.strokeStyle = "#4d4d4d";
+  //ctx.fillStyle = "#4d4d4d";
+  if(yEntitate - raza_pop - razaOrigineRadar > yRadar ){
+      ctx.strokeStyle = "#4d4d4d";
+      ctx.fillStyle = "#4d4d4d";
+
+  }
+  else {
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "white";
+  }
+
   ctx.beginPath();
   ctx.arc(xRadar, yRadar, razaCerc3, 0, 2 * Math.PI);
   ctx.closePath();
@@ -2018,6 +2028,16 @@ function desenareRadar(){
   //ctx.lineWidth = 3;
   ctx.lineJoin = "round";
   ctx.lineWidth = curbura;
+  if(yEntitate - raza_pop - razaOrigineRadar > yRadar ){
+      ctx.strokeStyle = "#4d4d4d";
+      //ctx.fillStyle = "#4d4d4d";
+
+  }
+  else {
+      //ctx.fillStyle = "white";
+      ctx.strokeStyle = "white";
+      ctx.fillStyle = "#e96363";
+  }
   ctx.strokeRect(rectX+(curbura/2), rectY+(curbura/2), pistaLungime-curbura, pistaLatime-curbura);
   ctx.fillRect(rectX+(curbura/2), rectY+(curbura/2), pistaLungime-curbura, pistaLatime-curbura);
 
@@ -2041,8 +2061,15 @@ function desenareRadar(){
   ctx.setLineDash([]);
 
   //Desenare Origine Radar
-  ctx.fillStyle = "white";
-  ctx.strokeStyle = "white";
+  if(yEntitate - raza_pop - razaOrigineRadar > yRadar ){
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "white";
+  }
+  else {
+      ctx.fillStyle = "#e96363";//"white";
+      ctx.strokeStyle = "#e96363";//"white";
+  }
+
   if(pulsatie_2){
       ctx.beginPath();
       ctx.arc(xRadar, yRadar, razaOrigineRadar, 0, 2 * Math.PI);
