@@ -2365,7 +2365,7 @@ function desenareGraficeTrenduri(){
               ctx.fillStyle = culoarePuncteProiectieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
           }
           else{
-              ctx.strokeStyle = culoarePuncteProiectieScadere;//culoare_linie_trend;
+              ctx.fillStyle = culoarePuncteProiectieScadere;//culoare_linie_trend;
           }
           ctx.fillText("" + Math.round(yp1), x1_1 + 19, y1_1 + 8);
 
