@@ -2341,7 +2341,8 @@ function desenareGraficeTrenduri(){
       ctx.textAlign = "center";
       ctx.fillStyle = culoareCrestereRosu;
       //ctx.fillStyle = culoareCrestereMaro;
-      if(pulsatie_3){
+      //if(pulsatie_3){
+      if(medieCumulativ[selectorZi] > medieCumulativ[selectorZi-1]){
           ctx.font = "18px Helvetica, system-ui, Arial, sans-serif";
       }
       else{
@@ -2362,7 +2363,8 @@ function desenareGraficeTrenduri(){
       ctx.fillText("\u25B2", lungimeSuprafataGrafica - 18, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
 
       ctx.fillStyle = culoareScadere;
-      if(pulsatie_3){
+      //if(pulsatie_3){
+      if(medieCumulativ[selectorZi] < medieCumulativ[selectorZi-1]){
           ctx.font = "18px Helvetica, system-ui, Arial, sans-serif";
           ctx.fillText("\u25BC", lungimeSuprafataGrafica - 18, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 16);
       }
@@ -3614,6 +3616,7 @@ function ActualizareSuprafataGrafica() {
             }
         }
 
+        /*
         //pulsatie_3 = false;
         if(selectorZi % orizont_regresie == 0){
           pulsatie_3 = true;
@@ -3622,7 +3625,7 @@ function ActualizareSuprafataGrafica() {
           pulsatie_3 = false;
         }
         //console.log(pulsatie_3);
-
+        */
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
@@ -3701,13 +3704,14 @@ function ActualizareSuprafataGraficaSingulara() {
             }
         }
 
+        /*
         //pulsatie_3 = false;
         if(selectorZi % orizont_regresie){
           pulsatie_3 = true;
         }
         else{
           pulsatie_3 = false;
-        }
+        }*/
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         if(mod == MOD_REGULATOR){
