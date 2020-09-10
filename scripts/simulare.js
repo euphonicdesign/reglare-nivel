@@ -1969,13 +1969,13 @@ function desenareRadar(){
   ctx.closePath();
   ctx.fill();
 
-  /*
+  //desenare cadran 2
   ctx.fillStyle = culoareRadarLinieDetectieCadran1Transparent;
   ctx.beginPath();
   ctx.moveTo(xRadar,yRadar);
-  ctx.arc(xRadar, yRadar, razaCerc1, Math.PI * 3/2, Math.PI * 4/2);
+  ctx.arc(xRadar, yRadar, razaCerc1, 0, Math.PI * 1/2);
   ctx.closePath();
-  ctx.fill();*/
+  ctx.fill();
 
   //Cerc 2 mijloc
   ctx.beginPath();
