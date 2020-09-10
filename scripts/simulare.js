@@ -1438,7 +1438,14 @@ function desenareEvenimente(){
 
         //desenare cerculet vectorizare maro
         ctx.beginPath();
-        ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+        if(pulsatie && culoare_pulsatie == culoareMaro){
+            ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
+            ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
+        }
+        else {
+            ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+            ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
+        }
         ctx.closePath();
 
         ctx.lineWidth = 2;
@@ -1449,13 +1456,21 @@ function desenareEvenimente(){
 
         //desenare
         ctx.textAlign = "start";
-        ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
+        //ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
         ctx.fillStyle = culoareCrestereMaro;
         ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xCerculeteAcumulate + 8 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
 
         //desenare cerculet limitare verde
         ctx.beginPath();
-        ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+        if(pulsatie && culoare_pulsatie == culoareVerde){
+            ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
+            ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
+        }
+        else {
+            ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
+            ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+        }
+        //ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
         ctx.closePath();
 
         //ctx.lineWidth = 2;
