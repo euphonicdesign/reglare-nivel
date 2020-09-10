@@ -2681,7 +2681,7 @@ function desenareGraficeTrenduri(){
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] >= 1){
-      ctx.fillStyle = culoareCrestereMaro;
+      ctx.fillStyle = culoareCrestereRosu;
       if((Math.floor(vector_r[selectorZi]*10000))/10000 == 1){
           ctx.fillText("r=" + (Math.floor(vector_r[selectorZi]*10000))/10000 /*+ " (~1!)"*/, xLegendaDerivate + ident, yLegendaDerivate + 70);
       }
@@ -2690,6 +2690,7 @@ function desenareGraficeTrenduri(){
       }
 
       ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoareCrestereRosu;
       text_r = "R=+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
       ctx.fillText(text_r, xLegendaDerivate + ident, yLegendaDerivate + 84);
     }
@@ -2712,7 +2713,7 @@ function desenareGraficeTrenduri(){
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] >= 1){
 
-      ctx.fillStyle = culoareCrestereMaro;
+      ctx.fillStyle = culoareCrestereRosu;
       ctx.fillText("dif=+" + Math.floor(valZiCur * (vector_r[selectorZi] - 1)*10)/10, xLegendaDerivate + ident, yLegendaDerivate + 98);
 
       text_zi_urmatoare = "" + Math.floor(valZiCur*10)/10 + "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
