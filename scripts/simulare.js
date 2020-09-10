@@ -1949,9 +1949,22 @@ function desenareInfoExplicatii(){
 
 function desenareRadar(){
 
+  if(yEntitate - raza_pop - razaOrigineRadar > yRadar ){
+      culoareRadarLinieDetectieCadran1Transparent = "rgba(153,102,51,0.2)";
+      culoareRadarLinieDetectieCadran4Transparent = "rgba(38,145,31,0.2)";
+      ctx.fillStyle = culoareRadarCercuri;
+      ctx.strokeStyle = culoareRadarCercuri;//"#ffbb33";//culoareGraficVectorR;
+  }
+  else{
+      culoareRadarLinieDetectieCadran1Transparent = "rgba(153,102,51,0.7)";
+      culoareRadarLinieDetectieCadran4Transparent = "rgba(38,145,31,0.7)";
+      ctx.fillStyle = culoareRadarCercuri;
+      ctx.strokeStyle = "white";//"#ffbb33";//culoareGraficVectorR;
+  }
+
   ctx.lineWidth = 2;
-  ctx.fillStyle = culoareRadarCercuri;
-  ctx.strokeStyle = culoareRadarCercuri;//"#ffbb33";//culoareGraficVectorR;
+  //ctx.fillStyle = culoareRadarCercuri;
+  //ctx.strokeStyle = culoareRadarCercuri;//"#ffbb33";//culoareGraficVectorR;
 
   //Cerc 1 exterior
   ctx.beginPath();
@@ -1960,6 +1973,8 @@ function desenareRadar(){
   ////if(pulsatie)
     ////ctx.stroke();
   ctx.stroke();
+
+
 
   //desenare cadran 4
   ctx.fillStyle = culoareRadarLinieDetectieCadran4Transparent;
@@ -1986,10 +2001,8 @@ function desenareRadar(){
     ////ctx.stroke();
   ctx.stroke();
 
-
-
   //Desenare Axe radar
-  ctx.strokeStyle = culoareRadarCercuri;
+  //ctx.strokeStyle = culoareRadarCercuri;
   ctx.moveTo(xRadar - razaCerc1, yRadar);
   ctx.lineTo(xRadar + razaCerc1, yRadar);
   ctx.stroke();
@@ -2064,6 +2077,7 @@ function desenareRadar(){
   if(yEntitate - raza_pop - razaOrigineRadar > yRadar ){
       ctx.fillStyle = "white";
       ctx.strokeStyle = "white";
+
   }
   else {
       ctx.fillStyle = "#e96363";//"white";
