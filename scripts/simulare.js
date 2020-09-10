@@ -3268,30 +3268,13 @@ function desenareGraficOrizontal(){
     //x_val_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
     y_val_1 = yGrafic_3;
 
-    //y_val_1 = inaltimeSuprafataGrafica - 178 - selectorZi;
-    //y_val_2 = y_val_1 - intervalProiectie;
     x_val_1 = 10 + Math.floor(selectorZi);
     x_val_2 = x_val_1 + intervalProiectie;
-
-    //console.log("Selzi: " + selectorZi);
-    //console.log(x_val_1 + " " + x_val_2);
-
-    //y_val_2 = inaltimeSuprafataGrafica - scalaY - 100 - selectorZi - intervalProiectie;
-
-    /*
-    ctx.beginPath();
-    ctx.moveTo(x_val_1, y_val_1);
-    ctx.lineTo(x_val_1, y_val_2);
-    ctx.strokeStyle = culoareLinieMedieGraficVertical;
-    ctx.lineWidth = 2;
-    ctx.closePath();
-    ctx.stroke();*/
 
     //linie medie stanga
     lungime_segment_medie = Math.round( ((medieCumulativ[selectorZi]*scalaX)/maxValue) / 2 );
     y_ms_1 = y_val_1 - lungime_segment_medie;
     y_md_1 = y_val_1 + lungime_segment_medie;
-
 
 
     //Punct linie proiectie capat dreapta (3) - sus
@@ -3337,13 +3320,30 @@ function desenareGraficOrizontal(){
 
     //ctx.setLineDash([2, 4]);
 
+    //linie medie sus - stanga
+    //ctx.beginPath();
+    ctx.moveTo(10, y_ms_1);
+    ctx.lineTo(x_val_1, y_ms_1);
+    //ctx.closePath();
+    ctx.stroke();
+
+    //linie medie sus - dreapta
     //ctx.beginPath();
     ctx.moveTo(x_val_1, y_ms_1);
     ctx.lineTo(x_val_2, y_ms_1);
     //ctx.closePath();
     ctx.stroke();
 
-    //linie medie dreapta
+
+    //linie jos - stanga
+    //ctx.setLineDash([1, 16]);
+    //ctx.beginPath();
+    ctx.moveTo(10, y_md_1);
+    ctx.lineTo(x_val_1, y_md_1);
+    //ctx.closePath();
+    ctx.stroke();
+
+    //linie medie jos -dreapta
     //ctx.setLineDash([1, 16]);
     //ctx.beginPath();
     ctx.moveTo(x_val_1, y_md_1);
@@ -3351,7 +3351,15 @@ function desenareGraficOrizontal(){
     //ctx.closePath();
     ctx.stroke();
 
-    //linie medie capat verticala
+    //linie medie capat verticala - stanga
+    //ctx.beginPath();
+    //ctx.setLineDash([2, 4]);
+    ctx.moveTo(10, y_ms_1);
+    ctx.lineTo(10, y_md_1);
+    //ctx.closePath();
+    ctx.stroke();
+
+    //linie medie capat verticala - dreapta
     //ctx.beginPath();
     //ctx.setLineDash([2, 4]);
     ctx.moveTo(x_val_2, y_ms_1);
