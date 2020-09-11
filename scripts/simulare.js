@@ -516,8 +516,8 @@ var maxRadarY = 1100;
 var contorSens = 0;
 var sensRadar = +1;
 var xStalp = xRadar - razaCerc1 - razaCerc3*3;
-var yStalp = yRadar;
-var lungimeStalp = 22;
+var yStalp = yRadar - 4;
+var lungimeStalp = 18;
 var lungimeSoseta = 18;
 
 
@@ -2159,17 +2159,18 @@ function desenareRadar(){
   //Desenare Soseta Vant
   ctx.lineJoin = "round";
   ctx.lineWidth = 2;
-  ctx.strokeStyle = "#4d4d4d";
+  ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
   ctx.fillStyle = "#4d4d4d";
 
 
   //desenare stalp soseta
+  /*
   ctx.moveTo(xStalp, yStalp);
   ctx.lineTo(xStalp, yStalp - lungimeStalp);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.closePath();
+  ctx.closePath();*/
 
   //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
   //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
@@ -2197,18 +2198,12 @@ function desenareRadar(){
     ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
   }
 
-  //desenare cerc baza soseta
+
+  //desenare cerc capat pendul
+  //ctx.fillStyle = "white";
   //ctx.fillStyle = "#4d4d4d";
-
   ctx.beginPath();
-  ctx.arc(xStalp, yStalp - lungimeStalp, 4, 0, 2 * Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  //desenare cerc capat soseta
-  ctx.fillStyle = "white";
-  ctx.beginPath();
-  ctx.arc(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta, 2, 0, 2 * Math.PI);
+  ctx.arc(xStalp + xsoseta, yStalp - ysoseta, 4, 0, 2 * Math.PI);
   ctx.closePath();
   ctx.fill();
 
@@ -2216,14 +2211,20 @@ function desenareRadar(){
   ctx.closePath();
 
   //desenare soseta
-  ctx.moveTo(xStalp, yStalp - lungimeStalp);
-  ctx.lineTo(xStalp + xsoseta, yStalp - lungimeStalp + ysoseta);
+  ctx.moveTo(xStalp, yStalp);
+  ctx.lineTo(xStalp + xsoseta, yStalp - ysoseta);
   ctx.stroke();
 
 
   ctx.beginPath();
   ctx.closePath();
 
+  //desenare cerc baza pendul
+  ctx.fillStyle = "white";//"#4d4d4d";
+  ctx.beginPath();
+  ctx.arc(xStalp, yStalp, 2, 0, 2 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
 
   //console.log("xsoseta: " + xsoseta);
   //console.log("ysoseta: " + ysoseta);
