@@ -2343,7 +2343,7 @@ function desenareGraficeTrenduri(){
       //ctx.fillStyle = culoareCrestereMaro;
       //if(pulsatie_3){
       if(medieCumulativ[selectorZi] > medieCumulativ[selectorZi-1]){
-          ctx.font = "18px Helvetica, system-ui, Arial, sans-serif";
+          ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
       }
       else{
           ctx.font = "16px Helvetica, system-ui, Arial, sans-serif";
@@ -2365,8 +2365,8 @@ function desenareGraficeTrenduri(){
       ctx.fillStyle = culoareScadere;
       //if(pulsatie_3){
       if(medieCumulativ[selectorZi] < medieCumulativ[selectorZi-1]){
-          ctx.font = "18px Helvetica, system-ui, Arial, sans-serif";
-          ctx.fillText("\u25BC", lungimeSuprafataGrafica - 18, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 16);
+          ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+          ctx.fillText("\u25BC", lungimeSuprafataGrafica - 18, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 12);
       }
       else{
           ctx.fillText("\u25BC", lungimeSuprafataGrafica - 18, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) + 14);
