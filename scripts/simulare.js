@@ -3416,6 +3416,7 @@ function desenareGraficOrizontal(){
 
 
     //desenare text proiectie2
+    /*
     proiectie2 = medieCumulativ[selectorZi] * intervalProiectie;
 
     //Afisare data
@@ -3442,7 +3443,7 @@ function desenareGraficOrizontal(){
     ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie2) + "!", x_val_2 - 8, y_val_1 + 61);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
     //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
-
+    */
 
     for (let i = 0; i <= selectorZi; i++) {
 
