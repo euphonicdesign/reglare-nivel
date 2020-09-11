@@ -3390,10 +3390,10 @@ function desenareGraficOrizontal(){
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), x_val_2 - 8, y_val_1 - 7);
+    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), x_val_2 - 8, y_val_1 - 9);
 
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(zi_p + " " + luna_p, x_val_2 - 8, y_val_1 + 7);
+    ctx.fillText(zi_p + " " + luna_p, x_val_2 - 8, y_val_1 + 5);
 
     ctx.textAlign = "center";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
@@ -3410,7 +3410,7 @@ function desenareGraficOrizontal(){
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.fillStyle = culoarePunctValoriGrafic;
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 - 8, y_val_1 + 22);
+    ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", x_val_2 - 8, y_val_1 + 20);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
     //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
 
