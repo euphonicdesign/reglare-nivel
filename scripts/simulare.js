@@ -3417,12 +3417,14 @@ function desenareGraficOrizontal(){
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     if(pulsatie_2 && culoare_pulsatie == culoareMaro){
         ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
+        ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_1 + 5 /*- intervalProiectie2*0.75*/, y_val_1 + 6);
     }
     else{
         ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+        ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_1 + 7 /*- intervalProiectie2*0.75*/, y_val_1 + 6);
     }
 
-    ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_1 + 7 /*- intervalProiectie2*0.75*/, y_val_1 + 6);
+    //ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_1 + 7 /*- intervalProiectie2*0.75*/, y_val_1 + 6);
 
     ctx.textAlign = "end";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
