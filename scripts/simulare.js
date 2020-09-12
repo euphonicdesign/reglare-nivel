@@ -3403,7 +3403,7 @@ function desenareGraficOrizontal(){
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(zi_p + " " + luna_p, xTproiectie - 8, y_val_1 + 5);
 
-    ctx.textAlign = "center";
+    ctx.textAlign = "start";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     if(pulsatie_2 && culoare_pulsatie == culoareMaro){
         ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
@@ -3412,12 +3412,12 @@ function desenareGraficOrizontal(){
         ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     }
 
-    ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_2 - intervalProiectie2*0.75, y_val_1 + 6);
+    ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_1 + 7 /*- intervalProiectie2*0.75*/, y_val_1 + 6);
 
     ctx.textAlign = "end";
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.fillStyle = culoarePunctValoriGrafic;
-    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", xTproiectie - 8, y_val_1 + 20);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
     //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
