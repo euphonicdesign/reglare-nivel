@@ -166,7 +166,7 @@ let data_20 = [
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
-            883, 1136, 1271, 1389, 1391, 1311, 
+            883, 1136, 1271, 1389, 1391, 1311,
           ];
 
 
@@ -359,7 +359,7 @@ let info_explicatii = [
               \nValoarea curentă a referinței a depășit 22! \
               \nEa trebuie setată la valoarea 0...', //1/9
 
-              '... .',
+              '... ... ... .',
 ];
 
 
@@ -862,6 +862,14 @@ function prelucrareDate(){
     }
 }
 
+function calculScalaGrafic(){
+  maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
+  yPunct = Math.round(yGrafic_2 - ((data_2[data_2.length-1]*scalaY_trend_2)/maxValueGrafic2));
+  //console.log(yPunct);
+
+  factorScalare = Math.floor((40 - yPunct) / 20); // multipli de 20px de la 40px inaltime
+  scala_grafic_2 += factorScalare * 0.1;
+}
 
 function start() {
     //incrementX = 2.9;
@@ -966,6 +974,8 @@ function start() {
     calcul_parametrii_Predictie();
     maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
     //console.log(maxValueProiectie);
+
+    calculScalaGrafic();
 
     maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2; //- Math.abs(Math.floor((maxValue_2 - maxValueProiectie) * 0.7));
     //console.log("maxValue_2: " + maxValue_2);
