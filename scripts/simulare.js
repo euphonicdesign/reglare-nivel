@@ -2715,12 +2715,7 @@ function desenareGraficeTrenduri(){
 
 
 
-  //Desenare numar punct (2)
-  ctx.textAlign = "end";
-  ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
-  //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-  ctx.fillText("(2)", 12 + x_val_2, y_val_2 - 8);
+
 
   //desenare proiectie punct (2) pe abscisa
   ctx.setLineDash([2,4]);
@@ -2954,11 +2949,23 @@ function desenareGraficeTrenduri(){
           ctx.lineWidth = 2;
           ctx.closePath();
           ctx.stroke();
-
-
       }
 
     }
+
+    //Desenare numar punct (1)
+    ctx.textAlign = "end";
+    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
+    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText("(1)", 12 + x_val_1, y_val_1 - 8);
+
+    //Desenare numar punct (2)
+    ctx.textAlign = "end";
+    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
+    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText("(2)", 12 + x_val_2, y_val_2 - 8);
 
     //punct linie grafic 2 - capat
     ctx.beginPath();
@@ -2978,12 +2985,7 @@ function desenareGraficeTrenduri(){
     ctx.closePath();
     ctx.stroke();
 
-    //Desenare numar punct (1)
-    ctx.textAlign = "end";
-    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareNumarPunct;//culoareTextCompensatorFill;
-    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText("(1)", 12 + x_val_1, y_val_1 - 8);
+
 
     //INFO GRAFIC 2 sus
     //ctx.textAlign = "start";
