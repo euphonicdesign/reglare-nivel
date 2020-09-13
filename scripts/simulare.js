@@ -197,7 +197,7 @@ let data_30 = [
             0.057,  0.059,  0.059,  0.057,  0.057,  0.057,  0.057,
             0.057,  0.055,  0.055,  0.057,  0.062,  0.068,  0.055,
             0.057,
-            0.059, 0.061, 0.06,
+            0.059, 0.061, 0.06, 0.055,
 
 ];
 
@@ -2796,7 +2796,7 @@ function desenareGraficeTrenduri(){
     //Afisare data - zi proiectie
     data_zi_luna = data_data[selectorZi + orizont_proiectie].split("/");
     zi = data_zi_luna[0];
-    luna = data_luni_lung[data_zi_luna[1]-1];
+    luna = data_luni[data_zi_luna[1]-1];
     dataDeAfisat = zi + " " + luna + ":";
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
