@@ -2369,7 +2369,8 @@ function desenareGraficeTrenduri(){
   ctx.textAlign = "end";
   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-  ctx.fillText("Ref. actual\u0103", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 21);
+  ctx.fillText("Referința", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 35);
+  ctx.fillText("actual\u0103", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 21);
   if(data[selectorZi] > medieCumulativ[selectorZi]){
       ctx.fillText("" + Math.round(medieCumulativ[selectorZi]) + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
 
