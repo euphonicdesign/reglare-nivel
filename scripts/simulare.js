@@ -2532,7 +2532,7 @@ function desenareGraficeTrenduri(){
           ctx.fillStyle = culoare_linie_trend;
           //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
           //devstd
-          ctx.fillText("E=" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
+          ctx.fillText("E=\u00B1" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
 
           //desenare indicator abscisa
           ctx.beginPath();
