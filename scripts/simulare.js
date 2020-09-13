@@ -135,7 +135,7 @@ let data_10 = [
             39,
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
-            33, 41, 51, 47, 35, 27,
+            33, 41, 51, 47, 35, 27, 36, 
 
 
 ];
@@ -166,7 +166,7 @@ let data_20 = [
             1392, 	1189, 961,
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
-            883, 1136, 1271, 1389, 1391, 1311,
+            883, 1136, 1271, 1389, 1391, 1311, 1109,
           ];
 
 
@@ -3438,7 +3438,8 @@ function desenareGraficOrizontal(){
         ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
         ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_1 + 5 /*- intervalProiectie2*0.75*/, y_val_1 + 6);
 
-
+        //desenare linie conectare cerculet r cu grafic orizontal
+        ctx.setLineDash([1, 8]);
         ctx.beginPath();
         ctx.moveTo(x_p + 8 - raza_cerculet, y_r);
         ctx.lineTo(x_val_1 + 44, y_val_1 - 16);
@@ -3446,6 +3447,7 @@ function desenareGraficOrizontal(){
         ctx.lineWidth = 4;
         ctx.closePath();
         ctx.stroke();
+        ctx.setLineDash([]);
 
     }
     else{
