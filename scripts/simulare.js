@@ -135,7 +135,7 @@ let data_10 = [
             39,
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
-            33, 41, 51, 47, 35, 27, 36, 
+            33, 41, 51, 47, 35, 27, 36,
 
 
 ];
@@ -2766,7 +2766,7 @@ function desenareGraficeTrenduri(){
   if(selectorZi > orizont_trend){
 
     ctx.fillStyle = culoareLinieGraficP;
-    ctx.fillRect(xLegendaDerivate + ident + 8, yLegendaDerivate + 116, 50, 16);
+    ctx.fillRect(xLegendaDerivate + ident, yLegendaDerivate + 116, 50, 16);
 
     if(vector_r[selectorZi] >= 1){
         ctx.fillStyle = culoare_crestere_entitate;
@@ -2774,7 +2774,7 @@ function desenareGraficeTrenduri(){
     else{
         ctx.fillStyle = culoare_scadere_entitate;
     }
-    ctx.fillRect(xLegendaDerivate + ident + 60, yLegendaDerivate + 116, 50, 16);
+    ctx.fillRect(xLegendaDerivate + ident + 52, yLegendaDerivate + 116, 50, 16);
 
     //desenare valoare vector_r (in procente %)
     //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
@@ -2857,23 +2857,23 @@ function desenareGraficeTrenduri(){
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 98);
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("  =" + Math.floor(valZiCur * vector_r[selectorZi] * 1)/1, xLegendaDerivate + ident, yLegendaDerivate + 130);
+    ctx.fillText("" + Math.floor(valZiCur * vector_r[selectorZi]), xLegendaDerivate + ident, yLegendaDerivate + 130);
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] >= 1){
         //+
-        ctx.fillText("+" + Math.round((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 130);
+        ctx.fillText("+" + Math.round((yp1 - valZiCur * vector_r[selectorZi])), xLegendaDerivate + ident + 52, yLegendaDerivate + 130);
     }
     else{
         //- (fara semn)
-        ctx.fillText("" + Math.round((yp1 - valZiCur * vector_r[selectorZi]) * 1)/1, xLegendaDerivate + ident + 60, yLegendaDerivate + 130);
+        ctx.fillText("" + Math.round((yp1 - valZiCur * vector_r[selectorZi])), xLegendaDerivate + ident + 52, yLegendaDerivate + 130);
     }
 
     ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
     ctx.fillStyle = culoarePunctValoriGrafic_3;
-    ctx.fillText("" + Math.round(yp1) + "", xEntitate + 12, yLegendaDerivate + 130);
+    ctx.fillText("=" + Math.round(yp1) + "", xEntitate + 6, yLegendaDerivate + 130);
 
 
     //calcul derivate
