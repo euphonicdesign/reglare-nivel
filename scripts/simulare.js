@@ -2357,8 +2357,9 @@ function desenareGraficeTrenduri(){
     ratap_2 = "" + Math.floor(data_3[data_3.length-1]*1000)/10 + "%";
   }
 
+  //desenare dreptunghi ratap
   ctx.fillStyle = culoareLinieGraficP;
-  ctx.fillRect(xMagnificareGrafice - 50, yMagnificareGrafice - 28, 50, 14);
+  ctx.fillRect(xMagnificareGrafice - 38, yMagnificareGrafice - 28, 38, 14);
 
   ctx.textAlign = "end";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
