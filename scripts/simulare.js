@@ -1682,13 +1682,6 @@ function desenareGraficPVectorR(){
     }
     //desenare punct valoare grafic_valori_desenat - vector_r
     if(i > orizont_regresie){
-        ctx.beginPath();
-        if(plin && pulsatie_2/*raza_pulsatie == 1*/){
-            ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie + 2, 0, 2 * Math.PI);
-        }
-        else {
-            ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
-        }
 
         //ctx.moveTo(12 + x_p, y_r - 1);
         //ctx.lineTo(12 + x_p, y_r + 1);
@@ -1700,7 +1693,19 @@ function desenareGraficPVectorR(){
             ctx.strokeStyle = culoareScadere;
             //ctx.fillStyle = culoareScadere;
         }
-        ctx.closePath();
+
+
+        if(plin && pulsatie_2/*raza_pulsatie == 1*/){
+            ctx.beginPath();
+            ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie + 2, 0, 2 * Math.PI);
+            ctx.closePath();
+        }
+        else {
+            ctx.beginPath();
+            ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
+            ctx.closePath();
+        }
+
 
         if(plin){
             ctx.lineWidth = 2;
@@ -3432,6 +3437,16 @@ function desenareGraficOrizontal(){
     if(pulsatie_2 && culoare_pulsatie == culoareMaro){
         ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
         ctx.fillText(" +" + Math.round(proiectie) + "!", x_val_1 + 5 /*- intervalProiectie2*0.75*/, y_val_1 + 6);
+
+
+        ctx.beginPath();
+        ctx.moveTo(x_p + 8 - raza_cerculet, y_r);
+        ctx.lineTo(x_val_1 + 44, y_val_1 - 16);
+        ctx.strokeStyle = culoareGalben;
+        ctx.lineWidth = 4;
+        ctx.closePath();
+        ctx.stroke();
+
     }
     else{
         ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
