@@ -3310,6 +3310,15 @@ function desenareGraficOrizontal(){
     y_ms_1 = y_val_1 - lungime_segment_medie;
     y_md_1 = y_val_1 + lungime_segment_medie;
 
+    /*
+    //colorare diferit daca capacitatea a fost depasita
+    if(procentDinCapacitate > 1){
+        ctx.strokeStyle = culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+        //console.log("mod grafice: colorare grafic vertical");
+    }
+    else{
+      ctx.strokeStyle = culoareLinieGraficVertical;
+    }*/
 
     //Punct linie proiectie capat dreapta (3) - sus
     ctx.strokeStyle = "white";//culoarePunctValoriGrafic_3;//"white";
@@ -3576,8 +3585,18 @@ function desenareGraficOrizontal(){
         ctx.stroke();
         ctx.setLineDash([]);
 
+
+        //colorare diferit daca capacitatea a fost depasita
+        if(procentDinCapacitate > 1){
+            ctx.strokeStyle = culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+            //console.log("mod grafice: colorare grafic vertical");
+        }
+        else{
+          ctx.strokeStyle = culoareLinieGraficVertical;
+        }
+
         //punct linie conectare (sus)
-        ctx.strokeStyle = "white";
+        //ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x_valoare, y_valoare_1, 4, 0, 2 * Math.PI);
@@ -3585,7 +3604,7 @@ function desenareGraficOrizontal(){
         ctx.stroke();
 
         //punct (jos)
-        ctx.strokeStyle = "white";
+        //ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x_valoare, y_valoare_2, 4, 0, 2 * Math.PI);
