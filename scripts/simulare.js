@@ -136,6 +136,7 @@ let data_10 = [
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
             33, 41, 51, 47, 35, 27, 36,
+            22,
 
 
 ];
@@ -167,6 +168,7 @@ let data_20 = [
             805, 1060, 1256, 1504, 1318, 1365, 952,
             755, 1053, 1298, 1365, 1339, 1269, 1150,
             883, 1136, 1271, 1389, 1391, 1311, 1109,
+            692,
           ];
 
 
@@ -867,7 +869,7 @@ function calculScalaGrafic(){
   yPunct = Math.round(yGrafic_2 - ((data_2[data_2.length-1]*scalaY_trend_2)/maxValueGrafic2));
   //console.log(yPunct);
 
-  factorScalare = Math.floor((40 - yPunct) / 20); // multipli de 20px de la 40px inaltime
+  factorScalare = Math.floor((80 - yPunct) / 20); // multipli de 20px de la 40px inaltime
   scala_grafic_2 += factorScalare * 0.1;
 }
 
