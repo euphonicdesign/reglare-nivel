@@ -313,7 +313,7 @@ let evenimente = [
 ];
 
 let evenimente_actiuni = [
-              '15 Aprilie: limitare',//1/5
+              '15 Apr: limitare',//1/5
               '1 Mai: limitare',//1/5
               '15 Mai: vectorizare', //15/5
               '1 Iun: vectorizare (?)', //1/6
@@ -321,7 +321,7 @@ let evenimente_actiuni = [
               '1 Iul: vectorizare (???)', //1/7
               '1 Aug: limitare (...)', //1/8
               '1 Sep: vectorizare (?!)', //1/9
-              '7: vectorizare (...)', //15/9
+              '15 Sep: vectorizare (...)', //15/9
 ];
 
 let info_date = [
