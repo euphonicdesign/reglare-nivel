@@ -2168,7 +2168,7 @@ function desenareRadar(){
   //Desenare Vant
 
 
-
+  ctx.textAlign = "center";
   if(pulsatie_2){
     ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillStyle = culoarePunctValoriGrafic_3;;
