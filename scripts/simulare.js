@@ -2065,8 +2065,25 @@ function desenareRadar(){
   //desenare numar cadran
   ctx.textAlign = "end";
   ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+
+
+  //verde daca avion in cadran 2
+  if(vectorXAvion[selectorZi] - xRadar > 0){
+      ctx.fillStyle = culoareTextZi;
+  }
+  else{
+      ctx.fillStyle = culoareScadere;
+  }
+
+  if(depasireLimitaStabilitate == false){
+      ctx.font = "14px bold italic Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = "white";//"rgba(38,145,31,0.9)";
+      ctx.strokeStyle = "white";//"rgba(38,145,31,0.9)";
+      ctx.strokeText("2", xRadar - 5, yRadar - 7);
+  }
+  //ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
   ctx.fillText("2", xRadar - 5, yRadar - 7);
+
 
   //Desenare Pista Aeroport
   ctx.fillStyle = "grey";//culoare_scadere_entitate;
