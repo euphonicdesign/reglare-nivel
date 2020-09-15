@@ -361,7 +361,7 @@ let info_explicatii = [
               \nValoarea curentă a referinței a depășit 22! \
               \nEa trebuie setată la valoarea 0...', //1/9
 
-              '... ... ... .',
+              '...',
 ];
 
 
@@ -2061,6 +2061,12 @@ function desenareRadar(){
   //ctx.beginPath();
   //ctx.closePath();
 
+
+  //desenare numar cadran
+  ctx.textAlign = "end";
+  ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+  ctx.fillText("2", xRadar - 5, yRadar - 7);
 
   //Desenare Pista Aeroport
   ctx.fillStyle = "grey";//culoare_scadere_entitate;
