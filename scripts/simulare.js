@@ -361,7 +361,7 @@ let info_explicatii = [
               \nValoarea curentă a referinței a depășit 22! \
               \nEa trebuie setată la valoarea 0...', //1/9
 
-              '...',
+              '... cadranul 2...',
 ];
 
 
