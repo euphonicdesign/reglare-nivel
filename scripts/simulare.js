@@ -200,7 +200,7 @@ let data_30 = [
             0.057,  0.055,  0.055,  0.057,  0.062,  0.068,  0.055,
             0.057,
             0.059, 0.061, 0.06, 0.055, 0.051, 0.06, 0.059,
-            0.057, 
+            0.057,
 
 
 ];
@@ -919,7 +919,7 @@ function start() {
         }
 
         dataCumulativ[i] = cumul;
-        medieCumulativ[i] = Math.round(cumul/(i+1));
+        medieCumulativ[i] = cumul/(i+1);
         comandaIdeala[i] = Math.round(kp*data[i] + ki*medieCumulativ[i] + (kd * medieCumulativ[i] * intervalProiectie));
 
         for(let k=0; k < evenimente_tip.length; k++){
@@ -1570,7 +1570,7 @@ function desenareZiValoare() {
     ctx.fillStyle = culoareTextReferinta;
     ctx.font = "bold 30px Helvetica, Arial, sans-serif";
     //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
-    ctx.fillText("" + medieCumulativ[selectorZi], lungimeSuprafataGrafica - 450, yIndicatorRezervor);
+    ctx.fillText("" + Math.round(medieCumulativ[selectorZi]), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
 }
 
 function desenareCompensatorValori() {
@@ -1583,7 +1583,7 @@ function desenareCompensatorValori() {
     ctx.font = "italic 12px system-ui, Arial, sans-serif";
 
     //Referinta
-    ctx.fillText("Ref=0 (actuală=" + medieCumulativ[selectorZi] + "...)" , xLegenda, yLegenda);
+    ctx.fillText("Ref=0 (actuală=" + Math.round(medieCumulativ[selectorZi]) + "...)" , xLegenda, yLegenda);
 
     //Constante amplificare
     ctx.fillText("Kp=" + kp + " Ki=" + ki + " Kd=" + kd, xLegenda, yl1);
@@ -1592,7 +1592,7 @@ function desenareCompensatorValori() {
     //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
 
     //Compensator
-    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + "+Ki*"+medieCumulativ[selectorZi] + "+Kd*" + medieCumulativ[selectorZi] * intervalProiectie, xLegenda, yl2);
+    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + "+Ki*"+Math.round(medieCumulativ[selectorZi]) + "+Kd*" + Math.round(medieCumulativ[selectorZi] * intervalProiectie), xLegenda, yl2);
 
     //Grad atentie
     //ctx.fillStyle = culoareTextCompensatorFill;
@@ -2397,9 +2397,9 @@ function desenareGraficeTrenduri(){
   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
   ctx.fillText("Referința", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 35);
-  ctx.fillText("actual\u0103", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 21);
+  ctx.fillText("actuală", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 21);
   if(data[selectorZi] > medieCumulativ[selectorZi]){
-      ctx.fillText("" + Math.round(medieCumulativ[selectorZi]) + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
+      ctx.fillText("" + Math.floor(medieCumulativ[selectorZi]*10)/10 + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
 
       ctx.textAlign = "center";
       ctx.fillStyle = culoareCrestereRosu;
