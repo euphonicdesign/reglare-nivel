@@ -691,6 +691,34 @@ buton_afisaretrend.onclick = function() {
 const input = document.querySelector('html');
 input.onkeydown = modificaNivel;
 
+document.querySelector('body').addEventListener("wheel", redimensionareGrafic);
+
+function redimensionareGrafic(){
+  if(mod == MOD_GRAFICE){
+      var y = event.deltaY;
+      //console.log("zoom: " + y);
+      if (y > 0){
+            //plus
+            if(scala_grafic_2 < 1.8){
+                scala_grafic_2 += 0.1;
+                maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
+                ActualizareSuprafataGraficaSingulara();
+                //console.log(scala_grafic_2);
+            }
+      }
+      else {
+            //minus
+            if(scala_grafic_2 > 0.5){
+              scala_grafic_2 -= 0.1;
+              maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
+              ActualizareSuprafataGraficaSingulara();
+              //console.log(scala_grafic_2);
+            }
+      }
+  }
+}
+
+
 function restart(){
     //console.log("pagina se va reincarca");
     location.reload();
@@ -736,7 +764,7 @@ buton_derulare_inainte.onclick = function() {
 var buton_scalare_plus = document.getElementById('scalare_plus');
 buton_scalare_plus.onclick = function() {
     if(mod == MOD_GRAFICE){
-        if(scala_grafic_2 < 1.3){
+        if(scala_grafic_2 < 1.8){
             scala_grafic_2 += 0.1;
             maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
             ActualizareSuprafataGraficaSingulara();
