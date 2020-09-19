@@ -136,7 +136,7 @@ let data_10 = [
             37, 58, 54, 38, 48, 32, 39,
             43, 60, 40, 44, 47, 38, 43,
             33, 41, 51, 47, 35, 27, 36,
-            22, 51, 49, 27, 48, 42, 
+            22, 51, 49, 27, 48, 42,
 
 
 ];
@@ -670,7 +670,10 @@ rangeSlider.oninput = function(){
 
 //buton afisare trend
 var buton_afisaretrend = document.getElementById('afisaretrend');
-buton_afisaretrend.onclick = function() {
+buton_afisaretrend.onclick = schimbareModAfisareTrend;
+
+
+function schimbareModAfisareTrend() {
     if(mod == MOD_GRAFICE){
       afisaretrend = !afisaretrend;
       if(afisaretrend){
@@ -692,6 +695,7 @@ const input = document.querySelector('html');
 input.onkeydown = modificaNivel;
 
 document.querySelector('body').addEventListener("wheel", redimensionareGrafic);
+document.querySelector('body').addEventListener("dblclick", schimbareModAfisareTrend);
 
 function redimensionareGrafic(){
   if(mod == MOD_GRAFICE){
