@@ -523,7 +523,9 @@ var xStalp = xRadar - razaCerc1 - razaCerc3*3;
 var yStalp = yRadar - 4;
 var lungimeStalp = 18;
 var lungimeSoseta = 18;
-
+var pulsatie_radar = 0;
+var pulsatie_radar_x = xRadar;
+var pulsatie_radar_y = yRadar;
 
 
 var curbura = 5;
@@ -2305,6 +2307,12 @@ function desenareRadar(){
 
   //Desenare Raza Radar
   radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar; //360/8 = 45
+  //grade = selectorZi * vitezaRadar;
+  //console.log(grade);
+
+
+
+  //if(Math.cos(radianiZi))
 
   /*
   grade = selectorZi % (360 / vitezaRadar);
@@ -2353,15 +2361,7 @@ function desenareRadar(){
 
   }
 
-
-  //desenare Avion pe radar
-  if(vectorXAvion[selectorZi] - xRadar > 0){
-      ctx.fillStyle = culoareCrestereMaro;
-  }
-  else{
-      ctx.fillStyle = culoareScadere;
-  }
-  ctx.strokeStyle = "white";
+  //desenare avion partea 1
   if(depasireLimitaStabilitate){
       ctx.lineWidth = 1;
       dimensiuneAvion = razaPunctAvionMin + medieCumulativ[selectorZi]/scalaDimensiuneAvion;
@@ -2372,7 +2372,49 @@ function desenareRadar(){
   }
 
 
-  //console.log(dimensiuneAvion);
+  //desenare pulsatie detectie pe radar
+  cosAvion = (vectorXAvion[selectorZi] - xRadar)/razaCerc1;
+  sinAvion = (vectorYAvion[selectorZi] - yRadar)/razaCerc1;
+
+  distCos = Math.cos(radianiZi + Math.PI/6) - cosAvion;
+  distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
+  dist1 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
+
+  distCos = Math.cos(radianiZi + 0) - cosAvion;
+  distSin = Math.sin(radianiZi + 0) - sinAvion;
+  dist2 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
+
+  //console.log("d1: " + dist1);
+  //console.log("d2: " + dist2);
+
+  if(dist1 < 0.9 && dist2 < 0.8){
+      //console.log("detectie");
+      if(pulsatie_radar == 0){
+          pulsatie_radar = 8;
+          pulsatie_radar_x = vectorXAvion[selectorZi];
+          pulsatie_radar_y = vectorYAvion[selectorZi];
+      }
+  }
+
+  if(pulsatie_radar > 0){
+      ctx.fillStyle = "rgba(255,255,255," + (1 - (1-pulsatie_radar/10)) + ")";
+      pulsatie_radar--;
+      ctx.beginPath();
+      ctx.arc(pulsatie_radar_x, pulsatie_radar_y , 1 + dimensiuneAvion + (2 - pulsatie_radar/4), 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
+      if(pulsatie_radar>2)
+          ctx.stroke();
+  }
+
+  //desenare Avion pe radar
+  if(vectorXAvion[selectorZi] - xRadar > 0){
+      ctx.fillStyle = culoareCrestereMaro;
+  }
+  else{
+      ctx.fillStyle = culoareScadere;
+  }
+  ctx.strokeStyle = "white";
 
   ctx.beginPath();
   ctx.arc(vectorXAvion[selectorZi], vectorYAvion[selectorZi] , dimensiuneAvion, 0, 2 * Math.PI);
