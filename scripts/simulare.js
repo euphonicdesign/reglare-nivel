@@ -2373,26 +2373,28 @@ function desenareRadar(){
 
 
   //desenare pulsatie detectie pe radar
-  cosAvion = (vectorXAvion[selectorZi] - xRadar)/razaCerc1;
-  sinAvion = (vectorYAvion[selectorZi] - yRadar)/razaCerc1;
+  if((yRadar - vectorYAvion[selectorZi]) < razaCerc1 && medieCumulativ[selectorZi] < nivelMaxAfisatRezervor){
+      cosAvion = (vectorXAvion[selectorZi] - xRadar)/razaCerc1;
+      sinAvion = (vectorYAvion[selectorZi] - yRadar)/razaCerc1;
 
-  distCos = Math.cos(radianiZi + Math.PI/6) - cosAvion;
-  distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
-  dist1 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
+      distCos = Math.cos(radianiZi + Math.PI/6) - cosAvion;
+      distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
+      dist1 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
-  distCos = Math.cos(radianiZi + 0) - cosAvion;
-  distSin = Math.sin(radianiZi + 0) - sinAvion;
-  dist2 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
+      distCos = Math.cos(radianiZi + 0) - cosAvion;
+      distSin = Math.sin(radianiZi + 0) - sinAvion;
+      dist2 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
-  //console.log("d1: " + dist1);
-  //console.log("d2: " + dist2);
+      //console.log("d1: " + dist1);
+      //console.log("d2: " + dist2);
 
-  if(dist1 < 0.9 && dist2 < 0.8){
-      //console.log("detectie");
-      if(pulsatie_radar == 0){
-          pulsatie_radar = 8;
-          pulsatie_radar_x = vectorXAvion[selectorZi];
-          pulsatie_radar_y = vectorYAvion[selectorZi];
+      if(dist1 < 0.9 && dist2 < 0.8){
+          //console.log("detectie");
+          if(pulsatie_radar == 0){
+              pulsatie_radar = 8;
+              pulsatie_radar_x = vectorXAvion[selectorZi];
+              pulsatie_radar_y = vectorYAvion[selectorZi];
+          }
       }
   }
 
