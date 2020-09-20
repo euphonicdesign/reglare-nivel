@@ -524,6 +524,7 @@ var yStalp = yRadar - 4;
 var lungimeStalp = 18;
 var lungimeSoseta = 18;
 var pulsatie_radar = 0;
+var temporizare_pulsatie_radar = 8;
 var pulsatie_radar_x = xRadar;
 var pulsatie_radar_y = yRadar;
 
@@ -2361,13 +2362,11 @@ function desenareRadar(){
 
   }
 
-  //desenare avion partea 1
+  //caclul parametrii desenare pulsatie si dimensiune avion
   if(depasireLimitaStabilitate){
-      ctx.lineWidth = 1;
       dimensiuneAvion = razaPunctAvionMin + medieCumulativ[selectorZi]/scalaDimensiuneAvion;
   }
   else{
-      ctx.lineWidth = 2;
       dimensiuneAvion = razaPunctAvionMin + medieCumulativ[selectorZi]/scalaDimensiuneAvion + 1;
   }
 
@@ -2391,25 +2390,35 @@ function desenareRadar(){
       if(dist1 < 0.9 && dist2 < 0.8){
           //console.log("detectie");
           if(pulsatie_radar == 0){
-              pulsatie_radar = 8;
+              pulsatie_radar = temporizare_pulsatie_radar;
               pulsatie_radar_x = vectorXAvion[selectorZi];
               pulsatie_radar_y = vectorYAvion[selectorZi];
           }
       }
   }
 
+  ctx.lineWidth = 2;
   if(pulsatie_radar > 0){
-      ctx.fillStyle = "rgba(255,255,255," + (1 - (1-pulsatie_radar/10)) + ")";
+      ctx.fillStyle = "rgba(255,255,255," + (0.2 + 0.8 - 0.8 * (temporizare_pulsatie_radar-pulsatie_radar)/temporizare_pulsatie_radar) + ")";
       pulsatie_radar--;
       ctx.beginPath();
-      ctx.arc(pulsatie_radar_x, pulsatie_radar_y , 1 + dimensiuneAvion + (2 - pulsatie_radar/4), 0, 2 * Math.PI);
+      ctx.arc(pulsatie_radar_x, pulsatie_radar_y , razaPunctAvion + (temporizare_pulsatie_radar - pulsatie_radar)/temporizare_pulsatie_radar * razaPunctAvion, 0, 2 * Math.PI);
       ctx.closePath();
       ctx.fill();
-      if(pulsatie_radar>2)
+      if(pulsatie_radar > temporizare_pulsatie_radar/3)
           ctx.stroke();
   }
 
   //desenare Avion pe radar
+
+  //desenare avion partea 1
+  if(depasireLimitaStabilitate){
+      ctx.lineWidth = 1;
+  }
+  else{
+      ctx.lineWidth = 2;
+  }
+
   if(vectorXAvion[selectorZi] - xRadar > 0){
       ctx.fillStyle = culoareCrestereMaro;
   }
