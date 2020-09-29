@@ -2488,6 +2488,7 @@ function desenareGraficeTrenduri(){
 
 
   //desenare linie referinta Grafic trenduri 1
+  //nivel apa
   ctx.fillStyle = culoareLinieReferintaGrafic;
   ctx.fillRect(10, yGrafic_1, lungimeSuprafataGrafica-20, - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue));
 
