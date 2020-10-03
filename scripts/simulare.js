@@ -1059,6 +1059,9 @@ function start() {
         if(i>orizont_regresie){
           vector_valZiCurenta[i] = vector_coefA[i] * Math.pow(vector_r[i], (i-1));
           vector_E_procentual[i] = vector_E[i] / vector_valZiCurenta[i];
+          //procentajul erorii se calculeaza pentru ziua curenta, nu pentru ziua proiectiei
+          //console.log("i=" + i + " " + vector_valZiCurenta[i] +" " + vector_E_procentual[i]);
+          //console.log("");
         }
         else {
           vector_valZiCurenta[i] = 0;
