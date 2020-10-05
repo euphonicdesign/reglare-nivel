@@ -488,7 +488,7 @@ var vitezaSimulare = 165;
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
-var scala_grafic_2 = 1.0; //scalare suplimentara grafic 2 sus 1.5 = -150%
+var scala_grafic_2 = 0.9; //scalare suplimentara grafic 2 sus 1.5 = -150%
 
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 80; // grafic sus - p+
@@ -740,7 +740,7 @@ function redimensionareGrafic(){
       //console.log("zoom: " + y);
       if (y > 0){
             //plus
-            if(scala_grafic_2 < 1.1){
+            if(scala_grafic_2 < 0.9){
                 scala_grafic_2 += 0.1;
                 maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
                 ActualizareSuprafataGraficaSingulara();
@@ -805,7 +805,7 @@ buton_derulare_inainte.onclick = function() {
 var buton_scalare_plus = document.getElementById('scalare_plus');
 buton_scalare_plus.onclick = function() {
     if(mod == MOD_GRAFICE){
-        if(scala_grafic_2 < 1.1){
+        if(scala_grafic_2 < 0.9){
             scala_grafic_2 += 0.1;
             maxValueGrafic2 = Math.max(maxValue_2, maxValueProiectie) * scala_grafic_2;
             ActualizareSuprafataGraficaSingulara();
@@ -2480,7 +2480,7 @@ function desenareNivelMagnificareGrafice(){
     ctx.fillText("\u2222:         ", xMagnificareGrafice, yMagnificareGrafice);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
-    ctx.fillText("" + Math.round(scala_grafic_2 * 100 * maxValueGrafic2/1400)+ "%", xMagnificareGrafice, yMagnificareGrafice);
+    ctx.fillText("" + Math.round(100 + scala_grafic_2 * 100 * maxValueGrafic2/1400)+ "%", xMagnificareGrafice, yMagnificareGrafice);
 }
 
 function desenareGraficeTrenduri(){
