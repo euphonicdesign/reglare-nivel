@@ -209,7 +209,7 @@ let data_30 = [
             0.059, 0.061, 0.06, 0.055, 0.051, 0.06, 0.059,
             0.058, 0.057, 0.06, 0.063, 0.064, 0.065, 0.065,
             0.066, 0.066, 0.066, 0.066, 0.066, 0.068, 0.07,
-            0.074, 0.076, 0.078, 0.081, 0.089, 0.089, 0.079, 
+            0.074, 0.076, 0.078, 0.081, 0.089, 0.089, 0.079,
 
 
 ];
@@ -500,7 +500,7 @@ var scalaEntitate = 70;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
-var scalaX = 120; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaX = 140; //grafic valori vertical - cumulativ - foto, trend, regulator
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
