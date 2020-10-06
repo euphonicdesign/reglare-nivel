@@ -347,6 +347,7 @@ let evenimente = [
               '1/8',
               '1/9',
               '15/9',
+              '7/10',
 ];
 
 let evenimente_actiuni = [
@@ -359,6 +360,7 @@ let evenimente_actiuni = [
               '1 Aug: limitare (...)', //1/8
               '1 Sep: vectorizare (?!)', //1/9
               '15 Sep: vectorizare (...)', //15/9
+              '7 Oct: limitare (...)', //15/9
 ];
 
 let info_date = [
@@ -371,6 +373,7 @@ let info_date = [
               '1/8',
               '1/9',
               '15/9',
+              '7/10',
 ];
 
 let info_explicatii = [
@@ -399,6 +402,8 @@ let info_explicatii = [
               \nEa trebuie setată la valoarea 0...', //1/9
 
               '... cadranul 2... S.O.S.',
+
+              '... cadranul 2... S.O.S.',
 ];
 
 
@@ -412,6 +417,7 @@ let evenimente_tip = [
               culoareVerde, //1/8
               culoareMaro, //1/9
               culoareMaro, //15/9
+              culoareVerde, //7/10
 ]
 
 var raza_cerculet = 5;
