@@ -139,7 +139,7 @@ let data_10 = [
             22, 51, 49, 27, 48, 42, 33,
             23, 45, 47, 41, 42, 54, 31,
             30, 44, 33, 37, 53, 32, 56,
-            45, 73,
+            45, 73, 82,
 
 ];
 
@@ -173,7 +173,7 @@ let data_20 = [
             692, 1111, 1713, 1679, 1527, 1333, 1231,
             808, 1059, 1787, 1639, 1629, 1552, 1438,
             1271, 1470, 2158, 2086, 2343, 2064, 1835,
-            1591, 2121,
+            1591, 2121, 2958,
 
 
           ];
@@ -506,7 +506,7 @@ var scalaEntitate = 70;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
-var scalaX = 140; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaX = 160; //grafic valori vertical - cumulativ - foto, trend, regulator
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
