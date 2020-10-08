@@ -139,8 +139,7 @@ let data_10 = [
             22, 51, 49, 27, 48, 42, 33,
             23, 45, 47, 41, 42, 54, 31,
             30, 44, 33, 37, 53, 32, 56,
-            45, 73, 82, 44
-
+            45, 73, 82, 44,
 ];
 
 let data_20 = [
@@ -174,8 +173,6 @@ let data_20 = [
             808, 1059, 1787, 1639, 1629, 1552, 1438,
             1271, 1470, 2158, 2086, 2343, 2064, 1835,
             1591, 2121, 2958, 3130,
-
-
           ];
 
 
@@ -210,8 +207,6 @@ let data_30 = [
             0.058, 0.057, 0.06, 0.063, 0.064, 0.065, 0.065,
             0.066, 0.066, 0.066, 0.066, 0.066, 0.068, 0.07,
             0.074, 0.076, 0.078, 0.081, 0.089, 0.089, 0.079,
-
-
 ];
 
 
@@ -507,6 +502,7 @@ var scalaEntitate = 70;
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
 var scalaX = 160; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaXTrend3Orizontal = 140;
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
@@ -518,6 +514,9 @@ var ident = 9;
 
 var xMagnificareGrafice = lungimeSuprafataGrafica - 15;
 var yMagnificareGrafice = yGrafic_2 - 7;
+
+var xMagnificareGrafice2 = 59;
+var yMagnificareGrafice2 = yGrafic_3 - 64;
 
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -2488,6 +2487,12 @@ function desenareNivelMagnificareGrafice(){
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
     ctx.fillText("" + Math.round(100 + scala_grafic_2 * 100 * maxValueGrafic2/1400)+ "%", xMagnificareGrafice, yMagnificareGrafice);
+
+    ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText("\u2222:         ", xMagnificareGrafice2, yMagnificareGrafice2);
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
+    ctx.fillText("" + Math.round(100 + maxValue/25 * 100)+ "%", xMagnificareGrafice2, yMagnificareGrafice2);
 }
 
 function desenareGraficeTrenduri(){
@@ -3465,7 +3470,7 @@ function desenareGraficOrizontal(){
     x_val_2 = x_val_1 + intervalProiectie2;
 
     //linie medie stanga
-    lungime_segment_medie = Math.round( ((medieCumulativ[selectorZi]*scalaX)/maxValue) / 2 );
+    lungime_segment_medie = Math.round( ((medieCumulativ[selectorZi]*scalaXTrend3Orizontal)/maxValue) / 2 );
     y_ms_1 = y_val_1 - lungime_segment_medie;
     y_md_1 = y_val_1 + lungime_segment_medie;
 
@@ -3673,7 +3678,7 @@ function desenareGraficOrizontal(){
       //GRAFIC ORIZONTAL(VERTICAL) - UMPLERE
       //desenare linie sub valoare grafic
       y_valoare_1 = y_val_1; //i*incrementX;
-      y_valoare_2 = Math.round(y_valoare_1 + ((data[i]*scalaX)/maxValue));
+      y_valoare_2 = Math.round(y_valoare_1 + ((data[i]*scalaXTrend3Orizontal)/maxValue));
       lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
       y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
       y_valoare_2 = y_valoare_2 - lungime_segment;
