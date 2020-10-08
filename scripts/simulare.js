@@ -502,7 +502,7 @@ var scalaEntitate = 70;
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
 var scalaX = 160; //grafic valori vertical - cumulativ - foto, trend, regulator
-var scalaXTrend3Orizontal = 140;
+var scalaXTrend3Orizontal = 130;
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
 var yGrafic_1 = yGrafic_2 + 150;
