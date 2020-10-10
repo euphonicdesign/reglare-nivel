@@ -1713,18 +1713,52 @@ function desenarePuncteTrendMedie(){
 }
 
 function desenareEntitate(){
-    raza_pop = valZiCur/maxValZiCur * scalaEntitate;
-    valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
+    //raza_pop = valZiCur/maxValZiCur * scalaEntitate;
 
-    if(selectorZi>(orizont_regresie + orizont_arie)){
-        raza_transmisie = valZiUrm/maxValZiCur * scalaEntitate;
+    if(nrArie == 43){
+        raza_pop = valZiCur/7;
+        valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
+
+        if(selectorZi>(orizont_regresie + orizont_arie)){
+            raza_transmisie = valZiUrm/7;
+        }
+        else{
+            //raza_transmisie = 0;
+            valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
+            raza_transmisie = valZiUrm/7;
+
+            raza_pop = data_2[selectorZi]/7;
+        }
+        /*
+        raza_pop = valZiCur/maxValZiCur * scalaEntitate;
+        valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
+
+        if(selectorZi>(orizont_regresie + orizont_arie)){
+            raza_transmisie = valZiUrm/maxValZiCur * scalaEntitate;
+        }
+        else{
+            //raza_transmisie = 0;
+            valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
+            raza_transmisie = valZiUrm/maxValZiCur * scalaEntitate;
+
+            raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;
+        }
+        */
     }
     else{
-        //raza_transmisie = 0;
-        valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
-        raza_transmisie = valZiUrm/maxValZiCur * scalaEntitate;
+        raza_pop = valZiCur;
+        valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
 
-        raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;
+        if(selectorZi>(orizont_regresie + orizont_arie)){
+            raza_transmisie = valZiUrm
+        }
+        else{
+            //raza_transmisie = 0;
+            valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
+            raza_transmisie = valZiUrm;
+
+            raza_pop = data_2[selectorZi];
+        }
     }
 
     diff = raza_transmisie - raza_pop;
@@ -2364,8 +2398,9 @@ function desenareGraficeTrenduri(){
 
   ctx = suprafataGrafica.context;
 
-  desenareEvenimente();
   desenareEntitate();
+  desenareEvenimente();
+  desenareZiValoareTrenduri();
   desenareNivelMagnificareGrafice();
   desenareTextArieSelectata();
 
@@ -3773,7 +3808,7 @@ function ActualizareSuprafataGrafica() {
             //desenarePuncteGraficOrizontal();
         }
         else{//MOD_GRAFICE
-          desenareZiValoareTrenduri();
+          //desenareZiValoareTrenduri();
           desenareGraficeTrenduri();
           desenareGraficOrizontal();
         }
@@ -3859,7 +3894,7 @@ function ActualizareSuprafataGraficaSingulara() {
             //desenarePuncteGraficOrizontal();
         }
         else{//MOD_GRAFICE
-            desenareZiValoareTrenduri();
+            //desenareZiValoareTrenduri();
             desenareGraficeTrenduri();
             desenareGraficOrizontal();
         }
