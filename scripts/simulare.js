@@ -1027,16 +1027,31 @@ function generare_vector_r_coefA(){
           sumX += i;
 
           //SumY(SumLn(y))
-          sumY += Math.log(data_2[i]);
-          sumY_raw += data_2[i];
+          if(data_2[i]>0){
+            sumY += Math.log(data_2[i]);
+            sumY_raw += data_2[i];
 
-          //SumXY(SumXLn(y))
-          sumXY += i*Math.log(data_2[i]);
+            //SumXY(SumXLn(y))
+            sumXY += i*Math.log(data_2[i]);
 
-          //SumX^2
-          sumX2 += i*i;
+            //SumX^2
+            sumX2 += i*i;
 
-          sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
+            sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
+          }
+          else{
+            sumY += 0;//Math.log(data_2[i]);
+            sumY_raw += 0;//data_2[i];
+
+            //SumXY(SumXLn(y))
+            sumXY += 0;//i*Math.log(data_2[i]);
+
+            //SumX^2
+            sumX2 += i*i;
+
+            sumY2 += 0;//Math.log(data_2[i]) * Math.log(data_2[i]);
+          }
+
 
           //data_2[i];
           //contor++;
