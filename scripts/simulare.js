@@ -542,6 +542,8 @@ var bazaR = 1.0;
 var orizont_regresie = Math.floor(orizont_trend / 2);
 var orizont_proiectie = 21;
 
+var orizont_arie = 0; //12 daca arie selectata
+
 var xc2 = 0;
 var yc2 = 0;
 
@@ -965,20 +967,20 @@ function prelucrareDate(){
         //console.log("Arie: " + nrArie)
 
         //resetare interval lipsa date [21/03 - 02/04]
-        for(let i = 0; i < 12; i++){
+        for(let i = 0; i < 13; i++){
             data_2[i] = 0;
         }
 
         //stocare date arie in data_2
         for(let i = 0; i < nr_zile_arie; i++){
-            data_2[12+i] = parseInt(dateArie.data[i].value[nrArie]);
+            data_2[13+i] = parseInt(dateArie.data[i].value[nrArie]);
         }
 
         //mediere
         for(let i = 2; i < nr_zile_arie; i++){
             //c
             medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
-            data_2[12+i-2] = medie;
+            data_2[13+i-2] = medie;
         }
 
 
@@ -1038,6 +1040,13 @@ function start() {
           maxValue = data[i];
     }*/
     setare_nr_arie();
+    if(nrArie == 43){
+      orizont_arie = 0;
+    }
+    else{
+      orizont_arie = 13;
+    }
+
     prelucrareDate();
 
 
@@ -1141,7 +1150,7 @@ function start() {
 
 
     for(let i=0; i < data_2.length; i++ ){
-        if(i>orizont_regresie){
+        if(i>(orizont_regresie + orizont_arie)){
           vector_valZiCurenta[i] = vector_coefA[i] * Math.pow(vector_r[i], (i-1));
           vector_E_procentual[i] = vector_E[i] / vector_valZiCurenta[i];
           //procentajul erorii se calculeaza pentru ziua curenta, nu pentru ziua proiectiei
@@ -1158,7 +1167,7 @@ function start() {
     //calcul traiectorie avion Radar
 
     for(let i=0; i < data_2.length; i++ ){
-        if(i>orizont_regresie){
+        if(i>(orizont_regresie + orizont_arie)){
           //vector_valZiCurenta[i] = vector_coefA[i] * Math.pow(vector_r[i], (i-1));
           //vector_E_procentual[i] = vector_E[i] / vector_valZiCurenta[i];
 
@@ -1246,7 +1255,7 @@ function start() {
 }
 
 function generare_vector_r_coefA(){
-    n = orizont_regresie;
+    n = (orizont_regresie + orizont_arie);
     //console.log(n);
     //console.log(data_2.length);
     for(let k = 0; k < n; k++){
@@ -1357,7 +1366,7 @@ function generare_vector_r_coefA(){
 }
 
 function calcul_parametrii_Predictie(){
-    n = orizont_regresie;
+    n = (orizont_regresie + orizont_arie);
     //console.log(n);
     //console.log(data_2.length);
     zi_start = data_2.length - n;
@@ -1476,7 +1485,7 @@ function calcul_parametrii_Predictie(){
     //nelogaritmat
     /*
     console.log("orizont t: " + orizont_trend);
-    console.log("orizont r: " + orizont_regresie);
+    console.log("orizont r: " + (orizont_regresie + orizont_arie));
     console.log("contor: " + contor);
     console.log("medie: " + Math.floor(Math.exp(medieY)*100) / 100);
     console.log("varianta: " + Math.floor(Math.exp(varianta)*100) / 100);
@@ -1865,7 +1874,7 @@ function desenareGraficPVectorR(){
       }
     }
     //desenare punct valoare grafic_valori_desenat - vector_r
-    if(i > orizont_regresie){
+    if(i > (orizont_regresie + orizont_arie)){
 
         //ctx.moveTo(12 + x_p, y_r - 1);
         //ctx.lineTo(12 + x_p, y_r + 1);
@@ -1933,10 +1942,10 @@ function desenareGraficPVectorR(){
 }
 
 function desenarePuncteTrendMedie(){
-  //x_medie = 0; //(orizont_regresie + 1)
-  for (let i = (orizont_regresie + 1); i <= selectorZi; i++) {
+  //x_medie = 0; //((orizont_regresie + orizont_arie) + 1)
+  for (let i = ((orizont_regresie + orizont_arie) + 1); i <= selectorZi; i++) {
       //x_medie += incrementX;
-      //if(i > (orizont_regresie + 1)){
+      //if(i > ((orizont_regresie + orizont_arie) + 1)){
       x_medie = (i - selectorZiStart)*incrementX;
 
       y_medie = Math.round(yGrafic_2 - ((vector_valZiCurenta[i]*scalaY_trend_2)/maxValueGrafic2));
@@ -1964,7 +1973,7 @@ function desenareEntitate(){
     raza_pop = valZiCur/maxValZiCur * scalaEntitate;
     valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
 
-    if(selectorZi>orizont_regresie){
+    if(selectorZi>(orizont_regresie + orizont_arie)){
         raza_transmisie = valZiUrm/maxValZiCur * scalaEntitate;
     }
     else{
@@ -2081,7 +2090,7 @@ function desenareEntitate(){
 
     //cerculet grafic vector r (in capat)
     /*
-    if(selectorZi > orizont_regresie){
+    if(selectorZi > (orizont_regresie + orizont_arie)){
       if(vector_r_normalizat[selectorZi] >= 0){
           ctx.strokeStyle = culoareGraficVectorR;//culoareTextCompensatorRosu;
           ctx.fillStyle = culoareCerculetR;
@@ -2411,7 +2420,7 @@ function desenareRadar(){
       ctx.fillStyle = culoareScadere;
   }
 
-  if(selectorZi <= orizont_regresie){
+  if(selectorZi <= (orizont_regresie + orizont_arie)){
     ctx.strokeStyle = culoareCrestereMaro;
     ctx.fillStyle = culoareCrestereMaro;
     xsos = data_3[selectorZi]/2*1000 / scalaPozitieXAvion * 1.5 * 90;
@@ -2706,9 +2715,9 @@ function desenareGraficeTrenduri(){
   desenareInfoExplicatii();
 
   //desenare proiectie
-  //ziStart = data_2.length - orizont_regresie;
+  //ziStart = data_2.length - (orizont_regresie + orizont_arie);
   if(selectorZi > orizont_trend){
-      ziStart = selectorZi - orizont_regresie;
+      ziStart = selectorZi - (orizont_regresie + orizont_arie);
       ziFinal = selectorZi + orizont_proiectie;
       if(selectorZi > ziStart){
           var y1_1 = 0;
@@ -3335,7 +3344,7 @@ function desenareGraficeTrenduri(){
     }
 
     //cerculet grafic vector r (in capat)
-    if(selectorZi > orizont_regresie){
+    if(selectorZi > (orizont_regresie + orizont_arie)){
       if(vector_r_normalizat[selectorZi] >= 0){
           ctx.strokeStyle = culoareCrestereMaro;//culoareTextCompensatorRosu;
           ctx.fillStyle = culoareCerculetRCrestere;
@@ -3970,7 +3979,7 @@ function ActualizareSuprafataGrafica() {
 
         /*
         //pulsatie_3 = false;
-        if(selectorZi % orizont_regresie == 0){
+        if(selectorZi % (orizont_regresie + orizont_arie) == 0){
           pulsatie_3 = true;
         }
         else{
@@ -4058,7 +4067,7 @@ function ActualizareSuprafataGraficaSingulara() {
 
         /*
         //pulsatie_3 = false;
-        if(selectorZi % orizont_regresie){
+        if(selectorZi % (orizont_regresie + orizont_arie)){
           pulsatie_3 = true;
         }
         else{
