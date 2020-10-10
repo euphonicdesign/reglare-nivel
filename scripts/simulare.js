@@ -929,8 +929,8 @@ function start() {
               }
           }
           else{
-              vectorXAvion[i] = 0;
-              vectorYAvion[i] = 0;
+              vectorXAvion[i] = xRadar;
+              vectorYAvion[i] = yRadar;
           }
 
           //raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;
