@@ -967,21 +967,22 @@ function prelucrareDate(){
         //console.log("Arie: " + nrArie)
 
         //resetare interval lipsa date [21/03 - 02/04]
-        for(let i = 0; i < 13; i++){
+        for(let i = 0; i < 12; i++){
             data_2[i] = 0;
         }
 
         //stocare date arie in data_2
         for(let i = 0; i < nr_zile_arie; i++){
-            data_2[13+i] = parseInt(dateArie.data[i].value[nrArie]);
+            data_2[12+i] = parseInt(dateArie.data[i].value[nrArie]);
         }
 
         //mediere
+        /*
         for(let i = 2; i < nr_zile_arie; i++){
             //c
             medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
             data_2[13+i-2] = medie;
-        }
+        }*/
 
 
         for(let i = 2; i < data_20.length; i++){
