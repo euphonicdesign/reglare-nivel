@@ -2418,7 +2418,6 @@ function desenareGraficeTrenduri(){
 
   desenareEntitate();
   desenareEvenimente();
-  desenareZiValoareTrenduri();
   desenareNivelMagnificareGrafice();
   desenareTextArieSelectata();
 
@@ -3199,6 +3198,7 @@ function desenareGraficeTrenduri(){
     }
 
     desenareRadar();
+    desenareZiValoareTrenduri();
 
 }
 
