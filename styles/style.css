@@ -58,6 +58,11 @@ img {
   text-align: center;
 }
 
+.center2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
 #inactiv {
   color: green;
   visibility: hidden;

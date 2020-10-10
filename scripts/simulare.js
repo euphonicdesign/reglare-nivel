@@ -104,6 +104,15 @@ var culoareTrend = culoarePunctValoriGrafic_3;
 var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
 
+
+
+var comutareArie = true;
+var nrArie = 43; //43 include toate ariile
+
+var dateArie = _Flourish_data;
+var nr_zile_arie = dateArie.data.length;
+var nr_arii = _Flourish_data_column_names.data.value.length;
+
 let data = [];
 let data_2 = [];
 let data_3 = [];
@@ -139,7 +148,7 @@ let data_10 = [
             22, 51, 49, 27, 48, 42, 33,
             23, 45, 47, 41, 42, 54, 31,
             30, 44, 33, 37, 53, 32, 56,
-            45, 73, 82, 44, 52,
+            45, 73, 82, 44, 52, 59, 
 ];
 
 let data_20 = [
@@ -172,7 +181,7 @@ let data_20 = [
             692, 1111, 1713, 1679, 1527, 1333, 1231,
             808, 1059, 1787, 1639, 1629, 1552, 1438,
             1271, 1470, 2158, 2086, 2343, 2064, 1835,
-            1591, 2121, 2958, 3130, 3186,
+            1591, 2121, 2958, 3130, 3186, 3517,
           ];
 
 
@@ -207,7 +216,7 @@ let data_30 = [
             0.058, 0.057, 0.06, 0.063, 0.064, 0.065, 0.065,
             0.066, 0.066, 0.066, 0.066, 0.066, 0.068, 0.07,
             0.074, 0.076, 0.078, 0.081, 0.089, 0.089, 0.079,
-            0.091, 0.096, 0.098, 
+            0.091, 0.096, 0.098,
 
 ];
 
@@ -435,8 +444,6 @@ var yCerculeteAcumulate = yTextZi + 35;
 
 var xTextInfoExplicatii = xTextZi;
 var yTextInfoExplicatii = yTextZi + 195;
-
-
 
 
 var indicatorZiEveniment = false;
@@ -900,6 +907,20 @@ buton_rezervor.onclick = function() {
     }
 }
 
+
+var selectorArie = document.getElementById("selectie-arie");
+//nrArie = selectorArie.options[selectorArie.selectedIndex].value;
+//console.log("nrArieSelectata: " + nrArie);
+
+selectorArie.onchange = function() {
+    nrArie = parseInt(selectorArie.options[selectorArie.selectedIndex].value);
+    //console.log("nrArieSelectata: " + nrArie);
+    salvareNrArie();
+    restart();
+}
+
+
+
 function modificaNivel(e){
     if (e.code === "ArrowDown" || e.code === "ArrowLeft"){
         /*if (procentDinCapacitateMax > 0)
@@ -919,6 +940,19 @@ function modificaNivel(e){
         pauza = !pauza;
     }
 
+    if(e.code === "KeyT") {
+        console.log("T apasat");
+        zi = 189;
+        let nr_zile = _Flourish_data.data.length;
+        console.log("nr_zile = " + nr_zile);
+
+        for(let judet=0; judet<_Flourish_data_column_names.data.value.length; judet++){
+          console.log(_Flourish_data_column_names.data.value[judet]);
+          console.log(_Flourish_data.data[zi].value[judet]);
+        }
+
+    }
+
     procentDinCapacitateMax = data[selectorZi]/nivelMaxAfisatRezervor;
     //slider.setAttribute("value", selectorZi);
     slider.value = Math.round(selectorZi);
@@ -926,20 +960,60 @@ function modificaNivel(e){
 }
 
 function prelucrareDate(){
-    for(let i = 2; i < data_20.length; i++){
-        //c
-        medie = (data_20[i] + data_20[i-1] + data_20[i-2]) / 3;
-        data_2[i-2] = medie;
+    if(comutareArie && nrArie <= nr_arii){
+        //console.log("Mod comutare arie");
+        //console.log("Arie: " + nrArie)
 
-        //d
-        medie = (data_10[i] + data_10[i-1] + data_10[i-2]) / 3;
-        data[i-2] = medie;
+        //resetare interval lipsa date [21/03 - 02/04]
+        for(let i = 0; i < 12; i++){
+            data_2[i] = 0;
+        }
+
+        //stocare date arie in data_2
+        for(let i = 0; i < nr_zile_arie; i++){
+            data_2[12+i] = parseInt(dateArie.data[i].value[nrArie]);
+        }
+
+        //mediere
+        for(let i = 2; i < nr_zile_arie; i++){
+            //c
+            medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
+            data_2[12+i-2] = medie;
+        }
+
+
+        for(let i = 2; i < data_20.length; i++){
+            //c
+            //medie = (data_20[i] + data_20[i-1] + data_20[i-2]) / 3;
+            //data_2[i-2] = medie;
+
+            //d
+            medie = (data_10[i] + data_10[i-1] + data_10[i-2]) / 3;
+            data[i-2] = medie;
+        }
+
+        for(let i = 2; i < data_30.length; i++){
+            //p
+            medie = (data_30[i] + data_30[i-1] + data_30[i-2]) / 3;
+            data_3[i-2] = medie;
+        }
     }
+    else{
+        for(let i = 2; i < data_20.length; i++){
+            //c
+            medie = (data_20[i] + data_20[i-1] + data_20[i-2]) / 3;
+            data_2[i-2] = medie;
 
-    for(let i = 2; i < data_30.length; i++){
-        //p
-        medie = (data_30[i] + data_30[i-1] + data_30[i-2]) / 3;
-        data_3[i-2] = medie;
+            //d
+            medie = (data_10[i] + data_10[i-1] + data_10[i-2]) / 3;
+            data[i-2] = medie;
+        }
+
+        for(let i = 2; i < data_30.length; i++){
+            //p
+            medie = (data_30[i] + data_30[i-1] + data_30[i-2]) / 3;
+            data_3[i-2] = medie;
+        }
     }
 }
 
@@ -963,6 +1037,7 @@ function start() {
         if (data[i]>maxValue)
           maxValue = data[i];
     }*/
+    setare_nr_arie();
     prelucrareDate();
 
 
@@ -1089,7 +1164,14 @@ function start() {
 
           //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
           vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
-          vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+
+          if(maxValue_2 < 300){
+              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 100 /*maxValZiCur*/ * (razaCerc1);
+          }
+          else{
+              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+          }
+
 
         }
         else {
@@ -1107,6 +1189,23 @@ function start() {
 
 
     setare_mod();
+
+    var selectorArie = document.getElementById("selectie-arie");
+    if(nrArie >= 0){
+      if(nrArie == 43){
+        //43 - toate ariile - index 0
+        selectorArie.selectedIndex = "0";
+        //console.log("schimbare selectie arie: index = " + 0 );
+      }
+      else{
+        selectorArie.selectedIndex = 1 + parseInt(nrArie);
+        //var indexnou = 1 + parseInt(nrArie);
+        //console.log("schimbare selectie arie: index = " + indexnou);
+      }
+
+    }
+    //nrArie = selectorArie.options[selectorArie.selectedIndex].value;
+    //console.log("nrArieSelectata: " + nrArie);
 
     var buton_grafice = document.getElementById("grafice");
     var link_copac = document.getElementById("copac2");
@@ -2700,7 +2799,10 @@ function desenareGraficeTrenduri(){
           ctx.fillStyle = culoare_linie_trend;
           //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
           //devstd
-          ctx.fillText("E=\u00B1" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
+          if(vector_E[selectorZi < 1000]){
+              ctx.fillText("E=\u00B1" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
+          }
+
 
           //desenare indicator abscisa
           ctx.beginPath();
@@ -4063,6 +4165,21 @@ function setare_mod() {
     //afisaretrend = localStorage.getItem('afisaretrend');
     //console.log("s-a incarcat afisare trend: " + afisaretrend)
   }
+}
 
 
+function salvareNrArie() {
+  //console.log("se salveaza aria cu numarul " + nrArie);
+  localStorage.setItem('nr_arie', nrArie);
+}
+
+function setare_nr_arie() {
+  if(!localStorage.getItem('nr_arie')) {
+    salvareNrArie();
+    //console.log("setare NrArie initiala " + nr_arie);
+  } else {
+    nrArie = parseInt(localStorage.getItem('nr_arie'));
+    //console.log("nrarie salvat " + nr_arie + " . Se seteaza nrrie preferat.");
+    //actualizareMod();
+  }
 }
