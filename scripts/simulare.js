@@ -673,13 +673,34 @@ function prelucrareDate(){
         //stocare date arie in data_2
         for(let i = 0; i < nr_zile_arie; i++){
             data_2[12+i] = parseInt(dateArie.data[i].value[nrArie]);
+            //resetare valori negative
+            if(data_2[12+i] < 0){
+                data_2[12+i] = 0;
+            }
         }
 
         //mediere
         for(let i = 2; i < nr_zile_arie; i++){
             //c
-            medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
-            data_2[13+i-2] = medie;
+            //medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
+
+            t1 = parseInt(dateArie.data[i].value[nrArie]);
+            if(t1<0){
+              t1 = 0;
+            }
+
+            t2 = parseInt(dateArie.data[i-1].value[nrArie]);
+            if(t2<0){
+              t2 = 0;
+            }
+
+            t3 = parseInt(dateArie.data[i-2].value[nrArie]);
+            if(t3<0){
+              t3 = 0;
+            }
+
+            medie = (t1 + t2 + t3)/3;
+            data_2[12+i-2] = medie;
         }
 
 
@@ -896,8 +917,20 @@ function start() {
         else {
           //vector_valZiCurenta[i] = 0;
           //vector_E_procentual[i] = 0;
-          vectorXAvion[i] = xRadar + (data_3[i]/2 * 1000) / scalaPozitieXAvion * (razaCerc1);  // p+
-          vectorYAvion[i] = yRadar - (data_2[i]) / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+          if(i>orizont_arie){
+              vectorXAvion[i] = xRadar + (data_3[i]/2 * 1000) / scalaPozitieXAvion * (razaCerc1);  // p+
+              //vectorYAvion[i] = yRadar - (data_2[i]) / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+              if(nrArie == 43){
+                vectorYAvion[i] = yRadar - data_2[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+              }
+              else{
+                vectorYAvion[i] = yRadar - data_2[i] / 2 ;
+              }
+          }
+          else{
+              vectorXAvion[i] = 0;
+              vectorYAvion[i] = 0;
+          }
 
           //raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;
         }
@@ -965,7 +998,7 @@ function start() {
 }
 
 function generare_vector_r_coefA(){
-    n = (orizont_regresie + orizont_arie);
+    n = (orizont_regresie);
     //console.log(n);
     //console.log(data_2.length);
     for(let k = 0; k < n; k++){
@@ -1076,7 +1109,7 @@ function generare_vector_r_coefA(){
 }
 
 function calcul_parametrii_Predictie(){
-    n = (orizont_regresie + orizont_arie);
+    n = (orizont_regresie);
     //console.log(n);
     //console.log(data_2.length);
     zi_start = data_2.length - n;
@@ -2297,6 +2330,8 @@ function desenareRadar(){
   ctx.fill();
   ctx.stroke();
 
+  //console.log(vectorXAvion[selectorZi] + " " + vectorYAvion[selectorZi]);
+
 }
 
 function desenareNivelMagnificareGrafice(){
@@ -2437,7 +2472,7 @@ function desenareGraficeTrenduri(){
   //desenare proiectie
   //ziStart = data_2.length - (orizont_regresie + orizont_arie);
   if(selectorZi > orizont_trend){
-      ziStart = selectorZi - (orizont_regresie + orizont_arie);
+      ziStart = selectorZi - (orizont_regresie);
       ziFinal = selectorZi + orizont_proiectie;
       if(selectorZi > ziStart){
           var y1_1 = 0;
@@ -2528,9 +2563,9 @@ function desenareGraficeTrenduri(){
           ctx.fillStyle = culoare_linie_trend;
           //ctx.fillText("v=" + varianta2, x1_1 + 20, y1_1 + 38);
           //devstd
-          if(vector_E[selectorZi < 1000]){
-              ctx.fillText("E=\u00B1" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
-          }
+          //if(vector_E[selectorZi < 1000])
+          ctx.fillText("E=\u00B1" + Math.floor(vector_E[selectorZi]) + " (" + Math.floor(vector_E_procentual[selectorZi]*100) + "%)", x1_1 + 20, y1_1 + 38);
+          //}
 
 
           //desenare indicator abscisa
@@ -2574,10 +2609,25 @@ function desenareGraficeTrenduri(){
   y_val_2 = Math.round(yGrafic_1 - ((data[selectorZi]*scalaY_trend_1)/maxValue));
   //console.log("1st line: " + y_val_1);
 
-  procent_variatie_1 = Math.floor((data[selectorZi] - data[index1]) / data[index1] * 100);
-  procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) / data_2[index1] * 100);
-  crestere_variatie_1 = Math.floor(Math.round(data[selectorZi]/data[index1]*10))/10;
-  crestere_variatie_2 = Math.floor(Math.round(data_2[selectorZi]/data_2[index1]*10))/10;
+  if(data[index1]>=1){
+      procent_variatie_1 = Math.floor((data[selectorZi] - data[index1]) / data[index1] * 100);
+      crestere_variatie_1 = Math.floor(Math.round(data[selectorZi]/data[index1]*10))/10;
+  }
+  else{
+      procent_variatie_1 = Math.floor((data[selectorZi] - data[index1]) / 1 * 100);
+      crestere_variatie_1 = Math.floor(Math.round(data[selectorZi]/1*10))/10;
+  }
+
+
+  if(data_2[index1]>=1){
+      procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) / data_2[index1] * 100);
+      crestere_variatie_2 = Math.floor(Math.round(data_2[selectorZi]/data_2[index1]*10))/10;
+  }
+  else{
+      procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) / 1 * 100);
+      crestere_variatie_2 = Math.floor(Math.round(data_2[selectorZi]/1*10))/10;
+  }
+
 
 
   if(index1 > 0){
