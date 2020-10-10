@@ -899,7 +899,8 @@ function start() {
           vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
 
           if(nrArie == 43){
-            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+            //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 14;
           }
           else{
             vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 2 ;
@@ -921,7 +922,8 @@ function start() {
               vectorXAvion[i] = xRadar + (data_3[i]/2 * 1000) / scalaPozitieXAvion * (razaCerc1);  // p+
               //vectorYAvion[i] = yRadar - (data_2[i]) / maxRadarY /*maxValZiCur*/ * (razaCerc1);
               if(nrArie == 43){
-                vectorYAvion[i] = yRadar - data_2[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+                //vectorYAvion[i] = yRadar - data_2[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+                vectorYAvion[i] = yRadar - data_2[i] / 14;
               }
               else{
                 vectorYAvion[i] = yRadar - data_2[i] / 2 ;
@@ -1716,18 +1718,18 @@ function desenareEntitate(){
     //raza_pop = valZiCur/maxValZiCur * scalaEntitate;
 
     if(nrArie == 43){
-        raza_pop = valZiCur/7;
+        raza_pop = valZiCur/14;
         valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
 
         if(selectorZi>(orizont_regresie + orizont_arie)){
-            raza_transmisie = valZiUrm/7;
+            raza_transmisie = valZiUrm/14;
         }
         else{
             //raza_transmisie = 0;
             valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
-            raza_transmisie = valZiUrm/7;
+            raza_transmisie = valZiUrm/14;
 
-            raza_pop = data_2[selectorZi]/7;
+            raza_pop = data_2[selectorZi]/14;
         }
         /*
         raza_pop = valZiCur/maxValZiCur * scalaEntitate;
