@@ -977,12 +977,11 @@ function prelucrareDate(){
         }
 
         //mediere
-        /*
         for(let i = 2; i < nr_zile_arie; i++){
             //c
             medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
             data_2[13+i-2] = medie;
-        }*/
+        }
 
 
         for(let i = 2; i < data_20.length; i++){
