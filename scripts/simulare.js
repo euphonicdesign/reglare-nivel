@@ -148,7 +148,7 @@ let data_10 = [
             22, 51, 49, 27, 48, 42, 33,
             23, 45, 47, 41, 42, 54, 31,
             30, 44, 33, 37, 53, 32, 56,
-            45, 73, 82, 44, 52, 59, 
+            45, 73, 82, 44, 52, 59,
 ];
 
 let data_20 = [
@@ -506,7 +506,7 @@ var scalaY_trend_3 = 80; // grafic sus - p+
 var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
-var scalaEntitate = 70;
+var scalaEntitate = 110;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
