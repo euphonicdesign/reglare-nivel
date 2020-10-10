@@ -874,14 +874,22 @@ function start() {
           //vector_E_procentual[i] = vector_E[i] / vector_valZiCurenta[i];
 
           //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
+
           vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
 
-          if(maxValue_2 < 300){
-              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 100 /*maxValZiCur*/ * (razaCerc1);
+          if(nrArie == 43){
+            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
           }
           else{
-              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 2 ;
           }
+
+          //if(maxValue_2 < 300){
+          //    vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 100 /*maxValZiCur*/ * (razaCerc1);
+          //}
+          //else{
+          //    vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+          //}
 
 
         }
