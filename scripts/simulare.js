@@ -7,7 +7,6 @@ var contorLimitare = 0;
 var contorVectorizare2 = 0;
 var contorLimitare2 = 0;
 
-
 var culoare_canvas = "#EFEFEF";
 
 var culoare_linie_trend = "#999999";//"#b3b3b3";
@@ -1003,14 +1002,14 @@ function generare_vector_r_coefA(){
     n = (orizont_regresie);
     //console.log(n);
     //console.log(data_2.length);
-    for(let k = 0; k < n; k++){
+    for(let k = 0; k < n + orizont_arie; k++){
       vector_r[k] = 0;
       vector_r_normalizat[k] = 0;
       vector_coefA[k] = 0;
       vector_E[k] = 0;
     }
 
-    for(let k = n; k <= data_2.length; k++){
+    for(let k = n + orizont_arie; k <= data_2.length; k++){
         zi_start = k - n;
 
         sumX = 0;
@@ -1618,6 +1617,7 @@ function desenareGraficPVectorR(){
           raza_pulsatie = 1;
       }
     }
+
     //desenare punct valoare grafic_valori_desenat - vector_r
     if(i > (orizont_regresie + orizont_arie)){
 
@@ -1643,6 +1643,7 @@ function desenareGraficPVectorR(){
             ctx.arc(12 + x_p, y_r, raza_cerculet + raza_pulsatie, 0, 2 * Math.PI);
             ctx.closePath();
         }
+        //console.log(y_r);
 
 
         if(plin){
