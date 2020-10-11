@@ -205,7 +205,8 @@ var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
 var scalaEntitate = 110;
-var scalareEntitate = 14;
+var scalareEntitateToate = 14;
+var scalareEntitate = 1;
 var scalareTraiectorieAvionToate = 14;
 var scalareTraiectorieAvion = 2;
 
@@ -1737,19 +1738,20 @@ function desenareEntitate(){
     //raza_pop = valZiCur/maxValZiCur * scalaEntitate;
 
     if(nrArie == 43){
+        //Toate
         //scalareEntitate = 14
-        raza_pop = valZiCur/scalareEntitate;
+        raza_pop = valZiCur/scalareEntitateToate;
         valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
 
         if(selectorZi>(orizont_regresie + orizont_arie)){
-            raza_transmisie = valZiUrm/scalareEntitate;
+            raza_transmisie = valZiUrm/scalareEntitateToate;
         }
         else{
             //raza_transmisie = 0;
             valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
-            raza_transmisie = valZiUrm/scalareEntitate;
+            raza_transmisie = valZiUrm/scalareEntitateToate;
 
-            raza_pop = data_2[selectorZi]/scalareEntitate;
+            raza_pop = data_2[selectorZi]/scalareEntitateToate;
         }
         /*
         raza_pop = valZiCur/maxValZiCur * scalaEntitate;
@@ -1768,18 +1770,19 @@ function desenareEntitate(){
         */
     }
     else{
-        raza_pop = valZiCur;
+        //Zone
+        raza_pop = valZiCur/scalareEntitate;
         valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
 
         if(selectorZi>(orizont_regresie + orizont_arie)){
-            raza_transmisie = valZiUrm
+            raza_transmisie = valZiUrm/scalareEntitate;
         }
         else{
             //raza_transmisie = 0;
             valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
-            raza_transmisie = valZiUrm;
+            raza_transmisie = valZiUrm/scalareEntitate;
 
-            raza_pop = data_2[selectorZi];
+            raza_pop = data_2[selectorZi]/scalareEntitate;
         }
     }
 
