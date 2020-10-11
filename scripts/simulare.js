@@ -1010,7 +1010,7 @@ function generare_vector_r_coefA(){
           }
           //if(data_2[i]>0){
           sumY += logEsantion;
-          sumY_raw += esantion;
+          sumY_raw += data_2[i];//esantion;
 
           //SumXY(SumXLn(y))
           sumXY += i*logEsantion;
@@ -1034,7 +1034,7 @@ function generare_vector_r_coefA(){
 
         let varianta = 0;
         for (let i = zi_start; i < k; i++) {
-           varianta += Math.pow((esantion - medieY_raw), 2);
+           varianta += Math.pow((data_2[i] - medieY_raw), 2);
         }
         let devst = Math.sqrt(varianta / (n-1));
 
