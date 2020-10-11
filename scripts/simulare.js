@@ -570,6 +570,8 @@ function resetare_dim_butoane(){
 buton_foto.onclick = function() {
     mod = MOD_FOTOGRAFIE;
 
+    selectorArie.style.display = "none";
+
     resetare_dim_butoane();
     buton_foto.style.height = b_grafice_height;
     buton_foto.style.width = b_grafice_width;
@@ -585,6 +587,9 @@ buton_foto.onclick = function() {
 buton_grafice.onclick = function() {
     //if(mod == MOD_REGULATOR || mod == MOD_FOTOGRAFIE){
     mod = MOD_GRAFICE;
+
+    selectorArie.style.display = "initial";
+
     resetare_dim_butoane();
     buton_grafice.style.height = b_grafice_height;
     buton_grafice.style.width = b_grafice_width;
@@ -600,6 +605,9 @@ buton_grafice.onclick = function() {
 buton_rezervor.onclick = function() {
 
     mod = MOD_REGULATOR;
+
+    selectorArie.style.display = "none";
+
     resetare_dim_butoane();
     buton_rezervor.style.height = b_grafice_height;
     buton_rezervor.style.width = b_grafice_width;
@@ -758,7 +766,6 @@ function start() {
       textArieSelectata = selectorArie.options[nrArie+1].text;
     }
 
-
     prelucrareDate();
 
 
@@ -880,52 +887,20 @@ function start() {
 
     for(let i=0; i < data_2.length; i++ ){
         if(i>(orizont_regresie + orizont_arie)){
-          //vector_valZiCurenta[i] = vector_coefA[i] * Math.pow(vector_r[i], (i-1));
-          //vector_E_procentual[i] = vector_E[i] / vector_valZiCurenta[i];
+            //vector_valZiCurenta[i] = vector_coefA[i] * Math.pow(vector_r[i], (i-1));
+            //vector_E_procentual[i] = vector_E[i] / vector_valZiCurenta[i];
 
-          //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
+            //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
 
-          vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
+            vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
 
-          if(nrArie == 43){
-            //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvionToate;
-          }
-          else{
-            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvion ;
-          }
-
-          //if(maxValue_2 < 300){
-          //    vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 100 /*maxValZiCur*/ * (razaCerc1);
-          //}
-          //else{
-          //    vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-          //}
-
-
-        }
-        else {
-          //vector_valZiCurenta[i] = 0;
-          //vector_E_procentual[i] = 0;
-
-          /*
-          if(i>orizont_arie){
-              vectorXAvion[i] = xRadar + (data_3[i]/2 * 1000) / scalaPozitieXAvion * (razaCerc1);  // p+
-              //vectorYAvion[i] = yRadar - (data_2[i]) / maxRadarY  * (razaCerc1);
-              if(nrArie == 43){
-                //vectorYAvion[i] = yRadar - data_2[i] / maxRadarY * (razaCerc1);
-                vectorYAvion[i] = yRadar - data_2[i] / scalareTraiectorieAvionToate;
-              }
-              else{
-                vectorYAvion[i] = yRadar - data_2[i] / scalareTraiectorieAvion;
-              }
-          }
-          else{*/
-              //vectorXAvion[i] = xRadar;
-              //vectorYAvion[i] = yRadar;
-          //}
-
-          //raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;
+            if(nrArie == 43){
+              //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvionToate;
+            }
+            else{
+              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvion ;
+            }
         }
     }
 
@@ -986,6 +961,13 @@ function start() {
     else{
       //console.log("se seteaza culoarea gri");
       buton_afisaretrend.innerHTML = "<i class='material-icons' style='color:grey;'>palette</i>";
+    }
+
+    if(mod == MOD_GRAFICE){
+      selectorArie.style.display = "initial";
+    }
+    else{
+      selectorArie.style.display = "none";
     }
 
 }
