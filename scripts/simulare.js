@@ -1033,18 +1033,26 @@ function generare_vector_r_coefA(){
           sumX += i;
 
           //SumY(SumLn(y))
-          if(data_2[i]>0){
-            sumY += Math.log(data_2[i]);
-            sumY_raw += data_2[i];
+          esantion = data_2[i];
+          logEsantion = Math.log(esantion);
 
-            //SumXY(SumXLn(y))
-            sumXY += i*Math.log(data_2[i]);
-
-            //SumX^2
-            sumX2 += i*i;
-
-            sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
+          if(esantion <= 0){
+              esantion = 0;
+              logEsantion = 0;
           }
+          //if(data_2[i]>0){
+          sumY += logEsantion;
+          sumY_raw += esantion;
+
+          //SumXY(SumXLn(y))
+          sumXY += i*logEsantion;
+
+          //SumX^2
+          sumX2 += i*i;
+
+          sumY2 += logEsantion * logEsantion;
+          //}
+          /*
           else{
             sumY += 0;//Math.log(data_2[i]);
             sumY_raw += 0;//data_2[i];
@@ -1056,7 +1064,7 @@ function generare_vector_r_coefA(){
             sumX2 += i*i;
 
             sumY2 += 0;//Math.log(data_2[i]) * Math.log(data_2[i]);
-          }
+          }*/
 
 
           //data_2[i];
@@ -1075,7 +1083,7 @@ function generare_vector_r_coefA(){
 
         let varianta = 0;
         for (let i = zi_start; i < k; i++) {
-           varianta += Math.pow((data_2[i] - medieY_raw), 2);
+           varianta += Math.pow((esantion - medieY_raw), 2);
         }
         let devst = Math.sqrt(varianta / (n-1));
 
