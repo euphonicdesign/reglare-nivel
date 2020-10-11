@@ -205,6 +205,9 @@ var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
 var scalaEntitate = 110;
+var scalareEntitate = 14;
+var scalareTraiectorieAvionToate = 14;
+var scalareTraiectorieAvion = 2;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
@@ -899,10 +902,10 @@ function start() {
 
           if(nrArie == 43){
             //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 14;
+            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvionToate;
           }
           else{
-            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / 2 ;
+            vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvion ;
           }
 
           //if(maxValue_2 < 300){
@@ -922,10 +925,10 @@ function start() {
               //vectorYAvion[i] = yRadar - (data_2[i]) / maxRadarY /*maxValZiCur*/ * (razaCerc1);
               if(nrArie == 43){
                 //vectorYAvion[i] = yRadar - data_2[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-                vectorYAvion[i] = yRadar - data_2[i] / 14;
+                vectorYAvion[i] = yRadar - data_2[i] / scalareTraiectorieAvionToate;
               }
               else{
-                vectorYAvion[i] = yRadar - data_2[i] / 2 ;
+                vectorYAvion[i] = yRadar - data_2[i] / scalareTraiectorieAvion;
               }
           }
           else{
@@ -1734,18 +1737,19 @@ function desenareEntitate(){
     //raza_pop = valZiCur/maxValZiCur * scalaEntitate;
 
     if(nrArie == 43){
-        raza_pop = valZiCur/14;
+        //scalareEntitate = 14
+        raza_pop = valZiCur/scalareEntitate;
         valZiUrm = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie - 1));
 
         if(selectorZi>(orizont_regresie + orizont_arie)){
-            raza_transmisie = valZiUrm/14;
+            raza_transmisie = valZiUrm/scalareEntitate;
         }
         else{
             //raza_transmisie = 0;
             valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
-            raza_transmisie = valZiUrm/14;
+            raza_transmisie = valZiUrm/scalareEntitate;
 
-            raza_pop = data_2[selectorZi]/14;
+            raza_pop = data_2[selectorZi]/scalareEntitate;
         }
         /*
         raza_pop = valZiCur/maxValZiCur * scalaEntitate;
@@ -2377,7 +2381,14 @@ function desenareRadar(){
   ctx.strokeStyle = "white";
 
   ctx.beginPath();
-  ctx.arc(vectorXAvion[selectorZi], vectorYAvion[selectorZi] , dimensiuneAvion, 0, 2 * Math.PI);
+  if(vectorYAvion[selectorZi] > 0 ){
+      ctx.arc(vectorXAvion[selectorZi], vectorYAvion[selectorZi] , dimensiuneAvion, 0, 2 * Math.PI);
+  }
+  else{
+      //evitare iesire margine - ramas margine
+      ctx.arc(vectorXAvion[selectorZi], 0 , dimensiuneAvion, 0, 2 * Math.PI);
+  }
+
   ctx.closePath();
   ctx.fill();
   ctx.stroke();
