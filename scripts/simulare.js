@@ -2310,19 +2310,21 @@ function desenareRadar(){
   //ctx.fillStyle = culoareTraiectorieAvionRadar;
   //ctx.strokeStyle = culoareTraiectorieAvionRadar;
 
-  for (let i = (selectorZi - 255); i < selectorZi; i++){
-    nuantar = (255 - (( i + 160 - selectorZi) % 255));
-    nuantag = nuantar;
-    nuantab = nuantar/2;
-    transp = 0.0 + i / selectorZi / 2;
-    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
+  if(vectorXAvion[selectorZi]){
+      for (let i = (selectorZi - 255); i < selectorZi; i++){
+        nuantar = (255 - (( i + 160 - selectorZi) % 255));
+        nuantag = nuantar;
+        nuantab = nuantar/2;
+        transp = 0.0 + i / selectorZi / 2;
+        ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
 
-    ctx.beginPath();
-    ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
-    ctx.closePath();
-    ctx.fill();
-
+        ctx.beginPath();
+        ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+      }
   }
+
 
   //caclul parametrii desenare pulsatie si dimensiune avion
   if(depasireLimitaStabilitate){
@@ -2334,27 +2336,29 @@ function desenareRadar(){
 
 
   //desenare pulsatie detectie pe radar
-  if((yRadar - vectorYAvion[selectorZi]) < razaCerc1 && medieCumulativ[selectorZi] < nivelMaxAfisatRezervor){
-      cosAvion = (vectorXAvion[selectorZi] - xRadar)/razaCerc1;
-      sinAvion = (vectorYAvion[selectorZi] - yRadar)/razaCerc1;
+  if(vectorXAvion[selectorZi]){
+      if((yRadar - vectorYAvion[selectorZi]) < razaCerc1 && medieCumulativ[selectorZi] < nivelMaxAfisatRezervor){
+          cosAvion = (vectorXAvion[selectorZi] - xRadar)/razaCerc1;
+          sinAvion = (vectorYAvion[selectorZi] - yRadar)/razaCerc1;
 
-      distCos = Math.cos(radianiZi + Math.PI/6) - cosAvion;
-      distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
-      dist1 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
+          distCos = Math.cos(radianiZi + Math.PI/6) - cosAvion;
+          distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
+          dist1 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
-      distCos = Math.cos(radianiZi + 0) - cosAvion;
-      distSin = Math.sin(radianiZi + 0) - sinAvion;
-      dist2 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
+          distCos = Math.cos(radianiZi + 0) - cosAvion;
+          distSin = Math.sin(radianiZi + 0) - sinAvion;
+          dist2 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
-      //console.log("d1: " + dist1);
-      //console.log("d2: " + dist2);
+          //console.log("d1: " + dist1);
+          //console.log("d2: " + dist2);
 
-      if(dist1 < 0.9 && dist2 < 0.8){
-          //console.log("detectie");
-          if(pulsatie_radar == 0){
-              pulsatie_radar = temporizare_pulsatie_radar;
-              pulsatie_radar_x = vectorXAvion[selectorZi];
-              pulsatie_radar_y = vectorYAvion[selectorZi];
+          if(dist1 < 0.9 && dist2 < 0.8){
+              //console.log("detectie");
+              if(pulsatie_radar == 0){
+                  pulsatie_radar = temporizare_pulsatie_radar;
+                  pulsatie_radar_x = vectorXAvion[selectorZi];
+                  pulsatie_radar_y = vectorYAvion[selectorZi];
+              }
           }
       }
   }
