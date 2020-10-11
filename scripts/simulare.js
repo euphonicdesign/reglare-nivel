@@ -2187,6 +2187,8 @@ function desenareRadar(){
       ctx.fillStyle = culoareScadere;
   }
 
+
+  /*
   if(selectorZi <= (orizont_regresie + orizont_arie)){
     ctx.strokeStyle = culoareCrestereMaro;
     ctx.fillStyle = culoareCrestereMaro;
@@ -2194,35 +2196,37 @@ function desenareRadar(){
     //console.log(xsos);
     xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
     ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+  }*/
+
+
+  if(selectorZi > orizont_regresie + orizont_arie){
+      //desenare cerc capat pendul
+      //ctx.fillStyle = "white";
+      //ctx.fillStyle = "#4d4d4d";
+      ctx.beginPath();
+      ctx.arc(xStalp + xsoseta, yStalp - ysoseta, 4, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.closePath();
+
+      //desenare soseta
+      ctx.moveTo(xStalp, yStalp);
+      ctx.lineTo(xStalp + xsoseta, yStalp - ysoseta);
+      ctx.stroke();
+
+
+      ctx.beginPath();
+      ctx.closePath();
+
+      //desenare cerc baza pendul
+      ctx.fillStyle = "white";//"#4d4d4d";
+      ctx.beginPath();
+      ctx.arc(xStalp, yStalp, 2, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
   }
-
-
-  //desenare cerc capat pendul
-  //ctx.fillStyle = "white";
-  //ctx.fillStyle = "#4d4d4d";
-  ctx.beginPath();
-  ctx.arc(xStalp + xsoseta, yStalp - ysoseta, 4, 0, 2 * Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.beginPath();
-  ctx.closePath();
-
-  //desenare soseta
-  ctx.moveTo(xStalp, yStalp);
-  ctx.lineTo(xStalp + xsoseta, yStalp - ysoseta);
-  ctx.stroke();
-
-
-  ctx.beginPath();
-  ctx.closePath();
-
-  //desenare cerc baza pendul
-  ctx.fillStyle = "white";//"#4d4d4d";
-  ctx.beginPath();
-  ctx.arc(xStalp, yStalp, 2, 0, 2 * Math.PI);
-  ctx.closePath();
-  ctx.fill();
 
   //console.log("xsoseta: " + xsoseta);
   //console.log("ysoseta: " + ysoseta);
