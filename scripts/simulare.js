@@ -1051,24 +1051,7 @@ function generare_vector_r_coefA(){
           sumX2 += i*i;
 
           sumY2 += logEsantion * logEsantion;
-          //}
-          /*
-          else{
-            sumY += 0;//Math.log(data_2[i]);
-            sumY_raw += 0;//data_2[i];
 
-            //SumXY(SumXLn(y))
-            sumXY += 0;//i*Math.log(data_2[i]);
-
-            //SumX^2
-            sumX2 += i*i;
-
-            sumY2 += 0;//Math.log(data_2[i]) * Math.log(data_2[i]);
-          }*/
-
-
-          //data_2[i];
-          //contor++;
         }
 
         m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
@@ -1634,6 +1617,7 @@ function desenareGraficPVectorR(){
     var raza_pulsatie = 0;
     var plin = false;
     var nr_ev = 0;
+
     for(let j = 0; j < evenimente.length; j++){
       //console.log(evenimente[i]);
       if(data_data[i] == evenimente[j]){
@@ -1648,7 +1632,7 @@ function desenareGraficPVectorR(){
     }
 
     //desenare punct valoare grafic_valori_desenat - vector_r
-    if(i > (orizont_regresie + orizont_arie)){
+    if(i > orizont_regresie + orizont_arie){
 
         //ctx.moveTo(12 + x_p, y_r - 1);
         //ctx.lineTo(12 + x_p, y_r + 1);
@@ -1660,7 +1644,6 @@ function desenareGraficPVectorR(){
             ctx.strokeStyle = culoareScadere;
             //ctx.fillStyle = culoareScadere;
         }
-
 
         if(plin && pulsatie_2/*raza_pulsatie == 1*/){
             ctx.beginPath();
@@ -2555,7 +2538,7 @@ function desenareGraficeTrenduri(){
 
   //desenare proiectie
   //ziStart = data_2.length - (orizont_regresie + orizont_arie);
-  if(selectorZi > orizont_trend){
+  if(selectorZi > (orizont_regresie + orizont_arie)){
       ziStart = selectorZi - (orizont_regresie);
       ziFinal = selectorZi + orizont_proiectie;
       if(selectorZi > ziStart){
