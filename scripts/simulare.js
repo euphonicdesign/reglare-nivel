@@ -921,21 +921,23 @@ function start() {
         else {
           //vector_valZiCurenta[i] = 0;
           //vector_E_procentual[i] = 0;
+
+          /*
           if(i>orizont_arie){
               vectorXAvion[i] = xRadar + (data_3[i]/2 * 1000) / scalaPozitieXAvion * (razaCerc1);  // p+
-              //vectorYAvion[i] = yRadar - (data_2[i]) / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+              //vectorYAvion[i] = yRadar - (data_2[i]) / maxRadarY  * (razaCerc1);
               if(nrArie == 43){
-                //vectorYAvion[i] = yRadar - data_2[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+                //vectorYAvion[i] = yRadar - data_2[i] / maxRadarY * (razaCerc1);
                 vectorYAvion[i] = yRadar - data_2[i] / scalareTraiectorieAvionToate;
               }
               else{
                 vectorYAvion[i] = yRadar - data_2[i] / scalareTraiectorieAvion;
               }
           }
-          else{
-              vectorXAvion[i] = xRadar;
-              vectorYAvion[i] = yRadar;
-          }
+          else{*/
+              //vectorXAvion[i] = xRadar;
+              //vectorYAvion[i] = yRadar;
+          //}
 
           //raza_pop = data_2[selectorZi]/maxValZiCur * scalaEntitate;
         }
@@ -1779,10 +1781,14 @@ function desenareEntitate(){
         }
         else{
             //raza_transmisie = 0;
+            /*
             valZiUrm = data_2[selectorZi] * Math.pow((1 + data_3[selectorZi]/2), (orizont_proiectie - 1));
             raza_transmisie = valZiUrm/scalareEntitate;
 
             raza_pop = data_2[selectorZi]/scalareEntitate;
+            */
+            raza_transmisie = 0;
+            raza_pop = raza_transmisie;
         }
     }
 
