@@ -677,32 +677,18 @@ function prelucrareDate(){
         for(let i = 0; i < nr_zile_arie; i++){
             data_2[12+i] = parseInt(dateArie.data[i].value[nrArie]);
             //resetare valori negative
+            /*
             if(data_2[12+i] < 0){
                 data_2[12+i] = 0;
-            }
+            }*/
         }
 
         //mediere
         for(let i = 2; i < nr_zile_arie; i++){
-            //c
-            //medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
-
-            t1 = parseInt(dateArie.data[i].value[nrArie]);
-            if(t1<0){
-              t1 = 0;
+            medie = (parseInt(dateArie.data[i].value[nrArie]) + parseInt(dateArie.data[i-1].value[nrArie]) + parseInt(dateArie.data[i-2].value[nrArie])) / 3;
+            if(medie<0){
+              medie = 0;
             }
-
-            t2 = parseInt(dateArie.data[i-1].value[nrArie]);
-            if(t2<0){
-              t2 = 0;
-            }
-
-            t3 = parseInt(dateArie.data[i-2].value[nrArie]);
-            if(t3<0){
-              t3 = 0;
-            }
-
-            medie = (t1 + t2 + t3)/3;
             data_2[12+i-2] = medie;
         }
 
