@@ -1239,6 +1239,7 @@ function inserareTabelZone(){
       }
       else{
           elementZona.style.background = culoareCerculetRCrestere;
+          elementZona.style.color = "#4d3319";
       }
 
   }
