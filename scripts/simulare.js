@@ -1356,9 +1356,9 @@ function inserareTabelAltitudini(){
       //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
       textHTML += "<div class='zona" + clasamentZone[i].zona + " val_cl_me'>" + "" + (i+1) + "</div>";
 
-
-      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_altitudine'>" + Math.floor(clasamentZone[i].medie) + "</div>";
-
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
 
       //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
@@ -1376,20 +1376,29 @@ function inserareTabelAltitudini(){
 
   var elementZona2;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
-      elementZona2 = document.getElementsByClassName("zona" + zona +" bara_altitudine")[0];
+      elementZona1 = document.getElementsByClassName("zona" + zona +" bara_propagare")[0];
+      elementZona2 = document.getElementsByClassName("zona" + zona +" bara_proiectie")[0];
+      elementZona3 = document.getElementsByClassName("zona" + zona +" bara_altitudine")[0];
       //elementZona2.style.height = String(Math.round(clasamentZone[zona].medie/20)) + "px";
       //elementZona2.style.height = "20px";
       //elementZona2.style.height = "" + clasamentZone[zona].medie + "px";
 
       //console.log("zona" + zona + " " + elementZona2.style.height);
+      elementZona3.style.background = culoareGalben;
 
       if(vectoriDateZone[zona].vector_r[totalZile]<1){
+          elementZona1.style.background = "lightgreen";
+          elementZona1.style.color = "green";
+
           elementZona2.style.background = "lightgreen";
           elementZona2.style.color = "green";
 
       }
       else{
-          elementZona2.style.background = culoareCerculetRCrestere;
+          elementZona1.style.background = culoareCerculetRCrestere;
+          elementZona1.style.color = "#4d3319";
+
+          elementZona2.style.background = "lightblue";
           elementZona2.style.color = "#4d3319";
       }
 
