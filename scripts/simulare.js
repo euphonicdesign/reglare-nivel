@@ -1187,6 +1187,7 @@ function start() {
 
     inserareTabelZone();
     inserareTabelVitezePropagare();
+    inserareTabelAltitudini();
 }
 
 function inserareTabelZone(){
@@ -1199,20 +1200,6 @@ function inserareTabelZone(){
   var totalZile = vectoriDateZone[0].vector_r.length-1;
   var valoareProiectie = 0;
   var valoareMedie = 0;
-  //maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
-  //yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
-
-  //var points = [40, 100, 1, 5, 25, 10];
-  //points.sort(function(a, b){return a - b});
-
-  /*
-  var cars = [
-  {type:"Volvo", year:2016},
-  {type:"Saab", year:2001},
-  {type:"BMW", year:2010}
-  ];
-
-  cars.sort(function(a, b){return a.year - b.year});*/
 
   clasamentR = [];
   for(let zona=0; zona < numeArii.data.value.length; zona++){
@@ -1284,20 +1271,6 @@ function inserareTabelVitezePropagare(){
   var totalZile = vectoriDateZone[0].vector_r.length-1;
   var valoareProiectie = 0;
   var valoareMedie = 0;
-  //maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
-  //yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
-
-  //var points = [40, 100, 1, 5, 25, 10];
-  //points.sort(function(a, b){return a - b});
-
-  /*
-  var cars = [
-  {type:"Volvo", year:2016},
-  {type:"Saab", year:2001},
-  {type:"BMW", year:2010}
-  ];
-
-  cars.sort(function(a, b){return a.year - b.year});*/
 
   /*
   clasamentR = [];
@@ -1326,39 +1299,6 @@ function inserareTabelVitezePropagare(){
       textHTML += "</td>";
   }
 
-  /*
-  for(let zona=0; zona < numeArii.data.value.length; zona++){
-    coloana = zona % nrColPeLinie;
-    rand = Math.floor(zona / nrColPeLinie);
-    valoareProiectie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
-    valoareMedie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
-    //console.log(numeArii.data.value[zona]);
-    //console.log(rand + " " + coloana);
-
-    pozitieClasamentR = 0;
-    for(let i=0; i < clasamentR.length; i++){
-        pozitieClasamentR++;
-        if(clasamentR[i].zona == zona) break;
-    }
-
-    if(coloana == 0){
-      textHTML+="<tr>";
-    }
-
-    textHTML += "<td id='zona" + zona + "'>";
-    textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
-    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-    textHTML += "<div class='zona" + zona + " val_cl_r'>" + "#" + pozitieClasamentR + "</div>";
-    //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
-    //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
-    //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
-    textHTML += "</td>";
-
-    if(coloana == nrColPeLinie-1){
-      textHTML +="</tr>";
-    }
-  }*/
-
   textHTML +="</tr>";
   textHTML += "</table>";
 
@@ -1378,6 +1318,79 @@ function inserareTabelVitezePropagare(){
       else{
           elementZona.style.background = culoareCerculetRCrestere;
           elementZona.style.color = "#4d3319";
+      }
+
+  }
+
+}
+
+function inserareTabelAltitudini(){
+  //let nrColPeLinie = 42;
+  //let rand = 0;
+
+  textHTML = "";
+  textHTML += "<table>";
+  textHTML+="<tr>";
+
+  var totalZile = vectoriDateZone[0].vector_r.length-1;
+  var valoareProiectie = 0;
+  var valoareMedie = 0;
+
+
+
+
+  clasamentZone = [];
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      valoareProiectie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
+      valoareMedie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
+      clasamentZone[zona] = {zona: zona, r: vectoriDateZone[zona].vector_r[totalZile], proiectie: valoareProiectie, medie: valoareMedie};
+  }
+
+  //clasamentZone.sort(function(a, b){return a.r - b.r});
+
+  clasamentZone.sort(function(a, b){return b.medie - a.medie});
+
+  for(let i=0; i<clasamentZone.length; i++){
+      textHTML += "<td id='vp_zona" + clasamentZone[i].zona + "'>";
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " nume_zona'>" + numeArii.data.value[clasamentZone[i].zona].substring(0,3) + "</div>";
+      //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " val_cl_me'>" + "" + (i+1) + "</div>";
+
+
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_altitudine'>" + Math.floor(clasamentZone[i].medie) + "</div>";
+
+
+      //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
+      //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
+      //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
+      textHTML += "</td>";
+  }
+
+  textHTML +="</tr>";
+  textHTML += "</table>";
+
+  var elementAltitudini = document.getElementById("altitudini");
+  elementAltitudini.innerHTML = textHTML;
+
+  //clasamentZone.sort(function(a, b){return b.medie - a.medie});
+
+  var elementZona2;
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      elementZona2 = document.getElementsByClassName("zona" + zona +" bara_altitudine")[0];
+      //elementZona2.style.height = String(Math.round(clasamentZone[zona].medie/20)) + "px";
+      //elementZona2.style.height = "20px";
+      //elementZona2.style.height = "" + clasamentZone[zona].medie + "px";
+
+      //console.log("zona" + zona + " " + elementZona2.style.height);
+
+      if(vectoriDateZone[zona].vector_r[totalZile]<1){
+          elementZona2.style.background = "lightgreen";
+          elementZona2.style.color = "green";
+
+      }
+      else{
+          elementZona2.style.background = culoareCerculetRCrestere;
+          elementZona2.style.color = "#4d3319";
       }
 
   }
