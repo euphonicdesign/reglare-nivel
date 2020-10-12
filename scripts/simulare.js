@@ -1201,6 +1201,25 @@ function inserareTabelZone(){
   //maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
   //yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
 
+  //var points = [40, 100, 1, 5, 25, 10];
+  //points.sort(function(a, b){return a - b});
+
+  /*
+  var cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+  ];
+
+  cars.sort(function(a, b){return a.year - b.year});*/
+
+  clasamentR = [];
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      clasamentR[zona] = {zona: zona, r: vectoriDateZone[zona].vector_r[totalZile]}
+  }
+
+  clasamentR.sort(function(a, b){return a.r - b.r});
+
   for(let zona=0; zona < numeArii.data.value.length; zona++){
     coloana = zona % nrColPeLinie;
     rand = Math.floor(zona / nrColPeLinie);
@@ -1209,6 +1228,12 @@ function inserareTabelZone(){
     //console.log(numeArii.data.value[zona]);
     //console.log(rand + " " + coloana);
 
+    pozitieClasamentR = 0;
+    for(let i=0; i < clasamentR.length; i++){
+        pozitieClasamentR++;
+        if(clasamentR[i].zona == zona) break;
+    }
+
     if(coloana == 0){
       textHTML+="<tr>";
     }
@@ -1216,6 +1241,7 @@ function inserareTabelZone(){
     textHTML += "<td id='zona" + zona + "'>";
     textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
     textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+    textHTML += "<div class='zona" + zona + " val_cl_r'>" + "#" + pozitieClasamentR + "</div>";
     //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
     textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
     textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
