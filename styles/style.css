@@ -67,19 +67,32 @@ img {
 #zone {
   margin-top: 100px;
   border: 2px solid #333;
+
+  /*display: flex;*/
+  /*justify-content: center;*/
 }
 
 #zone table {
   margin: 0 auto;
-  /*display: flex;
-  justify-content: center;*/
 }
 
 #zone table td {
-  width: 80px;
-  height: 80px;
+  width: 78px;
+  height: 78px;
   text-align: center;
   border: 1px solid lightgrey;
+  display:inline-block;
+}
+
+#zone table td div{
+  overflow: hidden;
+}
+
+#zone table td div[class="nume_zona"]{
+  padding: 2px;
+}
+#zone table td div[class="val_r"]{
+  padding: 2px;
 }
 
 #inactiv {
