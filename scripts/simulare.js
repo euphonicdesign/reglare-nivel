@@ -107,6 +107,7 @@ var comutareArie = true;
 var nrArie = 43; //43 include toate ariile
 
 var dateArie = _Flourish_data;
+var numeArii = _Flourish_data_column_names;
 var nr_zile_arie = dateArie.data.length;
 var nr_arii = _Flourish_data_column_names.data.value.length;
 var textArieSelectata = "";
@@ -654,13 +655,13 @@ function modificaNivel(e){
 
     if(e.code === "KeyT") {
         console.log("T apasat");
-        zi = 189;
+        //zi = 189;
         let nr_zile = _Flourish_data.data.length;
         console.log("nr_zile = " + nr_zile);
 
         for(let judet=0; judet<_Flourish_data_column_names.data.value.length; judet++){
           console.log(_Flourish_data_column_names.data.value[judet]);
-          console.log(_Flourish_data.data[zi].value[judet]);
+          console.log(_Flourish_data.data[nr_zile-1].value[judet]);
         }
 
     }
@@ -969,6 +970,73 @@ function start() {
     else{
       selectorArie.style.display = "none";
     }
+
+    inserareTabelZone();
+}
+
+function inserareTabelZone(){
+  let nrColPeLinie = 7;
+  let rand = 0;
+
+  textHTML = "";
+  textHTML += "<table> "
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+    coloana = zona % nrColPeLinie;
+    rand = Math.floor(zona / nrColPeLinie);
+    console.log(numeArii.data.value[zona]);
+    console.log(rand + " " + coloana);
+
+    if(coloana == 0){
+      textHTML+="<tr>";
+    }
+
+    textHTML += "<td>";
+    textHTML += numeArii.data.value[zona].substring(0,3);
+    textHTML += "</td>";
+
+    if(coloana == nrColPeLinie-1){
+      textHTML +="</tr>";
+    }
+  }
+  textHTML += "</table>";
+
+  var elementZone = document.getElementById("zone");
+  elementZone.innerHTML = textHTML;
+  /*
+  elementZone.innerHTML = " \
+      <table> \
+        <tr>  \
+          <td>Buc</td>  \
+          <td>Alb</td>  \
+          <td>Ara</td>  \
+        </tr> \
+        <tr>  \
+          <td>Arg</td>  \
+          <td>Bac</td>  \
+          <td>Bih</td>  \
+        </tr> \
+      </table>";
+  /*
+  /*
+
+  let nr_zile = _Flourish_data.data.length;
+  console.log("nr_zile = " + nr_zile);
+
+  for(let judet=0; judet<_Flourish_data_column_names.data.value.length; judet++){
+    console.log(_Flourish_data_column_names.data.value[judet]);
+    console.log(_Flourish_data.data[nr_zile-1].value[judet]);
+  }
+
+  table tr:nth-child(2n+0) {
+    background-color: #333;
+    color: white;
+  }
+
+  //inserare suprafata grafica in pagina
+  document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+
+  */
+
 
 }
 
