@@ -92,11 +92,19 @@ img {
   overflow: hidden;
 }
 
-#zone table td div[class="nume_zona"]{
-  padding: 2px;
+#zone table td div[class~="nume_zona"]{
+  /*padding: 2px;*/
+  margin-top: 4px;
+  font-size: 1.3em;
+  font-style: italic;
+  /*font-weight: bold;*/
+  /*color:yellow;*/
 }
-#zone table td div[class="val_r"]{
-  padding: 2px;
+#zone table td div[class~="val_r"]{
+  /*padding: 2px;*/
+  font-size: 1.2em;
+  margin: 2px 0;
+  font-style: italic;
 }
 
 #inactiv {
