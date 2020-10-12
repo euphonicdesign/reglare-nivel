@@ -1069,7 +1069,7 @@ function start() {
     generare_vector_r_coefA();
     maxValue_4 = Math.max(...vector_r_normalizat);
     maxValueR = Math.max(...vector_r);
-    calcul_parametrii_Predictie();
+    //calcul_parametrii_Predictie();
     maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
 
     //console.log(maxValueProiectie);
@@ -1407,6 +1407,7 @@ function calcul_parametrii_Predictie(){
       sumX += i;
 
       //SumY(SumLn(y))
+
       sumY += Math.log(data_2[i]);
       sumY_nelog += data_2[i];
 
