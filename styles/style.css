@@ -108,6 +108,68 @@ img {
   justify-content: center;
 }
 
+#viteze_propagare {
+  /*margin-top: 50px;*/
+  border: 2px solid #333;
+
+  /*
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;*/
+}
+
+#viteze_propagare table {
+  margin: 0 auto;
+  margin: 2px;
+  display: flex;
+}
+
+#viteze_propagare table td {
+  width: 42px;
+  height: 80px;
+  text-align: center;
+  /*border: 1px solid #333;*/
+  margin: 2px;
+  display:inline-block;
+  align-items: baseline;
+}
+
+#viteze_propagare table td div{
+  overflow: hidden;
+}
+
+#viteze_propagare table td div[class~="bara_grafic"]{
+  /*padding: 2px;*/
+  margin-top: 4px;
+  font-size: 1.3em;
+  font-style: italic;
+  background: white;
+  height: 30px;
+  /*font-weight: bold;*/
+  /*color:yellow;*/
+  overflow:visible;
+
+}
+
+#viteze_propagare table td div[class~="nume_zona"]{
+  /*padding: 2px;*/
+  margin-top: 4px;
+  font-size: 1.3em;
+  font-style: italic;
+  /*font-weight: bold;*/
+  /*color:yellow;*/
+}
+
+#viteze_propagare table td div[class~="val_cl_r"]{
+  /*padding: 2px;*/
+  font-size: 1.2em;
+  margin-bottom: 6px;
+  font-style: italic;
+  /*font-weight: bold;*/
+}
+
+
+
 #zone table td {
   width: 76px;
   height: 80px;
@@ -142,7 +204,7 @@ img {
   font-size: 1.2em;
   margin-bottom: 6px;
   font-style: italic;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 #zone table td div[class~="val_v"]{

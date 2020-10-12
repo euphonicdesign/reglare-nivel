@@ -1186,6 +1186,7 @@ function start() {
     }
 
     inserareTabelZone();
+    inserareTabelVitezePropagare();
 }
 
 function inserareTabelZone(){
@@ -1270,41 +1271,116 @@ function inserareTabelZone(){
 
   }
 
-  /*
-  elementZone.innerHTML = " \
-      <table> \
-        <tr>  \
-          <td>Buc</td>  \
-          <td>Alb</td>  \
-          <td>Ara</td>  \
-        </tr> \
-        <tr>  \
-          <td>Arg</td>  \
-          <td>Bac</td>  \
-          <td>Bih</td>  \
-        </tr> \
-      </table>";
-  /*
-  /*
+}
 
-  let nr_zile = _Flourish_data.data.length;
-  console.log("nr_zile = " + nr_zile);
+function inserareTabelVitezePropagare(){
+  //let nrColPeLinie = 42;
+  //let rand = 0;
 
-  for(let judet=0; judet<_Flourish_data_column_names.data.value.length; judet++){
-    console.log(_Flourish_data_column_names.data.value[judet]);
-    console.log(_Flourish_data.data[nr_zile-1].value[judet]);
+  textHTML = "";
+  textHTML += "<table>";
+  textHTML+="<tr>";
+
+  var totalZile = vectoriDateZone[0].vector_r.length-1;
+  var valoareProiectie = 0;
+  var valoareMedie = 0;
+  //maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
+  //yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
+
+  //var points = [40, 100, 1, 5, 25, 10];
+  //points.sort(function(a, b){return a - b});
+
+  /*
+  var cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+  ];
+
+  cars.sort(function(a, b){return a.year - b.year});*/
+
+  /*
+  clasamentR = [];
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      clasamentR[zona] = {zona: zona, r: vectoriDateZone[zona].vector_r[totalZile]}
   }
 
-  table tr:nth-child(2n+0) {
-    background-color: #333;
-    color: white;
-  }
-
-  //inserare suprafata grafica in pagina
-  document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-
+  clasamentR.sort(function(a, b){return a.r - b.r});
   */
 
+  clasamentR.sort(function(a, b){return b.r - a.r});
+
+  for(let i=0; i<clasamentR.length; i++){
+      textHTML += "<td id='vp_zona" + clasamentR[i].zona + "'>";
+      textHTML += "<div class='zona" + clasamentR[i].zona + " nume_zona'>" + numeArii.data.value[clasamentR[i].zona].substring(0,3) + "</div>";
+      //textHTML += "<div class='zona" + clasamentR[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+      textHTML += "<div class='zona" + clasamentR[i].zona + " val_cl_r'>" + "" + (i+1) + "</div>";
+
+
+      textHTML += "<div class='zona" + clasamentR[i].zona + " bara_grafic'>" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+
+
+      //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
+      //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
+      //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
+      textHTML += "</td>";
+  }
+
+  /*
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+    coloana = zona % nrColPeLinie;
+    rand = Math.floor(zona / nrColPeLinie);
+    valoareProiectie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
+    valoareMedie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
+    //console.log(numeArii.data.value[zona]);
+    //console.log(rand + " " + coloana);
+
+    pozitieClasamentR = 0;
+    for(let i=0; i < clasamentR.length; i++){
+        pozitieClasamentR++;
+        if(clasamentR[i].zona == zona) break;
+    }
+
+    if(coloana == 0){
+      textHTML+="<tr>";
+    }
+
+    textHTML += "<td id='zona" + zona + "'>";
+    textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
+    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+    textHTML += "<div class='zona" + zona + " val_cl_r'>" + "#" + pozitieClasamentR + "</div>";
+    //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
+    //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
+    //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
+    textHTML += "</td>";
+
+    if(coloana == nrColPeLinie-1){
+      textHTML +="</tr>";
+    }
+  }*/
+
+  textHTML +="</tr>";
+  textHTML += "</table>";
+
+  var elementVitezePropagare = document.getElementById("viteze_propagare");
+  elementVitezePropagare.innerHTML = textHTML;
+
+  var elementZona;
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      elementZona = document.getElementsByClassName("zona" + zona +" bara_grafic")[0];
+      elementZona.style.height = String(Math.abs(vectoriDateZone[zona].vector_r[totalZile]-1)*100*4) + "px";
+      //console.log(elementZona.style.height);
+      if(vectoriDateZone[zona].vector_r[totalZile]<1){
+          elementZona.style.background = "lightgreen";
+          elementZona.style.color = "green";
+
+      }
+      else{
+          elementZona.style.background = culoareCerculetRCrestere;
+          elementZona.style.color = "#4d3319";
+      }
+
+  }
 
 }
 
