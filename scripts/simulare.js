@@ -1356,10 +1356,10 @@ function inserareTabelAltitudini(){
       //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
       textHTML += "<div class='zona" + clasamentZone[i].zona + " val_cl_me'>" + "" + (i+1) + "</div>";
 
-      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
-      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
       textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
-
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
+      
       //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
