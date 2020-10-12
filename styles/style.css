@@ -109,22 +109,29 @@ img {
 #zone table td div[class~="val_r"]{
   /*padding: 2px;*/
   font-size: 1.2em;
-  margin: 2px 0;
+  /*margin: 2px 0;*/
   font-style: italic;
   font-weight: bold;
 }
 
 #zone table td div[class~="val_v"]{
   /*padding: 2px;*/
-  font-size: 1.2em;
-  margin: 2px 0;
+  font-size: 1.1em;
+  margin-top: 6px;
   font-style: italic;
 }
 
-#zone table td div[class~="val_p"]{
+#zone table td div[class~="val_pr"]{
   /*padding: 2px;*/
-  font-size: 1.2em;
-  margin: 2px 0;
+  font-size: 1.1em;
+  /*margin: 2px 0;*/
+  font-style: italic;
+}
+
+#zone table td div[class~="val_me"]{
+  /*padding: 2px;*/
+  font-size: 1.1em;
+  /*margin: 2px 0;*/
   font-style: italic;
 }
 

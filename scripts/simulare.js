@@ -1197,6 +1197,7 @@ function inserareTabelZone(){
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
   var valoareProiectie = 0;
+  var valoareMedie = 0;
   //maxValueProiectie = coefA * Math.pow(bazaR, data_2.length - 1 + orizont_proiectie);
   //yp1 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (i-1));
 
@@ -1204,6 +1205,7 @@ function inserareTabelZone(){
     coloana = zona % nrColPeLinie;
     rand = Math.floor(zona / nrColPeLinie);
     valoareProiectie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
+    valoareMedie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
     //console.log(numeArii.data.value[zona]);
     //console.log(rand + " " + coloana);
 
@@ -1215,7 +1217,8 @@ function inserareTabelZone(){
     textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
     textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
     textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
-    textHTML += "<div class='zona" + zona + " val_p'>" + "" + Math.round(valoareProiectie) + "</div>";
+    textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
+    textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
     textHTML += "</td>";
 
     if(coloana == nrColPeLinie-1){
