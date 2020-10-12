@@ -1336,9 +1336,6 @@ function inserareTabelAltitudini(){
   var valoareProiectie = 0;
   var valoareMedie = 0;
 
-
-
-
   clasamentZone = [];
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       valoareProiectie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
@@ -1359,7 +1356,9 @@ function inserareTabelAltitudini(){
       textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
       textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
       textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
-      
+
+
+
       //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
