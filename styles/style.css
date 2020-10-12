@@ -121,6 +121,13 @@ img {
   font-style: italic;
 }
 
+#zone table td div[class~="val_p"]{
+  /*padding: 2px;*/
+  font-size: 1.2em;
+  margin: 2px 0;
+  font-style: italic;
+}
+
 #inactiv {
   color: green;
   visibility: hidden;
