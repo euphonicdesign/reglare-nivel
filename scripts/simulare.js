@@ -983,8 +983,8 @@ function inserareTabelZone(){
   for(let zona=0; zona < numeArii.data.value.length; zona++){
     coloana = zona % nrColPeLinie;
     rand = Math.floor(zona / nrColPeLinie);
-    console.log(numeArii.data.value[zona]);
-    console.log(rand + " " + coloana);
+    //console.log(numeArii.data.value[zona]);
+    //console.log(rand + " " + coloana);
 
     if(coloana == 0){
       textHTML+="<tr>";
