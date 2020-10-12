@@ -11,8 +11,8 @@ h1 {
 h2 {
   font-size: 30px;
   /*text-align: center;*/
-  margin-bottom: 10px;
-  margin-top: 60px;
+  /*margin-bottom: 10px;
+  margin-top: 60px;*/
   font-style: italic;
   color: #333;
 
@@ -55,9 +55,10 @@ h1 {
 }
 
 img {
+  /*
   display: block;
   /*margin: 0 auto;*/
-  margin: 0 0
+  /*margin: 0 0;*/
 }
 
 .center {
@@ -69,6 +70,28 @@ img {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.sectiunea1{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sectiunea1 h2 {
+  margin: 0;
+  display: inline-flex;
+  margin-right: 20px;
+}
+
+.sectiunea1 img{
+  max-width: 40px;
+  /*height: auto;*/
+  display: inline-flex;
+}
+
+
 
 #zone {
   /*margin-top: 50px;*/
