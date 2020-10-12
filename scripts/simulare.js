@@ -1281,7 +1281,7 @@ function inserareTabelVitezePropagare(){
   clasamentR.sort(function(a, b){return a.r - b.r});
   */
 
-  clasamentR.sort(function(a, b){return b.r - a.r});
+  clasamentR.sort(function(a, b){return a.r - b.r});
 
   for(let i=0; i<clasamentR.length; i++){
       textHTML += "<td id='vp_zona" + clasamentR[i].zona + "'>";
@@ -1348,7 +1348,7 @@ function inserareTabelAltitudini(){
 
   //clasamentZone.sort(function(a, b){return a.r - b.r});
 
-  clasamentZone.sort(function(a, b){return b.medie - a.medie});
+  clasamentZone.sort(function(a, b){return a.medie - b.medie});
 
   for(let i=0; i<clasamentZone.length; i++){
       textHTML += "<td id='vp_zona" + clasamentZone[i].zona + "'>";
