@@ -1393,9 +1393,9 @@ function inserareTabelZone(){
       textHTML+="<tr>";
     }
 
-    textHTML += "<td>";
-    textHTML += "<div class='nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
-    textHTML += "<div class='val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[dateArie.data.length-1]-1)*10000)/100 + "</div>";
+    textHTML += "<td id='zona" + zona + "'>";
+    textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
+    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[dateArie.data.length-1]-1)*10000)/100 + "</div>";
     textHTML += "</td>";
 
     if(coloana == nrColPeLinie-1){
@@ -1406,6 +1406,19 @@ function inserareTabelZone(){
 
   var elementZone = document.getElementById("zone");
   elementZone.innerHTML = textHTML;
+
+  var elementZona;
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      elementZona = document.getElementById("zona" + zona);
+      if(vectoriDateZone[zona].vector_r[dateArie.data.length-1]<1){
+          elementZona.style.background = "lightgreen";
+      }
+      else{
+          elementZona.style.background = culoareCerculetRCrestere;
+      }
+
+  }
+
   /*
   elementZone.innerHTML = " \
       <table> \
