@@ -1414,7 +1414,7 @@ function inserareTabelZone(){
   var elementZona;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       elementZona = document.getElementById("zona" + zona);
-      if(vectoriDateZone[zona].vector_r[dateArie.data.length-1]<1){
+      if(vectoriDateZone[zona].vector_r[totalZile]<1){
           elementZona.style.background = "lightgreen";
           elementZona.style.color = "green";
       }
