@@ -451,8 +451,8 @@ function schimbareModAfisareTrend() {
 const input = document.querySelector('html');
 input.onkeydown = modificaNivel;
 
-document.querySelector('body').addEventListener("wheel", redimensionareGrafic);
-document.querySelector('body').addEventListener("dblclick", schimbareModAfisareTrend);
+//document.querySelector('body').addEventListener("wheel", redimensionareGrafic);
+//document.querySelector('body').addEventListener("dblclick", schimbareModAfisareTrend);
 
 function redimensionareGrafic(){
   if(mod == MOD_GRAFICE){
