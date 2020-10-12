@@ -746,7 +746,344 @@ function calculScalaGrafic(){
   scala_grafic_2 += factorScalare * 0.1;
 }
 
+
+function calculVectori(data){
+  var vectorReturnati = [];
+  var vector1 = data;
+  var vector2 = data;
+
+  vectorReturnati[0] = vector1;
+  vectorReturnati[1] = vector2;
+
+  return vectorReturnati;
+}
+
+
+function generareVectoriParametrii(data){
+    var vectoriReturnati = 0;
+
+    n = (orizont_regresie);
+    //console.log(n);
+    //console.log(data_2.length);
+    for(let k = 0; k < n + orizont_arie; k++){
+      vector_r[k] = 0;
+      vector_r_normalizat[k] = 0;
+      vector_coefA[k] = 0;
+      vector_E[k] = 0;
+    }
+
+    for(let k = n + orizont_arie; k <= data_2.length; k++){
+        zi_start = k - n;
+
+        sumX = 0;
+        sumY = 0;
+        sumXY = 0;
+        sumX2 = 0;
+        sumY2 = 0;
+        //contor = 0;
+        sumY_raw = 0;
+        medieY_raw = 0;
+
+        for(let i = zi_start; i < k; i++){
+          //console.log(i);
+          //SumX
+          sumX += i;
+
+          //SumY(SumLn(y))
+          esantion = data_2[i];
+          logEsantion = Math.log(esantion);
+
+          if(esantion <= 0){
+              esantion = 0;
+              logEsantion = 0;
+          }
+          //if(data_2[i]>0){
+          sumY += logEsantion;
+          sumY_raw += data_2[i];//esantion;
+
+          //SumXY(SumXLn(y))
+          sumXY += i*logEsantion;
+
+          //SumX^2
+          sumX2 += i*i;
+
+          sumY2 += logEsantion * logEsantion;
+
+        }
+
+        m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
+        b = (sumY - m*sumX) / n;
+
+        bazaR = Math.exp(m);
+        coefA = Math.exp(b);
+
+        //console.log("n=" + n + " contor=" + contor);
+
+        medieY_raw = sumY_raw / n;
+
+        let varianta = 0;
+        for (let i = zi_start; i < k; i++) {
+           varianta += Math.pow((data_2[i] - medieY_raw), 2);
+        }
+        let devst = Math.sqrt(varianta / (n-1));
+
+        //varianta2 = Math.floor(varianta*100) / 100;
+        //devst2 = Math.round(devst);
+
+
+        vector_r[k-1] = bazaR;
+        vector_coefA[k-1] = coefA;
+        vector_r_normalizat[k-1] = (bazaR - 1) * 1000;
+        vector_E[k-1] = devst;
+    }
+
+    /*
+    console.log("vector r generat");
+    for (let k = 0; k < vector_r.length; k++){
+      console.log("v_r[" + k + "]: " + vector_r[k]);
+    }*/
+
+    //vector derivate R
+    for (let k = 0; k < vector_r.length; k++){
+        //console.log("v_r[" + k + "]: " + vector_r[k]);
+        if(k > orizont_trend){
+          vr0 = vector_r[k-16];
+          vr1 = vector_r[k-8];
+          vr2 = vector_r[k];
+          d1r1 = (vr1 - vr0)/8;
+          d1r2 = (vr2 - vr1)/8;
+          d2r2 = (d1r2 - d1r1)/8;
+
+          vectorDR[k] = d1r2;
+          vectorD2R[k] = d2r2;
+        }
+        else{
+          vectorDR[k] = 0;
+          vectorD2R[k] = 0;
+        }
+    }
+}
+
+function generareVectoriPredictie(){
+    n = (orizont_regresie);
+    //console.log(n);
+    //console.log(data_2.length);
+    zi_start = data_2.length - n;
+
+    sumX = 0;
+    sumY = 0;
+    sumXY = 0;
+    sumX2 = 0;
+    sumY2 = 0;
+    //contor = 0;
+
+    sumY_nelog = 0;
+
+    for(let i = zi_start; i < data_2.length; i++){
+      //console.log(i);
+      //SumX
+      sumX += i;
+
+      //SumY(SumLn(y))
+      sumY += Math.log(data_2[i]);
+      sumY_nelog += data_2[i];
+
+      //SumXY(SumXLn(y))
+      sumXY += i*Math.log(data_2[i]);
+
+      //SumX^2
+      sumX2 += i*i;
+
+      sumY2 += Math.log(data_2[i]) * Math.log(data_2[i]);
+
+      //data_2[i];
+      //contor++;
+    }
+
+    m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
+    b = (sumY - m*sumX) / n;
+
+    bazaR = Math.exp(m);
+    coefA = Math.exp(b);
+
+    //logaritmat
+    medieY = sumY / n;
+    medieY_nelog = sumY_nelog / n;
+
+
+    const mx = sumX / n;
+    const my = sumY / n;
+    const yy = n * sumY2 - sumY * sumY;
+    const xx = n * sumX2 - sumX * sumX;
+    const xy = n * sumXY - sumX * sumY;
+    const m2 = xy / xx;
+    const b2 = my - m2 * mx;
+    r = xy / Math.sqrt(xx * xy);
+    r2 = Math.pow(r,2);
+
+    /*
+    console.log("mx: " + mx);
+    console.log("my: " + my);
+    console.log("yy: " + yy);
+    console.log("xx: " + xx);
+    console.log("xy: " + xy);
+    console.log("m2: " + m2);
+    console.log("b2: " + b2);
+    //corelatie
+    console.log("r: " + r);
+    //determinatie
+    console.log("r2: " + r2);
+    console.log(" ");*/
+
+    varianta = 0;
+    //sst = eroare regresie + eroare reziduala (varianta)
+    sst = 0;
+    for (let i = zi_start; i < data_2.length; i++) {
+       varianta += Math.pow((data_2[i] - medieY_nelog), 2);
+       sst += Math.pow((data_2[i] - medieY_nelog), 2);
+    }
+    devst = Math.sqrt(varianta / (n-1));
+
+    varianta2 = Math.floor(varianta*100) / 100;
+    devst2 = Math.round(devst);
+
+    //1. sst = eroare regresie + eroare reziduala (varianta) - eroare totala
+    //2. sse = eroare regresie
+    //3. see = eroare standard de estimare (deviatie standard)
+    //4. ssr = eroare totala - eroare regresie = eroare reziduala (y - y model)
+
+    //eroare regresie
+    sse = sst - r2 * sst;
+
+    //deviatia standard - eroare standard de estimare
+    see = Math.sqrt(sse / (n - 2));
+
+    //eroare reziduala (y-ymodel)
+    ssr = sst - sse;
+
+    sst2 = Math.floor(sst*100) / 100;
+    sse2 = Math.floor(sse*100) / 100;
+    see2 = Math.floor(see*100) / 100;
+    ssr2 = Math.floor(ssr*100) / 100;
+
+
+
+    /*
+    console.log("sst (varianta): " + sst);
+    console.log("sse (eroar std estimare): " + sse);
+    console.log("see (deviatie std): " + see);
+    console.log("ssr (eroare reziduala): " + ssr);
+    console.log(" ");
+
+    console.log("sst (varianta): " + Math.floor(Math.exp(sst)*100) / 100);
+    console.log("sse (eroar std estimare): " + Math.floor(Math.exp(sse)*100) / 100);
+    console.log("see (deviatie std): " + Math.floor(Math.exp(see)*100) / 100);
+    console.log("ssr (eroare reziduala): " + Math.floor(Math.exp(ssr)*100) / 100);
+    console.log(" "); */
+
+    //nelogaritmat
+    /*
+    console.log("orizont t: " + orizont_trend);
+    console.log("orizont r: " + (orizont_regresie + orizont_arie));
+    console.log("contor: " + contor);
+    console.log("medie: " + Math.floor(Math.exp(medieY)*100) / 100);
+    console.log("varianta: " + Math.floor(Math.exp(varianta)*100) / 100);
+    console.log("devst: " + Math.floor(Math.exp(devst)*100) / 100);*/
+
+
+    //yp = coefA * Math.pow(bazaR, 110);
+
+    /*
+    console.log("n: " + n);
+    console.log("SumX: " + sumX);
+    console.log("SumY(lnY): " + sumY);
+    console.log("SumXY(lnY): " + sumXY);
+    console.log("SumX^2: " + sumX2);
+    console.log("m: " + m);
+    console.log("b: " + b);
+    console.log("bazaR: " + bazaR);
+    console.log("coefA: " + coefA);
+    console.log("i start: " + zi_start);
+    console.log("data2[zi_start]: " + data_2[zi_start]);
+    console.log("yp: " + yp);*/
+}
+
+
+function generareAnalizaDate(){
+  /*
+  var dateArie = _Flourish_data;
+  var numeArii = _Flourish_data_column_names;
+  var nr_zile_arie = dateArie.data.length;
+  var nr_arii = _Flourish_data_column_names.data.value.length;
+  var textArieSelectata = "";
+
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+    coloana = zona % nrColPeLinie;
+    rand = Math.floor(zona / nrColPeLinie);
+
+    textHTML += numeArii.data.value[zona].substring(0,3);
+
+  */
+
+  //vectorParametrii[]
+
+  vectoriParametriiZona = [
+    {nume:"vector_r", valori:[]},
+    {nume:"vector_K", valori:[]},
+    {nume:"vector_Y", valori:[]},
+    {nume:"vector_Z", valori:[]}
+  ];
+
+
+  vectoriDateZone = [
+    {
+      date: [],
+      vector_r: [],
+      vector_K: [],
+      vector_Y: [],
+      vector_Z: [],
+    },
+    {
+      date: [],
+      vector_r: [],
+      vector_K: [],
+      vector_Y: [],
+      vector_Z: [],
+    },
+  ];
+
+  for (let zona=0; zona < numeArii.data.value.length; zona++){
+      var dataInputZona = [];
+      for(let zi=0; zi < dateArie.data.length; zi++){
+          dataInputZona[zi] = dateArie.data[zi].value[zona];
+      }
+
+      vectoriDateZone[zona] = {date: dataInputZona};
+      //console.log(dataInputZona);
+      //console.log("------------");
+
+  }
+
+
+  //generareVectoriParametrii2(dateArie.data);
+  //generareVectoriPredictie2(dataInput);
+
+
+
+}
+
 function start() {
+    generareAnalizaDate();
+
+    /*
+    var myVector = [1, 2, 3, 4];
+    var vectorReturnati = [];
+    console.log(vectorReturnati);
+    vectorReturnati = calculVectori(myVector);
+    console.log(vectorReturnati);
+
+    */
+
     //incrementX = 2.9;
     //incrementX = Math.round((lungimeSuprafataGrafica) / (data.length + 1)) - 2;
     //console.log(incrementX);
@@ -1141,20 +1478,112 @@ function generare_vector_r_coefA(){
           vectorD2R[k] = 0;
         }
     }
+}
 
-    //calcul vectorContorZileRadar
+
+function generare_vector_r_coefA_v2(data){
+    var vectoriReturnati = 0;
+
+    n = (orizont_regresie);
+    //console.log(n);
+    //console.log(data_2.length);
+    for(let k = 0; k < n + orizont_arie; k++){
+      vector_r[k] = 0;
+      vector_r_normalizat[k] = 0;
+      vector_coefA[k] = 0;
+      vector_E[k] = 0;
+    }
+
+    for(let k = n + orizont_arie; k <= data_2.length; k++){
+        zi_start = k - n;
+
+        sumX = 0;
+        sumY = 0;
+        sumXY = 0;
+        sumX2 = 0;
+        sumY2 = 0;
+        //contor = 0;
+        sumY_raw = 0;
+        medieY_raw = 0;
+
+        for(let i = zi_start; i < k; i++){
+          //console.log(i);
+          //SumX
+          sumX += i;
+
+          //SumY(SumLn(y))
+          esantion = data_2[i];
+          logEsantion = Math.log(esantion);
+
+          if(esantion <= 0){
+              esantion = 0;
+              logEsantion = 0;
+          }
+          //if(data_2[i]>0){
+          sumY += logEsantion;
+          sumY_raw += data_2[i];//esantion;
+
+          //SumXY(SumXLn(y))
+          sumXY += i*logEsantion;
+
+          //SumX^2
+          sumX2 += i*i;
+
+          sumY2 += logEsantion * logEsantion;
+
+        }
+
+        m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
+        b = (sumY - m*sumX) / n;
+
+        bazaR = Math.exp(m);
+        coefA = Math.exp(b);
+
+        //console.log("n=" + n + " contor=" + contor);
+
+        medieY_raw = sumY_raw / n;
+
+        let varianta = 0;
+        for (let i = zi_start; i < k; i++) {
+           varianta += Math.pow((data_2[i] - medieY_raw), 2);
+        }
+        let devst = Math.sqrt(varianta / (n-1));
+
+        //varianta2 = Math.floor(varianta*100) / 100;
+        //devst2 = Math.round(devst);
+
+
+        vector_r[k-1] = bazaR;
+        vector_coefA[k-1] = coefA;
+        vector_r_normalizat[k-1] = (bazaR - 1) * 1000;
+        vector_E[k-1] = devst;
+    }
+
     /*
-    var contorRadar = 0;
-    for(let i=0; i < data_2.length; i++ ){
-        if(vector_r[i] >= 1){
-            contorRadar += 1;
-        }
-        else{
-            contorRadar -= 1;
-        }
-        vectorContorZileRadar[i] = contorRadar;
+    console.log("vector r generat");
+    for (let k = 0; k < vector_r.length; k++){
+      console.log("v_r[" + k + "]: " + vector_r[k]);
     }*/
 
+    //vector derivate R
+    for (let k = 0; k < vector_r.length; k++){
+        //console.log("v_r[" + k + "]: " + vector_r[k]);
+        if(k > orizont_trend){
+          vr0 = vector_r[k-16];
+          vr1 = vector_r[k-8];
+          vr2 = vector_r[k];
+          d1r1 = (vr1 - vr0)/8;
+          d1r2 = (vr2 - vr1)/8;
+          d2r2 = (d1r2 - d1r1)/8;
+
+          vectorDR[k] = d1r2;
+          vectorD2R[k] = d2r2;
+        }
+        else{
+          vectorDR[k] = 0;
+          vectorD2R[k] = 0;
+        }
+    }
 }
 
 function calcul_parametrii_Predictie(){
