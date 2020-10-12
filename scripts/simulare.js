@@ -1383,6 +1383,9 @@ function inserareTabelZone(){
 
   textHTML = "";
   textHTML += "<table> "
+
+  var totalZile = vectoriDateZone[0].vector_r.length-1;
+
   for(let zona=0; zona < numeArii.data.value.length; zona++){
     coloana = zona % nrColPeLinie;
     rand = Math.floor(zona / nrColPeLinie);
@@ -1395,7 +1398,7 @@ function inserareTabelZone(){
 
     textHTML += "<td id='zona" + zona + "'>";
     textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
-    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[dateArie.data.length-1]-1)*10000)/100 + "</div>";
+    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile-1]-1)*10000)/100 + "</div>";
     textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.floor(vectoriDateZone[zona].date[dateArie.data.length-1]) + "</div>";
     textHTML += "</td>";
 
