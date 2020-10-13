@@ -119,12 +119,25 @@ img {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;*/
+
+  /*
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;*/
 }
 
 #viteze_propagare table {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   margin: 2px;
+  /*display: flex;*/
+}
+
+#viteze_propagare table tr {
+  /*margin: 0 auto;*/
+  /*margin: 2px;*/
   display: flex;
+  flex-wrap: wrap;
 }
 
 #viteze_propagare table td {
@@ -133,24 +146,27 @@ img {
   text-align: center;
   /*border: 1px solid #333;*/
   margin: 2px;
-  display:inline-block;
-  align-items: baseline;
+
+  /*display:inline-block;
+  align-items: baseline;*/
+  display: flex;
+  flex-direction: column;
 }
 
 #viteze_propagare table td div{
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 #viteze_propagare table td div[class~="bara_grafic"]{
   /*padding: 2px;*/
-  margin-top: 4px;
+  /*margin-top: 2px;*/
   font-size: 1.3em;
   font-style: italic;
   background: white;
   height: 30px;
   /*font-weight: bold;*/
   /*color:yellow;*/
-  overflow:visible;
+  /*overflow:visible;*/
 
 }
 
