@@ -1292,6 +1292,15 @@ function actualizareTabelPozitii(){
           }
     }
     else{
+      elementZona0.textContent = "";
+      elementZona1.style.height = "0";
+      elementZona2.style.height = "0";
+      elementZona1.style.background = "lightgreen";
+      elementZona1.style.color = "green";
+      elementZona3.style.background = "lightgrey";
+      //elementZona3.innerHTML += "-";
+
+      elementZona3.innerHTML = 0;
 
     }
   }
