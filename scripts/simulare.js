@@ -1194,23 +1194,28 @@ function actualizareTabelZone(){
     var elementZona;
     for(let zona=0; zona < numeArii.data.value.length; zona++){
 
-        clasamentPropagare = [];
-        for(let arie=0; arie < numeArii.data.value.length; arie++){
-            clasamentPropagare[arie] = {arie: arie, r: vectoriDateZone[arie].vector_r[selectorZi]}
-        }
-        clasamentPropagare.sort(function(a, b){return a.r - b.r});
-
-        pozitieClasamentPropagare = 0;
-        for(let i=0; i < clasamentPropagare.length; i++){
-            pozitieClasamentPropagare++;
-            if(clasamentPropagare[i].arie == zona) break;
-        }
-
         elementZona1 = document.getElementById("zona" + zona);
         elementZona2 = document.getElementsByClassName("zona" + zona +" val_r")[0];
         elementZona3 = document.getElementsByClassName("zona" + zona +" val_cl_r")[0];
+        elementZona4 = document.getElementsByClassName("zona" + zona +" val_me")[0];
+        elementZona5 = document.getElementsByClassName("zona" + zona +" val_pr")[0];
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
+            clasamentPropagare = [];
+            for(let arie=0; arie < numeArii.data.value.length; arie++){
+                clasamentPropagare[arie] = {arie: arie, r: vectoriDateZone[arie].vector_r[selectorZi]}
+            }
+            clasamentPropagare.sort(function(a, b){return a.r - b.r});
+
+            pozitieClasamentPropagare = 0;
+            for(let i=0; i < clasamentPropagare.length; i++){
+                pozitieClasamentPropagare++;
+                if(clasamentPropagare[i].arie == zona) break;
+            }
+
+            valoareProiectie = vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi + orizont_proiectie - 1);
+            valoareMedie = vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi);
+
             if(vectoriDateZone[zona].vector_r[selectorZi]<1){
                 elementZona1.style.background = "lightgreen";
                 elementZona1.style.color = "green";
@@ -1222,15 +1227,17 @@ function actualizareTabelZone(){
             //elementZona.textContent = "R=" + Math.floor((clasamentZone[selectorZi].r-1)*10000)/100;
             elementZona2.textContent = "R=" + Math.floor((vectoriDateZone[zona].vector_r[selectorZi]-1)*10000)/100;
             elementZona3.textContent = "#" + pozitieClasamentPropagare;
+            elementZona4.textContent = "Me=" + Math.round(valoareMedie);
+            elementZona5.textContent = "Pr=" + Math.round(valoareProiectie);
         }
         else{
           elementZona1.style.background = "white";
           elementZona1.style.color = "green";
-          elementZona2.textContent = "R=";
-          elementZona3.textContent = "#";
+          elementZona2.textContent = "";//"R=";
+          elementZona3.textContent = "";//"#";
+          elementZona4.textContent = "";//"Me=";
+          elementZona5.textContent = "";//"Pr=";
         }
-
-
 
 
     }
