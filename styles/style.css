@@ -114,28 +114,30 @@ img {
   padding: 10px 6px 20px 6px;
 }
 
-#pozitii .element {
+#pozitii .zona {
   display: flex;
   flex-direction: column;
-  border: 1px dotted grey;
+  /*border: 4px dotted grey;*/
+  padding: 2px;
 }
 
 #pozitii .segment_bara_proiectie {
   background-color: lightblue;
   height: 60px;
-  width: 38px;
+  width: 34px;
   border: 1px solid #333;
 }
 
 #pozitii .segment_bara_medie {
   background-color: lightyellow;
   height: 70px;
-  width: 38px;
+  width: 34px;
   border: 1px solid #333;
 }
 
 #pozitii .avion {
   background-color: #fcfccf;
+  width: 34px;
   /*height: 10px;*/
   border: 1px solid #333;
   border-top: none;
