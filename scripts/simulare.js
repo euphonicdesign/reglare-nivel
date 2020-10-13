@@ -1190,6 +1190,52 @@ function start() {
     inserareTabelAltitudini();
 }
 
+function actualizareTabelZone(){
+    var elementZona;
+    for(let zona=0; zona < numeArii.data.value.length; zona++){
+
+        clasamentPropagare = [];
+        for(let arie=0; arie < numeArii.data.value.length; arie++){
+            clasamentPropagare[arie] = {arie: arie, r: vectoriDateZone[arie].vector_r[selectorZi]}
+        }
+        clasamentPropagare.sort(function(a, b){return a.r - b.r});
+
+        pozitieClasamentPropagare = 0;
+        for(let i=0; i < clasamentPropagare.length; i++){
+            pozitieClasamentPropagare++;
+            if(clasamentPropagare[i].arie == zona) break;
+        }
+
+        elementZona1 = document.getElementById("zona" + zona);
+        elementZona2 = document.getElementsByClassName("zona" + zona +" val_r")[0];
+        elementZona3 = document.getElementsByClassName("zona" + zona +" val_cl_r")[0];
+
+        if(selectorZi > orizont_regresie + ORIZONT_ARIE){
+            if(vectoriDateZone[zona].vector_r[selectorZi]<1){
+                elementZona1.style.background = "lightgreen";
+                elementZona1.style.color = "green";
+            }
+            else{
+                elementZona1.style.background = culoareCerculetRCrestere;
+                elementZona1.style.color = "#4d3319";
+            }
+            //elementZona.textContent = "R=" + Math.floor((clasamentZone[selectorZi].r-1)*10000)/100;
+            elementZona2.textContent = "R=" + Math.floor((vectoriDateZone[zona].vector_r[selectorZi]-1)*10000)/100;
+            elementZona3.textContent = "#" + pozitieClasamentPropagare;
+        }
+        else{
+          elementZona1.style.background = "white";
+          elementZona1.style.color = "green";
+          elementZona2.textContent = "R=";
+          elementZona3.textContent = "#";
+        }
+
+
+
+
+    }
+}
+
 function inserareTabelZone(){
   let nrColPeLinie = 7;
   let rand = 0;
@@ -4224,6 +4270,7 @@ function ActualizareSuprafataGrafica() {
         */
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
+        actualizareTabelZone();
         if(mod == MOD_REGULATOR){
             desenareGraficValori();
             desenareCompensatorValori();
@@ -4310,6 +4357,7 @@ function ActualizareSuprafataGraficaSingulara() {
         }*/
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
+        actualizareTabelZone();
         if(mod == MOD_REGULATOR){
             desenareGraficValori();
             desenareCompensatorValori();
