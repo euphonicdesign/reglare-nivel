@@ -1341,13 +1341,19 @@ function inserareTabelPozitii(){
       textHTML +="<div class='zona'>";
 
         textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " val_proiectie'>";
-        textHTML += Math.round(clasamentZone[i].proiectie);
+        textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " segment_bara_proiectie'>";
         //textHTML += Math.round(clasamentZone[i].proiectie);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " avion'>";
+        textHTML += Math.round(clasamentZone[i].medie);
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " segment_bara_medie'>";
         //textHTML += Math.round(clasamentZone[i].proiectie);
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " nume'>";
+        textHTML += numeArii.data.value[clasamentZone[i].zona].substring(0,3);
         textHTML += "</div>";
 
         /*
@@ -1375,13 +1381,16 @@ function inserareTabelPozitii(){
   clasamentZone.sort(function(a, b){return a.zona - b.zona});
 
 
-  var elementZona1;
+  var elementZona1, elementZona2;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       elementZona1 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_proiectie")[0];
+      elementZona2 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_medie")[0];
+      elementZona3 = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];
       //elementZona2 = document.getElementsByClassName("zona" + zona +" bara_proiectie")[0];
       //elementZona3 = document.getElementsByClassName("zona" + zona +" bara_altitudine")[0];
 
       elementZona1.style.height = String(Math.abs(Math.round(clasamentZone[zona].proiectie))/4) + "px";
+      elementZona2.style.height = String(Math.abs(Math.round(clasamentZone[zona].medie))/4) + "px";
       /*
       console.log("zona=" + zona);
       console.log("clasament[zona].zona=" + clasamentZone[zona].zona);
@@ -1392,24 +1401,29 @@ function inserareTabelPozitii(){
       //elementZona2.style.height = "" + clasamentZone[zona].medie + "px";
 
       //console.log("zona" + zona + " " + elementZona2.style.height);
-      /*
-      elementZona3.style.background = culoareGalben;
+
+      //elementZona3.style.background = culoareGalben;
 
       if(vectoriDateZone[zona].vector_r[totalZile]<1){
           elementZona1.style.background = "lightgreen";
           elementZona1.style.color = "green";
 
-          elementZona2.style.background = "lightgreen";
-          elementZona2.style.color = "green";
+          elementZona3.style.background = "lightgreen";
+          //elementZona3.innerHTML += "-";
+
+          elementZona3.innerHTML += "" + Math.floor((clasamentZone[zona].r-1)*100) + "%";
+
+          //elementZona2.style.color = "green";
 
       }
       else{
           elementZona1.style.background = culoareCerculetRCrestere;
           elementZona1.style.color = "#4d3319";
 
-          elementZona2.style.background = "lightblue";
-          elementZona2.style.color = "#4d3319";
-      }*/
+          elementZona3.innerHTML += "+" + Math.floor((clasamentZone[zona].r-1)*100) + "%";
+          //elementZona2.style.background = "lightblue";
+          //elementZona2.style.color = "#4d3319";
+      }
 
   }
 }

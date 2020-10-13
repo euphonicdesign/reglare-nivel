@@ -115,34 +115,35 @@ img {
 }
 
 #pozitii .segment_bara_proiectie {
-  background-color: lightyellow;
-  height: 60px;
-  width: 30px;
-  border: 1px solid #333;
-}
-
-#pozitii .c, .c2 {
   background-color: lightblue;
-  height: 70px;
-  width: 80px;
+  height: 60px;
+  width: 38px;
   border: 1px solid #333;
 }
 
-#pozitii .c2 {
-  height: 40px;
+#pozitii .segment_bara_medie {
+  background-color: lightyellow;
+  height: 70px;
+  width: 38px;
+  border: 1px solid #333;
 }
 
 #pozitii .avion {
-  background-color: lightgrey;
-  height: 10px;
+  background-color: #fcfccf;
+  /*height: 10px;*/
   border: 1px solid #333;
   border-top: none;
+  border-bottom: none;
 }
 
 #pozitii .nume {
-  border: 1px solid #333;
-  border-top: none;
+  /*border: 1px solid #333;
+  border-top: none;*/
   padding: 8px;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: bold;
+  color: #194766;
 }
 
 #pozitii .val_proiectie {
