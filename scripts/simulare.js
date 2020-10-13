@@ -1276,7 +1276,14 @@ function actualizareTabelPozitii(){
               elementZona3.style.background = "lightgreen";
               //elementZona3.innerHTML += "-";
 
-              elementZona3.innerHTML = Math.round(medie) + "" + Math.round((r-1)*100) + "%";
+
+              if(Math.round((r-1)*100) > -1){
+                  elementZona3.innerHTML = Math.round(medie) + "-" + Math.round((r-1)*100) + "%";
+              }
+              else{
+                  elementZona3.innerHTML = Math.round(medie) + "" + Math.round((r-1)*100) + "%";
+              }
+
 
               //elementZona2.style.color = "green";
 
@@ -1402,17 +1409,17 @@ function inserareTabelPozitii(){
   for(let i=0; i<clasamentZone.length; i++){
       textHTML +="<div class='zona'>";
 
-        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " val_proiectie'>";
-        textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
-        textHTML += "</div>";
-        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " segment_bara_proiectie'>";
-        //textHTML += Math.round(clasamentZone[i].proiectie);
-        textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " avion'>";
         textHTML += Math.round(clasamentZone[i].medie);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " segment_bara_medie'>";
         //textHTML += Math.round(clasamentZone[i].proiectie);
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " segment_bara_proiectie'>";
+        //textHTML += Math.round(clasamentZone[i].proiectie);
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " val_proiectie'>";
+        textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " nume'>";
         textHTML += numeArii.data.value[clasamentZone[i].zona].substring(0,3);

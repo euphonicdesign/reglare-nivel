@@ -99,55 +99,69 @@ img {
 
 }
 #pozitii {
-  min-height: 800px;
-  max-height: 800px;
+  min-height: 610px;
+  max-height: 600px;
   overflow: hidden;
 
   border: 2px solid #333;
+  /*
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-end;*/
   /*flex-direction: row-reverse;*/
   margin: 40px 0 40px 0;
 
-  align-items: flex-end;
   text-align: center;
-  padding: 10px 6px 20px 6px;
+  padding: 10px 4px 20px 4px;
+
+  display: grid;
+  grid-template-columns: repeat(14, 34px);
+  grid-template-rows: repeat(14, 200px);
+  grid-gap: 8px;
 }
 
 #pozitii .zona {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   /*border: 4px dotted grey;*/
   padding: 2px;
+  /*align-content: center;*/
 }
+
+/*#pozitii .zona > div {
+  flex = 1;
+}*/
 
 #pozitii .segment_bara_proiectie {
   background-color: lightblue;
   height: 60px;
-  width: 34px;
+  width: 36px;
   border: 1px solid #333;
 }
 
 #pozitii .segment_bara_medie {
   background-color: lightyellow;
   height: 70px;
-  width: 34px;
+  width: 36px;
   border: 1px solid #333;
+  border-bottom: none;
+  border-top: none;
 }
 
 #pozitii .avion {
   background-color: #fcfccf;
-  width: 34px;
-  /*height: 10px;*/
+  width: 36px;
+  min-height: 12px;
   border: 1px solid #333;
-  border-top: none;
-  border-bottom: none;
+  /*border-top: none;*/
+  /*border-bottom: none;*/
 }
 
 #pozitii .nume {
   /*border: 1px solid #333;
   border-top: none;*/
-  padding: 8px;
+  width: 36px;
+  /*padding: 2px;*/
   font-size: 1.2em;
   font-style: italic;
   font-weight: bold;
@@ -155,12 +169,16 @@ img {
 }
 
 #pozitii .val_proiectie {
-
+  width: 36px;
+  font-size: 1.2em;
+  font-style: italic;
+  color: #194766;
 }
 
 #pozitii .val_medie {
   border: 1px solid #333;
   border-bottom: none;
+  /*border-top: none;*/
   padding: 4px;
 }
 
