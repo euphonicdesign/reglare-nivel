@@ -95,6 +95,65 @@ img {
   height: 48px;
 }
 
+#pozitii {
+
+  border: 2px solid #333;
+  display: flex;
+  flex-wrap: wrap;
+  /*flex-direction: row-reverse;*/
+  margin: 40px 0 40px 0;
+
+  align-items: flex-end;
+  text-align: center;
+  padding: 10px 6px 20px 6px;
+}
+
+#pozitii .element {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted grey;
+}
+
+#pozitii .segment_bara_proiectie {
+  background-color: lightyellow;
+  height: 60px;
+  width: 30px;
+  border: 1px solid #333;
+}
+
+#pozitii .c, .c2 {
+  background-color: lightblue;
+  height: 70px;
+  width: 80px;
+  border: 1px solid #333;
+}
+
+#pozitii .c2 {
+  height: 40px;
+}
+
+#pozitii .avion {
+  background-color: lightgrey;
+  height: 10px;
+  border: 1px solid #333;
+  border-top: none;
+}
+
+#pozitii .nume {
+  border: 1px solid #333;
+  border-top: none;
+  padding: 8px;
+}
+
+#pozitii .val_proiectie {
+
+}
+
+#pozitii .val_medie {
+  border: 1px solid #333;
+  border-bottom: none;
+  padding: 4px;
+}
 
 #zone {
   /*margin-top: 50px;*/
