@@ -1276,7 +1276,7 @@ function actualizareTabelPozitii(){
               elementZona3.style.background = "lightgreen";
               //elementZona3.innerHTML += "-";
 
-              elementZona3.innerHTML = Math.round(medie) + "" + Math.floor((r-1)*100) + "%";
+              elementZona3.innerHTML = Math.round(medie) + "" + Math.round((r-1)*100) + "%";
 
               //elementZona2.style.color = "green";
 
@@ -1286,7 +1286,7 @@ function actualizareTabelPozitii(){
               elementZona1.style.color = "#4d3319";
 
               elementZona3.style.background = "#fcfccf";
-              elementZona3.innerHTML = Math.round(medie) + "+" + Math.floor((r-1)*100) + "%";
+              elementZona3.innerHTML = Math.round(medie) + "+" + Math.round((r-1)*100) + "%";
               //elementZona2.style.background = "lightblue";
               //elementZona2.style.color = "#4d3319";
           }
