@@ -1239,9 +1239,62 @@ function actualizareTabelZone(){
           elementZona4.textContent = "";//"Me=";
           elementZona5.textContent = "";//"Pr=";
         }
+    }
+}
 
+function actualizareTabelPozitii(){
+
+  var totalZile = vectoriDateZone[0].vector_r.length-1;
+  var valoareProiectie = 0;
+  var valoareMedie = 0;
+
+
+  var elementZona1, elementZona2;
+  var proiectie, medie, r, valoareProiectie2;
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      elementZona0 = document.getElementsByClassName("pozitii zona" + zona +" val_proiectie")[0];
+      elementZona1 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_proiectie")[0];
+      elementZona2 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_medie")[0];
+      elementZona3 = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];
+
+      if(selectorZi > orizont_regresie + ORIZONT_ARIE){
+          valoareProiectie2 = vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi + orizont_proiectie - 1);
+          proiectie = valoareProiectie2 - vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi);
+          medie = vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi);
+          r = vectoriDateZone[zona].vector_r[selectorZi];
+
+          elementZona0.textContent = Math.round(medie + proiectie);
+          elementZona1.style.height = String(Math.abs(Math.round(proiectie))/4) + "px";
+          elementZona2.style.height = String(Math.abs(Math.round(medie))/4) + "px";
+
+
+
+          if(vectoriDateZone[zona].vector_r[selectorZi]<1){
+              elementZona1.style.background = "lightgreen";
+              elementZona1.style.color = "green";
+
+              elementZona3.style.background = "lightgreen";
+              //elementZona3.innerHTML += "-";
+
+              elementZona3.innerHTML = Math.round(medie) + "" + Math.floor((r-1)*100) + "%";
+
+              //elementZona2.style.color = "green";
+
+          }
+          else{
+              elementZona1.style.background = culoareCerculetRCrestere;
+              elementZona1.style.color = "#4d3319";
+
+              elementZona3.style.background = "#fcfccf";
+              elementZona3.innerHTML = Math.round(medie) + "+" + Math.floor((r-1)*100) + "%";
+              //elementZona2.style.background = "lightblue";
+              //elementZona2.style.color = "#4d3319";
+          }
+    }
+    else{
 
     }
+  }
 }
 
 function inserareTabelZone(){
@@ -4390,6 +4443,7 @@ function ActualizareSuprafataGrafica() {
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
+        actualizareTabelPozitii();
         if(mod == MOD_REGULATOR){
             desenareGraficValori();
             desenareCompensatorValori();
@@ -4477,6 +4531,7 @@ function ActualizareSuprafataGraficaSingulara() {
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
+        actualizareTabelPozitii();
         if(mod == MOD_REGULATOR){
             desenareGraficValori();
             desenareCompensatorValori();
