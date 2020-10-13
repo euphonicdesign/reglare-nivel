@@ -279,7 +279,7 @@ img {
   margin-top: 4px;
   font-size: 1.3em;
   font-style: italic;
-  /*font-weight: bold;*/
+  font-weight: bold;
   /*color:yellow;*/
 }
 #zone table td div[class~="val_r"]{
@@ -295,7 +295,7 @@ img {
   font-size: 1.2em;
   margin-bottom: 6px;
   font-style: italic;
-  /*font-weight: bold;*/
+  font-weight: bold;
 }
 
 #zone table td div[class~="val_v"]{
