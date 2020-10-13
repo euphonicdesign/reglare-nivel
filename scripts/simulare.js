@@ -1231,8 +1231,8 @@ function actualizareTabelZone(){
             elementZona5.textContent = "Pr=" + Math.round(valoareProiectie);
         }
         else{
-          elementZona1.style.background = "white";
-          elementZona1.style.color = "green";
+          elementZona1.style.background = "#f2f2f2";
+          elementZona1.style.color = "#8c8c8c";
           elementZona2.textContent = "";//"R=";
           elementZona3.textContent = "";//"#";
           elementZona4.textContent = "";//"Me=";
