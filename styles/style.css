@@ -91,6 +91,9 @@ img {
   display: inline-flex;
 }
 
+.separator {
+  height: 48px;
+}
 
 
 #zone {
