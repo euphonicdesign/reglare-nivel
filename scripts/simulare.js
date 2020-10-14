@@ -1276,8 +1276,11 @@ function actualizareTabelPozitii(){
   //ctx.fillText( "(" + zi + " " + luna + ")", xTextZi + 75 + (String(selectorZi).length) * 18, yTextZi);
 
 
-  var elementData = document.getElementById("text_data");
-  elementData.textContent = "Ziua " + selectorZi + " (" + zi + " " + luna + ")";
+  var elementeDate = document.getElementsByClassName("text_data");
+  for(i = 0; i<elementeDate.length; i++){
+      elementeDate[i].textContent = "Ziua " + selectorZi + " (" + zi + " " + luna + ")";
+  }
+
 
   var elementZona1, elementZona2;
   var proiectie, medie, r, valoareProiectie2;
@@ -1487,7 +1490,7 @@ function inserareTabelPozitii(){
   var elementPozitii = document.getElementById("pozitii");
   elementPozitii.innerHTML = textHTML;
 
-  var elementData = document.getElementById("text_data");
+  var elementData = document.getElementsByClassName("text_data")[0];
   elementData.textContent = "Ziua " + selectorZi;
 
   clasamentZone.sort(function(a, b){return a.zona - b.zona});
