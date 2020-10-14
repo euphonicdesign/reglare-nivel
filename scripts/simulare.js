@@ -1257,11 +1257,11 @@ function actualizareTabelZone(){
 
         textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
         if(clasamentProiectie[zona].delta > 0){
-            textElement += "\u2798 ";//"↗ ";
+            textElement += "\u279A ";//"↗ ";
             elementZona1c.textContent = "(+" + Math.round(clasamentProiectie[zona].delta) + ")";
         }
         else{
-            textElement += "\u279A ";//"↘ ";
+            textElement += "\u2798 ";//"↘ ";
             elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
         }
 
@@ -1303,13 +1303,7 @@ function actualizareTabelZone(){
     }
 }
 
-function actualizareTabelPozitii(){
-
-  var totalZile = vectoriDateZone[0].vector_r.length-1;
-  var valoareProiectie = 0;
-  var valoareMedie = 0;
-
-
+function actualizareDateZileTabele(){
   var data_zi_luna = data_data[selectorZi].split("/");
   var zi = data_zi_luna[0];
   var luna = data_luni_lung[data_zi_luna[1]-1];
@@ -1322,6 +1316,16 @@ function actualizareTabelPozitii(){
   for(i = 0; i<elementeDate.length; i++){
       elementeDate[i].textContent = "Ziua " + selectorZi + " (" + zi + " " + luna + ")";
   }
+
+}
+
+function actualizareTabelPozitii(){
+
+  var totalZile = vectoriDateZone[0].vector_r.length-1;
+  var valoareProiectie = 0;
+  var valoareMedie = 0;
+
+
 
 
   var elementZona1, elementZona2;
@@ -4619,6 +4623,7 @@ function ActualizareSuprafataGrafica() {
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
         actualizareTabelPozitii();
+        actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
             desenareGraficValori();
             desenareCompensatorValori();
@@ -4707,6 +4712,7 @@ function ActualizareSuprafataGraficaSingulara() {
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
         actualizareTabelPozitii();
+        actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
             desenareGraficValori();
             desenareCompensatorValori();
