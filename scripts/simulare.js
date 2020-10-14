@@ -1505,39 +1505,40 @@ function inserareTabelPozitii(){
   textHTML = "";
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
-  var valoareProiectie = 0;
-  var valoareMedie = 0;
+  clasamentZone = clasamentAeronaveZile[totalZile].clasament;
+  //clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
+  //pauza = true;
 
-  clasamentZone = [];
-  for(let zona=0; zona < numeArii.data.value.length; zona++){
-      valoareProiectie2 = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
-      valoareProiectie = valoareProiectie2 - vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
-      valoareMedie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
-
-      clasamentZone[zona] = {zona: zona, r: vectoriDateZone[zona].vector_r[totalZile], proiectie: valoareProiectie, medie: valoareMedie};
-  }
-
-  //clasamentZone.sort(function(a, b){return a.r - b.r});
-
-  //clasamentZone.sort(function(a, b){return a.medie - b.medie});
 
   for(let i=0; i<clasamentZone.length; i++){
       textHTML +="<div class='zona'>";
 
-        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " avion'>";
+        textHTML += "<div class='pozitii zona" + i + " avion'>";
         textHTML += Math.round(clasamentZone[i].medie);
         textHTML += "</div>";
-        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " segment_bara_medie'>";
+        textHTML += "<div class='pozitii zona" + i + " iProiectie'>";
+        textHTML += "" + Math.round(clasamentZone[i].proiectie);
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + i + " iDelta'>";
+        textHTML += "(+" + Math.round(clasamentZone[i].delta) + ")";
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + i + " iR'>";
+        textHTML += "+" + Math.round((clasamentZone[i].r-1)*100) + "%";
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + i + " iMedie'>";
+        textHTML += Math.round(clasamentZone[i].medie);
+        textHTML += "</div>";
+        textHTML += "<div class='pozitii zona" + i + " segment_bara_medie'>";
         //textHTML += Math.round(clasamentZone[i].proiectie);
         textHTML += "</div>";
-        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " segment_bara_proiectie'>";
+        textHTML += "<div class='pozitii zona" + i + " segment_bara_proiectie'>";
         //textHTML += Math.round(clasamentZone[i].proiectie);
         textHTML += "</div>";
-        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " val_proiectie'>";
+        textHTML += "<div class='pozitii zona" + i + " val_proiectie'>";
         textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
         textHTML += "</div>";
-        textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " nume'>";
-        textHTML += numeArii.data.value[clasamentZone[i].zona].substring(0,3); //+ "✈";
+        textHTML += "<div class='pozitii zona" + i + " nume'>";
+        textHTML += clasamentZone[i].nume; //+ "✈";
         textHTML += "</div>";
 
       textHTML += "</div>";
@@ -1550,11 +1551,12 @@ function inserareTabelPozitii(){
   var elementData = document.getElementsByClassName("text_data")[0];
   elementData.textContent = "Ziua " + selectorZi;
 
-  clasamentZone.sort(function(a, b){return a.zona - b.zona});
+  //clasamentZone.sort(function(a, b){return a.zona - b.zona});
 
 
   var elementZona1, elementZona2;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
+      //console.log(zona);
       elementZona1 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_proiectie")[0];
       elementZona2 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_medie")[0];
       elementZona3 = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];

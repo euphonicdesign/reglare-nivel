@@ -186,6 +186,47 @@ img {
   border-right: 1px solid #333;
 }
 
+#pozitii .iProiectie {
+  background-color: #a8d3f0;
+  width: 36px;
+  min-height: 12px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  font-weight: bold;
+}
+
+#pozitii .iDelta {
+  background-color: #fcfccf;
+  width: 36px;
+  min-height: 12px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+}
+
+#pozitii .iR {
+  background-color: #fcfccf;
+  width: 36px;
+  min-height: 12px;
+  border-top: 1px solid #333;
+  /*border-bottom: 1px solid #333;*/
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+}
+
+#pozitii .iMedie {
+  background-color: #fcfccf;
+  width: 36px;
+  min-height: 12px;
+  border-top: 2px solid #333;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+}
+
 #pozitii .nume {
   /*border: 1px solid #333;
   border-top: none;*/
