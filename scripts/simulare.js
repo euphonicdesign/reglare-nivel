@@ -1366,7 +1366,7 @@ function actualizareTabelPozitii(){
 
           if(Math.abs(Math.round(clasamentZone[zona].delta)) > 250){
               elementSegBaraProiectie.style.height = "18px";
-              elementSegBaraProiectie.textContent = "...";
+              elementSegBaraProiectie.textContent = ">250...";
           }
           else{
               elementSegBaraProiectie.style.height = String(Math.abs(Math.round(clasamentZone[zona].delta/2))) + "px";
@@ -1379,8 +1379,8 @@ function actualizareTabelPozitii(){
           //console.log(clasamentZone[zona].medie);
           //pauza = true;
 
-          if(Math.round(clasamentZone[zona].medie) > 500){
-              elementSegBaraMedie.textContent = "...";
+          if(Math.round(clasamentZone[zona].medie) > 200){
+              elementSegBaraMedie.textContent = " >200...";
           }
           else{
               elementSegBaraMedie.textContent = "";

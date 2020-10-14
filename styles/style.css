@@ -115,8 +115,8 @@ img {
 }
 
 #pozitii {
-  min-height: 610px;
-  max-height: 600px;
+  min-height: 640px;
+  max-height: 640px;
   overflow: hidden;
 
   border: 2px solid #333;
@@ -132,7 +132,7 @@ img {
 
   display: grid;
   grid-template-columns: repeat(14, 34px);
-  grid-template-rows: repeat(14, 200px);
+  grid-template-rows: repeat(14, 210px);
   grid-gap: 8px;
 }
 
