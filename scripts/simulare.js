@@ -1381,11 +1381,12 @@ function actualizareTabelPozitii(){
 
           if(Math.round(clasamentZone[zona].medie) > 200){
               elementSegBaraMedie.textContent = " >200...";
+              elementSegBaraMedie.style.background = culoareRosu;
           }
           else{
               elementSegBaraMedie.textContent = "";
+              elementSegBaraMedie.style.background = "#fcfccf";
           }
-
 
           /*
           if(vectoriDateZone[zona].vector_r[totalZile]<1){
