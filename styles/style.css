@@ -397,6 +397,100 @@ img {
 
 
 
+#traiectorii {
+  /*margin-top: 50px;*/
+  border: 2px solid #333;
+
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+
+#traiectorii table {
+  /*margin: 0 auto;*/
+  margin: 2px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#traiectorii table td {
+  width: 36px;
+  height: 160px;
+  text-align: center;
+  /*border: 1px solid #333;*/
+  margin: 2px;
+  display:inline-block;
+}
+
+#traiectorii table td div{
+  overflow: visible;
+}
+
+#traiectorii table td div[class~="bara_altitudine"]{
+  padding: 2px;
+  /*margin-top: 4px;*/
+  /*padding: 8px;*/
+  font-size: 1.3em;
+  font-style: italic;
+  border: 1px solid #333;
+  /*background: white;*/
+  /*height: 30px;*/
+  font-weight: bold;
+  /*color:yellow;*/
+  overflow:visible;
+
+
+}
+
+#traiectorii table td div[class~="bara_proiectie"]{
+  padding: 2px;
+  /*margin-top: 4px;*/
+  /*padding: 8px;*/
+  border: 1px solid #333;
+  font-size: 1.3em;
+  font-style: italic;
+  background-color: lightblue;
+  /*height: 30px;*/
+  /*font-weight: bold;*/
+  /*color:yellow;*/
+  overflow:visible;
+}
+
+#traiectorii table td div[class~="bara_propagare"]{
+  padding: 2px;
+  /*margin-top: 4px;*/
+  /*padding: 8px;*/
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  font-size: 1.2em;
+  font-style: italic;
+  /*background-color: lightblue;*/
+  /*height: 30px;*/
+  font-weight: bold;
+  /*color:yellow;*/
+  overflow:visible;
+}
+
+#traiectorii table td div[class~="nume_zona"]{
+  /*padding: 2px;*/
+  margin-top: 4px;
+  font-size: 1.3em;
+  font-style: italic;
+  /*font-weight: bold;*/
+  /*color:yellow;*/
+}
+
+#traiectorii table td div[class~="val_cl_me"]{
+  /*padding: 2px;*/
+  font-size: 1.2em;
+  margin-bottom: 6px;
+  font-style: italic;
+  /*font-weight: bold;*/
+}
+
+
+
 #zone table td {
   width: 76px;
   height: 80px;

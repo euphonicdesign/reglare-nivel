@@ -1191,6 +1191,7 @@ function start() {
     inserareTabelPozitii();
     inserareTabelVitezePropagare();
     inserareTabelAltitudini();
+    inserareTabelTraiectorii();
 }
 
 
@@ -1683,8 +1684,6 @@ function inserareTabelAltitudini(){
       //textHTML += "<div class='zona" + i + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
       textHTML += "<div class='zona" + i + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
 
-
-
       //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
@@ -1710,6 +1709,76 @@ function inserareTabelAltitudini(){
 
       //console.log("zona" + zona + " " + elementZona2.style.height);
       elementZona3.style.background = culoareGalben;
+
+      /*
+      if(vectoriDateZone[zona].vector_r[totalZile]<1){
+          elementZona1.style.background = "lightgreen";
+          elementZona1.style.color = "green";
+
+          elementZona2.style.background = "lightgreen";
+          elementZona2.style.color = "green";
+
+      }
+      else{
+          elementZona1.style.background = culoareCerculetRCrestere;
+          elementZona1.style.color = "#4d3319";
+
+          elementZona2.style.background = "lightblue";
+          elementZona2.style.color = "#4d3319";
+      }*/
+
+  }
+
+}
+
+function inserareTabelTraiectorii(){
+
+  textHTML = "";
+  textHTML += "<table>";
+  textHTML+="<tr>";
+
+  var totalZile = vectoriDateZone[0].vector_r.length-1;
+  clasamentZone = clasamentAeronaveZile[totalZile].clasament;
+
+  //clasamentZone.sort(function(a, b){return a.r - b.r});
+
+  clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
+
+  for(let i=0; i<clasamentZone.length; i++){
+      textHTML += "<td id='vp_zona" + i + "'>";
+      textHTML += "<div class='zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
+      //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+      textHTML += "<div class='zona" + i + " val_cl_pr'>" + "#" + (i+1) + "</div>";
+
+      textHTML += "<div class='zona" + i + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
+      //textHTML += "<div class='zona" + i + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
+      //textHTML += "<div class='zona" + i + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
+
+      //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
+      //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
+      //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
+      textHTML += "</td>";
+  }
+
+  textHTML +="</tr>";
+  textHTML += "</table>";
+
+  var elementTraiectorii = document.getElementById("traiectorii");
+  elementTraiectorii.innerHTML = textHTML;
+
+  //clasamentZone.sort(function(a, b){return b.medie - a.medie});
+
+  var elementZona2;
+  for(let zona=0; zona < clasamentZone.length; zona++){
+      //elementZona1 = document.getElementsByClassName("zona" + zona +" bara_propagare")[0];
+      //elementZona2 = document.getElementsByClassName("zona" + zona +" bara_proiectie")[0];
+      elementZona3 = document.getElementsByClassName("zona" + zona +" bara_proiectie")[0];
+      elementZona3.style.height = String(Math.round(clasamentZone[zona].proiectie/3)) + "px";
+      //elementZona2.style.height = "20px";
+      //elementZona2.style.height = "" + clasamentZone[zona].medie + "px";
+
+      //console.log("zona" + zona + " " + elementZona2.style.height);
+      elementZona3.style.background = culoareAlbastru;
 
       /*
       if(vectoriDateZone[zona].vector_r[totalZile]<1){
