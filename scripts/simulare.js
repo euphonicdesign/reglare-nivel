@@ -1548,7 +1548,7 @@ function inserareTabelVitezePropagare(){
       textHTML += "<td id='vp_zona" + clasamentR[i].zona + "'>";
       textHTML += "<div class='zona" + clasamentR[i].zona + " nume_zona'>" + numeArii.data.value[clasamentR[i].zona].substring(0,3) + "</div>";
       //textHTML += "<div class='zona" + clasamentR[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-      textHTML += "<div class='zona" + clasamentR[i].zona + " val_cl_r'>" + "" + (i+1) + "</div>";
+      textHTML += "<div class='zona" + clasamentR[i].zona + " val_cl_r'>" + "#" + (i+1) + "</div>";
 
 
       textHTML += "<div class='zona" + clasamentR[i].zona + " bara_grafic'>" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
@@ -1612,7 +1612,7 @@ function inserareTabelAltitudini(){
       textHTML += "<td id='vp_zona" + clasamentZone[i].zona + "'>";
       textHTML += "<div class='zona" + clasamentZone[i].zona + " nume_zona'>" + numeArii.data.value[clasamentZone[i].zona].substring(0,3) + "</div>";
       //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-      textHTML += "<div class='zona" + clasamentZone[i].zona + " val_cl_me'>" + "" + (i+1) + "</div>";
+      textHTML += "<div class='zona" + clasamentZone[i].zona + " val_cl_me'>" + "#" + (i+1) + "</div>";
 
       textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
       textHTML += "<div class='zona" + clasamentZone[i].zona + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
