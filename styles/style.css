@@ -150,6 +150,7 @@ img {
   height: 60px;
   width: 36px;
   border: 1px solid #333;
+  font-weight: bolder;
 }
 
 #pozitii .segment_bara_medie {

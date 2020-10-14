@@ -1276,6 +1276,12 @@ function actualizareTabelPozitii(){
 
           elementZona0.textContent = Math.round(medie + proiectie);
           elementZona1.style.height = String(Math.abs(Math.round(proiectie))/4) + "px";
+          if(Math.abs(Math.round(proiectie)) > 500){
+              elementZona1.textContent = "...";
+          }
+          else{
+              elementZona1.textContent = "";
+          }
           elementZona2.style.height = String(Math.abs(Math.round(medie))/4) + "px";
 
 
