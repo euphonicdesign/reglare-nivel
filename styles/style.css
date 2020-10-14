@@ -151,6 +151,7 @@ img {
   width: 36px;
   border: 1px solid #333;
   font-weight: bolder;
+  overflow: auto;
 }
 
 #pozitii .segment_bara_medie {
@@ -160,6 +161,8 @@ img {
   border: 1px solid #333;
   border-bottom: none;
   border-top: none;
+  font-weight: bolder;
+  overflow: auto;
 }
 
 #pozitii .avion {

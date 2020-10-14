@@ -1275,15 +1275,23 @@ function actualizareTabelPozitii(){
           r = vectoriDateZone[zona].vector_r[selectorZi];
 
           elementZona0.textContent = Math.round(medie + proiectie);
-          elementZona1.style.height = String(Math.abs(Math.round(proiectie))/4) + "px";
+
           if(Math.abs(Math.round(proiectie)) > 500){
+              elementZona1.style.height = "18px";
               elementZona1.textContent = "...";
           }
           else{
+              elementZona1.style.height = String(Math.abs(Math.round(proiectie/4))) + "px";
               elementZona1.textContent = "";
           }
-          elementZona2.style.height = String(Math.abs(Math.round(medie))/4) + "px";
 
+          elementZona2.style.height = String(Math.round(medie/4)) + "px";
+          if(Math.round(medie) > 500){
+              elementZona2.textContent = "...";
+          }
+          else{
+              elementZona2.textContent = "";
+          }
 
 
           if(vectoriDateZone[zona].vector_r[selectorZi]<1){
@@ -1306,14 +1314,24 @@ function actualizareTabelPozitii(){
 
           }
           else{
-              elementZona1.style.background = culoareCerculetRCrestere;
-              elementZona1.style.color = "#4d3319";
+              if(Math.abs(Math.round(proiectie)) > 500){
+                  elementZona1.style.background = "#c32222";
+                  elementZona1.style.color = "white";
+              }
+              else{
+                  elementZona1.style.background = culoareCerculetRCrestere;
+                  elementZona1.style.color = "#4d3319";
+              }
+
+
 
               elementZona3.style.background = "#fcfccf";
               elementZona3.innerHTML = Math.round(medie) + "+" + Math.round((r-1)*100) + "%";
               //elementZona2.style.background = "lightblue";
               //elementZona2.style.color = "#4d3319";
           }
+
+
     }
     else{
       elementZona0.textContent = "";
