@@ -1321,96 +1321,161 @@ function actualizareDateZileTabele(){
 
 function actualizareTabelPozitii(){
 
-  var totalZile = vectoriDateZone[0].vector_r.length-1;
-  var valoareProiectie = 0;
-  var valoareMedie = 0;
+  //var totalZile = vectoriDateZone[0].vector_r.length-1;
+  //var valoareProiectie = 0;
+  //var valoareMedie = 0;
+
+  //var totalZile = vectoriDateZone[0].vector_r.length-1;
+  clasamentZone = clasamentAeronaveZile[selectorZi].clasament;
+  clasamentZone.sort(function(a, b){return a.arie - b.arie});
 
 
-
-
-  var elementZona1, elementZona2;
-  var proiectie, medie, r, valoareProiectie2;
+  //var elementZona1, elementZona2;
+  //var proiectie, medie, r, valoareProiectie2;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       elementZona0 = document.getElementsByClassName("pozitii zona" + zona +" val_proiectie")[0];
-      elementZona1 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_proiectie")[0];
-      elementZona2 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_medie")[0];
-      elementZona3 = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];
+      elementSegBaraProiectie = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_proiectie")[0];
+      elementSegBaraMedie = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_medie")[0];
+      //elementSegAvion = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];
+
+      elementIProiectie = document.getElementsByClassName("pozitii zona" + zona +" iProiectie")[0];
+      elementIDelta = document.getElementsByClassName("pozitii zona" + zona +" iDelta")[0];
+      elementIR = document.getElementsByClassName("pozitii zona" + zona +" iR")[0];
+      elementIMedie = document.getElementsByClassName("pozitii zona" + zona +" iMedie")[0];
+
 
       if(selectorZi > orizont_regresie + ORIZONT_ARIE){
-          valoareProiectie2 = vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi + orizont_proiectie - 1);
-          proiectie = valoareProiectie2 - vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi);
-          medie = vectoriDateZone[zona].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[zona].vector_r[selectorZi], selectorZi);
-          r = vectoriDateZone[zona].vector_r[selectorZi];
-
-          elementZona0.textContent = Math.round(medie + proiectie);
-
-          if(Math.abs(Math.round(proiectie)) > 250){
-              elementZona1.style.height = "18px";
-              elementZona1.textContent = "...";
+          elementIProiectie.textContent = Math.round(clasamentZone[zona].proiectie);
+          if(clasamentZone[zona].delta > 0){
+              elementIDelta.textContent = "+" + Math.round(clasamentZone[zona].delta) + "";
           }
           else{
-              elementZona1.style.height = String(Math.abs(Math.round(proiectie/2))) + "px";
-              elementZona1.textContent = "";
+              elementIDelta.textContent = "" + Math.round(clasamentZone[zona].delta) + "";
           }
 
-          elementZona2.style.height = String(Math.round(medie/2)) + "px";
-          if(Math.round(medie) > 500){
-              elementZona2.textContent = "...";
+          if(clasamentZone[zona].r > 1){
+              elementIR.textContent = "+" + Math.round((clasamentZone[zona].r-1)*100) + "%";
           }
           else{
-              elementZona2.textContent = "";
+              elementIR.textContent = "" + Math.round((clasamentZone[zona].r-1)*100) + "%";
+          }
+
+          elementIMedie.textContent = Math.round(clasamentZone[zona].medie);
+
+          elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
+
+          if(Math.abs(Math.round(clasamentZone[zona].delta)) > 250){
+              elementSegBaraProiectie.style.height = "18px";
+              elementSegBaraProiectie.textContent = "...";
+          }
+          else{
+              elementSegBaraProiectie.style.height = String(Math.abs(Math.round(clasamentZone[zona].delta/2))) + "px";
+              elementSegBaraProiectie.textContent = "";
+          }
+
+          elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
+          //console.log(zona);
+          //console.log(selectorZi);
+          //console.log(clasamentZone[zona].medie);
+          //pauza = true;
+
+          if(Math.round(clasamentZone[zona].medie) > 500){
+              elementSegBaraMedie.textContent = "...";
+          }
+          else{
+              elementSegBaraMedie.textContent = "";
           }
 
 
-          if(vectoriDateZone[zona].vector_r[selectorZi]<1){
-              elementZona1.style.background = "lightgreen";
-              elementZona1.style.color = "green";
+          /*
+          if(vectoriDateZone[zona].vector_r[totalZile]<1){
+              elementZona.style.background = "lightgreen";
+              elementZona.style.color = "green";
 
-              elementZona3.style.background = "lightgreen";
-              //elementZona3.innerHTML += "-";
+          }
+          else{
+              elementZona.style.background = culoareCerculetRCrestere;
+              elementZona.style.color = "#4d3319";
+          }
+          */
 
 
-              if(Math.round((r-1)*100) > -1){
-                  elementZona3.innerHTML = Math.round(medie) + "-" + Math.round((r-1)*100) + "%";
+          if(clasamentZone[zona].r<1){
+              elementSegBaraProiectie.style.background = "lightgreen";
+              elementSegBaraProiectie.style.color = "green";
+
+              //elementSegAvion.style.background = "lightgreen";
+              elementIR.style.background = "lightgreen";
+              elementIDelta.style.background = "lightgreen";
+              //elementSegAvion.innerHTML += "-";
+
+
+
+              //if(Math.round((clasamentZone[zona].r-1)*100) > -1){
+                  //elementSegAvion.innerHTML = Math.round(medie) + "-" + Math.round((clasamentZone[zona].r-1)*100) + "%";
+              //}
+              //else{
+                  //elementSegAvion.innerHTML = Math.round(medie) + "" + Math.round((clasamentZone[zona].r-1)*100) + "%";
+              //}
+
+              //elementSegBaraMedie.style.color = "green";
+
+          }
+          else{
+              //elementIDelta.style.background = culoareCerculetRCrestere;
+              //elementIDelta.style.color = "#4d3319";
+              elementIR.style.background = culoareCerculetRCrestere;//"#fcfccf";
+
+              //elementZona.style.background = culoareCerculetRCrestere;
+
+
+              if(Math.abs(Math.round(clasamentZone[zona].delta)) > 250){
+                  elementSegBaraProiectie.style.background = "#c32222";
+                  elementSegBaraProiectie.style.color = "white";
+                  //elementSegAvion.style.background = "#c32222";
+                  //elementSegAvion.style.color = "white";
+                  elementIProiectie.style.background = "#c32222";
+                  elementIProiectie.style.color = "white";
+                  elementIDelta.style.background = "#c32222";
+                  elementIDelta.style.color = "white";
               }
               else{
-                  elementZona3.innerHTML = Math.round(medie) + "" + Math.round((r-1)*100) + "%";
+                  elementSegBaraProiectie.style.background = culoareAlbastru;
+                  elementSegBaraProiectie.style.color = "#4d3319";
+                  //elementSegAvion.style.background = "#fcfccf";
+                  //elementSegAvion.style.color = "#333";
+
+                  elementIProiectie.style.background = culoareAlbastru;
+                  elementIProiectie.style.color = "#333";
+                  elementIDelta.style.background = culoareCerculetRCrestere;//"#fcfccf";
+                  elementIDelta.style.color = "black";//"#333";
               }
 
-              //elementZona2.style.color = "green";
 
+
+
+              //elementSegAvion.innerHTML = Math.round(clasamentZone[zona].medie) + "+" + Math.round((clasamentZone[zona].r-1)*100) + "%";
+              //elementSegBaraMedie.style.background = "lightblue";
+              //elementSegBaraMedie.style.color = "#4d3319";
           }
-          else{
-              if(Math.abs(Math.round(proiectie)) > 250){
-                  elementZona1.style.background = "#c32222";
-                  elementZona1.style.color = "white";
-                  elementZona3.style.background = "#c32222";
-                  elementZona3.style.color = "white";
-              }
-              else{
-                  elementZona1.style.background = culoareAlbastru;
-                  elementZona1.style.color = "#4d3319";
-                  elementZona3.style.background = "#fcfccf";
-                  elementZona3.style.color = "#333";
-              }
 
-              elementZona3.innerHTML = Math.round(medie) + "+" + Math.round((r-1)*100) + "%";
-              //elementZona2.style.background = "lightblue";
-              //elementZona2.style.color = "#4d3319";
-          }
 
 
     }
     else{
-      elementZona0.textContent = "";
-      elementZona1.style.height = "0";
-      elementZona2.style.height = "0";
-      elementZona1.style.background = "lightgreen";
-      elementZona1.style.color = "green";
-      elementZona3.style.background = "lightgrey";
-      //elementZona3.innerHTML += "-";
+      elementIProiectie.textContent = "0";
+      elementIDelta.textContent = "0";
 
-      elementZona3.innerHTML = 0;
+
+      elementZona0.textContent = "";
+      elementSegBaraProiectie.style.height = "0";
+      elementSegBaraMedie.style.height = "0";
+      elementSegBaraProiectie.style.background = "lightgreen";
+      elementSegBaraProiectie.style.color = "green";
+      //elementSegAvion.style.background = "lightgrey";
+      //elementSegAvion.innerHTML += "-";
+
+      //elementSegAvion.innerHTML = 0;
 
     }
   }
@@ -1513,9 +1578,9 @@ function inserareTabelPozitii(){
   for(let i=0; i<clasamentZone.length; i++){
       textHTML +="<div class='zona'>";
 
-        textHTML += "<div class='pozitii zona" + i + " avion'>";
-        textHTML += Math.round(clasamentZone[i].medie);
-        textHTML += "</div>";
+        //textHTML += "<div class='pozitii zona" + i + " avion'>";
+        //textHTML += Math.round(clasamentZone[i].medie);
+        //textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " iProiectie'>";
         textHTML += "" + Math.round(clasamentZone[i].proiectie);
         textHTML += "</div>";
@@ -1554,12 +1619,12 @@ function inserareTabelPozitii(){
   //clasamentZone.sort(function(a, b){return a.zona - b.zona});
 
 
-  var elementZona1, elementZona2;
+  //var elementZona1, elementZona2;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       //console.log(zona);
       elementZona1 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_proiectie")[0];
       elementZona2 = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_medie")[0];
-      elementZona3 = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];
+      //elementZona3 = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];
       //elementZona2 = document.getElementsByClassName("zona" + zona +" bara_proiectie")[0];
       //elementZona3 = document.getElementsByClassName("zona" + zona +" bara_altitudine")[0];
 
@@ -1582,10 +1647,10 @@ function inserareTabelPozitii(){
           elementZona1.style.background = "lightgreen";
           elementZona1.style.color = "green";
 
-          elementZona3.style.background = "lightgreen";
+          //elementZona3.style.background = "lightgreen";
           //elementZona3.innerHTML += "-";
 
-          elementZona3.innerHTML += "" + Math.floor((clasamentZone[zona].r-1)*100) + "%";
+          //elementZona3.innerHTML += "" + Math.floor((clasamentZone[zona].r-1)*100) + "%";
 
           //elementZona2.style.color = "green";
 
@@ -1594,7 +1659,7 @@ function inserareTabelPozitii(){
           elementZona1.style.background = culoareAlbastru;
           elementZona1.style.color = "#4d3319";
 
-          elementZona3.innerHTML += "+" + Math.floor((clasamentZone[zona].r-1)*100) + "%";
+          //elementZona3.innerHTML += "+" + Math.floor((clasamentZone[zona].r-1)*100) + "%";
           //elementZona2.style.background = "lightblue";
           //elementZona2.style.color = "#4d3319";
       }

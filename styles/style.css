@@ -201,7 +201,7 @@ img {
   background-color: #fcfccf;
   width: 36px;
   min-height: 12px;
-  border-top: 1px solid #333;
+  /*border-top: 1px solid #333;*/
   border-bottom: 1px solid #333;
   border-left: 1px solid #333;
   border-right: 1px solid #333;
@@ -225,6 +225,7 @@ img {
   border-bottom: 1px solid #333;
   border-left: 1px solid #333;
   border-right: 1px solid #333;
+  font-weight: bold;
 }
 
 #pozitii .nume {
