@@ -1185,49 +1185,87 @@ function start() {
       selectorArie.style.display = "none";
     }
 
+    generareClasamentAeronavePeZile();
     inserareTabelZone();
     inserareTabelPozitii();
     inserareTabelVitezePropagare();
     inserareTabelAltitudini();
 }
 
+
+function generareClasamentAeronavePeZile(){
+  clasamentAeronaveZile = [];
+  var totalZile = vectoriDateZone[0].vector_r.length;//-1
+
+  for(let zi=0; zi < totalZile; zi++){
+      var clasamentAeronave = [];
+      for(let arie=0; arie < numeArii.data.value.length; arie++){
+
+          valoareProiectie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi + orizont_proiectie - 1);
+          valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi);
+          delta = valoareProiectie - valoareMedie;
+          numeArie = numeArii.data.value[arie].substring(0,3);
+
+          clasamentAeronave[arie] = {
+            arie: arie,
+            r: vectoriDateZone[arie].vector_r[zi],
+            proiectie: valoareProiectie,
+            medie: valoareMedie,
+            delta: delta,
+            nume: numeArie
+          };
+      }
+
+      clasamentAeronaveZile[zi] = {ziua:zi, clasament: clasamentAeronave};
+  }
+
+  //var clasamentProiectie = clasamentAeronaveZile[selectorZi].clasament;
+  //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
+
+}
+
 function actualizareTabelZone(){
 
-
-
-    var clasamentProiectie = [];
-    for(let arie=0; arie < numeArii.data.value.length; arie++){
-        valoareProiectie = vectoriDateZone[arie].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[arie].vector_r[selectorZi], selectorZi + orizont_proiectie - 1);
-        valoareMedie = vectoriDateZone[arie].vector_coefA[selectorZi] * Math.pow(vectoriDateZone[arie].vector_r[selectorZi], selectorZi);
-        numeArie = numeArii.data.value[arie].substring(0,3)
-        clasamentProiectie[arie] = {arie: arie, r: vectoriDateZone[arie].vector_r[selectorZi], proiectie: valoareProiectie, medie: valoareMedie, nume: numeArie};
-    }
-
+    var clasamentProiectie = clasamentAeronaveZile[selectorZi].clasament;
     clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
-    /*pauza = true;*/
-    /*
 
-    pozitieClasamentProiectie = 0;
-    for(let i=0; i < clasamentProiectie.length; i++){
-        pozitieClasamentProiectie++;
-        if(clasamentProiectie[i].arie == zona) break;
-    }
-    */
-
-    var elementZona;
+    var elementZona, textElement;
     for(let zona=0; zona < clasamentProiectie.length; zona++){
 
         elementZona1 = document.getElementById("zona" + zona);
         elementZona1b = document.getElementsByClassName("zona" + zona +" nume_zona")[0];
+        elementZona1c = document.getElementsByClassName("zona" + zona +" val_delta")[0];
+        elementZona1d = document.getElementsByClassName("zona" + zona +" Me-Pr")[0];
         elementZona2 = document.getElementsByClassName("zona" + zona +" val_r")[0];
         elementZona3 = document.getElementsByClassName("zona" + zona +" val_cl_r")[0];
-        elementZona4 = document.getElementsByClassName("zona" + zona +" val_me")[0];
-        elementZona5 = document.getElementsByClassName("zona" + zona +" val_pr")[0];
+        //elementZona4 = document.getElementsByClassName("zona" + zona +" val_me")[0];
+        //elementZona5 = document.getElementsByClassName("zona" + zona +" val_pr")[0];
+
+        /*
+        textHTML += "<div class='zona" + zona + " Me-Pr'>";
+        textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].medie);
+        textHTML += "->";
+        textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].proiectie);
+        textHTML += "</div>";
+        */
+        //textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(clasamentAeronaveZile[totalZile].clasament[zona].delta) + "</div>";
 
         elementZona1b.textContent = "" + clasamentProiectie[zona].nume;
+        elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
+
+        textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
+        if(clasamentProiectie[zona].delta > 0){
+            textElement += "↗ ";
+        }
+        else{
+            textElement += "↘ ";
+        }
+
+        textElement += Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].proiectie);
+        elementZona1d.textContent = textElement;
+
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
-
 
             if(clasamentProiectie[zona].proiectie - clasamentProiectie[zona].medie > 250 ){
                 elementZona1.style.background = "#c32222";
@@ -1247,16 +1285,16 @@ function actualizareTabelZone(){
             //elementZona.textContent = "R=" + Math.floor((clasamentZone[selectorZi].r-1)*10000)/100;
             elementZona2.textContent = "R=" + Math.floor((clasamentProiectie[zona].r-1)*10000)/100;
             elementZona3.textContent = "#" + (zona + 1);
-            elementZona4.textContent = "Me=" + Math.round(clasamentProiectie[zona].medie);
-            elementZona5.textContent = "Pr=" + Math.round(clasamentProiectie[zona].proiectie);
+            //elementZona4.textContent = "Me=" + Math.round(clasamentProiectie[zona].medie);
+            //elementZona5.textContent = "Pr=" + Math.round(clasamentProiectie[zona].proiectie);
         }
         else{
           elementZona1.style.background = "#f2f2f2";
           elementZona1.style.color = "#8c8c8c";
           elementZona2.textContent = "";//"R=";
           elementZona3.textContent = "";//"#";
-          elementZona4.textContent = "";//"Me=";
-          elementZona5.textContent = "";//"Pr=";
+          //elementZona4.textContent = "";//"Me=";
+          //elementZona5.textContent = "";//"Pr=";
         }
     }
 }
@@ -1409,11 +1447,23 @@ function inserareTabelZone(){
 
     textHTML += "<td id='zona" + zona + "'>";
     textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
-    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
     textHTML += "<div class='zona" + zona + " val_cl_r'>" + "#" + pozitieClasamentR + "</div>";
+
+    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+
+    textHTML += "<div class='zona" + zona + " Me-Pr'>";
+    textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].medie);
+    textHTML += "→";
+    textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].proiectie);
+    textHTML += "</div>";
+
+    textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(clasamentAeronaveZile[totalZile].clasament[zona].delta) + "</div>";
+
+
+
     //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
-    textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
-    textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
+    //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
+    //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
     textHTML += "</td>";
 
     if(coloana == nrColPeLinie-1){
