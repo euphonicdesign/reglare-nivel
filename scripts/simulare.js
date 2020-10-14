@@ -1317,15 +1317,16 @@ function actualizareTabelPozitii(){
               if(Math.abs(Math.round(proiectie)) > 500){
                   elementZona1.style.background = "#c32222";
                   elementZona1.style.color = "white";
+                  elementZona3.style.background = "#c32222";
+                  elementZona3.style.color = "white";
               }
               else{
                   elementZona1.style.background = culoareCerculetRCrestere;
                   elementZona1.style.color = "#4d3319";
+                  elementZona3.style.background = "#fcfccf";
+                  elementZona3.style.color = "#333";
               }
 
-
-
-              elementZona3.style.background = "#fcfccf";
               elementZona3.innerHTML = Math.round(medie) + "+" + Math.round((r-1)*100) + "%";
               //elementZona2.style.background = "lightblue";
               //elementZona2.style.color = "#4d3319";
