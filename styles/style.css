@@ -342,9 +342,11 @@ img {
   border: 1px solid #333;
   /*background: white;*/
   /*height: 30px;*/
-  /*font-weight: bold;*/
+  font-weight: bold;
   /*color:yellow;*/
   overflow:visible;
+
+
 }
 
 #altitudini table td div[class~="bara_proiectie"]{
