@@ -1228,14 +1228,22 @@ function actualizareTabelZone(){
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
 
-            if(clasamentProiectie[zona].r < 1){
-                elementZona1.style.background = "lightgreen";
-                elementZona1.style.color = "green";
+
+            if(clasamentProiectie[zona].proiectie - clasamentProiectie[zona].medie > 250 ){
+                elementZona1.style.background = "#c32222";
+                elementZona1.style.color = "white";
             }
             else{
-                elementZona1.style.background = culoareCerculetRCrestere;
-                elementZona1.style.color = "#4d3319";
+                if(clasamentProiectie[zona].r < 1){
+                    elementZona1.style.background = "lightgreen";
+                    elementZona1.style.color = "green";
+                }
+                else{
+                    elementZona1.style.background = culoareCerculetRCrestere;
+                    elementZona1.style.color = "#4d3319";
+                }
             }
+
             //elementZona.textContent = "R=" + Math.floor((clasamentZone[selectorZi].r-1)*10000)/100;
             elementZona2.textContent = "R=" + Math.floor((clasamentProiectie[zona].r-1)*10000)/100;
             elementZona3.textContent = "#" + (zona + 1);
