@@ -1276,16 +1276,16 @@ function actualizareTabelPozitii(){
 
           elementZona0.textContent = Math.round(medie + proiectie);
 
-          if(Math.abs(Math.round(proiectie)) > 500){
+          if(Math.abs(Math.round(proiectie)) > 250){
               elementZona1.style.height = "18px";
               elementZona1.textContent = "...";
           }
           else{
-              elementZona1.style.height = String(Math.abs(Math.round(proiectie/4))) + "px";
+              elementZona1.style.height = String(Math.abs(Math.round(proiectie/2))) + "px";
               elementZona1.textContent = "";
           }
 
-          elementZona2.style.height = String(Math.round(medie/4)) + "px";
+          elementZona2.style.height = String(Math.round(medie/2)) + "px";
           if(Math.round(medie) > 500){
               elementZona2.textContent = "...";
           }
@@ -1314,7 +1314,7 @@ function actualizareTabelPozitii(){
 
           }
           else{
-              if(Math.abs(Math.round(proiectie)) > 500){
+              if(Math.abs(Math.round(proiectie)) > 250){
                   elementZona1.style.background = "#c32222";
                   elementZona1.style.color = "white";
                   elementZona3.style.background = "#c32222";

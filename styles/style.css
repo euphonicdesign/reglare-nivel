@@ -152,29 +152,38 @@ img {
   background-color: lightblue;
   height: 60px;
   width: 36px;
-  border: 1px solid #333;
+  /*border: 1px dotted #333;*/
   font-weight: bolder;
-  overflow: auto;
+  /*overflow: auto;*/
+
+  border-top: 1px solid #333;
+  /*border-bottom: 2px solid #333;*/
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
 }
 
 #pozitii .segment_bara_medie {
   background-color: lightyellow;
   height: 70px;
   width: 36px;
-  border: 1px solid #333;
-  border-bottom: none;
-  border-top: none;
+  border-top: 4px solid #0f223d;
+  /*border-bottom: 2px solid #333;*/
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  /*border-bottom: none;
+  border-top: none;*/
   font-weight: bolder;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 
 #pozitii .avion {
   background-color: #fcfccf;
   width: 36px;
   min-height: 12px;
-  border: 1px solid #333;
-  /*border-top: none;*/
-  /*border-bottom: none;*/
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
 }
 
 #pozitii .nume {
