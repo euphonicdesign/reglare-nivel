@@ -1252,14 +1252,16 @@ function actualizareTabelZone(){
         //textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(clasamentAeronaveZile[totalZile].clasament[zona].delta) + "</div>";
 
         elementZona1b.textContent = "" + clasamentProiectie[zona].nume;
-        elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
+
 
         textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
         if(clasamentProiectie[zona].delta > 0){
             textElement += "↗ ";
+            elementZona1c.textContent = "(+" + Math.round(clasamentProiectie[zona].delta) + ")";
         }
         else{
             textElement += "↘ ";
+            elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
         }
 
         textElement += Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].proiectie);
