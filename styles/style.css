@@ -187,7 +187,8 @@ img {
 }
 
 #pozitii .iProiectie {
-  background-color: #a8d3f0;
+  /*background-color: #a8d3f0;*/
+  background-color: lightgrey;
   width: 36px;
   min-height: 12px;
   border-top: 1px solid #333;

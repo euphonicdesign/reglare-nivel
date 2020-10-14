@@ -1327,13 +1327,16 @@ function actualizareTabelPozitii(){
 
   //var totalZile = vectoriDateZone[0].vector_r.length-1;
   clasamentZone = clasamentAeronaveZile[selectorZi].clasament;
+  //clasamentZone.sort(function(a, b){return b.medie - a.medie});
   clasamentZone.sort(function(a, b){return a.arie - b.arie});
 
 
   //var elementZona1, elementZona2;
   //var proiectie, medie, r, valoareProiectie2;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
-      elementZona0 = document.getElementsByClassName("pozitii zona" + zona +" val_proiectie")[0];
+      elementNume = document.getElementsByClassName("pozitii zona" + zona +" nume")[0];
+      elementValProiectie = document.getElementsByClassName("pozitii zona" + zona +" val_proiectie")[0];
+
       elementSegBaraProiectie = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_proiectie")[0];
       elementSegBaraMedie = document.getElementsByClassName("pozitii zona" + zona +" segment_bara_medie")[0];
       //elementSegAvion = document.getElementsByClassName("pozitii zona" + zona +" avion")[0];
@@ -1343,6 +1346,8 @@ function actualizareTabelPozitii(){
       elementIR = document.getElementsByClassName("pozitii zona" + zona +" iR")[0];
       elementIMedie = document.getElementsByClassName("pozitii zona" + zona +" iMedie")[0];
 
+      elementNume.textContent = clasamentZone[zona].nume;
+      elementValProiectie.textContent = Math.round(clasamentZone[zona].proiectie);
 
       if(selectorZi > orizont_regresie + ORIZONT_ARIE){
           elementIProiectie.textContent = Math.round(clasamentZone[zona].proiectie);
@@ -1362,15 +1367,23 @@ function actualizareTabelPozitii(){
 
           elementIMedie.textContent = Math.round(clasamentZone[zona].medie);
 
-          elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
+          //elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
 
           if(Math.abs(Math.round(clasamentZone[zona].delta)) > 250){
-              elementSegBaraProiectie.style.height = "18px";
+              //elementSegBaraProiectie.style.height = "18px";
               elementSegBaraProiectie.textContent = ">250...";
           }
           else{
-              elementSegBaraProiectie.style.height = String(Math.abs(Math.round(clasamentZone[zona].delta/2))) + "px";
-              elementSegBaraProiectie.textContent = "";
+              max_delta = 210 - Math.round(clasamentZone[zona].medie/2) - 94;
+              h_delta = Math.abs(Math.round(clasamentZone[zona].delta/2));
+              if(h_delta < max_delta){
+                  elementSegBaraProiectie.style.height = String(h_delta) + "px";
+              }
+              else{
+                  elementSegBaraProiectie.style.height = String(max_delta) + "px";
+              }
+
+              elementSegBaraProiectie.textContent = Math.round(clasamentZone[zona].delta);
           }
 
           elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
@@ -1446,7 +1459,7 @@ function actualizareTabelPozitii(){
                   //elementSegAvion.style.background = "#fcfccf";
                   //elementSegAvion.style.color = "#333";
 
-                  elementIProiectie.style.background = culoareAlbastru;
+                  elementIProiectie.style.background = "lightgrey";//culoareAlbastru;
                   elementIProiectie.style.color = "#333";
                   elementIDelta.style.background = culoareCerculetRCrestere;//"#fcfccf";
                   elementIDelta.style.color = "black";//"#333";
@@ -1468,7 +1481,8 @@ function actualizareTabelPozitii(){
       elementIDelta.textContent = "0";
 
 
-      elementZona0.textContent = "";
+      elementValProiectie.textContent = "";
+      elementNume.textContent = "";
       elementSegBaraProiectie.style.height = "0";
       elementSegBaraMedie.style.height = "0";
       elementSegBaraProiectie.style.background = "lightgreen";
