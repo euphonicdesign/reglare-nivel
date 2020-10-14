@@ -1477,7 +1477,7 @@ function inserareTabelPozitii(){
         textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + clasamentZone[i].zona + " nume'>";
-        textHTML += numeArii.data.value[clasamentZone[i].zona].substring(0,3);
+        textHTML += numeArii.data.value[clasamentZone[i].zona].substring(0,3); //+ "✈";
         textHTML += "</div>";
 
       textHTML += "</div>";
