@@ -1377,7 +1377,6 @@ function actualizareTabelPozitii(){
                   elementZona3.innerHTML = Math.round(medie) + "" + Math.round((r-1)*100) + "%";
               }
 
-
               //elementZona2.style.color = "green";
 
           }
@@ -1389,7 +1388,7 @@ function actualizareTabelPozitii(){
                   elementZona3.style.color = "white";
               }
               else{
-                  elementZona1.style.background = culoareCerculetRCrestere;
+                  elementZona1.style.background = culoareAlbastru;
                   elementZona1.style.color = "#4d3319";
                   elementZona3.style.background = "#fcfccf";
                   elementZona3.style.color = "#333";
@@ -1590,7 +1589,7 @@ function inserareTabelPozitii(){
 
       }
       else{
-          elementZona1.style.background = culoareCerculetRCrestere;
+          elementZona1.style.background = culoareAlbastru;
           elementZona1.style.color = "#4d3319";
 
           elementZona3.innerHTML += "+" + Math.floor((clasamentZone[zona].r-1)*100) + "%";
