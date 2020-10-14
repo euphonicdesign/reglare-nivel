@@ -1645,7 +1645,7 @@ function inserareTabelVitezePropagare(){
   var elementZona;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       elementZona = document.getElementsByClassName("zona" + zona +" bara_grafic")[0];
-      elementZona.style.height = String(Math.abs(vectoriDateZone[zona].vector_r[totalZile]-1)*100*4) + "px";
+      elementZona.style.height = String(Math.abs(vectoriDateZone[zona].vector_r[totalZile]-1)*100*6) + "px";
       //console.log(elementZona.style.height);
       if(vectoriDateZone[zona].vector_r[totalZile]<1){
           elementZona.style.background = "lightgreen";
