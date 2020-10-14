@@ -481,7 +481,7 @@ img {
   /*color:yellow;*/
 }
 
-#traiectorii table td div[class~="val_cl_me"]{
+#traiectorii table td div[class~="val_cl_pr"]{
   /*padding: 2px;*/
   font-size: 1.2em;
   margin-bottom: 6px;
