@@ -1257,11 +1257,11 @@ function actualizareTabelZone(){
 
         textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
         if(clasamentProiectie[zona].delta > 0){
-            textElement += "↗ ";
+            textElement += "\u2798 ";//"↗ ";
             elementZona1c.textContent = "(+" + Math.round(clasamentProiectie[zona].delta) + ")";
         }
         else{
-            textElement += "↘ ";
+            textElement += "\u279A ";//"↘ ";
             elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
         }
 
