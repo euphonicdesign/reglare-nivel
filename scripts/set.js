@@ -243,6 +243,7 @@ let evenimente = [
               '1/9',
               '15/9',
               '7/10',
+              '15/10',
 ];
 
 let evenimente_actiuni = [
