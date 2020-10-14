@@ -79,13 +79,21 @@ img {
   align-items: center;
 }
 
-.sectiunea1 h2 {
+.sectiunea1b{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sectiunea1 h2, .sectiunea1b h2 {
   margin: 0;
   display: inline-flex;
   margin-right: 20px;
 }
 
-.sectiunea1 img{
+.sectiunea1 img, .sectiunea1b img{
   max-width: 40px;
   /*height: auto;*/
   display: inline-flex;
@@ -109,7 +117,7 @@ img {
   flex-wrap: wrap;
   align-items: flex-end;*/
   /*flex-direction: row-reverse;*/
-  margin: 40px 0 40px 0;
+  margin: 0px 0 20px 0;
 
   text-align: center;
   padding: 10px 4px 20px 4px;
