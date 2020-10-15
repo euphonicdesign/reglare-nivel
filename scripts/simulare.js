@@ -634,6 +634,13 @@ selectorArie.onchange = function() {
     restart();
 }
 
+function schimbareSelectieArie(zona){
+  nrArie = parseInt(zona);
+  //console.log("nrArieSelectata: " + nrArie);
+  salvareNrArie();
+  restart();
+}
+
 
 
 function modificaNivel(e){
@@ -1379,8 +1386,42 @@ function actualizareTabelPozitii(){
       elementIR = document.getElementsByClassName("pozitii zona" + zona +" iR")[0];
       elementIMedie = document.getElementsByClassName("pozitii zona" + zona +" iMedie")[0];
 
-      elementNume.textContent = clasamentZone[zona].nume;
+
+
+      elementNume.innerHTML = "<a id='linkzona" + clasamentZone[zona].arie + "' href='#' onclick='schimbareSelectieArie(" + clasamentZone[zona].arie + ")'>" + clasamentZone[zona].nume + "</a>";
+
+      //textHTML += "<div class='pozitii zona" + i + " nume'><a href=''>";
+      //textHTML += clasamentZone[i].nume; //+ "✈";
+      //textHTML += "</a></div>";
+
       elementValProiectie.textContent = Math.round(clasamentZone[zona].proiectie);
+
+      if(clasamentZone[zona].arie == nrArie){
+          elementChenarZona = document.getElementsByClassName("pozitii zona" + zona + " nume")[0];
+          //elementChenarZona.style.border = "1px solid #333";
+          elementChenarZona.style.background = "yellow";
+          //elementChenarZona.style.borderBottom = "none";
+          //elementChenarZona.style.borderLeftColor = "white";
+          //elementChenarZona.style.borderRightColor = "white";
+
+          elementChenarValoare = document.getElementsByClassName("pozitii zona" + zona + " val_proiectie")[0];
+          //elementChenarValoare.style.border = "1px solid #333";
+          elementChenarValoare.style.background = "yellow";
+          //elementChenarValoare.style.borderTop = "none";
+          //elementChenarValoare.style.borderLeftColor = "white";
+          //elementChenarValoare.style.borderRightColor = "white";
+          //elementChenarValoare.style.borderLeft = "none";
+          //elementChenarValoare.style.borderRight = "none";
+      }
+      else{
+        elementChenarZona = document.getElementsByClassName("pozitii zona" + zona + " nume")[0];
+        //elementChenarZona.style.border = "none";
+        elementChenarZona.style.background = "white";
+        elementChenarValoare = document.getElementsByClassName("pozitii zona" + zona + " val_proiectie")[0];
+        //elementChenarValoare.style.border = "none";
+        elementChenarValoare.style.background = "white";
+      }
+
 
       if(selectorZi > orizont_regresie + ORIZONT_ARIE){
           elementIProiectie.textContent = Math.round(clasamentZone[zona].proiectie);
@@ -1671,7 +1712,7 @@ function inserareTabelPozitii(){
 
 
   for(let i=0; i<clasamentZone.length; i++){
-      textHTML +="<div class='zona'>";
+      textHTML +="<div class='pozitii zona " + i + "'>";
 
         //textHTML += "<div class='pozitii zona" + i + " avion'>";
         //textHTML += Math.round(clasamentZone[i].medie);
@@ -1697,9 +1738,9 @@ function inserareTabelPozitii(){
         textHTML += "<div class='pozitii zona" + i + " val_proiectie'>";
         textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
         textHTML += "</div>";
-        textHTML += "<div class='pozitii zona" + i + " nume'>";
+        textHTML += "<div class='pozitii zona" + i + " nume'><a href=''>";
         textHTML += clasamentZone[i].nume; //+ "✈";
-        textHTML += "</div>";
+        textHTML += "</a></div>";
 
       textHTML += "</div>";
 

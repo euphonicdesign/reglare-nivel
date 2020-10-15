@@ -144,6 +144,11 @@ img {
   /*align-content: center;*/
 }
 
+#pozitii .nume a{
+  text-decoration: none;
+
+}
+
 /*#pozitii .zona > div {
   flex = 1;
 }*/
