@@ -214,7 +214,9 @@ var scalareTraiectorieAvion = 2;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
-var scalaX = 160; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaX = 180; //grafic valori vertical - cumulativ - foto, trend, regulator
+//----
+
 var scalaXTrend3Orizontal = 130;
 var scalaGCompensator = 50;
 var yGrafic_2 = 190;
@@ -3416,10 +3418,10 @@ function desenareNivelMagnificareGrafice(){
 function desenareTextArieSelectata(){
     ctx.textAlign = "end";
     //ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
-    ctx.fillText(textArieSelectata, xMagnificareGrafice, yMagnificareGrafice + 28);
+    ctx.fillText(textArieSelectata, xMagnificareGrafice, yMagnificareGrafice - 32);
 }
 
 function desenareGraficeTrenduri(){
@@ -3455,6 +3457,7 @@ function desenareGraficeTrenduri(){
 
   ctx.textAlign = "end";
   ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+  ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(ratap_2, xMagnificareGrafice, yMagnificareGrafice - 16);
 
   //desenare valoare Ref_a

@@ -146,8 +146,8 @@ img {
 
 #pozitii .nume a{
   text-decoration: none;
-  /*display: block;*/
-
+  display: block;
+  height: 200%;
 }
 
 #pozitii .nume a:visited{
@@ -264,6 +264,7 @@ img {
   font-size: 1.2em;
   font-style: italic;
   color: #194766;
+  display: block;
 }
 
 #pozitii .val_medie {
