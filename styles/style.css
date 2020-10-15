@@ -150,11 +150,15 @@ img {
 
 }
 
-#pozitii .nume a:visited{
+#pozitii div a:visited{
   color: "#333";
 }
 
-#pozitii .nume a:link{
+#pozitii div a:link{
+  color: "#333";
+}
+
+#pozitii div a:active{
   color: "#333";
 }
 
