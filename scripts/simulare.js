@@ -1416,7 +1416,13 @@ function actualizareTabelPozitii(){
               elementSegBaraProiectie.textContent = ">250...";
           }
           else{
-              elementSegBaraProiectie.textContent = Math.round(clasamentZone[zona].delta);
+              if(clasamentZone[zona].delta>0){
+                  elementSegBaraProiectie.textContent = "+" + Math.round(clasamentZone[zona].delta);
+              }
+              else{
+                  elementSegBaraProiectie.textContent = "" + Math.round(clasamentZone[zona].delta);
+              }
+
           }
 
           elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
