@@ -150,16 +150,16 @@ img {
 
 }
 
-#pozitii div a:visited{
-  color: "#333";
+#pozitii .nume a:visited{
+  color: #333;
 }
 
-#pozitii div a:link{
-  color: "#333";
+#pozitii .nume a:link{
+  color: #333;
 }
 
-#pozitii div a:active{
-  color: "#333";
+#pozitii .nume a:active{
+  color: #333;
 }
 
 /*#pozitii .zona > div {
