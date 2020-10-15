@@ -151,7 +151,11 @@ img {
 }
 
 #pozitii .nume a:visited{
-  color: "white";
+  color: "#333";
+}
+
+#pozitii .nume a:link{
+  color: "#333";
 }
 
 /*#pozitii .zona > div {
