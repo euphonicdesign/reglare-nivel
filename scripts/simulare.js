@@ -1303,7 +1303,7 @@ function actualizareTabelZone(){
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
 
-            if(clasamentProiectie[zona].proiectie - clasamentProiectie[zona].medie > 200 ){ // var 2 - 250
+            if(Math.abs(Math.round(clasamentProiectie[zona].delta)) > 200){ // var 2 - 250
                 elementZona1.style.background = "#c32222";
                 elementZona1.style.color = "white";
             }
