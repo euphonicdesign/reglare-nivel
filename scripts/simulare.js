@@ -1402,7 +1402,17 @@ function actualizareTabelPozitii(){
 
           //elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
 
-          max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
+          if(clasamentZone[zona].medie > 200){
+              elementSegBaraMedie.style.height = 200/2 + "px";
+              max_delta = 214 - 100 - 95;
+          }
+          else{
+              elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
+              max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
+          }
+
+          //max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
+
           h_delta = Math.abs(Math.round(clasamentZone[zona].delta/2));
           if(h_delta < max_delta){
               elementSegBaraProiectie.style.height = String(h_delta) + "px";
@@ -1425,7 +1435,9 @@ function actualizareTabelPozitii(){
 
           }
 
-          elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
+
+
+
           //console.log(zona);
           //console.log(selectorZi);
           //console.log(clasamentZone[zona].medie);
