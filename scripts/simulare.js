@@ -1448,13 +1448,20 @@ function actualizareTabelPozitii(){
           //console.log(clasamentZone[zona].medie);
           //pauza = true;
 
+          if(Math.round(clasamentZone[zona].medie < 30)){
+              elementSegBaraMedie.textContent = "";
+          }
+          else{
+              elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
+          }
+
           if(Math.round(clasamentZone[zona].medie) > 200){
               //elementSegBaraMedie.textContent = " >200...";
-              elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
+              //elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
               elementSegBaraMedie.style.background = culoareRosu;
           }
           else{
-              elementSegBaraMedie.textContent = "";
+              //elementSegBaraMedie.textContent = "";
               elementSegBaraMedie.style.background = "#fcfccf";
           }
 
