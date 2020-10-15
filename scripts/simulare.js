@@ -1303,7 +1303,7 @@ function actualizareTabelZone(){
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
 
-            if(clasamentProiectie[zona].proiectie - clasamentProiectie[zona].medie > 250 ){
+            if(clasamentProiectie[zona].proiectie - clasamentProiectie[zona].medie > 200 ){ // var 2 - 250
                 elementZona1.style.background = "#c32222";
                 elementZona1.style.color = "white";
             }
@@ -1421,9 +1421,9 @@ function actualizareTabelPozitii(){
               elementSegBaraProiectie.style.height = String(max_delta) + "px";
           }
 
-          if(Math.abs(Math.round(clasamentZone[zona].delta)) > 250){
+          if(Math.abs(Math.round(clasamentZone[zona].delta)) > 200){ //var 2 - 250
               //elementSegBaraProiectie.style.height = "18px";
-              elementSegBaraProiectie.textContent = ">250...";
+              elementSegBaraProiectie.textContent = ">200..."; // var 2 - 250
           }
           else{
               if(clasamentZone[zona].delta>0){
@@ -1494,7 +1494,7 @@ function actualizareTabelPozitii(){
               //elementZona.style.background = culoareCerculetRCrestere;
 
 
-              if(Math.abs(Math.round(clasamentZone[zona].delta)) > 250){
+              if(Math.abs(Math.round(clasamentZone[zona].delta)) > 200){ //var 2 - 250
                   elementSegBaraProiectie.style.background = "#c32222";
                   elementSegBaraProiectie.style.color = "white";
                   //elementSegAvion.style.background = "#c32222";
