@@ -1224,6 +1224,38 @@ function generareClasamentAeronavePeZile(){
   //var clasamentProiectie = clasamentAeronaveZile[selectorZi].clasament;
   //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
 
+  //SORTARE Medie
+  clasamentAeronaveZileSortatMedie = [];
+
+  for(let zi=0; zi < totalZile; zi++){
+      var clasamentAeronave = [];
+      for(let arie=0; arie < numeArii.data.value.length; arie++){
+
+          valoareProiectie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi + orizont_proiectie - 1);
+          valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi);
+          delta = valoareProiectie - valoareMedie;
+          numeArie = numeArii.data.value[arie].substring(0,3);
+
+          clasamentAeronave[arie] = {
+            arie: arie,
+            r: vectoriDateZone[arie].vector_r[zi],
+            proiectie: valoareProiectie,
+            medie: valoareMedie,
+            delta: delta,
+            nume: numeArie
+          };
+      }
+
+      //sortare medie
+      clasamentAeronave.sort(function(a, b){return b.medie - a.medie});
+      //clasamentAeronave.sort(function(a, b){return a.arie - b.arie});
+
+      clasamentAeronaveZileSortatMedie[zi] = {ziua:zi, clasament: clasamentAeronave};
+  }
+
+
+
+
 }
 
 function actualizareTabelZone(){
@@ -1326,9 +1358,10 @@ function actualizareTabelPozitii(){
   //var valoareMedie = 0;
 
   //var totalZile = vectoriDateZone[0].vector_r.length-1;
-  clasamentZone = clasamentAeronaveZile[selectorZi].clasament;
+
+  clasamentZone = clasamentAeronaveZileSortatMedie[selectorZi].clasament;
   //clasamentZone.sort(function(a, b){return b.medie - a.medie});
-  clasamentZone.sort(function(a, b){return a.arie - b.arie});
+  //clasamentZone.sort(function(a, b){return a.arie - b.arie});
 
 
   //var elementZona1, elementZona2;
