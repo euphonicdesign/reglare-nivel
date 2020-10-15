@@ -1421,6 +1421,21 @@ function actualizareTabelPozitii(){
               elementSegBaraProiectie.style.height = String(max_delta) + "px";
           }
 
+
+          if(Math.abs(Math.round(clasamentZone[zona].delta))>20){
+              if(clasamentZone[zona].delta>0){
+                  elementSegBaraProiectie.textContent = "+" + Math.round(clasamentZone[zona].delta);
+              }
+              else{
+                  elementSegBaraProiectie.textContent = "" + Math.round(clasamentZone[zona].delta);
+              }
+          }
+          else{
+              elementSegBaraProiectie.textContent = "";
+          }
+
+
+          /*
           if(Math.abs(Math.round(clasamentZone[zona].delta)) > 200){ //var 2 - 250
               //elementSegBaraProiectie.textContent = ">200..."; // var 2 - 250
               if(clasamentZone[zona].delta>0){
@@ -1437,8 +1452,7 @@ function actualizareTabelPozitii(){
               else{
                   elementSegBaraProiectie.textContent = "" + Math.round(clasamentZone[zona].delta);
               }
-
-          }
+          }*/
 
 
 
