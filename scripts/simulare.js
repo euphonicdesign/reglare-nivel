@@ -1473,10 +1473,12 @@ function actualizareTabelPozitii(){
               //elementSegBaraMedie.textContent = " >200...";
               //elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
               elementSegBaraMedie.style.background = culoareRosu;
+              elementIMedie.style.background = culoareRosu;
           }
           else{
               //elementSegBaraMedie.textContent = "";
               elementSegBaraMedie.style.background = "#fcfccf";
+              elementIMedie.style.background = "#fcfccf";
           }
 
           /*
