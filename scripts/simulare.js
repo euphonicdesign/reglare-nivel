@@ -1422,8 +1422,13 @@ function actualizareTabelPozitii(){
           }
 
           if(Math.abs(Math.round(clasamentZone[zona].delta)) > 200){ //var 2 - 250
-              //elementSegBaraProiectie.style.height = "18px";
-              elementSegBaraProiectie.textContent = ">200..."; // var 2 - 250
+              //elementSegBaraProiectie.textContent = ">200..."; // var 2 - 250
+              if(clasamentZone[zona].delta>0){
+                  elementSegBaraProiectie.textContent = "+" + Math.round(clasamentZone[zona].delta);
+              }
+              else{
+                  elementSegBaraProiectie.textContent = "" + Math.round(clasamentZone[zona].delta);
+              }
           }
           else{
               if(clasamentZone[zona].delta>0){
@@ -1444,7 +1449,8 @@ function actualizareTabelPozitii(){
           //pauza = true;
 
           if(Math.round(clasamentZone[zona].medie) > 200){
-              elementSegBaraMedie.textContent = " >200...";
+              //elementSegBaraMedie.textContent = " >200...";
+              elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
               elementSegBaraMedie.style.background = culoareRosu;
           }
           else{
