@@ -1404,7 +1404,7 @@ function actualizareTabelPozitii(){
 
           if(clasamentZone[zona].medie > 200){
               elementSegBaraMedie.style.height = 200/2 + "px";
-              max_delta = 214 - 100 - 95 - 1;
+              max_delta = 214 - 100 - 95 - 5;
           }
           else{
               elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
