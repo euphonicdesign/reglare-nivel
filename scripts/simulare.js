@@ -1402,20 +1402,20 @@ function actualizareTabelPozitii(){
 
           //elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
 
+          max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
+          h_delta = Math.abs(Math.round(clasamentZone[zona].delta/2));
+          if(h_delta < max_delta){
+              elementSegBaraProiectie.style.height = String(h_delta) + "px";
+          }
+          else{
+              elementSegBaraProiectie.style.height = String(max_delta) + "px";
+          }
+
           if(Math.abs(Math.round(clasamentZone[zona].delta)) > 250){
               //elementSegBaraProiectie.style.height = "18px";
               elementSegBaraProiectie.textContent = ">250...";
           }
           else{
-              max_delta = 210 - Math.round(clasamentZone[zona].medie/2) - 94;
-              h_delta = Math.abs(Math.round(clasamentZone[zona].delta/2));
-              if(h_delta < max_delta){
-                  elementSegBaraProiectie.style.height = String(h_delta) + "px";
-              }
-              else{
-                  elementSegBaraProiectie.style.height = String(max_delta) + "px";
-              }
-
               elementSegBaraProiectie.textContent = Math.round(clasamentZone[zona].delta);
           }
 
