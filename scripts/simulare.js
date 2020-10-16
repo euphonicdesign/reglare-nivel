@@ -1219,12 +1219,12 @@ function inserareDateTabele(){
         elementeDate[i].textContent = "Ziua " + (vectoriDateZone[0].vector_r.length-1) + " (" + tab_zi + " " + tab_luna + ")";
     }
 
-    var data_zi_luna2 = data_data[selectorZi+orizont_proiectie].split("/");
+    var data_zi_luna2 = data_data[vectoriDateZone[0].vector_r.length-1+orizont_proiectie].split("/");
     var tab_zi2 = data_zi_luna2[0];
     var tab_luna2 = data_luni_lung[data_zi_luna2[1]-1];
 
     var elementData3 = document.getElementsByClassName("text_data3")[0];
-    elementData3.textContent = "Ziua " + selectorZi + " (" + tab_zi + " " + tab_luna +" ⇨ " + tab_zi2 + " " + tab_luna2 + ")";
+    elementData3.textContent = "Ziua " + (vectoriDateZone[0].vector_r.length-1) + " (" + tab_zi + " " + tab_luna +" ⇨ " + tab_zi2 + " " + tab_luna2 + ")";
 }
 
 
@@ -1307,8 +1307,11 @@ function generareClasamentAeronavePeZile(){
 }
 
 function actualizareTabelZone(){
+    if(selectorZi >= clasamentAeronaveZileSortatProiectie.length)
+        return;
 
     var clasamentProiectie = clasamentAeronaveZileSortatProiectie[selectorZi].clasament;
+
     //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
 
     var elementZona, textElement;
@@ -1404,6 +1407,8 @@ function actualizareDateZileTabele(){
 }
 
 function actualizareTabelPozitii(){
+  if(selectorZi >= clasamentAeronaveZileSortatProiectie.length)
+      return;
 
   clasamentZone = clasamentAeronaveZileSortatMedie[selectorZi].clasament;
 
