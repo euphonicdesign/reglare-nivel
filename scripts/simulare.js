@@ -1411,6 +1411,8 @@ function actualizareTabelPozitii(){
       elementIR = document.getElementsByClassName("pozitii zona" + zona +" iR")[0];
       elementIMedie = document.getElementsByClassName("pozitii zona" + zona +" iMedie")[0];
 
+      elementIDelta.style.color = "black";
+
       if(clasamentZone[zona].arie == nrArie){
           elementChenarZona = document.getElementsByClassName("pozitii zona" + zona + " nume")[0];
           //elementChenarZona.style.border = "1px solid #333";
@@ -1563,7 +1565,7 @@ function actualizareTabelPozitii(){
 
           elementIMedie.style.color = "black";
           elementIR.style.color = "black";
-          elementIDelta.style.color = "black";
+          //elementIDelta.style.color = "black";
           elementIProiectie.style.background = "lightgrey";
           elementIProiectie.style.color = "#333";
 
