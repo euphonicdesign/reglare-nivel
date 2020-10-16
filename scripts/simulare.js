@@ -1218,6 +1218,13 @@ function inserareDateTabele(){
     for(i = 0; i<elementeDate.length; i++){
         elementeDate[i].textContent = "Ziua " + (vectoriDateZone[0].vector_r.length-1) + " (" + tab_zi + " " + tab_luna + ")";
     }
+
+    var data_zi_luna2 = data_data[selectorZi+orizont_proiectie].split("/");
+    var tab_zi2 = data_zi_luna2[0];
+    var tab_luna2 = data_luni_lung[data_zi_luna2[1]-1];
+
+    var elementData3 = document.getElementsByClassName("text_data3")[0];
+    elementData3.textContent = "Ziua " + selectorZi + " (" + tab_zi + " " + tab_luna +" ⇨ " + tab_zi2 + " " + tab_luna2 + ")";
 }
 
 
