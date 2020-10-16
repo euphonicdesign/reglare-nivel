@@ -1235,9 +1235,12 @@ function generareClasamentAeronavePeZile(){
 
   //SORTARE Medie
   clasamentAeronaveZileSortatMedie = [];
+  clasamentAeronaveZileSortatProiectie = [];
 
   for(let zi=0; zi < totalZile; zi++){
-      var clasamentAeronave = [];
+      var clasamentAeronave1 = [];
+      var clasamentAeronave2 = [];
+
       for(let arie=0; arie < numeArii.data.value.length; arie++){
 
           valoareProiectie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi + orizont_proiectie - 1);
@@ -1245,7 +1248,16 @@ function generareClasamentAeronavePeZile(){
           delta = valoareProiectie - valoareMedie;
           numeArie = numeArii.data.value[arie].substring(0,3);
 
-          clasamentAeronave[arie] = {
+          clasamentAeronave1[arie] = {
+            arie: arie,
+            r: vectoriDateZone[arie].vector_r[zi],
+            proiectie: valoareProiectie,
+            medie: valoareMedie,
+            delta: delta,
+            nume: numeArie
+          };
+
+          clasamentAeronave2[arie] = {
             arie: arie,
             r: vectoriDateZone[arie].vector_r[zi],
             proiectie: valoareProiectie,
@@ -1256,10 +1268,13 @@ function generareClasamentAeronavePeZile(){
       }
 
       //sortare medie
-      clasamentAeronave.sort(function(a, b){return b.medie - a.medie});
+      clasamentAeronave1.sort(function(a, b){return b.medie - a.medie});
       //clasamentAeronave.sort(function(a, b){return a.arie - b.arie});
+      clasamentAeronaveZileSortatMedie[zi] = {ziua:zi, clasament: clasamentAeronave1};
 
-      clasamentAeronaveZileSortatMedie[zi] = {ziua:zi, clasament: clasamentAeronave};
+
+      clasamentAeronave2.sort(function(a, b){return a.proiectie - b.proiectie});
+      clasamentAeronaveZileSortatProiectie[zi] = {ziua:zi, clasament: clasamentAeronave2};
   }
 
 
@@ -1269,8 +1284,8 @@ function generareClasamentAeronavePeZile(){
 
 function actualizareTabelZone(){
 
-    var clasamentProiectie = clasamentAeronaveZile[selectorZi].clasament;
-    clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
+    var clasamentProiectie = clasamentAeronaveZileSortatProiectie[selectorZi].clasament;
+    //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
 
     var elementZona, textElement;
     for(let zona=0; zona < clasamentProiectie.length; zona++){
