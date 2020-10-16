@@ -202,8 +202,9 @@ var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 var scala_grafic_2 = 0.9; //scalare suplimentara grafic 2 sus 1.5 = -150%
 
 var scalaY_trend_2 = 160; // grafic sus
-var scalaY_trend_3 = 80; // grafic sus - p+
-var scalaY_trend_4 = 40; // grafic sus - vector_r_normalizat
+var scalaY_trend_3 = 90; // grafic sus - p+
+var scalaY_trend_4 = 80; // grafic sus - vector_r_normalizat
+var scala2Y_trend_4 = 0.8; // grafic sus - vector_r_normalizat
 var scalaY_trend_1 = 90; // grafic jos (mijloc)
 
 var scalaEntitate = 110;
@@ -2606,7 +2607,8 @@ function desenareGraficPVectorR(){
   for(let i = 0; i <= selectorZi; i++){
     x_p = (i - selectorZiStart)*incrementX;
     //x_p += incrementX;
-    y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
+    //y_r = Math.round(yGrafic_2 - ((vector_r_normalizat[i]*scalaY_trend_4)/maxValue_4));
+    y_r = Math.round(yGrafic_2 - vector_r_normalizat[i]*scala2Y_trend_4);
 
     var raza_cerculet = 2;
     var raza_pulsatie = 0;
