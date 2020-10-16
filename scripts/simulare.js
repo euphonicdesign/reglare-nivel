@@ -1381,13 +1381,17 @@ function actualizareDateZileTabele(){
   tab_zi = data_zi_luna[0];
   tab_luna = data_luni_lung[data_zi_luna[1]-1];
 
+  var data_zi_luna2 = data_data[selectorZi+orizont_proiectie].split("/");
+  tab_zi2 = data_zi_luna2[0];
+  tab_luna2 = data_luni_lung[data_zi_luna2[1]-1];
+
   //ctx.font = "italic 16px Helvetica, Arial, sans-serif";
   //ctx.fillText( "(" + zi + " " + luna + ")", xTextZi + 75 + (String(selectorZi).length) * 18, yTextZi);
 
 
   var elementeDate = document.getElementsByClassName("text_data");
   for(i = 0; i<elementeDate.length; i++){
-      elementeDate[i].textContent = "Ziua " + selectorZi + " (" + tab_zi + " " + tab_luna + ")";
+      elementeDate[i].textContent = "Ziua " + selectorZi + " (" + tab_zi + " " + tab_luna +" ⇨ " + tab_zi2 + " " + tab_luna2 + ")";
   }
 
 }
