@@ -1201,6 +1201,22 @@ function start() {
     inserareTabelVitezePropagare();
     inserareTabelAltitudini();
     inserareTabelTraiectorii();
+    inserareDateTabele();
+}
+
+function inserareDateTabele(){
+    var data_zi_luna = data_data[vectoriDateZone[0].vector_r.length-1].split("/");
+    var tab_zi = data_zi_luna[0];
+    var tab_luna = data_luni_lung[data_zi_luna[1]-1];
+
+    //ctx.font = "italic 16px Helvetica, Arial, sans-serif";
+    //ctx.fillText( "(" + zi + " " + luna + ")", xTextZi + 75 + (String(selectorZi).length) * 18, yTextZi);
+
+
+    var elementeDate = document.getElementsByClassName("text_data2");
+    for(i = 0; i<elementeDate.length; i++){
+        elementeDate[i].textContent = "Ziua " + (vectoriDateZone[0].vector_r.length-1) + " (" + tab_zi + " " + tab_luna + ")";
+    }
 }
 
 
