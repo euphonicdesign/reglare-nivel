@@ -1870,18 +1870,19 @@ function inserareTabelVitezePropagare(){
 
   for(let i=0; i<clasamentR.length; i++){
       textHTML += "<td id='vp_zona" + clasamentR[i].zona + "'>";
-      textHTML += "<div class='zona" + clasamentR[i].zona + " nume_zona'>" + numeArii.data.value[clasamentR[i].zona].substring(0,3) + "</div>";
+      textHTML += "<div class='viteze zona" + clasamentR[i].zona + " nume_zona'>" + numeArii.data.value[clasamentR[i].zona].substring(0,3) + "</div>";
       //textHTML += "<div class='zona" + clasamentR[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-      textHTML += "<div class='zona" + clasamentR[i].zona + " val_cl_r'>" + "#" + (i+1) + "</div>";
+      textHTML += "<div class='viteze zona" + clasamentR[i].zona + " val_cl_r'>" + "#" + (i+1) + "</div>";
 
 
-      textHTML += "<div class='zona" + clasamentR[i].zona + " bara_grafic'>" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+      textHTML += "<div class='viteze zona" + clasamentR[i].zona + " bara_grafic'>" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
 
 
       //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_pr'>" + "Pr=" + Math.round(valoareProiectie) + "</div>";
       textHTML += "</td>";
+
   }
 
   textHTML +="</tr>";
@@ -1905,6 +1906,33 @@ function inserareTabelVitezePropagare(){
           elementZona.style.color = "#4d3319";
       }
 
+      if(zona == nrArie){
+          elementChenarZona = document.getElementsByClassName("viteze zona" + zona + " nume_zona")[0];
+          //elementChenarZona.style.border = "1px solid #333";
+          elementChenarZona.style.background = "yellow";
+          //elementChenarZona.style.borderBottom = "none";
+          //elementChenarZona.style.borderLeftColor = "white";
+          //elementChenarZona.style.borderRightColor = "white";
+
+          elementChenarValoare = document.getElementsByClassName("viteze zona" + zona + " val_cl_r")[0];
+          //elementChenarValoare.style.border = "1px solid #333";
+          elementChenarValoare.style.background = "yellow";
+          //elementChenarValoare.style.borderTop = "none";
+          //elementChenarValoare.style.borderLeftColor = "white";
+          //elementChenarValoare.style.borderRightColor = "white";
+          //elementChenarValoare.style.borderLeft = "none";
+          //elementChenarValoare.style.borderRight = "none";
+      }
+      else{
+        elementChenarZona = document.getElementsByClassName("viteze zona" + zona + " nume_zona")[0];
+        //elementChenarZona.style.border = "none";
+        elementChenarZona.style.background = "white";
+        elementChenarValoare = document.getElementsByClassName("viteze zona" + zona + " val_cl_r")[0];
+        //elementChenarValoare.style.border = "none";
+        elementChenarValoare.style.background = "white";
+      }
+
+
   }
 
 }
@@ -1924,13 +1952,13 @@ function inserareTabelAltitudini(){
 
   for(let i=0; i<clasamentZone.length; i++){
       textHTML += "<td id='vp_zona" + i + "'>";
-      textHTML += "<div class='zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
+      textHTML += "<div class='altitudini zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
       //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-      textHTML += "<div class='zona" + i + " val_cl_me'>" + "#" + (i+1) + "</div>";
+      textHTML += "<div class='altitudini zona" + i + " val_cl_me'>" + "#" + (i+1) + "</div>";
 
       //textHTML += "<div class='zona" + i + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
       //textHTML += "<div class='zona" + i + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
-      textHTML += "<div class='zona" + i + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
+      textHTML += "<div class='altitudini zona" + i + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
 
       //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
       //textHTML += "<div class='zona" + zona + " val_me'>" + "Me=" + Math.round(valoareMedie) + "</div>";
@@ -1958,23 +1986,31 @@ function inserareTabelAltitudini(){
       //console.log("zona" + zona + " " + elementZona2.style.height);
       elementZona3.style.background = culoareGalben;
 
-      /*
-      if(vectoriDateZone[zona].vector_r[totalZile]<1){
-          elementZona1.style.background = "lightgreen";
-          elementZona1.style.color = "green";
+      if(clasamentZone[zona].arie == nrArie){
+          elementChenarZona = document.getElementsByClassName("altitudini zona" + zona + " nume_zona")[0];
+          //elementChenarZona.style.border = "1px solid #333";
+          elementChenarZona.style.background = "yellow";
+          //elementChenarZona.style.borderBottom = "none";
+          //elementChenarZona.style.borderLeftColor = "white";
+          //elementChenarZona.style.borderRightColor = "white";
 
-          elementZona2.style.background = "lightgreen";
-          elementZona2.style.color = "green";
-
+          elementChenarValoare = document.getElementsByClassName("altitudini zona" + zona + " val_cl_me")[0];
+          //elementChenarValoare.style.border = "1px solid #333";
+          elementChenarValoare.style.background = "yellow";
+          //elementChenarValoare.style.borderTop = "none";
+          //elementChenarValoare.style.borderLeftColor = "white";
+          //elementChenarValoare.style.borderRightColor = "white";
+          //elementChenarValoare.style.borderLeft = "none";
+          //elementChenarValoare.style.borderRight = "none";
       }
       else{
-          elementZona1.style.background = culoareCerculetRCrestere;
-          elementZona1.style.color = "#4d3319";
-
-          elementZona2.style.background = "lightblue";
-          elementZona2.style.color = "#4d3319";
-      }*/
-
+        elementChenarZona = document.getElementsByClassName("altitudini zona" + zona + " nume_zona")[0];
+        //elementChenarZona.style.border = "none";
+        elementChenarZona.style.background = "white";
+        elementChenarValoare = document.getElementsByClassName("altitudini zona" + zona + " val_cl_me")[0];
+        //elementChenarValoare.style.border = "none";
+        elementChenarValoare.style.background = "white";
+      }
   }
 
 }
@@ -1994,11 +2030,11 @@ function inserareTabelTraiectorii(){
 
   for(let i=0; i<clasamentZone.length; i++){
       textHTML += "<td id='vp_zona" + i + "'>";
-      textHTML += "<div class='zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
+      textHTML += "<div class='traiectorii zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
       //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-      textHTML += "<div class='zona" + i + " val_cl_pr'>" + "#" + (i+1) + "</div>";
+      textHTML += "<div class='traiectorii zona" + i + " val_cl_pr'>" + "#" + (i+1) + "</div>";
 
-      textHTML += "<div class='zona" + i + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
+      textHTML += "<div class='traiectorii zona" + i + " bara_proiectie'>" + Math.round(clasamentZone[i].proiectie) + "</div>";
       //textHTML += "<div class='zona" + i + " bara_propagare'>" + Math.floor((clasamentZone[i].r-1)*10000)/100 + "</div>";
       //textHTML += "<div class='zona" + i + " bara_altitudine'>" + Math.round(clasamentZone[i].medie) + "</div>";
 
@@ -2028,22 +2064,31 @@ function inserareTabelTraiectorii(){
       //console.log("zona" + zona + " " + elementZona2.style.height);
       elementZona3.style.background = culoareAlbastru;
 
-      /*
-      if(vectoriDateZone[zona].vector_r[totalZile]<1){
-          elementZona1.style.background = "lightgreen";
-          elementZona1.style.color = "green";
+      if(clasamentZone[zona].arie == nrArie){
+          elementChenarZona = document.getElementsByClassName("traiectorii zona" + zona + " nume_zona")[0];
+          //elementChenarZona.style.border = "1px solid #333";
+          elementChenarZona.style.background = "yellow";
+          //elementChenarZona.style.borderBottom = "none";
+          //elementChenarZona.style.borderLeftColor = "white";
+          //elementChenarZona.style.borderRightColor = "white";
 
-          elementZona2.style.background = "lightgreen";
-          elementZona2.style.color = "green";
-
+          elementChenarValoare = document.getElementsByClassName("traiectorii zona" + zona + " val_cl_pr")[0];
+          //elementChenarValoare.style.border = "1px solid #333";
+          elementChenarValoare.style.background = "yellow";
+          //elementChenarValoare.style.borderTop = "none";
+          //elementChenarValoare.style.borderLeftColor = "white";
+          //elementChenarValoare.style.borderRightColor = "white";
+          //elementChenarValoare.style.borderLeft = "none";
+          //elementChenarValoare.style.borderRight = "none";
       }
       else{
-          elementZona1.style.background = culoareCerculetRCrestere;
-          elementZona1.style.color = "#4d3319";
-
-          elementZona2.style.background = "lightblue";
-          elementZona2.style.color = "#4d3319";
-      }*/
+        elementChenarZona = document.getElementsByClassName("traiectorii zona" + zona + " nume_zona")[0];
+        //elementChenarZona.style.border = "none";
+        elementChenarZona.style.background = "white";
+        elementChenarValoare = document.getElementsByClassName("traiectorii zona" + zona + " val_cl_pr")[0];
+        //elementChenarValoare.style.border = "none";
+        elementChenarValoare.style.background = "white";
+      }
 
   }
 
