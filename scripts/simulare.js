@@ -1498,6 +1498,25 @@ function actualizareTabelPozitii(){
               elementIR.textContent = "" + Math.round((clasamentZone[zona].r-1)*100) + "%";
           }
 
+          if(vectoriDateZone[clasamentZone[zona].arie].vectorDR[selectorZi]>0){
+              elementIR.textContent += "\u279A";
+          }
+          else{
+              elementIR.textContent += "\u2798";
+          }
+
+          /*
+          if(clasamentProiectie[zona].delta > 0){
+              textElement += "\u279A ";//"↗ ";
+              elementZona1c.textContent = "(+" + Math.round(clasamentProiectie[zona].delta) + ")";
+          }
+          else{
+              textElement += "\u2798 ";//"↘ ";
+              elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
+          }
+
+          */
+
           elementIMedie.textContent = Math.round(clasamentZone[zona].medie);
 
           //elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
