@@ -555,12 +555,13 @@ img {
 
 
 #zone table td {
-  width: 76px;
-  height: 80px;
+  width: 80px;
+  height: 84px;
   text-align: center;
   border: 1px solid #333;
   margin: 2px;
   display:inline-block;
+  box-sizing: border-box;
 }
 
 #zone table td div{

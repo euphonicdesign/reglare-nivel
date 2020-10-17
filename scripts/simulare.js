@@ -1374,6 +1374,26 @@ function actualizareTabelZone(){
             elementZona3.textContent = "#" + (zona + 1);
             //elementZona4.textContent = "Me=" + Math.round(clasamentProiectie[zona].medie);
             //elementZona5.textContent = "Pr=" + Math.round(clasamentProiectie[zona].proiectie);
+
+
+            if(clasamentProiectie[zona].arie == nrArie){
+                //elementZona1 = document.getElementById("zona" + zona);
+                elementZona1.style.borderColor = "yellow";
+                elementZona1.style.borderLeftWidth = "8px";
+                //console.log("bingo");
+
+                //elementChenarZona = document.getElementsByClassName("pozitii zona" + zona + " nume")[0];
+                //elementChenarZona.style.border = "1px solid #333";
+                //elementChenarZona.style.background = "yellow";
+                //elementChenarZona.style.borderBottom = "none";
+                //elementChenarZona.style.borderLeftColor = "white";
+            }
+            else{
+                elementZona1.style.borderColor = "#333";
+                elementZona1.style.borderLeftWidth = "1px";
+            }
+
+
         }
         else{
           elementZona1.style.background = "#f2f2f2";
