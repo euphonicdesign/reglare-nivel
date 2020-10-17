@@ -590,7 +590,7 @@ img {
   font-size: 1.1em;
   margin-bottom: 0px;
   font-style: italic;
-  /*font-weight: bold;*/
+  font-weight: bold;
 }
 
 #zone table td div[class~="val_r"]{
@@ -598,7 +598,7 @@ img {
   font-size: 1.2em;
   margin-bottom: 0px;
   font-style: italic;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 #zone table td div[class~="val_cl_r"]{
