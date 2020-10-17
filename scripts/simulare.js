@@ -1508,7 +1508,7 @@ function actualizareTabelPozitii(){
           }
           else{
               elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
-              max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
+              max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95 - 5;
           }
 
           //max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
@@ -1592,7 +1592,7 @@ function actualizareTabelPozitii(){
 
                   elementIProiectie.style.background = "lightgrey";//culoareAlbastru;
                   elementIProiectie.style.color = "#333";
-                  elementIDelta.style.background = culoareCerculetRCrestere;//"#fcfccf";
+                  elementIDelta.style.background = culoareAlbastru;//culoareCerculetRCrestere;//"#fcfccf";
                   elementIDelta.style.color = "black";//"#333";
               }
 
