@@ -1317,6 +1317,8 @@ function actualizareTabelZone(){
     var elementZona, textElement;
     for(let zona=0; zona < clasamentProiectie.length; zona++){
 
+        //pauza = true;
+
         elementZona1 = document.getElementById("zona" + zona);
         elementZona1b = document.getElementsByClassName("zona" + zona +" nume_zona")[0];
         elementZona1c = document.getElementsByClassName("zona" + zona +" val_delta")[0];
@@ -1338,7 +1340,8 @@ function actualizareTabelZone(){
         elementZona1b.textContent = "" + clasamentProiectie[zona].nume;
 
 
-        textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
+        //textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
+        textElement = Math.round(clasamentProiectie[zona].medie);
         if(clasamentProiectie[zona].delta > 0){
             textElement += "\u279A ";//"↗ ";
             elementZona1c.textContent = "(+" + Math.round(clasamentProiectie[zona].delta) + ")";
@@ -1348,7 +1351,7 @@ function actualizareTabelZone(){
             elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
         }
 
-        textElement += Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].proiectie);
+        textElement += Math.round(clasamentProiectie[zona].proiectie);
         elementZona1d.textContent = textElement;
 
 
