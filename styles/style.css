@@ -37,6 +37,7 @@ p, li {
 
 html {
   background-color: #00111a;
+  scroll-behavior: smooth;
 }
 
 body {

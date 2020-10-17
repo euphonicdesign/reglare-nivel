@@ -661,8 +661,9 @@ function modificaNivel(e){
             selectorZi += 1;
     }
 
-    if(e.code === "Space") {
+    if(e.code === "Space" && e.target == document.body) {
         pauza = !pauza;
+        e.preventDefault();
     }
 
     if(e.code === "KeyT") {
