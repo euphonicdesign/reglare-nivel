@@ -1500,10 +1500,12 @@ function actualizareTabelPozitii(){
 
           if(vectoriDateZone[clasamentZone[zona].arie].vectorDR[selectorZi]>0){
               elementIR.textContent += "\u279A";
+              elementValProiectie.textContent += "\u279A";
           }
           else{
               elementIR.textContent += "\u2798";
               elementValProiectie.style.background = "lightgreen";
+              elementValProiectie.textContent += "\u2798";
           }
 
           /*
