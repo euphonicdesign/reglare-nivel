@@ -106,6 +106,7 @@ var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
 var comutareArie = true;
 var nrArie = 43; //43 include toate ariile
+var mod_sortare = 1;
 
 var dateArie = _Flourish_data;
 var numeArii = _Flourish_data_column_names;
@@ -646,6 +647,19 @@ function schimbareSelectieArie(zona){
 }
 
 
+function afisareSortata(){
+  if(mod_sortare == 1){
+    mod_sortare = 0;
+  }
+  else{
+    mod_sortare = 1;
+  }
+
+  //console.log("nrArieSelectata: " + nrArie);
+  salvareModSortare();
+  restart();
+}
+
 
 function modificaNivel(e){
     if (e.code === "ArrowDown" || e.code === "ArrowLeft"){
@@ -983,6 +997,7 @@ function start() {
         if (data[i]>maxValue)
           maxValue = data[i];
     }*/
+    setare_mod_sortare();
     setare_nr_arie();
     if(nrArie == 43){
       orizont_arie = 0;
@@ -1262,8 +1277,10 @@ function generareClasamentAeronavePeZile(){
   //SORTARE Medie
   clasamentAeronaveZileSortatMedie = [];
   clasamentAeronaveZileSortatProiectie = [];
+  clasamentAeronaveZileSortatArie = [];
 
   for(let zi=0; zi < totalZile; zi++){
+      var clasamentAeronave0 = [];
       var clasamentAeronave1 = [];
       var clasamentAeronave2 = [];
 
@@ -1273,6 +1290,15 @@ function generareClasamentAeronavePeZile(){
           valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi);
           delta = valoareProiectie - valoareMedie;
           numeArie = numeArii.data.value[arie].substring(0,3);
+
+          clasamentAeronave0[arie] = {
+            arie: arie,
+            r: vectoriDateZone[arie].vector_r[zi],
+            proiectie: valoareProiectie,
+            medie: valoareMedie,
+            delta: delta,
+            nume: numeArie
+          };
 
           clasamentAeronave1[arie] = {
             arie: arie,
@@ -1293,11 +1319,14 @@ function generareClasamentAeronavePeZile(){
           };
       }
 
+      //sortare arie crescatoare
+      clasamentAeronave0.sort(function(a, b){return a.arie - b.arie});
+      clasamentAeronaveZileSortatArie[zi] = {ziua:zi, clasament: clasamentAeronave0};
+
       //sortare medie
       clasamentAeronave1.sort(function(a, b){return b.medie - a.medie});
       //clasamentAeronave.sort(function(a, b){return a.arie - b.arie});
       clasamentAeronaveZileSortatMedie[zi] = {ziua:zi, clasament: clasamentAeronave1};
-
 
       clasamentAeronave2.sort(function(a, b){return a.proiectie - b.proiectie});
       clasamentAeronaveZileSortatProiectie[zi] = {ziua:zi, clasament: clasamentAeronave2};
@@ -1435,7 +1464,13 @@ function actualizareTabelPozitii(){
   if(selectorZi >= clasamentAeronaveZileSortatProiectie.length)
       return;
 
-  clasamentZone = clasamentAeronaveZileSortatMedie[selectorZi].clasament;
+  if(mod_sortare == 1){
+      clasamentZone = clasamentAeronaveZileSortatMedie[selectorZi].clasament;
+  }
+  else{
+      clasamentZone = clasamentAeronaveZileSortatArie[selectorZi].clasament;
+  }
+
 
   //var elementZona1, elementZona2;
   //var proiectie, medie, r, valoareProiectie2;
@@ -5139,6 +5174,23 @@ function setare_mod() {
 function salvareNrArie() {
   //console.log("se salveaza aria cu numarul " + nrArie);
   localStorage.setItem('nr_arie', nrArie);
+}
+
+function salvareModSortare() {
+  //console.log("se salveaza aria cu numarul " + nrArie);
+  localStorage.setItem('mod_sortare', mod_sortare);
+}
+
+function setare_mod_sortare() {
+  if(!localStorage.getItem('mod_sortare')) {
+    salvareModSortare();
+    //console.log("setare NrArie initiala " + nr_arie);
+  } else {
+    mod_sortare = parseInt(localStorage.getItem('mod_sortare'));
+    //console.log("nrarie salvat " + nr_arie + " . Se seteaza nrrie preferat.");
+    //actualizareMod();
+  }
+  //console.log("mod_sortare=" + mod_sortare);
 }
 
 function setare_nr_arie() {

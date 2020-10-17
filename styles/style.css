@@ -94,10 +94,19 @@ img {
   margin-right: 20px;
 }
 
-.sectiunea1 img, .sectiunea1b img{
+.sectiunea1 img, .sectiunea1b img.im1{
   max-width: 40px;
   /*height: auto;*/
   display: inline-flex;
+
+}
+
+.sectiunea1 img, .sectiunea1b img.im2{
+  max-width: 40px;
+  /*height: auto;*/
+  /*border: 1px solid blue;*/
+  display: inline-flex;
+  margin-right: 8px;
 }
 
 .separator {
