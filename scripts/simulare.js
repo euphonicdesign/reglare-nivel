@@ -1503,6 +1503,7 @@ function actualizareTabelPozitii(){
           }
           else{
               elementIR.textContent += "\u2798";
+              elementValProiectie.style.background = "lightgreen";
           }
 
           /*
