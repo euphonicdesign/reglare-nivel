@@ -48,6 +48,7 @@ var culoareNumarPunct = "#b3b3b3";//"#404040";
 
 var culoareTextCompensatorRosu = "#ba5e5e";//"#c45454";//"#be4141";//"#ff1a1a";//"red";
 var culoareCrestereMaro = "#996633";//culoareTextCompensatorRosu;
+var culoareCrestereMaroInchis = "#271a0c";
 var culoareCrestereRosu = culoareTextCompensatorRosu;
 var culoareScadere = "green";
 
@@ -1501,11 +1502,14 @@ function actualizareTabelPozitii(){
           if(vectoriDateZone[clasamentZone[zona].arie].vectorDR[selectorZi]>0){
               elementIR.textContent += "\u279A";
               elementValProiectie.textContent += "\u279A";
+              elementValProiectie.style.background = culoareCerculetRCrestere;
+              elementValProiectie.style.color = culoareCrestereMaroInchis;
           }
           else{
               elementIR.textContent += "\u2798";
               elementValProiectie.style.background = "lightgreen";
               elementValProiectie.textContent += "\u2798";
+              elementValProiectie.style.color = "#333";
           }
 
           /*
