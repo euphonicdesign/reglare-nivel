@@ -1571,7 +1571,7 @@ function actualizareTabelPozitii(){
           elementPortAvionGraficDepartare.textContent = Math.round((nrAeronaveDepartare / 42)*100) + "%";
           elementPortAvionGraficApropiere.textContent = Math.round((nrAeronaveApropiere / 42)*100) + "%";
           elementPortAvionGraficDepartare.style.width = Math.round((nrAeronaveDepartare / 42) * 114) + "px";
-          elementPortAvionGraficApropiere.style.width = 114 - Math.round((nrAeronaveDepartare / 42) * 114) + "px";
+          elementPortAvionGraficApropiere.style.width = Math.round((nrAeronaveApropiere / 42) * 114) + "px";
 
           //elementPortAvionDepartare.style.height = Math.round((nrAeronaveDepartare / 42) * 16) + "px";
           //elementPortAvionApropiere.style.height = Math.round((nrAeronaveApropiere / 42) * 16) + "px";

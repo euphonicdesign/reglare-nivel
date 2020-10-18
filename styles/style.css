@@ -146,24 +146,29 @@ img {
 .container_date{
   display: flex;
   /*border: 1px solid black;*/
+  margin-left: 10px;
 }
 
 .container_portavion_grafic{
   display: flex;
   flex-direction: column;
   /*border: 1px solid black;*/
+  margin-left: 10px;
 }
 
 .grafic_apropiere{
   background-color: lightgreen;
   /*width: 110px;*/
-  padding-left: 6px;
+  /*padding-left: 4px;*/
+  padding: 4px;
+  height: 15px;
   /*border: 1px solid #333;*/
 }
 
 .grafic_departare{
   background-color: #cc9966;
-  padding-left: 6px;
+  padding: 4px;
+  height: 15px;
 }
 
 .apropiere{
@@ -187,7 +192,7 @@ img {
 
 .container_portavion{
   /*height: 36px;*/
-  width: 92px;
+  width: 100px;
   display: inline-flex;
   flex-direction: column;
   /*border: 1px solid black;*/
@@ -197,11 +202,12 @@ img {
 .app {
   display: flex;
   flex-direction: row;
+  padding: 4px;
 
 }
 
 .app_text{
-  width: 72px;
+  width: 80px;
   /*border: 1px solid black;*/
 }
 
