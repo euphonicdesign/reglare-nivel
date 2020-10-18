@@ -1492,6 +1492,8 @@ function actualizareTabelPozitii(){
 
       elementPortAvionApropiere = document.getElementsByClassName("apropiere")[0];
       elementPortAvionDepartare = document.getElementsByClassName("departare")[0];
+      elementPortAvionGraficApropiere = document.getElementsByClassName("grafic_apropiere")[0];
+      elementPortAvionGraficDepartare = document.getElementsByClassName("grafic_departare")[0];
 
       elementIDelta.style.color = "black";
 
@@ -1558,13 +1560,34 @@ function actualizareTabelPozitii(){
           }
 
           elementPortAvionDepartare.textContent = "Îndepărtare: "
-            + Math.floor((nrAeronaveDepartare / 42)*100) + "% ("
-            + nrAeronaveDepartare
-            + " aeronave)";
-          elementPortAvionApropiere.textContent = "Apropiere: "
-            + Math.floor((nrAeronaveApropiere / 42)*100) + "% ("
-            + nrAeronaveApropiere
-            + " aeronave)";
+            //+ Math.floor((nrAeronaveDepartare / 42)*100) + "% ("
+            + nrAeronaveDepartare;
+            //+ " aeronave)";
+          elementPortAvionApropiere.textContent = "Apropiere:   "
+            //+ Math.floor((nrAeronaveApropiere / 42)*100) + "% ("
+            + nrAeronaveApropiere;
+            //+ " aeronave)";
+
+          elementPortAvionGraficDepartare.textContent = Math.round((nrAeronaveDepartare / 42)*100) + "%";
+          elementPortAvionGraficApropiere.textContent = Math.round((nrAeronaveApropiere / 42)*100) + "%";
+          elementPortAvionGraficDepartare.style.width = Math.round((nrAeronaveDepartare / 42) * 114) + "px";
+          elementPortAvionGraficApropiere.style.width = 114 - Math.round((nrAeronaveDepartare / 42) * 114) + "px";
+
+          //elementPortAvionDepartare.style.height = Math.round((nrAeronaveDepartare / 42) * 16) + "px";
+          //elementPortAvionApropiere.style.height = Math.round((nrAeronaveApropiere / 42) * 16) + "px";
+          //if(nrAeronaveDepartare == 0){
+            //  elementPortAvionDepartare.style.backgroundColor = "white";
+          //}
+          //else{
+            //  elementPortAvionDepartare.style.backgroundColor = "#cc9966";
+          //}
+          //if(nrAeronaveApropiere == 0){
+            //  elementPortAvionApropiere.style.backgroundColor = "white";
+          //}
+          //else{
+            //  elementPortAvionApropiere.style.backgroundColor = "lightgreen";
+          //}
+
 
           /*
           if(clasamentProiectie[zona].delta > 0){

@@ -140,18 +140,57 @@ img {
 }
 .titlu{
   font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.container_date{
+  display: flex;
+  /*border: 1px solid black;*/
+}
+
+.container_portavion_grafic{
+  display: flex;
+  flex-direction: column;
+  /*border: 1px solid black;*/
+}
+
+.grafic_apropiere{
+  background-color: lightgreen;
+  /*width: 110px;*/
+  padding-left: 6px;
+  /*border: 1px solid #333;*/
+}
+
+.grafic_departare{
+  background-color: #cc9966;
+  padding-left: 6px;
 }
 
 .apropiere{
-  background-color: lightgreen;
-  display: inline-block;
-  width: 188px;
+  /*background-color: lightgreen;*/
+  display: inline;
+  /*width: 200px;*/
+  /*height: 16px;*/
+  /*text-align: right;*/
+  /*padding: 3px;*/
 }
 
 .departare{
-  background-color: #cc9966;
-  display: inline-block;
-  width: 188px;
+  /*background-color: #cc9966;*/
+  display: inline;
+  /*width: 200px;*/
+  /*height: 16px;*/
+  /*text-align: left;*/
+  /*padding: 3px;*/
+}
+
+.container_portavion{
+  /*height: 36px;*/
+  width: 92px;
+  display: inline-flex;
+  flex-direction: column;
+  /*border: 1px solid black;*/
+  /*text-align: center;*/
 }
 
 #pozitii {
