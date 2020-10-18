@@ -3626,8 +3626,15 @@ function desenareRadarModRadar(){
 
   //vectorXAvion[i] = xRadarModRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1ModRadar);
   //vectorYAvion[i] = yRadarModRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1ModRadar);
-  xsos = vectoriDateZone[zonaAjustata].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-  xsos = vectoriDateZone[zonaAjustata].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+  if(nrArie == 43){
+      xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+      xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+  }
+  else{
+      xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+      xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+  }
+
   xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * 2 / 360);
   ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * 2 / 360);
 
