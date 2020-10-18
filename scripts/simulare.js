@@ -3449,7 +3449,7 @@ function desenareRadarModRadar(){
 
   //desenare numar cadran
   ctx.textAlign = "end";
-  ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "24px Helvetica, system-ui, Arial, sans-serif";
 
 
   //verde daca avion in cadran 2
@@ -3461,13 +3461,13 @@ function desenareRadarModRadar(){
   }
 
   if(depasireLimitaStabilitate == false){
-      ctx.font = "14px bold italic Helvetica, system-ui, Arial, sans-serif";
+      ctx.font = "24px bold italic Helvetica, system-ui, Arial, sans-serif";
       ctx.fillStyle = "white";//"rgba(38,145,31,0.9)";
       ctx.strokeStyle = "white";//"rgba(38,145,31,0.9)";
-      ctx.strokeText("2", xRadarModRadar - 5, yRadarModRadar - 7);
+      ctx.strokeText("2", xRadarModRadar - 15, yRadarModRadar - 21);
   }
   //ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-  ctx.fillText("2", xRadarModRadar - 5, yRadarModRadar - 7);
+  ctx.fillText("2", xRadarModRadar - 15, yRadarModRadar - 21);
 
 
   //Desenare Pista Aeroport
