@@ -262,7 +262,7 @@ var yc2 = 0;
 var xEntitate = 558 - 12 - 8;
 var yEntitate = 468;
 
-var xEntitateModRadar = lungimeSuprafataGrafica/2 - 12;
+var xEntitateModRadar = 558 - 12 - 8;
 var yEntitateModRadar = 468;
 
 //radar
@@ -278,7 +278,7 @@ var razaOrigineAeroport = 2 + 2 + 2 + 0;
 var xRadar = xEntitate + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
 var yRadar = 376 + 18; //120;//96;//76;
 
-var xRadarModRadar = xEntitateModRadar + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
+var xRadarModRadar =  lungimeSuprafataGrafica/2;//lungimeSuprafataGrafica - 32;//30;//110;//200;
 var yRadarModRadar = 376 + 18; //120;//96;//76;
 
 
