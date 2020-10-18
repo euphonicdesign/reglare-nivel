@@ -1557,7 +1557,7 @@ function actualizareTabelPozitii(){
               elementValProiectie.style.color = "#333";
           }
 
-          elementPortAvionDepartare.textContent = "Depărtare: "
+          elementPortAvionDepartare.textContent = "Îndepărtare: "
             + Math.floor((nrAeronaveDepartare / 42)*100) + "% ("
             + nrAeronaveDepartare
             + " aeronave)";
