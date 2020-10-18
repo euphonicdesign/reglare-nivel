@@ -178,6 +178,7 @@ img {
 .departare{
   /*background-color: #cc9966;*/
   display: inline;
+
   /*width: 200px;*/
   /*height: 16px;*/
   /*text-align: left;*/
@@ -191,6 +192,17 @@ img {
   flex-direction: column;
   /*border: 1px solid black;*/
   /*text-align: center;*/
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.app_text{
+  width: 72px;
+  /*border: 1px solid black;*/
 }
 
 #pozitii {
