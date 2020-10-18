@@ -3827,8 +3827,6 @@ function desenareRadarModRadar(){
   }
 
   //desenare Avion pe radar
-
-
   for(let zona=0; zona<vectoriDateZone.length; zona++){
       if(zona == nrArie) continue;
       //desenare avion partea 1
@@ -3858,7 +3856,7 @@ function desenareRadarModRadar(){
       }
       else{
           //evitare iesire margine - ramas margine
-          ctx.arc(vectoriDateZone[zona].vectorXAvion[selectorZi], 0 , dimensiuneAvion, 0, 2 * Math.PI);
+          ctx.arc(vectoriDateZone[zona].vectorXAvion[selectorZi], 0 , dimensiuneAvion * 1.3, 0, 2 * Math.PI);
       }
 
       ctx.closePath();
@@ -3872,8 +3870,16 @@ function desenareRadarModRadar(){
       else{
           ctx.fillStyle = culoareScadere;
       }
+
       nume_zona = numeArii.data.value[zona].substring(0,3);
-      ctx.fillText(nume_zona, vectoriDateZone[zona].vectorXAvion[selectorZi] - 14, vectoriDateZone[zona].vectorYAvion[selectorZi] - 14);
+      if(vectoriDateZone[zona].vectorYAvion[selectorZi] > 3 ){
+          ctx.fillText(nume_zona, vectoriDateZone[zona].vectorXAvion[selectorZi] - 14, vectoriDateZone[zona].vectorYAvion[selectorZi] - 14);
+      }
+      else{
+        //iesire margine
+          ctx.fillText(nume_zona, vectoriDateZone[zona].vectorXAvion[selectorZi] - 14, 22);
+      }
+
 
       //console.log(vectorXAvion[selectorZi] + " " + vectorYAvion[selectorZi]);
   }
