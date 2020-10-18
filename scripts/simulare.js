@@ -3844,7 +3844,7 @@ function desenareRadarModRadar(){
       ctx.fill();
       ctx.stroke();
 
-      ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
       if(vectoriDateZone[zona].vectorXAvion[selectorZi] - xRadarModRadar > 0){
           ctx.fillStyle = culoareCrestereMaro;
       }
@@ -3940,13 +3940,15 @@ function desenareRadarModRadar(){
       ctx.fill();
       ctx.stroke();
 
-      ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+      ctx.font = "bold italic 16px Helvetica, system-ui, Arial, sans-serif";
+      /*
       if(xAvion - xRadarModRadar > 0){
           ctx.fillStyle = culoareCrestereMaro;
       }
       else{
           ctx.fillStyle = culoareScadere;
-      }
+      }*/
+      ctx.fillStyle = "navy";
       nume_zona = "Toa";
       ctx.fillText(nume_zona, xAvion - 14, yAvion - 14);
 
