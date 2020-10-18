@@ -3563,24 +3563,24 @@ function desenareRadarModRadar(){
     //ctx.fillStyle = culoarePunctValoriGrafic_3;;
     if(culoare_pulsatie == culoareMaro){
         ctx.fillStyle = "rgba(204,153,102,0.8)";
-        ctx.fillText("⇗", xRadarModRadar+10, yRadarModRadar - 300);
-        ctx.fillText(" ⇗", xRadarModRadar+10, yRadarModRadar - 310);
+        ctx.fillText("⇗", xRadarModRadar+10, yRadarModRadar - 150);
+        ctx.fillText(" ⇗", xRadarModRadar+10, yRadarModRadar - 160);
     }
     else {
         ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
-        ctx.fillText("⇙", xRadarModRadar, yRadarModRadar - 300);
-        ctx.fillText("⇙ ", xRadarModRadar, yRadarModRadar - 290);
+        ctx.fillText("⇙", xRadarModRadar, yRadarModRadar - 150);
+        ctx.fillText("⇙ ", xRadarModRadar, yRadarModRadar - 140);
     }
   }
   else {
     ctx.font = "bold 52px Helvetica, system-ui, Arial, sans-serif";
     if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
         ctx.fillStyle = "rgba(204,153,102,0.8)";
-        ctx.fillText("⇗", xRadarModRadar+10, yRadarModRadar - 300);
+        ctx.fillText("⇗", xRadarModRadar+10, yRadarModRadar - 150);
     }
     else{
         ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
-        ctx.fillText("⇙", xRadarModRadar, yRadarModRadar - 300);
+        ctx.fillText("⇙", xRadarModRadar, yRadarModRadar - 150);
     }
   }
 
