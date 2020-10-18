@@ -614,7 +614,7 @@ buton_foto.onclick = function() {
 buton_radar.onclick = function() {
     mod = MOD_RADAR;
 
-    selectorArie.style.display = "none";
+    selectorArie.style.display = "initial";
 
     resetare_dim_butoane();
     buton_radar.style.height = b_grafice_height;
