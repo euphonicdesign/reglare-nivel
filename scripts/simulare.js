@@ -3379,7 +3379,7 @@ function desenareRadarModRadar(){
   ctx.lineWidth = 2;
   //ctx.fillStyle = culoareRadarCercuri;
   //ctx.strokeStyle = culoareRadarCercuri;//"#ffbb33";//culoareGraficVectorR;
-
+  ctx.strokeStyle = "white";
   //Cerc 1 exterior
   ctx.beginPath();
   ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar, 0, 2 * Math.PI);
@@ -3413,13 +3413,14 @@ function desenareRadarModRadar(){
     ////ctx.stroke();
   ctx.stroke();
 
+  ctx.strokeStyle = "white";
   //Desenare Axe radar
   //ctx.strokeStyle = culoareRadarCercuri;
-  ctx.moveTo(xRadarModRadar - razaCerc1ModRadar, yRadarModRadar);
-  ctx.lineTo(xRadarModRadar + razaCerc1ModRadar, yRadarModRadar);
+  ctx.moveTo(xRadarModRadar - 2*razaCerc1ModRadar, yRadarModRadar);
+  ctx.lineTo(xRadarModRadar + 2*razaCerc1ModRadar, yRadarModRadar);
   ctx.stroke();
 
-  ctx.moveTo(xRadarModRadar, yRadarModRadar - razaCerc1ModRadar);
+  ctx.moveTo(xRadarModRadar, yRadarModRadar - 3.2 * razaCerc1ModRadar);
   ctx.lineTo(xRadarModRadar, yRadarModRadar + razaCerc1ModRadar);
   ctx.stroke();
 
@@ -3436,6 +3437,7 @@ function desenareRadarModRadar(){
       ctx.strokeStyle = "white";
   }
 
+  ctx.strokeStyle = "white";
   ctx.beginPath();
   ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc3ModRadar, 0, 2 * Math.PI);
   ctx.closePath();
