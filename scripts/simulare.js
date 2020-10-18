@@ -3828,6 +3828,16 @@ function desenareRadarModRadar(){
       ctx.fill();
       ctx.stroke();
 
+      ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+      if(vectoriDateZone[zona].vectorXAvion[selectorZi] - xRadarModRadar > 0){
+          ctx.fillStyle = culoareCrestereMaro;
+      }
+      else{
+          ctx.fillStyle = culoareScadere;
+      }
+      nume_zona = numeArii.data.value[zona].substring(0,3);
+      ctx.fillText(nume_zona, vectoriDateZone[zona].vectorXAvion[selectorZi] - 14, vectoriDateZone[zona].vectorYAvion[selectorZi] - 14);
+
       //console.log(vectorXAvion[selectorZi] + " " + vectorYAvion[selectorZi]);
   }
 
