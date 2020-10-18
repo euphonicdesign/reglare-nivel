@@ -1474,6 +1474,9 @@ function actualizareTabelPozitii(){
 
   //var elementZona1, elementZona2;
   //var proiectie, medie, r, valoareProiectie2;
+
+  nrAeronaveApropiere = 0;
+  nrAeronaveDepartare = 0;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       elementNume = document.getElementsByClassName("pozitii zona" + zona +" nume")[0];
       elementValProiectie = document.getElementsByClassName("pozitii zona" + zona +" val_proiectie")[0];
@@ -1486,6 +1489,9 @@ function actualizareTabelPozitii(){
       elementIDelta = document.getElementsByClassName("pozitii zona" + zona +" iDelta")[0];
       elementIR = document.getElementsByClassName("pozitii zona" + zona +" iR")[0];
       elementIMedie = document.getElementsByClassName("pozitii zona" + zona +" iMedie")[0];
+
+      elementPortAvionApropiere = document.getElementsByClassName("apropiere")[0];
+      elementPortAvionDepartare = document.getElementsByClassName("departare")[0];
 
       elementIDelta.style.color = "black";
 
@@ -1535,17 +1541,30 @@ function actualizareTabelPozitii(){
           }
 
           if(vectoriDateZone[clasamentZone[zona].arie].vectorDR[selectorZi]>0){
+              nrAeronaveDepartare++;
+
               elementIR.textContent += "\u279A";
               elementValProiectie.textContent += "\u279A";
               elementValProiectie.style.background = culoareCerculetRCrestere;
               elementValProiectie.style.color = culoareCrestereMaroInchis;
           }
           else{
+              nrAeronaveApropiere++;
+
               elementIR.textContent += "\u2798";
               elementValProiectie.style.background = "lightgreen";
               elementValProiectie.textContent += "\u2798";
               elementValProiectie.style.color = "#333";
           }
+
+          elementPortAvionDepartare.textContent = "Depărtare: "
+            + Math.floor((nrAeronaveDepartare / 42)*100) + "% ("
+            + nrAeronaveDepartare
+            + " aeronave)";
+          elementPortAvionApropiere.textContent = "Apropiere: "
+            + Math.floor((nrAeronaveApropiere / 42)*100) + "% ("
+            + nrAeronaveApropiere
+            + " aeronave)";
 
           /*
           if(clasamentProiectie[zona].delta > 0){
