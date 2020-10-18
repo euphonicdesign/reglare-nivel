@@ -3376,7 +3376,7 @@ function desenareRadarModRadar(){
       ctx.strokeStyle = "white";//"#ffbb33";//culoareGraficVectorR;
   }
 
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 3;
   //ctx.fillStyle = culoareRadarCercuri;
   //ctx.strokeStyle = culoareRadarCercuri;//"#ffbb33";//culoareGraficVectorR;
   ctx.strokeStyle = "white";
