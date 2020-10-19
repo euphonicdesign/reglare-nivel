@@ -3901,7 +3901,13 @@ function desenareRadarModRadar(){
 
       ctx.beginPath();
       if(vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar > 0 ){
-          ctx.arc(vectoriDateZone[zona].vectorXAvion[selectorZi] + xRadarModRadar, vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar , dimensiuneAvion * 1.3, 0, 2 * Math.PI);
+          if(vectoriDateZone[zona].vectorXAvion[selectorZi]/scalaRadarY + xRadarModRadar < lungimeSuprafataGrafica ){
+              ctx.arc(vectoriDateZone[zona].vectorXAvion[selectorZi] + xRadarModRadar, vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar , dimensiuneAvion * 1.3, 0, 2 * Math.PI);
+          }
+          else{
+              //evitare iesire in lateral dreapta
+              ctx.arc(lungimeSuprafataGrafica, vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar , dimensiuneAvion * 1.3, 0, 2 * Math.PI);
+          }
       }
       else{
           //evitare iesire margine - ramas margine
@@ -3922,7 +3928,13 @@ function desenareRadarModRadar(){
 
       nume_zona = numeArii.data.value[zona].substring(0,3);
       if(vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar > 3 ){
-          ctx.fillText(nume_zona, vectoriDateZone[zona].vectorXAvion[selectorZi] + xRadarModRadar - 14, vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar - 14);
+          if(vectoriDateZone[zona].vectorXAvion[selectorZi]/scalaRadarY + xRadarModRadar < lungimeSuprafataGrafica -3 ){
+              ctx.fillText(nume_zona, vectoriDateZone[zona].vectorXAvion[selectorZi] + xRadarModRadar - 14, vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar - 14);
+          }
+          else{
+              //iesire lateral dreapta
+              ctx.fillText(nume_zona, lungimeSuprafataGrafica - 20, vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar - 10);
+          }
       }
       else{
         //iesire margine
