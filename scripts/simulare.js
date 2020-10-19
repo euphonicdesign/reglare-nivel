@@ -3967,7 +3967,6 @@ function desenareRadarModRadar(){
     ctx.fillStyle = culoareLinieGraficP;
     ctx.strokeStyle = "navy";
 
-
     ctx.beginPath();
     if(vectoriDateZone[nrArie].vectorYAvion[selectorZi] > 0 ){
         ctx.arc(vectoriDateZone[nrArie].vectorXAvion[selectorZi], vectoriDateZone[nrArie].vectorYAvion[selectorZi] , dimensiuneAvion * 1.3, 0, 2 * Math.PI);
@@ -4033,16 +4032,22 @@ function desenareRadarModRadar(){
           ctx.lineWidth = 3;
       }
 
+      /*
       if(xAvion - xRadarModRadar > 0){
           ctx.fillStyle = culoareCrestereMaro;
       }
       else{
           ctx.fillStyle = culoareScadere;
       }
-      ctx.strokeStyle = "white";
+      ctx.strokeStyle = "white";*/
 
       ctx.fillStyle = "lightyellow";//culoareLinieGraficP;
       ctx.strokeStyle = "navy";
+
+      if(valZiCur > 900){
+          ctx.fillStyle = "#edabab";
+          //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
+      }
 
       ctx.beginPath();
       if(yAvion > 0 ){
