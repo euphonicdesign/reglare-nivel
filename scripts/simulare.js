@@ -59,6 +59,7 @@ var culoareTextGraficP = "#ffcf66";
 var culoareGraficVectorR = "#996633";//"#ac7339";
 var culoareGalben = culoareLinieGraficP;
 var culoareRosu = "#e4b4b4";//"#d78e8e";//culoareCrestere;//culoareGraficVectorR;//"brown";
+var culoareRosuModRadar = "#963636";
 var culoareVerde = culoare_scadere_entitate;//"green";
 var culoareMaro = "#cc9966";
 var culoareAlbastru = culoare_crestere_entitate;
@@ -3845,6 +3846,11 @@ function desenareRadarModRadar(){
       else{
           ctx.fillStyle = culoareScadere;
       }
+
+      if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > 200){
+          ctx.fillStyle = culoareRosuModRadar;
+      }
+
       ctx.strokeStyle = "white";
 
       if(zona == nrArie){
