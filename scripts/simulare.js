@@ -1356,7 +1356,7 @@ function generareClasamentAeronavePeZile(){
       for(let arie=0; arie < numeArii.data.value.length; arie++){
 
           valoareProiectie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi + orizont_proiectie - 1);
-          valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi);
+          valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi-1);
           delta = valoareProiectie - valoareMedie;
           numeArie = numeArii.data.value[arie].substring(0,3);
 
@@ -1389,7 +1389,7 @@ function generareClasamentAeronavePeZile(){
       for(let arie=0; arie < numeArii.data.value.length; arie++){
 
           valoareProiectie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi + orizont_proiectie - 1);
-          valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi);
+          valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi-1);
           delta = valoareProiectie - valoareMedie;
           numeArie = numeArii.data.value[arie].substring(0,3);
 
@@ -3861,6 +3861,7 @@ function desenareRadarModRadar(){
 
       if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > 200){
           ctx.fillStyle = culoareRosuModRadar;
+          //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
       }
 
       ctx.strokeStyle = "white";
