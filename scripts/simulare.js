@@ -219,6 +219,9 @@ var vitezaSimulare = 165;
 var scalaXAvionRadar = 6;
 var scalaYAvionRadar = 3;
 
+var scalaXAvionRadarToate = 6;
+var scalaYAvionRadarToate = 3;
+
 
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
@@ -4109,8 +4112,8 @@ function desenareRadarModRadar(){
 
 
   if(nrArie == 43){
-      xAvion = ((vectorXAvion[selectorZi])*scalaXAvionRadar + xRadarModRadar);
-      yAvion = (vectorYAvion[selectorZi])*scalaYAvionRadar / scalaRadarY + yRadarModRadar;
+      xAvion = ((vectorXAvion[selectorZi])*scalaXAvionRadarToate + xRadarModRadar);
+      yAvion = (vectorYAvion[selectorZi])*scalaYAvionRadarToate / scalaRadarY + yRadarModRadar;
 
       //desenare fum peste total
       if(vectorXAvion[selectorZi]){
@@ -4134,7 +4137,7 @@ function desenareRadarModRadar(){
 
 
                 ctx.beginPath();
-                ctx.arc(((vectorXAvion[i])*scalaXAvionRadar + xRadarModRadar), (((vectorYAvion[i])*scalaYAvionRadar)/scalaRadarY + yRadarModRadar) , 3 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+                ctx.arc(((vectorXAvion[i])*scalaXAvionRadarToate + xRadarModRadar), (((vectorYAvion[i])*scalaYAvionRadarToate)/scalaRadarY + yRadarModRadar) , 3 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
                 ctx.closePath();
                 ctx.fill();
           }
