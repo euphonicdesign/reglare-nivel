@@ -3312,6 +3312,7 @@ function desenareEntitate(){
     ctx.beginPath();
     ctx.closePath();
 
+    /*
     ctx.setLineDash([2,8]);
     ctx.strokeStyle = culoareTextZiTransparent;
 
@@ -3326,7 +3327,7 @@ function desenareEntitate(){
     ctx.moveTo(12 + xEntitate, yEntitate);
     ctx.lineTo(12 + xEntitate + (raza_pop + diff) * Math.cos(Math.PI) , yEntitate - (raza_pop + diff) * Math.sin(Math.PI));
     ctx.stroke();
-    ctx.setLineDash([]);
+    ctx.setLineDash([]);*/
 
     //cerculet grafic vector r (in capat)
     /*
@@ -3353,10 +3354,6 @@ function desenareEntitate(){
         ctx.strokeStyle = culoareScadere;
         ctx.fillStyle = culoareLinieGraficP;
     }*/
-
-
-
-
 
 
     /*if(plin)
