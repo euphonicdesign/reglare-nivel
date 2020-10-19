@@ -5082,7 +5082,7 @@ function desenareGraficeTrenduri(){
     ctx.fillText("Ziua " + (Math.round(selectorZi) + Math.round(1.0)) + ":", xLegendaDerivate, yLegendaDerivate + 74);
     */
 
-    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     if(vector_r[selectorZi] >= 1){
 
       ctx.fillStyle = culoareCrestereRosu;
@@ -5103,7 +5103,7 @@ function desenareGraficeTrenduri(){
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(text_zi_urmatoare, xLegendaDerivate + ident, yLegendaDerivate + 98);
-    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText("" + Math.floor(valZiCur * vector_r[selectorZi]), xLegendaDerivate + ident, yLegendaDerivate + 130);
 
     ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
