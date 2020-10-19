@@ -3995,7 +3995,7 @@ function desenareRadarModRadar(){
 
 
   if(nrArie == 43){
-      xAvion = ((vectorXAvion[selectorZi]-xRadar)*3 + xRadarModRadar);
+      xAvion = ((vectorXAvion[selectorZi]-xRadar)*6 + xRadarModRadar);
       yAvion = (vectorYAvion[selectorZi] - yRadar + yRadarModRadar);
 
       //desenare fum peste total
@@ -4020,7 +4020,7 @@ function desenareRadarModRadar(){
 
 
                 ctx.beginPath();
-                ctx.arc(((vectorXAvion[i]-xRadar)*3 + xRadarModRadar), (vectorYAvion[i] - yRadar + yRadarModRadar) , 3 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+                ctx.arc(((vectorXAvion[i]-xRadar)*6 + xRadarModRadar), (vectorYAvion[i] - yRadar + yRadarModRadar) , 3 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
                 ctx.closePath();
                 ctx.fill();
           }
