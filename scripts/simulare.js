@@ -1229,7 +1229,7 @@ function start() {
           if(zi>(orizont_regresie + orizont_arie)){
               vectorMedieZiCurenta[zi] = vectoriDateZone[zona].vector_coefA[zi] * Math.pow(vectoriDateZone[zona].vector_r[zi], (zi-1));
 
-              vectorXAvionZona[zi] = xRadarModRadar + vectoriDateZone[zona].vector_r_normalizat[zi] / scalaPozitieXAvion * (razaCerc1) * 3;
+              vectorXAvionZona[zi] = xRadarModRadar + vectoriDateZone[zona].vector_r_normalizat[zi] / scalaPozitieXAvion * (razaCerc1) * 5;
               //if(nrArie == 43){
               //  vectorYAvionZona[zi] = yRadarModRadar - vectorMedieZiCurenta[zi] / scalareTraiectorieAvionToate;
               //}
@@ -4007,7 +4007,7 @@ function desenareRadarModRadar(){
 
               //transp = 0.0 + i / selectorZi / 2;
 
-                  transp = 0.0 + i / selectorZi ;
+                  transp = 0.0 + i / selectorZi / 1.5 ;
                   nuantab = (255 - (( i + 160 - selectorZi) % 255));
                   nuantar = 20;
                   nuantag = 70;
@@ -4020,7 +4020,7 @@ function desenareRadarModRadar(){
 
 
                 ctx.beginPath();
-                ctx.arc(((vectorXAvion[i]-xRadar)*3 + xRadarModRadar), (vectorYAvion[i] - yRadar + yRadarModRadar) , 4 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+                ctx.arc(((vectorXAvion[i]-xRadar)*3 + xRadarModRadar), (vectorYAvion[i] - yRadar + yRadarModRadar) , 3 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
                 ctx.closePath();
                 ctx.fill();
           }
