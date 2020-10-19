@@ -99,6 +99,7 @@ img {
   max-width: 40px;
   /*height: auto;*/
   display: inline-flex;
+  margin-right: 10px;
 
 }
 
@@ -107,7 +108,7 @@ img {
   /*height: auto;*/
   /*border: 1px solid blue;*/
   display: inline-flex;
-  margin-right: 8px;
+  margin-right: 10px;
 }
 
 .separator {
