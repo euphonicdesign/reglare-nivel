@@ -3986,7 +3986,7 @@ function desenareRadarModRadar(){
     ctx.strokeStyle = "navy";
 
     ctx.beginPath();
-    if(vectoriDateZone[nrArie].vectorYAvion[selectorZi]/scalaRadarY > 0 ){
+    if(vectoriDateZone[nrArie].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar> 0 ){
         ctx.arc(vectoriDateZone[nrArie].vectorXAvion[selectorZi] + xRadarModRadar, vectoriDateZone[nrArie].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar , dimensiuneAvion * 1.3, 0, 2 * Math.PI);
     }
     else{
