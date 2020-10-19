@@ -4191,7 +4191,12 @@ function desenareRadarModRadar(){
       }*/
       ctx.fillStyle = "navy";
       nume_zona = "Toate";
-      ctx.fillText(nume_zona, xAvion - 12, yAvion - 14);
+      if(yAvion > 0 ){
+          ctx.fillText(nume_zona, xAvion - 12, yAvion - 14);
+      }
+      else{
+          ctx.fillText(nume_zona, xAvion - 12, + 24);
+      }
 
       //console.log(vectorXAvion[selectorZi] + " " + vectorYAvion[selectorZi]);
   }
