@@ -1615,6 +1615,8 @@ function actualizareTabelPozitii(){
 
   nrAeronaveApropiere = 0;
   nrAeronaveDepartare = 0;
+  nrAeronaveCoborare = 0;
+  nrAeronaveUrcare = 0;
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       elementNume = document.getElementsByClassName("pozitii zona" + zona +" nume")[0];
       elementValProiectie = document.getElementsByClassName("pozitii zona" + zona +" val_proiectie")[0];
@@ -1632,6 +1634,11 @@ function actualizareTabelPozitii(){
       elementPortAvionDepartare = document.getElementsByClassName("departare")[0];
       elementPortAvionGraficApropiere = document.getElementsByClassName("grafic_apropiere")[0];
       elementPortAvionGraficDepartare = document.getElementsByClassName("grafic_departare")[0];
+
+      elementPortAvionCoborare = document.getElementsByClassName("coborare")[0];
+      elementPortAvionUrcare = document.getElementsByClassName("urcare")[0];
+      elementPortAvionGraficCoborare = document.getElementsByClassName("grafic_coborare")[0];
+      elementPortAvionGraficUrcare = document.getElementsByClassName("grafic_urcare")[0];
 
       elementIDelta.style.color = "black";
 
@@ -1674,10 +1681,12 @@ function actualizareTabelPozitii(){
           }
 
           if(clasamentZone[zona].r > 1){
+              nrAeronaveUrcare++;
               elementIR.textContent = "+" + Math.round((clasamentZone[zona].r-1)*100) + "%";
           }
           else{
               elementIR.textContent = "" + Math.round((clasamentZone[zona].r-1)*100) + "%";
+              nrAeronaveCoborare++;
           }
 
           if(vectoriDateZone[clasamentZone[zona].arie].vectorDR[selectorZi]>0){
@@ -1706,10 +1715,24 @@ function actualizareTabelPozitii(){
             + nrAeronaveApropiere;
             //+ " aeronave)";
 
+          elementPortAvionUrcare.textContent = ""
+            //+ Math.floor((nrAeronaveDepartare / 42)*100) + "% ("
+            + nrAeronaveUrcare;
+            //+ " aeronave)";
+          elementPortAvionCoborare.textContent = ""
+            //+ Math.floor((nrAeronaveApropiere / 42)*100) + "% ("
+            + nrAeronaveCoborare;
+            //+ " aeronave)";
+
           elementPortAvionGraficDepartare.textContent = Math.round((nrAeronaveDepartare / 42)*100) + "%";
           elementPortAvionGraficApropiere.textContent = Math.round((nrAeronaveApropiere / 42)*100) + "%";
           elementPortAvionGraficDepartare.style.width = Math.round((nrAeronaveDepartare / 42) * 114) + "px";
           elementPortAvionGraficApropiere.style.width = Math.round((nrAeronaveApropiere / 42) * 114) + "px";
+
+          elementPortAvionGraficUrcare.textContent = Math.round((nrAeronaveUrcare / 42)*100) + "%";
+          elementPortAvionGraficCoborare.textContent = Math.round((nrAeronaveCoborare / 42)*100) + "%";
+          elementPortAvionGraficUrcare.style.width = Math.round((nrAeronaveUrcare / 42) * 114) + "px";
+          elementPortAvionGraficCoborare.style.width = Math.round((nrAeronaveCoborare / 42) * 114) + "px";
 
           //elementPortAvionDepartare.style.height = Math.round((nrAeronaveDepartare / 42) * 16) + "px";
           //elementPortAvionApropiere.style.height = Math.round((nrAeronaveApropiere / 42) * 16) + "px";

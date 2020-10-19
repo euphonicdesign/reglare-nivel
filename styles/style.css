@@ -144,10 +144,19 @@ img {
   margin-bottom: 2px;
 }
 
-.container_date{
+.panouSituatie{
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  grid-template-rows: 1;
+  grid-gap: 5px;
+}
+
+.container_date1,
+.container_date2{
   display: flex;
   /*border: 1px solid black;*/
   margin-left: 10px;
+  /*border: 1px solid green;*/
 }
 
 .container_portavion_grafic{
@@ -157,7 +166,8 @@ img {
   margin-left: 10px;
 }
 
-.grafic_apropiere{
+.grafic_apropiere,
+.grafic_coborare{
   background-color: lightgreen;
   /*width: 110px;*/
   /*padding-left: 4px;*/
@@ -166,13 +176,16 @@ img {
   /*border: 1px solid #333;*/
 }
 
-.grafic_departare{
+.grafic_departare,
+.grafic_urcare
+{
   background-color: #cc9966;
   padding: 4px;
   height: 15px;
 }
 
-.apropiere{
+.apropiere,
+.coborare {
   /*background-color: lightgreen;*/
   display: inline;
   /*width: 200px;*/
@@ -181,7 +194,8 @@ img {
   /*padding: 3px;*/
 }
 
-.departare{
+.departare,
+.urcare {
   /*background-color: #cc9966;*/
   display: inline;
 
