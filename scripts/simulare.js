@@ -3149,6 +3149,7 @@ function desenareEntitateModRadar(){
     ctx.beginPath();
     ctx.closePath();
 
+    /*
     ctx.setLineDash([2,8]);
     ctx.strokeStyle = culoareTextZiTransparent;
 
@@ -3163,7 +3164,7 @@ function desenareEntitateModRadar(){
     ctx.moveTo(12 + xEntitateModRadar, yEntitateModRadar);
     ctx.lineTo(12 + xEntitateModRadar + (raza_pop + diff) * Math.cos(Math.PI) , yEntitateModRadar - (raza_pop + diff) * Math.sin(Math.PI));
     ctx.stroke();
-    ctx.setLineDash([]);
+    ctx.setLineDash([]);*/
 }
 
 
