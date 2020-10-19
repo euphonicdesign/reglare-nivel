@@ -3752,7 +3752,9 @@ function desenareRadarModRadar(){
       if(zona == nrArie) continue;
       //if zona == nr Arie - coloreaza fum diferit
       if(vectoriDateZone[zona].vectorXAvion[selectorZi]){
-          for (let i = (selectorZi - 255); i < selectorZi; i++){
+          //for (let i = (selectorZi - 255); i < selectorZi; i++){
+              //nuantar = (255 - (( i + 160 - selectorZi) % 255));
+            for (let i = (selectorZi - 90); i < selectorZi; i++){
               nuantar = (255 - (( i + 160 - selectorZi) % 255));
               nuantag = nuantar;
               nuantab = nuantar/2;
@@ -3764,7 +3766,7 @@ function desenareRadarModRadar(){
                 nuantag = 70;
               }
               else{
-                transp = 0.0 + i / selectorZi / 3;
+                transp = 0.0 + i / selectorZi / 6;
               }
               //transp = 0.0 + i / selectorZi / 2
 
