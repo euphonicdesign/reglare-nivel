@@ -108,7 +108,7 @@ let data_30 = [
             0.066, 0.066, 0.066, 0.066, 0.066, 0.068, 0.07,
             0.074, 0.076, 0.078, 0.081, 0.089, 0.089, 0.079,
             0.091, 0.096, 0.098, 0.103, 0.102, 0.113, 0.128,
-            0.119, 0.121, 0.127, 0.131, 0.134, 0.134, 
+            0.119, 0.121, 0.127, 0.131, 0.134, 0.134,
 
 
 ];
@@ -262,6 +262,7 @@ let evenimente_actiuni = [
               '15 Sep: vectorizare (...)', //15/9
               '7 Oct: limitare (...)', //15/9
               '15 Oct: limitare (...)', //15/9
+              '20 Oct: limitare (...)', //20/9
 ];
 
 let info_date = [
@@ -276,6 +277,7 @@ let info_date = [
               '15/9',
               '7/10',
               '15/10',
+              '20/10',
 ];
 
 let info_explicatii = [
@@ -302,6 +304,8 @@ let info_explicatii = [
               'Măsurile actuale de prevenție sunt insuficiente. \
               \nValoarea curentă a referinței a depășit 22! \
               \nEa trebuie setată la valoarea 0...', //1/9
+
+              '... cadranul 2... S.O.S.',
 
               '... cadranul 2... S.O.S.',
 
