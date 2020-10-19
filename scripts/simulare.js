@@ -74,12 +74,24 @@ var culoareCerculetRCrestere = culoareMaro;//"#99d6ff";
 var culoareRadarCercuri = culoareTextZi;
 var culoareTraiectorieAvionRadar = "grey";
 var culoareRadarLinieDetectie = "rgba(255,255,255,0.7)";
+var culoareRadarLinieDetectieModRadar = "rgba(255,255,255,0.4)";
+
 var culoareRadarLinieDetectieAccentuat = "rgba(255,255,255,1.0)";
 var culoareRadarLinieDetectieCrestere = "rgba(153,102,51,1)";
 var culoareRadarLinieDetectieScadere = "rgba(169,214,169,1)";
+
+var culoareRadarLinieDetectieAccentuatModRadar = "rgba(255,255,255,1.0)";
+var culoareRadarLinieDetectieCrestereModRadar = "rgba(153,102,51,1)";
+var culoareRadarLinieDetectieScadereModRadar = "rgba(169,214,169,1)";
+
 var culoareRadarLinieDetectieCrestereTransparent = "rgba(153,102,51,0.7)";
+var culoareRadarLinieDetectieCrestereTransparentModRadar = "rgba(153,102,51,0.3)";
+
+
 var culoareRadarLinieDetectieCadran1Transparent = "rgba(153,102,51,0.2)";
 var culoareRadarLinieDetectieScadereTransparent = "rgba(38,145,31,0.7)";//"rgba(169,214,169,0.7)";
+var culoareRadarLinieDetectieScadereTransparentModRadar = "rgba(38,145,31,0.3)";//"rgba(169,214,169,0.7)";
+
 var culoareRadarLinieDetectieCadran4Transparent = "rgba(38,145,31,0.2)";
 var culoarePunctAvion = "white";//culoarePuncteProiectieCrestere;//"#2B9433";//culoare_scadere_entitate;
 var culoarePunctAvionMargine = culoarePunctValoriGrafic; //"#2B9433";
@@ -3895,17 +3907,17 @@ function desenareRadarModRadar(){
 
 
   //Desenare lumina rotativa
-  ctx.fillStyle = culoareRadarLinieDetectie;
+  ctx.fillStyle = culoareRadarLinieDetectieModRadar;
   ctx.beginPath();
   ctx.moveTo(xRadarModRadar, yRadarModRadar + 0 );
   ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar, radianiZi, radianiZi + Math.PI/6);
 
   if(pulsatie_2){
     if(culoare_pulsatie == culoareMaro){
-        ctx.fillStyle = culoareRadarLinieDetectieCrestereTransparent;//culoareMaro;//culoareCrestereMaro;
+        ctx.fillStyle = culoareRadarLinieDetectieCrestereTransparentModRadar;//culoareMaro;//culoareCrestereMaro;
     }
     else {
-        ctx.fillStyle = culoareRadarLinieDetectieScadereTransparent;//culoareVerde;//culoareScadere;
+        ctx.fillStyle = culoareRadarLinieDetectieScadereTransparentModRadar;//culoareVerde;//culoareScadere;
     }
   }
 
