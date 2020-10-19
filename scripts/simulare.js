@@ -213,6 +213,13 @@ var maxValZiCur = 0;
 var maxCompensator = 0;
 var derulareAutomata = true;
 var vitezaSimulare = 165;
+
+
+//RADAR
+var scalaXAvionRadar = 6;
+var scalaYAvionRadar = 3;
+
+
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
@@ -1224,14 +1231,14 @@ function start() {
 
             //var xAvion = xRadar + vector_r[selectorZi]/maxValueR * (razaCerc1);
 
-            vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
+            vectorXAvion[i] = vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
 
             if(nrArie == 43){
               //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvionToate;
+              vectorYAvion[i] = - vector_valZiCurenta[i] / scalareTraiectorieAvionToate;
             }
             else{
-              vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / scalareTraiectorieAvion ;
+              vectorYAvion[i] = - vector_valZiCurenta[i] / scalareTraiectorieAvion ;
             }
         }
     }
@@ -1248,12 +1255,12 @@ function start() {
               vectorMedieZiCurenta[zi] = vectoriDateZone[zona].vector_coefA[zi] * Math.pow(vectoriDateZone[zona].vector_r[zi], (zi-1));
               vectorProiectieZiCurenta[zi] = vectoriDateZone[zona].vector_coefA[zi] * Math.pow(vectoriDateZone[zona].vector_r[zi], (zi + orizont_proiectie-1));
 
-              vectorXAvionZona[zi] = vectoriDateZone[zona].vector_r_normalizat[zi] / scalaPozitieXAvion * (razaCerc1) * 6;
+              vectorXAvionZona[zi] = vectoriDateZone[zona].vector_r_normalizat[zi] / scalaPozitieXAvion * (razaCerc1) * scalaXAvionRadar;
               //if(nrArie == 43){
               //  vectorYAvionZona[zi] = yRadarModRadar - vectorMedieZiCurenta[zi] / scalareTraiectorieAvionToate;
               //}
               //else{
-                vectorYAvionZona[zi] = - vectorMedieZiCurenta[zi] / scalareTraiectorieAvion * 3 ;
+                vectorYAvionZona[zi] = - vectorMedieZiCurenta[zi] / scalareTraiectorieAvion * scalaYAvionRadar ;
               //}
           }
       }
@@ -4102,8 +4109,8 @@ function desenareRadarModRadar(){
 
 
   if(nrArie == 43){
-      xAvion = ((vectorXAvion[selectorZi]-xRadar)*6 + xRadarModRadar);
-      yAvion = (vectorYAvion[selectorZi] - yRadar) / scalaRadarY + yRadarModRadar;
+      xAvion = ((vectorXAvion[selectorZi])*scalaXAvionRadar + xRadarModRadar);
+      yAvion = (vectorYAvion[selectorZi]) / scalaRadarY + yRadarModRadar;
 
       //desenare fum peste total
       if(vectorXAvion[selectorZi]){
@@ -4127,7 +4134,7 @@ function desenareRadarModRadar(){
 
 
                 ctx.beginPath();
-                ctx.arc(((vectorXAvion[i]-xRadar)*6 + xRadarModRadar), (((vectorYAvion[i]) - yRadar)/scalaRadarY + yRadarModRadar) , 3 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+                ctx.arc(((vectorXAvion[i])*scalaXAvionRadar + xRadarModRadar), (((vectorYAvion[i]))/scalaRadarY + yRadarModRadar) , 3 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
                 ctx.closePath();
                 ctx.fill();
           }
@@ -4293,7 +4300,7 @@ function desenareRadar(){
 
 
   //verde daca avion in cadran 2
-  if(vectorXAvion[selectorZi] - xRadar > 0){
+  if(vectorXAvion[selectorZi] > 0){
       ctx.fillStyle = culoareTextZi;
   }
   else{
@@ -4540,7 +4547,7 @@ function desenareRadar(){
   //ctx.fillStyle = culoareTraiectorieAvionRadar;
   //ctx.strokeStyle = culoareTraiectorieAvionRadar;
 
-  if(vectorXAvion[selectorZi]){
+  if(vectorXAvion[selectorZi] + xRadar){
       for (let i = (selectorZi - 255); i < selectorZi; i++){
         nuantar = (255 - (( i + 160 - selectorZi) % 255));
         nuantag = nuantar;
@@ -4549,7 +4556,7 @@ function desenareRadar(){
         ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
 
         ctx.beginPath();
-        ctx.arc(vectorXAvion[i], vectorYAvion[i] , 1 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+        ctx.arc(vectorXAvion[i] + xRadar, vectorYAvion[i] +yRadar , 1 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
       }
@@ -4566,10 +4573,10 @@ function desenareRadar(){
 
 
   //desenare pulsatie detectie pe radar
-  if(vectorXAvion[selectorZi]){
-      if((yRadar - vectorYAvion[selectorZi]) < razaCerc1 && medieCumulativ[selectorZi] < nivelMaxAfisatRezervor){
-          cosAvion = (vectorXAvion[selectorZi] - xRadar)/razaCerc1;
-          sinAvion = (vectorYAvion[selectorZi] - yRadar)/razaCerc1;
+  if(vectorXAvion[selectorZi] + xRadar){
+      if((- vectorYAvion[selectorZi]) < razaCerc1 && medieCumulativ[selectorZi] < nivelMaxAfisatRezervor){
+          cosAvion = (vectorXAvion[selectorZi])/razaCerc1;
+          sinAvion = (vectorYAvion[selectorZi])/razaCerc1;
 
           distCos = Math.cos(radianiZi + Math.PI/6) - cosAvion;
           distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
@@ -4586,8 +4593,8 @@ function desenareRadar(){
               //console.log("detectie");
               if(pulsatie_radar == 0){
                   pulsatie_radar = temporizare_pulsatie_radar;
-                  pulsatie_radar_x = vectorXAvion[selectorZi];
-                  pulsatie_radar_y = vectorYAvion[selectorZi];
+                  pulsatie_radar_x = vectorXAvion[selectorZi] + xRadar;
+                  pulsatie_radar_y = vectorYAvion[selectorZi] + yRadar;
               }
           }
       }
@@ -4615,7 +4622,7 @@ function desenareRadar(){
       ctx.lineWidth = 2;
   }
 
-  if(vectorXAvion[selectorZi] - xRadar > 0){
+  if(vectorXAvion[selectorZi] > 0){
       ctx.fillStyle = culoareCrestereMaro;
   }
   else{
@@ -4624,12 +4631,12 @@ function desenareRadar(){
   ctx.strokeStyle = "white";
 
   ctx.beginPath();
-  if(vectorYAvion[selectorZi] > 0 ){
-      ctx.arc(vectorXAvion[selectorZi], vectorYAvion[selectorZi] , dimensiuneAvion, 0, 2 * Math.PI);
+  if(vectorYAvion[selectorZi] + yRadar > 0 ){
+      ctx.arc(vectorXAvion[selectorZi] + xRadar, vectorYAvion[selectorZi] + yRadar , dimensiuneAvion, 0, 2 * Math.PI);
   }
   else{
       //evitare iesire margine - ramas margine
-      ctx.arc(vectorXAvion[selectorZi], 0 , dimensiuneAvion, 0, 2 * Math.PI);
+      ctx.arc(vectorXAvion[selectorZi] + xRadar, 0 , dimensiuneAvion, 0, 2 * Math.PI);
   }
 
   ctx.closePath();
