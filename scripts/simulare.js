@@ -1238,12 +1238,14 @@ function start() {
     for(let zona = 0; zona < vectoriDateZone.length; zona++){
       //console.log(zona);
       var vectorMedieZiCurenta = [];
+      var vectorProiectieZiCurenta = [];
       var vectorXAvionZona = [];
       var vectorYAvionZona = [];
 
       for(let zi=0; zi<vectoriDateZone[0].date.length; zi++){
           if(zi>(orizont_regresie + orizont_arie)){
               vectorMedieZiCurenta[zi] = vectoriDateZone[zona].vector_coefA[zi] * Math.pow(vectoriDateZone[zona].vector_r[zi], (zi-1));
+              vectorProiectieZiCurenta[zi] = vectoriDateZone[zona].vector_coefA[zi] * Math.pow(vectoriDateZone[zona].vector_r[zi], (zi + orizont_proiectie-1));
 
               vectorXAvionZona[zi] = vectoriDateZone[zona].vector_r_normalizat[zi] / scalaPozitieXAvion * (razaCerc1) * 6;
               //if(nrArie == 43){
@@ -1255,6 +1257,7 @@ function start() {
           }
       }
       vectoriDateZone[zona]["vectorMedieZiCurenta"] = vectorMedieZiCurenta;
+      vectoriDateZone[zona]["vectorProiectieZiCurenta"] = vectorProiectieZiCurenta;
       vectoriDateZone[zona]["vectorXAvion"] = vectorXAvionZona;
       vectoriDateZone[zona]["vectorYAvion"] = vectorYAvionZona;
 
@@ -3863,6 +3866,7 @@ function desenareRadarModRadar(){
   for(let zona=0; zona<vectoriDateZone.length; zona++){
       if(zona == nrArie) continue;
       //desenare avion partea 1
+      ctx.strokeStyle = "white";
       if(depasireLimitaStabilitate){
           ctx.lineWidth = 1;
       }
@@ -3877,12 +3881,18 @@ function desenareRadarModRadar(){
           ctx.fillStyle = culoareScadere;
       }
 
-      if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > 200){
-          ctx.fillStyle = culoareRosuModRadar;
+      if(vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi] > 200){
+          ctx.fillStyle = "#c32222";//culoareRosu;
           //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
       }
 
-      ctx.strokeStyle = "white";
+      if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > 200){
+          ctx.fillStyle = culoareRosu;
+          ctx.strokeStyle = "black";
+          //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
+      }
+
+
 
       if(zona == nrArie){
           ctx.fillStyle = culoareLinieGraficP;
