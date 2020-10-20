@@ -122,6 +122,7 @@ var culoareTrend = culoarePunctValoriGrafic_3;
 
 var culoareLinieMedieGraficVertical = culoareTextCompensatorFill; //"grey";
 
+var testare = false;
 
 var comutareArie = true;
 var nrArie = 43; //43 include toate ariile
@@ -174,21 +175,35 @@ var semn = "+";
 let dataCumulativ = [];
 let medieCumulativ = [];
 
+let dataCumulativToate = [];
+let medieCumulativToate = [];
+
 let avariiCumulativ = [];
+let avariiCumulativToate = [];
 //let rataPierderiAvarii = [];
 
 let comandaIdeala = [];
 let proiectie = [];
 let vector_r = [];
+let vector_rToate = [];
 let vector_r_normalizat = [];
 let vector_coefA = [];
 let vector_E = [];
+
+let vector_rToate_normalizat = [];
+let vector_coefAToate = [];
+let vector_EToate = [];
+
 let vector_E_procentual = [];
 let vector_valZiCurenta = [];
 let vectorXAvion = [];
 let vectorYAvion = [];
 let vectorDR = [];
 let vectorD2R = [];
+
+let vectorDRToate = [];
+let vectorD2RToate = [];
+
 let vectorContorZileRadar = [];
 
 
@@ -856,6 +871,7 @@ function prelucrareDate(){
         }
     }
     else{
+        //if nrArie = 43
         for(let i = 2; i < data_20.length; i++){
             //c
             medie = (data_20[i] + data_20[i-1] + data_20[i-2]) / 3;
@@ -872,6 +888,19 @@ function prelucrareDate(){
             data_3[i-2] = medie;
         }
     }
+
+    //generare vector date toate aeronavle 2b
+    for(let i = 2; i < data_20.length; i++){
+        //c
+        medie = (data_20[i] + data_20[i-1] + data_20[i-2]) / 3;
+        data_2Toate[i-2] = medie;
+
+        //d
+        medie = (data_10[i] + data_10[i-1] + data_10[i-2]) / 3;
+        dataToate[i-2] = medie;
+    }
+
+
 }
 
 function calculScalaGrafic(){
@@ -936,8 +965,11 @@ function generareVectoriParametrii(dataInput){
       //console.log("k=" + k);
     }
 
+
+
     //for(let k = orizont_trend + orizont_arie; k <= dataInput.length; k++){
     for(let k = n + ORIZONT_ARIE; k <= dataInput.length; k++){
+
 
         zi_start = k - n;
 
@@ -1082,6 +1114,7 @@ function generareAnalizaDate(){
       //console.log(dataInputZona);
       //console.log("------------");
   }
+
 }
 
 function start() {
@@ -1116,6 +1149,8 @@ function start() {
       orizont_arie = ORIZONT_ARIE;
       textArieSelectata = selectorArie.options[nrArie+1].text;
     }
+
+
 
     prelucrareDate();
 
@@ -1179,6 +1214,19 @@ function start() {
         zile_info_explicatii[i] = nr_info;
     }
 
+    //construire vectori cumulativi Toate
+    var cumul;
+    for (let i = 0; i < dataToate.length; i++) {
+        cumul = 0;
+
+        for (let j = 0; j <= i ; j++) {
+          cumul = cumul + dataToate[j];
+        }
+
+        dataCumulativToate[i] = cumul;
+        medieCumulativToate[i] = cumul/(i+1);
+    }
+
     //construire vector avarii cumulativ
     for (let i = 0; i < data_2.length; i++) {
         cumul = 0;
@@ -1188,6 +1236,18 @@ function start() {
         }
 
         avariiCumulativ[i] = cumul;
+        //rataPierderiAvarii[i] = dataCumulativ[i]/avariiCumulativ[i];
+    }
+
+    //construire vector avarii cumulativ Toate
+    for (let i = 0; i < data_2Toate.length; i++) {
+        cumul = 0;
+
+        for (let j = 0; j <= i ; j++) {
+          cumul = cumul + data_2Toate[j];
+        }
+
+        avariiCumulativToate[i] = cumul;
         //rataPierderiAvarii[i] = dataCumulativ[i]/avariiCumulativ[i];
     }
 
@@ -1216,6 +1276,7 @@ function start() {
 
     //Calcul Parametrii Predictie (coefA,bazaR)
     generare_vector_r_coefA();
+    generare_vector_rToate_coefA();
     maxValue_4 = Math.max(...vector_r_normalizat);
     maxValueR = Math.max(...vector_r);
     //calcul_parametrii_Predictie();
@@ -1927,20 +1988,20 @@ function actualizareTabelPozitii(){
       elementPortAvionGraficCoborare.style.width = Math.round((nrAeronaveCoborare / 42) * 114) + "px";
   }
 
-  elementAvariiZilnice.textContent = Math.round(data_2[selectorZi]);
-  elementPierderiZilnice.textContent = Math.round(data[selectorZi]);
-  elementRataPierderiAvarii.textContent = Math.floor(dataCumulativ[selectorZi]/avariiCumulativ[selectorZi]*1000)/10 + "%";
+  elementAvariiZilnice.textContent = Math.round(data_2Toate[selectorZi]);
+  elementPierderiZilnice.textContent = Math.round(dataToate[selectorZi]);
+  elementRataPierderiAvarii.textContent = Math.floor(dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]*1000)/10 + "%";
 
-  elementAvariiTotale.textContent = Math.round(avariiCumulativ[selectorZi]);
-  elementPierderiTotale.textContent = Math.round(dataCumulativ[selectorZi]);
-  elementRataPierderiZi.textContent = Math.round(medieCumulativ[selectorZi]);
+  elementAvariiTotale.textContent = Math.round(avariiCumulativToate[selectorZi]);
+  elementPierderiTotale.textContent = Math.round(dataCumulativToate[selectorZi]);
+  elementRataPierderiZi.textContent = Math.round(medieCumulativToate[selectorZi]);
 
 
-  elementPierderiTotaleProiectie.textContent = Math.round(dataCumulativ[selectorZi] + 180 * medieCumulativ[selectorZi]);
+  elementPierderiTotaleProiectie.textContent = Math.round(dataCumulativToate[selectorZi] + 180 * medieCumulativToate[selectorZi]);
 
-  proiectie21 = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi + orizont_proiectie -1));
+  proiectie21 = vector_coefAToate[selectorZi] * Math.pow(vector_rToate[selectorZi], (selectorZi + orizont_proiectie -1));
   elementAvariiZilniceProiectie.textContent = Math.round(proiectie21);
-  elementPierderiZilniceProiectie.textContent = Math.round(proiectie21 * dataCumulativ[selectorZi]/avariiCumulativ[selectorZi]);
+  elementPierderiZilniceProiectie.textContent = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]);
   //elementPierderiZilniceProiectie.textContent = Math.round(dataCumulativ[selectorZi] + 180 * medieCumulativ[selectorZi]);
 
 }
@@ -2483,6 +2544,110 @@ function generare_vector_r_coefA(){
         else{
           vectorDR[k] = 0;
           vectorD2R[k] = 0;
+        }
+    }
+}
+
+function generare_vector_rToate_coefA(){
+    n = (orizont_regresie);
+    //console.log(n);
+    //console.log(data_2.length);
+    for(let k = 0; k < n + orizont_arie; k++){
+      vector_rToate[k] = 0;
+      vector_rToate_normalizat[k] = 0;
+      vector_coefAToate[k] = 0;
+      vector_EToate[k] = 0;
+      //console.log(k);
+    }
+
+    for(let k = n + orizont_arie; k <= data_2.length; k++){
+        zi_start = k - n;
+
+        sumX = 0;
+        sumY = 0;
+        sumXY = 0;
+        sumX2 = 0;
+        sumY2 = 0;
+        //contor = 0;
+        sumY_raw = 0;
+        medieY_raw = 0;
+
+        for(let i = zi_start; i < k; i++){
+          //console.log(i);
+          //SumX
+          sumX += i;
+
+          //SumY(SumLn(y))
+          esantion = data_2Toate[i];
+          logEsantion = Math.log(esantion);
+
+          if(esantion <= 0){
+              esantion = 0;
+              logEsantion = 0;
+          }
+          //if(data_2[i]>0){
+          sumY += logEsantion;
+          sumY_raw += data_2Toate[i];//esantion;
+
+          //SumXY(SumXLn(y))
+          sumXY += i*logEsantion;
+
+          //SumX^2
+          sumX2 += i*i;
+
+          sumY2 += logEsantion * logEsantion;
+
+        }
+
+        m = (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX);
+        b = (sumY - m*sumX) / n;
+
+        bazaRToate = Math.exp(m);
+        coefAToate = Math.exp(b);
+
+        //console.log("n=" + n + " contor=" + contor);
+
+        medieY_raw = sumY_raw / n;
+
+        let varianta = 0;
+        for (let i = zi_start; i < k; i++) {
+           varianta += Math.pow((data_2Toate[i] - medieY_raw), 2);
+        }
+        let devst = Math.sqrt(varianta / (n-1));
+
+        //varianta2 = Math.floor(varianta*100) / 100;
+        //devst2 = Math.round(devst);
+
+
+        vector_rToate[k-1] = bazaRToate;
+        vector_coefAToate[k-1] = coefAToate;
+        vector_rToate_normalizat[k-1] = (bazaRToate - 1) * 1000;
+        vector_EToate[k-1] = devst;
+    }
+
+    /*
+    console.log("vector r generat");
+    for (let k = 0; k < vector_r.length; k++){
+      console.log("v_r[" + k + "]: " + vector_r[k]);
+    }*/
+
+    //vector derivate R
+    for (let k = 0; k < vector_rToate.length; k++){
+        //console.log("v_r[" + k + "]: " + vector_r[k]);
+        if(k > orizont_trend){
+          vr0 = vector_rToate[k-16];
+          vr1 = vector_rToate[k-8];
+          vr2 = vector_rToate[k];
+          d1r1 = (vr1 - vr0)/8;
+          d1r2 = (vr2 - vr1)/8;
+          d2r2 = (d1r2 - d1r1)/8;
+
+          vectorDRToate[k] = d1r2;
+          vectorD2RToate[k] = d2r2;
+        }
+        else{
+          vectorDRToate[k] = 0;
+          vectorD2RToate[k] = 0;
         }
     }
 }
