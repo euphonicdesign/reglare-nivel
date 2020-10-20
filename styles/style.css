@@ -133,12 +133,18 @@ img {
   font-style: oblique;*/
 }
 
-.portAvion {
+.portAvion,
+.portAvion2 {
   /*margin-top: 5px;*/
   margin-bottom: 20px;
   font-style: italic;
   font-size: 1.3em;
 }
+
+.portAvion2 {
+  margin-top: 20px;
+}
+
 .titlu{
   font-weight: bold;
   margin-bottom: 2px;
@@ -224,6 +230,43 @@ img {
 .app_text{
   width: 80px;
   /*border: 1px solid black;*/
+}
+
+.container_impact{
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+  /*margin-bottom: 20px;*/
+  font-style: italic;
+  font-size: 1.3em;
+}
+
+.impact_zilnic,
+.impact_total {
+  display:grid;
+  grid-template-columns: repeat(2, 180px);
+  grid-template-rows: 1;
+  grid-gap: 5px;
+  border: 1px solid green;
+}
+
+.impact_zilnic_col_date,
+.impact_zilnic_col_proiectie {
+  border: 2px solid navy;
+}
+
+.app2 {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  margin-left: 10px;
+}
+
+.app2_rand1,
+.app2_rand2,
+.app2_rand3 {
+  display: flex;
 }
 
 #pozitii {
