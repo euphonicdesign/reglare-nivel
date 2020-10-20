@@ -232,6 +232,17 @@ img {
   /*border: 1px solid black;*/
 }
 
+.app_text2{
+  width: 88px;
+  /*border: 1px solid black;*/
+}
+
+.app_text3{
+  width: 146px;
+  /*border: 1px solid black;*/
+  color: lightgrey;
+}
+
 .container_impact{
   display: flex;
   flex-direction: column;
@@ -248,12 +259,18 @@ img {
   grid-template-columns: repeat(2, 180px);
   grid-template-rows: 1;
   grid-gap: 5px;
-  border: 1px solid green;
+  /*border: 1px solid green;*/
+}
+
+.impact_total {
+  margin-top: 10px;
 }
 
 .impact_zilnic_col_date,
-.impact_zilnic_col_proiectie {
-  border: 2px solid navy;
+.impact_zilnic_col_proiectie,
+.impact_total_col_date,
+.impact_total_col_proiectie {
+  /*border: 2px solid navy;*/
 }
 
 .app2 {
@@ -265,7 +282,8 @@ img {
 
 .app2_rand1,
 .app2_rand2,
-.app2_rand3 {
+.app2_rand3,
+.app2_rand4 {
   display: flex;
 }
 
