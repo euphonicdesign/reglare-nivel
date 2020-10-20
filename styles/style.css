@@ -250,9 +250,19 @@ img {
 }
 
 .pierderi_totale_proiectie,
-.pierderi_zilnice_proiectie {
+.rata_pierderi_zi {
   font-weight: bold;
   color: navy;
+}
+
+.pierderi_zilnice_proiectie,
+.rata_pierderi_avarii {
+  font-weight: bold;
+  color: #4d4d4d;
+}
+
+.app_text_spatiu{
+  /*visibility: hidden;*/
 }
 
 .container_impact{
