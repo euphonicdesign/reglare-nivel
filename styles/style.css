@@ -151,9 +151,11 @@ img {
   margin-bottom: 2px;
 }
 
-.titlu_total{
+.titlu_total,
+.titlu_totalY{
   border-bottom: 2px solid #333;
   width: 150px;
+  font-weight: bold;
 }
 
 .titlu_total2{

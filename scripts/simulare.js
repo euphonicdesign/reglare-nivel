@@ -1710,6 +1710,7 @@ function actualizareTabelPozitii(){
   elementPierderiZilniceProiectie = document.getElementsByClassName("pierderi_zilnice_proiectie")[0];
 
   elementPierderiTotaleProiectie = document.getElementsByClassName("pierderi_totale_proiectie")[0];
+  elementTotalActual = document.getElementsByClassName("titlu_totalY")[0];
 
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       elementNume = document.getElementsByClassName("pozitii zona" + zona +" nume")[0];
@@ -2003,6 +2004,8 @@ function actualizareTabelPozitii(){
   elementAvariiZilniceProiectie.textContent = Math.round(proiectie21);
   elementPierderiZilniceProiectie.textContent = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]);
   //elementPierderiZilniceProiectie.textContent = Math.round(dataCumulativ[selectorZi] + 180 * medieCumulativ[selectorZi]);
+
+  elementTotalActual.textContent = "Total Actual pe " + selectorZi + " zile";
 
 }
 
