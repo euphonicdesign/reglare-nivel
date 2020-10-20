@@ -1997,7 +1997,7 @@ function actualizareTabelPozitii(){
   elementRataPierderiZi.textContent = Math.round(medieCumulativToate[selectorZi]);
 
 
-  elementPierderiTotaleProiectie.textContent = Math.round(dataCumulativToate[selectorZi] + 180 * medieCumulativToate[selectorZi]);
+  elementPierderiTotaleProiectie.textContent = "> " + (Math.round(dataCumulativToate[selectorZi] + 180 * medieCumulativToate[selectorZi]));
 
   proiectie21 = vector_coefAToate[selectorZi] * Math.pow(vector_rToate[selectorZi], (selectorZi + orizont_proiectie -1));
   elementAvariiZilniceProiectie.textContent = Math.round(proiectie21);
