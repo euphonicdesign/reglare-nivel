@@ -2005,7 +2005,7 @@ function actualizareTabelPozitii(){
   elementPierderiZilniceProiectie.textContent = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]);
   //elementPierderiZilniceProiectie.textContent = Math.round(dataCumulativ[selectorZi] + 180 * medieCumulativ[selectorZi]);
 
-  elementTotalActual.textContent = "Total Actual pe " + selectorZi + " zile";
+  elementTotalActual.textContent = "Total pe " + selectorZi + " zile";
 
 }
 
