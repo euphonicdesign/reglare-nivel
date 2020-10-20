@@ -1272,6 +1272,7 @@ function start() {
       //console.log(zona);
       var vectorMedieZiCurenta = [];
       var vectorProiectieZiCurenta = [];
+      var vectorDeltaZiCurenta = [];
       var vectorXAvionZona = [];
       var vectorYAvionZona = [];
 
@@ -1279,6 +1280,7 @@ function start() {
           if(zi>(orizont_regresie + orizont_arie)){
               vectorMedieZiCurenta[zi] = vectoriDateZone[zona].vector_coefA[zi] * Math.pow(vectoriDateZone[zona].vector_r[zi], (zi-1));
               vectorProiectieZiCurenta[zi] = vectoriDateZone[zona].vector_coefA[zi] * Math.pow(vectoriDateZone[zona].vector_r[zi], (zi + orizont_proiectie-1));
+              vectorDeltaZiCurenta[zi] = vectorProiectieZiCurenta[zi] - vectorMedieZiCurenta[zi];
 
               vectorXAvionZona[zi] = vectoriDateZone[zona].vector_r_normalizat[zi] / scalaPozitieXAvion * (razaCerc1) * scalaXAvionRadar;
               //if(nrArie == 43){
@@ -1291,6 +1293,7 @@ function start() {
       }
       vectoriDateZone[zona]["vectorMedieZiCurenta"] = vectorMedieZiCurenta;
       vectoriDateZone[zona]["vectorProiectieZiCurenta"] = vectorProiectieZiCurenta;
+      vectoriDateZone[zona]["vectorDeltaZiCurenta"] = vectorDeltaZiCurenta;
       vectoriDateZone[zona]["vectorXAvion"] = vectorXAvionZona;
       vectoriDateZone[zona]["vectorYAvion"] = vectorYAvionZona;
 
@@ -4015,7 +4018,7 @@ function desenareRadarModRadar(){
               ctx.fillStyle = culoareScadere;
           }
 
-          if(vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi] > 200){
+          if(vectoriDateZone[zona].vectorDeltaZiCurenta[selectorZi] > 200){
               ctx.fillStyle = "#c32222";//culoareRosu;
               //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
           }
