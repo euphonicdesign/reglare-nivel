@@ -243,6 +243,18 @@ img {
   color: lightgrey;
 }
 
+.app_text3a{
+  width: 146px;
+  /*border: 1px solid black;*/
+  /*color: lightgrey;*/
+}
+
+.pierderi_totale_proiectie,
+.pierderi_zilnice_proiectie {
+  font-weight: bold;
+  color: navy;
+}
+
 .container_impact{
   display: flex;
   flex-direction: column;
