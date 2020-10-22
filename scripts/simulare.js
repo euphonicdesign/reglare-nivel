@@ -1991,23 +1991,23 @@ function actualizareTabelPozitii(){
 
   elementAvariiZilnice.textContent = Math.round(data_2Toate[selectorZi]);
   elementPierderiZilnice.textContent = Math.round(dataToate[selectorZi]);
-  elementPierderiZilnice.style.width = Math.round(dataToate[selectorZi]/3) + "px";
+  elementPierderiZilnice.style.width = Math.round(dataToate[selectorZi]/2) + "px";
   elementRataPierderiAvarii.textContent = Math.floor(dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]*1000)/10 + "%";
 
   elementAvariiTotale.textContent = Math.round(avariiCumulativToate[selectorZi]);
   elementPierderiTotale.textContent = Math.round(dataCumulativToate[selectorZi]);
-  elementPierderiTotale.style.width = Math.round(dataCumulativToate[selectorZi]/400) + "px";
+  elementPierderiTotale.style.width = Math.round(dataCumulativToate[selectorZi]/200) + "px";
   elementRataPierderiZi.textContent = Math.round(medieCumulativToate[selectorZi]);
 
 
   elementPierderiTotaleProiectie.textContent = ">" + (Math.round(dataCumulativToate[selectorZi] + 180 * medieCumulativToate[selectorZi])) + "...";
-  elementPierderiTotaleProiectie.style.width = (Math.round(dataCumulativToate[selectorZi] + 180 * medieCumulativToate[selectorZi])/400) + "px";
+  elementPierderiTotaleProiectie.style.width = (Math.round(dataCumulativToate[selectorZi] + 180 * medieCumulativToate[selectorZi])/200) + "px";
 
 
   proiectie21 = vector_coefAToate[selectorZi] * Math.pow(vector_rToate[selectorZi], (selectorZi + orizont_proiectie -1));
   elementAvariiZilniceProiectie.textContent = Math.round(proiectie21);
   elementPierderiZilniceProiectie.textContent = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]);
-  elementPierderiZilniceProiectie.style.width = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]/3) + "px";
+  elementPierderiZilniceProiectie.style.width = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]/2) + "px";
   //elementPierderiZilniceProiectie.textContent = Math.round(dataCumulativ[selectorZi] + 180 * medieCumulativ[selectorZi]);
 
   elementTotalActual.textContent = "Total pe " + selectorZi + " de zile";
