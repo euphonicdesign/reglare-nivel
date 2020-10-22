@@ -310,7 +310,7 @@ img {
 .impact_zilnic,
 .impact_total {
   display:grid;
-  grid-template-columns: repeat(2, 180px);
+  grid-template-columns: 180px 415px;
   grid-template-rows: 1;
   grid-gap: 5px;
   /*border: 1px solid green;*/
@@ -325,6 +325,7 @@ img {
 .impact_total_col_date,
 .impact_total_col_proiectie {
   /*border: 2px solid navy;*/
+
 }
 
 .app2 {
