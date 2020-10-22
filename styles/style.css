@@ -251,6 +251,12 @@ img {
   /*border: 1px solid black;*/
 }
 
+.app_text2b{
+  width: 88px;
+  /*border: 1px solid black;*/
+  font-weight: bold;
+}
+
 .app_text3{
   width: 146px;
   /*border: 1px solid black;*/
@@ -263,10 +269,13 @@ img {
   /*color: lightgrey;*/
 }
 
-.pierderi_totale_proiectie,
-.rata_pierderi_zi {
+.pierderi_totale_proiectie{
   font-weight: bold;
   color: navy;
+}
+
+.rata_pierderi_zi {
+  font-weight: bold;
 }
 
 .rata_pierderi_avarii {
@@ -295,6 +304,8 @@ img {
 
 .pierderi_totale{
   background-color: rgba(153, 153, 153, 0.4);
+  font-weight: bold;
+  color: navy;
 }
 
 .container_impact{
