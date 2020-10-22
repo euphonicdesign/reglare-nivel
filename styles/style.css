@@ -269,14 +269,32 @@ img {
   color: navy;
 }
 
-.pierderi_zilnice_proiectie,
 .rata_pierderi_avarii {
-  font-weight: bold;
-  color: #4d4d4d;
+  /*font-weight: bold;
+  color: #4d4d4d;*/
 }
 
 .app_text_spatiu{
   /*visibility: hidden;*/
+}
+
+.pierderi_zilnice{
+  background-color: rgba(153, 153, 153, 0.3);
+  width: 0px;
+}
+
+.pierderi_zilnice_proiectie{
+  background-color: rgba(153, 153, 153, 0.3);
+  width: 0px;
+  /*font-weight: bold;*/
+}
+
+.pierderi_totale_proiectie{
+  background-color: rgba(153, 153, 153, 0.4);
+}
+
+.pierderi_totale{
+  background-color: rgba(153, 153, 153, 0.4);
 }
 
 .container_impact{
