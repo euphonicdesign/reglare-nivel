@@ -270,7 +270,7 @@ var scalaRadarX = 1;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
-var scalaX = 180; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaX = 190; //grafic valori vertical - cumulativ - foto, trend, regulator
 //----
 
 var scalaXTrend3Orizontal = 130;
