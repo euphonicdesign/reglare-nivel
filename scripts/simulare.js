@@ -160,6 +160,10 @@ let zile_info_explicatii = [];
 
 var xTextZi = 10;
 var yTextZi = 50;
+
+var xScalaRadar = xTextZi;
+var yScalaRadar = yTextZi + 60;
+
 var xTextEveniment = xTextZi; //+ 130;
 var yTextEveniment = yTextZi + 20;
 var xCerculeteAcumulate = xTextZi + 0; //+ 130;
@@ -4931,6 +4935,24 @@ function desenareNivelMagnificareGrafice(){
     ctx.fillText("" + Math.round(100 + maxValue/25 * 100)+ "%", xMagnificareGrafice2, yMagnificareGrafice2);
 }
 
+function desenareNivelMagnificareRadar(){
+    ctx.textAlign = "start";
+    ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
+    ctx.fillText("\u2222:         ", xScalaRadar, yScalaRadar);
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
+    ctx.fillText("" + Math.floor(scalaRadarY*100)/100*100+ "%", xScalaRadar + 18, yScalaRadar);
+
+    /*
+    ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText("\u2222:         ", xMagnificareGrafice2, yMagnificareGrafice2);
+    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
+    ctx.fillText("" + Math.round(100 + maxValue/25 * 100)+ "%", xMagnificareGrafice2, yMagnificareGrafice2);
+    */
+}
+
 function desenareTextArieSelectata(){
     ctx.textAlign = "end";
     //ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
@@ -4948,6 +4970,7 @@ function desenareGraficRadar(){
 
     desenareZiValoareTrenduri()
     desenareEvenimente();
+    desenareNivelMagnificareRadar();
 }
 
 function desenareGraficeTrenduri(){
