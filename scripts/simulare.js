@@ -2001,7 +2001,7 @@ function actualizareTabelPozitii(){
   elementAvariiTotale.textContent = Math.round(avariiCumulativToate[selectorZi]);
   elementPierderiTotale.textContent = Math.round(dataCumulativToate[selectorZi]);
   elementPierderiTotale.style.width = Math.round(dataCumulativToate[selectorZi]/200) + "px";
-  elementRataPierderiZi.textContent = Math.round(medieCumulativToate[selectorZi]) + "!";
+  elementRataPierderiZi.textContent = Math.round(medieCumulativToate[selectorZi]);
 
 
   elementPierderiTotaleProiectie.textContent = ">" + (Math.round(dataCumulativToate[selectorZi] + 180 * medieCumulativToate[selectorZi])) + "...";
