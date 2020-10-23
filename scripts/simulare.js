@@ -265,7 +265,7 @@ var scalareEntitate = 1;
 var scalareTraiectorieAvionToate = 14;
 var scalareTraiectorieAvion = 2;
 
-var scalaRadarY = 1;
+var scalaRadarY = 4;
 var scalaRadarX = 1;
 
 var scalaX_trend = 72;
