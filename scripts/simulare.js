@@ -834,19 +834,24 @@ function prelucrareDate(){
         //console.log("Arie: " + nrArie)
 
         //resetare interval lipsa date [21/03 - 02/04]
-        for(let i = 0; i < 12; i++){
+        for(let i = 0; i < (12+2); i++){
             data_2[i] = 0;
         }
 
         //stocare date arie in data_2
         for(let i = 0; i < nr_zile_arie; i++){
-            data_2[12+i] = parseInt(dateArie.data[i].value[nrArie]);
+            data_2[12+ i] = parseInt(dateArie.data[i].value[nrArie]);
+            //console.log(data_2[12+ i]);
             //resetare valori negative
             /*
             if(data_2[12+i] < 0){
                 data_2[12+i] = 0;
             }*/
         }
+        //console.log("nrArie" + nrArie);
+        //for(let i = 0; i<data_2.length; i++){
+          //console.log(data_2[i]);
+        //}
 
         //mediere
         for(let i = 2; i < nr_zile_arie; i++){
@@ -854,7 +859,8 @@ function prelucrareDate(){
             if(medie<0){
               medie = 0;
             }
-            data_2[12+i-2] = medie;
+            data_2[12+i] = medie;
+            //console.log(medie);
         }
 
 
