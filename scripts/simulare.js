@@ -834,7 +834,7 @@ function prelucrareDate(){
         //console.log("Arie: " + nrArie)
 
         //resetare interval lipsa date [21/03 - 02/04]
-        for(let i = 0; i < (12+2); i++){
+        for(let i = 0; i < 14; i++){
             data_2[i] = 0;
         }
 
@@ -1092,9 +1092,8 @@ function generareAnalizaDate(){
   for (let zona=0; zona < numeArii.data.value.length; zona++){
       var dataInputZona = [];
 
-
       //prelucrare date - resetare interval lipsa date [21/03 - 02/04]
-      for(let zi = 0; zi < 12; zi++){
+      for(let zi = 0; zi < 14; zi++){
           dataInputZona[zi] = 0;
       }
       //stocare date arie in dataInputZona
@@ -1107,7 +1106,7 @@ function generareAnalizaDate(){
           if(medie<0){
             medie = 0;
           }
-          dataInputZona[12+zi-2] = medie;
+          dataInputZona[12+zi] = medie;
       }
 
       vectoriParametriiZona = generareVectoriParametrii(dataInputZona);
