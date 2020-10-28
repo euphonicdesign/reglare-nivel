@@ -6215,6 +6215,15 @@ function desenareGraficOrizontal(){
           ctx.closePath();
           ctx.stroke();
 
+          if(data[i]>50){
+            ctx.beginPath();
+            ctx.moveTo(x_valoare, y_valoare_1 + 2);
+            ctx.lineTo(x_valoare, y_valoare_1 + 20);
+            ctx.strokeStyle = culoareCrestereRosu;
+            ctx.closePath();
+            ctx.stroke();
+          }
+
           /*
           ctx.beginPath();
           ctx.moveTo(x_valoare, y_valoare_2);
