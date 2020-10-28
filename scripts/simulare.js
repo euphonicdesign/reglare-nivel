@@ -6186,6 +6186,7 @@ function desenareGraficOrizontal(){
       lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
       y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
       y_valoare_2 = y_valoare_2 - lungime_segment;
+      //ySegmentDepasire = Math.round(y_val_1 + (25*scalaXTrend3Orizontal)/maxValue) - lungime_segment;
 
       x_valoare = 10 + i;
 
@@ -6218,7 +6219,7 @@ function desenareGraficOrizontal(){
           if(data[i]>50){
             ctx.beginPath();
             ctx.moveTo(x_valoare, y_valoare_1 + 2);
-            ctx.lineTo(x_valoare, y_valoare_1 + 20);
+            ctx.lineTo(x_valoare, y_val_1 - 30);
             ctx.strokeStyle = culoareCrestereRosu;
             ctx.closePath();
             ctx.stroke();
