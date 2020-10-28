@@ -6219,7 +6219,7 @@ function desenareGraficOrizontal(){
           if(data[i]>50){
             ctx.beginPath();
             ctx.moveTo(x_valoare, y_valoare_1 + 2);
-            ctx.lineTo(x_valoare, y_val_1 - 30);
+            ctx.lineTo(x_valoare, y_val_1 - 50/2);
             ctx.strokeStyle = culoareCrestereRosu;
             ctx.closePath();
             ctx.stroke();
