@@ -3602,12 +3602,14 @@ function desenareInfoExplicatii(){
   if(afisaretrend == false){
       if(zile_info_explicatii[selectorZi]> -1){
           ctx.textAlign = "start";
-          ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+
 
           if(data[selectorZi]>50){
+            ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
             ctx.fillStyle = culoareCrestereRosu;//culoarePunctValoriGrafic_3;
           }
           else{
+            ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
             ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
           }
 
