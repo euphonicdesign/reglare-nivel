@@ -5629,7 +5629,12 @@ function desenareGraficeTrenduri(){
               ctx.beginPath();
               ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
               ctx.lineTo(12 + x_valoare, y_valoare_2);
-              ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+              if(data[i]>50){
+                ctx.strokeStyle = culoareCrestereRosu;
+              }
+              else{
+                  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+              }
               ctx.lineWidth = 2;
               ctx.closePath();
               ctx.stroke();
@@ -5637,10 +5642,18 @@ function desenareGraficeTrenduri(){
 
 
           //desenare linii conectare puncte valori grafic 2
+
           ctx.beginPath();
           ctx.moveTo(12 + x1_valoare, y1_valoare);
           ctx.lineTo(12 + x_valoare, y_valoare);
-          ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
+          if(data[i]>50){
+            ctx.strokeStyle = culoareCrestereRosu;
+          }
+          else{
+              ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
+          }
+
+          //ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
           ctx.lineWidth = 2;
           ctx.closePath();
           ctx.stroke();
