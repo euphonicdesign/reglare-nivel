@@ -4231,16 +4231,18 @@ function desenareRadarModRadar(){
               ctx.fillStyle = culoareScadere;
           }
 
-          if(vectoriDateZone[zona].vectorDeltaZiCurenta[selectorZi] > limita_max_crestere_delta){
-              ctx.fillStyle = "#c32222";//culoareRosu;
-              //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
-          }
-
           if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > limita_max_crestere_medie){
               ctx.fillStyle = culoareRosu;
               ctx.strokeStyle = "black";
               //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
           }
+
+          if(vectoriDateZone[zona].vectorDeltaZiCurenta[selectorZi] > limita_max_crestere_delta){
+              ctx.fillStyle = "#c32222";//culoareRosu;
+              //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
+          }
+
+
 
 
 
