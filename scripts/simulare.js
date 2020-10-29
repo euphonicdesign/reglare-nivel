@@ -9,6 +9,9 @@ var contorLimitare2 = 0;
 
 var culoare_canvas = "#EFEFEF";
 
+var limita_max_crestere_delta = 100;
+var limita_max_crestere_medie = 100;
+
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
 var nivelDepasireCapacitate = 35;
@@ -1604,7 +1607,7 @@ function actualizareTabelZone(){
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
 
-            if(Math.abs(Math.round(clasamentProiectie[zona].delta)) > 200){ // var 2 - 250
+            if(Math.abs(Math.round(clasamentProiectie[zona].delta)) > limita_max_crestere_delta){ // var 2 - 250
                 elementZona1.style.background = "#c32222";
                 elementZona1.style.color = "white";
             }
@@ -1807,8 +1810,8 @@ function actualizareTabelPozitii(){
 
           //elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
 
-          if(clasamentZone[zona].medie > 200){
-              elementSegBaraMedie.style.height = 200/2 + "px";
+          if(clasamentZone[zona].medie > limita_max_crestere_medie){
+              elementSegBaraMedie.style.height = 100 + "px";
               max_delta = 214 - 100 - 95 - 5;
           }
           else{
@@ -1847,8 +1850,8 @@ function actualizareTabelPozitii(){
               elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
           }
 
-          if(Math.round(clasamentZone[zona].medie) > 200){
-              //elementSegBaraMedie.textContent = " >200...";
+          if(Math.round(clasamentZone[zona].medie) > limita_max_crestere_medie){
+              //elementSegBaraMedie.textContent = " >limita_max_crestere_delta...";
               //elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
               elementSegBaraMedie.style.background = culoareRosu;
               elementIMedie.style.background = culoareRosu;
@@ -1879,7 +1882,7 @@ function actualizareTabelPozitii(){
               //elementZona.style.background = culoareCerculetRCrestere;
 
 
-              if(Math.abs(Math.round(clasamentZone[zona].delta)) > 200){ //var 2 - 250
+              if(Math.abs(Math.round(clasamentZone[zona].delta)) > limita_max_crestere_delta){ //var 2 - 250
                   elementSegBaraProiectie.style.background = "#c32222";
                   elementSegBaraProiectie.style.color = "white";
                   //elementSegAvion.style.background = "#c32222";
@@ -4228,12 +4231,12 @@ function desenareRadarModRadar(){
               ctx.fillStyle = culoareScadere;
           }
 
-          if(vectoriDateZone[zona].vectorDeltaZiCurenta[selectorZi] > 200){
+          if(vectoriDateZone[zona].vectorDeltaZiCurenta[selectorZi] > limita_max_crestere_delta){
               ctx.fillStyle = "#c32222";//culoareRosu;
               //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
           }
 
-          if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > 200){
+          if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > limita_max_crestere_medie){
               ctx.fillStyle = culoareRosu;
               ctx.strokeStyle = "black";
               //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
