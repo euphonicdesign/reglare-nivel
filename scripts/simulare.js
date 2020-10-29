@@ -11,6 +11,7 @@ var culoare_canvas = "#EFEFEF";
 
 var limita_max_crestere_delta = 100;
 var limita_max_crestere_medie = 100;
+var limita_max_pierderi = 50;
 
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
@@ -5634,7 +5635,7 @@ function desenareGraficeTrenduri(){
               ctx.beginPath();
               ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
               ctx.lineTo(12 + x_valoare, y_valoare_2);
-              if(data[i]>50){
+              if(data[i]>limita_max_pierderi){
                 ctx.strokeStyle = culoareCrestereRosu;
               }
               else{
@@ -5651,15 +5652,17 @@ function desenareGraficeTrenduri(){
           ctx.beginPath();
           ctx.moveTo(12 + x1_valoare, y1_valoare);
           ctx.lineTo(12 + x_valoare, y_valoare);
-          if(data[i]>50){
+          if(data[i]>limita_max_pierderi){
             ctx.strokeStyle = culoareCrestereRosu;
+            ctx.lineWidth = 3;
           }
           else{
               ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
+              ctx.lineWidth = 2;
           }
 
           //ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
-          ctx.lineWidth = 2;
+          //ctx.lineWidth = 2;
           ctx.closePath();
           ctx.stroke();
       }
@@ -6262,7 +6265,7 @@ function desenareGraficOrizontal(){
           ctx.closePath();
           ctx.stroke();
 
-          if(data[i]>50){
+          if(data[i]>limita_max_pierderi){
             ctx.beginPath();
             ctx.moveTo(x_valoare, y_valoare_1 + 2);
             ctx.lineTo(x_valoare, y_val_1 - 30);
