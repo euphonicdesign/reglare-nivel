@@ -5348,10 +5348,21 @@ function desenareGraficeTrenduri(){
   //INFO PUNCT Grafic 1 (jos) - dreapta
   ctx.textAlign = "start";
   ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
-  ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+
   //desenare avion
+  if(data[selectorZi] > limita_max_pierderi){
+    ctx.fillStyle = culoareCrestereRosu;//culoareTextCompensatorFill;
+    ctx.strokeStyle = culoareCrestereRosu;//culoareTextCompensatorFill;
+  }
+  else{
+    ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+    ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+  }
   ctx.fillText("" + Math.round(data[selectorZi]) + "\u2708", x_val_2 + 20, y_val_2 - 6);
+
+
+  //ctx.fillStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
+  //ctx.strokeStyle = culoarePunctValoriGrafic;//culoareTextCompensatorFill;
   ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText(eticheta_1, x_val_2 + 20, y_val_2 + 24);
   ctx.fillText(crestere_1, x_val_2 + 20, y_val_2 + 10);
