@@ -274,6 +274,10 @@ img {
   /*color: navy;*/
 }
 
+.distantier {
+  visibility: hidden;
+}
+
 .rata_pierderi_zi {
   font-weight: bold;
 }
