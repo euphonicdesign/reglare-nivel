@@ -271,7 +271,7 @@ img {
 
 .pierderi_totale_proiectie{
   font-weight: bold;
-  color: navy;
+  /*color: navy;*/
 }
 
 .rata_pierderi_zi {
@@ -299,13 +299,13 @@ img {
 }
 
 .pierderi_totale_proiectie{
-  background-color: rgba(153, 153, 153, 0.4);
+  background-color: rgba(35, 80, 144, 0.2);
 }
 
 .pierderi_totale{
-  background-color: rgba(153, 153, 153, 0.4);
+  background-color: rgba(35, 80, 144, 0.2);
   font-weight: bold;
-  color: navy;
+  /*color: navy;*/
 }
 
 .container_impact{
