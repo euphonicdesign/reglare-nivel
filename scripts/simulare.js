@@ -6279,7 +6279,8 @@ function desenareGraficOrizontal(){
           if(data[i]>limita_max_pierderi){
             ctx.beginPath();
             ctx.moveTo(x_valoare, y_valoare_1 + 2);
-            ctx.lineTo(x_valoare, y_val_1 - 30);
+            ctx.lineTo(x_valoare, yGrafic_3);
+            //ctx.lineTo(x_valoare, y_val_1 - 30);
             ctx.strokeStyle = culoareCrestereRosu;
             ctx.closePath();
             ctx.stroke();
