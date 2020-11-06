@@ -40,7 +40,7 @@ let data_10 = [
             56, 68, 66, 73, 75, 63, 60,
             59, 65, 69, 98, 82, 73, 73,
             79, 104, 107, 83, 103, 101, 99,
-            86, 120, 146, 121, 123, 
+            86, 120, 146, 121, 123,
 
 ];
 
@@ -259,6 +259,8 @@ let evenimente = [
               '7/10',
               '15/10',
               '20/10',
+              '20/10',
+              '9/11',
 ];
 
 let evenimente_actiuni = [
@@ -274,6 +276,7 @@ let evenimente_actiuni = [
               '7 Oct: limitare (...)', //15/9
               '15 Oct: limitare (...)', //15/9
               '20 Oct: limitare (...)', //20/9
+              '9 Noi: limitare', //9/11
 ];
 
 let info_date = [
@@ -289,6 +292,7 @@ let info_date = [
               '7/10',
               '15/10',
               '20/10',
+              '9/11',
 ];
 
 let info_explicatii = [
@@ -315,6 +319,8 @@ let info_explicatii = [
               'Măsurile actuale de prevenție sunt insuficiente. \
               \nValoarea curentă a referinței a depășit 22! \
               \nEa trebuie setată la valoarea 0...', //1/9
+
+              '... cadranul 2... S.O.S.',
 
               '... cadranul 2... S.O.S.',
 
