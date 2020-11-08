@@ -4963,7 +4963,7 @@ function desenareNivelMagnificareGrafice(){
     ctx.textAlign = "end";
     ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareTextZi;//culoareDreptunghiReferintaGraficTrenduri;//culoare_linie_trend;//culoarePunctValoriGrafic_3;
-    ctx.fillText("\u2222:         ", xMagnificareGrafice, yMagnificareGrafice);
+    ctx.fillText("\u2222:           ", xMagnificareGrafice, yMagnificareGrafice);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
     ctx.fillText("" + Math.round(100 + scala_grafic_2 * 100 * maxValueGrafic2/1400)+ "%", xMagnificareGrafice, yMagnificareGrafice);
