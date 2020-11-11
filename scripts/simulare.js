@@ -274,7 +274,7 @@ var scalareEntitate = 1;
 var scalareTraiectorieAvionToate = 14;
 var scalareTraiectorieAvion = 2;
 
-var scalaRadarY = 4;
+var scalaRadarY = 7;
 var scalaRadarX = 1;
 
 var scalaX_trend = 72;
@@ -393,8 +393,7 @@ var curburaModRadar = 5;
 var pistaLungimeModRadar = razaCerc1ModRadar + curburaModRadar;
 var pistaLatimeModRadar = razaOrigineAeroportModRadar / 2 + curburaModRadar + 2;
 
-var rectXModRadar = xRadarModRadar - pistaLungimeModRadar;
-var rectYModRadar = yRadarModRadar - pistaLatimeModRadar / 2;
+
 
 
 var textMaiMare10 = " (>10!)";//" (>10)";
@@ -639,7 +638,7 @@ buton_scalare_plus.onclick = function() {
             //console.log(scala_grafic_2);
         }
     } else if(mod == MOD_RADAR){
-        if(scalaRadarY < 4){
+        if(scalaRadarY < 7){
           //console.log("scalaRadarY: " + scalaRadarY);
           scalaRadarY += 0.5;
           ActualizareSuprafataGraficaSingulara();
@@ -3688,7 +3687,7 @@ function desenareRadarModRadar(){
   ctx.strokeStyle = "white";
   //Cerc 1 exterior
   ctx.beginPath();
-  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar, 0, 2 * Math.PI);
+  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar / scalaRadarY, 0, 2 * Math.PI);
   ctx.closePath();
   ////if(pulsatie)
     ////ctx.stroke();
@@ -3699,7 +3698,7 @@ function desenareRadarModRadar(){
   ctx.beginPath();
   ctx.moveTo(xRadarModRadar,yRadarModRadar);
   //ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar, Math.PI, Math.PI * 3/2);
-  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar, Math.PI/2, Math.PI);
+  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar / scalaRadarY, Math.PI/2, Math.PI);
   ctx.closePath();
   ctx.fill();
 
@@ -3707,13 +3706,13 @@ function desenareRadarModRadar(){
   ctx.fillStyle = culoareRadarLinieDetectieCadran1Transparent;
   ctx.beginPath();
   ctx.moveTo(xRadarModRadar,yRadarModRadar);
-  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar, 0, Math.PI * 1/2);
+  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar / scalaRadarY, 0, Math.PI * 1/2);
   ctx.closePath();
   ctx.fill();
 
   //Cerc 2 mijloc
   ctx.beginPath();
-  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc2ModRadar, 0, 2 * Math.PI);
+  ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc2ModRadar / scalaRadarY, 0, 2 * Math.PI);
   ctx.closePath();
   ////if(pulsatie)
     ////ctx.stroke();
@@ -3805,8 +3804,12 @@ function desenareRadarModRadar(){
       ctx.strokeStyle = "white";
       ctx.fillStyle = "#e96363";
   }
-  ctx.strokeRect(rectXModRadar+(curburaModRadar/2), rectYModRadar+(curburaModRadar/2), pistaLungimeModRadar-curburaModRadar, pistaLatimeModRadar-curburaModRadar);
-  ctx.fillRect(rectXModRadar+(curburaModRadar/2), rectYModRadar+(curburaModRadar/2), pistaLungimeModRadar-curburaModRadar, pistaLatimeModRadar-curburaModRadar);
+
+  rectXModRadar = xRadarModRadar - pistaLungimeModRadar / scalaRadarY;
+  rectYModRadar = yRadarModRadar - pistaLatimeModRadar / 2 / scalaRadarY;
+
+  ctx.strokeRect(rectXModRadar+(curburaModRadar/2), rectYModRadar+(curburaModRadar/2), (pistaLungimeModRadar-curburaModRadar) / scalaRadarY, (pistaLatimeModRadar-curburaModRadar)/scalaRadarY);
+  ctx.fillRect(rectXModRadar+(curburaModRadar/2), rectYModRadar+(curburaModRadar/2), (pistaLungimeModRadar-curburaModRadar)/scalaRadarY, (pistaLatimeModRadar-curburaModRadar)/scalaRadarY);
 
   //ctx.beginPath();
   //ctx.arc(xRadarModRadar - razaCerc1ModRadar, yRadarModRadar, razaOrigineAeroport, 0, 2 * Math.PI);
@@ -3822,7 +3825,7 @@ function desenareRadarModRadar(){
   ctx.strokeStyle = "white";
 
   ctx.setLineDash([3,5]);
-  ctx.moveTo(xRadarModRadar - razaCerc1ModRadar, yRadarModRadar);
+  ctx.moveTo(xRadarModRadar - razaCerc1ModRadar/scalaRadarY, yRadarModRadar);
   ctx.lineTo(xRadarModRadar, yRadarModRadar);
   ctx.stroke();
   ctx.setLineDash([]);
