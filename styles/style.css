@@ -103,12 +103,16 @@ img {
 
 }
 
+.im3 {
+  max-width: 74px;
+}
+
 .sectiunea1 img, .sectiunea1b img.im2{
   max-width: 40px;
   /*height: auto;*/
   /*border: 1px solid blue;*/
   display: inline-flex;
-  margin-right: 10px;
+  margin-right: 0px;
 }
 
 .separator {
