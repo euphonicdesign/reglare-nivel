@@ -792,6 +792,16 @@ function afisareSortata(){
   restart();
 }
 
+function resetareScala(){
+  if(scalaRadarY > 1){
+    scalaRadarY = 1;
+  }
+  else{
+    scalaRadarY = 7;
+  }
+
+}
+
 
 function modificaNivel(e){
     if (e.code === "ArrowDown" || e.code === "ArrowLeft"){
