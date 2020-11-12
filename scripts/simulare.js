@@ -799,6 +799,7 @@ function resetareScala(){
   else{
     scalaRadarY = 7;
   }
+  ActualizareSuprafataGraficaSingulara();
 
 }
 
