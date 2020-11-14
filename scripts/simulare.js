@@ -638,7 +638,7 @@ buton_scalare_plus.onclick = function() {
             //console.log(scala_grafic_2);
         }
     } else if(mod == MOD_RADAR){
-        if(scalaRadarY < 7){
+        if(scalaRadarY < 10){
           //console.log("scalaRadarY: " + scalaRadarY);
           scalaRadarY += 0.5;
           ActualizareSuprafataGraficaSingulara();
