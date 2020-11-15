@@ -41,7 +41,7 @@ let data_10 = [
             59, 65, 69, 98, 82, 73, 73,
             79, 104, 107, 83, 103, 101, 99,
             86, 120, 146, 121, 123, 130, 86,
-            130, 177, 203, 121, 174, 129, 
+            130, 177, 203, 121, 174, 129,
 
 
 ];
@@ -327,11 +327,13 @@ let info_explicatii = [
 
               '... cadranul 2... S.O.S.',
 
-              '... cadranul 2... S.O.S.',
+              '... cadranul 2... S.O.S. Suntem în zona neliniară.',
 
-              '... cadranul 2... S.O.S.',
+              '... cadranul 2... S.O.S. Nu știm să reglăm sisteme aflate \
+              \nîn zona neliniară. Ne lipsește aparatul matematic necesar',
 
-              '... cadranul 2... S.O.S.',
+              '... cadranul 2... S.O.S. Sistemul trebuie readus în zona \
+              liniară...',
 
-              '... cadranul 2... S.O.S.',
+              '... cadranul 2... S.O.S. Cutia Pandorei trebuie închisă!',
 ];
