@@ -335,6 +335,8 @@ let info_explicatii = [
               '... cadranul 2... S.O.S. \
               \nSistemul trebuie readus în zona liniară...',
 
-              '... cadranul 2... S.O.S. \
-              \nCutia Pandorei trebuie închisă!',
+              'Cutia Pandorei trebuie închisă. Comanda trebuie oprită \
+              \npentru a putea readuce sistemul în \
+              \nzona liniară, acolo unde poate fi reglat...',
+
 ];
