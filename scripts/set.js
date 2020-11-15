@@ -327,13 +327,16 @@ let info_explicatii = [
 
               '... cadranul 2... S.O.S.',
 
-              '... cadranul 2... S.O.S. Suntem în zona neliniară.',
+              '... cadranul 2... S.O.S. \
+              \nSuntem în zona neliniară.',
 
-              '... cadranul 2... S.O.S. Nu știm să reglăm sisteme aflate \
+              '... cadranul 2... S.O.S. \
+              \nNu știm să reglăm sisteme aflate \
               \nîn zona neliniară. Ne lipsește aparatul matematic necesar',
 
-              '... cadranul 2... S.O.S. Sistemul trebuie readus în zona \
-              liniară...',
+              '... cadranul 2... S.O.S. \
+              \nSistemul trebuie readus în zona liniară...',
 
-              '... cadranul 2... S.O.S. Cutia Pandorei trebuie închisă!',
+              '... cadranul 2... S.O.S. \
+              \nCutia Pandorei trebuie închisă!',
 ];
