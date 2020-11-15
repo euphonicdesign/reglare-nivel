@@ -332,7 +332,7 @@ let info_explicatii = [
 
               '... cadranul 2... S.O.S. \
               \nNu știm să reglăm sisteme aflate \
-              \nîn zona neliniară. Ne lipsește aparatul matematic necesar',
+              \nîn zona neliniară. Ne lipsește aparatul matematic necesar.',
 
               '... cadranul 2... S.O.S. \
               \nSistemul trebuie readus în zona liniară...',
