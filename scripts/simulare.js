@@ -797,7 +797,7 @@ function resetareScala(){
     scalaRadarY = 1;
   }
   else{
-    scalaRadarY = 7;
+    scalaRadarY = 3.5;
   }
   ActualizareSuprafataGraficaSingulara();
 
