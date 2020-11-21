@@ -4267,7 +4267,17 @@ function desenareRadarModRadar(){
               ctx.strokeStyle = "navy";
           }
           else{
-              ctx.strokeStyle = "white";
+              //ctx.strokeStyle = "white";
+
+              if(vectoriDateZone[zona].vectorDR[selectorZi] < 0){
+              //if(vectoriDateZone[zona].vector_r[selectorZi] < 1.0){
+                //ctx.fillStyle = culoareScadereVectorAvion;//"#333";
+                ctx.strokeStyle = culoareScadereVectorAvion;//"rgba(51, 51, 51, 0.6)"; //"#333";
+              }
+              else{
+                //ctx.fillStyle = culoareCrestereVectorAvion;//"#333";
+                ctx.strokeStyle = culoareCrestereVectorAvion;
+              }
           }
 
           ctx.lineWidth = 1;
