@@ -4251,7 +4251,7 @@ function desenareRadarModRadar(){
           }
 
           if(vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi] > limita_max_crestere_medie){
-              ctx.fillStyle = culoareRosu;
+              ctx.fillStyle = "rgba(228, 180, 180, 0.8)"; //culoareRoz;
               ctx.strokeStyle = "black";
               //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
           }
