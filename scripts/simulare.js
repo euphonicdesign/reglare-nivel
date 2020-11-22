@@ -4494,7 +4494,7 @@ function desenareRadarModRadar(){
       ctx.strokeStyle = "navy";
 
       if(valZiCur > 900){
-          ctx.fillStyle = "#edabab";
+          ctx.fillStyle = "rgba(228, 180, 180, 0.8)"; //culoareRoz;//"#edabab";
           //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
       }
 
