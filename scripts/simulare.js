@@ -3706,9 +3706,9 @@ function desenareAvioaneHarta(){
   //desenare Avion pe radar
   if(selectorZi > orizont_trend)
       for(let zona=0; zona<vectoriDateZone.length; zona++){
-          if(zona == nrArie) {
+          /*if(zona == nrArie) {
             continue;
-          }
+          }*/
 
           //Desenare Vector Avion (R, DR)
           //
