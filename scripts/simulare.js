@@ -3793,11 +3793,11 @@ function desenareAvioaneHarta(){
 
 
 
-          if(zona == nrArie){
-              ctx.fillStyle = culoareLinieGraficP;
-              ctx.strokeStyle = "navy";
-          }
-          else{
+          //if(zona == nrArie){
+              //ctx.fillStyle = culoareLinieGraficP;
+              //ctx.strokeStyle = "navy";
+          //}
+          //else{
               //ctx.strokeStyle = "white";
 
               if(vectoriDateZone[zona].vectorDR[selectorZi] < 0){
@@ -3809,7 +3809,7 @@ function desenareAvioaneHarta(){
                 //ctx.fillStyle = culoareCrestereVectorAvion;//"#333";
                 ctx.strokeStyle = culoareCrestereVectorAvion;
               }
-          }
+          //}
 
           ctx.lineWidth = 1;
 
@@ -3822,7 +3822,7 @@ function desenareAvioaneHarta(){
           ctx.beginPath();
 
           ctx.arc(pozitieZone[zona][0], pozitieZone[zona][1] ,
-                dimensiuneAvion * 1.3 + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]/30 , 0, 2 * Math.PI);
+                dimensiuneAvion * 1.3 + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]/26 , 0, 2 * Math.PI);
 
 
           ctx.closePath();
