@@ -902,7 +902,8 @@ button:hover{
 
 button#foto,
 button#rezervor,
-button#radar {
+button#radar,
+button#harta {
   width: 44px;
   height: 50px;
 }
