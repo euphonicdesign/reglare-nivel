@@ -3822,7 +3822,7 @@ function desenareAvioaneHarta(){
           ctx.beginPath();
 
           ctx.arc(pozitieZone[zona][0], pozitieZone[zona][1] ,
-                dimensiuneAvion * 1.3 + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]/26 , 0, 2 * Math.PI);
+                dimensiuneAvion * 1.3 + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]/20 , 0, 2 * Math.PI);
 
 
           ctx.closePath();
