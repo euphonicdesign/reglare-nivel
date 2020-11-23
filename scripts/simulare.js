@@ -6702,11 +6702,16 @@ function ActualizareSuprafataGrafica() {
         else if(mod == MOD_FOTOGRAFIE){//MOD_FOTOGRAFIE
             ctx.drawImage(fotografie, 0, 0);
             desenareGraficVertical();
+            desenareZiValoareTrenduri();
+            desenareEvenimente();
             //desenarePuncteGraficOrizontal();
         }
         else if(mod == MOD_HARTA){//MOD_FOTOGRAFIE
             ctx.drawImage(harta, 0, 0);
             desenareAvioaneHarta();
+            desenareZiValoareTrenduri()
+            desenareEvenimente();
+            //desenareZiValoare();
             //desenareGraficVertical();
             //desenarePuncteGraficOrizontal();
         }
@@ -6805,6 +6810,9 @@ function ActualizareSuprafataGraficaSingulara() {
         else if(mod == MOD_HARTA){//MOD_FOTOGRAFIE
             ctx.drawImage(harta, 0, 0);
             desenareAvioaneHarta();
+            desenareZiValoareTrenduri();
+            desenareEvenimente();
+            //desenareZiValoare();
             //desenarePuncteGraficOrizontal();
         }
         else{//MOD_GRAFICE
