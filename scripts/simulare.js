@@ -180,6 +180,9 @@ var yCerculeteAcumulate = yTextZi + 35;
 var xTextInfoExplicatii = xTextZi;
 var yTextInfoExplicatii = yTextZi + 195;
 
+var xVantHarta = 60;
+var yVantHarta = 440;
+
 
 var indicatorZiEveniment = false;
 var semn = "+";
@@ -3703,6 +3706,36 @@ function desenareInfoExplicatii(){
 function desenareAvioaneHarta(){
   dimensiuneAvion = 1;
   ctx = suprafataGrafica.context;
+
+
+  //Desenare Directie Vant
+  ctx.textAlign = "center";
+  if(pulsatie_2){
+    ctx.font = "bold 52px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.fillStyle = culoarePunctValoriGrafic_3;;
+    if(culoare_pulsatie == culoareMaro){
+        ctx.fillStyle = culoareCrestereRadarMaro;
+        ctx.fillText("⇗", xVantHarta, yVantHarta);
+        ctx.fillText("⇗", xVantHarta+10, yVantHarta-10);
+    }
+    else {
+        ctx.fillStyle = culoareScadereRadarVerde;//"rgba(38,145,31,0.9)";//culoareScadere;
+        ctx.fillText("⇙", xVantHarta, yVantHarta);
+        ctx.fillText("⇙ ", xVantHarta, yVantHarta+10);
+    }
+  }
+  else {
+    ctx.font = "bold 52px Helvetica, system-ui, Arial, sans-serif";
+    if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+        ctx.fillStyle = culoareCrestereRadarMaro;
+        ctx.fillText("⇗", xVantHarta, yVantHarta);
+    }
+    else{
+        ctx.fillStyle = culoareScadereRadarVerde;//culoareScadere;
+        ctx.fillText("⇙", xVantHarta, yVantHarta);
+    }
+  }
+
   //desenare Avion pe radar
   if(selectorZi > orizont_trend)
       for(let zona=0; zona<vectoriDateZone.length; zona++){
@@ -4115,6 +4148,7 @@ function desenareRadarModRadar(){
     }
   }*/
 
+  //Desenare Directie Vant
   ctx.textAlign = "center";
   if(pulsatie_2){
     ctx.font = "bold 52px Helvetica, system-ui, Arial, sans-serif";
