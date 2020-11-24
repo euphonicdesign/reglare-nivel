@@ -3866,12 +3866,14 @@ function desenareAvioaneHarta(){
           ctx.beginPath();
           ctx.closePath();
 
-          ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+          //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
           if(vectoriDateZone[zona].vectorXAvion[selectorZi] > 0){
               ctx.fillStyle = culoareCrestereMaro;
+              ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
           }
           else{
               ctx.fillStyle = culoareScadere;
+              ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
           }
 
           nume_zona = numeArii.data.value[zona].substring(0,3);
