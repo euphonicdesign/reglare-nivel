@@ -3844,7 +3844,7 @@ function desenareAvioaneHarta(){
               }
           //}
 
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 2;
 
           /*ctx.beginPath()
           ctx.fill();
@@ -3869,7 +3869,7 @@ function desenareAvioaneHarta(){
           //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
           if(vectoriDateZone[zona].vectorXAvion[selectorZi] > 0){
               ctx.fillStyle = culoareCrestereMaro;
-              ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+              ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
           }
           else{
               ctx.fillStyle = culoareScadere;
