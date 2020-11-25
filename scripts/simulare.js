@@ -6808,11 +6808,11 @@ function ActualizareSuprafataGrafica() {
         actualizareTabelPozitii();
         actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
+            desenareZiValoareTrenduri();
             desenareGraficValori();
             desenareCompensatorValori();
             desenareVaseComunicante();
-            desenareZiValoare();
-            desenareEvenimente2();
+            desenareEvenimente();
             desenareGraficVertical();
             //desenarePuncteGraficOrizontal();
         }
@@ -6912,12 +6912,13 @@ function ActualizareSuprafataGraficaSingulara() {
         actualizareTabelPozitii();
         actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
+            desenareZiValoareTrenduri();
             desenareGraficValori();
             desenareCompensatorValori();
             desenareVaseComunicante();
-            desenareZiValoare();
-            desenareEvenimente2();
+            desenareEvenimente();
             desenareGraficVertical();
+
             //desenarePuncteGraficOrizontal();
         }
         else if(mod == MOD_RADAR){
