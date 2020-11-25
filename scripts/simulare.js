@@ -1664,7 +1664,7 @@ function actualizareTabelZone(){
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
 
-            if(Math.abs(Math.round(clasamentProiectie[zona].delta)) > limita_max_crestere_delta){ // var 2 - 250
+            if(Math.round(clasamentProiectie[zona].delta) > limita_max_crestere_delta){ // var 2 - 250
                 elementZona1.style.background = "#c32222";
                 elementZona1.style.color = "white";
             }
