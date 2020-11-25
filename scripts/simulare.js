@@ -3164,15 +3164,16 @@ function desenareZiValoareTrenduri(){
 
 }
 
-function desenareZiValoare() {
+function desenareIndicatori() {
     ctx = suprafataGrafica.context;
-    ctx.fillStyle = culoareTextZi;
+    //ctx.fillStyle = culoareTextZi;
     //culoare implicita
-    ctx.strokeStyle = culoareTextZi;
+    //ctx.strokeStyle = culoareTextZi;
     ctx.lineWidth = 1;
-    ctx.textAlign = "start";
+    //ctx.textAlign = "start";
 
     //Ziua
+    /*
     //ctx.font = "30px Arial";
     ctx.font = "italic bold 30px Helvetica, Arial, sans-serif";
     //ctx.fillText("Ziua " + selectorZi, 10, 50);
@@ -3182,7 +3183,7 @@ function desenareZiValoare() {
     zi = data_zi_luna[0];
     luna = data_luni_lung[data_zi_luna[1]-1];
     ctx.font = "italic 16px Helvetica, Arial, sans-serif";
-    ctx.fillText( "(" + zi + " " + luna + ")", xTextZi, yTextZi + 22);
+    ctx.fillText( "(" + zi + " " + luna + ")", xTextZi, yTextZi + 22);*/
 
 
     //Valoare cumulativa
@@ -6812,6 +6813,7 @@ function ActualizareSuprafataGrafica() {
             desenareGraficValori();
             desenareCompensatorValori();
             desenareVaseComunicante();
+            desenareIndicatori();
             desenareEvenimente();
             desenareGraficVertical();
             //desenarePuncteGraficOrizontal();
@@ -6916,6 +6918,7 @@ function ActualizareSuprafataGraficaSingulara() {
             desenareGraficValori();
             desenareCompensatorValori();
             desenareVaseComunicante();
+            desenareIndicatori();
             desenareEvenimente();
             desenareGraficVertical();
 
