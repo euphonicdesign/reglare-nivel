@@ -290,7 +290,7 @@ var scalareEntitate = 1;
 var scalareTraiectorieAvionToate = 14;
 var scalareTraiectorieAvion = 2;
 
-var scalaRadarY = 2.0; //magnificare radar
+var scalaRadarY = 2.5; //magnificare radar implicita
 var scalaRadarX = 1;
 
 var scalaX_trend = 72;
