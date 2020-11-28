@@ -13,6 +13,9 @@ var limita_max_crestere_delta = 100;
 var limita_max_crestere_medie = 100;
 var limita_max_pierderi = 50;
 
+var limita_regim_liniar_zona = 200;
+var limita_regim_liniar_toate = 1500;
+
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
 var nivelDepasireCapacitate = 35;
@@ -3329,7 +3332,7 @@ function desenareGraficPVectorR(){
         //ctx.lineTo(12 + x_p, y_r + 1);
         if(vector_r_normalizat[i] >= 0){
             if(nrArie==43){
-              if(data_2[i]>1500){
+              if(data_2[i]>limita_regim_liniar_toate){
                 ctx.strokeStyle = culoareCrestereRosu;
                 ctx.fillStyle = culoareCrestereRosu;
               }
@@ -3339,7 +3342,7 @@ function desenareGraficPVectorR(){
               }
             }
             else {
-              if(data_2[i]>200){
+              if(data_2[i]>limita_regim_liniar_zona){
                 ctx.strokeStyle = culoareCrestereRosu;
                 ctx.fillStyle = culoareCrestereRosu;
               }
@@ -3407,12 +3410,12 @@ function desenareGraficPVectorR(){
         else{
             ctx.lineWidth = 1;
             if(nrArie==43){
-              if(data_2[i]>1500){
+              if(data_2[i]>limita_regim_liniar_toate){
                 ctx.fill();
               }
             }
             else{
-              if(data_2[i]>200){
+              if(data_2[i]>limita_regim_liniar_zona){
               ctx.fill();
               }
             }
@@ -3439,7 +3442,7 @@ function desenarePuncteTrendMedie(){
           ctx.fillStyle = culoareMedieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
 
           if(nrArie==43){
-            if(data_2[i]>1500){
+            if(data_2[i]>limita_regim_liniar_toate){
               //ctx.strokeStyle = culoareCrestereRosu;
               ctx.fillStyle = culoareCrestereRosu;
             }
@@ -3450,7 +3453,7 @@ function desenarePuncteTrendMedie(){
             }
           }
           else {
-            if(data_2[i]>200){
+            if(data_2[i]>limita_regim_liniar_zona){
               //ctx.strokeStyle = culoareCrestereRosu;
               ctx.fillStyle = culoareCrestereRosu;
             }
@@ -6031,17 +6034,28 @@ function desenareGraficeTrenduri(){
           y1_valoare = Math.round(yGrafic_1 - ((data[i-1]*scalaY_trend_1)/maxValue));
           y1_valoare_2 = Math.round(yGrafic_2 - ((data_2[i-1]*scalaY_trend_2)/maxValueGrafic2));
 
-          //desenare linii conectare puncte valori grafic 1
+          //desenare linii conectare puncte valori grafic 2 sus
           if(afisaretrend){
               ctx.beginPath();
               ctx.moveTo(12 + x1_valoare, y1_valoare_2 );
               ctx.lineTo(12 + x_valoare, y_valoare_2);
-              if(data[i]>limita_max_pierderi){
-                ctx.strokeStyle = culoareCrestereRosu;
+              if(nrArie==43){
+                  if(data_2[i]>limita_regim_liniar_toate){
+                    ctx.strokeStyle = culoareCrestereRosu;
+                  }
+                  else{
+                      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+                  }
               }
               else{
-                  ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+                  if(data_2[i]>limita_regim_liniar_zona){
+                    ctx.strokeStyle = culoareCrestereRosu;
+                  }
+                  else{
+                      ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
+                  }
               }
+
               ctx.lineWidth = 2;
               ctx.closePath();
               ctx.stroke();
