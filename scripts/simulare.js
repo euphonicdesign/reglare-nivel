@@ -299,7 +299,7 @@ var scalaRadarX = 1;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
-var scalaX = 370; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaX = 390; //grafic valori vertical - cumulativ - foto, trend, regulator
 //----
 
 var scalaXTrend3Orizontal = 130;
@@ -6553,9 +6553,11 @@ function desenareGraficOrizontal(){
     proiectie = medieCumulativ[selectorZi] * intervalProiectie2;
     if(x_val_2 < 370){
         xTproiectie = x_val_2;
+        yTproiectie = y_val_1;
     }
     else{
-        xTproiectie = 370;
+        xTproiectie = 140;
+        yTproiectie = 370;
     }
 
 
@@ -6572,10 +6574,10 @@ function desenareGraficOrizontal(){
     ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
 
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), xTproiectie - 8, y_val_1 - 9);
+    ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), xTproiectie - 8, yTproiectie - 9);
 
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(zi_p + " " + luna_p, xTproiectie - 8, y_val_1 + 5);
+    ctx.fillText(zi_p + " " + luna_p, xTproiectie - 8, yTproiectie + 5);
 
     ctx.textAlign = "start";
     ctx.fillStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
@@ -6606,40 +6608,10 @@ function desenareGraficOrizontal(){
     //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
     ctx.fillStyle = culoarePunctValoriGrafic;
     ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", xTproiectie - 8, y_val_1 + 20);
+    ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie) + "...", xTproiectie - 8, yTproiectie + 20);
     //ctx.fillStyle = culoarePunctValoriGrafic_3;
     //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
 
-
-    //desenare text proiectie2
-    /*
-    proiectie2 = medieCumulativ[selectorZi] * intervalProiectie;
-
-    //Afisare data
-    data_zi_luna_p = data_data[(Math.floor(selectorZi) + intervalProiectie)].split("/");
-    zi_p = data_zi_luna_p[0];
-    luna_p = data_luni[data_zi_luna_p[1]-1];
-
-    //Valoare cumulativa 2 - 180 zile
-    ctx.textAlign = "end";
-
-    ctx.fillStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-
-    ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    //ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), x_val_2 + 8, y_val_1 + 40);
-
-    //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(zi_p + " " + luna_p, x_val_2 - 8, y_val_1 + 46);
-
-    ctx.textAlign = "end";
-    //ctx.strokeStyle = culoareTextCompensatorRosu;//culoareTextCompensatorFill;
-    ctx.fillStyle = "rgba(31, 67, 122, 0.7)";//culoarePunctValoriGrafic;
-    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(">" + Math.round(dataCumulativ[selectorZi] + proiectie2) + "!", x_val_2 - 8, y_val_1 + 61);
-    //ctx.fillStyle = culoarePunctValoriGrafic_3;
-    //ctx.fillText("" + Math.round(dataCumulativ[selectorZi]), 10, y_val_1);
-    */
 
     for (let i = 0; i <= selectorZi; i++) {
 
