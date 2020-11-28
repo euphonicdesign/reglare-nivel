@@ -3328,14 +3328,27 @@ function desenareGraficPVectorR(){
         //ctx.moveTo(12 + x_p, y_r - 1);
         //ctx.lineTo(12 + x_p, y_r + 1);
         if(vector_r_normalizat[i] >= 0){
-            if(data_2[i]>1500){
-              ctx.strokeStyle = culoareCrestereRosu;
-              ctx.fillStyle = culoareCrestereRosu;
+            if(nrArie==43){
+              if(data_2[i]>1500){
+                ctx.strokeStyle = culoareCrestereRosu;
+                ctx.fillStyle = culoareCrestereRosu;
+              }
+              else{
+                ctx.strokeStyle = culoareCrestereMaro;
+                ctx.fillStyle = culoareCrestereMaro;
+              }
             }
-            else{
-              ctx.strokeStyle = culoareCrestereMaro;
-              ctx.fillStyle = culoareCrestereMaro;
+            else {
+              if(data_2[i]>200){
+                ctx.strokeStyle = culoareCrestereRosu;
+                ctx.fillStyle = culoareCrestereRosu;
+              }
+              else{
+                ctx.strokeStyle = culoareCrestereMaro;
+                ctx.fillStyle = culoareCrestereMaro;
+              }
             }
+
             //ctx.strokeStyle = culoareCrestereMaro;//culoareGraficVectorR;//culoareTextCompensatorRosu;
             //ctx.fillStyle = culoareGraficVectorR;//culoareGraficVectorR;
         }
@@ -3393,8 +3406,15 @@ function desenareGraficPVectorR(){
         }
         else{
             ctx.lineWidth = 1;
-            if(data_2[i]>1500){
+            if(nrArie==43){
+              if(data_2[i]>1500){
+                ctx.fill();
+              }
+            }
+            else{
+              if(data_2[i]>200){
               ctx.fill();
+              }
             }
             ctx.stroke();
         }
@@ -3417,15 +3437,30 @@ function desenarePuncteTrendMedie(){
       ctx.strokeStyle = "aqua";
       if(vector_r[i] >= 1){
           ctx.fillStyle = culoareMedieCrestere;//culoare_linie_trend;//culoareTextCompensatorFill;//culoare_linie_trend;//culoarePunctValoriGrafic;
-          if(data_2[i]>1500){
-            //ctx.strokeStyle = culoareCrestereRosu;
-            ctx.fillStyle = culoareCrestereRosu;
+
+          if(nrArie==43){
+            if(data_2[i]>1500){
+              //ctx.strokeStyle = culoareCrestereRosu;
+              ctx.fillStyle = culoareCrestereRosu;
+            }
+            else{
+              //ctx.strokeStyle = culoareCrestereMaro;
+              //ctx.fillStyle = culoareCrestereMaro;
+              ctx.fillStyle = culoareMedieCrestere;
+            }
           }
-          else{
-            //ctx.strokeStyle = culoareCrestereMaro;
-            //ctx.fillStyle = culoareCrestereMaro;
-            ctx.fillStyle = culoareMedieCrestere;
+          else {
+            if(data_2[i]>200){
+              //ctx.strokeStyle = culoareCrestereRosu;
+              ctx.fillStyle = culoareCrestereRosu;
+            }
+            else{
+              //ctx.strokeStyle = culoareCrestereMaro;
+              //ctx.fillStyle = culoareCrestereMaro;
+              ctx.fillStyle = culoareMedieCrestere;
+            }
           }
+
       }
       else{
           ctx.fillStyle = culoareMedieScadere;//culoare_linie_trend;
