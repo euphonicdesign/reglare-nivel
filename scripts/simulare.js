@@ -13,7 +13,7 @@ var limita_max_crestere_delta = 100;
 var limita_max_crestere_medie = 100;
 var limita_max_pierderi = 50;
 
-var limita_regim_liniar_zona = 200;
+var limita_regim_liniar_zona = 100;
 var limita_regim_liniar_toate = 1500;
 
 var culoare_linie_trend = "#999999";//"#b3b3b3";
