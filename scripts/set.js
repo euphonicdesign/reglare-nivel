@@ -43,7 +43,7 @@ let data_10 = [
             86, 120, 146, 121, 123, 130, 86,
             130, 177, 203, 121, 174, 129, 113,
             149, 186, 168, 167, 160, 160, 131,
-            130, 196, 168, 171, 172, 161, 
+            130, 196, 168, 171, 172, 161,
 
 
 ];
@@ -316,6 +316,7 @@ let evenimente = [
               '15/10',
               '20/10',
               '9/11',
+              '25/11',
 ];
 
 let evenimente_actiuni = [
@@ -332,6 +333,7 @@ let evenimente_actiuni = [
               '15 Oct: limitare (...)', //15/9
               '20 Oct: limitare (...)', //20/9
               '9 Noi: limitare', //9/11
+              '25 Noi: ezitare...', //9/11
 ];
 
 let info_date = [
@@ -348,6 +350,7 @@ let info_date = [
               '15/10',
               '20/10',
               '9/11',
+              '25/11',
 ];
 
 let info_explicatii = [
@@ -390,5 +393,9 @@ let info_explicatii = [
               'Cutia Pandorei trebuie închisă. Comanda trebuie oprită \
               \npentru a putea readuce sistemul în \
               \nzona liniară, acolo unde poate fi reglat...',
+
+              'Sistemul poate fi reglat în timp real a.î. să urmărească \
+              \nreferința setată. Prin intermediul buclei de reacție. \
+              \nSistemul trebuie readus în zona liniară...',
 
 ];
