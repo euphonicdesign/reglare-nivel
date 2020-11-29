@@ -2368,7 +2368,7 @@ function inserareTabelVitezePropagare(){
   var valoareProiectie = 0;
   var valoareMedie = 0;
 
-  var clasamentR = clasamentAeronaveZileSortatR[totalZile].clasament;
+  var clasamentR = clasamentAeronaveZileSortatArie[totalZile].clasament;
 
   /*
   clasamentR = [];
@@ -2451,6 +2451,78 @@ function inserareTabelVitezePropagare(){
   }
 
 }
+
+function actualizareTabelVitezePropagare(){
+
+
+
+  var clasamentR = clasamentAeronaveZileSortatR[selectorZi].clasament;
+
+  var elementZona, elementZona1, elementZona0;
+
+  for(let zona=0; zona < numeArii.data.value.length; zona++){
+      //elementZona0 = document.getElementById("vp_zona" + zona);
+      elementChenarZona = document.getElementsByClassName("viteze zona" + zona + " nume_zona")[0];
+      elementChenarValoare = document.getElementsByClassName("viteze zona" + zona + " val_cl_r")[0];
+      elementZona = document.getElementsByClassName("viteze zona" + zona +" bara_grafic")[0];
+
+
+      if(selectorZi > orizont_regresie + ORIZONT_ARIE){
+        elementChenarZona.textContent = vectoriDateZone[clasamentR[zona].arie].nume;
+        elementChenarValoare.textContent = "#" + (clasamentR[zona].arie + 1);
+
+        elementZona.textContent = Math.floor((vectoriDateZone[clasamentR[zona].arie].vector_r[selectorZi]-1)*10000)/100
+
+        elementZona.style.height = String(Math.abs(vectoriDateZone[clasamentR[zona].arie].vector_r[selectorZi]-1)*100*6) + "px";
+        //console.log(elementZona.style.height);
+        if(vectoriDateZone[clasamentR[zona].arie].vector_r[selectorZi]<1){
+            elementZona.style.background = "lightgreen";
+            elementZona.style.color = "green";
+
+        }
+        else{
+            elementZona.style.background = culoareCerculetRCrestere;
+            elementZona.style.color = "#4d3319";
+        }
+
+        if(clasamentR[zona].arie == nrArie){
+            //elementChenarZona = document.getElementsByClassName("viteze zona" + zona + " nume_zona")[0];
+            //elementChenarZona.style.border = "1px solid #333";
+            elementChenarZona.style.background = "yellow";
+            //elementChenarZona.style.borderBottom = "none";
+            //elementChenarZona.style.borderLeftColor = "white";
+            //elementChenarZona.style.borderRightColor = "white";
+
+            //elementChenarValoare = document.getElementsByClassName("viteze zona" + zona + " val_cl_r")[0];
+            //elementChenarValoare.style.border = "1px solid #333";
+            elementChenarValoare.style.background = "yellow";
+            //elementChenarValoare.style.borderTop = "none";
+            //elementChenarValoare.style.borderLeftColor = "white";
+            //elementChenarValoare.style.borderRightColor = "white";
+            //elementChenarValoare.style.borderLeft = "none";
+            //elementChenarValoare.style.borderRight = "none";
+        }
+        else{
+          //elementChenarZona = document.getElementsByClassName("viteze zona" + zona + " nume_zona")[0];
+          //elementChenarZona.style.border = "none";
+          elementChenarZona.style.background = "white";
+          //elementChenarValoare = document.getElementsByClassName("viteze zona" + zona + " val_cl_r")[0];
+          //elementChenarValoare.style.border = "none";
+          elementChenarValoare.style.background = "white";
+        }
+
+      }
+      else{
+        elementZona.textContent = "";
+        elementZona.style.height = 0;
+      }
+
+
+
+  }
+
+}
+
 
 function inserareTabelAltitudini(){
 
@@ -6916,6 +6988,7 @@ function ActualizareSuprafataGrafica() {
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
         actualizareTabelPozitii();
+        actualizareTabelVitezePropagare();
         actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
             desenareZiValoareTrenduri();
@@ -7021,6 +7094,7 @@ function ActualizareSuprafataGraficaSingulara() {
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
         actualizareTabelPozitii();
+        actualizareTabelVitezePropagare();
         actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
             desenareZiValoareTrenduri();
