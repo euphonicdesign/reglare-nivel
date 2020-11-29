@@ -1428,6 +1428,10 @@ function start() {
       vectoriDateZone[zona]["vectorXAvion"] = vectorXAvionZona;
       vectoriDateZone[zona]["vectorYAvion"] = vectorYAvionZona;
 
+      vectoriDateZone[zona]["nume"] = numeArii.data.value[zona].substring(0,3);
+
+      //numeArie = numeArii.data.value[arie].substring(0,3);
+
     }
 
 
@@ -1537,6 +1541,7 @@ function inserareDateTabele(){
 
 
 function generareClasamentAeronavePeZile(){
+  /*
   clasamentAeronaveZile = [];
   var totalZile = vectoriDateZone[0].vector_r.length;//-1
 
@@ -1560,54 +1565,90 @@ function generareClasamentAeronavePeZile(){
       }
 
       clasamentAeronaveZile[zi] = {ziua:zi, clasament: clasamentAeronave};
-  }
+  }*/
 
   //var clasamentProiectie = clasamentAeronaveZile[selectorZi].clasament;
   //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
+
+  var totalZile = vectoriDateZone[0].vector_r.length;//-1
 
   //SORTARE Medie
   clasamentAeronaveZileSortatMedie = [];
   clasamentAeronaveZileSortatProiectie = [];
   clasamentAeronaveZileSortatArie = [];
+  clasamentAeronaveZileSortatR = [];
+  clasamentAeronaveZileSortatMedieDesc = [];
 
   for(let zi=0; zi < totalZile; zi++){
       var clasamentAeronave0 = [];
       var clasamentAeronave1 = [];
       var clasamentAeronave2 = [];
+      var clasamentAeronave3 = [];
+      var clasamentAeronave4 = [];
 
       for(let arie=0; arie < numeArii.data.value.length; arie++){
 
-          valoareProiectie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi + orizont_proiectie - 1);
-          valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi-1);
-          delta = valoareProiectie - valoareMedie;
-          numeArie = numeArii.data.value[arie].substring(0,3);
+          //valoareProiectie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi + orizont_proiectie - 1);
+          //valoareMedie = vectoriDateZone[arie].vector_coefA[zi] * Math.pow(vectoriDateZone[arie].vector_r[zi], zi-1);
+          //delta = valoareProiectie - valoareMedie;
+          //numeArie = numeArii.data.value[arie].substring(0,3);
 
           clasamentAeronave0[arie] = {
             arie: arie,
-            r: vectoriDateZone[arie].vector_r[zi],
-            proiectie: valoareProiectie,
-            medie: valoareMedie,
-            delta: delta,
-            nume: numeArie
+            //r: vectoriDateZone[arie].vector_r[zi],
+            //proiectie: valoareProiectie,
+            //medie: valoareMedie,
+            //delta: delta,
+            //nume: numeArie
           };
 
           clasamentAeronave1[arie] = {
             arie: arie,
-            r: vectoriDateZone[arie].vector_r[zi],
-            proiectie: valoareProiectie,
-            medie: valoareMedie,
-            delta: delta,
-            nume: numeArie
+            //r: vectoriDateZone[arie].vector_r[zi],
+            //proiectie: valoareProiectie,
+            medie: vectoriDateZone[arie].vectorMedieZiCurenta[zi],//valoareMedie,
+            //delta: delta,
+            //nume: numeArie
           };
+
+          clasamentAeronave4[arie] = {
+            arie: arie,
+            //r: vectoriDateZone[arie].vector_r[zi],
+            //proiectie: valoareProiectie,
+            medie: vectoriDateZone[arie].vectorMedieZiCurenta[zi],//valoareMedie,
+            //delta: delta,
+            //nume: numeArie
+          };
+
 
           clasamentAeronave2[arie] = {
             arie: arie,
-            r: vectoriDateZone[arie].vector_r[zi],
-            proiectie: valoareProiectie,
-            medie: valoareMedie,
-            delta: delta,
-            nume: numeArie
+            //r: vectoriDateZone[arie].vector_r[zi],
+            proiectie: vectoriDateZone[arie].vectorProiectieZiCurenta[zi],//valoareProiectie,
+            //medie: valoareMedie,
+            //delta: delta,
+            //nume: numeArie
           };
+
+          clasamentAeronave3[arie] = {
+            arie: arie,
+            r: vectoriDateZone[arie].vector_r[zi],
+            //proiectie: vectoriDateZone[arie].vectorProiectieZiCurenta[zi],//valoareProiectie,
+            //medie: valoareMedie,
+            //delta: delta,
+            //nume: numeArie
+          };
+
+          clasamentAeronave4[arie] = {
+            arie: arie,
+            //r: vectoriDateZone[arie].vector_r[zi],
+            //proiectie: valoareProiectie,
+            medie: vectoriDateZone[arie].vectorMedieZiCurenta[zi],//valoareMedie,
+            //delta: delta,
+            //nume: numeArie
+          };
+
+
       }
 
       //sortare arie crescatoare
@@ -1621,6 +1662,13 @@ function generareClasamentAeronavePeZile(){
 
       clasamentAeronave2.sort(function(a, b){return a.proiectie - b.proiectie});
       clasamentAeronaveZileSortatProiectie[zi] = {ziua:zi, clasament: clasamentAeronave2};
+
+      clasamentAeronave3.sort(function(a, b){return a.r - b.r});
+      clasamentAeronaveZileSortatR[zi] = {ziua:zi, clasament: clasamentAeronave3};
+
+      clasamentAeronave4.sort(function(a, b){return a.medie - b.medie});
+      //clasamentAeronave.sort(function(a, b){return a.arie - b.arie});
+      clasamentAeronaveZileSortatMedieDesc[zi] = {ziua:zi, clasament: clasamentAeronave4};
   }
 
 
@@ -1628,6 +1676,7 @@ function generareClasamentAeronavePeZile(){
 
 }
 
+//formatie
 function actualizareTabelZone(){
     if(selectorZi >= clasamentAeronaveZileSortatProiectie.length)
         return;
@@ -1637,7 +1686,7 @@ function actualizareTabelZone(){
     //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
 
     var elementZona, textElement;
-    for(let zona=0; zona < clasamentProiectie.length; zona++){
+    for(let zona=0; zona < numeArii.data.value.length; zona++){
 
         //pauza = true;
 
@@ -1648,32 +1697,36 @@ function actualizareTabelZone(){
         elementZona2 = document.getElementsByClassName("zona" + zona +" val_r")[0];
         elementZona3 = document.getElementsByClassName("zona" + zona +" val_cl_r")[0];
 
-        elementZona1b.textContent = "" + clasamentProiectie[zona].nume;
+        /////elementZona1b.textContent = "" + clasamentProiectie[zona].nume;
+        elementZona1b.textContent = "" + vectoriDateZone[clasamentProiectie[zona].arie].nume;
 
 
         //textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
-        textElement = Math.round(clasamentProiectie[zona].medie);
-        if(clasamentProiectie[zona].delta > 0){
+        /////textElement = Math.round(clasamentProiectie[zona].medie);
+        textElement = Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorMedieZiCurenta[selectorZi]);
+
+        ////if(clasamentProiectie[zona].delta > 0){
+        if(vectoriDateZone[clasamentProiectie[zona].arie].vectorDeltaZiCurenta[selectorZi] > 0){
             textElement += "\u279A ";//"↗ ";
-            elementZona1c.textContent = "(+" + Math.round(clasamentProiectie[zona].delta) + ")";
+            elementZona1c.textContent = "(+" + Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorDeltaZiCurenta[selectorZi]) + ")";
         }
         else{
             textElement += "\u2798 ";//"↘ ";
-            elementZona1c.textContent = "(" + Math.round(clasamentProiectie[zona].delta) + ")";
+            elementZona1c.textContent = "(" + Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorDeltaZiCurenta[selectorZi]) + ")";
         }
 
-        textElement += Math.round(clasamentProiectie[zona].proiectie);
+        textElement += Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorProiectieZiCurenta[selectorZi]);
         elementZona1d.textContent = textElement;
 
 
         if(selectorZi > orizont_regresie + ORIZONT_ARIE){
 
-            if(Math.round(clasamentProiectie[zona].delta) > limita_max_crestere_delta){ // var 2 - 250
+            if(Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorDeltaZiCurenta[selectorZi]) > limita_max_crestere_delta){ // var 2 - 250
                 elementZona1.style.background = "#c32222";
                 elementZona1.style.color = "white";
             }
             else{
-                if(clasamentProiectie[zona].r < 1){
+                if(vectoriDateZone[clasamentProiectie[zona].arie].vector_r[selectorZi] < 1){
                     elementZona1.style.background = "lightgreen";
                     elementZona1.style.color = "green";
                 }
@@ -1684,7 +1737,7 @@ function actualizareTabelZone(){
             }
 
             //elementZona.textContent = "R=" + Math.floor((clasamentZone[selectorZi].r-1)*10000)/100;
-            elementZona2.textContent = "R=" + Math.floor((clasamentProiectie[zona].r-1)*10000)/100;
+            elementZona2.textContent = "R=" + Math.floor((vectoriDateZone[clasamentProiectie[zona].arie].vector_r[selectorZi]-1)*10000)/100;
             elementZona3.textContent = "#" + (zona + 1);
             //elementZona4.textContent = "Me=" + Math.round(clasamentProiectie[zona].medie);
             //elementZona5.textContent = "Pr=" + Math.round(clasamentProiectie[zona].proiectie);
@@ -1750,6 +1803,7 @@ function actualizareTabelPozitii(){
   else{
       clasamentZone = clasamentAeronaveZileSortatArie[selectorZi].clasament;
   }
+
 
 
   //var elementZona1, elementZona2;
@@ -1829,23 +1883,23 @@ function actualizareTabelPozitii(){
       }
 
       if(selectorZi > orizont_regresie + ORIZONT_ARIE){
-          elementNume.innerHTML = "<a id='linkzona" + clasamentZone[zona].arie + "' href='#' onclick='schimbareSelectieArie(" + clasamentZone[zona].arie + ")'>" + clasamentZone[zona].nume + "</a>";
-          elementValProiectie.textContent = Math.round(clasamentZone[zona].proiectie);
+          elementNume.innerHTML = "<a id='linkzona" + clasamentZone[zona].arie + "' href='#' onclick='schimbareSelectieArie(" + clasamentZone[zona].arie + ")'>" + vectoriDateZone[clasamentZone[zona].arie].nume + "</a>";
+          elementValProiectie.textContent = Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorProiectieZiCurenta[selectorZi]);
 
-          elementIProiectie.textContent = Math.round(clasamentZone[zona].proiectie);
-          if(clasamentZone[zona].delta > 0){
-              elementIDelta.textContent = "+" + Math.round(clasamentZone[zona].delta) + "";
+          elementIProiectie.textContent = Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorProiectieZiCurenta[selectorZi]);
+          if(vectoriDateZone[clasamentZone[zona].arie].delta > 0){
+              elementIDelta.textContent = "+" + Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]) + "";
           }
           else{
-              elementIDelta.textContent = "" + Math.round(clasamentZone[zona].delta) + "";
+              elementIDelta.textContent = "" + Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]) + "";
           }
 
-          if(clasamentZone[zona].r > 1){
+          if(vectoriDateZone[clasamentZone[zona].arie].vector_r[selectorZi] > 1){
               nrAeronaveUrcare++;
-              elementIR.textContent = "+" + Math.round((clasamentZone[zona].r-1)*100) + "%";
+              elementIR.textContent = "+" + Math.round((vectoriDateZone[clasamentZone[zona].arie].vector_r[selectorZi]-1)*100) + "%";
           }
           else{
-              elementIR.textContent = "" + Math.round((clasamentZone[zona].r-1)*100) + "%";
+              elementIR.textContent = "" + Math.round((vectoriDateZone[clasamentZone[zona].arie].vector_r[selectorZi]-1)*100) + "%";
               nrAeronaveCoborare++;
           }
 
@@ -1867,22 +1921,22 @@ function actualizareTabelPozitii(){
           }
 
 
-          elementIMedie.textContent = Math.round(clasamentZone[zona].medie);
+          elementIMedie.textContent = Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]);
 
           //elementZona0.textContent = Math.round(clasamentZone[zona].proiectie);
 
-          if(clasamentZone[zona].medie > limita_max_crestere_medie){
+          if(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi] > limita_max_crestere_medie){
               elementSegBaraMedie.style.height = 100 + "px";
               max_delta = 214 - 100 - 95 - 5;
           }
           else{
-              elementSegBaraMedie.style.height = String(Math.round(clasamentZone[zona].medie/2)) + "px";
-              max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95 - 5;
+              elementSegBaraMedie.style.height = String(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/2)) + "px";
+              max_delta = 214 - Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/2) - 95 - 5;
           }
 
           //max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
 
-          h_delta = Math.abs(Math.round(clasamentZone[zona].delta/2));
+          h_delta = Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]/2));
           if(h_delta < max_delta){
               elementSegBaraProiectie.style.height = String(h_delta) + "px";
           }
@@ -1891,12 +1945,12 @@ function actualizareTabelPozitii(){
           }
 
 
-          if(Math.abs(Math.round(clasamentZone[zona].delta))>20){
-              if(clasamentZone[zona].delta>0){
-                  elementSegBaraProiectie.textContent = "+" + Math.round(clasamentZone[zona].delta);
+          if(Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]))>20){
+              if(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]>0){
+                  elementSegBaraProiectie.textContent = "+" + Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]);
               }
               else{
-                  elementSegBaraProiectie.textContent = "" + Math.round(clasamentZone[zona].delta);
+                  elementSegBaraProiectie.textContent = "" + Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]);
               }
           }
           else{
@@ -1904,14 +1958,14 @@ function actualizareTabelPozitii(){
           }
 
 
-          if(Math.round(clasamentZone[zona].medie < 30)){
+          if(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi] < 30)){
               elementSegBaraMedie.textContent = "";
           }
           else{
-              elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
+              elementSegBaraMedie.textContent = Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]);
           }
 
-          if(Math.round(clasamentZone[zona].medie) > limita_max_crestere_medie){
+          if(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]) > limita_max_crestere_medie){
               //elementSegBaraMedie.textContent = " >limita_max_crestere_delta...";
               //elementSegBaraMedie.textContent = Math.round(clasamentZone[zona].medie);
               elementSegBaraMedie.style.background = culoareRosu;
@@ -1925,7 +1979,7 @@ function actualizareTabelPozitii(){
 
 
 
-          if(clasamentZone[zona].r<1){
+          if(vectoriDateZone[clasamentZone[zona].arie].vector_r[selectorZi]<1){
               elementSegBaraProiectie.style.background = "lightgreen";
               elementSegBaraProiectie.style.color = "green";
 
@@ -1943,7 +1997,7 @@ function actualizareTabelPozitii(){
               //elementZona.style.background = culoareCerculetRCrestere;
 
 
-              if(Math.abs(Math.round(clasamentZone[zona].delta)) > limita_max_crestere_delta){ //var 2 - 250
+              if(Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi])) > limita_max_crestere_delta){ //var 2 - 250
                   elementSegBaraProiectie.style.background = "#c32222";
                   elementSegBaraProiectie.style.color = "white";
                   //elementSegAvion.style.background = "#c32222";
@@ -1978,7 +2032,7 @@ function actualizareTabelPozitii(){
           elementIProiectie.style.background = "lightgrey";
           elementIProiectie.style.color = "#333";
 
-          if(Math.round(clasamentZone[zona].medie) == 0){
+          if(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]) == 0){
               elementIMedie.style.background = "white";
               elementIProiectie.style.background = "white";
               elementIR.style.background = "white";
@@ -2087,7 +2141,9 @@ function actualizareTabelPozitii(){
 
 }
 
+//formatie
 function inserareTabelZone(){
+
   let nrColPeLinie = 7;
   let rand = 0;
 
@@ -2095,29 +2151,34 @@ function inserareTabelZone(){
   textHTML += "<table> "
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
+
+  var clasamentProiectie = clasamentAeronaveZileSortatProiectie[totalZile].clasament;
+  //var clasamentMedie = clasamentAeronaveZileSortatMedie[totalZile].clasament;
+
   var valoareProiectie = 0;
   var valoareMedie = 0;
 
-  clasamentR = [];
+  /*clasamentR = [];
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       clasamentR[zona] = {zona: zona, r: vectoriDateZone[zona].vector_r[totalZile]}
   }
 
-  clasamentR.sort(function(a, b){return a.r - b.r});
+  clasamentR.sort(function(a, b){return a.r - b.r});*/
 
   for(let zona=0; zona < numeArii.data.value.length; zona++){
     coloana = zona % nrColPeLinie;
     rand = Math.floor(zona / nrColPeLinie);
-    valoareProiectie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
-    valoareMedie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
+    //valoareProiectie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile + orizont_proiectie - 1);
+    //valoareMedie = vectoriDateZone[zona].vector_coefA[totalZile] * Math.pow(vectoriDateZone[zona].vector_r[totalZile], totalZile);
     //console.log(numeArii.data.value[zona]);
     //console.log(rand + " " + coloana);
 
     pozitieClasamentR = 0;
+    /*
     for(let i=0; i < clasamentR.length; i++){
         pozitieClasamentR++;
         if(clasamentR[i].zona == zona) break;
-    }
+    }*/
 
     if(coloana == 0){
       textHTML+="<tr>";
@@ -2127,15 +2188,20 @@ function inserareTabelZone(){
     textHTML += "<div class='zona" + zona + " nume_zona'>" + numeArii.data.value[zona].substring(0,3) + "</div>";
     textHTML += "<div class='zona" + zona + " val_cl_r'>" + "#" + pozitieClasamentR + "</div>";
 
-    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+    //textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentProiectie[zona].arie].vector_r[totalZile]-1)*10000)/100 + "</div>";
 
     textHTML += "<div class='zona" + zona + " Me-Pr'>";
-    textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].medie);
+    //textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].medie);
+    textHTML += Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorMedieZiCurenta[totalZile]);
+
     textHTML += "→";
-    textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].proiectie);
+    //textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].proiectie);
+    textHTML += Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorProiectieZiCurenta[totalZile]);
     textHTML += "</div>";
 
-    textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(clasamentAeronaveZile[totalZile].clasament[zona].delta) + "</div>";
+    //textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(clasamentAeronaveZile[totalZile].clasament[zona].delta) + "</div>";
+    textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorDeltaZiCurenta[totalZile]) + "</div>";
 
 
 
@@ -2176,7 +2242,8 @@ function inserareTabelPozitii(){
   textHTML = "";
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
-  clasamentZone = clasamentAeronaveZile[totalZile].clasament;
+  //clasamentZone = clasamentAeronaveZile[totalZile].clasament;
+  clasamentZone = clasamentAeronaveZileSortatArie[totalZile].clasament;
   //clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
   //pauza = true;
 
@@ -2188,16 +2255,23 @@ function inserareTabelPozitii(){
         //textHTML += Math.round(clasamentZone[i].medie);
         //textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " iProiectie'>";
-        textHTML += "" + Math.round(clasamentZone[i].proiectie);
+        //textHTML += "" + Math.round(clasamentZone[i].proiectie);
+        textHTML += "" + Math.round(vectoriDateZone[clasamentZone[i].arie].vectorProiectieZiCurenta[totalZile]);
+
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " iDelta'>";
-        textHTML += "(+" + Math.round(clasamentZone[i].delta) + ")";
+        //textHTML += "(+" + Math.round(clasamentZone[i].delta) + ")";
+        textHTML += "(+" + Math.round(vectoriDateZone[clasamentZone[i].arie].vectorDeltaZiCurenta[totalZile]) + ")";
         textHTML += "</div>";
+
         textHTML += "<div class='pozitii zona" + i + " iR'>";
-        textHTML += "+" + Math.round((clasamentZone[i].r-1)*100) + "%";
+        //textHTML += "+" + Math.round((clasamentZone[i].r-1)*100) + "%";
+        textHTML += "+" + Math.round((vectoriDateZone[clasamentZone[i].arie].vector_r[totalZile]-1)*100) + "%";
+
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " iMedie'>";
-        textHTML += Math.round(clasamentZone[i].medie);
+        //textHTML += Math.round(clasamentZone[i].medie);
+        textHTML += Math.round(vectoriDateZone[clasamentZone[i].arie].vectorMedieZiCurenta[totalZile]);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " segment_bara_medie'>";
         //textHTML += Math.round(clasamentZone[i].proiectie);
@@ -2206,10 +2280,13 @@ function inserareTabelPozitii(){
         //textHTML += Math.round(clasamentZone[i].proiectie);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " val_proiectie'>";
-        textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
+        //textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
+        textHTML += Math.round(vectoriDateZone[clasamentZone[i].arie].vectorMedieZiCurenta[totalZile] + vectoriDateZone[clasamentZone[i].arie].vectorProiectieZiCurenta[totalZile]);
         textHTML += "</div>";
+
         textHTML += "<div class='pozitii zona" + i + " nume'><a id='linkzona" + i + "' href='#' onclick='schimbareSelectieArie(" + i + ")'>";
-        textHTML += clasamentZone[i].nume;// + "✈";
+        //textHTML += clasamentZone[i].nume;// + "✈";
+        textHTML += vectoriDateZone[clasamentZone[i].arie].nume;// + "✈";
 
         textHTML += "</a></div>";
 
@@ -2237,8 +2314,11 @@ function inserareTabelPozitii(){
       //elementZona2 = document.getElementsByClassName("zona" + zona +" bara_proiectie")[0];
       //elementZona3 = document.getElementsByClassName("zona" + zona +" bara_altitudine")[0];
 
-      elementZona1.style.height = String(Math.abs(Math.round(clasamentZone[zona].proiectie))/4) + "px";
-      elementZona2.style.height = String(Math.abs(Math.round(clasamentZone[zona].medie))/4) + "px";
+      //elementZona1.style.height = String(Math.abs(Math.round(clasamentZone[zona].proiectie))/4) + "px";
+      //elementZona2.style.height = String(Math.abs(Math.round(clasamentZone[zona].medie))/4) + "px";
+
+      elementZona1.style.height = String(Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorProiectieZiCurenta[totalZile]))/4) + "px";
+      elementZona2.style.height = String(Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[totalZile]))/4) + "px";
       /*
       console.log("zona=" + zona);
       console.log("clasament[zona].zona=" + clasamentZone[zona].zona);
@@ -2288,6 +2368,8 @@ function inserareTabelVitezePropagare(){
   var valoareProiectie = 0;
   var valoareMedie = 0;
 
+  var clasamentR = clasamentAeronaveZileSortatR[totalZile].clasament;
+
   /*
   clasamentR = [];
   for(let zona=0; zona < numeArii.data.value.length; zona++){
@@ -2297,16 +2379,18 @@ function inserareTabelVitezePropagare(){
   clasamentR.sort(function(a, b){return a.r - b.r});
   */
 
-  clasamentR.sort(function(a, b){return a.r - b.r});
+  //clasamentR.sort(function(a, b){return a.r - b.r});
 
   for(let i=0; i<clasamentR.length; i++){
-      textHTML += "<td id='vp_zona" + clasamentR[i].zona + "'>";
-      textHTML += "<div class='viteze zona" + clasamentR[i].zona + " nume_zona'>" + numeArii.data.value[clasamentR[i].zona].substring(0,3) + "</div>";
+      //textHTML += "<td id='vp_zona" + clasamentR[i].zona + "'>";
+      textHTML += "<td id='vp_zona" + clasamentR[i].arie + "'>";
+
+      textHTML += "<div class='viteze zona" + clasamentR[i].arie + " nume_zona'>" + numeArii.data.value[clasamentR[i].arie].substring(0,3) + "</div>";
       //textHTML += "<div class='zona" + clasamentR[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-      textHTML += "<div class='viteze zona" + clasamentR[i].zona + " val_cl_r'>" + "#" + (i+1) + "</div>";
+      textHTML += "<div class='viteze zona" + clasamentR[i].arie + " val_cl_r'>" + "#" + (i+1) + "</div>";
 
 
-      textHTML += "<div class='viteze zona" + clasamentR[i].zona + " bara_grafic'>" + Math.floor((vectoriDateZone[clasamentR[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
+      textHTML += "<div class='viteze zona" + clasamentR[i].arie + " bara_grafic'>" + Math.floor((vectoriDateZone[clasamentR[i].arie].vector_r[totalZile]-1)*10000)/100 + "</div>";
 
 
       //textHTML += "<div class='zona" + zona + " val_v'>" + "" + Math.round(vectoriDateZone[zona].date[totalZile]) + "</div>";
@@ -2375,15 +2459,17 @@ function inserareTabelAltitudini(){
   textHTML+="<tr>";
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
-  clasamentZone = clasamentAeronaveZile[totalZile].clasament;
+  //clasamentZone = clasamentAeronaveZile[totalZile].clasament;
+  var clasamentZone = clasamentAeronaveZileSortatMedieDesc[totalZile].clasament;
 
   //clasamentZone.sort(function(a, b){return a.r - b.r});
 
-  clasamentZone.sort(function(a, b){return a.medie - b.medie});
+  //clasamentZone.sort(function(a, b){return a.medie - b.medie});
 
   for(let i=0; i<clasamentZone.length; i++){
       textHTML += "<td id='vp_zona" + i + "'>";
-      textHTML += "<div class='altitudini zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
+      //textHTML += "<div class='altitudini zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
+      textHTML += "<div class='altitudini zona" + i + " nume_zona'>" + vectoriDateZone[clasamentZone[i].arie].nume + "</div>";
       //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
       textHTML += "<div class='altitudini zona" + i + " val_cl_me'>" + "#" + (i+1) + "</div>";
 
@@ -2453,15 +2539,16 @@ function inserareTabelTraiectorii(){
   textHTML+="<tr>";
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
-  clasamentZone = clasamentAeronaveZile[totalZile].clasament;
+  clasamentZone = clasamentAeronaveZileSortatProiectie[totalZile].clasament;
 
   //clasamentZone.sort(function(a, b){return a.r - b.r});
 
-  clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
+  //clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
 
   for(let i=0; i<clasamentZone.length; i++){
       textHTML += "<td id='vp_zona" + i + "'>";
-      textHTML += "<div class='traiectorii zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
+      //textHTML += "<div class='traiectorii zona" + i + " nume_zona'>" + clasamentZone[i].nume + "</div>";
+      textHTML += "<div class='traiectorii zona" + i + " nume_zona'>" + vectoriDateZone[clasamentZone[i].arie].nume + "</div>";
       //textHTML += "<div class='zona" + clasamentZone[i].zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentZone[i].zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
       textHTML += "<div class='traiectorii zona" + i + " val_cl_pr'>" + "#" + (i+1) + "</div>";
 
