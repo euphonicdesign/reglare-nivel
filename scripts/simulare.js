@@ -1588,29 +1588,29 @@ function generareClasamentAeronavePeZile(){
 
           clasamentAeronave0[arie] = {
             arie: arie,
-            r: vectoriDateZone[arie].vector_r[zi],
-            proiectie: valoareProiectie,
-            medie: valoareMedie,
-            delta: delta,
-            nume: numeArie
+            //r: vectoriDateZone[arie].vector_r[zi],
+            //proiectie: valoareProiectie,
+            //medie: valoareMedie,
+            //delta: delta,
+            //nume: numeArie
           };
 
           clasamentAeronave1[arie] = {
             arie: arie,
-            r: vectoriDateZone[arie].vector_r[zi],
-            proiectie: valoareProiectie,
+            //r: vectoriDateZone[arie].vector_r[zi],
+            //proiectie: valoareProiectie,
             medie: valoareMedie,
-            delta: delta,
-            nume: numeArie
+            //delta: delta,
+            //nume: numeArie
           };
 
           clasamentAeronave2[arie] = {
             arie: arie,
-            r: vectoriDateZone[arie].vector_r[zi],
+            //r: vectoriDateZone[arie].vector_r[zi],
             proiectie: valoareProiectie,
-            medie: valoareMedie,
-            delta: delta,
-            nume: numeArie
+            //medie: valoareMedie,
+            //delta: delta,
+            //nume: numeArie
           };
       }
 
