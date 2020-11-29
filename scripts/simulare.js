@@ -4762,6 +4762,7 @@ function desenareRadarModRadar(){
                     //nuantab = 70;
                     //nuantar = 20;
                     //nuantag = (255 - (( i + 160 - selectorZi) % 255));
+                    //rosu
                     ctx.fillStyle = "hsla(10,70%,40%," + transp + ")";
                   }
                   else if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[40].arie){
@@ -4772,7 +4773,8 @@ function desenareRadarModRadar(){
                     //nuantab = 70;
                     //nuantar = 20;
                     //nuantag = (255 - (( i + 160 - selectorZi) % 255));
-                    ctx.fillStyle = "hsla(40,80%,70%," + transp + ")";
+                    //galben
+                    ctx.fillStyle = "hsla(40,80%,55%," + transp + ")";
                   }
                   /*
                   else if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[39].arie){
