@@ -1541,6 +1541,7 @@ function inserareDateTabele(){
 
 
 function generareClasamentAeronavePeZile(){
+  /*
   clasamentAeronaveZile = [];
   var totalZile = vectoriDateZone[0].vector_r.length;//-1
 
@@ -1564,10 +1565,12 @@ function generareClasamentAeronavePeZile(){
       }
 
       clasamentAeronaveZile[zi] = {ziua:zi, clasament: clasamentAeronave};
-  }
+  }*/
 
   //var clasamentProiectie = clasamentAeronaveZile[selectorZi].clasament;
   //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
+
+  var totalZile = vectoriDateZone[0].vector_r.length;//-1
 
   //SORTARE Medie
   clasamentAeronaveZileSortatMedie = [];
@@ -2457,7 +2460,7 @@ function inserareTabelAltitudini(){
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
   //clasamentZone = clasamentAeronaveZile[totalZile].clasament;
-  var clasamentZone = clasamentAeronaveZileSortatMedie[totalZile].clasament;
+  var clasamentZone = clasamentAeronaveZileSortatMedieDesc[totalZile].clasament;
 
   //clasamentZone.sort(function(a, b){return a.r - b.r});
 
@@ -2540,7 +2543,7 @@ function inserareTabelTraiectorii(){
 
   //clasamentZone.sort(function(a, b){return a.r - b.r});
 
-  clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
+  //clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
 
   for(let i=0; i<clasamentZone.length; i++){
       textHTML += "<td id='vp_zona" + i + "'>";
