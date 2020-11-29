@@ -4758,7 +4758,7 @@ function desenareRadarModRadar(){
                   //for (let i = (selectorZi - 120); i < selectorZi; i++){
                     //transp = 0.0 + i / selectorZi;
                     //transp = 0 + i/selectorZi *100;
-                    transp = 0.2 + i / selectorZi / 4;
+                    transp = 0.2 + i / selectorZi / 2;
                     //nuantab = 70;
                     //nuantar = 20;
                     //nuantag = (255 - (( i + 160 - selectorZi) % 255));
