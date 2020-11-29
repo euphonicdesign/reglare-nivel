@@ -4669,13 +4669,48 @@ function desenareRadarModRadar(){
               //for (let i = (selectorZi - 255); i < selectorZi; i++){
                   //nuantar = (255 - (( i + 160 - selectorZi) % 255));
                 for (let i = (selectorZi - 75); i < selectorZi; i++){
-                  nuantar = (255 - (( i + 160 - selectorZi) % 255));
-                  nuantag = nuantar;
-                  nuantab = nuantar;
+                  if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[41].arie){
+                  //for (let i = (selectorZi - 120); i < selectorZi; i++){
+                    //transp = 0.0 + i / selectorZi;
+                    //transp = 0 + i/selectorZi *100;
+                    transp = 0 + i / selectorZi / 4;
+                    //nuantab = 70;
+                    //nuantar = 20;
+                    //nuantag = (255 - (( i + 160 - selectorZi) % 255));
+                    ctx.fillStyle = "hsla(0,70%,55%," + transp + ")";
+                  }
+                  else if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[40].arie){
+                  //for (let i = (selectorZi - 120); i < selectorZi; i++){
+                    //transp = 0.0 + i / selectorZi;
+                    //transp = 0 + i/selectorZi *100;
+                    transp = 0.2 + i / selectorZi;
+                    //nuantab = 70;
+                    //nuantar = 20;
+                    //nuantag = (255 - (( i + 160 - selectorZi) % 255));
+                    ctx.fillStyle = "hsla(40,80%,70%," + transp + ")";
+                  }
+                  /*
+                  else if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[39].arie){
+                  //for (let i = (selectorZi - 120); i < selectorZi; i++){
+                    //transp = 0.0 + i / selectorZi;
+                    //transp = 0 + i/selectorZi *100;
+                    transp = 0 + i / selectorZi;
+                    //nuantab = 70;
+                    //nuantar = 20;
+                    //nuantag = (255 - (( i + 160 - selectorZi) % 255));
+                    ctx.fillStyle = "hsla(210,70%,60%," + transp + ")";
+                  }*/
+                  else{
+                    nuantar = (255 - (( i + 160 - selectorZi) % 255));
+                    nuantag = nuantar;
+                    nuantab = nuantar;
+                    transp = 0.0 + i / (selectorZi) / 10;
+                    ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
+                  }
 
-                  transp = 0.0 + i / (selectorZi) / 10;
 
-                  ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
+
+
 
                   ctx.beginPath();
                   ctx.arc(vectoriDateZone[zona].vectorXAvion[i] + xRadarModRadar, vectoriDateZone[zona].vectorYAvion[i]/scalaRadarY + yRadarModRadar , 3 * (1 + 5 * (selectorZi-i)/selectorZi) , 0, 2 * Math.PI);
