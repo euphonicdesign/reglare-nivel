@@ -4758,11 +4758,11 @@ function desenareRadarModRadar(){
                   //for (let i = (selectorZi - 120); i < selectorZi; i++){
                     //transp = 0.0 + i / selectorZi;
                     //transp = 0 + i/selectorZi *100;
-                    transp = 0.2 + i / selectorZi / 2;
+                    transp = 0.2 + i / selectorZi;
                     //nuantab = 70;
                     //nuantar = 20;
                     //nuantag = (255 - (( i + 160 - selectorZi) % 255));
-                    ctx.fillStyle = "hsla(10,75%,40%," + transp + ")";
+                    ctx.fillStyle = "hsla(10,70%,40%," + transp + ")";
                   }
                   else if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[40].arie){
                   //for (let i = (selectorZi - 120); i < selectorZi; i++){
