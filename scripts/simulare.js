@@ -2453,12 +2453,9 @@ function inserareTabelVitezePropagare(){
 }
 
 function actualizareTabelVitezePropagare(){
-
-
-
   var clasamentR = clasamentAeronaveZileSortatR[selectorZi].clasament;
 
-  var elementZona, elementZona1, elementZona0;
+  var elementZona;
 
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       //elementZona0 = document.getElementById("vp_zona" + zona);
@@ -2469,7 +2466,7 @@ function actualizareTabelVitezePropagare(){
 
       if(selectorZi > orizont_regresie + ORIZONT_ARIE){
         elementChenarZona.textContent = vectoriDateZone[clasamentR[zona].arie].nume;
-        elementChenarValoare.textContent = "#" + (clasamentR[zona].arie + 1);
+        elementChenarValoare.textContent = "#" + (zona + 1);
 
         elementZona.textContent = Math.floor((vectoriDateZone[clasamentR[zona].arie].vector_r[selectorZi]-1)*10000)/100
 
@@ -2486,28 +2483,15 @@ function actualizareTabelVitezePropagare(){
         }
 
         if(clasamentR[zona].arie == nrArie){
-            //elementChenarZona = document.getElementsByClassName("viteze zona" + zona + " nume_zona")[0];
-            //elementChenarZona.style.border = "1px solid #333";
-            elementChenarZona.style.background = "yellow";
-            //elementChenarZona.style.borderBottom = "none";
-            //elementChenarZona.style.borderLeftColor = "white";
-            //elementChenarZona.style.borderRightColor = "white";
 
-            //elementChenarValoare = document.getElementsByClassName("viteze zona" + zona + " val_cl_r")[0];
-            //elementChenarValoare.style.border = "1px solid #333";
+            elementChenarZona.style.background = "yellow";
+
             elementChenarValoare.style.background = "yellow";
-            //elementChenarValoare.style.borderTop = "none";
-            //elementChenarValoare.style.borderLeftColor = "white";
-            //elementChenarValoare.style.borderRightColor = "white";
-            //elementChenarValoare.style.borderLeft = "none";
-            //elementChenarValoare.style.borderRight = "none";
+
         }
         else{
-          //elementChenarZona = document.getElementsByClassName("viteze zona" + zona + " nume_zona")[0];
-          //elementChenarZona.style.border = "none";
+
           elementChenarZona.style.background = "white";
-          //elementChenarValoare = document.getElementsByClassName("viteze zona" + zona + " val_cl_r")[0];
-          //elementChenarValoare.style.border = "none";
           elementChenarValoare.style.background = "white";
         }
 
@@ -2517,8 +2501,49 @@ function actualizareTabelVitezePropagare(){
         elementZona.style.height = 0;
       }
 
+  }
+
+}
 
 
+function actualizareTabelAltitudini(){
+
+  var clasamentZone = clasamentAeronaveZileSortatMedieDesc[selectorZi].clasament;
+
+
+  var elementZona;
+  for(let zona=0; zona < clasamentZone.length; zona++){
+      //elementZona1 = document.getElementsByClassName("zona" + zona +" bara_propagare")[0];
+      //elementZona2 = document.getElementsByClassName("zona" + zona +" bara_proiectie")[0];
+      elementZona3 = document.getElementsByClassName("zona" + zona +" bara_altitudine")[0];
+      elementChenarZona = document.getElementsByClassName("altitudini zona" + zona + " nume_zona")[0];
+      elementChenarValoare = document.getElementsByClassName("altitudini zona" + zona + " val_cl_me")[0];
+
+
+      if(selectorZi > orizont_regresie + ORIZONT_ARIE){
+          elementChenarZona.textContent = vectoriDateZone[clasamentZone[zona].arie].nume;
+          elementChenarValoare.textContent = "#" + (zona + 1);
+
+          elementZona3.textContent = Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]);
+
+          elementZona3.style.height = String(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/3)) + "px";
+          elementZona3.style.background = culoareGalben;
+
+          if(clasamentZone[zona].arie == nrArie){
+              elementChenarZona.style.background = "yellow";
+              elementChenarValoare.style.background = "yellow";
+
+          }
+          else{
+            elementChenarZona.style.background = "white";
+            elementChenarValoare.style.background = "white";
+          }
+      }
+
+      else{
+        elementZona3.textContent = "";
+        elementZona3.style.height = 0;
+      }
   }
 
 }
@@ -6989,6 +7014,7 @@ function ActualizareSuprafataGrafica() {
         actualizareTabelZone();
         actualizareTabelPozitii();
         actualizareTabelVitezePropagare();
+        actualizareTabelAltitudini();
         actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
             desenareZiValoareTrenduri();
@@ -7095,6 +7121,7 @@ function ActualizareSuprafataGraficaSingulara() {
         actualizareTabelZone();
         actualizareTabelPozitii();
         actualizareTabelVitezePropagare();
+        actualizareTabelAltitudini();
         actualizareDateZileTabele();
         if(mod == MOD_REGULATOR){
             desenareZiValoareTrenduri();
