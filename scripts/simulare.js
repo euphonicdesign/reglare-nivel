@@ -1791,6 +1791,11 @@ function actualizareDateZileTabele(){
       elementeDate[i].textContent = "Ziua " + selectorZi + " (" + tab_zi + " " + tab_luna +" ⇨ " + tab_zi2 + " " + tab_luna2 + ")";
   }
 
+  var elementeDate2 = document.getElementsByClassName("text_data2");
+  for(i = 0; i<elementeDate.length; i++){
+      elementeDate2[i].textContent = "Ziua " + selectorZi + " (" + tab_zi + " " + tab_luna + ")";
+  }
+
 }
 
 function actualizareTabelPozitii(){
