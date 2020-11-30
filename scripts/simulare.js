@@ -2460,9 +2460,11 @@ function inserareTabelVitezePropagare(){
 }
 
 function actualizareTabelVitezePropagare(){
-  var clasamentR = clasamentAeronaveZileSortatR[selectorZi].clasament;
+  if(selectorZi >= clasamentAeronaveZileSortatProiectie.length)
+      return;
 
-  var elementZona;
+  var clasamentR = clasamentAeronaveZileSortatR[selectorZi].clasament;
+  //var elementZona;
 
   for(let zona=0; zona < numeArii.data.value.length; zona++){
       //elementZona0 = document.getElementById("vp_zona" + zona);
@@ -2514,6 +2516,8 @@ function actualizareTabelVitezePropagare(){
 
 
 function actualizareTabelAltitudini(){
+  if(selectorZi >= clasamentAeronaveZileSortatProiectie.length)
+      return;
 
   var clasamentZone = clasamentAeronaveZileSortatMedieDesc[selectorZi].clasament;
 
@@ -2556,6 +2560,8 @@ function actualizareTabelAltitudini(){
 }
 
 function actualizareTabelTraiectorii(){
+  if(selectorZi >= clasamentAeronaveZileSortatProiectie.length)
+      return;
 
   clasamentZone = clasamentAeronaveZileSortatProiectie[selectorZi].clasament;
 
