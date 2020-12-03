@@ -9,8 +9,8 @@ var contorLimitare2 = 0;
 
 var culoare_canvas = "#EFEFEF";
 
-var limita_max_crestere_delta = 100;
-var limita_max_crestere_medie = 100;
+var limita_max_crestere_delta = 50;
+var limita_max_crestere_medie = 50;
 var limita_max_pierderi = 50;
 
 var limita_regim_liniar_zona = 100;
