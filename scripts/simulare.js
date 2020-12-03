@@ -173,6 +173,8 @@ let zile_info_explicatii = [];
 var xTextZi = 10;
 var yTextZi = 50;
 
+var scalaInflamatieHarta = 6;
+
 var xScalaRadar = xTextZi;
 var yScalaRadar = yTextZi + 60;
 
@@ -301,7 +303,7 @@ var scalaRadarX = 1;
 
 var scalaX_trend = 72;
 //SCALA GRAFIC VERTICAL/ORIZONTAL
-var scalaX = 390; //grafic valori vertical - cumulativ - foto, trend, regulator
+var scalaX = 400; //grafic valori vertical - cumulativ - foto, trend, regulator
 //----
 
 var scalaXTrend3Orizontal = 130;
@@ -4231,7 +4233,7 @@ function desenareAvioaneHarta(){
           ctx.beginPath();
 
           ctx.arc(pozitieZone[zona][0], pozitieZone[zona][1] ,
-                dimensiuneAvion * 1.3 + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]/8 , 0, 2 * Math.PI);
+                dimensiuneAvion * 1.3 + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]/scalaInflamatieHarta , 0, 2 * Math.PI);
 
 
           ctx.closePath();
