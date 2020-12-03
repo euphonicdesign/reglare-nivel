@@ -296,7 +296,7 @@ var scalareTraiectorieAvion = 2;
 
 
 //MAGNIFICARE RADAR IMPLICITA
-var scalaRadarY = 7.5; //magnificare radar implicita
+var scalaRadarY = 7.0; //magnificare radar implicita
 var scalaRadarX = 1;
 
 var scalaX_trend = 72;
