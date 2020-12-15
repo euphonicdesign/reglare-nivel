@@ -282,7 +282,8 @@ var scalaYAvionRadarToate = 3.5;
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
-var scala_grafic_2 = 0.9; //scalare suplimentara grafic 2 sus 1.5 = -150%
+//SCALA TREND IMPLICITA
+var scala_grafic_2 = 0.8; //scalare suplimentara grafic 2 sus 1.5 = -150%
 
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 90; // grafic sus - p+
