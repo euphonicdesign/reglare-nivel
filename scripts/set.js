@@ -139,7 +139,7 @@ let data_30 = [
             0.28, 0.28, 0.278, 0.272, 0.261, 0.27, 0.264,
             0.268, 0.271, 0.271, 0.27, 0.271, 0.261, 0.267,
             0.263, 0.254, 0.251, 0.25, 0.248, 0.248, 0.235,
-            0.245, 0.22, 0.216, 
+            0.245, 0.22, 0.216,
 
 ];
 
@@ -406,6 +406,10 @@ let info_explicatii = [
               'Cutia Pandorei trebuie închisă. Comanda trebuie oprită \
               \npentru a putea readuce sistemul în \
               \nzona liniară, acolo unde poate fi reglat...',
+
+              'Sistemul poate fi reglat în timp real a.î. să urmărească \
+              \nreferința setată. Prin intermediul buclei de reacție. \
+              \nSistemul trebuie readus în zona liniară...',
 
               'Sistemul poate fi reglat în timp real a.î. să urmărească \
               \nreferința setată. Prin intermediul buclei de reacție. \
