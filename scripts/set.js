@@ -344,7 +344,7 @@ let evenimente_actiuni = [
               '20 Oct: limitare (...)', //20/9
               '9 Noi: limitare', //9/11
               '26 Noi: ezitare...', //9/11
-              '19 Noi: ezitare...', //19/12
+              '19 Noi: ezitare....', //19/12
 ];
 
 let info_date = [
