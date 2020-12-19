@@ -326,6 +326,7 @@ let evenimente = [
               '20/10',
               '9/11',
               '26/11',
+              '19/12',
 ];
 
 let evenimente_actiuni = [
@@ -343,6 +344,7 @@ let evenimente_actiuni = [
               '20 Oct: limitare (...)', //20/9
               '9 Noi: limitare', //9/11
               '26 Noi: ezitare...', //9/11
+              '19 Noi: ezitare...', //19/12
 ];
 
 let info_date = [
@@ -360,6 +362,7 @@ let info_date = [
               '20/10',
               '9/11',
               '26/11',
+              '19/12',
 ];
 
 let info_explicatii = [

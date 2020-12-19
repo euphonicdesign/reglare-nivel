@@ -159,6 +159,7 @@ let evenimente_tip = [
               culoareVerde, //20/10
               culoareVerde, //9/11
               culoareMaro, //25/11
+              culoareMaro, //19/12
 ];
 
 var raza_cerculet = 5;
