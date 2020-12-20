@@ -3207,7 +3207,7 @@ function desenareVaseComunicante() {
     ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
     ctx.beginPath();
     ctx.moveTo(xCercRef - 8 - latBloc, yCaleDir);
-    ctx.lineTo(xCercRef - 8, yCaleDir);
+    ctx.lineTo(xCercRef - 9, yCaleDir);
     ctx.closePath();
     ctx.stroke();
 
@@ -3230,8 +3230,8 @@ function desenareVaseComunicante() {
     }
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(xCercRef + 8, yCaleDir);
-    ctx.lineTo(xBlocC, yCaleDir);
+    ctx.moveTo(xCercRef + 9, yCaleDir);
+    ctx.lineTo(xBlocC-1, yCaleDir);
     ctx.closePath();
     ctx.stroke();
 
@@ -3267,8 +3267,8 @@ function desenareVaseComunicante() {
     }
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(xBlocC + lungBloc, yCaleDir);
-    ctx.lineTo(xBlocP, yCaleDir);
+    ctx.moveTo(xBlocC + lungBloc + 1, yCaleDir);
+    ctx.lineTo(xBlocP - 1, yCaleDir);
     ctx.closePath();
     ctx.stroke();
 
@@ -3298,7 +3298,7 @@ function desenareVaseComunicante() {
     }
 
     ctx.beginPath();
-    ctx.moveTo(xBlocP + lungBloc, yCaleDir);
+    ctx.moveTo(xBlocP + lungBloc + 1, yCaleDir);
     ctx.lineTo(xBlocP + 2 * lungBloc, yCaleDir);
     ctx.closePath();
     ctx.stroke();
@@ -3314,14 +3314,14 @@ function desenareVaseComunicante() {
     //y capat dreapta
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc + lungBloc/2, yCaleDir);
-    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla);
+    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla + 1);
     ctx.closePath();
     ctx.stroke();
 
     //y capat stanga
     ctx.beginPath();
-    ctx.moveTo(xCercRef, yCaleDir + 8);
-    ctx.lineTo(xCercRef, yCaleBucla);
+    ctx.moveTo(xCercRef, yCaleDir + 9);
+    ctx.lineTo(xCercRef, yCaleBucla + 1);
     ctx.closePath();
     ctx.stroke();
 
