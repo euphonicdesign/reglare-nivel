@@ -3208,8 +3208,10 @@ function desenareVaseComunicante() {
     ctx.closePath();
     ctx.stroke();
 
+
+    ctx.fillText(Math.round(medieCumulativ[selectorZi]), xCercRef - 32, yCaleDir + 14);
     ctx.fillText("r(t)", xCercRef - 30, yCaleDir - 6);
-    ctx.fillText("+", xCercRef - 16, yCaleDir + 10);
+    ctx.fillText("+", xCercRef - 8, yCaleDir +4);
 
     //E
     ctx.beginPath();
@@ -3218,8 +3220,22 @@ function desenareVaseComunicante() {
     ctx.closePath();
     ctx.stroke();
 
+    eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
+    if (eroare > 0 ){
+        ctx.fillStyle = "red";
+    }
+    else{
+        ctx.fillStyle = "green";
+    }
+    ctx.textAlign = "center";
+    ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText( eroare, xCercRef + 20, yCaleDir + 14);
+
+    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.textAlign = "start";
+    ctx.fillStyle = "grey";
     ctx.fillText("ε(t)", xCercRef + 14, yCaleDir - 6);
-    ctx.fillText("-", xCercRef + 4, yCaleDir + 16);
+    ctx.fillText("-", xCercRef - 2, yCaleDir + 7);
 
 
     //u
@@ -3232,13 +3248,17 @@ function desenareVaseComunicante() {
     ctx.fillText("u(t)", xBlocC + lungBloc + 12, yCaleDir - 6);
 
     //y
+
+
+
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc, yCaleDir);
     ctx.lineTo(xBlocP + 2 * lungBloc, yCaleDir);
     ctx.closePath();
     ctx.stroke();
 
-    ctx.fillText("y(t)", xBlocP + lungBloc + 12, yCaleDir - 6);
+    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 34, yCaleDir - 6);
+    ctx.fillText("y(t):", xBlocP + lungBloc + 12, yCaleDir - 6);
 
     ctx.beginPath();
     ctx.closePath();
