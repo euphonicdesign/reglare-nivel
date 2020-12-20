@@ -3202,6 +3202,9 @@ function desenareVaseComunicante() {
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
     //Ref
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = culoareTextReferinta;
+    ctx.fillStyle = culoareTextReferinta;
     ctx.beginPath();
     ctx.moveTo(xCercRef - 8 - latBloc, yCaleDir);
     ctx.lineTo(xCercRef - 8, yCaleDir);
@@ -3246,13 +3249,16 @@ function desenareVaseComunicante() {
     //u
     if(zile_evenimente_actiuni[selectorZi]> -1){
         if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-            ctx.strokeStyle = culoareCrestereMaro;//"red";
-            ctx.fillStyle = culoareCrestereMaro;//"red";
+            ctx.strokeStyle = "red";//culoareCrestereMaro;//"red";
+            ctx.fillStyle = "red";//culoareCrestereMaro;//"red";
         }
         else{
             ctx.strokeStyle = culoareScadere;//"grey";
             ctx.fillStyle = culoareScadere;//"grey";
         }
+    }
+    else{
+        ctx.strokeStyle = "grey";
     }
     ctx.lineWidth = 4;
     ctx.beginPath();
@@ -3264,19 +3270,26 @@ function desenareVaseComunicante() {
     ctx.fillText("u(t)", xBlocC + lungBloc + 12, yCaleDir - 6);
 
     //y
+    ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = "grey";//culoareValoareNivel;
+    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 38, yCaleDir - 6);
+    ctx.fillText("y(t):", xBlocP + lungBloc + 12, yCaleDir - 6);
 
-    ctx.lineWidth = 2;
+    //ctx.lineWidth = 2;
     //ctx.strokeStyle = "grey";
     ctx.fillStyle = "grey";
     if(zile_evenimente_actiuni[selectorZi]> -1){
         if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-            ctx.strokeStyle = culoareCrestereMaro;
+            ctx.strokeStyle = "red";//culoareCrestereMaro;
             //ctx.fillStyle = "red";
         }
         else{
             ctx.strokeStyle = culoareScadere;//"grey";
             //ctx.fillStyle = "grey";
         }
+    }
+    else{
+        ctx.strokeStyle = "grey";
     }
 
     ctx.beginPath();
@@ -3285,8 +3298,7 @@ function desenareVaseComunicante() {
     ctx.closePath();
     ctx.stroke();
 
-    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 34, yCaleDir - 6);
-    ctx.fillText("y(t):", xBlocP + lungBloc + 12, yCaleDir - 6);
+
 
     ctx.beginPath();
     ctx.closePath();
