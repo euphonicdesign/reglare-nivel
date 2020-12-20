@@ -3239,6 +3239,17 @@ function desenareVaseComunicante() {
 
 
     //u
+    if(zile_evenimente_actiuni[selectorZi]> -1){
+        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+            ctx.strokeStyle = "red";
+            ctx.fillStyle = "red";
+        }
+        else{
+            ctx.strokeStyle = "grey";
+            ctx.fillStyle = "grey";
+        }
+    }
+    ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.moveTo(xBlocC + lungBloc, yCaleDir);
     ctx.lineTo(xBlocP, yCaleDir);
@@ -3249,8 +3260,9 @@ function desenareVaseComunicante() {
 
     //y
 
-
-
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "grey";
+    ctx.fillStyle = "grey";
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc, yCaleDir);
     ctx.lineTo(xBlocP + 2 * lungBloc, yCaleDir);
