@@ -3214,26 +3214,30 @@ function desenareVaseComunicante() {
     ctx.fillText("+", xCercRef - 8, yCaleDir +4);
 
     //E
+    eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
+    if (eroare > 0 ){
+        ctx.fillStyle = "red";
+        ctx.strokeStyle = "red";
+    }
+    else{
+        ctx.fillStyle = "green";
+        ctx.strokeStyle = "green";
+    }
+    ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.moveTo(xCercRef + 8, yCaleDir);
     ctx.lineTo(xBlocC, yCaleDir);
     ctx.closePath();
     ctx.stroke();
 
-    eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
-    if (eroare > 0 ){
-        ctx.fillStyle = "red";
-    }
-    else{
-        ctx.fillStyle = "green";
-    }
+
     ctx.textAlign = "center";
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText( eroare, xCercRef + 20, yCaleDir + 14);
 
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
-    ctx.fillStyle = "grey";
+    //ctx.fillStyle = "grey";
     ctx.fillText("ε(t)", xCercRef + 14, yCaleDir - 6);
     ctx.fillText("-", xCercRef - 2, yCaleDir + 7);
 
@@ -3241,12 +3245,12 @@ function desenareVaseComunicante() {
     //u
     if(zile_evenimente_actiuni[selectorZi]> -1){
         if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-            ctx.strokeStyle = "red";
-            ctx.fillStyle = "red";
+            ctx.strokeStyle = culoareCrestereMaro;//"red";
+            ctx.fillStyle = culoareCrestereMaro;//"red";
         }
         else{
-            ctx.strokeStyle = "grey";
-            ctx.fillStyle = "grey";
+            ctx.strokeStyle = culoareScadere;//"grey";
+            ctx.fillStyle = culoareScadere;//"grey";
         }
     }
     ctx.lineWidth = 4;
@@ -3261,8 +3265,19 @@ function desenareVaseComunicante() {
     //y
 
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "grey";
+    //ctx.strokeStyle = "grey";
     ctx.fillStyle = "grey";
+    if(zile_evenimente_actiuni[selectorZi]> -1){
+        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+            ctx.strokeStyle = culoareCrestereMaro;
+            //ctx.fillStyle = "red";
+        }
+        else{
+            ctx.strokeStyle = culoareScadere;//"grey";
+            //ctx.fillStyle = "grey";
+        }
+    }
+
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc, yCaleDir);
     ctx.lineTo(xBlocP + 2 * lungBloc, yCaleDir);
@@ -3277,6 +3292,7 @@ function desenareVaseComunicante() {
     ctx.stroke();
 
     //segmente cale bucla
+
     //y capat dreapta
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc + lungBloc/2, yCaleDir);
