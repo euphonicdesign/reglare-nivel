@@ -3237,8 +3237,9 @@ function desenareVaseComunicante() {
 
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
-    //ctx.fillStyle = "grey";
+
     ctx.fillText("ε(t)", xCercRef + 14, yCaleDir - 6);
+    ctx.fillStyle = "grey";
     ctx.fillText("-", xCercRef - 2, yCaleDir + 7);
 
 
