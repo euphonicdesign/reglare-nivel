@@ -3240,6 +3240,9 @@ function desenareVaseComunicante() {
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText( eroare, xCercRef + 20, yCaleDir + 14);
 
+    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText( "(" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%)" , xCercRef + 22, yCaleDir + 24);
+
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
 
