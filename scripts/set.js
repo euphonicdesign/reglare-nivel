@@ -412,7 +412,7 @@ let info_explicatii = [
               \nSistemul trebuie readus în zona liniară...',
 
               'Bucla de reacție este deschisă înainte ca sistemul \
-              \nsă poată atinge referința. Este activată intermitent... \
+              \nsă poată atinge referința... Este activată intermitent... \
               \nZona cea mai afectată funcționeaza în buclă deschisă...',
 
 ];
