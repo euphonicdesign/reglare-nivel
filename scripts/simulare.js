@@ -523,6 +523,20 @@ var yl3 = yLegenda + 60;
 var yl4 = yLegenda + 80;
 var yl5 = yLegenda + 100;
 
+
+//Schema Reglare
+var lungBloc = 40;
+var latBloc = 20;
+
+var yCaleDir = 420;
+var yCaleBucla = yCaleDir + 1.5* latBloc;
+
+var xCercRef = 210;
+var yCercRef = yCaleDir;
+var xBlocC = xCercRef + lungBloc;
+var xBlocP = xBlocC + 2 * lungBloc;
+var yBlocC = yCaleDir - latBloc/2;
+
 var grafic_valori_desenat = false;
 var pauza = false;
 
@@ -3166,11 +3180,101 @@ function desenareVaseComunicante() {
     ctx = suprafataGrafica.context;
     ctx.fillStyle = culoareRezervor;
 
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+
+    //Schema Reglare
+    ctx.strokeStyle = "grey";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(xCercRef, yCercRef, 8, 0, 2 * Math.PI);
+    ctx.closePath();
+    //ctx.fill();
+    ctx.stroke();
+
+    //blocuri
+    ctx.strokeRect(xBlocC, yBlocC, lungBloc, latBloc);
+    ctx.strokeRect(xBlocP, yBlocC, lungBloc, latBloc);
+
+    ctx.fillText("C", xBlocC + lungBloc/2, yCaleDir + 4);
+    ctx.fillText("P", xBlocP + lungBloc/2, yCaleDir + 4);
+
+    //segmente cale directa
+    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.textAlign = "start";
+    //Ref
+    ctx.beginPath();
+    ctx.moveTo(xCercRef - 8 - latBloc, yCaleDir);
+    ctx.lineTo(xCercRef - 8, yCaleDir);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.fillText("r(t)", xCercRef - 30, yCaleDir - 6);
+    ctx.fillText("+", xCercRef - 16, yCaleDir + 10);
+
+    //E
+    ctx.beginPath();
+    ctx.moveTo(xCercRef + 8, yCaleDir);
+    ctx.lineTo(xBlocC, yCaleDir);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.fillText("ε(t)", xCercRef + 14, yCaleDir - 6);
+    ctx.fillText("-", xCercRef + 4, yCaleDir + 16);
+
+
+    //u
+    ctx.beginPath();
+    ctx.moveTo(xBlocC + lungBloc, yCaleDir);
+    ctx.lineTo(xBlocP, yCaleDir);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.fillText("u(t)", xBlocC + lungBloc + 12, yCaleDir - 6);
+
+    //y
+    ctx.beginPath();
+    ctx.moveTo(xBlocP + lungBloc, yCaleDir);
+    ctx.lineTo(xBlocP + 2 * lungBloc, yCaleDir);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.fillText("y(t)", xBlocP + lungBloc + 12, yCaleDir - 6);
+
+    ctx.beginPath();
+    ctx.closePath();
+    ctx.stroke();
+
+    //segmente cale bucla
+    //y capat dreapta
+    ctx.beginPath();
+    ctx.moveTo(xBlocP + lungBloc + lungBloc/2, yCaleDir);
+    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla);
+    ctx.closePath();
+    ctx.stroke();
+
+    //y capat stanga
+    ctx.beginPath();
+    ctx.moveTo(xCercRef, yCaleDir + 8);
+    ctx.lineTo(xCercRef, yCaleBucla);
+    ctx.closePath();
+    ctx.stroke();
+
+    //bucla reactie
+    ctx.beginPath();
+    ctx.moveTo(xCercRef, yCaleBucla);
+    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla);
+    ctx.closePath();
+    ctx.stroke();
+
+
+
+
     //culoare implicita
     ctx.strokeStyle = culoareTextCompensator;
     ctx.lineWidth = 1;
     ctx.textAlign = "start";
     ctx.font = "italic 12px system-ui, Arial, sans-serif";
+
 
     //rezervor
     ctx.fillRect(xRezervor, yRezervor, lungimeRezervor, inaltimeRezervor);
