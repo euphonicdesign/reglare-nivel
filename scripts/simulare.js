@@ -3314,14 +3314,14 @@ function desenareVaseComunicante() {
     //y capat dreapta
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc + lungBloc/2, yCaleDir);
-    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla + 1);
+    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla);
     ctx.closePath();
     ctx.stroke();
 
     //y capat stanga
     ctx.beginPath();
     ctx.moveTo(xCercRef, yCaleDir + 9);
-    ctx.lineTo(xCercRef, yCaleBucla + 1);
+    ctx.lineTo(xCercRef, yCaleBucla);
     ctx.closePath();
     ctx.stroke();
 
