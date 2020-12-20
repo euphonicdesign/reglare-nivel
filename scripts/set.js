@@ -411,8 +411,8 @@ let info_explicatii = [
               \nreferința setată. Prin intermediul buclei de reacție. \
               \nSistemul trebuie readus în zona liniară...',
 
-              'Sistemul poate fi reglat în timp real a.î. să urmărească \
-              \nreferința setată. Prin intermediul buclei de reacție. \
-              \nSistemul trebuie readus în zona liniară...',
+              'Bucla de reacție este deschisă înainte ca sistemul \
+              \nsă poată atinge referința. Este activată intermitent... \
+              \nZona cea mai afectată funcționeaza în buclă deschisă...',
 
 ];
