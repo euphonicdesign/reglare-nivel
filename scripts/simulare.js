@@ -3203,8 +3203,8 @@ function desenareVaseComunicante() {
     ctx.textAlign = "start";
     //Ref
     ctx.lineWidth = 4;
-    ctx.strokeStyle = culoareTextReferinta;
-    ctx.fillStyle = culoareTextReferinta;
+    ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
+    ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
     ctx.beginPath();
     ctx.moveTo(xCercRef - 8 - latBloc, yCaleDir);
     ctx.lineTo(xCercRef - 8, yCaleDir);
@@ -3214,6 +3214,8 @@ function desenareVaseComunicante() {
 
     ctx.fillText(Math.round(medieCumulativ[selectorZi]), xCercRef - 32, yCaleDir + 14);
     ctx.fillText("r(t)", xCercRef - 30, yCaleDir - 6);
+
+    ctx.fillStyle = "grey";
     ctx.fillText("+", xCercRef - 8, yCaleDir +4);
 
     //E
@@ -3271,7 +3273,7 @@ function desenareVaseComunicante() {
 
     //y
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = "grey";//culoareValoareNivel;
+    ctx.fillStyle = culoareApaNivelNormal;//"grey";//culoareValoareNivel;
     ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 38, yCaleDir - 6);
     ctx.fillText("y(t):", xBlocP + lungBloc + 12, yCaleDir - 6);
 
