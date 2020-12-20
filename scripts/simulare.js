@@ -3216,7 +3216,7 @@ function desenareVaseComunicante() {
     ctx.fillText("r(t)", xCercRef - 30, yCaleDir - 6);
 
     ctx.fillStyle = "grey";
-    ctx.fillText("+", xCercRef - 8, yCaleDir +4);
+    ctx.fillText("+", xCercRef - 7, yCaleDir +4);
 
     //E
     eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
@@ -3273,9 +3273,9 @@ function desenareVaseComunicante() {
 
     //y
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareApaNivelNormal;//"grey";//culoareValoareNivel;
-    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 38, yCaleDir - 6);
-    ctx.fillText("y(t):", xBlocP + lungBloc + 12, yCaleDir - 6);
+    ctx.fillStyle = culoareApaNivelUltraCritic;//"grey";//culoareValoareNivel;
+    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 26, yCaleDir + 13);
+    ctx.fillText("y(t)", xBlocP + lungBloc + 26, yCaleDir - 6);
 
     //ctx.lineWidth = 2;
     //ctx.strokeStyle = "grey";
