@@ -3216,7 +3216,7 @@ function desenareVaseComunicante() {
     ctx.fillText("r(t)", xCercRef - 30, yCaleDir - 6);
 
     ctx.fillStyle = "grey";
-    ctx.fillText("+", xCercRef - 7, yCaleDir +4);
+    ctx.fillText("-", xCercRef - 7, yCaleDir +4);
 
     //E
     eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
@@ -3252,7 +3252,7 @@ function desenareVaseComunicante() {
 
     ctx.fillText("ε(t)", xCercRef + 14, yCaleDir - 6);
     ctx.fillStyle = "grey";
-    ctx.fillText("-", xCercRef - 2, yCaleDir + 7);
+    ctx.fillText("+", xCercRef - 4, yCaleDir + 8);
 
 
     //u
