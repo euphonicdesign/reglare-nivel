@@ -167,7 +167,7 @@ var unghiEliceRadiani2 = 0;
 var xElice1 = 490;
 var xElice2 = xElice1 + 26;
 var yElice = 430;
-var yUmbra = inaltimeSuprafataGrafica - 10;
+var yUmbra = inaltimeSuprafataGrafica - 1;
 
 var raza_cerculet = 5;
 var raza_pulsatie = 0;
