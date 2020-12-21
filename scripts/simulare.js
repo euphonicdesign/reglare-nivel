@@ -162,6 +162,13 @@ let evenimente_tip = [
               culoareMaro, //19/12
 ];
 
+var unghiEliceRadiani = -Math.PI/4;
+var unghiEliceRadiani2 = 0;
+var xElice1 = 490;
+var xElice2 = xElice1 + 26;
+var yElice = 430;
+var yUmbra = inaltimeSuprafataGrafica - 10;
+
 var raza_cerculet = 5;
 var raza_pulsatie = 0;
 
@@ -3178,6 +3185,98 @@ var suprafataGrafica = {
 
 function desenareVaseComunicante() {
     ctx = suprafataGrafica.context;
+
+
+    //radianiZi = selectorZi * (2 * Math.PI) / 360 * vitezaRadar; //360/8 = 45
+
+    //grade = selectorZi * vitezaRadar;
+    //console.log(grade);
+    //if(Math.cos(radianiZi))
+    /*
+    grade = selectorZi % (360 / vitezaRadar);
+    //console.log("grade: " + grade);
+    //console.log(cadranStart + " " + cadranFinal);
+    //console.log(radianiZi);
+    if(grade > cadranStart && grade < cadranFinal ){
+       //console.log("cadranul 4");
+    }*/
+
+    //desenare Elice Turbina
+    unghiEliceRadiani = unghiEliceRadiani  + (2 * Math.PI) / 360 * data[selectorZi]*2;
+    unghiEliceRadiani2 = unghiEliceRadiani2  - (2 * Math.PI) / 360 * data[selectorZi]*2;
+
+    if(unghiEliceRadiani/(2*Math.PI)>1){
+      unghiEliceRadiani -= 2*Math.PI;
+    }
+
+    if(-unghiEliceRadiani2/(2*Math.PI)>1){
+      unghiEliceRadiani2 += 2*Math.PI;
+    }
+    //console.log(unghiEliceRadiani);
+    yElice = inaltimeSuprafataGrafica - 10 - ((medieCumulativ[selectorZi]*scalaY)/maxValue);
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#333";//culoareApaNivelNormal;//culoareTextReferinta;
+    //ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
+    ctx.beginPath();
+    ctx.moveTo(xElice1 - 10, yUmbra);
+    ctx.lineTo(xElice2 + 10, yUmbra);
+    ctx.closePath();
+    ctx.stroke();
+    //desenare umbra elice
+
+    ctx.fillStyle = "#333";
+    ctx.beginPath();
+    ctx.arc(xElice1, yElice, 10, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "lightblue";
+    ctx.beginPath();
+    ctx.moveTo(xElice1, yElice + 0 );
+    ctx.arc(xElice1, yElice, 10, unghiEliceRadiani, unghiEliceRadiani + Math.PI/4);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(xElice1, yElice + 0 );
+    ctx.arc(xElice1, yElice, 10, unghiEliceRadiani + Math.PI, unghiEliceRadiani + Math.PI + Math.PI/4);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#333";
+    ctx.beginPath();
+    ctx.arc(xElice1, yElice, 2, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fill();
+
+    //Elice2
+    ctx.fillStyle = "#333";
+    ctx.beginPath();
+    ctx.arc(xElice2, yElice, 10, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "lightblue";
+    ctx.beginPath();
+    ctx.moveTo(xElice2, yElice + 0 );
+    ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 , unghiEliceRadiani2 + Math.PI/4);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(xElice2, yElice + 0 );
+    ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 + Math.PI, unghiEliceRadiani2 + Math.PI + Math.PI/4);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#333";
+    ctx.beginPath();
+    ctx.arc(xElice2, yElice, 2, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fill();
+
+
     ctx.fillStyle = culoareRezervor;
 
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
@@ -3376,7 +3475,6 @@ function desenareVaseComunicante() {
     ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla);
     ctx.closePath();
     ctx.stroke();
-
 
 
 
