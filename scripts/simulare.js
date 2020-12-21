@@ -3213,20 +3213,21 @@ function desenareVaseComunicante() {
     ctx.setLineDash([]);
     //ctx.lineWidth = 2;
 
+
     //R
-    if(vector_r[selectorZi] >= 1){
+    if(vector_rToate[selectorZi] >= 1){
       ctx.fillStyle = "red";//culoareCrestereRosu;
-      text_r = "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
+      text_r = "+" + ((Math.floor((vector_rToate[selectorZi] - 1)*10000))/100) + "%";
     }
     else{
       ctx.fillStyle = "green";
       //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-      text_r = "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
+      text_r = "" + ((Math.floor((vector_rToate[selectorZi] - 1)*10000))/100) + "%";
     }
 
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
-    if(selectorZi > orizont_regresie){
+    if(selectorZi > orizont_trend){
         ctx.fillText(text_r, xBlocP + lungBloc/2, yCaleDir - 14);
     }
 
@@ -4514,21 +4515,21 @@ function desenarePendulModHarta(){
 
   //vectorXAvion[i] = xRadarModRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1ModRadar);
   //vectorYAvion[i] = yRadarModRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1ModRadar);
-  if(nrArie == 43){
-      xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-      xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-  }
-  else{
-      xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-      xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-  }
+  //if(nrArie == 43){
+      xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+      xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+  //}
+  //else{
+    //  xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+    //  xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+  //}
 
   xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * 2 / 360);
   ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * 2 / 360);
 
   ctx.lineWidth = 6 ;
 
-  if(vector_r[selectorZi] > 1){
+  if(vector_rToate[selectorZi] > 1){
       ctx.strokeStyle = culoareCrestereMaro;
       ctx.fillStyle = culoareCrestereMaro;
   }
