@@ -3213,6 +3213,24 @@ function desenareVaseComunicante() {
     ctx.setLineDash([]);
     //ctx.lineWidth = 2;
 
+    //R
+    if(vector_r[selectorZi] >= 1){
+      ctx.fillStyle = "red";//culoareCrestereRosu;
+      text_r = "+" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
+    }
+    else{
+      ctx.fillStyle = "green";
+      //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+      text_r = "" + ((Math.floor((vector_r[selectorZi] - 1)*10000))/100) + "%";
+    }
+
+    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    ctx.textAlign = "center";
+    if(selectorZi > orizont_regresie){
+        ctx.fillText(text_r, xBlocP + lungBloc/2, yCaleDir - 14);
+    }
+
+
     //segmente cale directa
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
@@ -3232,6 +3250,8 @@ function desenareVaseComunicante() {
 
     ctx.fillStyle = "grey";
     ctx.fillText("-", xCercRef - 7, yCaleDir +4);
+
+
 
     //E
     eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
@@ -3270,6 +3290,9 @@ function desenareVaseComunicante() {
     ctx.fillText("+", xCercRef - 4, yCaleDir + 8);
 
 
+    //Tau
+    ctx.fillText("(𝜏 = 4s)", xBlocP - 1, yCaleBucla - 7);
+
     //u
     if(zile_evenimente_actiuni[selectorZi]> -1){
         if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
@@ -3292,6 +3315,8 @@ function desenareVaseComunicante() {
     ctx.stroke();
 
     ctx.fillText("u(t)", xBlocC + lungBloc + 12, yCaleDir - 6);
+
+
 
     //y
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
