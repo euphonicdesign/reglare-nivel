@@ -1955,13 +1955,13 @@ function actualizareTabelPozitii(){
               max_delta = 214 - 100 - 95 - 5;
           }
           else{
-              elementSegBaraMedie.style.height = String(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/2)) + "px";
-              max_delta = 214 - Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/2) - 95 - 5;
+              elementSegBaraMedie.style.height = String(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]*1.2)) + "px";
+              max_delta = 214 - Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/1.2) - 95 - 5;
           }
 
           //max_delta = 214 - Math.round(clasamentZone[zona].medie/2) - 95;
 
-          h_delta = Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]/2));
+          h_delta = Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorDeltaZiCurenta[selectorZi]/1.2));
           if(h_delta < max_delta){
               elementSegBaraProiectie.style.height = String(h_delta) + "px";
           }
@@ -1983,7 +1983,7 @@ function actualizareTabelPozitii(){
           }
 
 
-          if(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi] < 30)){
+          if(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi] < 12)){
               elementSegBaraMedie.textContent = "";
           }
           else{
