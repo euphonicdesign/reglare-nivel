@@ -3198,6 +3198,21 @@ function desenareVaseComunicante() {
     ctx.fillText("C", xBlocC + lungBloc/2, yCaleDir + 4);
     ctx.fillText("P", xBlocP + lungBloc/2, yCaleDir + 4);
 
+    //algoritm reglare - minimizare E
+    //ctx.lineWidth = 1;
+    ctx.setLineDash([2, 4]);
+    //ctx.beginPath();
+    ctx.moveTo(xBlocC + lungBloc/2, yCaleDir - 10);
+    ctx.lineTo(xBlocC + lungBloc/2, yCaleDir - 22);
+    //ctx.closePath();
+    ctx.stroke();
+    ctx.moveTo(xBlocC + 21, yCaleDir - 22);
+    ctx.lineTo(xBlocC - 3, yCaleDir - 22);
+    //ctx.closePath();
+    ctx.stroke();
+    ctx.setLineDash([]);
+    //ctx.lineWidth = 2;
+
     //segmente cale directa
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
