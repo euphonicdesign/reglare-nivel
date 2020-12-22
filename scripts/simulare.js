@@ -336,7 +336,7 @@ var yMagnificareGrafice2 = yGrafic_3 - 64;
 var yGraficSemnale = 340;
 var xGraficSemnale = 208;
 var intervalProiectieSemnale = 30;
-var compresieGraficSemnale = 3;
+var compresieGraficSemnale = 2.6;
 
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -7211,6 +7211,7 @@ function desenareGraficSemnale(){
       y_valoare_1 = y_val_1; //i*incrementX;
       y_valoare_2 = Math.round(y_valoare_1 - ((data[i]*scalaXTrend3Orizontal)/maxValue));
       r_val = Math.round(y_valoare_1 - ((medieCumulativ[i]*scalaXTrend3Orizontal)/maxValue));
+      e_val = Math.round(y_valoare_1 - (((data[i]-medieCumulativ[i])*scalaXTrend3Orizontal)/maxValue));
       //lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
       //y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
       //y_valoare_2 = y_valoare_2 - lungime_segment;
@@ -7235,6 +7236,21 @@ function desenareGraficSemnale(){
       ctx.closePath();
       ctx.stroke();
 
+      //e
+      if((data[i]-medieCumulativ[i])>0){
+        //ctx.strokeStyle = culoareTextCompensatorRosu;
+        ctx.strokeStyle = "red";
+      }
+      else{
+        ctx.strokeStyle = culoareScadere;
+      }
+      //ctx.strokeStyle = "red";//"#4ddbff";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+      ctx.beginPath();
+      ctx.moveTo(x_valoare, e_val-1);
+      ctx.lineTo(x_valoare, e_val);
+      ctx.closePath();
+      ctx.stroke();
+
 
       if(i==selectorZi){
         //cerculet creion y(t)
@@ -7242,6 +7258,13 @@ function desenareGraficSemnale(){
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x_valoare, y_valoare_2, 4, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.strokeStyle = "yellow";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(x_valoare, r_val, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.stroke();
 
