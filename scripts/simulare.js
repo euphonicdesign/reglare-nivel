@@ -3339,7 +3339,7 @@ function desenareVaseComunicante() {
     }
     //blocuri
     ctx.strokeRect(xBlocC, yBlocC, lungBloc, latBloc);
-    ctx.fillText("C", xBlocC + lungBloc/2, yCaleDir + 4);
+    ctx.fillText("Cₚ", xBlocC + lungBloc/2, yCaleDir + 4);
 
 
     //algoritm reglare - minimizare E
@@ -3882,7 +3882,7 @@ function desenareCompensatorValori() {
     //ctx.fillText("Er=" + Math.round(data[selectorZi]), 20, 260);
 
     //Compensator
-    ctx.fillText("C=" + "Kp*" + Math.round(data[selectorZi]) + "+Ki*"+Math.round(medieCumulativ[selectorZi]) + "+Kd*" + Math.round(medieCumulativ[selectorZi] * intervalProiectie), xLegenda, yl2);
+    ctx.fillText("Cᵢ=" + "Kp*" + Math.round(data[selectorZi]) + "+Ki*"+Math.round(medieCumulativ[selectorZi]) + "+Kd*" + Math.round(medieCumulativ[selectorZi] * intervalProiectie), xLegenda, yl2);
 
     //Grad atentie
     //ctx.fillStyle = culoareTextCompensatorFill;
@@ -3893,11 +3893,12 @@ function desenareCompensatorValori() {
     //ctx.fillStyle = culoareTextCompensatorFill;
     //ctx.font = "italic 12px system-ui, Arial, sans-serif";
     //ctx.fillText("C=" + comandaIdeala[selectorZi], 20, yl4);
+    ctx.font = "italic bold 12px system-ui, Arial, sans-serif";
     if(comandaIdeala[selectorZi]>10){
-        ctx.fillText("C=" + comandaIdeala[selectorZi] + textMaiMare10, xLegenda, yl4);
+        ctx.fillText("Cᵢ=" + comandaIdeala[selectorZi] + textMaiMare10, xLegenda, yl4);
     }
     else{
-        ctx.fillText("C=" + comandaIdeala[selectorZi], xLegenda, yl4);
+        ctx.fillText("Cᵢ=" + comandaIdeala[selectorZi], xLegenda, yl4);
     }
 
     //Afisare data - zi curenta
