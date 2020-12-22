@@ -168,7 +168,7 @@ var xElice1 = 490;
 var xElice2 = xElice1 + 26;
 var yElice = 430;
 var yUmbra = inaltimeSuprafataGrafica - 1;
-var text_lim = "";
+var text_lim = "lim";
 
 var raza_cerculet = 5;
 var raza_pulsatie = 0;
@@ -3437,7 +3437,9 @@ function desenareVaseComunicante() {
     }
     else{
         ctx.strokeStyle = culoareScadere;//"grey";
+        ctx.fillStyle = culoareScadere;
     }
+
     ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.moveTo(xBlocC + lungBloc + 1, yCaleDir);
