@@ -539,7 +539,7 @@ var latBloc = 20;
 var yCaleDir = 418;
 var yCaleBucla = yCaleDir + 1.5* latBloc;
 
-var xCercRef = 210;
+var xCercRef = 50;
 var yCercRef = yCaleDir;
 var xBlocC = xCercRef + lungBloc;
 var xBlocP = xBlocC + 2 * lungBloc;
