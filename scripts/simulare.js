@@ -3461,7 +3461,19 @@ function desenareVaseComunicante() {
     //ctx.lineWidth = 2;
     //ctx.strokeStyle = "grey";
     ctx.fillStyle = "grey";
+    //Factor amplificare
+    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+    factor_amp = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10;
+    ctx.fillText("factor amplificare = ", xCercRef + 26, yCaleBucla + 16);
+    if(factor_amp < 1){
+        ctx.fillStyle = "green";
+    }
+    else{
+        ctx.fillStyle = "red";
+    }
+    ctx.fillText(factor_amp + "x", xCercRef + 132, yCaleBucla + 16);
 
+    ctx.fillStyle = "grey";
     //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
     if(data[selectorZi]>medieCumulativ[selectorZi]){
         ctx.strokeStyle = "red";//culoareCrestereMaro;
