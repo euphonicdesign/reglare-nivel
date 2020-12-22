@@ -3203,8 +3203,11 @@ function desenareVaseComunicante() {
     }*/
 
     //desenare Elice Turbina
-    unghiEliceRadiani = unghiEliceRadiani  + (2 * Math.PI) / 360 * data[selectorZi]*2;
-    unghiEliceRadiani2 = unghiEliceRadiani2  - (2 * Math.PI) / 360 * data[selectorZi]*2;
+    //vitezaElice = data[selectorZi]*2;
+    vitezaElice = 34 * data[selectorZi] / medieCumulativ[selectorZi]; //factor amplificare
+
+    unghiEliceRadiani = unghiEliceRadiani  + (2 * Math.PI) / 360 * vitezaElice;
+    unghiEliceRadiani2 = unghiEliceRadiani2  - (2 * Math.PI) / 360 * vitezaElice;
 
     if(unghiEliceRadiani/(2*Math.PI)>1){
       unghiEliceRadiani -= 2*Math.PI;
