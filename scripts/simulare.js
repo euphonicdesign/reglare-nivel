@@ -536,7 +536,7 @@ var yl5 = yLegenda + 100;
 var lungBloc = 40;
 var latBloc = 20;
 
-var yCaleDir = 418;
+var yCaleDir = 410;
 var yCaleBucla = yCaleDir + 1.5* latBloc;
 
 var xCercRef = 50;
