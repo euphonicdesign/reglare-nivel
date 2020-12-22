@@ -7254,19 +7254,34 @@ function desenareGraficSemnale(){
 
       if(i==selectorZi){
         //cerculet creion y(t)
-        ctx.strokeStyle = "white";
+
+        if((data[i]-medieCumulativ[i])>0){
+          //ctx.strokeStyle = culoareTextCompensatorRosu;
+          ctx.strokeStyle = "red";
+        }
+        else{
+          ctx.strokeStyle = culoareScadere;
+        }
         ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(x_valoare, e_val, 4, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.strokeStyle = "white";
+        //ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x_valoare, y_valoare_2, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.stroke();
 
         ctx.strokeStyle = "yellow";
-        ctx.lineWidth = 2;
+        //ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x_valoare, r_val, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.stroke();
+
 
       }
 
