@@ -332,6 +332,12 @@ var yMagnificareGrafice = yGrafic_2 - 7;
 var xMagnificareGrafice2 = 59;
 var yMagnificareGrafice2 = yGrafic_3 - 64;
 
+//Grafic Semnale
+var yGraficSemnale = 340;
+var xGraficSemnale = 208;
+var intervalProiectieSemnale = 30;
+var compresieGraficSemnale = 3;
+
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
 var kp=1.7;
@@ -7185,6 +7191,67 @@ function desenareGraficVertical(){
     }
 }
 
+function desenareGraficSemnale(){
+    ctx = suprafataGrafica.context;
+
+    //desenare linie orizontala medie
+    //x_val_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
+    y_val_1 = yGraficSemnale;
+
+    x_val_1 = xGraficSemnale + Math.round(selectorZi/compresieGraficSemnale);
+    x_val_2 = x_val_1 + intervalProiectieSemnale;
+
+
+
+
+    for (let i = 0; i <= selectorZi; i++) {
+
+      //GRAFIC ORIZONTAL(VERTICAL) - UMPLERE
+      //desenare linie sub valoare grafic
+      y_valoare_1 = y_val_1; //i*incrementX;
+      y_valoare_2 = Math.round(y_valoare_1 - ((data[i]*scalaXTrend3Orizontal)/maxValue));
+      r_val = Math.round(y_valoare_1 - ((medieCumulativ[i]*scalaXTrend3Orizontal)/maxValue));
+      //lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
+      //y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
+      //y_valoare_2 = y_valoare_2 - lungime_segment;
+      //ySegmentDepasire = Math.round(y_val_1 + (25*scalaXTrend3Orizontal)/maxValue) - lungime_segment;
+
+      x_valoare = xGraficSemnale + Math.round(i/compresieGraficSemnale);
+
+      //y
+      ctx.strokeStyle = "white";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x_valoare, y_valoare_2-1);
+      ctx.lineTo(x_valoare, y_valoare_2);
+      ctx.closePath();
+      ctx.stroke();
+
+      //r
+      ctx.strokeStyle = "yellow";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+      ctx.beginPath();
+      ctx.moveTo(x_valoare, r_val-1);
+      ctx.lineTo(x_valoare, r_val);
+      ctx.closePath();
+      ctx.stroke();
+
+
+      if(i==selectorZi){
+        //cerculet creion y(t)
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(x_valoare, y_valoare_2, 4, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+
+      }
+
+    }
+
+}
+
+
 function desenareGraficOrizontal(){
     ctx = suprafataGrafica.context;
 
@@ -7599,6 +7666,7 @@ function ActualizareSuprafataGrafica() {
             desenareIndicatori();
             desenareEvenimente();
             desenareGraficVertical();
+            desenareGraficSemnale();
             //desenarePuncteGraficOrizontal();
         }
         else if(mod == MOD_RADAR){
@@ -7708,6 +7776,7 @@ function ActualizareSuprafataGraficaSingulara() {
             desenareIndicatori();
             desenareEvenimente();
             desenareGraficVertical();
+            desenareGraficSemnale();
 
             //desenarePuncteGraficOrizontal();
         }
