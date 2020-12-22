@@ -3432,7 +3432,7 @@ function desenareVaseComunicante() {
         }
     }
     else{
-        ctx.strokeStyle = "grey";
+        ctx.strokeStyle = culoareScadere;//"grey";
     }
     ctx.lineWidth = 4;
     ctx.beginPath();
