@@ -3318,15 +3318,26 @@ function desenareVaseComunicante() {
     //ctx.fill();
     ctx.stroke();
 
+
+    if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] != culoareMaro){
+        ctx.strokeStyle = "green";//culoareCrestereMaro;//"red";
+        ctx.fillStyle = "green";//culoareCrestereMaro;//"red";
+        //text_lim = "des";
+    }
+    else{
+      ctx.strokeStyle = "grey";
+      ctx.fillStyle = "grey";
+    }
     //blocuri
     ctx.strokeRect(xBlocC, yBlocC, lungBloc, latBloc);
-    ctx.strokeRect(xBlocP, yBlocC, lungBloc, latBloc);
-
     ctx.fillText("C", xBlocC + lungBloc/2, yCaleDir + 4);
-    ctx.fillText("P", xBlocP + lungBloc/2, yCaleDir + 4);
 
     //algoritm reglare - minimizare E
     //ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.closePath();
+    ctx.stroke();
+
     ctx.setLineDash([2, 4]);
     //ctx.beginPath();
     ctx.moveTo(xBlocC + lungBloc/2, yCaleDir - 10);
@@ -3341,16 +3352,22 @@ function desenareVaseComunicante() {
     //ctx.lineWidth = 2;
 
 
+
     //R
     if(vector_rToate[selectorZi] >= 1){
       ctx.fillStyle = "red";//culoareCrestereRosu;
+      ctx.strokeStyle = "red";
       text_r = "+" + ((Math.floor((vector_rToate[selectorZi] - 1)*10000))/100) + "%";
     }
     else{
       ctx.fillStyle = "green";
+      ctx.strokeStyle = "green";
       //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
       text_r = "" + ((Math.floor((vector_rToate[selectorZi] - 1)*10000))/100) + "%";
     }
+
+    ctx.strokeRect(xBlocP, yBlocC, lungBloc, latBloc);
+    ctx.fillText("P", xBlocP + lungBloc/2, yCaleDir + 4);
 
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
