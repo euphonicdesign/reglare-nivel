@@ -3232,7 +3232,7 @@ function desenareVaseComunicante() {
     ctx.fill();
 
     if(data[selectorZi]>medieCumulativ[selectorZi]){
-        ctx.strokeStyle = "red";//culoareCrestereMaro;
+        ctx.strokeStyle = culoareTextCompensatorRosu;//culoareCrestereMaro;
         //ctx.fillStyle = "red";
     }
     else{
@@ -3272,7 +3272,7 @@ function desenareVaseComunicante() {
     ctx.fill();
 
     if(data[selectorZi]>medieCumulativ[selectorZi]){
-        ctx.strokeStyle = "red";//culoareCrestereMaro;
+        ctx.strokeStyle = culoareTextCompensatorRosu;//culoareCrestereMaro;
         //ctx.fillStyle = "red";
     }
     else{
