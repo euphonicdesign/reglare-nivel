@@ -3369,7 +3369,8 @@ function desenareVaseComunicante() {
     ctx.strokeRect(xBlocP, yBlocC, lungBloc, latBloc);
     ctx.fillText("P", xBlocP + lungBloc/2, yCaleDir + 4);
 
-    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
     if(selectorZi > orizont_trend){
         ctx.fillText(text_r, xBlocP + 20, yCaleBucla - 7);
