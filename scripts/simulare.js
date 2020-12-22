@@ -3327,7 +3327,7 @@ function desenareVaseComunicante() {
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
     if(selectorZi > orizont_trend){
-        ctx.fillText(text_r, xBlocP + lungBloc/2, yCaleDir - 14);
+        ctx.fillText(text_r, xBlocP + 20, yCaleBucla - 7);
     }
 
 
@@ -3391,7 +3391,7 @@ function desenareVaseComunicante() {
 
 
     //Tau
-    ctx.fillText("(𝜏 = 4s)", xBlocP - 1, yCaleBucla - 7);
+    ctx.fillText("𝜏 = 4s", xBlocP + lungBloc/2 - 16, yCaleDir - 14);
 
     //u
     if(zile_evenimente_actiuni[selectorZi]> -1){
@@ -3428,7 +3428,8 @@ function desenareVaseComunicante() {
     //ctx.strokeStyle = "grey";
     ctx.fillStyle = "grey";
     if(zile_evenimente_actiuni[selectorZi]> -1){
-        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+        //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+        if(data[selectorZi]>medieCumulativ[selectorZi]){
             ctx.strokeStyle = "red";//culoareCrestereMaro;
             //ctx.fillStyle = "red";
         }
