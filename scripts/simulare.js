@@ -3492,6 +3492,7 @@ function desenareVaseComunicante() {
     else{
         ctx.fillStyle = "red";
     }
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(factor_amp + "x", xCercRef + 132, yCaleBucla + 16);
 
     ctx.fillStyle = "grey";
