@@ -3334,12 +3334,13 @@ function desenareVaseComunicante() {
         //text_lim = "des";
     }
     else{
-      ctx.strokeStyle = "grey";
+      ctx.strokeStyle = "red";
       ctx.fillStyle = "grey";
     }
     //blocuri
     ctx.strokeRect(xBlocC, yBlocC, lungBloc, latBloc);
     ctx.fillText("C", xBlocC + lungBloc/2, yCaleDir + 4);
+
 
     //algoritm reglare - minimizare E
     //ctx.lineWidth = 1;
@@ -3347,6 +3348,15 @@ function desenareVaseComunicante() {
     ctx.closePath();
     ctx.stroke();
 
+    if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] != culoareMaro){
+        ctx.strokeStyle = "green";//culoareCrestereMaro;//"red";
+        ctx.fillStyle = "green";//culoareCrestereMaro;//"red";
+        //text_lim = "des";
+    }
+    else{
+      ctx.strokeStyle = "grey";
+      ctx.fillStyle = "grey";
+    }
     ctx.setLineDash([2, 4]);
     //ctx.beginPath();
     ctx.moveTo(xBlocC + lungBloc/2, yCaleDir - 10);
