@@ -3427,7 +3427,7 @@ function desenareVaseComunicante() {
         if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
             ctx.strokeStyle = "red";//culoareCrestereMaro;//"red";
             ctx.fillStyle = "red";//culoareCrestereMaro;//"red";
-            text_lim = "";
+            text_lim = "des";
         }
         else{
             ctx.strokeStyle = culoareScadere;//"grey";
@@ -3448,9 +3448,10 @@ function desenareVaseComunicante() {
     ctx.stroke();
 
     ctx.fillText("u(t)", xBlocC + lungBloc + 12, yCaleDir - 6);
-    ctx.fillText(text_lim, xBlocC + lungBloc + 12, yCaleDir + 13);
+    ctx.textAlign = "center";
+    ctx.fillText(text_lim, xBlocC + lungBloc + 20, yCaleDir + 13);
 
-
+    ctx.textAlign = "start";
     //y
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareApaNivelUltraCritic;//"grey";//culoareValoareNivel;
