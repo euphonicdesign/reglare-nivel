@@ -3231,6 +3231,19 @@ function desenareVaseComunicante() {
     ctx.closePath();
     ctx.fill();
 
+    if(data[selectorZi]>medieCumulativ[selectorZi]){
+        ctx.strokeStyle = "red";//culoareCrestereMaro;
+        //ctx.fillStyle = "red";
+    }
+    else{
+        ctx.strokeStyle = culoareScadere;//"grey";
+        //ctx.fillStyle = "grey";
+    }
+    ctx.beginPath();
+    ctx.arc(xElice1, yElice, 10, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.stroke();
+
     ctx.fillStyle = "lightblue";
     ctx.beginPath();
     ctx.moveTo(xElice1, yElice + 0 );
@@ -3250,12 +3263,26 @@ function desenareVaseComunicante() {
     ctx.closePath();
     ctx.fill();
 
+
     //Elice2
     ctx.fillStyle = "#333";
     ctx.beginPath();
     ctx.arc(xElice2, yElice, 10, 0, 2*Math.PI);
     ctx.closePath();
     ctx.fill();
+
+    if(data[selectorZi]>medieCumulativ[selectorZi]){
+        ctx.strokeStyle = "red";//culoareCrestereMaro;
+        //ctx.fillStyle = "red";
+    }
+    else{
+        ctx.strokeStyle = culoareScadere;//"grey";
+        //ctx.fillStyle = "grey";
+    }
+    ctx.beginPath();
+    ctx.arc(xElice2, yElice, 10, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.stroke();
 
     ctx.fillStyle = "lightblue";
     ctx.beginPath();
@@ -3427,20 +3454,17 @@ function desenareVaseComunicante() {
     //ctx.lineWidth = 2;
     //ctx.strokeStyle = "grey";
     ctx.fillStyle = "grey";
-    if(zile_evenimente_actiuni[selectorZi]> -1){
-        //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-        if(data[selectorZi]>medieCumulativ[selectorZi]){
-            ctx.strokeStyle = "red";//culoareCrestereMaro;
-            //ctx.fillStyle = "red";
-        }
-        else{
-            ctx.strokeStyle = culoareScadere;//"grey";
-            //ctx.fillStyle = "grey";
-        }
+
+    //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+    if(data[selectorZi]>medieCumulativ[selectorZi]){
+        ctx.strokeStyle = "red";//culoareCrestereMaro;
+        //ctx.fillStyle = "red";
     }
     else{
-        ctx.strokeStyle = "grey";
+        ctx.strokeStyle = culoareScadere;//"grey";
+        //ctx.fillStyle = "grey";
     }
+
 
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc + 1, yCaleDir);
