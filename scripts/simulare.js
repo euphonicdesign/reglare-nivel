@@ -7253,7 +7253,7 @@ function desenareGraficSemnale(){
         ctx.strokeStyle = "red";
       }
       else{
-        ctx.strokeStyle = culoareScadere;
+        ctx.strokeStyle = culoareCerculetRScadere;//culoareScadere;
       }
       //ctx.strokeStyle = "red";//"#4ddbff";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
       ctx.beginPath();
@@ -7272,8 +7272,8 @@ function desenareGraficSemnale(){
           ctx.fillStyle = "red";
         }
         else{
-          ctx.strokeStyle = culoareScadere;
-          ctx.fillStyle = culoareScadere;
+          ctx.strokeStyle = culoareCerculetRScadere;//culoareScadere;
+          ctx.fillStyle = culoareCerculetRScadere;//culoareScadere;
         }
         ctx.lineWidth = 2;
         ctx.beginPath();
