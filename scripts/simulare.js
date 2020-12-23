@@ -7294,13 +7294,16 @@ function desenareGraficSemnale(){
         //ctx.textAlign = "start";
         ctx.lineCap = "round";
         if((data[i]-medieCumulativ[i])>0){
+
             ctx.beginPath();
+            ctx.lineWidth = 1;
             ctx.moveTo(x_valoare, e_val-9);
             ctx.lineTo(x_valoare, e_val);
             ctx.closePath();
             ctx.stroke();
 
             ctx.beginPath();
+            ctx.lineWidth = 2;
             ctx.moveTo(x_valoare-3, e_val-9);
             ctx.lineTo(x_valoare+3, e_val-9);
             ctx.closePath();
@@ -7309,12 +7312,14 @@ function desenareGraficSemnale(){
         else{
             ctx.beginPath();
             //ctx.lineCap = "round";
+            ctx.lineWidth = 1;
             ctx.moveTo(x_valoare, e_val+9);
             ctx.lineTo(x_valoare, e_val);
             ctx.closePath();
             ctx.stroke();
 
             ctx.beginPath();
+            ctx.lineWidth = 2;
             ctx.moveTo(x_valoare-3, e_val+9);
             ctx.lineTo(x_valoare+3, e_val+9);
             ctx.closePath();
