@@ -7290,6 +7290,39 @@ function desenareGraficSemnale(){
         ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
         ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , x_valoare + 10, e_val + 3);
 
+        //ctx.font = "italic bold 11px Helvetica, system-ui, Arial, sans-serif";
+        //ctx.textAlign = "start";
+        ctx.lineCap = "round";
+        if((data[i]-medieCumulativ[i])>0){
+            ctx.beginPath();
+            ctx.moveTo(x_valoare, e_val-9);
+            ctx.lineTo(x_valoare, e_val);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(x_valoare-3, e_val-9);
+            ctx.lineTo(x_valoare+3, e_val-9);
+            ctx.closePath();
+            ctx.stroke();
+        }
+        else{
+            ctx.beginPath();
+            //ctx.lineCap = "round";
+            ctx.moveTo(x_valoare, e_val+9);
+            ctx.lineTo(x_valoare, e_val);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(x_valoare-3, e_val+9);
+            ctx.lineTo(x_valoare+3, e_val+9);
+            ctx.closePath();
+            ctx.stroke();
+        }
+        ctx.lineCap = "butt";
+
+
         ctx.strokeStyle = "white";
         //ctx.lineWidth = 2;
         ctx.beginPath();
