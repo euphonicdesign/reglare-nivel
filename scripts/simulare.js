@@ -7282,6 +7282,14 @@ function desenareGraficSemnale(){
         ctx.stroke();
         ctx.fill();
 
+        //afisare valoare eroare
+        ctx.textAlign = "start";
+        //ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+        //ctx.fillText( eroare, x_valoare + 10, e_val + 14);
+
+        ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
+        ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , x_valoare + 10, e_val + 3);
+
         ctx.strokeStyle = "white";
         //ctx.lineWidth = 2;
         ctx.beginPath();
@@ -7295,6 +7303,8 @@ function desenareGraficSemnale(){
         ctx.arc(x_valoare, r_val, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.stroke();
+
+
 
 
       }
