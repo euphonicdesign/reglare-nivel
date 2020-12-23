@@ -306,6 +306,8 @@ var scalareEntitate = 1;
 var scalareTraiectorieAvionToate = 14;
 var scalareTraiectorieAvion = 2;
 
+//SCALA Tabele
+var scalareBareTabelAltitudini = 1;
 
 //MAGNIFICARE RADAR IMPLICITA
 var scalaRadarY = 2.0; //magnificare radar implicita
@@ -2569,7 +2571,7 @@ function actualizareTabelAltitudini(){
 
           elementZona3.textContent = Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]);
 
-          elementZona3.style.height = String(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/3)) + "px";
+          elementZona3.style.height = String(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[selectorZi]/scalareBareTabelAltitudini)) + "px";
           elementZona3.style.background = culoareGalben;
 
           if(clasamentZone[zona].arie == nrArie){
@@ -2611,7 +2613,7 @@ function actualizareTabelTraiectorii(){
           elementChenarValoare.textContent = "#" + (zona + 1);
           elementZona3.textContent = Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorProiectieZiCurenta[selectorZi]);
 
-          elementZona3.style.height = String(Math.round(clasamentZone[zona].proiectie/3)) + "px";
+          elementZona3.style.height = String(Math.round(clasamentZone[zona].proiectie/scalareBareTabelAltitudini)) + "px";
           //elementZona2.style.height = "20px";
           //elementZona2.style.height = "" + clasamentZone[zona].medie + "px";
 
