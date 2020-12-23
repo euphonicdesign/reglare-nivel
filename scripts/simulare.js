@@ -7269,15 +7269,18 @@ function desenareGraficSemnale(){
         if((data[i]-medieCumulativ[i])>0){
           //ctx.strokeStyle = culoareTextCompensatorRosu;
           ctx.strokeStyle = "red";
+          ctx.fillStyle = "red";
         }
         else{
           ctx.strokeStyle = culoareScadere;
+          ctx.fillStyle = culoareScadere;
         }
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x_valoare, e_val, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.stroke();
+        ctx.fill();
 
         ctx.strokeStyle = "white";
         //ctx.lineWidth = 2;
