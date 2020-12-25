@@ -171,6 +171,9 @@ var yElice = 430;
 var yUmbra = inaltimeSuprafataGrafica - 1;
 var text_lim = "lim";
 
+var rachetaLat = 12;
+var rachetaH = 20;
+
 var raza_cerculet = 5;
 var raza_pulsatie = 0;
 
@@ -3250,12 +3253,11 @@ function desenareVaseComunicante() {
     //desenare racheta
     yRachetaVarf = yElice + 10;
     yRachetaCorp = yElice - 3;
-    rachetaLat = 12;
-    rachetaH = 20;
+
 
     //jet reactie
     ctx.fillStyle = "orange";
-    lungimeJet = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10 * 6;
+    lungimeJet = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10 * 7;
     //console.log(lungimeJet);
     ctx.beginPath();
     ctx.moveTo(xRacheta, yElice + 5);
