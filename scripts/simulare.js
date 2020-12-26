@@ -3624,7 +3624,7 @@ function desenareVaseComunicante() {
     //Factor amplificare
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     factor_amp = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10;
-    ctx.fillText("factor amplificare = ", xCercRef + 26, yCaleBucla + 17);
+    ctx.fillText("factor amplificare = ", xCercRef + 20, yCaleBucla + 17);
     if(factor_amp < 1){
         ctx.fillStyle = "green";
     }
@@ -3632,7 +3632,7 @@ function desenareVaseComunicante() {
         ctx.fillStyle = "red";
     }
     ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(factor_amp + "x", xCercRef + 132, yCaleBucla + 17);
+    ctx.fillText(factor_amp + "x", xCercRef + 126, yCaleBucla + 17);
 
     ctx.fillStyle = "grey";
     //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
