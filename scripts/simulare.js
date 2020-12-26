@@ -3632,7 +3632,8 @@ function desenareVaseComunicante() {
         ctx.fillStyle = "red";
     }
     ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillText(factor_amp + "x", xCercRef + 126, yCaleBucla + 17);
+    ctx.textAlign = "center";
+    ctx.fillText(factor_amp + "x", xCercRef + 142, yCaleBucla + 17);
 
     ctx.fillStyle = "grey";
     //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
