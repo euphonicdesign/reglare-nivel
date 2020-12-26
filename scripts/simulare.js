@@ -3475,6 +3475,50 @@ function desenareVaseComunicante() {
     }
 
 
+    //crestere/descrestere
+    //ctx.fillText("Referința", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 35);
+    //ctx.fillText("actuală", lungimeSuprafataGrafica - 15, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 21);
+    if(vectorDRToate[selectorZi] > 0){
+        //ctx.fillText("" + Math.floor(medieCumulativ[selectorZi]*10)/10 + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
+
+        ctx.textAlign = "center";
+        ctx.fillStyle = culoareCrestereRosu;
+        //ctx.fillStyle = culoareCrestereMaro;
+        //if(pulsatie_3){
+        if(vectorDRToate[selectorZi] > vectorDRToate[selectorZi-1]){
+            ctx.font = "10px Helvetica, system-ui, Arial, sans-serif";
+        }
+        else{
+            ctx.font = "12px Helvetica, system-ui, Arial, sans-serif";
+        }
+        ctx.fillText("\u25B2", xBlocP + 33, yCaleDir + 1);
+        //ctx.font = "12px Helvetica, system-ui, Arial, sans-serif";
+        //ctx.fillStyle = culoarePunctValoriGrafic_3;
+        //ctx.fillText("\u25BC", xBlocP + 33, yCaleDir + 9);
+    }
+    else{
+        //ctx.fillText("" + Math.round(medieCumulativ[selectorZi]) + "... ", lungimeSuprafataGrafica - 25, yGrafic_1 - ((medieCumulativ[selectorZi]*scalaY_trend_1)/maxValue) - 4);
+
+        ctx.textAlign = "center";
+        ctx.font = "12px Helvetica, system-ui, Arial, sans-serif";
+        //ctx.fillStyle = culoareScadere;
+        //ctx.fillStyle = culoarePunctValoriGrafic_3;
+        //ctx.fillText("\u25B2", xBlocP + 33, yCaleDir - 0);
+
+        ctx.fillStyle = culoareScadere;
+        //if(pulsatie_3){
+        if(vectorDRToate[selectorZi] < vectorDRToate[selectorZi-1]){
+            ctx.font = "10px Helvetica, system-ui, Arial, sans-serif";
+            ctx.fillText("\u25BC", xBlocP + 33, yCaleDir + 6);
+        }
+        else{
+            ctx.fillText("\u25BC", xBlocP + 33, yCaleDir + 7);
+        }
+
+
+    }
+
+
     //segmente cale directa
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "start";
