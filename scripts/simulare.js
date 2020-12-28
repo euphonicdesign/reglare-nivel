@@ -314,7 +314,7 @@ var scalareTraiectorieAvion = 2;
 var scalareBareTabelAltitudini = 1;
 
 //MAGNIFICARE RADAR IMPLICITA
-var scalaRadarY = 1.5; //magnificare radar implicita
+var scalaRadarY = 1.0; //magnificare radar implicita
 var scalaRadarX = 1;
 
 var scalaX_trend = 72;
@@ -879,7 +879,7 @@ function resetareScala(){
   }
   else{
     //resetare scala implicita
-    scalaRadarY = 1.5;
+    scalaRadarY = 1.0;
   }
   ActualizareSuprafataGraficaSingulara();
 
