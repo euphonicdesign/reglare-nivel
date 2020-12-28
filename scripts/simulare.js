@@ -186,7 +186,8 @@ let zile_info_explicatii = [];
 var xTextZi = 10;
 var yTextZi = 50;
 
-var scalaInflamatieHarta = 5;
+//scala harta implicita
+var scalaInflamatieHarta = 4;
 
 var xScalaRadar = xTextZi;
 var yScalaRadar = yTextZi + 60;
