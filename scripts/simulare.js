@@ -1768,14 +1768,23 @@ function actualizareTabelZone(){
                 elementZona1.style.color = "white";
             }
             else{
-                if(vectoriDateZone[clasamentProiectie[zona].arie].vector_r[selectorZi] < 1){
-                    elementZona1.style.background = "lightgreen";
-                    elementZona1.style.color = "green";
+                if(Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorMedieZiCurenta[selectorZi])<1){
+                    //elementZona1.style.background = "white";
+                    //elementZona1.style.color = "green";
+                    elementZona1.style.background = "#f2f2f2";
+                    elementZona1.style.color = "#8c8c8c";
                 }
                 else{
-                    elementZona1.style.background = culoareCerculetRCrestere;
-                    elementZona1.style.color = "#4d3319";
+                  if(vectoriDateZone[clasamentProiectie[zona].arie].vector_r[selectorZi] < 1){
+                      elementZona1.style.background = "lightgreen";
+                      elementZona1.style.color = "green";
+                  }
+                  else{
+                      elementZona1.style.background = culoareCerculetRCrestere;
+                      elementZona1.style.color = "#4d3319";
+                  }
                 }
+
             }
 
             //elementZona.textContent = "R=" + Math.floor((clasamentZone[selectorZi].r-1)*10000)/100;
