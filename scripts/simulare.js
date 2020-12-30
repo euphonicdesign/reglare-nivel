@@ -3474,13 +3474,39 @@ function desenareVaseComunicante() {
       ctx.fillStyle = "red";//culoareCrestereRosu;
       ctx.strokeStyle = "red";
       text_r = "+" + ((Math.floor((vector_rToate[selectorZi] - 1)*10000))/100) + "%";
+      text_r2 = "+" + ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10) + "%";
     }
     else{
       ctx.fillStyle = "green";
       ctx.strokeStyle = "green";
       //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
       text_r = "" + ((Math.floor((vector_rToate[selectorZi] - 1)*10000))/100) + "%";
+      text_r2 = "" + ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10) + "%";
     }
+    // Gravitatie R
+    if(selectorZi > orizont_trend){
+      gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
+      ctx.beginPath();
+      ctx.moveTo(xRacheta + 20, yElice);
+      ctx.lineTo(xRacheta + 20, yElice - gravitatieR * 2);
+      ctx.closePath();
+      ctx.stroke();
+
+      //capat vector
+      ctx.beginPath();
+      ctx.arc(xRacheta + 20, yElice - gravitatieR * 2, 2, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
+
+      //valoare vector
+      ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+      ctx.textAlign = "start";
+      ctx.fillText(text_r2, xRacheta + 23, yElice - gravitatieR * 2 + 2);
+
+    }
+
+
+
 
     ctx.strokeRect(xBlocP, yBlocC, lungBloc, latBloc);
     ctx.fillText("P", xBlocP + lungBloc/2, yCaleDir + 4);
@@ -3664,6 +3690,11 @@ function desenareVaseComunicante() {
     ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
     ctx.fillText(factor_amp + "x", xCercRef + 100, yCaleBucla + 22);
+
+    //sub racheta
+    ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(factor_amp + "x", xRacheta + 2, yRachetaVarf - 32);
 
     //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
     if(data[selectorZi]>medieCumulativ[selectorZi]){
