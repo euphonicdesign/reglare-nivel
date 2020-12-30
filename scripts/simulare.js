@@ -558,6 +558,10 @@ var xBlocC = xCercRef + lungBloc;
 var xBlocP = xBlocC + 2 * lungBloc;
 var yBlocC = yCaleDir - latBloc/2;
 
+var xStalpModReglare = 0 + xBlocP + lungBloc + lungBloc/2;
+var yStalpModReglare = yCaleDir;
+var lungimeSosetaModReglare = lungBloc/2 - 2;
+
 var grafic_valori_desenat = false;
 var pauza = false;
 
@@ -3701,26 +3705,46 @@ function desenareVaseComunicante() {
     //xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 - 90;
     xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 + 0;
 
-    var xStalpModReglare = 2 + xBlocP + lungBloc;
-    var yStalpModReglare = yCaleDir;
-    var lungimeSosetaModReglare = lungBloc/2 - 2;
+
 
     xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
     ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
 
-    ctx.lineWidth = 4 ;
-
-    if(vector_rToate[selectorZi] > 1){
-        ctx.strokeStyle = "red";//culoareCrestereMaro;
-        ctx.fillStyle = "red";//culoareCrestereMaro;
-    }
-    else{
-        ctx.strokeStyle = culoareScadere;
-        ctx.fillStyle = culoareScadere;
-    }
-
-
     if(selectorZi > orizont_regresie + orizont_arie){
+                //desenare arc pendul
+        ctx.lineWidth = 2 ;
+        if(vector_rToate[selectorZi] > 1){
+            ctx.strokeStyle = "red";//culoareTextCompensatorRosu;//"red";//culoareCrestereMaro;
+            ctx.fillStyle = culoareRosu;//culoareTextCompensatorRosu;//"red";//culoareCrestereMaro;
+        }
+        else{
+            ctx.strokeStyle = "green";//culoare_scadere_entitate;
+            ctx.fillStyle = culoare_scadere_entitate;
+        }
+        //ctx.fillStyle = "white";//"#4d4d4d";
+        ctx.beginPath();
+        ctx.moveTo(xStalpModReglare, yStalpModReglare);
+        ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, -(xsos * Math.PI * 2 / 360));
+        ctx.moveTo(xStalpModReglare, yStalpModReglare);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.lineWidth = 4;
+
+        if(vector_rToate[selectorZi] > 1){
+            ctx.strokeStyle = "red";//culoareCrestereMaro;
+            ctx.fillStyle = "red";//culoareCrestereMaro;
+        }
+        else{
+            ctx.strokeStyle = culoareScadere;
+            ctx.fillStyle = culoareScadere;
+        }
+
         //desenare cerc capat pendul
         //ctx.fillStyle = "white";
         //ctx.fillStyle = "#4d4d4d";
@@ -3737,16 +3761,19 @@ function desenareVaseComunicante() {
         ctx.lineTo(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta);
         ctx.stroke();
 
-
         ctx.beginPath();
         ctx.closePath();
+        ctx.stroke();
 
         //desenare cerc baza pendul
         //ctx.fillStyle = "white";//"#4d4d4d";
+
         ctx.beginPath();
         ctx.arc(xStalpModReglare, yStalpModReglare, 3, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
+
+
     }
     //-------------------------------
 
