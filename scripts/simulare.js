@@ -3692,10 +3692,71 @@ function desenareVaseComunicante() {
     ctx.closePath();
     ctx.stroke();
 
+    //--------------------
+    //pendul
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
+    ctx.fillStyle = "#4d4d4d";
+
+    //desenare stalp soseta
+    //xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 - 90;
+    xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 + 0;
+
+    var xStalpModReglare = xBlocP + lungBloc;
+    var yStalpModReglare = yCaleDir;
+    var lungimeSosetaModReglare = lungBloc/2;
+
+    xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
+    ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
+
+    ctx.lineWidth = 4 ;
+
+    if(vector_rToate[selectorZi] > 1){
+        ctx.strokeStyle = "red";//culoareCrestereMaro;
+        ctx.fillStyle = "red";//culoareCrestereMaro;
+    }
+    else{
+        ctx.strokeStyle = culoareScadere;
+        ctx.fillStyle = culoareScadere;
+    }
+
+
+    if(selectorZi > orizont_regresie + orizont_arie){
+        //desenare cerc capat pendul
+        //ctx.fillStyle = "white";
+        //ctx.fillStyle = "#4d4d4d";
+        ctx.beginPath();
+        ctx.arc(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta, 4, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.closePath();
+
+        //desenare soseta
+        ctx.moveTo(xStalpModReglare, yStalpModReglare);
+        ctx.lineTo(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta);
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.closePath();
+
+        //desenare cerc baza pendul
+        ctx.fillStyle = "white";//"#4d4d4d";
+        ctx.beginPath();
+        ctx.arc(xStalpModReglare, yStalpModReglare, 2, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+    }
+    //-------------------------------
+
 
 
     //culoare implicita
     ctx.strokeStyle = culoareTextCompensator;
+    ctx.fillStyle = "grey";
     ctx.lineWidth = 1;
     ctx.textAlign = "start";
     ctx.font = "italic 12px system-ui, Arial, sans-serif";
