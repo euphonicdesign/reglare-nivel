@@ -558,8 +558,9 @@ var xBlocC = xCercRef + lungBloc;
 var xBlocP = xBlocC + 2 * lungBloc;
 var yBlocC = yCaleDir - latBloc/2;
 
+var latBlocA = latBloc * 0.5;
 var xBlocA = xBlocC + lungBloc;
-var yBlocA = yCaleBucla - latBloc*0.35;
+var yBlocA = yCaleBucla - latBlocA/2;
 
 var xStalpModReglare = 0 + xBlocP + lungBloc + lungBloc/2;
 var yStalpModReglare = yCaleDir;
@@ -3712,7 +3713,7 @@ function desenareVaseComunicante() {
 
     //desenare amortizor
     ctx.fillStyle = culoare_canvas;//"lightgrey";
-    ctx.fillRect(xBlocA, yBlocA, lungBloc, latBloc*0.7);
+    ctx.fillRect(xBlocA, yBlocA, lungBloc, latBlocA);
 
     if(factor_amp < 1){
         ctx.fillStyle = culoare_scadere_entitate;//"lightgrey";
@@ -3721,12 +3722,12 @@ function desenareVaseComunicante() {
         ctx.fillStyle = "red";//culoareRosu;
     }
 
-    ctx.fillRect(xBlocA + lungBloc - 1, yBlocA -1, -factor_amp*20, latBloc*0.7 + 2);
+    ctx.fillRect(xBlocA + lungBloc - 1, yBlocA -1, -factor_amp*20, latBlocA + 2);
 
     ctx.lineWidth = 2;
     //ctx.beginPath();
 
-    ctx.strokeRect(xBlocA, yBlocA, lungBloc, latBloc*0.7);
+    ctx.strokeRect(xBlocA, yBlocA, lungBloc, latBlocA);
     //ctx.closePath();
     //ctx.stroke();
 
