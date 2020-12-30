@@ -3625,8 +3625,8 @@ function desenareVaseComunicante() {
     //y
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareApaNivelUltraCritic;//"grey";//culoareValoareNivel;
-    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 26, yCaleDir + 13);
-    ctx.fillText("y(t)", xBlocP + lungBloc + 26, yCaleDir - 6);
+    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 46, yCaleDir + 13);
+    ctx.fillText("y(t)", xBlocP + lungBloc + 46, yCaleDir - 6);
 
     //ctx.lineWidth = 2;
     //ctx.strokeStyle = "grey";
@@ -3634,7 +3634,7 @@ function desenareVaseComunicante() {
     //Factor amplificare
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
     factor_amp = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10;
-    ctx.fillText("factor amplificare = ", xCercRef + 20, yCaleBucla + 17);
+    ctx.fillText("factor amplificare = ", xCercRef + 32, yCaleBucla + 17);
     if(factor_amp < 1){
         ctx.fillStyle = "green";
     }
@@ -3643,7 +3643,7 @@ function desenareVaseComunicante() {
     }
     ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(factor_amp + "x", xCercRef + 142, yCaleBucla + 17);
+    ctx.fillText(factor_amp + "x", xCercRef + 154, yCaleBucla + 17);
 
     ctx.fillStyle = "grey";
     //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
@@ -3656,25 +3656,23 @@ function desenareVaseComunicante() {
         //ctx.fillStyle = "grey";
     }
 
-
+    //segment iesire bloc P
     ctx.beginPath();
     ctx.moveTo(xBlocP + lungBloc + 1, yCaleDir);
-    ctx.lineTo(xBlocP + 2 * lungBloc, yCaleDir);
+    ctx.lineTo(xBlocP + 2 * lungBloc + lungBloc/2, yCaleDir);
     ctx.closePath();
     ctx.stroke();
 
-
-
-    ctx.beginPath();
-    ctx.closePath();
-    ctx.stroke();
+    //ctx.beginPath();
+    //ctx.closePath();
+    //ctx.stroke();
 
     //segmente cale bucla
 
     //y capat dreapta
     ctx.beginPath();
-    ctx.moveTo(xBlocP + lungBloc + lungBloc/2, yCaleDir);
-    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla);
+    ctx.moveTo(xBlocP + lungBloc + lungBloc, yCaleDir);
+    ctx.lineTo(xBlocP + lungBloc + lungBloc, yCaleBucla);
     ctx.closePath();
     ctx.stroke();
 
@@ -3688,13 +3686,13 @@ function desenareVaseComunicante() {
     //bucla reactie
     ctx.beginPath();
     ctx.moveTo(xCercRef, yCaleBucla);
-    ctx.lineTo(xBlocP + lungBloc + lungBloc/2, yCaleBucla);
+    ctx.lineTo(xBlocP + lungBloc + lungBloc, yCaleBucla);
     ctx.closePath();
     ctx.stroke();
 
     //--------------------
     //pendul
-    ctx.lineJoin = "round";
+    //ctx.lineJoin = "round";
     ctx.lineWidth = 2;
     ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
     ctx.fillStyle = "#4d4d4d";
@@ -3705,7 +3703,7 @@ function desenareVaseComunicante() {
 
     var xStalpModReglare = 2 + xBlocP + lungBloc;
     var yStalpModReglare = yCaleDir;
-    var lungimeSosetaModReglare = lungBloc - 2;
+    var lungimeSosetaModReglare = lungBloc/2 - 2;
 
     xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
     ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
@@ -3727,7 +3725,7 @@ function desenareVaseComunicante() {
         //ctx.fillStyle = "white";
         //ctx.fillStyle = "#4d4d4d";
         ctx.beginPath();
-        ctx.arc(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta, 4, 0, 2 * Math.PI);
+        ctx.arc(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta, 3, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
 
@@ -3746,7 +3744,7 @@ function desenareVaseComunicante() {
         //desenare cerc baza pendul
         //ctx.fillStyle = "white";//"#4d4d4d";
         ctx.beginPath();
-        ctx.arc(xStalpModReglare, yStalpModReglare, 4, 0, 2 * Math.PI);
+        ctx.arc(xStalpModReglare, yStalpModReglare, 3, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
     }
