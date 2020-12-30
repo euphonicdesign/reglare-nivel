@@ -3628,9 +3628,20 @@ function desenareVaseComunicante() {
     ctx.textAlign = "start";
     //y
     ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+
     ctx.fillStyle = culoareApaNivelUltraCritic;//"grey";//culoareValoareNivel;
-    ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 46, yCaleDir + 13);
     ctx.fillText("y(t)", xBlocP + lungBloc + 46, yCaleDir - 6);
+
+    if(vector_rToate[selectorZi] > 1){
+        ctx.font = "italic bold 18px Helvetica, system-ui, Arial, sans-serif";
+        ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 46, yCaleDir + 18);
+    }
+    else{
+        ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+        ctx.fillText(Math.round(data[selectorZi]), xBlocP + lungBloc + 46, yCaleDir + 13);
+    }
+
+
 
     //ctx.lineWidth = 2;
     //ctx.strokeStyle = "grey";
