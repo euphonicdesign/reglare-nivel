@@ -3505,10 +3505,8 @@ function desenareVaseComunicante() {
 
     }
 
-
-
-
-
+    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.textAlign = "center";
     ctx.strokeRect(xBlocP, yBlocC, lungBloc, latBloc);
     ctx.fillText("P", xBlocP + lungBloc/2, yCaleDir + 4);
 
