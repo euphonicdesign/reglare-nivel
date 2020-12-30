@@ -3432,6 +3432,7 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = "grey";
   }
   //blocuri
+  ctx.textAlign = "center";
   ctx.strokeRect(xBlocC, yBlocC, lungBloc, latBloc);
   ctx.fillText("Cₚ", xBlocC + lungBloc/2, yCaleDir + 4);
 
