@@ -3705,7 +3705,7 @@ function desenareVaseComunicante() {
 
     var xStalpModReglare = xBlocP + lungBloc;
     var yStalpModReglare = yCaleDir;
-    var lungimeSosetaModReglare = lungBloc/2;
+    var lungimeSosetaModReglare = lungBloc;
 
     xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
     ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
