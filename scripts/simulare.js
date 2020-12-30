@@ -3599,21 +3599,26 @@ function desenareSchemaRacheta(){
     eroareE = Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100);
     ctx.beginPath();
     ctx.moveTo(xElice1 - 18, yElice);
-    ctx.lineTo(xElice1 - 18, yElice - eroareE / 1);
+    ctx.lineTo(xElice1 - 18, yElice - eroareE * 2);
     ctx.closePath();
     ctx.stroke();
 
     //capat vector
     ctx.beginPath();
-    ctx.arc(xElice1 - 18, yElice - eroareE / 1, 2, 0, 2 * Math.PI);
+    ctx.arc(xElice1 - 18, yElice - eroareE * 2, 2, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
 
     //valoare vector
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "end";
-    if( (yElice - eroareE / 1 + 2) < inaltimeSuprafataGrafica){
-        ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, yElice - eroareE / 1 + 2);
+    if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
+        if( (yElice - eroareE * 2 + 2) > 0){
+          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, yElice - eroareE * 2 + 2);
+        }
+        else{
+          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, 12);
+        }
     }
     else {
         ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, inaltimeSuprafataGrafica - 5);
