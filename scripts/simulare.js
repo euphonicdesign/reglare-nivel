@@ -3703,9 +3703,9 @@ function desenareVaseComunicante() {
     //xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 - 90;
     xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 + 0;
 
-    var xStalpModReglare = xBlocP + lungBloc;
+    var xStalpModReglare = 2 + xBlocP + lungBloc;
     var yStalpModReglare = yCaleDir;
-    var lungimeSosetaModReglare = lungBloc;
+    var lungimeSosetaModReglare = lungBloc - 2;
 
     xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
     ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
@@ -3727,7 +3727,7 @@ function desenareVaseComunicante() {
         //ctx.fillStyle = "white";
         //ctx.fillStyle = "#4d4d4d";
         ctx.beginPath();
-        ctx.arc(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta, 3, 0, 2 * Math.PI);
+        ctx.arc(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
 
@@ -3746,7 +3746,7 @@ function desenareVaseComunicante() {
         //desenare cerc baza pendul
         //ctx.fillStyle = "white";//"#4d4d4d";
         ctx.beginPath();
-        ctx.arc(xStalpModReglare, yStalpModReglare, 3, 0, 2 * Math.PI);
+        ctx.arc(xStalpModReglare, yStalpModReglare, 4, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
     }
