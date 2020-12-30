@@ -3601,21 +3601,21 @@ function desenareVaseComunicante() {
       //gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
       eroareE = Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100);
       ctx.beginPath();
-      ctx.moveTo(xElice1 - 20, yElice);
-      ctx.lineTo(xElice1 - 20, yElice - eroareE / 4);
+      ctx.moveTo(xElice1 - 18, yElice);
+      ctx.lineTo(xElice1 - 18, yElice - eroareE / 4);
       ctx.closePath();
       ctx.stroke();
 
       //capat vector
       ctx.beginPath();
-      ctx.arc(xElice1 - 20, yElice - eroareE / 4, 2, 0, 2 * Math.PI);
+      ctx.arc(xElice1 - 18, yElice - eroareE / 4, 2, 0, 2 * Math.PI);
       ctx.closePath();
       ctx.fill();
 
       //valoare vector
       ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
       ctx.textAlign = "end";
-      ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, yElice - eroareE / 4 + 2);
+      ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, yElice - eroareE / 4 + 2);
       //ctx.fillText(text_r2, xRacheta + 23, yElice - gravitatieR * 2 + 2);
 
     }
