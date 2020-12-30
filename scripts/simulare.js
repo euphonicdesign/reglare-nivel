@@ -3727,7 +3727,7 @@ function desenareVaseComunicante() {
         //ctx.fillStyle = "white";
         //ctx.fillStyle = "#4d4d4d";
         ctx.beginPath();
-        ctx.arc(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta, 4, 0, 2 * Math.PI);
+        ctx.arc(xStalpModReglare + xsoseta, yStalpModReglare - ysoseta, 3, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
 
@@ -3744,9 +3744,9 @@ function desenareVaseComunicante() {
         ctx.closePath();
 
         //desenare cerc baza pendul
-        ctx.fillStyle = "white";//"#4d4d4d";
+        //ctx.fillStyle = "white";//"#4d4d4d";
         ctx.beginPath();
-        ctx.arc(xStalpModReglare, yStalpModReglare, 2, 0, 2 * Math.PI);
+        ctx.arc(xStalpModReglare, yStalpModReglare, 3, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
     }
