@@ -3746,12 +3746,14 @@ function desenareSchemaRacheta(){
         /////textElement = Math.round(clasamentProiectie[zona].medie);
         valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*10000)/100;
         sumaPareto += valoareZona;
+        text_final = "";
 
         if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
             if(sumaPareto < 38.2){
               if(valoareZona > 10){
                 culoareText = "red";
                 ctx.font = "italic bold 14px system-ui, Arial, sans-serif";
+                text_final = "...";
               }
               else{
                 culoareText = "orange";
@@ -3770,11 +3772,11 @@ function desenareSchemaRacheta(){
                 //}
 
                 ctx.fillStyle = culoareText;
-                ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
+                ctx.fillText(numeZona + ": " + valoareZona + "%" + text_final, xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
             }
             else{
                 ctx.fillStyle = culoareText;
-                ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , 16 + zona * 12);
+                ctx.fillText(numeZona + ": " + valoareZona + "%" + text_final, xElice1 - 10 , 16 + zona * 12);
             }
         }
     }
