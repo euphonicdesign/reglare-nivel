@@ -3562,7 +3562,9 @@ function desenareSchemaRacheta(){
   //Factor amplificare
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
   factor_amp = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10;
-  ctx.fillText("amplificare:", xCercRef + 10, yCaleBucla + 21);
+  ctx.textAlign = "center";
+  ctx.fillText("amplificare", xCercRef + 40, yCaleBucla + 16);
+  ctx.fillText("(accelerare)", xCercRef + 40, yCaleBucla + 26);
   //ctx.fillText("amplificare", xCercRef + 22, yCaleBucla + 28);
   if(factor_amp < 1){
       ctx.fillStyle = "green";
