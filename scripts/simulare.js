@@ -3749,17 +3749,31 @@ function desenareSchemaRacheta(){
 
         if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
             if(sumaPareto < 38.2){
-              ctx.fillStyle = "orange";
-              ctx.font = "italic bold 10px system-ui, Arial, sans-serif";
+              if(valoareZona > 10){
+                culoareText = "red";
+                ctx.font = "italic bold 14px system-ui, Arial, sans-serif";
+              }
+              else{
+                culoareText = "orange";
+                ctx.font = "italic bold 10px system-ui, Arial, sans-serif";
+              }
             }
             else{
-              ctx.fillStyle = culoareTextCompensatorFill;
+              culoareText = culoareTextCompensatorFill;
               ctx.font = "italic 10px system-ui, Arial, sans-serif";
             }
             if( (yElice - eroareE * 2 + 2) > 0){
+                //if(valoareZona > 10){
+                  //umbra text
+                  //ctx.fillStyle = "white";
+                  //ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 + 0 , yElice - eroareE * 2 + 2 + zona * 12 + 0);
+                //}
+
+                ctx.fillStyle = culoareText;
                 ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
             }
             else{
+                ctx.fillStyle = culoareText;
                 ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , 16 + zona * 12);
             }
         }
