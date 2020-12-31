@@ -3772,11 +3772,13 @@ function desenareSchemaRacheta(){
                 //}
 
                 ctx.fillStyle = culoareText;
-                ctx.fillText(numeZona + ": " + valoareZona + "%" + text_final, xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
+                ctx.fillText(numeZona + ": " , xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
+                ctx.fillText(valoareZona + "%" + text_final, xElice1 + 16 , yElice - eroareE * 2 + 2 + zona * 12);
             }
             else{
                 ctx.fillStyle = culoareText;
-                ctx.fillText(numeZona + ": " + valoareZona + "%" + text_final, xElice1 - 10 , 16 + zona * 12);
+                ctx.fillText(numeZona + ": ", xElice1 - 10 , 16 + zona * 12);
+                ctx.fillText(valoareZona + "%" + text_final, xElice1 + 16 , 16 + zona * 12);
             }
         }
     }
