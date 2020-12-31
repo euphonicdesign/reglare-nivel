@@ -3458,18 +3458,18 @@ function desenareSchemaRacheta(){
     ctx.fill();
 
     //valoare vector
-    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
     ctx.textAlign = "end";
     if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
         if( (yElice - eroareE * 2 + 2) > 0){
-          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, yElice - eroareE * 2 + 2);
+          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, yElice - eroareE * 2 + 2);
         }
         else{
-          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, 16);
+          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, 16);
         }
     }
     else {
-        ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 22, inaltimeSuprafataGrafica - 5);
+        ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, inaltimeSuprafataGrafica - 5);
     }
 
     //ctx.fillText(text_r2, xRacheta + 23, yElice - gravitatieR * 2 + 2);
@@ -3744,7 +3744,7 @@ function desenareSchemaRacheta(){
         numeZona = "" + vectoriDateZone[clasamentMedie[zona].arie].nume;
         //textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
         /////textElement = Math.round(clasamentProiectie[zona].medie);
-        valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*10000)/100;
+        valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*1000)/10;
         sumaPareto += valoareZona;
         text_final = "";
 
@@ -3752,7 +3752,7 @@ function desenareSchemaRacheta(){
             if(sumaPareto < 38.2){
               if(valoareZona > 10){
                 culoareText = "red";
-                ctx.font = "italic bold 14px system-ui, Arial, sans-serif";
+                ctx.font = "italic bold 12px system-ui, Arial, sans-serif";
                 text_final = "...";
               }
               else{
