@@ -3333,14 +3333,14 @@ function desenareSchemaRacheta(){
   if(selectorZi > orizont_trend){
     gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
     ctx.beginPath();
-    ctx.moveTo(xRacheta + 20, yElice);
-    ctx.lineTo(xRacheta + 20, yElice - gravitatieR * 2);
+    ctx.moveTo(xRacheta + 18, yElice);
+    ctx.lineTo(xRacheta + 18, yElice - gravitatieR * 2);
     ctx.closePath();
     ctx.stroke();
 
     //capat vector
     ctx.beginPath();
-    ctx.arc(xRacheta + 20, yElice - gravitatieR * 2, 2, 0, 2 * Math.PI);
+    ctx.arc(xRacheta + 18, yElice - gravitatieR * 2, 2, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
 
@@ -3430,10 +3430,12 @@ function desenareSchemaRacheta(){
 
 
   //E
+  text_initial = "";
   eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
   if (eroare > 0 ){
       ctx.fillStyle = "red";
       ctx.strokeStyle = "red";
+      text_initial = "+";
   }
   else{
       ctx.fillStyle = "green";
@@ -3462,14 +3464,14 @@ function desenareSchemaRacheta(){
     ctx.textAlign = "end";
     if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
         if( (yElice - eroareE * 2 + 2) > 0){
-          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, yElice - eroareE * 2 + 2);
+          ctx.fillText( text_initial + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, yElice - eroareE * 2 + 2);
         }
         else{
-          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, 16);
+          ctx.fillText( text_initial + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, 16);
         }
     }
     else {
-        ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, inaltimeSuprafataGrafica - 5);
+        ctx.fillText( text_initial + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xElice1 - 24, inaltimeSuprafataGrafica - 5);
     }
 
     //ctx.fillText(text_r2, xRacheta + 23, yElice - gravitatieR * 2 + 2);
