@@ -3475,203 +3475,6 @@ function desenareSchemaRacheta(){
     //ctx.fillText(text_r2, xRacheta + 23, yElice - gravitatieR * 2 + 2);
   }
 
-  //Analiza Pareto
-  if(selectorZi > orizont_trend){
-    ctx.fillStyle = culoareTextCompensatorFill;
-    //culoare implicita
-    ctx.strokeStyle = culoareTextCompensator;
-    ctx.lineWidth = 1;
-    ctx.textAlign = "start";
-    ctx.font = "italic 10px system-ui, Arial, sans-serif";
-
-    clasamentMedie = clasamentAeronaveZileSortatMedie[selectorZi].clasament;
-
-    //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
-    sumaPareto = 0;
-    for(let zona=0; zona < numeArii.data.value.length; zona++){
-        /////elementZona1b.textContent = "" + clasamentProiectie[zona].nume;
-        numeZona = "" + vectoriDateZone[clasamentMedie[zona].arie].nume;
-        //textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
-        /////textElement = Math.round(clasamentProiectie[zona].medie);
-        valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*10000)/100;
-        sumaPareto += valoareZona;
-
-        if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
-            if(sumaPareto < 38.2){
-              ctx.fillStyle = "orange";
-              ctx.font = "italic bold 10px system-ui, Arial, sans-serif";
-            }
-            else{
-              ctx.fillStyle = culoareTextCompensatorFill;
-              ctx.font = "italic 10px system-ui, Arial, sans-serif";
-            }
-            if( (yElice - eroareE * 2 + 2) > 0){
-                ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
-            }
-            else{
-                ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , 16 + zona * 12);
-            }
-        }
-    }
-  }
-
-  //desenare racheta si elice
-  //desenare umbra elice
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = "#333";//culoareApaNivelNormal;//culoareTextReferinta;
-  //ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.beginPath();
-  ctx.moveTo(xElice1 - 10, yUmbra);
-  ctx.lineTo(xElice2 + 10, yUmbra);
-  ctx.closePath();
-  ctx.stroke();
-
-  //desenare aeroport racheta
-  ctx.beginPath();
-  ctx.moveTo(xRacheta - 10, yUmbra);
-  ctx.lineTo(xRacheta + 10, yUmbra);
-  ctx.closePath();
-  ctx.stroke();
-
-
-  //jet reactie
-  ctx.fillStyle = "orange";
-  lungimeJet = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10 * 7;
-  //console.log(lungimeJet);
-  ctx.beginPath();
-  ctx.moveTo(xRacheta, yElice + 5);
-  ctx.arc(xRacheta, yElice + 5, lungimeJet, 0.35 * Math.PI, 0.65 * Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.fillStyle = "#4d4d4d";
-  //racheta varf
-  ctx.beginPath();
-  ctx.arc(xRacheta, yElice - rachetaH/2, 6, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  //racheta striatie baza
-  ctx.beginPath();
-  ctx.arc(xRacheta, yRachetaCorp + rachetaH/3, 5, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  //ctx.fillStyle = "#4d4d4d";
-  //racheta corp
-  ctx.beginPath();
-  ctx.fillRect(xRacheta - rachetaLat/2, yRachetaCorp - rachetaH/2, rachetaLat, rachetaH);
-  ctx.closePath();
-  ctx.fill();
-
-  //racheta striatie
-  //ctx.fillStyle = "#b3b3b3";
-
-  if (data[selectorZi] - medieCumulativ[selectorZi] > 0 ){
-      ctx.fillStyle = "red";
-      ctx.strokeStyle = "red";
-  }
-  else{
-      ctx.fillStyle = "green";
-      ctx.strokeStyle = "green";
-  }
-
-  ctx.beginPath();
-  ctx.fillRect(xRacheta - rachetaLat/2 - 1, yRachetaCorp + 2, rachetaLat + 2, rachetaH/4);
-  ctx.closePath();
-  ctx.fill();
-
-  //racheta striatie2
-  ctx.fillStyle = "white";
-  ctx.beginPath();
-  ctx.fillRect(xRacheta - rachetaLat/2 - 1, yRachetaCorp - 7, rachetaLat + 2, rachetaH/5);
-  ctx.closePath();
-  ctx.fill();
-
-
-
-  //desenare cerc fundal elice
-  ctx.fillStyle = "#333";
-  ctx.beginPath();
-  ctx.arc(xElice1, yElice, 10, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  //desenare circumferinta cerc elice
-  if(data[selectorZi]>medieCumulativ[selectorZi]){
-      ctx.strokeStyle = culoareTextCompensatorRosu;//culoareCrestereMaro;
-      //ctx.fillStyle = "red";
-  }
-  else{
-      ctx.strokeStyle = culoareScadere;//"grey";
-      //ctx.fillStyle = "grey";
-  }
-  ctx.beginPath();
-  ctx.arc(xElice1, yElice, 10, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.stroke();
-
-  //desenare elice
-  ctx.fillStyle = "lightblue";
-  ctx.beginPath();
-  ctx.moveTo(xElice1, yElice + 0 );
-  ctx.arc(xElice1, yElice, 10, unghiEliceRadiani, unghiEliceRadiani + Math.PI/4);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.beginPath();
-  ctx.moveTo(xElice1, yElice + 0 );
-  ctx.arc(xElice1, yElice, 10, unghiEliceRadiani + Math.PI, unghiEliceRadiani + Math.PI + Math.PI/4);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.fillStyle = "#333";
-  ctx.beginPath();
-  ctx.arc(xElice1, yElice, 2, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-
-  //Elice2
-  ctx.fillStyle = "#333";
-  ctx.beginPath();
-  ctx.arc(xElice2, yElice, 10, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  if(data[selectorZi]>medieCumulativ[selectorZi]){
-      ctx.strokeStyle = culoareTextCompensatorRosu;//culoareCrestereMaro;
-      //ctx.fillStyle = "red";
-  }
-  else{
-      ctx.strokeStyle = culoareScadere;//"grey";
-      //ctx.fillStyle = "grey";
-  }
-  ctx.beginPath();
-  ctx.arc(xElice2, yElice, 10, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.stroke();
-
-  ctx.fillStyle = "lightblue";
-  ctx.beginPath();
-  ctx.moveTo(xElice2, yElice + 0 );
-  ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 , unghiEliceRadiani2 + Math.PI/4);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.beginPath();
-  ctx.moveTo(xElice2, yElice + 0 );
-  ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 + Math.PI, unghiEliceRadiani2 + Math.PI + Math.PI/4);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.fillStyle = "#333";
-  ctx.beginPath();
-  ctx.arc(xElice2, yElice, 2, 0, 2*Math.PI);
-  ctx.closePath();
-  ctx.fill();
-
-  //---------------desenare racheta si elice----
 
   ctx.lineWidth = 4;
   ctx.beginPath();
@@ -3922,6 +3725,204 @@ function desenareSchemaRacheta(){
 
   }
   //-------------------------------
+
+  //Analiza Pareto
+  if(selectorZi > orizont_trend){
+    ctx.fillStyle = culoareTextCompensatorFill;
+    //culoare implicita
+    ctx.strokeStyle = culoareTextCompensator;
+    ctx.lineWidth = 1;
+    ctx.textAlign = "start";
+    ctx.font = "italic 10px system-ui, Arial, sans-serif";
+
+    clasamentMedie = clasamentAeronaveZileSortatMedie[selectorZi].clasament;
+
+    //clasamentProiectie.sort(function(a, b){return a.proiectie - b.proiectie});
+    sumaPareto = 0;
+    for(let zona=0; zona < numeArii.data.value.length; zona++){
+        /////elementZona1b.textContent = "" + clasamentProiectie[zona].nume;
+        numeZona = "" + vectoriDateZone[clasamentMedie[zona].arie].nume;
+        //textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
+        /////textElement = Math.round(clasamentProiectie[zona].medie);
+        valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*10000)/100;
+        sumaPareto += valoareZona;
+
+        if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
+            if(sumaPareto < 38.2){
+              ctx.fillStyle = "orange";
+              ctx.font = "italic bold 10px system-ui, Arial, sans-serif";
+            }
+            else{
+              ctx.fillStyle = culoareTextCompensatorFill;
+              ctx.font = "italic 10px system-ui, Arial, sans-serif";
+            }
+            if( (yElice - eroareE * 2 + 2) > 0){
+                ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
+            }
+            else{
+                ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , 16 + zona * 12);
+            }
+        }
+    }
+  }
+
+  //desenare racheta si elice
+  //desenare umbra elice
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "#333";//culoareApaNivelNormal;//culoareTextReferinta;
+  //ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
+  ctx.beginPath();
+  ctx.moveTo(xElice1 - 10, yUmbra);
+  ctx.lineTo(xElice2 + 10, yUmbra);
+  ctx.closePath();
+  ctx.stroke();
+
+  //desenare aeroport racheta
+  ctx.beginPath();
+  ctx.moveTo(xRacheta - 10, yUmbra);
+  ctx.lineTo(xRacheta + 10, yUmbra);
+  ctx.closePath();
+  ctx.stroke();
+
+
+  //jet reactie
+  ctx.fillStyle = "orange";
+  lungimeJet = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10 * 7;
+  //console.log(lungimeJet);
+  ctx.beginPath();
+  ctx.moveTo(xRacheta, yElice + 5);
+  ctx.arc(xRacheta, yElice + 5, lungimeJet, 0.35 * Math.PI, 0.65 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = "#4d4d4d";
+  //racheta varf
+  ctx.beginPath();
+  ctx.arc(xRacheta, yElice - rachetaH/2, 6, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  //racheta striatie baza
+  ctx.beginPath();
+  ctx.arc(xRacheta, yRachetaCorp + rachetaH/3, 5, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  //ctx.fillStyle = "#4d4d4d";
+  //racheta corp
+  ctx.beginPath();
+  ctx.fillRect(xRacheta - rachetaLat/2, yRachetaCorp - rachetaH/2, rachetaLat, rachetaH);
+  ctx.closePath();
+  ctx.fill();
+
+  //racheta striatie
+  //ctx.fillStyle = "#b3b3b3";
+
+  if (data[selectorZi] - medieCumulativ[selectorZi] > 0 ){
+      ctx.fillStyle = "red";
+      ctx.strokeStyle = "red";
+  }
+  else{
+      ctx.fillStyle = "green";
+      ctx.strokeStyle = "green";
+  }
+
+  ctx.beginPath();
+  ctx.fillRect(xRacheta - rachetaLat/2 - 1, yRachetaCorp + 2, rachetaLat + 2, rachetaH/4);
+  ctx.closePath();
+  ctx.fill();
+
+  //racheta striatie2
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.fillRect(xRacheta - rachetaLat/2 - 1, yRachetaCorp - 7, rachetaLat + 2, rachetaH/5);
+  ctx.closePath();
+  ctx.fill();
+
+
+
+  //desenare cerc fundal elice
+  ctx.fillStyle = "#333";
+  ctx.beginPath();
+  ctx.arc(xElice1, yElice, 10, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  //desenare circumferinta cerc elice
+  if(data[selectorZi]>medieCumulativ[selectorZi]){
+      ctx.strokeStyle = culoareTextCompensatorRosu;//culoareCrestereMaro;
+      //ctx.fillStyle = "red";
+  }
+  else{
+      ctx.strokeStyle = culoareScadere;//"grey";
+      //ctx.fillStyle = "grey";
+  }
+  ctx.beginPath();
+  ctx.arc(xElice1, yElice, 10, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.stroke();
+
+  //desenare elice
+  ctx.fillStyle = "lightblue";
+  ctx.beginPath();
+  ctx.moveTo(xElice1, yElice + 0 );
+  ctx.arc(xElice1, yElice, 10, unghiEliceRadiani, unghiEliceRadiani + Math.PI/4);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(xElice1, yElice + 0 );
+  ctx.arc(xElice1, yElice, 10, unghiEliceRadiani + Math.PI, unghiEliceRadiani + Math.PI + Math.PI/4);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = "#333";
+  ctx.beginPath();
+  ctx.arc(xElice1, yElice, 2, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+
+  //Elice2
+  ctx.fillStyle = "#333";
+  ctx.beginPath();
+  ctx.arc(xElice2, yElice, 10, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  if(data[selectorZi]>medieCumulativ[selectorZi]){
+      ctx.strokeStyle = culoareTextCompensatorRosu;//culoareCrestereMaro;
+      //ctx.fillStyle = "red";
+  }
+  else{
+      ctx.strokeStyle = culoareScadere;//"grey";
+      //ctx.fillStyle = "grey";
+  }
+  ctx.beginPath();
+  ctx.arc(xElice2, yElice, 10, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.fillStyle = "lightblue";
+  ctx.beginPath();
+  ctx.moveTo(xElice2, yElice + 0 );
+  ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 , unghiEliceRadiani2 + Math.PI/4);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(xElice2, yElice + 0 );
+  ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 + Math.PI, unghiEliceRadiani2 + Math.PI + Math.PI/4);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = "#333";
+  ctx.beginPath();
+  ctx.arc(xElice2, yElice, 2, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  //---------------desenare racheta si elice----
 
 }
 
