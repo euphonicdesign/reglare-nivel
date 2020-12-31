@@ -3494,8 +3494,17 @@ function desenareSchemaRacheta(){
         //textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
         /////textElement = Math.round(clasamentProiectie[zona].medie);
         valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*10000)/100;
+        sumaPareto += valoareZona;
 
         if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
+            if(sumaPareto < 38.2){
+              ctx.fillStyle = "orange";
+              ctx.font = "italic bold 10px system-ui, Arial, sans-serif";
+            }
+            else{
+              ctx.fillStyle = culoareTextCompensatorFill;
+              ctx.font = "italic 10px system-ui, Arial, sans-serif";
+            }
             if( (yElice - eroareE * 2 + 2) > 0){
                 ctx.fillText(numeZona + ": " + valoareZona + "%", xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
             }
