@@ -3333,21 +3333,21 @@ function desenareSchemaRacheta(){
   if(selectorZi > orizont_trend){
     gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
     ctx.beginPath();
-    ctx.moveTo(xRacheta + 18, yElice);
-    ctx.lineTo(xRacheta + 18, yElice - gravitatieR * 2);
+    ctx.moveTo(xElice1 - 18, yElice);
+    ctx.lineTo(xElice1 - 18, yElice - gravitatieR * 2);
     ctx.closePath();
     ctx.stroke();
 
     //capat vector
     ctx.beginPath();
-    ctx.arc(xRacheta + 18, yElice - gravitatieR * 2, 2, 0, 2 * Math.PI);
+    ctx.arc(xElice1 - 18, yElice - gravitatieR * 2, 2, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
 
     //valoare vector
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
-    ctx.textAlign = "start";
-    ctx.fillText(text_r2, xRacheta + 23, yElice - gravitatieR * 2 + 2);
+    ctx.textAlign = "end";
+    ctx.fillText(text_r2, xElice1 - 23, yElice - gravitatieR * 2 + 2);
 
   }
 
@@ -3568,18 +3568,43 @@ function desenareSchemaRacheta(){
   //ctx.fillText("amplificare", xCercRef + 22, yCaleBucla + 28);
   if(factor_amp < 1){
       ctx.fillStyle = "green";
+      ctx.strokeStyle = "green";
   }
   else{
       ctx.fillStyle = "red";
+      ctx.strokeStyle = "red";
   }
   ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(factor_amp + "x", xCercRef + 100, yCaleBucla + 22);
 
-  //sub racheta
+  //deasupra racheta
   ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(factor_amp + "x", xRacheta + 2, yRachetaVarf - 32);
+
+  //vector accelerare / amplificare
+  ctx.lineWidth = 4;
+  if(selectorZi > orizont_trend){
+    ctx.beginPath();
+    ctx.moveTo(xRacheta + 20, yElice);
+    ctx.lineTo(xRacheta + 20, yElice - (factor_amp - 1) * 10);
+    ctx.closePath();
+    ctx.stroke();
+
+    //capat vector
+    ctx.beginPath();
+    ctx.arc(xRacheta + 20, yElice - (factor_amp - 1) * 10, 4, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
+
+    //valoare vector
+    //ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.textAlign = "end";
+    //ctx.fillText(factor_amp, xRacheta + 23, yElice - (factor_amp - 1) * 10 + 2);
+
+  }
+  ctx.lineWidth = 4;
 
   //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
   if(data[selectorZi]>medieCumulativ[selectorZi]){
@@ -3632,18 +3657,35 @@ function desenareSchemaRacheta(){
   ctx.fillRect(xBlocA, yBlocA, lungBloc, latBlocA);
 
   if(factor_amp < 1){
-      ctx.fillStyle = culoare_scadere_entitate;//"lightgrey";
+      ctx.fillStyle = "green";//culoare_scadere_entitate;//"lightgrey";
   }
   else {
       ctx.fillStyle = "red";//culoareRosu;
   }
 
-  ctx.fillRect(xBlocA + lungBloc - 1, yBlocA -1, -factor_amp*20, latBlocA + 2);
+  //ctx.fillRect(xBlocA + lungBloc - 1, yBlocA -1, -factor_amp*20, latBlocA + 2);
+
 
   ctx.lineWidth = 2;
   //ctx.beginPath();
 
+  //bloc amplificator
   ctx.strokeRect(xBlocA, yBlocA, lungBloc, latBlocA);
+
+  //vector amplificator
+  ctx.beginPath();
+  ctx.moveTo(xBlocA + lungBloc/2, yCaleBucla);
+  ctx.lineTo(xBlocA + lungBloc/2 - (factor_amp - 1)*20, yCaleBucla);
+  ctx.closePath();
+  ctx.stroke();
+
+  //capat vector amplificator
+  ctx.beginPath();
+  ctx.arc(xBlocA + lungBloc/2 - (factor_amp - 1)*20, yCaleBucla, 4, 0, 2 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+
   //ctx.closePath();
   //ctx.stroke();
 
