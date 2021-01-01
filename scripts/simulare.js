@@ -16,6 +16,8 @@ var limita_max_pierderi = 50;
 var limita_regim_liniar_zona = 100;
 var limita_regim_liniar_toate = 1500;
 
+var limitaDerulareGraficeSemnale = 286;
+
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
 var nivelDepasireCapacitate = 35;
@@ -7652,7 +7654,13 @@ function desenareGraficSemnale(){
     y_valoare_1 = yGraficSemnale;
 
     for (let i = 0; i <= selectorZi; i++) {
-        x_valoare = xGraficSemnale + i/compresieGraficSemnale;
+        if(selectorZi < limitaDerulareGraficeSemnale){
+            x_valoare = xGraficSemnale + i/compresieGraficSemnale;
+        }
+        else{
+            x_valoare = xGraficSemnale + (i - (selectorZi - limitaDerulareGraficeSemnale))/compresieGraficSemnale;
+        }
+
         //GRAFIC ORIZONTAL(VERTICAL) - UMPLERE
         //desenare linie sub valoare grafic
          //i*incrementX;
@@ -7780,8 +7788,17 @@ function desenareGraficSemnale(){
 
 
     //desenare proiectie
-    xrp1 = xGraficSemnale + (selectorZi)/compresieGraficSemnale;
-    xrp2 = xGraficSemnale + (selectorZi + intervalProiectie2)/compresieGraficSemnale;
+    if(selectorZi < limitaDerulareGraficeSemnale){
+        //x_valoare = xGraficSemnale + i/compresieGraficSemnale;
+        xrp1 = xGraficSemnale + (selectorZi)/compresieGraficSemnale;
+        xrp2 = xGraficSemnale + (selectorZi + intervalProiectie2)/compresieGraficSemnale;
+    }
+    else{
+        //x_valoare = xGraficSemnale + (i - (selectorZi - 255))/compresieGraficSemnale;
+        xrp1 = xGraficSemnale + (limitaDerulareGraficeSemnale)/compresieGraficSemnale;
+        xrp2 = xGraficSemnale + (limitaDerulareGraficeSemnale + intervalProiectie2)/compresieGraficSemnale;
+    }
+
     rp_val1 = yGraficSemnale - (medieCumulativ[selectorZi] * scalaXTrend3Orizontal/(maxValue));
     //rp_val2 = yGraficSemnale - (medieCumulativ[selectorZi] * scalaXTrend3Orizontal/(maxValue)) - (intervalProiectie)*factor_amp/compresieGraficSemnale;
     rp_val2 = yGraficSemnale - (medieCumulativ[selectorZi] * factor_amp * scalaXTrend3Orizontal/(maxValue));
