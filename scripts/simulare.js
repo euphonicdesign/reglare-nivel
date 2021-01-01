@@ -7794,6 +7794,20 @@ function desenareGraficSemnale(){
     ctx.stroke();
     ctx.setLineDash([]);
 
+    //Desenare Valori Proiectie Grafic Semnale
+    ctx.textAlign = "end";
+    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = "white";//culoareTextCompensatorFill;
+    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    ctx.fillText(Math.round(dataCumulativ[selectorZi]), xGraficSemnale + lungimeRezervor - 25, yGraficSemnale + 5);
+    ctx.fillStyle = "yellow";//culoareTextCompensatorFill;
+    val_pr = Math.round(medieCumulativ[selectorZi] * factor_amp * intervalProiectie2);
+    ctx.fillText("+" + val_pr, xGraficSemnale + lungimeRezervor - 25, yGraficSemnale + 15);
+    ctx.fillStyle = "red";//culoareTextCompensatorFill;
+    ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
+    val_tot = Math.round(dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_amp * intervalProiectie2);
+    ctx.fillText("=" + val_tot, xGraficSemnale + lungimeRezervor - 25, yGraficSemnale + 25);
+
     /*
     ctx.lineWidth = 1;
     for (let i = selectorZi + 1; i <= selectorZi + intervalProiectie; i++) {
