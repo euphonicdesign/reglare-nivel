@@ -18,6 +18,7 @@ var limita_regim_liniar_toate = 1500;
 
 var limitaDerulareGraficeSemnale = 286;
 
+var culoareRosuTemperat = "#e61919";
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
 var nivelDepasireCapacitate = 35;
@@ -3280,7 +3281,7 @@ function desenareSchemaRacheta(){
       //text_lim = "des";
   }
   else{
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = culoareRosuTemperat;
     ctx.fillStyle = "grey";
   }
   //blocuri
@@ -3321,8 +3322,8 @@ function desenareSchemaRacheta(){
 
   //R
   if(vector_rToate[selectorZi] >= 1){
-    ctx.fillStyle = "red";//culoareCrestereRosu;
-    ctx.strokeStyle = "red";
+    ctx.fillStyle = culoareRosuTemperat;//culoareCrestereRosu;
+    ctx.strokeStyle = culoareRosuTemperat;
     text_r = "+" + ((Math.floor((vector_rToate[selectorZi] - 1)*10000))/100) + "%";
     text_r2 = "+" + ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10) + "%";
   }
@@ -3437,8 +3438,8 @@ function desenareSchemaRacheta(){
   text_initial = "";
   eroare = data[selectorZi] - medieCumulativ[selectorZi];
   if (eroare > 0 ){
-      ctx.fillStyle = "red";
-      ctx.strokeStyle = "red";
+      ctx.fillStyle = culoareRosuTemperat;
+      ctx.strokeStyle = culoareRosuTemperat;
       text_initial = "+";
   }
   else{
@@ -3526,8 +3527,8 @@ function desenareSchemaRacheta(){
 
   if(zile_evenimente_actiuni[selectorZi]> -1){
       if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-          ctx.strokeStyle = "red";//culoareCrestereMaro;//"red";
-          ctx.fillStyle = "red";//culoareCrestereMaro;//"red";
+          ctx.strokeStyle = culoareRosuTemperat;//culoareCrestereMaro;//"red";
+          ctx.fillStyle = culoareRosuTemperat;//culoareCrestereMaro;//"red";
           text_lim = "des";
       }
       else{
@@ -3593,8 +3594,8 @@ function desenareSchemaRacheta(){
       ctx.strokeStyle = "green";
   }
   else{
-      ctx.fillStyle = "red";
-      ctx.strokeStyle = "red";
+      ctx.fillStyle = culoareRosuTemperat;
+      ctx.strokeStyle = culoareRosuTemperat;
   }
   //sub schema
   ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
@@ -3635,7 +3636,7 @@ function desenareSchemaRacheta(){
 
   //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
   if(data[selectorZi]>medieCumulativ[selectorZi]){
-      ctx.strokeStyle = "red";//culoareCrestereMaro;
+      ctx.strokeStyle = culoareRosuTemperat;//culoareCrestereMaro;
       //ctx.fillStyle = "red";
   }
   else{
@@ -3687,7 +3688,7 @@ function desenareSchemaRacheta(){
       ctx.fillStyle = "green";//culoare_scadere_entitate;//"lightgrey";
   }
   else {
-      ctx.fillStyle = "red";//culoareRosu;
+      ctx.fillStyle = culoareRosuTemperat;//culoareRosu;
   }
 
   //ctx.fillRect(xBlocA + lungBloc - 1, yBlocA -1, -factor_amp*20, latBlocA + 2);
@@ -3736,7 +3737,7 @@ function desenareSchemaRacheta(){
               //desenare arc pendul
       ctx.lineWidth = 2 ;
       if(vector_rToate[selectorZi] > 1){
-          ctx.strokeStyle = "red";//culoareTextCompensatorRosu;//"red";//culoareCrestereMaro;
+          ctx.strokeStyle = culoareRosuTemperat;//culoareTextCompensatorRosu;//"red";//culoareCrestereMaro;
           ctx.fillStyle = culoareRosu;//culoareTextCompensatorRosu;//"red";//culoareCrestereMaro;
       }
       else{
@@ -3759,8 +3760,8 @@ function desenareSchemaRacheta(){
       ctx.lineWidth = 4;
 
       if(vector_rToate[selectorZi] > 1){
-          ctx.strokeStyle = "red";//culoareCrestereMaro;
-          ctx.fillStyle = "red";//culoareCrestereMaro;
+          ctx.strokeStyle = culoareRosuTemperat;//culoareCrestereMaro;
+          ctx.fillStyle = culoareRosuTemperat;//culoareCrestereMaro;
       }
       else{
           ctx.strokeStyle = culoareScadere;
@@ -3824,7 +3825,7 @@ function desenareSchemaRacheta(){
         if( (yElice - eroareE * 2 + 2) < inaltimeSuprafataGrafica){
             if(sumaPareto < 38.2){
               if(valoareZona > 10){
-                culoareText = "red";
+                culoareText = culoareRosuTemperat;
                 ctx.font = "italic bold 12px system-ui, Arial, sans-serif";
                 text_final = "...";
               }
@@ -3917,8 +3918,8 @@ function desenareSchemaRacheta(){
   //ctx.fillStyle = "#b3b3b3";
 
   if (data[selectorZi] - medieCumulativ[selectorZi] > 0 ){
-      ctx.fillStyle = "red";
-      ctx.strokeStyle = "red";
+      ctx.fillStyle = culoareRosuTemperat;
+      ctx.strokeStyle = culoareRosuTemperat;
   }
   else{
       ctx.fillStyle = "green";
@@ -7722,7 +7723,7 @@ function desenareGraficSemnale(){
         //e
         if((data[i]-medieCumulativ[i])>0){
           //ctx.strokeStyle = culoareTextCompensatorRosu;
-          ctx.strokeStyle = "red";
+          ctx.strokeStyle = culoareRosuTemperat;
         }
         else{
           ctx.strokeStyle = culoareCerculetRScadere;//culoareScadere;
@@ -7740,8 +7741,8 @@ function desenareGraficSemnale(){
 
           if((data[i]-medieCumulativ[i])>0){
             //ctx.strokeStyle = culoareTextCompensatorRosu;
-            ctx.strokeStyle = "red";
-            ctx.fillStyle = "red";
+            ctx.strokeStyle = culoareRosuTemperat;
+            ctx.fillStyle = culoareRosuTemperat;
           }
           else{
             ctx.strokeStyle = culoareCerculetRScadere;//culoareScadere;
@@ -7861,7 +7862,7 @@ function desenareGraficSemnale(){
     ctx.fillStyle = "yellow";//culoareTextCompensatorFill;
     val_pr = Math.round(medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2);
     ctx.fillText("+" + val_pr, xProiectiiSemnale, yProiectiiSemnale + 19);
-    ctx.fillStyle = "red";//culoareTextCompensatorFill;
+    ctx.fillStyle = culoareRosuTemperat;//culoareTextCompensatorFill;
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     val_tot = Math.round(dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2);
     ctx.fillText("=" + val_tot, xProiectiiSemnale, yProiectiiSemnale + 33);
