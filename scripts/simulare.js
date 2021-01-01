@@ -18,7 +18,7 @@ var limita_regim_liniar_toate = 1500;
 
 var limitaDerulareGraficeSemnale = 286;
 
-var culoareRosuTemperat = "#e61919";
+var culoareRosuTemperat = "#d92626";//"#e61919";
 var culoare_linie_trend = "#999999";//"#b3b3b3";
 var culoareRezervor = "grey";
 var nivelDepasireCapacitate = 35;
