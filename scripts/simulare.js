@@ -7790,10 +7790,15 @@ function desenareGraficSemnale(){
     //ctx.beginPath();
     ctx.lineWidth = 1;
     ctx.strokeStyle = "yellow";
+
     ctx.moveTo(xrp1, rp_val1);
     ctx.lineTo(xrp2, rp_val2);
+    ctx.lineTo(xrp2, yGraficSemnale);
+    ctx.lineTo(xrp1, yGraficSemnale);
+    ctx.lineTo(xrp1, rp_val1);
     //ctx.closePath();
     ctx.stroke();
+
     ctx.setLineDash([]);
 
     //Desenare Valori Proiectie Grafic Semnale
