@@ -7643,144 +7643,186 @@ function desenareGraficSemnale(){
 
     //desenare linie orizontala medie
     //x_val_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
-    y_val_1 = yGraficSemnale;
+    //y_val_1 = yGraficSemnale;
 
-    x_val_1 = xGraficSemnale + Math.round(selectorZi/compresieGraficSemnale);
-    x_val_2 = x_val_1 + intervalProiectieSemnale;
+    //x_val_1 = xGraficSemnale + Math.round(selectorZi/compresieGraficSemnale);
+    //x_val_2 = x_val_1 + intervalProiectieSemnale;
+    y_valoare_1 = yGraficSemnale;
 
     for (let i = 0; i <= selectorZi; i++) {
+        x_valoare = xGraficSemnale + i/compresieGraficSemnale;
+        //GRAFIC ORIZONTAL(VERTICAL) - UMPLERE
+        //desenare linie sub valoare grafic
+         //i*incrementX;
+        y_valoare_2 = y_valoare_1 - ((data[i]*scalaXTrend3Orizontal)/maxValue);
+        r_val = y_valoare_1 - ((medieCumulativ[i]*scalaXTrend3Orizontal)/maxValue);
+        e_val = y_valoare_1 - (((data[i]-medieCumulativ[i])*scalaXTrend3Orizontal)/maxValue);
+        //lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
+        //y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
+        //y_valoare_2 = y_valoare_2 - lungime_segment;
+        //ySegmentDepasire = Math.round(y_val_1 + (25*scalaXTrend3Orizontal)/maxValue) - lungime_segment;
 
-      //GRAFIC ORIZONTAL(VERTICAL) - UMPLERE
-      //desenare linie sub valoare grafic
-      y_valoare_1 = y_val_1; //i*incrementX;
-      y_valoare_2 = Math.round(y_valoare_1 - ((data[i]*scalaXTrend3Orizontal)/maxValue));
-      r_val = Math.round(y_valoare_1 - ((medieCumulativ[i]*scalaXTrend3Orizontal)/maxValue));
-      e_val = Math.round(y_valoare_1 - (((data[i]-medieCumulativ[i])*scalaXTrend3Orizontal)/maxValue));
-      //lungime_segment = Math.round((y_valoare_2 - y_valoare_1) / 2);
-      //y_valoare_1 = y_valoare_1 - lungime_segment; //i*incrementX;
-      //y_valoare_2 = y_valoare_2 - lungime_segment;
-      //ySegmentDepasire = Math.round(y_val_1 + (25*scalaXTrend3Orizontal)/maxValue) - lungime_segment;
+        //y
+        ctx.strokeStyle = "white";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x_valoare, y_valoare_2-1);
+        ctx.lineTo(x_valoare, y_valoare_2);
+        ctx.closePath();
+        ctx.stroke();
 
-      x_valoare = xGraficSemnale + Math.round(i/compresieGraficSemnale);
+        //r
+        ctx.strokeStyle = "yellow";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+        ctx.beginPath();
+        ctx.moveTo(x_valoare, r_val-1);
+        ctx.lineTo(x_valoare, r_val);
+        ctx.closePath();
+        ctx.stroke();
 
-      //y
-      ctx.strokeStyle = "white";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(x_valoare, y_valoare_2-1);
-      ctx.lineTo(x_valoare, y_valoare_2);
-      ctx.closePath();
-      ctx.stroke();
-
-      //r
-      ctx.strokeStyle = "yellow";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
-      ctx.beginPath();
-      ctx.moveTo(x_valoare, r_val-1);
-      ctx.lineTo(x_valoare, r_val);
-      ctx.closePath();
-      ctx.stroke();
-
-      //e
-      if((data[i]-medieCumulativ[i])>0){
-        //ctx.strokeStyle = culoareTextCompensatorRosu;
-        ctx.strokeStyle = "red";
-      }
-      else{
-        ctx.strokeStyle = culoareCerculetRScadere;//culoareScadere;
-      }
-      //ctx.strokeStyle = "red";//"#4ddbff";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
-      ctx.beginPath();
-      ctx.moveTo(x_valoare, e_val-1);
-      ctx.lineTo(x_valoare, e_val);
-      ctx.closePath();
-      ctx.stroke();
-
-
-      if(i==selectorZi){
-        //cerculet creion y(t)
-
+        //e
         if((data[i]-medieCumulativ[i])>0){
           //ctx.strokeStyle = culoareTextCompensatorRosu;
           ctx.strokeStyle = "red";
-          ctx.fillStyle = "red";
         }
         else{
           ctx.strokeStyle = culoareCerculetRScadere;//culoareScadere;
-          ctx.fillStyle = culoareCerculetRScadere;//culoareScadere;
         }
-        ctx.lineWidth = 2;
+        //ctx.strokeStyle = "red";//"#4ddbff";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
         ctx.beginPath();
-        ctx.arc(x_valoare, e_val, 4, 0, 2 * Math.PI);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fill();
-
-        //afisare valoare eroare
-        ctx.textAlign = "start";
-        //ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
-        //ctx.fillText( eroare, x_valoare + 10, e_val + 14);
-
-        ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
-        ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , x_valoare + 10, e_val + 3);
-
-        //ctx.font = "italic bold 11px Helvetica, system-ui, Arial, sans-serif";
-        //ctx.textAlign = "start";
-        ctx.lineCap = "round";
-        if((data[i]-medieCumulativ[i])>0){
-
-            ctx.beginPath();
-            ctx.lineWidth = 1;
-            ctx.moveTo(x_valoare, e_val-9);
-            ctx.lineTo(x_valoare, e_val);
-            ctx.closePath();
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.lineWidth = 2;
-            ctx.moveTo(x_valoare-3, e_val-9);
-            ctx.lineTo(x_valoare+3, e_val-9);
-            ctx.closePath();
-            ctx.stroke();
-        }
-        else{
-            ctx.beginPath();
-            //ctx.lineCap = "round";
-            ctx.lineWidth = 1;
-            ctx.moveTo(x_valoare, e_val+9);
-            ctx.lineTo(x_valoare, e_val);
-            ctx.closePath();
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.lineWidth = 2;
-            ctx.moveTo(x_valoare-3, e_val+9);
-            ctx.lineTo(x_valoare+3, e_val+9);
-            ctx.closePath();
-            ctx.stroke();
-        }
-        ctx.lineCap = "butt";
-
-
-        ctx.strokeStyle = "white";
-        //ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(x_valoare, y_valoare_2, 4, 0, 2 * Math.PI);
-        ctx.closePath();
-        ctx.stroke();
-
-        ctx.strokeStyle = "yellow";
-        //ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(x_valoare, r_val, 4, 0, 2 * Math.PI);
+        ctx.moveTo(x_valoare, e_val-1);
+        ctx.lineTo(x_valoare, e_val);
         ctx.closePath();
         ctx.stroke();
 
 
+        if(i==selectorZi){
+          //cerculet creion y(t)
+
+          if((data[i]-medieCumulativ[i])>0){
+            //ctx.strokeStyle = culoareTextCompensatorRosu;
+            ctx.strokeStyle = "red";
+            ctx.fillStyle = "red";
+          }
+          else{
+            ctx.strokeStyle = culoareCerculetRScadere;//culoareScadere;
+            ctx.fillStyle = culoareCerculetRScadere;//culoareScadere;
+          }
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(x_valoare, e_val, 4, 0, 2 * Math.PI);
+          ctx.closePath();
+          ctx.stroke();
+          ctx.fill();
+
+          //afisare valoare eroare
+          ctx.textAlign = "start";
+          //ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+          //ctx.fillText( eroare, x_valoare + 10, e_val + 14);
+
+          ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
+          ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , x_valoare + 10, e_val + 3);
+
+          //ctx.font = "italic bold 11px Helvetica, system-ui, Arial, sans-serif";
+          //ctx.textAlign = "start";
+          ctx.lineCap = "round";
+          if((data[i]-medieCumulativ[i])>0){
+
+              ctx.beginPath();
+              ctx.lineWidth = 1;
+              ctx.moveTo(x_valoare, e_val-9);
+              ctx.lineTo(x_valoare, e_val);
+              ctx.closePath();
+              ctx.stroke();
+
+              ctx.beginPath();
+              ctx.lineWidth = 2;
+              ctx.moveTo(x_valoare-3, e_val-9);
+              ctx.lineTo(x_valoare+3, e_val-9);
+              ctx.closePath();
+              ctx.stroke();
+          }
+          else{
+              ctx.beginPath();
+              //ctx.lineCap = "round";
+              ctx.lineWidth = 1;
+              ctx.moveTo(x_valoare, e_val+9);
+              ctx.lineTo(x_valoare, e_val);
+              ctx.closePath();
+              ctx.stroke();
+
+              ctx.beginPath();
+              ctx.lineWidth = 2;
+              ctx.moveTo(x_valoare-3, e_val+9);
+              ctx.lineTo(x_valoare+3, e_val+9);
+              ctx.closePath();
+              ctx.stroke();
+          }
+          ctx.lineCap = "butt";
 
 
-      }
+          ctx.strokeStyle = "white";
+          //ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(x_valoare, y_valoare_2, 4, 0, 2 * Math.PI);
+          ctx.closePath();
+          ctx.stroke();
 
+          ctx.strokeStyle = "yellow";
+          //ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(x_valoare, r_val, 4, 0, 2 * Math.PI);
+          ctx.closePath();
+          ctx.stroke();
+        }
     }
+
+
+    //desenare proiectie
+    xrp1 = xGraficSemnale + (selectorZi)/compresieGraficSemnale;
+    xrp2 = xGraficSemnale + (selectorZi + intervalProiectie2)/compresieGraficSemnale;
+    rp_val1 = yGraficSemnale - (medieCumulativ[selectorZi] * scalaXTrend3Orizontal/(maxValue));
+    //rp_val2 = yGraficSemnale - (medieCumulativ[selectorZi] * scalaXTrend3Orizontal/(maxValue)) - (intervalProiectie)*factor_amp/compresieGraficSemnale;
+    rp_val2 = yGraficSemnale - (medieCumulativ[selectorZi] * factor_amp * scalaXTrend3Orizontal/(maxValue));
+
+    ctx.setLineDash([1, 4]);
+    //ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "yellow";
+    ctx.moveTo(xrp1, rp_val1);
+    ctx.lineTo(xrp2, rp_val2);
+    //ctx.closePath();
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    /*
+    ctx.lineWidth = 1;
+    for (let i = selectorZi + 1; i <= selectorZi + intervalProiectie; i++) {
+
+        //y_val_1 = yGraficSemnale;
+
+        //x_val_1 = xGraficSemnale + Math.round(selectorZi/compresieGraficSemnale);
+        //x_val_2 = x_val_1 + intervalProiectieSemnale;
+
+        //y_valoare_1 = yGraficSemnale; //i*incrementX;
+        //y_valoare_2 = Math.round(y_valoare_1 - ((data[i]*scalaXTrend3Orizontal)/maxValue));
+        //r_val = Math.round(y_valoare_1 - ((medieCumulativ[i]*scalaXTrend3Orizontal)/maxValue));
+        if(i%10 ==0){
+            x_valoare = xGraficSemnale + i/compresieGraficSemnale;
+            rp_val = y_valoare_1 - (medieCumulativ[selectorZi] * scalaXTrend3Orizontal/(maxValue)) - (i-selectorZi)*factor_amp/compresieGraficSemnale;
+           //r_val = y_valoare_1 - ((medieCumulativ[i]*scalaXTrend3Orizontal)/maxValue);
+            //e_val = Math.round(y_valoare_1 - (((data[i]-medieCumulativ[i])*scalaXTrend3Orizontal)/maxValue));
+            //r
+            ctx.fillStyle = "yellow";//culoarePunctValoriGrafic;//"#00111a";//culoareApa;
+            ctx.beginPath();
+            ctx.arc(x_valoare, rp_val, 1, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fill();
+        }
+    }*/
+    //console.log("selector zi " + selectorZi);
+    //console.log(rp_val);
+    //console.log(r_val);
+    //console.log(scalaXTrend3Orizontal);
 
 }
 
