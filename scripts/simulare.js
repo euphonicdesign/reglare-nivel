@@ -3450,7 +3450,17 @@ function desenareSchemaRacheta(){
   //if(selectorZi > orizont_trend){
     ctx.lineWidth = 2;
     //gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
-    eroareE = (data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100;
+
+    if(selectorZi > 3){
+        dataEroareAmortizata = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3])/4;
+    }
+    else{
+        dataEroareAmortizata = data[selectorZi];
+    }
+    //dataEroareAmortizata = data[selectorZi];
+    //lungimeJet = Math.floor(dataJetAmortizat / medieCumulativ[selectorZi]*10)/10 * 7;
+
+    eroareE = (dataEroareAmortizata - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100;
     ctx.beginPath();
     ctx.moveTo(xElice1 - 18, yElice);
     ctx.lineTo(xElice1 - 18, yElice - eroareE * 2);
@@ -3869,13 +3879,13 @@ function desenareSchemaRacheta(){
   //jet reactie
   ctx.fillStyle = "orange";
   if(selectorZi > 3){
-      dataJetAmortizat = data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3];
+      dataJetAmortizat = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3])/4;
   }
   else{
       dataJetAmortizat = data[selectorZi];
   }
-  dataJetAmortizat = data[selectorZi]
-  lungimeJet = Math.floor(dataJetAmortizat / medieCumulativ[selectorZi]*10)/10 * 7;
+  //dataJetAmortizat = data[selectorZi];
+  lungimeJet = dataJetAmortizat / medieCumulativ[selectorZi] * 7;
   //console.log(lungimeJet);
   ctx.beginPath();
   ctx.moveTo(xRacheta, yElice + 5);
