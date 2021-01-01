@@ -343,7 +343,7 @@ var yMagnificareGrafice2 = yGrafic_3 - 64;
 //Grafic Semnale
 var yGraficSemnale = 340;
 var xGraficSemnale = 208;
-var xProiectiiSemnale = xGraficSemnale;
+var xProiectiiSemnale = xGraficSemnale + 6;
 var yProiectiiSemnale = yGraficSemnale - 90;
 var intervalProiectieSemnale = 30;
 var compresieGraficSemnale = 2.6;
