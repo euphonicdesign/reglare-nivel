@@ -343,6 +343,8 @@ var yMagnificareGrafice2 = yGrafic_3 - 64;
 //Grafic Semnale
 var yGraficSemnale = 340;
 var xGraficSemnale = 208;
+var xProiectiiSemnale = xGraficSemnale;
+var yProiectiiSemnale = yGraficSemnale - 60;
 var intervalProiectieSemnale = 30;
 var compresieGraficSemnale = 2.6;
 
@@ -7795,18 +7797,37 @@ function desenareGraficSemnale(){
     ctx.setLineDash([]);
 
     //Desenare Valori Proiectie Grafic Semnale
-    ctx.textAlign = "end";
+    ctx.textAlign = "start";
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = "white";//culoareTextCompensatorFill;
     //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-    ctx.fillText(Math.round(dataCumulativ[selectorZi]), xGraficSemnale + lungimeRezervor - 25, yGraficSemnale + 5);
+    ctx.fillText(Math.round(dataCumulativ[selectorZi]), xProiectiiSemnale, yProiectiiSemnale + 5);
     ctx.fillStyle = "yellow";//culoareTextCompensatorFill;
     val_pr = Math.round(medieCumulativ[selectorZi] * factor_amp * intervalProiectie2);
-    ctx.fillText("+" + val_pr, xGraficSemnale + lungimeRezervor - 25, yGraficSemnale + 15);
+    ctx.fillText("+" + val_pr, xProiectiiSemnale, yProiectiiSemnale + 15);
     ctx.fillStyle = "red";//culoareTextCompensatorFill;
     ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
     val_tot = Math.round(dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_amp * intervalProiectie2);
-    ctx.fillText("=" + val_tot, xGraficSemnale + lungimeRezervor - 25, yGraficSemnale + 25);
+    ctx.fillText("=" + val_tot, xProiectiiSemnale, yProiectiiSemnale + 25);
+
+    //Afisare data
+
+    data_zi_luna_p = data_data[(Math.floor(selectorZi) + intervalProiectie2)].split("/");
+    zi_p = data_zi_luna_p[0];
+    luna_p = data_luni[data_zi_luna_p[1]-1];
+
+    //Valoare cumulativa
+    //ctx.textAlign = "end";
+
+    ctx.fillStyle = "lightgrey";//culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+    //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
+
+    //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), xTproiectie - 8, yTproiectie - 9);
+
+
+    //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillText(zi_p + " " + luna_p, xProiectiiSemnale, yProiectiiSemnale - 5);
 
     /*
     ctx.lineWidth = 1;
