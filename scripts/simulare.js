@@ -3443,7 +3443,7 @@ function desenareSchemaRacheta(){
   }
 
   // Eroare E
-  if(selectorZi > orizont_trend){
+  //if(selectorZi > orizont_trend){
     ctx.lineWidth = 2;
     //gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
     eroareE = Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100);
@@ -3475,7 +3475,7 @@ function desenareSchemaRacheta(){
     }
 
     //ctx.fillText(text_r2, xRacheta + 23, yElice - gravitatieR * 2 + 2);
-  }
+  //}
 
 
   ctx.lineWidth = 4;
@@ -3581,7 +3581,7 @@ function desenareSchemaRacheta(){
   //deasupra racheta
   ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText(factor_amp + "x", xRacheta + 2, yRachetaVarf - 32);
+  ctx.fillText(factor_amp + "x", xRacheta + 1, yRachetaVarf - 32);
 
   //vector accelerare / amplificare
   ctx.lineWidth = 4;
