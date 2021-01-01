@@ -3435,7 +3435,7 @@ function desenareSchemaRacheta(){
 
   //E
   text_initial = "";
-  eroare = Math.round(data[selectorZi] - medieCumulativ[selectorZi]);
+  eroare = data[selectorZi] - medieCumulativ[selectorZi];
   if (eroare > 0 ){
       ctx.fillStyle = "red";
       ctx.strokeStyle = "red";
@@ -3450,7 +3450,7 @@ function desenareSchemaRacheta(){
   //if(selectorZi > orizont_trend){
     ctx.lineWidth = 2;
     //gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
-    eroareE = Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100);
+    eroareE = (data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100;
     ctx.beginPath();
     ctx.moveTo(xElice1 - 18, yElice);
     ctx.lineTo(xElice1 - 18, yElice - eroareE * 2);
@@ -3492,7 +3492,7 @@ function desenareSchemaRacheta(){
 
   ctx.textAlign = "center";
   ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText( eroare, xCercRef + 20, yCaleDir + 14);
+  ctx.fillText( Math.round(eroare), xCercRef + 20, yCaleDir + 14);
 
 
   ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
@@ -3565,12 +3565,20 @@ function desenareSchemaRacheta(){
   ctx.fillStyle = "grey";
   //Factor amplificare
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-  factor_amp = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10;
+  factor_amp = data[selectorZi] / medieCumulativ[selectorZi];
+  if(selectorZi > 3){
+      factor_ampMediu = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3])/4 / medieCumulativ[selectorZi];
+  }
+  else{
+      factor_ampMediu = factor_amp;
+  }
+  //console.log(factor_ampMediu);
+
   ctx.textAlign = "center";
   ctx.fillText("amplificare", xCercRef + 40, yCaleBucla + 16);
   ctx.fillText("(accelerare)", xCercRef + 40, yCaleBucla + 26);
   //ctx.fillText("amplificare", xCercRef + 22, yCaleBucla + 28);
-  if(factor_amp < 1){
+  if(factor_ampMediu < 1){
       ctx.fillStyle = "green";
       ctx.strokeStyle = "green";
   }
@@ -3578,27 +3586,32 @@ function desenareSchemaRacheta(){
       ctx.fillStyle = "red";
       ctx.strokeStyle = "red";
   }
+  //sub schema
   ctx.font = "italic bold 15px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText(factor_amp + "x", xCercRef + 100, yCaleBucla + 22);
+  ctx.fillText(Math.floor(factor_ampMediu*10)/10 + "x̄", xCercRef + 100, yCaleBucla + 22);
+
+  //ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
+  //ctx.textAlign = "center";
+  //ctx.fillText(factor_ampMediu + "", xCercRef + 100, yCaleBucla + 32);
 
   //deasupra racheta
   ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText(factor_amp + "x", xRacheta + 1, yRachetaVarf - 32);
+  ctx.fillText(Math.floor(factor_ampMediu*10)/10 + "x", xRacheta + 1, yRachetaVarf - 32);
 
   //vector accelerare / amplificare
   ctx.lineWidth = 4;
   if(selectorZi > orizont_trend){
     ctx.beginPath();
     ctx.moveTo(xRacheta + 20, yElice);
-    ctx.lineTo(xRacheta + 20, yElice - (factor_amp - 1) * 10);
+    ctx.lineTo(xRacheta + 20, yElice - (factor_ampMediu - 1) * 10);
     ctx.closePath();
     ctx.stroke();
 
     //capat vector
     ctx.beginPath();
-    ctx.arc(xRacheta + 20, yElice - (factor_amp - 1) * 10, 4, 0, 2 * Math.PI);
+    ctx.arc(xRacheta + 20, yElice - (factor_ampMediu - 1) * 10, 4, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
 
@@ -3660,7 +3673,7 @@ function desenareSchemaRacheta(){
   ctx.fillStyle = culoare_canvas;//"lightgrey";
   ctx.fillRect(xBlocA, yBlocA, lungBloc, latBlocA);
 
-  if(factor_amp < 1){
+  if(factor_ampMediu < 1){
       ctx.fillStyle = "green";//culoare_scadere_entitate;//"lightgrey";
   }
   else {
@@ -3679,13 +3692,13 @@ function desenareSchemaRacheta(){
   //vector amplificator
   ctx.beginPath();
   ctx.moveTo(xBlocA + lungBloc/2, yCaleBucla);
-  ctx.lineTo(xBlocA + lungBloc/2 - (factor_amp - 1)*20, yCaleBucla);
+  ctx.lineTo(xBlocA + lungBloc/2 - (factor_ampMediu - 1)*20, yCaleBucla);
   ctx.closePath();
   ctx.stroke();
 
   //capat vector amplificator
   ctx.beginPath();
-  ctx.arc(xBlocA + lungBloc/2 - (factor_amp - 1)*20, yCaleBucla, 4, 0, 2 * Math.PI);
+  ctx.arc(xBlocA + lungBloc/2 - (factor_ampMediu - 1)*20, yCaleBucla, 4, 0, 2 * Math.PI);
   ctx.closePath();
   ctx.fill();
 
@@ -3855,7 +3868,14 @@ function desenareSchemaRacheta(){
 
   //jet reactie
   ctx.fillStyle = "orange";
-  lungimeJet = Math.floor(data[selectorZi] / medieCumulativ[selectorZi]*10)/10 * 7;
+  if(selectorZi > 3){
+      dataJetAmortizat = data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3];
+  }
+  else{
+      dataJetAmortizat = data[selectorZi];
+  }
+  dataJetAmortizat = data[selectorZi]
+  lungimeJet = Math.floor(dataJetAmortizat / medieCumulativ[selectorZi]*10)/10 * 7;
   //console.log(lungimeJet);
   ctx.beginPath();
   ctx.moveTo(xRacheta, yElice + 5);
@@ -7801,7 +7821,7 @@ function desenareGraficSemnale(){
 
     rp_val1 = yGraficSemnale - (medieCumulativ[selectorZi] * scalaXTrend3Orizontal/(maxValue));
     //rp_val2 = yGraficSemnale - (medieCumulativ[selectorZi] * scalaXTrend3Orizontal/(maxValue)) - (intervalProiectie)*factor_amp/compresieGraficSemnale;
-    rp_val2 = yGraficSemnale - (medieCumulativ[selectorZi] * factor_amp * scalaXTrend3Orizontal/(maxValue));
+    rp_val2 = yGraficSemnale - (medieCumulativ[selectorZi] * factor_ampMediu * scalaXTrend3Orizontal/(maxValue));
 
     ctx.setLineDash([1, 4]);
     //ctx.beginPath();
@@ -7829,11 +7849,11 @@ function desenareGraficSemnale(){
     //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     ctx.fillText(Math.round(dataCumulativ[selectorZi]), xProiectiiSemnale, yProiectiiSemnale + 5);
     ctx.fillStyle = "yellow";//culoareTextCompensatorFill;
-    val_pr = Math.round(medieCumulativ[selectorZi] * factor_amp * intervalProiectie2);
+    val_pr = Math.round(medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2);
     ctx.fillText("+" + val_pr, xProiectiiSemnale, yProiectiiSemnale + 19);
     ctx.fillStyle = "red";//culoareTextCompensatorFill;
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    val_tot = Math.round(dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_amp * intervalProiectie2);
+    val_tot = Math.round(dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2);
     ctx.fillText("=" + val_tot, xProiectiiSemnale, yProiectiiSemnale + 33);
 
     //Afisare data
