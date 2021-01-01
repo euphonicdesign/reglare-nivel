@@ -7862,7 +7862,7 @@ function desenareGraficSemnale(){
     ctx.fillStyle = "yellow";//culoareTextCompensatorFill;
     val_pr = Math.round(medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2);
     ctx.fillText("+" + val_pr, xProiectiiSemnale, yProiectiiSemnale + 19);
-    ctx.fillStyle = culoareRosuTemperat;//culoareTextCompensatorFill;
+    ctx.fillStyle = "white";//culoareTextCompensatorFill;
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
     val_tot = Math.round(dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2);
     ctx.fillText("=" + val_tot, xProiectiiSemnale, yProiectiiSemnale + 33);
@@ -7878,11 +7878,6 @@ function desenareGraficSemnale(){
 
     ctx.fillStyle = "lightgrey";//culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
     //ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoareTextCompensatorFill;
-
-    //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
-    //ctx.fillText("Ziua " + (Math.floor(selectorZi) + intervalProiectie2), xTproiectie - 8, yTproiectie - 9);
-
-
     //ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText(zi_p + " " + luna_p, xProiectiiSemnale, yProiectiiSemnale - 9);
