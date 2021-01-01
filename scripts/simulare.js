@@ -3818,7 +3818,8 @@ function desenareSchemaRacheta(){
         numeZona = "" + vectoriDateZone[clasamentMedie[zona].arie].nume;
         //textElement = Math.round(clasamentAeronaveZile[selectorZi].clasament[zona].medie);
         /////textElement = Math.round(clasamentProiectie[zona].medie);
-        valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*1000)/10;
+        //valoareZona = Math.floor(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*1000)/10;
+        valoareZona = Math.round(vectoriDateZone[clasamentMedie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*100);
         sumaPareto += valoareZona;
         text_final = "";
 
@@ -3846,13 +3847,13 @@ function desenareSchemaRacheta(){
                 //}
 
                 ctx.fillStyle = culoareText;
-                ctx.fillText(numeZona + ": " , xElice1 - 10 , yElice - eroareE * 2 + 2 + zona * 12);
-                ctx.fillText(valoareZona + "%" + text_final, xElice1 + 16 , yElice - eroareE * 2 + 2 + zona * 12);
+                ctx.fillText(numeZona + ": " , xElice1 - 7 , yElice - eroareE * 2 + 2 + zona * 12);
+                ctx.fillText(valoareZona + "%" + text_final, xElice1 + 19 , yElice - eroareE * 2 + 2 + zona * 12);
             }
             else{
                 ctx.fillStyle = culoareText;
-                ctx.fillText(numeZona + ": ", xElice1 - 10 , 16 + zona * 12);
-                ctx.fillText(valoareZona + "%" + text_final, xElice1 + 16 , 16 + zona * 12);
+                ctx.fillText(numeZona + ": ", xElice1 - 7 , 16 + zona * 12);
+                ctx.fillText(valoareZona + "%" + text_final, xElice1 + 19 , 16 + zona * 12);
             }
         }
     }
