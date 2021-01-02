@@ -555,7 +555,7 @@ var yl5 = yLegenda + 100;
 var lungBloc = 40;
 var latBloc = 20;
 
-var yCaleDir = 410;
+var yCaleDir = 409;
 var yCaleBucla = yCaleDir + 1.5* latBloc;
 
 var xCercRef = 50;
@@ -3591,7 +3591,7 @@ function desenareSchemaRacheta(){
   ctx.fillText("(accelerare)", xCercRef + 40, yCaleBucla + 26);
 
   //text viteza
-  ctx.fillText("(vit.)", xCercRef - 20, yCaleDir + 28);
+  ctx.fillText("(vit.)", xCercRef - 20, yCaleDir + 46);
   //ctx.fillText("amplificare", xCercRef + 22, yCaleBucla + 28);
   if(factor_ampMediu < 1){
       ctx.fillStyle = "green";
