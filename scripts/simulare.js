@@ -3708,10 +3708,22 @@ function desenareSchemaRacheta(){
   ctx.stroke();
 
   //capat vector amplificator
+
   ctx.beginPath();
   ctx.arc(xBlocA + lungBloc/2 - (factor_ampMediu - 1)*20, yCaleBucla, 4, 0, 2 * Math.PI);
   ctx.closePath();
-  ctx.fill();
+  if(factor_ampMediu < 1){
+      ctx.fillStyle = "green";//culoare_scadere_entitate;//"lightgrey";
+      ctx.fill();
+  }
+  else {
+      ctx.fillStyle = "orange";//culoareRosu;
+      ctx.strokeStyle = "culoareRosuTemperat";
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.stroke();
+  }
+
 
   //Cutie, frana
   //--------------------
