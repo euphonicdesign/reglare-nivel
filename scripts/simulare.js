@@ -3427,7 +3427,7 @@ function desenareSchemaRacheta(){
   ctx.stroke();
 
 
-  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xCercRef - 32, yCaleDir + 14);
+  ctx.fillText(Math.floor(medieCumulativ[selectorZi]*10)/10, xCercRef - 32, yCaleDir + 14);
   ctx.fillText("r(t)", xCercRef - 30, yCaleDir - 6);
 
   ctx.fillStyle = "grey";
@@ -3585,9 +3585,13 @@ function desenareSchemaRacheta(){
   }
   //console.log(factor_ampMediu);
 
+  //text accelerare
   ctx.textAlign = "center";
   ctx.fillText("amplificare", xCercRef + 40, yCaleBucla + 16);
   ctx.fillText("(accelerare)", xCercRef + 40, yCaleBucla + 26);
+
+  //text viteza
+  ctx.fillText("(vit.)", xCercRef - 20, yCaleDir + 28);
   //ctx.fillText("amplificare", xCercRef + 22, yCaleBucla + 28);
   if(factor_ampMediu < 1){
       ctx.fillStyle = "green";
