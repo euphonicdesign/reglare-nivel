@@ -3591,8 +3591,16 @@ function desenareSchemaRacheta(){
   ctx.fillText("(accelerare)", xCercRef + 40, yCaleBucla + 26);
 
   //text viteza
-  ctx.fillText("(vit.)", xCercRef - 20, yCaleDir + 46);
+  //ctx.textAlign = "start";
+  ctx.fillText("ref.", xCercRef - 20, yCaleDir + 46);
+  ctx.fillText("(vit.)", xCercRef - 20, yCaleDir + 56);
   //ctx.fillText("amplificare", xCercRef + 22, yCaleBucla + 28);
+
+  //text var stare
+  //ctx.textAlign = "end";
+  ctx.fillText("stare", xBlocP + 80, yCaleDir + 46);
+  ctx.fillText("(internă)", xBlocP + 80, yCaleDir + 56);
+
   if(factor_ampMediu < 1){
       ctx.fillStyle = "green";
       ctx.strokeStyle = "green";
