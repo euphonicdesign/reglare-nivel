@@ -7908,8 +7908,12 @@ function desenareGraficSemnale(){
     ctx.fillText("+" + val_pr, xProiectiiSemnale, yProiectiiSemnale + 19);
     ctx.fillStyle = "white";//culoareTextCompensatorFill;
     ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    val_tot = Math.round(dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2);
-    ctx.fillText("=" + val_tot, xProiectiiSemnale, yProiectiiSemnale + 33);
+    val_tot = dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2;
+    ctx.fillText("=" + Math.round(val_tot), xProiectiiSemnale, yProiectiiSemnale + 33);
+    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = "lightgrey";
+    ctx.fillText("(" + Math.floor((val_tot/19173111)*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
+
 
     //Afisare data
 
