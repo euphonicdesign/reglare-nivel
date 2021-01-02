@@ -7912,7 +7912,7 @@ function desenareGraficSemnale(){
     ctx.fillText("=" + Math.round(val_tot), xProiectiiSemnale, yProiectiiSemnale + 33);
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = "lightgrey";
-    ctx.fillText("(" + Math.floor((val_tot/19173111)*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
+    ctx.fillText("(" + Math.floor((1 - val_tot/19173111)*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
 
 
     //Afisare data
