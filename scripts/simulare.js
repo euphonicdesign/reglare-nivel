@@ -3729,31 +3729,40 @@ function desenareSchemaRacheta(){
   ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
 
   if(selectorZi > orizont_regresie + orizont_arie){
-              //desenare arc pendul
-
-      ctx.strokeStyle = "green";//"#1a1a1a";//"#333";
-      ctx.lineWidth = 1;
-      ctx.setLineDash([1,2]);
-      ctx.beginPath();
-      ctx.moveTo(xStalpModReglare + lungimeSosetaModReglare, yStalpModReglare);
-      ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, - 2*Math.PI * 0.25);
-      ctx.moveTo(xStalpModReglare, yStalpModReglare - lungimeSosetaModReglare);
-      ctx.closePath();
-      ctx.stroke();
-      ctx.setLineDash([]);
-
 
       ctx.lineWidth = 2;
       if(vector_rToate[selectorZi] > 1){
+          //flama
+          ctx.fillStyle = "yellow";
+          ctx.beginPath();
+          ctx.moveTo(xStalpModReglare, yStalpModReglare);
+          ctx.arc(xStalpModReglare+1, yStalpModReglare-1, lungimeSosetaModReglare + 1, -(xsos * Math.PI * 2 / 360), 0 );
+          //ctx.moveTo(xStalpModReglare, yStalpModReglare - lungimeSosetaModReglare);
+          ctx.closePath();
+          ctx.fill();
+
           ctx.strokeStyle = culoareRosuTemperat;//culoareTextCompensatorRosu;//"red";//culoareCrestereMaro;
           ctx.fillStyle = culoareRosu;//culoareTextCompensatorRosu;//"red";//culoareCrestereMaro;
       }
       else{
+          //desenare arc pendul
+          ctx.strokeStyle = "green";//"#1a1a1a";//"#333";
+          ctx.lineWidth = 1;
+          ctx.setLineDash([1,2]);
+          ctx.beginPath();
+          ctx.moveTo(xStalpModReglare + lungimeSosetaModReglare, yStalpModReglare);
+          ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, - 2*Math.PI * 0.25);
+          ctx.moveTo(xStalpModReglare, yStalpModReglare - lungimeSosetaModReglare);
+          ctx.closePath();
+          ctx.stroke();
+          ctx.setLineDash([]);
+
           ctx.strokeStyle = "green";//culoare_scadere_entitate;
           ctx.fillStyle = culoare_scadere_entitate;
       }
+      ctx.lineWidth = 2;
 
-
+      //
       //ctx.fillStyle = "white";//"#4d4d4d";
       ctx.beginPath();
       ctx.moveTo(xStalpModReglare, yStalpModReglare);
