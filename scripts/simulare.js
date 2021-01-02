@@ -3598,8 +3598,8 @@ function desenareSchemaRacheta(){
 
   //text var stare
   //ctx.textAlign = "end";
-  ctx.fillText("stare", xBlocP + 80, yCaleDir + 46);
-  ctx.fillText("(internă)", xBlocP + 80, yCaleDir + 56);
+  ctx.fillText("stare", xBlocP + 88, yCaleDir + 46);
+  ctx.fillText("(var. internă)", xBlocP + 70, yCaleDir + 56);
 
   if(factor_ampMediu < 1){
       ctx.fillStyle = "green";
