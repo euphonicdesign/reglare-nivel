@@ -6686,11 +6686,13 @@ function desenareAvioaneRegulator(){
       }
 
       //if(vectorMedieZiCurenta[selectorZi] > limita_max_crestere_medie){
+
+      /* //CULOARE ROZ daca se depaseste limita
       if(vector_valZiCurentaToate[selectorZi] > 900){
           ctx.fillStyle = "rgba(228, 180, 180, 0.8)"; //culoareRoz;
           ctx.strokeStyle = "black";
           //console.log("zona " + zona + " medieZicurenta " + vectoriDateZone[zona].vectorMedieZiCurenta[selectorZi]);
-      }
+      }*/
 
       //if(vectorDeltaZiCurenta[selectorZi] > limita_max_crestere_delta){
           //ctx.fillStyle = "rgba(195, 34, 34, 0.8)";//culoareRosu;
