@@ -5084,6 +5084,8 @@ function desenareAvioaneHarta(){
     }
   }
 
+
+  clasamentArie = clasamentAeronaveZileSortatArie[selectorZi].clasament;
   //desenare Avion pe radar
   if(selectorZi > orizont_trend)
       for(let zona=0; zona<vectoriDateZone.length; zona++){
@@ -5222,9 +5224,12 @@ function desenareAvioaneHarta(){
           }
 
           nume_zona = numeArii.data.value[zona].substring(0,3);
-
+          valoareZona = Math.floor(vectoriDateZone[clasamentArie[zona].arie].vectorMedieZiCurenta[selectorZi] / vector_valZiCurentaToate[selectorZi]*1000)/10;
           //pozitieZone[zona][0], pozitieZone[zona][1]
           ctx.fillText(nume_zona, pozitieZone[zona][0] - 14, pozitieZone[zona][1] - 14);
+          ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+          ctx.textAlign = "start";
+          ctx.fillText("(" + valoareZona + "%)", pozitieZone[zona][0] + 12, pozitieZone[zona][1] - 15);
 
           /*
           if(vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar > 3 ){
