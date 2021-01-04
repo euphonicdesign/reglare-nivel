@@ -6545,8 +6545,8 @@ function desenareAvioaneRegulator(){
         //
 
         ctx.lineWidth = 1;
-        ctx.strokeStyle = "navy";
-        ctx.fillStyle = "navy";
+        ctx.strokeStyle = "hsla(210,70%,40%, 0.9)";//"navy";
+        ctx.fillStyle = "hsla(210,70%,60%, 0.9)";//"navy";
 
         //desenare segment vector
         ctx.beginPath();
@@ -6582,7 +6582,7 @@ function desenareAvioaneRegulator(){
         //desenare avion
         ctx.lineWidth = 1;
         ctx.fillStyle = culoareLinieGraficP;
-        ctx.strokeStyle = "navy";
+        ctx.strokeStyle = "hsla(210,70%,40%, 0.9)";//"navy";
 
         ctx.beginPath();
         if(vectoriDateZone[nrArie].vectorYAvionRegulator[selectorZi]/scalaRadarYRegulator + yRadarModRadarRegulator> 0 ){
@@ -6610,7 +6610,7 @@ function desenareAvioaneRegulator(){
 
         nume_zona = numeArii.data.value[nrArie].substring(0,3);
         ctx.strokeStyle = "navy";
-        ctx.fillStyle = "navy";
+        ctx.fillStyle = "hsla(210,70%,80%, 0.9)";//"navy";
         ctx.fillText(nume_zona, vectoriDateZone[nrArie].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator - 14, vectoriDateZone[nrArie].vectorYAvionRegulator[selectorZi]/scalaRadarYRegulator + yRadarModRadarRegulator - 14);
 
       }
@@ -6619,7 +6619,7 @@ function desenareAvioaneRegulator(){
 
   //desenare Fum Toate selectat
   //if(nrArie == 43){
-  if(nrArie){
+  if(true){
       xAvion = ((vectorXAvionRegulatorToate[selectorZi])*scalaXAvionRadarToateRegulator + xRadarModRadarRegulator);
       yAvion = (vectorYAvionRegulatorToate[selectorZi])*scalaYAvionRadarToateRegulator / scalaRadarYRegulator + yRadarModRadarRegulator;
 
@@ -6654,7 +6654,7 @@ function desenareAvioaneRegulator(){
 
   //Desenare Avion Toate
   //if(nrArie == 43){
-  if(nrArie){
+  if(true){
       //Desenare Vector Avion (R, DR)
       //
 
