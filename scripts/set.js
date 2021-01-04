@@ -49,7 +49,7 @@ let data_10 = [
             109, 204, 164, 107, 188, 139, 98,
             87, 155, 130, 146, 111, 85, 122,
             104, 135, 127, 171, 74, 78, 60,
-            
+
 
 
 ];
@@ -334,6 +334,7 @@ let evenimente = [
               '9/11',
               '26/11',
               '19/12',
+              '3/1',
 ];
 
 let evenimente_actiuni = [
@@ -352,6 +353,7 @@ let evenimente_actiuni = [
               '9 Noi: limitare', //9/11
               '26 Noi: ezitare...', //9/11
               '19 Dec: ezitare....', //19/12
+              '3 Ian: ezitare.....', //19/12
 ];
 
 let info_date = [
@@ -370,6 +372,7 @@ let info_date = [
               '9/11',
               '26/11',
               '19/12',
+              '3/1',
 ];
 
 let info_explicatii = [
@@ -420,5 +423,9 @@ let info_explicatii = [
               'Bucla de reacție este deschisă înainte ca sistemul \
               \nsă poată atinge referința... Este activată intermitent... \
               \nZona cea mai afectată funcționeaza în buclă deschisă...',
+
+              'Fiecare zi de ezitare în a face ceea ce este corect \
+              \ndpdv. al situației curente \
+              \nconduce la alte cateva mii de pierderi...',
 
 ];

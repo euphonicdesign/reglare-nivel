@@ -163,6 +163,7 @@ let evenimente_tip = [
               culoareVerde, //9/11
               culoareMaro, //25/11
               culoareMaro, //19/12
+              culoareMaro, //19/12
 ];
 
 var unghiEliceRadiani = -Math.PI/4;
@@ -3914,11 +3915,23 @@ function desenareSchemaRacheta(){
               if(valoareZona > 10){
                 culoareText = culoareRosuTemperat;
                 ctx.font = "italic bold 12px system-ui, Arial, sans-serif";
-                text_final = "...";
+
+                if(zile_contor_vectorizare[selectorZi] > 8){
+                  text_final = "....";
+                }
+                else{
+                  text_final = "...";
+                }
               }
               else{
                 culoareText = "orange";
                 ctx.font = "italic bold 10px system-ui, Arial, sans-serif";
+                if(zile_contor_vectorizare[selectorZi] > 8){
+                  text_final = "...";
+                }
+                else{
+                  text_final = "";
+                }
               }
             }
             else{
