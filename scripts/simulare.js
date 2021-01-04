@@ -3916,29 +3916,35 @@ function desenareSchemaRacheta(){
               if(valoareZona > 10){
                 culoareText = culoareRosuTemperat;
                 ctx.font = "italic bold 12px system-ui, Arial, sans-serif";
-
+                /*
                 if(zile_contor_vectorizare[selectorZi] > 8){
                   text_final = "....";
                 }
                 else{
                   text_final = "...";
-                }
+                }*/
               }
               else{
                 culoareText = "orange";
                 ctx.font = "italic bold 10px system-ui, Arial, sans-serif";
+                /*
                 if(zile_contor_vectorizare[selectorZi] > 8){
                   text_final = "...";
                 }
                 else{
                   text_final = "";
-                }
+                }*/
               }
             }
             else{
               culoareText = culoareTextCompensatorFill;
               ctx.font = "italic 10px system-ui, Arial, sans-serif";
             }
+
+            for(j=0; j<valoareZona/2; j++){
+                text_final = text_final + ".";
+            }
+
             if( (yElice - eroareE * 2 + 2) > 0){
                 //if(valoareZona > 10){
                   //umbra text
