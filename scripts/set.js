@@ -426,6 +426,6 @@ let info_explicatii = [
 
               'Fiecare zi de ezitare în a face ceea ce este corect \
               \ndpdv. al situației curente \
-              \nconduce la alte cateva mii de pierderi...',
+              \nconduce la alte câteva zeci de mii de pierderi...',
 
 ];
