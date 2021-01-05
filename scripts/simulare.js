@@ -3672,7 +3672,7 @@ function desenareSchemaRacheta(){
 
   //vector accelerare / amplificare
   ctx.lineWidth = 4;
-  if(selectorZi > orizont_trend){
+  //if(selectorZi > orizont_trend){
     ctx.beginPath();
     ctx.moveTo(xRacheta + 20, yElice);
     ctx.lineTo(xRacheta + 20, yElice - (factor_ampMediu - 1) * 10);
@@ -3690,7 +3690,7 @@ function desenareSchemaRacheta(){
     //ctx.textAlign = "end";
     //ctx.fillText(factor_amp, xRacheta + 23, yElice - (factor_amp - 1) * 10 + 2);
 
-  }
+  //}
   ctx.lineWidth = 4;
 
   //langa racheta - inaltime nivel
