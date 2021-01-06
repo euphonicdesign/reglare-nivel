@@ -6421,6 +6421,9 @@ function desenareAvioaneRegulator(){
               //ctx.stroke();
 
               //desenare segment vector
+              if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[41].arie){
+                ctx.lineWidth = 2;
+              }
               ctx.beginPath();
               ctx.closePath();
 
@@ -6439,7 +6442,7 @@ function desenareAvioaneRegulator(){
               ctx.closePath();
 
               //desenare capat vector
-              ctx.lineWidth = 1;
+              //ctx.lineWidth = 1;
               ctx.beginPath();
               ctx.arc(vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator +
                 vectoriDateZone[zona].vectorDR[selectorZi] * 10000/scalareVectoriAvioaneRegulator,
@@ -6459,7 +6462,7 @@ function desenareAvioaneRegulator(){
                   ctx.lineWidth = 2;
               }*/
 
-              ctx.lineWidth = 1;
+              //ctx.lineWidth = 1;
 
               if(vectoriDateZone[zona].vectorXAvionRegulator[selectorZi]> 0){
                   ctx.fillStyle = culoareCrestereCercAvion;
@@ -6498,7 +6501,7 @@ function desenareAvioaneRegulator(){
                   }
               }
 
-              ctx.lineWidth = 1;
+              //ctx.lineWidth = 1;
 
               /*ctx.beginPath()
               ctx.fill();
