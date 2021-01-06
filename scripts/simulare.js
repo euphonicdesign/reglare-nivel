@@ -6311,13 +6311,16 @@ function desenareAvioaneRegulator(){
                       //for (let i = (selectorZi - 120); i < selectorZi; i++){
                         //transp = 0.0 + i / selectorZi;
                         //transp = 0 + i/selectorZi *100;
-                        transp = 0.1 + i / selectorZi / 2;
+                        //transp = 0.1 + i / selectorZi / 2;
+
+                        transp = 0.3 + i / selectorZi / 1.4;
+
                         //nuantab = 70;
                         //nuantar = 20;
                         //nuantag = (255 - (( i + 160 - selectorZi) % 255));
                         //rosu
                         //ctx.fillStyle = "hsla(10,70%,40%," + transp + ")";
-                        ctx.fillStyle = "hsla(30,40%,80%," + transp + ")";
+                        ctx.fillStyle = "hsla(30,60%,90%," + transp + ")";
                       }
                       /*
                       else if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[40].arie){
@@ -6535,6 +6538,11 @@ function desenareAvioaneRegulator(){
               }
               else{
                   ctx.fillStyle = culoareScadere;
+              }
+
+
+              if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[41].arie){
+                ctx.fillStyle = "hsla(30,60%,90%," + 0.9 + ")";
               }
 
               nume_zona = numeArii.data.value[zona].substring(0,3);
