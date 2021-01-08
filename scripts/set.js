@@ -432,8 +432,8 @@ let info_explicatii = [
               \ndpdv. al situației curente \
               \nconduce la alte câteva zeci de mii de pierderi...',
 
-              'În mod paradoxal sunt evitate măsurile de control al avariei \
+              'În mod paradoxal sunt evitate măsurile de control al avariilor \
               \nexact la momentele de timp și/sau la motoarele în care acestea \
-              \nar avea eficacitate maximă... Algoritmul de stingere a incendiilor \
-              \ndin practică pare să funcționeze în mod defectuos...',
+              \nar avea eficacitate maximă... Algoritmul de reglare și de stingere \
+              \na incendiilor pare să funcționeze în mod defectuos în practică...',
 ];
