@@ -164,6 +164,7 @@ let evenimente_tip = [
               culoareMaro, //25/11
               culoareMaro, //19/12
               culoareMaro, //19/12
+              culoareMaro, //10/1
 ];
 
 var unghiEliceRadiani = -Math.PI/4;

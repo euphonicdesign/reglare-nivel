@@ -145,7 +145,7 @@ let data_30 = [
             0.245, 0.22, 0.216, 0.213, 0.207, 0.207, 0.211,
             0.195, 0.216, 0.224, 0.204, 0.207, 0.202, 0.193,
             0.202, 0.199, 0.21, 0.223, 0.224, 0.226, 0.245,
-            0.215, 
+            0.215,
 
 
 ];
@@ -336,6 +336,7 @@ let evenimente = [
               '26/11',
               '19/12',
               '3/1',
+              '10/1',
 ];
 
 let evenimente_actiuni = [
@@ -355,6 +356,7 @@ let evenimente_actiuni = [
               '26 Noi: ezitare...', //9/11
               '19 Dec: ezitare....', //19/12
               '3 Ian: ezitare.....', //19/12
+              '10 Ian: ...', //19/12
 ];
 
 let info_date = [
@@ -374,6 +376,7 @@ let info_date = [
               '26/11',
               '19/12',
               '3/1',
+              '10/1',
 ];
 
 let info_explicatii = [
@@ -429,4 +432,8 @@ let info_explicatii = [
               \ndpdv. al situației curente \
               \nconduce la alte câteva zeci de mii de pierderi...',
 
+              'În mod paradoxal sunt evitate măsurile de control al avariei \
+              \nexact la momentele de timp și/sau la motoarele în care acestea \
+              \nar avea eficacitate maximă... Algoritmul de stingere a incendiilor \
+              \ndin practică pare să funcționeze în mod defectuos...',
 ];
