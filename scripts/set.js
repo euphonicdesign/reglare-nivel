@@ -434,6 +434,6 @@ let info_explicatii = [
 
               'În mod paradoxal sunt evitate măsurile de control al avariilor \
               \nexact la momentele de timp și/sau la motoarele în care acestea \
-              \nar avea eficacitate maximă... Algoritmul de reglare și de stingere \
-              \na incendiilor pare să funcționeze în mod defectuos în practică...',
+              \nar avea eficacitate maximă... Algoritmul de limitare și de stingere \
+              \na incendiilor pare să funcționeze în mod defectuos...',
 ];
