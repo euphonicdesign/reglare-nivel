@@ -145,7 +145,7 @@ let data_30 = [
             0.245, 0.22, 0.216, 0.213, 0.207, 0.207, 0.211,
             0.195, 0.216, 0.224, 0.204, 0.207, 0.202, 0.193,
             0.202, 0.199, 0.21, 0.223, 0.224, 0.226, 0.245,
-            0.215, 0.206, 0.191, 
+            0.215, 0.206, 0.191,
 ];
 
 
@@ -431,7 +431,7 @@ let info_explicatii = [
               \nconduce la alte câteva zeci de mii de pierderi...',
 
               'În mod paradoxal sunt evitate măsurile de control al avariilor \
-              \nexact la momentele de timp și/sau la motoarele în care acestea \
+              \nexact la momentele de timp și/sau la motoarele la care acestea \
               \nar avea eficacitate maximă... Algoritmul de limitare și de stingere \
               \na incendiilor pare să funcționeze în mod defectuos...',
 ];
