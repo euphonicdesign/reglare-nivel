@@ -167,6 +167,8 @@ let evenimente_tip = [
               culoareMaro, //10/1
 ];
 
+
+
 var unghiEliceRadiani = -Math.PI/4;
 var unghiEliceRadiani2 = 0;
 var xElice1 = 490;
@@ -370,6 +372,11 @@ var xProiectiiSemnale = xGraficSemnale + 6;
 var yProiectiiSemnale = yGraficSemnale - 104;
 var intervalProiectieSemnale = 30;
 var compresieGraficSemnale = 2.6;
+
+var xIndRez = xProiectiiSemnale - 10;
+var yIndRez = yProiectiiSemnale - 22;
+var lunIndRez = 126;
+var latIndRez = 6;
 
 //var valoareReferinta = 15;
 var valoareCumulativaTotal = 0;
@@ -8345,6 +8352,26 @@ function desenareGraficVertical(){
     }
 }
 
+function desenareIndicatorRezervor(){
+    ctx = suprafataGrafica.context;
+
+    //ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.fillStyle = "lightgrey";
+    //ctx.fillText("(" + Math.floor((1 - val_tot/19173111)*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "lightblue";//"hsl(204, 50%, 78%)";//"lightblue";
+    ctx.fillRect(xIndRez, yIndRez, latIndRez, lunIndRez);
+    ctx.fillStyle = "white";
+
+    val_tot = dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2;
+    lungimeGolire = val_tot/19173111 * lunIndRez;
+    ctx.fillRect(xIndRez, yIndRez, latIndRez, lungimeGolire);
+    //ctx.strokeRect(xIndRez, yIndRez, lunIndRez, latIndRez);
+    //console.log(lungimeGolire);
+
+}
+
 function desenareGraficSemnale(){
     ctx = suprafataGrafica.context;
 
@@ -9005,8 +9032,10 @@ function ActualizareSuprafataGrafica() {
             desenareVaseComunicante();
             desenareIndicatori();
             desenareEvenimente();
+            desenareIndicatorRezervor();
             desenareGraficSemnale();
             desenareAvioaneRegulator();
+
             //desenarePuncteGraficOrizontal();
         }
         else if(mod == MOD_RADAR){
@@ -9116,9 +9145,9 @@ function ActualizareSuprafataGraficaSingulara() {
             desenareVaseComunicante();
             desenareIndicatori();
             desenareEvenimente();
+            desenareIndicatorRezervor();
             desenareGraficSemnale();
             desenareAvioaneRegulator();
-
             //desenarePuncteGraficOrizontal();
         }
         else if(mod == MOD_RADAR){
