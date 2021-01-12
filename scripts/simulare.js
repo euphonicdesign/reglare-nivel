@@ -4285,21 +4285,20 @@ function desenareEvenimente(){
         ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xCerculeteAcumulate + 8 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
 
         //desenare cerculet limitare verde
+        ctx.fillStyle = culoareVerde;
+        ctx.strokeStyle = culoareScadere;
         ctx.beginPath();
         if(pulsatie && culoare_pulsatie == culoareVerde){
             ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
-            ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
+            ctx.arc(xCerculeteAcumulate + 42 + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
         }
         else {
             ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
-            ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+            ctx.arc(xCerculeteAcumulate + 42 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
         }
         //ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
         ctx.closePath();
-
         //ctx.lineWidth = 2;
-        ctx.fillStyle = culoareVerde;
-        ctx.strokeStyle = culoareScadere;
         ctx.fill();
         ctx.stroke();
 
@@ -4307,85 +4306,7 @@ function desenareEvenimente(){
         //ctx.textAlign = "start";
         //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
         ctx.fillStyle = culoareScadere;
-        ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xCerculeteAcumulate + 48 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
-    }
-
-}
-
-function desenareEvenimente2(){
-    ctx.textAlign = "start";
-    ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-    //ctx.fillStyle = culoareTextZi;//culoarePunctValoriGrafic_3;
-
-    /*for(let i = 0; i < evenimente.length; i++){
-      //console.log(evenimente[i]);
-      if(data_data[selectorZi] == evenimente[i]){
-          //console.log(evenimente[i]);
-          ctx.fillText("(" + evenimente_actiuni[i] + ")", xTextEveniment, yTextEveniment);
-      }
-    }*/
-
-    if(zile_evenimente_actiuni[selectorZi]> -1){
-        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-            ctx.fillStyle = culoareCrestereMaro;
-        }
-        else{
-            ctx.fillStyle = culoareScadere;
-        }
-
-        //ctx.fillStyle = evenimente_tip[zile_evenimente_actiuni[selectorZi]];
-        ctx.fillText(evenimente_actiuni[zile_evenimente_actiuni[selectorZi]], xTextEveniment2, yTextEveniment2);
-
-        //desenare cerculete acumulate
-
-        //desenare cerculet vectorizare maro
-        ctx.beginPath();
-        if(pulsatie && culoare_pulsatie == culoareMaro){
-            ctx.arc(xCerculeteAcumulate2 + raza_cerculet, yCerculeteAcumulate2, (raza_cerculet + 1), 0, 2 * Math.PI);
-            ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
-        }
-        else {
-            ctx.arc(xCerculeteAcumulate2 + raza_cerculet, yCerculeteAcumulate2, raza_cerculet, 0, 2 * Math.PI);
-            ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
-        }
-        ctx.closePath();
-
-        ctx.lineWidth = 2;
-        ctx.fillStyle = culoareMaro; //culoareVerde
-        ctx.strokeStyle = culoareCrestereMaro;//evenimente_tip[nr_ev];//culoareScadere
-        ctx.fill();
-        ctx.stroke();
-
-        //desenare
-        ctx.textAlign = "start";
-        //ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
-        ctx.fillStyle = culoareCrestereMaro;
-        ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xCerculeteAcumulate2 + 8 + raza_cerculet, yCerculeteAcumulate2 + raza_cerculet);
-
-        //desenare cerculet limitare verde
-        ctx.beginPath();
-        if(pulsatie && culoare_pulsatie == culoareVerde){
-            ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
-            ctx.arc(xCerculeteAcumulate2 + 40 + raza_cerculet, yCerculeteAcumulate2, (raza_cerculet + 1), 0, 2 * Math.PI);
-        }
-        else {
-            ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
-            ctx.arc(xCerculeteAcumulate2 + 40 + raza_cerculet, yCerculeteAcumulate2, raza_cerculet, 0, 2 * Math.PI);
-        }
-        //ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
-        ctx.closePath();
-
-        //ctx.lineWidth = 2;
-        ctx.fillStyle = culoareVerde;
-        ctx.strokeStyle = culoareScadere;
-        ctx.fill();
-        ctx.stroke();
-
-        //desenare
-        //ctx.textAlign = "start";
-        //ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-        ctx.fillStyle = culoareScadere;
-        ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xCerculeteAcumulate2 + 48 + raza_cerculet, yCerculeteAcumulate2 + raza_cerculet);
+        ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xCerculeteAcumulate + 50 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
     }
 
 }
@@ -8358,6 +8279,10 @@ function desenareIndicatorRezervor(){
     //ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillStyle = "lightgrey";
     //ctx.fillText("(" + Math.floor((1 - val_tot/19173111)*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
+    ctx.beginPath();
+    ctx.closePath();
+    ctx.stroke();
+
     ctx.lineWidth = 1;
     ctx.strokeStyle = "white";
     ctx.fillStyle = "lightblue";//"hsl(204, 50%, 78%)";//"lightblue";
