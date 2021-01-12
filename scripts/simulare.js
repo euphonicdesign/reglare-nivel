@@ -8365,8 +8365,13 @@ function desenareIndicatorRezervor(){
     ctx.fillStyle = "white";
 
     val_tot = dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2;
-    lungimeGolire = val_tot/19173111 * lunIndRez;
+    lungimeGolire = val_tot/(19173111/40) * lunIndRez;
     ctx.fillRect(xIndRez, yIndRez, latIndRez, lungimeGolire);
+    ctx.strokeStyle = culoareApaNivelUltraCritic;
+    ctx.lineWidth = 2;
+    ctx.moveTo(xIndRez, Math.round(yIndRez + lungimeGolire));
+    ctx.lineTo(xIndRez + latIndRez, Math.round(yIndRez + lungimeGolire));
+    ctx.stroke();
     //ctx.strokeRect(xIndRez, yIndRez, lunIndRez, latIndRez);
     //console.log(lungimeGolire);
 
@@ -8567,7 +8572,7 @@ function desenareGraficSemnale(){
     ctx.fillText("=" + Math.round(val_tot), xProiectiiSemnale, yProiectiiSemnale + 33);
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = "lightgrey";
-    ctx.fillText("(" + Math.floor((1 - val_tot/19173111)*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
+    ctx.fillText("(" + Math.floor((1 - val_tot/(19173111/40))*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
 
 
     //Afisare data
