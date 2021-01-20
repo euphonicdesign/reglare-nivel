@@ -3506,7 +3506,7 @@ function desenareSchemaRacheta(){
     //gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
 
     if(selectorZi > 3){
-        dataEroareAmortizata = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3])/4;
+        dataEroareAmortizata = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7;
     }
     else{
         dataEroareAmortizata = data[selectorZi];
@@ -3631,7 +3631,7 @@ function desenareSchemaRacheta(){
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
   factor_amp = data[selectorZi] / medieCumulativ[selectorZi];
   if(selectorZi > 3){
-      factor_ampMediu = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3])/4 / medieCumulativ[selectorZi];
+      factor_ampMediu = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7 / medieCumulativ[selectorZi];
   }
   else{
       factor_ampMediu = factor_amp;
