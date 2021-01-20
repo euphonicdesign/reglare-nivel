@@ -3505,7 +3505,7 @@ function desenareSchemaRacheta(){
     ctx.lineWidth = 2;
     //gravitatieR = ((Math.floor((vector_rToate[selectorZi] - 1)*1000))/10);
 
-    if(selectorZi > 3){
+    if(selectorZi > 6){
         dataEroareAmortizata = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7;
     }
     else{
@@ -3630,7 +3630,7 @@ function desenareSchemaRacheta(){
   //Factor amplificare
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
   factor_amp = data[selectorZi] / medieCumulativ[selectorZi];
-  if(selectorZi > 3){
+  if(selectorZi > 6){
       factor_ampMediu = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7 / medieCumulativ[selectorZi];
   }
   else{
@@ -4005,8 +4005,8 @@ function desenareSchemaRacheta(){
 
   //jet reactie
   ctx.fillStyle = "orange";
-  if(selectorZi > 3){
-      dataJetAmortizat = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3])/4;
+  if(selectorZi > 6){
+      dataJetAmortizat = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7;
   }
   else{
       dataJetAmortizat = data[selectorZi];
