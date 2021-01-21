@@ -195,7 +195,7 @@ var xTextZi = 10;
 var yTextZi = 50;
 
 //scala harta implicita
-var scalaInflamatieHarta = 4;
+var scalaInflamatieHarta = 3;
 
 var xScalaRadar = xTextZi;
 var yScalaRadar = yTextZi + 60;
