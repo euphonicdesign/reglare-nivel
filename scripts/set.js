@@ -51,7 +51,7 @@ let data_10 = [
             104, 135, 127, 171, 74, 78, 60,
             78, 121, 121, 111, 96, 86, 62,
             71, 156, 88, 66, 63, 66, 57,
-            50, 98, 116, 
+            50, 98, 116, 69,
 
 ];
 
@@ -100,7 +100,7 @@ let data_20 = [
             2620, 4637, 4875, 4322, 3938, 1194, 3034,
             3130, 4729, 5719, 4951, 4841, 4403, 3082,
             1987, 3697, 4424, 3525, 3353, 3218, 2156,
-            1509, 2745, 3000,
+            1509, 2745, 3000, 2878,
 
           ];
 
@@ -150,7 +150,9 @@ let data_30 = [
             0.195, 0.216, 0.224, 0.204, 0.207, 0.202, 0.193,
             0.202, 0.199, 0.21, 0.223, 0.224, 0.226, 0.245,
             0.215, 0.206, 0.191, 0.172, 0.167, 0.162, 0.152,
-            0.159, 0.157, 0.153, 0.157, 0.165, 0.161,
+            0.159, 0.157, 0.153, 0.157, 0.165, 0.161, 0.16,
+            0.145,
+
 ];
 
 
@@ -340,6 +342,7 @@ let evenimente = [
               '19/12',
               '3/1',
               '10/1',
+              '21/1',
 ];
 
 let evenimente_actiuni = [
@@ -360,6 +363,7 @@ let evenimente_actiuni = [
               '19 Dec: ezitare....', //19/12
               '3 Ian: ezitare.....', //19/12
               '10 Ian: ...', //19/12
+              '21 Ian: ', //21/1
 ];
 
 let info_date = [
@@ -380,6 +384,7 @@ let info_date = [
               '19/12',
               '3/1',
               '10/1',
+              '21/1',
 ];
 
 let info_explicatii = [
@@ -439,4 +444,7 @@ let info_explicatii = [
               \nexact la momentele de timp și/sau la motoarele la care acestea \
               \nar avea eficacitate maximă... Algoritmul de limitare și de stingere \
               \na incendiilor pare să funcționeze în mod defectuos...',
+
+              'Baza de plecare este mult prea mare! \
+              \nTortul este o iluzie.',
 ];

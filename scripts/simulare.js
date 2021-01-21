@@ -165,6 +165,7 @@ let evenimente_tip = [
               culoareMaro, //19/12
               culoareMaro, //19/12
               culoareMaro, //10/1
+              culoareMaro, //21/1
 ];
 
 
