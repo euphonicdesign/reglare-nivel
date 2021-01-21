@@ -445,6 +445,6 @@ let info_explicatii = [
               \nar avea eficacitate maximă... Algoritmul de limitare și de stingere \
               \na incendiilor pare să funcționeze în mod defectuos...',
 
-              'Baza de plecare este mult prea mare! \
+              'Baza de plecare continuă să fie mult prea mare! \
               \nTortul este o iluzie.',
 ];
