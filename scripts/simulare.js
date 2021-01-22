@@ -3922,9 +3922,19 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.stroke();
 
+  if(medieCumulativ[selectorZi] > 25){
+      ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  else{
+      //ctx.strokeStyle = culoareApaNivelNormal;
+      //hsl(216, 60%, 45%)
+      ctx.strokeStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
+
+  }
+
   //raza interioare
   ctx.lineWidth = 1;
-  ctx.strokeStyle = culoareApaNivelNormal;
+  //ctx.strokeStyle = culoareApaNivelNormal;
   ctx.beginPath();
   ctx.arc(xPotentiometru, yPotentiometru, razaPotentiometru, 0, - 2*Math.PI * 1);
   ctx.closePath();
@@ -3945,15 +3955,7 @@ function desenareSchemaRacheta(){
 
   //desenare indicator potentiometru referinta actuala
   ctx.lineWidth = 3;
-  if(medieCumulativ[selectorZi] > 25){
-      ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
-  }
-  else{
-      //ctx.strokeStyle = culoareApaNivelNormal;
-      //hsl(216, 60%, 45%)
-      ctx.strokeStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
 
-  }
   ctx.beginPath();
   ctx.closePath();
   ctx.moveTo(xPotentiometru, yPotentiometru);
