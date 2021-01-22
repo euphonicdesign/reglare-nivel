@@ -3976,7 +3976,7 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("0", xPotentiometru - 8, yPotentiometru - razaPotentiometru - 4);
+  ctx.fillText("100", xPotentiometru - 19, yPotentiometru - razaPotentiometru - 4);
   ctx.fillText("25", xPotentiometru + razaPotentiometru + 4, yPotentiometru - 2);
   ctx.fillText("50", xPotentiometru + 2, yPotentiometru + razaPotentiometru + 11);
   ctx.fillText("75", xPotentiometru - razaPotentiometru - 16, yPotentiometru + 10);
