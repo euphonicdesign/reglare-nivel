@@ -51,7 +51,7 @@ let data_10 = [
             104, 135, 127, 171, 74, 78, 60,
             78, 121, 121, 111, 96, 86, 62,
             71, 156, 88, 66, 63, 66, 57,
-            50, 98, 116, 69, 74, 
+            50, 98, 116, 69, 74,
 
 ];
 
@@ -446,5 +446,5 @@ let info_explicatii = [
               \na incendiilor pare să funcționeze în mod defectuos...',
 
               'Baza de plecare continuă să fie mult prea mare! \
-              \nTortul este o iluzie.',
+              \nTortul este o iluzie optică.',
 ];
