@@ -3964,16 +3964,17 @@ function desenareSchemaRacheta(){
   ctx.lineTo(xPotentiometru, yPotentiometru + razaPotentiometru + 38/*+ 12*/);
   ctx.stroke();
 
+  //coada avion
   ctx.moveTo(xPotentiometru - razaPotentiometru, yPotentiometru + 32);
   ctx.lineTo(xPotentiometru + razaPotentiometru, yPotentiometru + 32);
   ctx.stroke();
 
   ctx.moveTo(xPotentiometru + razaPotentiometru + 4, yPotentiometru );
-  ctx.lineTo(xPotentiometru + razaPotentiometru + 14, yPotentiometru );
+  ctx.lineTo(xPotentiometru + razaPotentiometru + 16, yPotentiometru );
   ctx.stroke();
 
   ctx.moveTo(xPotentiometru - razaPotentiometru - 4, yPotentiometru );
-  ctx.lineTo(xPotentiometru - razaPotentiometru - 14, yPotentiometru );
+  ctx.lineTo(xPotentiometru - razaPotentiometru - 16, yPotentiometru );
   ctx.stroke();
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
