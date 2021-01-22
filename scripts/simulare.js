@@ -3961,7 +3961,11 @@ function desenareSchemaRacheta(){
   ctx.stroke();
 
   ctx.moveTo(xPotentiometru, yPotentiometru + razaPotentiometru + 4);
-  ctx.lineTo(xPotentiometru, yPotentiometru + razaPotentiometru + 12);
+  ctx.lineTo(xPotentiometru, yPotentiometru + razaPotentiometru + 38/*+ 12*/);
+  ctx.stroke();
+
+  ctx.moveTo(xPotentiometru - razaPotentiometru, yPotentiometru + 32);
+  ctx.lineTo(xPotentiometru + razaPotentiometru, yPotentiometru + 32);
   ctx.stroke();
 
   ctx.moveTo(xPotentiometru + razaPotentiometru + 4, yPotentiometru );
