@@ -3906,6 +3906,82 @@ function desenareSchemaRacheta(){
 
 
   }
+  // ---
+  //desenare potentiometru referinta actuala
+  razaPotentiometru = 8;
+  xPotentiometru = xCercRef - 0;
+  yPotentiometru = yCaleDir - 54;
+  //desenare arc pendul
+  ctx.strokeStyle = "#333";//"#1a1a1a";//"#333";
+  ctx.lineWidth = 1;
+  //ctx.setLineDash([1,2]);
+
+  //raza exterioara
+  ctx.beginPath();
+  ctx.arc(xPotentiometru, yPotentiometru, razaPotentiometru + 3, 0, - 2*Math.PI * 1);
+  ctx.closePath();
+  ctx.stroke();
+
+  //raza interioare
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = culoareApaNivelNormal;
+  ctx.beginPath();
+  ctx.arc(xPotentiometru, yPotentiometru, razaPotentiometru, 0, - 2*Math.PI * 1);
+  ctx.closePath();
+  ctx.stroke();
+
+  //desenare gradatii interioare
+
+  //ctx.setLineDash([]);
+  ctx.setLineDash([1,2]);
+  ctx.beginPath();
+  ctx.arc(xPotentiometru, yPotentiometru, razaPotentiometru - 1, 0, - 2*Math.PI * 1);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  xIndPot = razaPotentiometru * Math.sin(medieCumulativ[selectorZi]/100 * Math.PI * 2);
+  yIndPot = razaPotentiometru * Math.cos(medieCumulativ[selectorZi]/100 * Math.PI * 2);
+
+  //desenare indicator potentiometru referinta actuala
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.closePath();
+  ctx.moveTo(xPotentiometru, yPotentiometru);
+  ctx.lineTo(xPotentiometru + xIndPot, yPotentiometru - yIndPot);
+  ctx.stroke();
+
+  //desenare gradatii
+  ctx.strokeStyle = culoareTextZi;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.closePath();
+  ctx.moveTo(xPotentiometru, yPotentiometru - razaPotentiometru - 4);
+  ctx.lineTo(xPotentiometru, yPotentiometru - razaPotentiometru - 12);
+  ctx.stroke();
+
+  ctx.moveTo(xPotentiometru, yPotentiometru + razaPotentiometru + 4);
+  ctx.lineTo(xPotentiometru, yPotentiometru + razaPotentiometru + 12);
+  ctx.stroke();
+
+  ctx.moveTo(xPotentiometru + razaPotentiometru + 4, yPotentiometru );
+  ctx.lineTo(xPotentiometru + razaPotentiometru + 14, yPotentiometru );
+  ctx.stroke();
+
+  ctx.moveTo(xPotentiometru - razaPotentiometru - 4, yPotentiometru );
+  ctx.lineTo(xPotentiometru - razaPotentiometru - 14, yPotentiometru );
+  ctx.stroke();
+
+  ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+  ctx.textAlign = "start";
+  //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
+  ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
+  ctx.fillText("0", xPotentiometru - 8, yPotentiometru - razaPotentiometru - 4);
+  ctx.fillText("25", xPotentiometru + razaPotentiometru + 4, yPotentiometru - 2);
+  ctx.fillText("50", xPotentiometru + 2, yPotentiometru + razaPotentiometru + 11);
+  ctx.fillText("75", xPotentiometru - razaPotentiometru - 16, yPotentiometru + 10);
+
+
   //-------------------------------
 
   //Analiza Pareto
