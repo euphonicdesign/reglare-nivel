@@ -614,6 +614,10 @@ var xStalpModReglare = 0 + xBlocP + lungBloc + lungBloc/2;
 var yStalpModReglare = yCaleDir;
 var lungimeSosetaModReglare = lungBloc/2 - 2;
 
+var razaPotentiometru = 8;
+var xPotentiometru = xCercRef - 0;
+var yPotentiometru = yCaleDir - 54;
+
 var grafic_valori_desenat = false;
 var pauza = false;
 
@@ -3908,13 +3912,8 @@ function desenareSchemaRacheta(){
   }
   // ---
   //desenare potentiometru referinta actuala
-  razaPotentiometru = 8;
-  xPotentiometru = xCercRef - 0;
-  yPotentiometru = yCaleDir - 54;
-  //desenare arc pendul
   ctx.strokeStyle = "#333";//"#1a1a1a";//"#333";
   ctx.lineWidth = 1;
-  //ctx.setLineDash([1,2]);
 
   //raza exterioara
   ctx.beginPath();
