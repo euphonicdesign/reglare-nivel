@@ -175,8 +175,11 @@ var unghiEliceRadiani2 = 0;
 var xElice1 = 490;
 var xElice2 = xElice1 + 26;
 var xRacheta = xElice2 + 30;
+var xRacheta2 = xElice2 + 52;
+var yRacheta2 = 300;
 var yElice = 430;
 var yUmbra = inaltimeSuprafataGrafica - 1;
+var yUmbra2 = inaltimeSuprafataGrafica - 130;
 var text_lim = "lim";
 
 var rachetaLat = 12;
@@ -313,6 +316,7 @@ var scalaYAvionRadarToate = 3.5;
 
 
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
+var scalaYRacheta = 65 * 8;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
 //SCALA TREND IMPLICITA
@@ -4202,6 +4206,101 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.fill();
 
+
+  //DESENARE RACHETA 2
+  //desenare racheta 2 si elice 2
+  //desenare umbra elice
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "#333";//culoareApaNivelNormal;//culoareTextReferinta;
+  //ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
+
+  //desenare aeroport racheta
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 - 10, yUmbra2);
+  ctx.lineTo(xRacheta2 + 10, yUmbra2);
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 - 10, yUmbra2);
+  ctx.lineTo(xRacheta2 - 10, yUmbra2 + 5);
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 + 10, yUmbra2);
+  ctx.lineTo(xRacheta2 + 10, yUmbra2 + 5);
+  ctx.closePath();
+  ctx.stroke();
+
+
+  //jet reactie 2
+  ctx.fillStyle = "orange";
+  if(selectorZi > 6){
+      dataJetAmortizat = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7;
+  }
+  else{
+      dataJetAmortizat = data[selectorZi];
+  }
+  //dataJetAmortizat = data[selectorZi];
+  lungimeJet2 = dataJetAmortizat / medieCumulativ[selectorZi] * 7;
+  yElice2 = inaltimeSuprafataGrafica - 136 - ((medieCumulativ[selectorZi]*scalaYRacheta)/maxValue);
+  //desenare racheta
+  yRachetaVarf2 = yElice2 + 10;
+  yRachetaCorp2 = yElice2 - 3;
+  //console.log(lungimeJet);
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2, yElice2 + 5);
+  ctx.arc(xRacheta2, yElice2 + 5, lungimeJet2, 0.35 * Math.PI, 0.65 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = "#adad85";//"#4d4d4d";
+  //racheta varf
+  ctx.beginPath();
+  ctx.arc(xRacheta2, yElice2 - rachetaH/2, 6, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  //racheta striatie baza
+  ctx.beginPath();
+  ctx.arc(xRacheta2, yRachetaCorp2 + rachetaH/3, 5, 0, 2*Math.PI);
+  ctx.closePath();
+  ctx.fill();
+
+  //ctx.fillStyle = "#4d4d4d";
+  //racheta corp
+  ctx.beginPath();
+  ctx.fillRect(xRacheta2 - rachetaLat/2, yRachetaCorp2 - rachetaH/2, rachetaLat, rachetaH);
+  ctx.closePath();
+  ctx.fill();
+
+  //racheta striatie
+  //ctx.fillStyle = "#b3b3b3";
+
+  if (data[selectorZi] - medieCumulativ[selectorZi] > 0 ){
+      ctx.fillStyle = culoareRosuTemperat;
+      ctx.strokeStyle = culoareRosuTemperat;
+  }
+  else{
+      ctx.fillStyle = "green";
+      ctx.strokeStyle = "green";
+  }
+
+  ctx.beginPath();
+  ctx.fillRect(xRacheta2 - rachetaLat/2 - 1, yRachetaCorp2 + 2, rachetaLat + 2, rachetaH/4);
+  ctx.closePath();
+  ctx.fill();
+
+  //racheta striatie2
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.fillRect(xRacheta2 - rachetaLat/2 - 1, yRachetaCorp2 - 7, rachetaLat + 2, rachetaH/5);
+  ctx.closePath();
+  ctx.fill();
+
+  //DESENARE RACHETA 2 capat
+  ///-----
 
 
   //desenare cerc fundal elice
