@@ -4029,7 +4029,7 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Viteză (consum):", xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru - 4);
+  ctx.fillText("Viteză (consum)", xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru - 4);
   ctx.fillText(Math.floor(medieCumulativ[selectorZi]/24*10)/10, xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru + 20);
   if(medieCumulativ[selectorZi] > 25){
       ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
