@@ -3987,10 +3987,16 @@ function desenareSchemaRacheta(){
   ctx.lineTo(xPotentiometru - razaPotentiometru - 16, yPotentiometru );
   ctx.stroke();
 
-  ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
+
+  treaptaViteza = 1 + Math.floor(medieCumulativ[selectorZi]/25);
+  ctx.fillText("Tr." + treaptaViteza + "", xPotentiometru -14, yPotentiometru - razaPotentiometru - 15);
+
+  ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+  ctx.textAlign = "start";
   ctx.fillText("100", xPotentiometru - 19, yPotentiometru - razaPotentiometru - 4);
   if(medieCumulativ[selectorZi] > 25){
       ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
