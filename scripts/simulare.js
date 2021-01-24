@@ -588,7 +588,7 @@ var xTextComanda = xValvaConductaIntrare2 + lungimeValvaConductaIntrare2 / 2;
 var yTextComanda = yValvaConductaIntrare2 - 3;
 
 //Legenda
-var yLegenda = 230;
+var yLegenda = 202;
 var xLegenda = 20;
 var yl1 = yLegenda + 20;
 var yl2 = yLegenda + 40;
@@ -3996,7 +3996,7 @@ function desenareSchemaRacheta(){
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
 
   treaptaViteza = 1 + Math.floor(medieCumulativ[selectorZi]/25);
-  ctx.fillText("Tr." + treaptaViteza + "", xPotentiometru -15, yPotentiometru - razaPotentiometru - 15);
+  ctx.fillText("Tr." + treaptaViteza + "", xPotentiometru +38, yPotentiometru - razaPotentiometru - 18);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
