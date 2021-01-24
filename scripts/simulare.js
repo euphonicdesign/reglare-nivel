@@ -3987,7 +3987,7 @@ function desenareSchemaRacheta(){
   ctx.lineTo(xPotentiometru - razaPotentiometru - 16, yPotentiometru );
   ctx.stroke();
 
-  ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
