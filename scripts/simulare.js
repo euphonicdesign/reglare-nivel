@@ -4006,8 +4006,8 @@ function desenareSchemaRacheta(){
   ctx.fillText(Math.floor(medieCumulativ[selectorZi]/24*10)/10, xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru + 20);
 
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText("(litri/zi)", xPotentiometru + 2* razaPotentiometru + 42, yPotentiometru - razaPotentiometru + 8);
-  ctx.fillText("(litri/oră)", xPotentiometru + 2* razaPotentiometru + 42 , yPotentiometru - razaPotentiometru + 20);
+  ctx.fillText(" litri/zi", xPotentiometru + 2* razaPotentiometru + 42, yPotentiometru - razaPotentiometru + 8);
+  ctx.fillText(" litri/oră", xPotentiometru + 2* razaPotentiometru + 42 , yPotentiometru - razaPotentiometru + 20);
   //-------------------------------
 
   //Analiza Pareto
