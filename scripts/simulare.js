@@ -3992,8 +3992,27 @@ function desenareSchemaRacheta(){
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillText("100", xPotentiometru - 19, yPotentiometru - razaPotentiometru - 4);
+  if(medieCumulativ[selectorZi] > 25){
+      ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  else{
+      //ctx.fillStyle = culoareTextZi;
+      ctx.fillStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
+  }
   ctx.fillText("25", xPotentiometru + razaPotentiometru + 4, yPotentiometru - 2);
+  if(medieCumulativ[selectorZi] > 25){
+      ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  else{
+      ctx.fillStyle = culoareTextZi;
+  }
   ctx.fillText("50", xPotentiometru + 2, yPotentiometru + razaPotentiometru + 11);
+  if(medieCumulativ[selectorZi] > 50){
+      ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  else{
+      ctx.fillStyle = culoareTextZi;
+  }
   ctx.fillText("75", xPotentiometru - razaPotentiometru - 16, yPotentiometru + 10);
 
   //Consum (litri/h):
