@@ -4242,7 +4242,7 @@ function desenareSchemaRacheta(){
       dataJetAmortizat = data[selectorZi];
   }
   //dataJetAmortizat = data[selectorZi];
-  lungimeJet2 = dataJetAmortizat / medieCumulativ[selectorZi] * 7;
+  lungimeJet2 = dataJetAmortizat / medieCumulativ[selectorZi] * 10;
   yElice2 = inaltimeSuprafataGrafica - 136 - ((medieCumulativ[selectorZi]*scalaYRacheta)/maxValue);
   //desenare racheta
   yRachetaVarf2 = yElice2 + 10;
