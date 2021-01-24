@@ -3993,7 +3993,7 @@ function desenareSchemaRacheta(){
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
 
   treaptaViteza = 1 + Math.floor(medieCumulativ[selectorZi]/25);
-  ctx.fillText("Tr." + treaptaViteza + "", xPotentiometru -14, yPotentiometru - razaPotentiometru - 15);
+  ctx.fillText("Tr." + treaptaViteza + "", xPotentiometru -15, yPotentiometru - razaPotentiometru - 15);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
