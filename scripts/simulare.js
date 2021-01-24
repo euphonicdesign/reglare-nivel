@@ -3717,7 +3717,6 @@ function desenareSchemaRacheta(){
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillText(Math.floor(medieCumulativ[selectorZi]*10)/10, xRacheta + 26, yElice);
-  //ctx.fillText("r(t)", xCercRef - 30, yCaleDir - 6);
 
   //if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
   if(data[selectorZi]>medieCumulativ[selectorZi]){
@@ -4248,6 +4247,7 @@ function desenareSchemaRacheta(){
   //desenare racheta
   yRachetaVarf2 = yElice2 + 10;
   yRachetaCorp2 = yElice2 - 3;
+
   //console.log(lungimeJet);
   ctx.beginPath();
   ctx.moveTo(xRacheta2, yElice2 + 5);
@@ -4298,6 +4298,14 @@ function desenareSchemaRacheta(){
   ctx.fillRect(xRacheta2 - rachetaLat/2 - 1, yRachetaCorp2 - 7, rachetaLat + 2, rachetaH/5);
   ctx.closePath();
   ctx.fill();
+
+  //langa racheta - inaltime nivel
+  /*
+  ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
+  //inaltime racheta 2
+  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xRacheta + 42, yElice2);*/
 
   //DESENARE RACHETA 2 capat
   ///-----
