@@ -52,7 +52,7 @@ let data_10 = [
             78, 121, 121, 111, 96, 86, 62,
             71, 156, 88, 66, 63, 66, 57,
             50, 98, 116, 69, 74, 94, 54,
-            
+
 
 ];
 
@@ -345,6 +345,7 @@ let evenimente = [
               '3/1',
               '10/1',
               '21/1',
+              '25/1',
 ];
 
 let evenimente_actiuni = [
@@ -366,6 +367,7 @@ let evenimente_actiuni = [
               '3 Ian: ezitare.....', //19/12
               '10 Ian: ...', //19/12
               '21 Ian: ', //21/1
+              '25 Ian: vectorizare', //21/1
 ];
 
 let info_date = [
@@ -387,6 +389,7 @@ let info_date = [
               '3/1',
               '10/1',
               '21/1',
+              '25/1',
 ];
 
 let info_explicatii = [
@@ -446,6 +449,9 @@ let info_explicatii = [
               \nexact la momentele de timp și/sau la motoarele la care acestea \
               \nar avea eficacitate maximă... Algoritmul de limitare și de stingere \
               \na incendiilor pare să funcționeze în mod defectuos...',
+
+              'Baza de plecare continuă să fie mult prea mare! \
+              \nTortul este o iluzie optică.',
 
               'Baza de plecare continuă să fie mult prea mare! \
               \nTortul este o iluzie optică.',
