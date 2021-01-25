@@ -4249,6 +4249,85 @@ function desenareSchemaRacheta(){
   yRachetaVarf2 = yElice2 + 10;
   yRachetaCorp2 = yElice2 - 3;
 
+  if(medieCumulativ[selectorZi] < 50){
+  //corp lateral stanga
+        ctx.fillStyle = "#adad85";//"#4d4d4d";
+        //racheta varf
+        ctx.beginPath();
+        ctx.arc(xRacheta2 - rachetaLat + 1, yElice2 - rachetaH/2 + 1, 6/2, 0, 2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+
+        //racheta striatie baza
+        ctx.beginPath();
+        ctx.arc(xRacheta2 - rachetaLat + 1, yRachetaCorp2 + rachetaH/3, 5/2, 0, 2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+
+        //ctx.fillStyle = "#4d4d4d";
+        //racheta corp
+        ctx.beginPath();
+        ctx.fillRect(xRacheta2 - rachetaLat-2, yRachetaCorp2 - rachetaH/3, rachetaLat/2, rachetaH*0.75);
+        ctx.closePath();
+        ctx.fill();
+
+        //racheta striatie2
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        //ctx.fillRect(xRacheta2 - rachetaLat/2 - 1, yRachetaCorp2 - 7, rachetaLat + 2, rachetaH/5);
+        ctx.fillRect(xRacheta2 - rachetaLat-2 , yRachetaCorp2 - 5, rachetaLat/2 + 2, rachetaH/6);
+        ctx.closePath();
+        ctx.fill();
+
+        //jet corp lateral stanga
+        ctx.beginPath();
+        ctx.moveTo(xRacheta2 - rachetaLat + 1, yElice2 + 5);
+        ctx.arc(xRacheta2 - rachetaLat + 1, yElice2 + 5, lungimeJet2/1.5, 0.35 * Math.PI, 0.65 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    if(medieCumulativ[selectorZi] < 25){
+      //corp lateral dreapta
+          ctx.fillStyle = "#adad85";//"#4d4d4d";
+          //racheta varf
+          ctx.beginPath();
+          ctx.arc(xRacheta2 + rachetaLat - 1, yElice2 - rachetaH/2 + 1, 6/2, 0, 2*Math.PI);
+          ctx.closePath();
+          ctx.fill();
+
+          //racheta striatie baza
+          ctx.beginPath();
+          ctx.arc(xRacheta2 + rachetaLat - 1, yRachetaCorp2 + rachetaH/3, 5/2, 0, 2*Math.PI);
+          ctx.closePath();
+          ctx.fill();
+
+          //ctx.fillStyle = "#4d4d4d";
+          //racheta corp
+          ctx.beginPath();
+          ctx.fillRect(xRacheta2 + rachetaLat/2+2, yRachetaCorp2 - rachetaH/3, rachetaLat/2, rachetaH*0.75);
+          ctx.closePath();
+          ctx.fill();
+
+          //racheta striatie2
+          ctx.fillStyle = "white";
+          ctx.beginPath();
+          //ctx.fillRect(xRacheta2 - rachetaLat/2 - 1, yRachetaCorp2 - 7, rachetaLat + 2, rachetaH/5);
+          ctx.fillRect(xRacheta2 + rachetaLat/2 , yRachetaCorp2 - 5, rachetaLat/2 + 2, rachetaH/6);
+          ctx.closePath();
+          ctx.fill();
+
+          //jet corp lateral dreapta
+          ctx.fillStyle = culoareApaNivelNormal;
+          ctx.beginPath();
+          ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
+          ctx.arc(xRacheta2 + rachetaLat - 1, yElice2 + 5, lungimeJet2/1.5, 0.35 * Math.PI, 0.65 * Math.PI);
+          ctx.closePath();
+          ctx.fill();
+    }
+
+
+  ctx.fillStyle = "orange";
   //console.log(lungimeJet);
   ctx.beginPath();
   ctx.moveTo(xRacheta2, yElice2 + 5);
@@ -4275,6 +4354,8 @@ function desenareSchemaRacheta(){
   ctx.fillRect(xRacheta2 - rachetaLat/2, yRachetaCorp2 - rachetaH/2, rachetaLat, rachetaH);
   ctx.closePath();
   ctx.fill();
+
+
 
   //racheta striatie
   //ctx.fillStyle = "#b3b3b3";
