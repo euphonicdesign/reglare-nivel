@@ -4280,6 +4280,7 @@ function desenareSchemaRacheta(){
         ctx.fill();
 
         //jet corp lateral stanga
+        ctx.fillStyle = "hsl(0, 70%, 65%)";
         ctx.beginPath();
         ctx.moveTo(xRacheta2 - rachetaLat + 1, yElice2 + 5);
         ctx.arc(xRacheta2 - rachetaLat + 1, yElice2 + 5, lungimeJet2/1.5, 0.35 * Math.PI, 0.65 * Math.PI);
