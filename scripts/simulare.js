@@ -316,7 +316,7 @@ var scalaYAvionRadarToate = 3.5;
 
 
 var scalaY = 65;//55; //grafic valori orizontal - regulator grafic jos - rosu
-var scalaYRacheta = 65 * 8;//55; //grafic valori orizontal - regulator grafic jos - rosu
+var scalaYRacheta = 3;//55; //grafic valori orizontal - regulator grafic jos - rosu
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
 //SCALA TREND IMPLICITA
@@ -4243,7 +4243,7 @@ function desenareSchemaRacheta(){
   }
   //dataJetAmortizat = data[selectorZi];
   lungimeJet2 = dataJetAmortizat / medieCumulativ[selectorZi] * 10;
-  yElice2 = inaltimeSuprafataGrafica - 136 - ((medieCumulativ[selectorZi]*scalaYRacheta)/maxValue);
+  yElice2 = inaltimeSuprafataGrafica - 136 - (medieCumulativ[selectorZi] * scalaYRacheta);
   //desenare racheta
   yRachetaVarf2 = yElice2 + 10;
   yRachetaCorp2 = yElice2 - 3;
