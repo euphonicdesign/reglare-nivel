@@ -4394,6 +4394,20 @@ function desenareSchemaRacheta(){
     }
 
 
+  //deasupra racheta - accelerare
+  ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
+  //ctx.fillStyle = culoareApaNivelNormal;
+  ctx.textAlign = "center";
+  if (data[selectorZi] - medieCumulativ[selectorZi] > 0 ){
+      ctx.fillStyle = culoareRosuTemperat;
+      ctx.strokeStyle = culoareRosuTemperat;
+  }
+  else{
+      ctx.fillStyle = "green";
+      ctx.strokeStyle = "green";
+  }
+  ctx.fillText(Math.floor(factor_ampMediu*10)/10 + "x", xRacheta2, yElice2 - rachetaH);
+
   ctx.fillStyle = "orange";
   //console.log(lungimeJet);
   ctx.beginPath();
