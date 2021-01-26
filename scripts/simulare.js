@@ -4035,7 +4035,7 @@ function desenareSchemaRacheta(){
   ctx.closePath();
 
   //Consum (litri/h):
-  ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
@@ -4057,7 +4057,7 @@ function desenareSchemaRacheta(){
   ctx.fillText("Tr." + treaptaViteza, xPotentiometru +42, yPotentiometru - razaPotentiometru - 0);
   //ctx.fillText(treaptaViteza, xPotentiometru +58, yPotentiometru - razaPotentiometru - 18);
 
-  ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillText("(Cutie Autom.)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 20);
 
