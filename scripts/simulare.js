@@ -4056,6 +4056,8 @@ function desenareSchemaRacheta(){
     ctx.strokeStyle = culoareTextCompensator;
     ctx.lineWidth = 1;
     ctx.textAlign = "start";
+    ctx.font = "italic 12px system-ui, Arial, sans-serif";
+    ctx.fillText("(Agrafe)" + "", xElice1 - 7 ,  yElice - eroareE * 2 - 12);
     ctx.font = "italic 10px system-ui, Arial, sans-serif";
 
     clasamentMedie = clasamentAeronaveZileSortatMedie[selectorZi].clasament;
@@ -4122,6 +4124,7 @@ function desenareSchemaRacheta(){
                 ctx.fillText(numeZona + ": ", xElice1 - 7 , 16 + zona * 12);
                 ctx.fillText(Math.round(valoareZona) + "%" + text_final, xElice1 + 19 , 16 + zona * 12);
             }
+
         }
     }
   }
