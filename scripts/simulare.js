@@ -620,10 +620,10 @@ var yStalpModReglare = yCaleDir;
 var lungimeSosetaModReglare = lungBloc/2 - 2;
 
 var xIndicatorReactie = xStalpModReglare - 32;
-var yIndicatorReactie = yStalpModReglare + 12;
+var yIndicatorReactie = yStalpModReglare + 16;
 
 var xIndicatorFlapsuri = xStalpModReglare - 32;
-var yIndicatorFlapsuri = yStalpModReglare + 12;
+var yIndicatorFlapsuri = yStalpModReglare + 16;
 
 var razaPotentiometru = 8;
 var xPotentiometru = xCercRef - 0;
