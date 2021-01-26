@@ -619,6 +619,12 @@ var xStalpModReglare = 0 + xBlocP + lungBloc + lungBloc/2;
 var yStalpModReglare = yCaleDir;
 var lungimeSosetaModReglare = lungBloc/2 - 2;
 
+var xIndicatorReactie = xStalpModReglare - 32;
+var yIndicatorReactie = yStalpModReglare + 12;
+
+var xIndicatorFlapsuri = xStalpModReglare - 32;
+var yIndicatorFlapsuri = yStalpModReglare + 12;
+
 var razaPotentiometru = 8;
 var xPotentiometru = xCercRef - 0;
 var yPotentiometru = yCaleDir - 54;
@@ -3923,31 +3929,31 @@ function desenareSchemaRacheta(){
   if(vector_rToate[selectorZi] < 1){
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
-    ctx.fillText("eliberare", xStalpModReglare + 80, yStalpModReglare + 14);
-    ctx.fillText("flapsuri", xStalpModReglare + 80, yStalpModReglare + 14 + 12);
-    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare + 2, 62, 28);
+    ctx.fillText("eliberare", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14);
+    ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+    ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri + 2, 62, 28);
   }
   else{
     ctx.fillStyle = culoareTextZi;
     ctx.strokeStyle = culoareTextZi;
-    ctx.fillText("eliberare", xStalpModReglare + 80, yStalpModReglare + 14);
-    ctx.fillText("flapsuri", xStalpModReglare + 80, yStalpModReglare + 14 + 12);
-    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare +2, 62, 28);
+    ctx.fillText("eliberare", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14);
+    ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+    ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri +2, 62, 28);
   }
 
   if(vector_rToate[selectorZi] >= 1){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
-    ctx.fillText("amplificare", xStalpModReglare + 80, yStalpModReglare + 14 - 32);
-    ctx.fillText("reacție", xStalpModReglare + 80, yStalpModReglare -6);
-    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare -30, 62, 28);
+    ctx.fillText("amplificare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("reacție", xIndicatorReactie + 120, yIndicatorReactie -6);
+    ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie -30, 62, 28);
   }
   else{
     ctx.fillStyle = culoareTextZi;
     ctx.strokeStyle = culoareTextZi;
-    ctx.fillText("amplificare", xStalpModReglare + 80, yStalpModReglare + 14 - 32);
-    ctx.fillText("reacție", xStalpModReglare + 80, yStalpModReglare -6);
-    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare - 30, 62, 28);
+    ctx.fillText("amplificare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("reacție", xIndicatorReactie + 120, yIndicatorReactie -6);
+    ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie - 30, 62, 28);
   }
 
 
