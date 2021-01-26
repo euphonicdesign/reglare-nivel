@@ -4412,7 +4412,23 @@ function desenareSchemaRacheta(){
   //Ref
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xRacheta2 + 14, yElice2-1);
+  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xRacheta2 + 14, yElice2-3);
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = culoareApaNivelNormal;
+  ctx.lineJoin = "bevel";
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 + 14, Math.round(yElice2));
+  ctx.lineTo(xRacheta2 + 26, Math.round(yElice2));
+  ctx.closePath();
+  ctx.stroke();
+
+  /*
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 + 8, yElice2 -9);
+  ctx.lineTo(xRacheta2 + 14, yElice2);
+  ctx.closePath();
+  ctx.stroke();*/
 
   ctx.fillStyle = "orange";
   //console.log(lungimeJet);
@@ -4421,6 +4437,7 @@ function desenareSchemaRacheta(){
   ctx.arc(xRacheta2, yElice2 + 5, lungimeJet2, 0.35 * Math.PI, 0.65 * Math.PI);
   ctx.closePath();
   ctx.fill();
+
 
   ctx.fillStyle = "#adad85";//"#4d4d4d";
   //racheta varf
