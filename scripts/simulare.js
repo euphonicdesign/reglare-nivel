@@ -4412,7 +4412,7 @@ function desenareSchemaRacheta(){
   //Ref
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xRacheta2 + 14, yElice2-3);
+  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xRacheta2 + 14, yElice2-1);
 
   ctx.fillStyle = "orange";
   //console.log(lungimeJet);
