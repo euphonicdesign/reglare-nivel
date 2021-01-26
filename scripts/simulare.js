@@ -4418,8 +4418,14 @@ function desenareSchemaRacheta(){
   ctx.strokeStyle = culoareApaNivelNormal;
   ctx.lineJoin = "bevel";
   ctx.beginPath();
-  ctx.moveTo(xRacheta2 + 14, Math.round(yElice2));
-  ctx.lineTo(xRacheta2 + 26, Math.round(yElice2));
+  ctx.moveTo(xRacheta2 + 14, yElice2);
+  ctx.lineTo(xRacheta2 + 26, yElice2);
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 + 14, yElice2-13);
+  ctx.lineTo(xRacheta2 + 26, yElice2-13);
   ctx.closePath();
   ctx.stroke();
 
