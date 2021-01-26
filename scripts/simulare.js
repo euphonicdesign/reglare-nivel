@@ -4431,6 +4431,38 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.stroke();
 
+  //proiectie21 langa inaltime racheta
+  if(factor_ampMediu>1){
+    ctx.beginPath();
+    ctx.moveTo(xRacheta2 + 20, yElice2-13);
+    ctx.lineTo(xRacheta2 + 20, yElice2 - 13 - (factor_ampMediu-1) * orizont_proiectie);
+    ctx.closePath();
+    ctx.stroke();
+
+    //cerculet capat proiectie
+    ctx.beginPath();
+    //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
+    ctx.arc(xRacheta2 + 20, yElice2 - 13 - (factor_ampMediu-1) * orizont_proiectie, 2, 0 * Math.PI, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
+  }
+  else{
+    ctx.beginPath();
+    ctx.moveTo(xRacheta2 + 20, yElice2);
+    ctx.lineTo(xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie);
+    ctx.closePath();
+    ctx.stroke();
+
+    //cerculet capat proiectie
+    ctx.beginPath();
+    //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
+    ctx.arc(xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie, 2, 0 * Math.PI, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+
+
   /*
   ctx.beginPath();
   ctx.moveTo(xRacheta2 + 8, yElice2 -9);
