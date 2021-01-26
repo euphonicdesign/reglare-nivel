@@ -4408,11 +4408,11 @@ function desenareSchemaRacheta(){
 
   //langa racheta - inaltime nivel
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
-  ctx.textAlign = "start";
+  ctx.textAlign = "center";
   //Ref
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xRacheta2 + 14, yElice2-3);
+  ctx.fillText(Math.round(medieCumulativ[selectorZi]), xRacheta2 + 19, yElice2-3);
 
   ctx.lineWidth = 2;
   ctx.strokeStyle = culoareApaNivelNormal;
