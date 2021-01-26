@@ -4057,7 +4057,7 @@ function desenareSchemaRacheta(){
 
   ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Altitudine PA", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 32);
+  ctx.fillText("Altitudine Pilot Automat", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 32);
   ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText("(Cutie Autom.)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 20);
 
