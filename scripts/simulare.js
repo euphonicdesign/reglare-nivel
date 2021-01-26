@@ -3923,6 +3923,7 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.stroke();
 
+  //raza interioare
   if(medieCumulativ[selectorZi] > 25){
       ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
   }
@@ -3933,7 +3934,6 @@ function desenareSchemaRacheta(){
 
   }
 
-  //raza interioare
   ctx.lineWidth = 1;
   //ctx.strokeStyle = culoareApaNivelNormal;
   ctx.beginPath();
@@ -3962,6 +3962,26 @@ function desenareSchemaRacheta(){
   ctx.moveTo(xPotentiometru, yPotentiometru);
   ctx.lineTo(xPotentiometru + xIndPot, yPotentiometru - yIndPot);
   ctx.stroke();
+
+
+  //proiectie21
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = culoareApaNivelNormal;
+  ctx.beginPath();
+  //ctx.moveTo(xPotentiometru, yPotentiometru);
+  if(factor_ampMediu>1){
+    ctx.strokeStyle = culoareCrestereVectorAvion;
+    ctx.arc(xPotentiometru, yPotentiometru, razaPotentiometru + 1, (medieCumulativ[selectorZi]/100 * Math.PI * 2) - Math.PI/2, ((medieCumulativ[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100 ) *Math.PI*2 - Math.PI/2);
+  }
+  else{
+    ctx.strokeStyle = culoareScadereVectorAvion;
+    ctx.arc(xPotentiometru, yPotentiometru, razaPotentiometru + 1,((medieCumulativ[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100 ) *Math.PI*2 - Math.PI/2, (medieCumulativ[selectorZi]/100 * Math.PI * 2 - Math.PI/2));
+  }
+
+  //ctx.closePath();
+  ctx.stroke();
+  ctx.closePath();
+
 
   //desenare gradatii
   ctx.strokeStyle = culoareTextZi;
@@ -4433,6 +4453,8 @@ function desenareSchemaRacheta(){
 
   //proiectie21 langa inaltime racheta
   if(factor_ampMediu>1){
+    ctx.strokeStyle = culoareCrestereVectorAvion;
+    ctx.fillStyle = culoareCrestereVectorAvion;
     ctx.beginPath();
     ctx.moveTo(xRacheta2 + 20, yElice2-13);
     ctx.lineTo(xRacheta2 + 20, yElice2 - 13 - (factor_ampMediu-1) * orizont_proiectie);
@@ -4447,6 +4469,8 @@ function desenareSchemaRacheta(){
     ctx.fill();
   }
   else{
+    ctx.strokeStyle = culoareScadereVectorAvion;
+    ctx.fillStyle = culoareScadereVectorAvion;
     ctx.beginPath();
     ctx.moveTo(xRacheta2 + 20, yElice2);
     ctx.lineTo(xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie);
