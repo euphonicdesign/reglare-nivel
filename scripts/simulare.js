@@ -3994,10 +3994,22 @@ function desenareSchemaRacheta(){
   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
+  //ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
 
+  if(medieCumulativ[selectorZi] > 25){
+      ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  else{
+      //ctx.fillStyle = culoareTextZi;
+      ctx.fillStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
+  }
   treaptaViteza = 1 + Math.floor(medieCumulativ[selectorZi]/25);
-  ctx.fillText("Tr." + treaptaViteza + "", xPotentiometru +38, yPotentiometru - razaPotentiometru - 18);
+  ctx.fillText("Tr." + treaptaViteza, xPotentiometru +38, yPotentiometru - razaPotentiometru - 18);
+  //ctx.fillText(treaptaViteza, xPotentiometru +58, yPotentiometru - razaPotentiometru - 18);
+
+  ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
+  ctx.fillText("(cutie autom.)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 18);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
