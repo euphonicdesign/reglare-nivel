@@ -4145,7 +4145,7 @@ function desenareSchemaRacheta(){
   ctx.fillText("Pilot Automat", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 44);
   ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText("Cutie", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 32);
-  ctx.fillText("Automată", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 20);
+  ctx.fillText("automată", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 21);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
