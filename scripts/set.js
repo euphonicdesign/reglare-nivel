@@ -456,6 +456,6 @@ let info_explicatii = [
               'Baza de plecare continuă să fie mult prea mare! \
               \nTortul este o iluzie optică.',
 
-              'Rafale de vânt puternic din lateral și curenți ascendenți... \
+              'Rafale puternice de vânt din lateral și curenți ascendenți... \
               \nSuntem pe modul manual. Cutia a devenit disfuncțională...',
 ];
