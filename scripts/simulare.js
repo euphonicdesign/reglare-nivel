@@ -4039,7 +4039,7 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Viteză (consum)", xPotentiometru + 2* razaPotentiometru + 26, yPotentiometru - razaPotentiometru - 18);
+  ctx.fillText("Viteză (consum)", xPotentiometru + 2* razaPotentiometru + 26, yPotentiometru - razaPotentiometru - 20);
 
   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   //ctx.textAlign = "start";
@@ -4059,7 +4059,7 @@ function desenareSchemaRacheta(){
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("(Cutie Autom.)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 18);
+  ctx.fillText("(Cutie Autom.)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 20);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
@@ -4104,11 +4104,12 @@ function desenareSchemaRacheta(){
 
   }
   ctx.fillText(Math.round(medieCumulativ[selectorZi]), xPotentiometru + 2* razaPotentiometru + 26, yPotentiometru - razaPotentiometru + 8);
-  ctx.fillText("(litri/zi)", xPotentiometru + 2* razaPotentiometru + 46, yPotentiometru - razaPotentiometru + 8);
+  ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillText("(litri/zi)", xPotentiometru + 2* razaPotentiometru + 56, yPotentiometru - razaPotentiometru + 8);
 
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("(litri/oră)", xPotentiometru + 2* razaPotentiometru + 46 , yPotentiometru - razaPotentiometru + 20);
+  ctx.fillText("(litri/oră)", xPotentiometru + 2* razaPotentiometru + 56 , yPotentiometru - razaPotentiometru + 20);
   //-------------------------------
 
   //Analiza Pareto
