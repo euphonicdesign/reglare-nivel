@@ -3912,6 +3912,64 @@ function desenareSchemaRacheta(){
 
 
   }
+
+
+  //Flapsuri Reactie
+  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
+  ctx.textAlign = "center";
+  ctx.lineWidth = 2;
+  //Ref
+  //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
+  if(vector_rToate[selectorZi] < 1){
+    ctx.fillStyle = culoareScadere;
+    ctx.strokeStyle = culoareScadere;
+    ctx.fillText("eliberare", xStalpModReglare + 80, yStalpModReglare + 14);
+    ctx.fillText("flapsuri", xStalpModReglare + 80, yStalpModReglare + 14 + 12);
+    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare + 2, 62, 28);
+  }
+  else{
+    ctx.fillStyle = culoareTextZi;
+    ctx.strokeStyle = culoareTextZi;
+    ctx.fillText("eliberare", xStalpModReglare + 80, yStalpModReglare + 14);
+    ctx.fillText("flapsuri", xStalpModReglare + 80, yStalpModReglare + 14 + 12);
+    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare +2, 62, 28);
+  }
+
+  if(vector_rToate[selectorZi] >= 1){
+    ctx.fillStyle = culoareRosuTemperat;
+    ctx.strokeStyle = culoareRosuTemperat;
+    ctx.fillText("amplificare", xStalpModReglare + 80, yStalpModReglare + 14 - 32);
+    ctx.fillText("reacție", xStalpModReglare + 80, yStalpModReglare -6);
+    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare -30, 62, 28);
+  }
+  else{
+    ctx.fillStyle = culoareTextZi;
+    ctx.strokeStyle = culoareTextZi;
+    ctx.fillText("amplificare", xStalpModReglare + 80, yStalpModReglare + 14 - 32);
+    ctx.fillText("reacție", xStalpModReglare + 80, yStalpModReglare -6);
+    ctx.strokeRect(xStalpModReglare + 50, yStalpModReglare - 30, 62, 28);
+  }
+
+
+  /*
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = culoareApaNivelNormal;
+  ctx.lineJoin = "bevel";
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 + 14, yElice2);
+  ctx.lineTo(xRacheta2 + 26, yElice2);
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 + 14, yElice2-13);
+  ctx.lineTo(xRacheta2 + 26, yElice2-13);
+  ctx.closePath();
+  ctx.stroke();
+  */
+
+
+
   // ---
   //desenare potentiometru referinta actuala
   ctx.strokeStyle = "#333";//"#1a1a1a";//"#333";
