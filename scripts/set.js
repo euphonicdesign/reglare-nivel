@@ -155,7 +155,7 @@ let data_30 = [
             0.202, 0.199, 0.21, 0.223, 0.224, 0.226, 0.245,
             0.215, 0.206, 0.191, 0.172, 0.167, 0.162, 0.152,
             0.159, 0.157, 0.153, 0.157, 0.165, 0.161, 0.16,
-            0.145, 0.137, 0.134, 0.131, 0.125, 0.121, 
+            0.145, 0.137, 0.134, 0.131, 0.125, 0.121,
 
 
 ];
@@ -456,6 +456,5 @@ let info_explicatii = [
               'Baza de plecare continuă să fie mult prea mare! \
               \nTortul este o iluzie optică.',
 
-              'Baza de plecare continuă să fie mult prea mare! \
-              \nTortul este o iluzie optică.',
+              'Rafale de vânt puternic din lateral și curenți ascendenți...!',
 ];
