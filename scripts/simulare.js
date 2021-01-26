@@ -3991,8 +3991,15 @@ function desenareSchemaRacheta(){
   ctx.lineTo(xPotentiometru - razaPotentiometru - 16, yPotentiometru );
   ctx.stroke();
 
-  ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+  //Consum (litri/h):
+  ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
+  //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
+  ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
+  ctx.fillText("Viteză (consum)", xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru - 18);
+
+  ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
+  //ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   //ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
 
@@ -4004,7 +4011,7 @@ function desenareSchemaRacheta(){
       ctx.fillStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
   }
   treaptaViteza = 1 + Math.floor(medieCumulativ[selectorZi]/25);
-  ctx.fillText("Tr." + treaptaViteza, xPotentiometru +38, yPotentiometru - razaPotentiometru - 18);
+  ctx.fillText("Tr." + treaptaViteza, xPotentiometru +38, yPotentiometru - razaPotentiometru - 4);
   //ctx.fillText(treaptaViteza, xPotentiometru +58, yPotentiometru - razaPotentiometru - 18);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
@@ -4042,7 +4049,7 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Viteză (consum)", xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru - 4);
+  //ctx.fillText("Viteză (consum)", xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru - 4);
   ctx.fillText(Math.floor(medieCumulativ[selectorZi]/24*10)/10, xPotentiometru + 2* razaPotentiometru + 22, yPotentiometru - razaPotentiometru + 20);
   if(medieCumulativ[selectorZi] > 25){
       ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
