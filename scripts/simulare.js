@@ -3967,29 +3967,72 @@ function desenareSchemaRacheta(){
 
   //desenare gradatii
   ctx.strokeStyle = culoareTextZi;
-  ctx.lineWidth = 1;
+  ctx.lineWidth = 2;
+
   ctx.beginPath();
   ctx.closePath();
   ctx.moveTo(xPotentiometru, yPotentiometru - razaPotentiometru - 4);
   ctx.lineTo(xPotentiometru, yPotentiometru - razaPotentiometru - 12);
   ctx.stroke();
 
+  //treapta 2 jos
+  if(medieCumulativ[selectorZi] > 25){
+      ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  //ctx.strokeStyle = culoareTextZi;
+
+  //linie lunga fundal
+  ctx.beginPath();
   ctx.moveTo(xPotentiometru, yPotentiometru + razaPotentiometru + 4);
   ctx.lineTo(xPotentiometru, yPotentiometru + razaPotentiometru + 38/*+ 12*/);
   ctx.stroke();
+  ctx.closePath();
+
+  //linie treapta
+  //ctx.strokeStyle = culoareTextZi;
+  //ctx.strokeStyle = "hsl(216, 60%, 40%)";//culoareTextZi;
+  //ctx.beginPath();
+  //ctx.moveTo(xPotentiometru, yPotentiometru + razaPotentiometru + 4);
+  //ctx.lineTo(xPotentiometru, yPotentiometru + razaPotentiometru + 24/*+ 12*/);
+  //ctx.stroke();
+  //ctx.closePath();
 
   //coada avion
+  //ctx.strokeStyle = culoareTextZi;
+  ctx.beginPath();
   ctx.moveTo(xPotentiometru - razaPotentiometru, yPotentiometru + 32);
   ctx.lineTo(xPotentiometru + razaPotentiometru, yPotentiometru + 32);
   ctx.stroke();
+  ctx.closePath();
 
+
+  //treapta 1 dreapta
+  //ctx.strokeStyle = "hsl(216, 60%, 40%)";//culoareTextZi;
+  if(medieCumulativ[selectorZi] > 25){
+      ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  else{
+      //ctx.strokeStyle = culoareApaNivelNormal;
+      //hsl(216, 60%, 45%)
+      ctx.strokeStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
+
+  }
+  ctx.beginPath();
   ctx.moveTo(xPotentiometru + razaPotentiometru + 4, yPotentiometru );
   ctx.lineTo(xPotentiometru + razaPotentiometru + 16, yPotentiometru );
   ctx.stroke();
+  ctx.closePath();
 
+  //treapta 3 stanga
+  ctx.strokeStyle = culoareTextZi;
+  if(medieCumulativ[selectorZi] > 50){
+      ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  }
+  ctx.beginPath();
   ctx.moveTo(xPotentiometru - razaPotentiometru - 4, yPotentiometru );
   ctx.lineTo(xPotentiometru - razaPotentiometru - 16, yPotentiometru );
   ctx.stroke();
+  ctx.closePath();
 
   //Consum (litri/h):
   ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
