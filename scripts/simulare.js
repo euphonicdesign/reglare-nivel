@@ -4121,7 +4121,8 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Viteză (consum)", xPotentiometru + 2* razaPotentiometru + 26, yPotentiometru - razaPotentiometru - 20);
+  ctx.fillText("Viteză      x10  (k)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 21);
+  ctx.fillText("Altitudine x100 (f)", xPotentiometru - 30 , yPotentiometru - razaPotentiometru - 32);
 
   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   //ctx.textAlign = "start";
@@ -4141,9 +4142,10 @@ function desenareSchemaRacheta(){
 
   ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Altitudine Pilot Automat", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 32);
+  ctx.fillText("Pilot Automat", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 44);
   ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText("(Cutie Autom.)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 20);
+  ctx.fillText("Cutie", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 32);
+  ctx.fillText("Automată", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 20);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
@@ -4189,11 +4191,13 @@ function desenareSchemaRacheta(){
   }
   ctx.fillText(Math.round(medieCumulativ[selectorZi]), xPotentiometru + 2* razaPotentiometru + 26, yPotentiometru - razaPotentiometru + 12);
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText("(litri/zi)", xPotentiometru + 2* razaPotentiometru + 56, yPotentiometru - razaPotentiometru + 12);
+  ctx.fillText("litri/zi", xPotentiometru + 2* razaPotentiometru + 56, yPotentiometru - razaPotentiometru + 12);
 
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("(litri/oră)", xPotentiometru + 2* razaPotentiometru + 56 , yPotentiometru - razaPotentiometru + 24);
+  ctx.fillText("litri/oră", xPotentiometru + 2* razaPotentiometru + 56 , yPotentiometru - razaPotentiometru + 24);
+
+  ctx.fillText("Consum:", xPotentiometru + 2* razaPotentiometru + 56 , yPotentiometru - razaPotentiometru -1);
   //-------------------------------
 
   //Analiza Pareto
