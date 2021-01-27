@@ -3683,6 +3683,16 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "center";
   ctx.fillText(Math.floor(factor_ampMediu*10)/10 + "x̄", xCercRef + 100, yCaleBucla + 22);
 
+  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
+  //ctx.textAlign = "center";
+  if(factor_ampMediu > 1){
+    ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "%", xCercRef + 100, yCaleBucla + 33);
+  }
+  else{
+    ctx.fillText(Math.round((factor_ampMediu-1)*100) + "%", xCercRef + 100, yCaleBucla + 33);
+  }
+
+
   //ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
   //ctx.textAlign = "center";
   //ctx.fillText(factor_ampMediu + "", xCercRef + 100, yCaleBucla + 32);
