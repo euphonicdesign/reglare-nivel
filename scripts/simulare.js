@@ -4354,7 +4354,13 @@ function desenareSchemaRacheta(){
   ctx.fill();
 
   //racheta striatie2
-  ctx.fillStyle = "white";
+  if((vector_rToate[selectorZi]-1) < 0){
+      ctx.fillStyle = "white";
+  }
+  else{
+      ctx.fillStyle = culoareRosuTemperat;
+  }
+
   ctx.beginPath();
   ctx.fillRect(xRacheta - rachetaLat/2 - 1, yRachetaCorp - 7, rachetaLat + 2, rachetaH/5);
   ctx.closePath();
@@ -4611,11 +4617,29 @@ function desenareSchemaRacheta(){
   ctx.fill();
 
   //racheta striatie2
-  ctx.fillStyle = "white";
+  if(vector_rToate_normalizat[selectorZi] < 0){
+      ctx.fillStyle = "white";
+  }
+  else{
+      ctx.fillStyle = culoareRosuTemperat;
+  }
   ctx.beginPath();
   ctx.fillRect(xRacheta2 - rachetaLat/2 - 1, yRachetaCorp2 - 7, rachetaLat + 2, rachetaH/5);
   ctx.closePath();
   ctx.fill();
+
+  //amplificare reactie striatie
+  if(vector_rToate_normalizat[selectorZi] > 0){
+      ctx.fillStyle = "yellow";
+      ctx.beginPath();
+      ctx.fillRect(xRacheta2 - vector_rToate_normalizat[selectorZi]/100 * (rachetaLat + 2) / 2 - 0,
+                    yRachetaCorp2 - 7,
+                    vector_rToate_normalizat[selectorZi]/100 * (rachetaLat + 2),
+                    rachetaH/5
+                  );
+      ctx.closePath();
+      ctx.fill();
+  }
 
   //langa racheta - inaltime nivel
   /*
