@@ -4616,6 +4616,60 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.fill();
 
+
+  //flapsuri racheta2
+  if(selectorZi > orizont_proiectie + orizont_regresie){
+    ctx.lineWidth = 2;
+    //dreapta
+    xFlapsDr = xRacheta2 + rachetaLat / 2 + 1;
+    yFlapsDr = yRachetaCorp2 - 5;
+    lungimeFlaps = 14;
+
+    xPozFlapsDr = -Math.sin(3 * vector_rToate_normalizat[selectorZi]/10 * 2*Math.PI / 360) * lungimeFlaps;
+    yPozFlapsDr = Math.cos(3 * vector_rToate_normalizat[selectorZi]/10 * 2*Math.PI / 360) * lungimeFlaps;
+
+    if(vector_rToate_normalizat[selectorZi] < 0){
+      ctx.strokeStyle = culoareScadereVectorAvion;
+      ctx.fillStyle = culoareScadereVectorAvion;
+    }
+    else{
+      ctx.fillStyle = culoareRosuTemperat;
+      ctx.strokeStyle = culoareRosuTemperat;
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(xFlapsDr, yFlapsDr);
+    ctx.lineTo(xFlapsDr + xPozFlapsDr, yFlapsDr + yPozFlapsDr);
+    ctx.closePath();
+    ctx.stroke();
+
+    //stanga
+    xFlapsSt = xRacheta2 - rachetaLat / 2 - 1;
+    yFlapsSt = yRachetaCorp2 - 5;
+    //lungimeFlaps = 14;
+
+    xPozFlapsSt = +Math.sin(3 * vector_rToate_normalizat[selectorZi]/10 * 2*Math.PI / 360) * lungimeFlaps;
+    yPozFlapsSt = Math.cos(3 * vector_rToate_normalizat[selectorZi]/10 * 2*Math.PI / 360) * lungimeFlaps;
+
+    if(vector_rToate_normalizat[selectorZi] < 0){
+      ctx.strokeStyle = culoareScadereVectorAvion;
+      ctx.fillStyle = culoareScadereVectorAvion;
+    }
+    else{
+      ctx.fillStyle = culoareRosuTemperat;
+      ctx.strokeStyle = culoareRosuTemperat;
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(xFlapsSt, yFlapsSt);
+    ctx.lineTo(xFlapsSt + xPozFlapsSt, yFlapsSt + yPozFlapsSt);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.lineWidth = 2;
+  }
+
+
   //racheta striatie2
   if(vector_rToate_normalizat[selectorZi] < 0){
       ctx.fillStyle = "white";
@@ -4628,7 +4682,7 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.fill();
 
-  //amplificare reactie striatie
+  //amplificare reactie striatie2
   if(vector_rToate_normalizat[selectorZi] > 0){
       ctx.fillStyle = "yellow";
       ctx.beginPath();
@@ -4640,6 +4694,59 @@ function desenareSchemaRacheta(){
       ctx.closePath();
       ctx.fill();
   }
+
+
+
+  /*
+  ctx.strokeStyle = culoareScadereVectorAvion;
+  ctx.fillStyle = culoareScadereVectorAvion;
+  ctx.beginPath();
+  ctx.moveTo(xRacheta2 + 20, yElice2);
+  ctx.lineTo(xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie);
+  ctx.closePath();
+  ctx.stroke();*/
+
+  /*
+  xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 + 0;
+
+  xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
+  ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);*
+
+  /*
+  if(selectorZi > orizont_regresie + orizont_arie){
+
+      ctx.lineWidth = 2;
+      if(vector_rToate[selectorZi] > 1){
+      }
+      else{
+          //desenare arc pendul
+          ctx.strokeStyle = "green";//"#1a1a1a";//"#333";
+          ctx.lineWidth = 1;
+          ctx.setLineDash([1,2]);
+          ctx.beginPath();
+          ctx.moveTo(xStalpModReglare + lungimeSosetaModReglare, yStalpModReglare);
+          ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, - 2*Math.PI * 0.25);
+          ctx.moveTo(xStalpModReglare, yStalpModReglare - lungimeSosetaModReglare);
+          ctx.closePath();
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          ctx.strokeStyle = "green";//culoare_scadere_entitate;
+          ctx.fillStyle = culoare_scadere_entitate;
+      }
+      ctx.lineWidth = 2;*/
+
+      //
+      //ctx.fillStyle = "white";//"#4d4d4d";
+      /*
+      ctx.beginPath();
+      ctx.moveTo(xStalpModReglare, yStalpModReglare);
+      ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, -(xsos * Math.PI * 2 / 360));
+      ctx.moveTo(xStalpModReglare, yStalpModReglare);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();*/
+
 
   //langa racheta - inaltime nivel
   /*
