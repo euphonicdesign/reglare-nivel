@@ -591,10 +591,10 @@ var yTextComanda = yValvaConductaIntrare2 - 3;
 //Legenda
 var yLegenda = 202;
 var xLegenda = 20;
-var yl1 = yLegenda + 20;
-var yl2 = yLegenda + 40;
-var yl3 = yLegenda + 60;
-var yl4 = yLegenda + 80;
+var yl1 = yLegenda + 15;
+var yl2 = yLegenda + 30;
+var yl3 = yLegenda + 45;
+var yl4 = yLegenda + 60;
 var yl5 = yLegenda + 100;
 
 
@@ -4121,8 +4121,8 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Viteză      x10   (k)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 21);
-  ctx.fillText("Altitudine x100 (ft)", xPotentiometru - 30 , yPotentiometru - razaPotentiometru - 32);
+  ctx.fillText("Viteză      x10   (k)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 27);
+  ctx.fillText("Altitudine x100 (ft)", xPotentiometru - 30 , yPotentiometru - razaPotentiometru - 38);
 
   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
   //ctx.textAlign = "start";
@@ -4142,10 +4142,10 @@ function desenareSchemaRacheta(){
 
   ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Pilot Automat", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 44);
+  ctx.fillText("Pilot Automat", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 52);
   ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText("Cutie", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 32);
-  ctx.fillText("automată", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 21);
+  ctx.fillText("Cutie", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 38);
+  ctx.fillText("automată", xPotentiometru + 72, yPotentiometru - razaPotentiometru - 27);
 
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
