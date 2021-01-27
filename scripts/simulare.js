@@ -321,7 +321,7 @@ var scalaYRacheta = 3;//55; //grafic valori orizontal - regulator grafic jos - r
 var scalaY_2 = 95;//55; //grafic valori orizontal - regulator grafic jos - gri
 
 //SCALA TREND IMPLICITA
-var scala_grafic_2 = 0.3; //scalare suplimentara grafic 2 sus 1.5 = -150%
+var scala_grafic_2 = 0.2; //scalare suplimentara grafic 2 sus 1.5 = -150%
 
 var scalaY_trend_2 = 160; // grafic sus
 var scalaY_trend_3 = 90; // grafic sus - p+
