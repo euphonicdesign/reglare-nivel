@@ -4197,7 +4197,7 @@ function desenareSchemaRacheta(){
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillText("litri/oră", xPotentiometru + 2* razaPotentiometru + 56 , yPotentiometru - razaPotentiometru + 24);
 
-  ctx.fillText("Consum:", xPotentiometru + 2* razaPotentiometru + 56 , yPotentiometru - razaPotentiometru -1);
+  ctx.fillText("consum:", xPotentiometru + 2* razaPotentiometru + 56 , yPotentiometru - razaPotentiometru -1);
   //-------------------------------
 
   //Analiza Pareto
