@@ -340,7 +340,7 @@ var scalareTraiectorieAvionToateRegulator = 14;
 var scalareTraiectorieAvionRegulator = 2;
 
 //SCALA Tabele
-var scalareBareTabelAltitudini = 1;
+var scalareBareTabelAltitudini = 0.5;
 
 //MAGNIFICARE RADAR IMPLICITA
 var scalaRadarY = 1.0; //magnificare radar implicita
