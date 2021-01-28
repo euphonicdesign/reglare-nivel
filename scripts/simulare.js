@@ -3970,8 +3970,8 @@ function desenareSchemaRacheta(){
   }
 
   if(medieCumulativToate[selectorZi] > 10 && selectorZi > 231){
-    ctx.fillStyle = "hsl(182, 60%, 35%)";//"orange";//culoareRosuTemperat;
-    ctx.strokeStyle = "hsl(182, 60%, 35%)";//culoareRosuTemperat;
+    ctx.fillStyle = "hsla(182, 30%, 15%,90%)";//"orange";//culoareRosuTemperat;
+    ctx.strokeStyle = "hsla(182, 30%, 15%,90%)";//culoareRosuTemperat;
     ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
     ctx.fillText("siguranță", xIndicatorCentura + 120, yIndicatorCentura -6);
     ctx.strokeRect(xIndicatorCentura + 90, yIndicatorCentura -30, 62, 28);
