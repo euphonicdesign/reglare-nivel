@@ -3969,7 +3969,7 @@ function desenareSchemaRacheta(){
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie - 30, 62, 28);
   }
 
-  if(medieCumulativToate[selectorZi] > 3){
+  if(medieCumulativToate[selectorZi] > 3 && selectorZi > 231){
     ctx.fillStyle = "hsl(182, 60%, 35%)";//"orange";//culoareRosuTemperat;
     ctx.strokeStyle = "hsl(182, 60%, 35%)";//culoareRosuTemperat;
     ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
