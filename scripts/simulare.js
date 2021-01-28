@@ -623,10 +623,10 @@ var xIndicatorReactie = xStalpModReglare - 32;
 var yIndicatorReactie = yStalpModReglare + 16;
 
 var xIndicatorCentura = xStalpModReglare - 32 + 66;
-var yIndicatorCentura = yIndicatorReactie - 0;
+var yIndicatorCentura = yIndicatorReactie + 32;
 
 var xIndicatorFrana = xStalpModReglare - 32 + 66;
-var yIndicatorFrana = yIndicatorReactie + 32;
+var yIndicatorFrana = yIndicatorReactie + 0;
 
 var xIndicatorFlapsuri = xStalpModReglare - 32;
 var yIndicatorFlapsuri = yStalpModReglare + 16;
