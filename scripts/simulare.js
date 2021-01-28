@@ -623,7 +623,10 @@ var xIndicatorReactie = xStalpModReglare - 32;
 var yIndicatorReactie = yStalpModReglare + 16;
 
 var xIndicatorCentura = xStalpModReglare - 32 + 66;
-var yIndicatorCentura = yIndicatorReactie + 16;
+var yIndicatorCentura = yIndicatorReactie - 0;
+
+var xIndicatorFrana = xStalpModReglare - 32 + 66;
+var yIndicatorFrana = yIndicatorReactie + 32;
 
 var xIndicatorFlapsuri = xStalpModReglare - 32;
 var yIndicatorFlapsuri = yStalpModReglare + 16;
@@ -3982,6 +3985,21 @@ function desenareSchemaRacheta(){
     ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
     ctx.fillText("siguranță", xIndicatorCentura + 120, yIndicatorCentura -6);
     ctx.strokeRect(xIndicatorCentura + 90, yIndicatorCentura - 30, 62, 28);
+  }
+
+  if(vectorDRToate[selectorZi] < 0){
+    ctx.fillStyle = culoareScadere;
+    ctx.strokeStyle = culoareScadere;
+    ctx.fillText("frânare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
+    ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
+    ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana -30, 62, 28);
+  }
+  else{
+    ctx.fillStyle = culoareTextZi;
+    ctx.strokeStyle = culoareTextZi;
+    ctx.fillText("frânare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
+    ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
+    ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana - 30, 62, 28);
   }
 
 
