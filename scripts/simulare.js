@@ -9061,7 +9061,7 @@ function desenareIndicatorRezervor(){
     ctx.fillStyle = "white";
 
     val_tot = dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2;
-    lungimeGolire = val_tot/(19173111/40) * lunIndRez;
+    lungimeGolire = val_tot/(19173111/40) * lunIndRez; //25
     ctx.fillRect(xIndRez, yIndRez, latIndRez, lungimeGolire);
     ctx.strokeStyle = culoareApaNivelUltraCritic;
     ctx.lineWidth = 2;
