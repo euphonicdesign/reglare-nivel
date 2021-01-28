@@ -4989,7 +4989,7 @@ function desenareEvenimente(){
             //schema reglare
             if(mod == MOD_REGULATOR){
               ctx.font = "bold 12px Helvetica, system-ui, Arial, sans-serif";
-              ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xBlocC + 0, yCaleDir - 12);
+              ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xBlocC + 24, yCaleDir - 12);
             }
             //legenda evenimente sus
             ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
@@ -4999,7 +4999,7 @@ function desenareEvenimente(){
             //schema reglare
             if(mod == MOD_REGULATOR){
               ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
-              ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xBlocC + 0, yCaleDir - 12);
+              ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xBlocC + 24, yCaleDir - 12);
             }
 
             //legenda evenimente sus
@@ -5032,7 +5032,7 @@ function desenareEvenimente(){
             //schema reglare
             if(mod == MOD_REGULATOR){
               ctx.font = "bold 12px Helvetica, system-ui, Arial, sans-serif";
-              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 24, yCaleDir - 12);
+              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 0, yCaleDir - 12);
             }
 
             ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
@@ -5042,7 +5042,7 @@ function desenareEvenimente(){
             //schema reglare
             if(mod == MOD_REGULATOR){
               ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
-              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 24, yCaleDir - 12);
+              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 0, yCaleDir - 12);
             }
 
             ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
