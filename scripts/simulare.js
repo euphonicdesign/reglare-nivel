@@ -4983,14 +4983,27 @@ function desenareEvenimente(){
         //desenare cerculete acumulate
 
         //desenare cerculet vectorizare maro
+        ctx.fillStyle = culoareCrestereMaro;
         ctx.beginPath();
         if(pulsatie && culoare_pulsatie == culoareMaro){
+            //schema reglare
+            ctx.font = "bold 12px Helvetica, system-ui, Arial, sans-serif";
+            ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xBlocC + 0, yCaleDir - 12);
+
+            //legenda evenimente sus
             ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
             ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
         }
         else {
+            //schema reglare
+            ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
+            ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xBlocC + 0, yCaleDir - 12);
+
+            //legenda evenimente sus
             ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
             ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
+
+
         }
         ctx.closePath();
 
@@ -5006,18 +5019,29 @@ function desenareEvenimente(){
         ctx.fillStyle = culoareCrestereMaro;
         ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xCerculeteAcumulate + 8 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
 
+
+
         //desenare cerculet limitare verde
-        ctx.fillStyle = culoareVerde;
         ctx.strokeStyle = culoareScadere;
+        ctx.fillStyle = culoareScadere;
         ctx.beginPath();
         if(pulsatie && culoare_pulsatie == culoareVerde){
+            //schema reglare
+            ctx.font = "bold 12px Helvetica, system-ui, Arial, sans-serif";
+            ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 24, yCaleDir - 12);
+
             ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
             ctx.arc(xCerculeteAcumulate + 42 + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
         }
         else {
+            //schema reglare
+            ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
+            ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 24, yCaleDir - 12);
+
             ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
             ctx.arc(xCerculeteAcumulate + 42 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
         }
+        ctx.fillStyle = culoareVerde;
         //ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
         ctx.closePath();
         //ctx.lineWidth = 2;
