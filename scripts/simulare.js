@@ -622,6 +622,9 @@ var lungimeSosetaModReglare = lungBloc/2 - 2;
 var xIndicatorReactie = xStalpModReglare - 32;
 var yIndicatorReactie = yStalpModReglare + 16;
 
+var xIndicatorCentura = xStalpModReglare - 32 + 66;
+var yIndicatorCentura = yIndicatorReactie + 16;
+
 var xIndicatorFlapsuri = xStalpModReglare - 32;
 var yIndicatorFlapsuri = yStalpModReglare + 16;
 
@@ -3964,6 +3967,21 @@ function desenareSchemaRacheta(){
     ctx.fillText("amplificare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
     ctx.fillText("reacție", xIndicatorReactie + 120, yIndicatorReactie -6);
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie - 30, 62, 28);
+  }
+
+  if(medieCumulativToate[selectorZi] > 3){
+    ctx.fillStyle = "hsl(182, 60%, 35%)";//"orange";//culoareRosuTemperat;
+    ctx.strokeStyle = "hsl(182, 60%, 35%)";//culoareRosuTemperat;
+    ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
+    ctx.fillText("siguranță", xIndicatorCentura + 120, yIndicatorCentura -6);
+    ctx.strokeRect(xIndicatorCentura + 90, yIndicatorCentura -30, 62, 28);
+  }
+  else{
+    ctx.fillStyle = culoareTextZi;
+    ctx.strokeStyle = culoareTextZi;
+    ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
+    ctx.fillText("siguranță", xIndicatorCentura + 120, yIndicatorCentura -6);
+    ctx.strokeRect(xIndicatorCentura + 90, yIndicatorCentura - 30, 62, 28);
   }
 
 
