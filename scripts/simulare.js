@@ -620,22 +620,22 @@ var yStalpModReglare = yCaleDir;
 var lungimeSosetaModReglare = lungBloc/2 - 2;
 
 var xIndicatorReactie = xStalpModReglare -32 + 66;
-var yIndicatorReactie = yStalpModReglare + 16;
+var yIndicatorReactie = yStalpModReglare + 36;
 
 var xIndicatorCentura = xStalpModReglare - 32;
-var yIndicatorCentura = yIndicatorReactie + 52;
+var yIndicatorCentura = yStalpModReglare + 68;
 
 var xIndicatorFrana = xStalpModReglare -32;
-var yIndicatorFrana = yIndicatorReactie + 0;
+var yIndicatorFrana = yStalpModReglare + 36;
 
 var xIndicatorGradeFrana = xStalpModReglare - 32;
-var yIndicatorGradeFrana = yStalpModReglare + 16;
+var yIndicatorGradeFrana = yStalpModReglare - 16;
 
 var xIndicatorFlapsuri = xStalpModReglare - 32 + 66;
 var yIndicatorFlapsuri = yStalpModReglare + 36;
 
 var xIndicatorGradeFlapsuri = xStalpModReglare - 32 +66;
-var yIndicatorGradeFlapsuri = yStalpModReglare + 16;
+var yIndicatorGradeFlapsuri = yStalpModReglare - 16;
 
 var razaPotentiometru = 8;
 var xPotentiometru = xCercRef - 0;
@@ -3957,7 +3957,7 @@ function desenareSchemaRacheta(){
 
     //grade flapsuri
     if(selectorZi > orizont_trend){
-      ctx.fillText(-Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "°", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      ctx.fillText(Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "°", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
     }
@@ -4040,7 +4040,7 @@ function desenareSchemaRacheta(){
 
     //grade frana
     if(selectorZi > orizont_trend){
-      ctx.fillText("+" + -Math.floor(vectorDRToate[selectorZi]*10000)/100 + "°°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+      ctx.fillText("" + Math.floor(vectorDRToate[selectorZi]*10000)/100 + "°°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
       //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
       ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
     }
@@ -4065,7 +4065,7 @@ function desenareSchemaRacheta(){
     if(selectorZi > orizont_trend){
         ctx.fillStyle = culoareRosuTemperat;
         ctx.strokeStyle = culoareRosuTemperat;
-        ctx.fillText("-" + Math.floor(vectorDRToate[selectorZi]*10000)/100 + "°°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+        ctx.fillText("+" + Math.floor(vectorDRToate[selectorZi]*10000)/100 + "°°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
         //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
         ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
     }
