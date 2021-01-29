@@ -4018,7 +4018,7 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
     ctx.fillText("frână", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
-    ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
+    ctx.fillText("reacție", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana -30, 62, 28);
 
     //grade frana
@@ -4032,7 +4032,7 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
     ctx.fillText("frână", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
-    ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
+    ctx.fillText("reacție", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana - 30, 62, 28);
 
     //grade frana
