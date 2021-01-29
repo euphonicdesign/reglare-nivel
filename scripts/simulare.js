@@ -4017,7 +4017,7 @@ function desenareSchemaRacheta(){
   if(vectorDRToate[selectorZi] < 0){
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
-    ctx.fillText("frânare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
+    ctx.fillText("frână", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
     ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana -30, 62, 28);
 
@@ -4027,9 +4027,11 @@ function desenareSchemaRacheta(){
     ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
   }
   else{
-    ctx.fillStyle = culoareTextZi;
-    ctx.strokeStyle = culoareTextZi;
-    ctx.fillText("frânare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
+    //ctx.fillStyle = culoareTextZi;
+    //ctx.strokeStyle = culoareTextZi;
+    ctx.fillStyle = culoareRosuTemperat;
+    ctx.strokeStyle = culoareRosuTemperat;
+    ctx.fillText("frână", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
     ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana - 30, 62, 28);
 
