@@ -3985,14 +3985,14 @@ function desenareSchemaRacheta(){
   if(vector_rToate[selectorZi] >= 1){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
-    ctx.fillText("amplificare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("accelerare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
     ctx.fillText("reacție", xIndicatorReactie + 120, yIndicatorReactie -6);
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie -30, 62, 28);
   }
   else{
     ctx.fillStyle = culoareTextZi;
     ctx.strokeStyle = culoareTextZi;
-    ctx.fillText("amplificare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("accelerare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
     ctx.fillText("reacție", xIndicatorReactie + 120, yIndicatorReactie -6);
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie - 30, 62, 28);
   }
@@ -4031,7 +4031,7 @@ function desenareSchemaRacheta(){
     //ctx.strokeStyle = culoareTextZi;
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
-    ctx.fillText("frână", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
+    ctx.fillText("amplificare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
     ctx.fillText("reacție", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana - 30, 62, 28);
 
