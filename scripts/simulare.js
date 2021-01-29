@@ -3943,7 +3943,7 @@ function desenareSchemaRacheta(){
 
 
   //Flapsuri Reactie
-  ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "center";
   ctx.lineWidth = 2;
   //Ref
@@ -3955,6 +3955,7 @@ function desenareSchemaRacheta(){
     ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
     ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri + 2, 62, 28);
 
+    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     if(selectorZi > orizont_trend){
       ctx.fillText(Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "°", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
@@ -3978,6 +3979,7 @@ function desenareSchemaRacheta(){
     ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
     ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri +2, 62, 28);
 
+    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
@@ -3996,7 +3998,7 @@ function desenareSchemaRacheta(){
   }
 
 
-
+  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
   if(vector_rToate[selectorZi] >= 1){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
@@ -4014,7 +4016,7 @@ function desenareSchemaRacheta(){
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie - 30, 62, 28);
   }
 
-  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
+
   if(medieCumulativToate[selectorZi] > 10 && selectorZi > 231){
     //ctx.fillStyle = "hsla(182, 30%, 15%,90%)";//"orange";//culoareRosuTemperat;
     //ctx.strokeStyle = "hsla(182, 30%, 15%,90%)";//culoareRosuTemperat;
