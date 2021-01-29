@@ -628,8 +628,14 @@ var yIndicatorCentura = yIndicatorReactie + 32;
 var xIndicatorFrana = xStalpModReglare - 32 + 66;
 var yIndicatorFrana = yIndicatorReactie + 0;
 
+var xIndicatorGradeFrana = xStalpModReglare - 32 + 66;
+var yIndicatorGradeFrana = yStalpModReglare + 48;
+
 var xIndicatorFlapsuri = xStalpModReglare - 32;
 var yIndicatorFlapsuri = yStalpModReglare + 16;
+
+var xIndicatorGradeFlapsuri = xStalpModReglare - 32;
+var yIndicatorGradeFlapsuri = yStalpModReglare + 48;
 
 var razaPotentiometru = 8;
 var xPotentiometru = xCercRef - 0;
@@ -3948,6 +3954,14 @@ function desenareSchemaRacheta(){
     ctx.fillText("eliberare", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14);
     ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
     ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri + 2, 62, 28);
+
+    //grade flapsuri
+    if(selectorZi > orizont_trend){
+      ctx.fillText(-Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "°", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
+    }
+
   }
   else{
     ctx.fillStyle = culoareTextZi;
@@ -3955,7 +3969,18 @@ function desenareSchemaRacheta(){
     ctx.fillText("eliberare", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14);
     ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
     ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri +2, 62, 28);
+
+    //grade flapsuri
+    ctx.fillStyle = culoareRosuTemperat;
+    ctx.strokeStyle = culoareRosuTemperat;
+    if(selectorZi > orizont_trend){
+      ctx.fillText("+" + Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
+    }
   }
+
+
 
   if(vector_rToate[selectorZi] >= 1){
     ctx.fillStyle = culoareRosuTemperat;
@@ -3973,8 +3998,10 @@ function desenareSchemaRacheta(){
   }
 
   if(medieCumulativToate[selectorZi] > 10 && selectorZi > 231){
-    ctx.fillStyle = "hsla(182, 30%, 15%,90%)";//"orange";//culoareRosuTemperat;
-    ctx.strokeStyle = "hsla(182, 30%, 15%,90%)";//culoareRosuTemperat;
+    //ctx.fillStyle = "hsla(182, 30%, 15%,90%)";//"orange";//culoareRosuTemperat;
+    //ctx.strokeStyle = "hsla(182, 30%, 15%,90%)";//culoareRosuTemperat;
+    ctx.fillStyle = culoareScadere;
+    ctx.strokeStyle = culoareScadere;
     ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
     ctx.fillText("siguranță", xIndicatorCentura + 120, yIndicatorCentura -6);
     ctx.strokeRect(xIndicatorCentura + 90, yIndicatorCentura -30, 62, 28);
@@ -3993,6 +4020,11 @@ function desenareSchemaRacheta(){
     ctx.fillText("frânare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
     ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana -30, 62, 28);
+
+    //grade frana
+    ctx.fillText("+" + -Math.floor(vectorDRToate[selectorZi]*10000)/100 + "°°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+    //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
+    ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
   }
   else{
     ctx.fillStyle = culoareTextZi;
@@ -4000,6 +4032,15 @@ function desenareSchemaRacheta(){
     ctx.fillText("frânare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
     ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana - 30, 62, 28);
+
+    //grade frana
+    if(selectorZi > orizont_trend){
+        ctx.fillStyle = culoareRosuTemperat;
+        ctx.strokeStyle = culoareRosuTemperat;
+        ctx.fillText(-Math.floor(vectorDRToate[selectorZi]*10000)/100 + "°°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+        //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
+        ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
+    }
   }
 
 
