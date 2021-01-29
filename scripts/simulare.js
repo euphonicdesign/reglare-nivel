@@ -619,22 +619,22 @@ var xStalpModReglare = 0 + xBlocP + lungBloc + lungBloc/2;
 var yStalpModReglare = yCaleDir;
 var lungimeSosetaModReglare = lungBloc/2 - 2;
 
-var xIndicatorReactie = xStalpModReglare - 32;
+var xIndicatorReactie = xStalpModReglare -32 + 66;
 var yIndicatorReactie = yStalpModReglare + 16;
 
-var xIndicatorCentura = xStalpModReglare - 32 + 66;
+var xIndicatorCentura = xStalpModReglare - 32;
 var yIndicatorCentura = yIndicatorReactie + 32;
 
-var xIndicatorFrana = xStalpModReglare - 32 + 66;
+var xIndicatorFrana = xStalpModReglare -32;
 var yIndicatorFrana = yIndicatorReactie + 0;
 
-var xIndicatorGradeFrana = xStalpModReglare - 32 + 66;
+var xIndicatorGradeFrana = xStalpModReglare - 32;
 var yIndicatorGradeFrana = yStalpModReglare + 48;
 
-var xIndicatorFlapsuri = xStalpModReglare - 32;
+var xIndicatorFlapsuri = xStalpModReglare - 32 + 66;
 var yIndicatorFlapsuri = yStalpModReglare + 16;
 
-var xIndicatorGradeFlapsuri = xStalpModReglare - 32;
+var xIndicatorGradeFlapsuri = xStalpModReglare - 32 +66;
 var yIndicatorGradeFlapsuri = yStalpModReglare + 48;
 
 var razaPotentiometru = 8;
