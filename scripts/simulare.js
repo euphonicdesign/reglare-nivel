@@ -3990,10 +3990,12 @@ function desenareSchemaRacheta(){
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie -30, 62, 28);
   }
   else{
-    ctx.fillStyle = culoareTextZi;
-    ctx.strokeStyle = culoareTextZi;
-    ctx.fillText("accelerare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
-    ctx.fillText("reacție", xIndicatorReactie + 120, yIndicatorReactie -6);
+    //ctx.fillStyle = culoareTextZi;
+    //ctx.strokeStyle = culoareTextZi;
+    ctx.fillStyle = culoareScadere;
+    ctx.strokeStyle = culoareScadere;
+    ctx.fillText("încetinire", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("viteză", xIndicatorReactie + 120, yIndicatorReactie -6);
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie - 30, 62, 28);
   }
 
