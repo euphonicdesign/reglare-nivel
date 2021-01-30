@@ -4091,7 +4091,7 @@ function desenareSchemaRacheta(){
     ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     //if(selectorZi > orizont_trend){
-      ctx.fillText(Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
+      ctx.fillText(Math.round((factor_ampMediu-1)*100) + "% (°k)", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 16);
 
@@ -4116,7 +4116,7 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
     //if(selectorZi > orizont_trend){
-      ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
+      ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "% (°k)", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 16);
 
