@@ -4099,7 +4099,11 @@ function desenareSchemaRacheta(){
     //grade flapsuri
     //if(selectorZi > orizont_trend){
       ctx.fillText("" + Math.round((factor_ampMediu-1)*100) + "% °C/zi", xIndicatorNivelReactie + 94, yIndicatorNivelReactie + 14);
+      ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoare_scadere_entitate;
+      ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C/zi", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.fillStyle = culoareScadere;
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 16);
 
       ctx.strokeStyle = culoareApaNivelUltraCritic;
@@ -4112,6 +4116,9 @@ function desenareSchemaRacheta(){
     ctx.strokeStyle = culoareRosuTemperat;
     //if(selectorZi > orizont_trend){
       ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "% °C/zi", xIndicatorNivelReactie + 94, yIndicatorNivelReactie + 14);
+      ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillStyle = culoareCerculetRCrestere;
+      ctx.fillText("+" + Math.floor((factor_ampMediu-1)*10)/10 + " °C/zi", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 16);
 
