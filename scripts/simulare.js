@@ -4056,7 +4056,7 @@ function desenareSchemaRacheta(){
     else{
         //ctx.fillStyle = culoareTextZi;
         //ctx.strokeStyle = culoareTextZi;
-        ctx.fillText("°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+        ctx.fillText("°F", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
         //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
         ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
     }
@@ -4081,7 +4081,7 @@ function desenareSchemaRacheta(){
     else{
         //ctx.fillStyle = culoareTextZi;
         //ctx.strokeStyle = culoareTextZi;
-        ctx.fillText("°", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+        ctx.fillText("°F", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
         //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
         ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
     }
