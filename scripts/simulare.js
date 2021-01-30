@@ -4689,6 +4689,7 @@ function desenareSchemaRacheta(){
   ctx.stroke();
 
   //proiectie21 langa inaltime racheta
+  ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
   if(factor_ampMediu>1){
     ctx.strokeStyle = culoareCrestereVectorAvion;
     ctx.fillStyle = culoareCrestereVectorAvion;
@@ -4704,6 +4705,8 @@ function desenareSchemaRacheta(){
     ctx.arc(xRacheta2 + 20, yElice2 - 13 - (factor_ampMediu-1) * orizont_proiectie, 2, 0 * Math.PI, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
+
+    ctx.fillText("v", xRacheta2 + 20, yElice2 - 19 - (factor_ampMediu-1) * orizont_proiectie);
   }
   else{
     ctx.strokeStyle = culoareScadereVectorAvion;
@@ -4720,6 +4723,8 @@ function desenareSchemaRacheta(){
     ctx.arc(xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie, 2, 0 * Math.PI, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
+
+    ctx.fillText("v", xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie + 12);
   }
 
 
