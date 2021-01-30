@@ -4011,8 +4011,8 @@ function desenareSchemaRacheta(){
   if(vector_rToate[selectorZi] >= 1){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
-    ctx.fillText("amplificare", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
-    ctx.fillText("reacție", xIndicatorReactie + 120, yIndicatorReactie -6);
+    ctx.fillText("mărire", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("viteză", xIndicatorReactie + 120, yIndicatorReactie -6);
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie -30, 62, 28);
   }
   else{
