@@ -4107,7 +4107,7 @@ function desenareSchemaRacheta(){
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 16);
 
       ctx.strokeStyle = culoareApaNivelUltraCritic;
-      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 1);
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 0);
   }
   else{
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
@@ -4123,7 +4123,7 @@ function desenareSchemaRacheta(){
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 16);
 
       ctx.strokeStyle = culoareApaNivelUltraCritic;
-      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 1);
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 58, 0);
   }
 
   ctx.textAlign = "center";
