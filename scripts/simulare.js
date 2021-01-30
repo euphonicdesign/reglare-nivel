@@ -5280,10 +5280,10 @@ function desenareIndicatori() {
     ctx.fillText(Math.round(data[selectorZi]), xApaRezervor + lungimeApaRezervor - 50, yApaRezervor - 4);
 
     //Valoare referinta dinamica
-    ctx.fillStyle = culoareTextReferinta;
+    ctx.fillStyle = culoareCrestereVectorAvion;//culoareTextReferinta;
     ctx.font = "bold 30px Helvetica, Arial, sans-serif";
     //ctx.font = "bold 30px system-ui, Helvetica, Arial, sans-serif";
-    ctx.fillText("" + Math.round(medieCumulativ[selectorZi]), lungimeSuprafataGrafica - 450, yIndicatorRezervor);
+    ctx.fillText("" + Math.round(medieCumulativ[selectorZi]) + "°", lungimeSuprafataGrafica - 450, yIndicatorRezervor);
 }
 
 function desenareCompensatorValori() {
