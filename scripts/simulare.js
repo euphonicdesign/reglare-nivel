@@ -4088,13 +4088,14 @@ function desenareSchemaRacheta(){
   }
 
   //Indicator accelerare reactie
+  ctx.textAlign = "start";
   if(factor_ampMediu < 1){
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
-    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     //if(selectorZi > orizont_trend){
-      ctx.fillText(Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 116, yIndicatorNivelReactie + 14);
+      ctx.fillText("°/zi: " + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 92, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 16);
 
@@ -4102,12 +4103,12 @@ function desenareSchemaRacheta(){
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 1);
   }
   else{
-    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
     //if(selectorZi > orizont_trend){
-      ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 116, yIndicatorNivelReactie + 14);
+      ctx.fillText("°/zi: +" + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 92, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 16);
 
@@ -4115,6 +4116,7 @@ function desenareSchemaRacheta(){
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 1);
   }
 
+  ctx.textAlign = "center";
   //Indicator nivel temperatura reactie
   ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
   ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
