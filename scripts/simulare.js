@@ -4126,12 +4126,11 @@ function desenareSchemaRacheta(){
   ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
   //grade flapsuri
   //if(selectorZi > orizont_trend){
-  ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + " (°k)", xIndicatorNivelTemperatura + 110, yIndicatorNivelTemperatura + 14);
+  ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + " °C", xIndicatorNivelTemperatura + 110, yIndicatorNivelTemperatura + 14);
   //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
-  ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 16);
-
   ctx.strokeStyle = culoareApaNivelUltraCritic;
-  ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 1);
+  ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 16);
+  //ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 1);
 
 
 
