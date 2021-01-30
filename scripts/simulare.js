@@ -4049,7 +4049,7 @@ function desenareSchemaRacheta(){
 
     //grade frana
     if(selectorZi > orizont_trend){
-      ctx.fillText("" + Math.floor(vectorDRToate[selectorZi]*10000)/100 + " °F", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+      ctx.fillText("" + Math.floor(vectorDRToate[selectorZi]*10000)/100 + " °F/zi", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
       //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
       ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
     }
@@ -4074,7 +4074,7 @@ function desenareSchemaRacheta(){
     if(selectorZi > orizont_trend){
         ctx.fillStyle = culoareRosuTemperat;
         ctx.strokeStyle = culoareRosuTemperat;
-        ctx.fillText("+" + Math.floor(vectorDRToate[selectorZi]*10000)/100 + " °F", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
+        ctx.fillText("+" + Math.floor(vectorDRToate[selectorZi]*10000)/100 + " °F/zi", xIndicatorGradeFrana + 120, yIndicatorGradeFrana + 14);
         //ctx.fillText("viteză", xIndicatorFrana + 120, yIndicatorFrana -6);
         ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
     }
@@ -4095,7 +4095,7 @@ function desenareSchemaRacheta(){
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     //if(selectorZi > orizont_trend){
-      ctx.fillText("°/zi: " + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 92, yIndicatorNivelReactie + 14);
+      ctx.fillText("°C/zi: " + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 92, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 16);
 
@@ -4108,7 +4108,7 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
     //if(selectorZi > orizont_trend){
-      ctx.fillText("°/zi: +" + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 92, yIndicatorNivelReactie + 14);
+      ctx.fillText("°C/zi: +" + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 92, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 16);
 
