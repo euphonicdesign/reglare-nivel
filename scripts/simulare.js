@@ -631,8 +631,11 @@ var yIndicatorFrana = yStalpModReglare + 36;
 var xIndicatorGradeFrana = xStalpModReglare - 32;
 var yIndicatorGradeFrana = yStalpModReglare - 16;
 
-var xIndicatorNivelReactie = xStalpModReglare - 0;
+var xIndicatorNivelReactie = xStalpModReglare + 12;
 var yIndicatorNivelReactie = yStalpModReglare - 36;
+
+var xIndicatorNivelTemperatura = xStalpModReglare - 32;
+var yIndicatorNivelTemperatura = yStalpModReglare - 36;
 
 var xIndicatorFlapsuri = xStalpModReglare - 32 + 66;
 var yIndicatorFlapsuri = yStalpModReglare + 36;
@@ -4091,24 +4094,12 @@ function desenareSchemaRacheta(){
     ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     //if(selectorZi > orizont_trend){
-      ctx.fillText(Math.round((factor_ampMediu-1)*100) + "% (°k)", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
+      ctx.fillText(Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 116, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
-      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 16);
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 16);
 
       ctx.strokeStyle = culoareApaNivelUltraCritic;
-      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 1);
-
-    //}
-    /*
-    else{
-      //ctx.fillStyle = culoareTextZi;
-      //ctx.strokeStyle = culoareTextZi;
-      ctx.fillText("%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
-      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
-      ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
-    }*/
-
-
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 1);
   }
   else{
     ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
@@ -4116,48 +4107,49 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
     //if(selectorZi > orizont_trend){
-      ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "% (°k)", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
+      ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 116, yIndicatorNivelReactie + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
-      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 16);
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 16);
 
       ctx.strokeStyle = culoareApaNivelUltraCritic;
-      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 1);
-    //}
-    /*
-    else{
-      //ctx.fillStyle = culoareTextZi;
-      //ctx.strokeStyle = culoareTextZi;
-      ctx.fillText("%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
-      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
-      ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
-    }*/
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 50, 1);
   }
 
-  /*
-  if(factor_ampMediu > 1){
-    ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "%", xCercRef + 100, yCaleBucla + 33);
+  //Indicator nivel temperatura reactie
+  if(medieCumulativ[selectorZi] > 25){
+    ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+    ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+
+    //ctx.fillStyle = culoareScadere;
+    //ctx.strokeStyle = culoareScadere;
+    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+    //grade flapsuri
+    //if(selectorZi > orizont_trend){
+      ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + " (°k)", xIndicatorNivelTemperatura + 110, yIndicatorNivelTemperatura + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 16);
+
+      ctx.strokeStyle = culoareApaNivelUltraCritic;
+      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 1);
   }
   else{
-    ctx.fillText(Math.round((factor_ampMediu-1)*100) + "%", xCercRef + 100, yCaleBucla + 33);
-  }*/
+    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+    //grade flapsuri
+    //ctx.fillStyle = culoareRosuTemperat;
+    //ctx.strokeStyle = culoareRosuTemperat;
+    //ctx.fillStyle = culoareTextZi;
+    ctx.fillStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
+    ctx.strokeStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
+    //if(selectorZi > orizont_trend){
+      ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + " (°k)", xIndicatorNivelTemperatura + 110, yIndicatorNivelTemperatura + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 16);
+
+      ctx.strokeStyle = culoareApaNivelUltraCritic;
+      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 1);
+  }
 
 
-  /*
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = culoareApaNivelNormal;
-  ctx.lineJoin = "bevel";
-  ctx.beginPath();
-  ctx.moveTo(xRacheta2 + 14, yElice2);
-  ctx.lineTo(xRacheta2 + 26, yElice2);
-  ctx.closePath();
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.moveTo(xRacheta2 + 14, yElice2-13);
-  ctx.lineTo(xRacheta2 + 26, yElice2-13);
-  ctx.closePath();
-  ctx.stroke();
-  */
 
 
 
