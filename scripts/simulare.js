@@ -4306,7 +4306,7 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "start";
   //ctx.strokeStyle = culoareApaNivelNormal;//culoareTextReferinta;
   ctx.fillStyle = culoareTextZi; //culoareApaNivelNormal;//culoareTextReferinta;
-  ctx.fillText("Viteză      x10   (k)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 27);
+  ctx.fillText("Viteză      x10   (°k)", xPotentiometru - 30, yPotentiometru - razaPotentiometru - 27);
   ctx.fillText("Altitudine x100 (ft)", xPotentiometru - 30 , yPotentiometru - razaPotentiometru - 38);
 
   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
