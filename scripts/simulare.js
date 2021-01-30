@@ -3720,6 +3720,7 @@ function desenareSchemaRacheta(){
   ctx.textAlign = "center";
   ctx.fillText(Math.floor(factor_ampMediu*10)/10 + "x", xRacheta + 1, yRachetaVarf - 32);
 
+  //langa racheta
   //vector accelerare / amplificare
   ctx.lineWidth = 4;
   //if(selectorZi > orizont_trend){
@@ -3735,10 +3736,12 @@ function desenareSchemaRacheta(){
     ctx.closePath();
     ctx.fill();
 
-    //valoare vector
-    //ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+
+
+    //valoare vector acceleratie racheta 1
+    //ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
     //ctx.textAlign = "end";
-    //ctx.fillText(factor_amp, xRacheta + 23, yElice - (factor_amp - 1) * 10 + 2);
+    //ctx.fillText("a", xRacheta + 23, yElice - (factor_ampMediu - 1) * 10 - 8);
 
   //}
   ctx.lineWidth = 4;
@@ -4664,6 +4667,8 @@ function desenareSchemaRacheta(){
       ctx.strokeStyle = "green";
   }
   ctx.fillText(Math.floor(factor_ampMediu*10)/10 + "x", xRacheta2, yElice2 - rachetaH);
+  ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
+  ctx.fillText("a", xRacheta2, yElice2 - rachetaH - 10);
 
   //langa racheta - inaltime nivel
   ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
