@@ -631,6 +631,9 @@ var yIndicatorFrana = yStalpModReglare + 36;
 var xIndicatorGradeFrana = xStalpModReglare - 32;
 var yIndicatorGradeFrana = yStalpModReglare - 16;
 
+var xIndicatorNivelReactie = xStalpModReglare - 0;
+var yIndicatorNivelReactie = yStalpModReglare - 36;
+
 var xIndicatorFlapsuri = xStalpModReglare - 32 + 66;
 var yIndicatorFlapsuri = yStalpModReglare + 36;
 
@@ -4080,6 +4083,63 @@ function desenareSchemaRacheta(){
         ctx.strokeRect(xIndicatorGradeFrana + 90, yIndicatorGradeFrana +2, 62, 16);
     }
   }
+
+  //Indicator accelerare reactie
+  if(factor_ampMediu < 1){
+    ctx.fillStyle = culoareScadere;
+    ctx.strokeStyle = culoareScadere;
+    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+    //grade flapsuri
+    //if(selectorZi > orizont_trend){
+      ctx.fillText(Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 16);
+
+      ctx.strokeStyle = culoareApaNivelUltraCritic;
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 1);
+
+    //}
+    /*
+    else{
+      //ctx.fillStyle = culoareTextZi;
+      //ctx.strokeStyle = culoareTextZi;
+      ctx.fillText("%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
+    }*/
+
+
+  }
+  else{
+    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+    //grade flapsuri
+    ctx.fillStyle = culoareRosuTemperat;
+    ctx.strokeStyle = culoareRosuTemperat;
+    //if(selectorZi > orizont_trend){
+      ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "%", xIndicatorNivelReactie + 120, yIndicatorNivelReactie + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 16);
+
+      ctx.strokeStyle = culoareApaNivelUltraCritic;
+      ctx.strokeRect(xIndicatorNivelReactie + 90, yIndicatorNivelReactie + 2, 62, 1);
+    //}
+    /*
+    else{
+      //ctx.fillStyle = culoareTextZi;
+      //ctx.strokeStyle = culoareTextZi;
+      ctx.fillText("%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+      ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
+    }*/
+  }
+
+  /*
+  if(factor_ampMediu > 1){
+    ctx.fillText("+" + Math.round((factor_ampMediu-1)*100) + "%", xCercRef + 100, yCaleBucla + 33);
+  }
+  else{
+    ctx.fillText(Math.round((factor_ampMediu-1)*100) + "%", xCercRef + 100, yCaleBucla + 33);
+  }*/
 
 
   /*
