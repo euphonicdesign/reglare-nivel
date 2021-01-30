@@ -4116,38 +4116,23 @@ function desenareSchemaRacheta(){
   }
 
   //Indicator nivel temperatura reactie
-  if(medieCumulativ[selectorZi] > 25){
-    ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
-    ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  //ctx.fillStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
+  //ctx.strokeStyle = "hsl(0, 80%, " + (0 + medieCumulativ[selectorZi]/1.2) + "%)";
 
-    //ctx.fillStyle = culoareScadere;
-    //ctx.strokeStyle = culoareScadere;
-    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
-    //grade flapsuri
-    //if(selectorZi > orizont_trend){
-      ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + " (°k)", xIndicatorNivelTemperatura + 110, yIndicatorNivelTemperatura + 14);
-      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
-      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 16);
+  //ctx.fillStyle = culoareScadere;
+  //ctx.strokeStyle = culoareScadere;
+  ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
+  //grade flapsuri
+  //if(selectorZi > orizont_trend){
+  ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + " (°k)", xIndicatorNivelTemperatura + 110, yIndicatorNivelTemperatura + 14);
+  //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+  ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 16);
 
-      ctx.strokeStyle = culoareApaNivelUltraCritic;
-      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 1);
-  }
-  else{
-    ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
-    //grade flapsuri
-    //ctx.fillStyle = culoareRosuTemperat;
-    //ctx.strokeStyle = culoareRosuTemperat;
-    //ctx.fillStyle = culoareTextZi;
-    ctx.fillStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
-    ctx.strokeStyle = "hsl(216, 60%, " +(55 - medieCumulativ[selectorZi]) + "%)";
-    //if(selectorZi > orizont_trend){
-      ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + " (°k)", xIndicatorNivelTemperatura + 110, yIndicatorNivelTemperatura + 14);
-      //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
-      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 16);
+  ctx.strokeStyle = culoareApaNivelUltraCritic;
+  ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 1);
 
-      ctx.strokeStyle = culoareApaNivelUltraCritic;
-      ctx.strokeRect(xIndicatorNivelTemperatura + 90, yIndicatorNivelTemperatura + 2, 40, 1);
-  }
 
 
 
