@@ -3964,14 +3964,14 @@ function desenareSchemaRacheta(){
     ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
     //grade flapsuri
     if(selectorZi > orizont_trend){
-      ctx.fillText(Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      ctx.fillText(Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "% V", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
     }
     else{
       //ctx.fillStyle = culoareTextZi;
       //ctx.strokeStyle = culoareTextZi;
-      ctx.fillText("%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      ctx.fillText("% V", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
     }
@@ -3990,14 +3990,14 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
     if(selectorZi > orizont_trend){
-      ctx.fillText("+" + Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      ctx.fillText("+" + Math.floor((vector_rToate[selectorZi]-1)*10000)/100 + "% V", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
     }
     else{
       //ctx.fillStyle = culoareTextZi;
       //ctx.strokeStyle = culoareTextZi;
-      ctx.fillText("%", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
+      ctx.fillText("% V", xIndicatorGradeFlapsuri + 120, yIndicatorGradeFlapsuri + 14);
       //ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
       ctx.strokeRect(xIndicatorGradeFlapsuri + 90, yIndicatorGradeFlapsuri + 2, 62, 16);
     }
