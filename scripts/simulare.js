@@ -5284,6 +5284,7 @@ function desenarePendulEvenimente(){
         ctx.strokeStyle = culoareScadere;
         ctx.fillStyle = culoareScadere;
         ctx.fillText("frânare", xStalpG, yStalpG + 18);
+        ctx.fillText("manuală", xStalpG, yStalpG + 28);
     }
 
     if(selectorZi > orizont_regresie + orizont_arie){
