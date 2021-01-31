@@ -466,8 +466,11 @@ var sensRadar = +1;
 var xStalp = xEntitate + 12;
 var yStalp = yEntitate;
 
-xStalpG = 136;
-yStalpG = 90;
+var xStalpG = 136;
+var yStalpG = 90;
+
+var xStalpGR = xRacheta2;
+var yStalpGR = yUmbra2;
 
 //var xStalpModRadar = xRadarModRadar - razaCerc1ModRadar - razaCerc3ModRadar - 100;
 //var yStalpModRadar = yRadarModRadar - 4;
@@ -4560,6 +4563,7 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.stroke();
 
+  desenarePendulEvenimenteRacheta();
 
   //jet reactie 2
   ctx.fillStyle = "orange";
@@ -5363,6 +5367,89 @@ function desenarePendulEvenimente(){
             ctx.textAlign = "left";
             ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi", 22 + 20, yStalpG + 18);
         }
+    }
+}
+
+function desenarePendulEvenimenteRacheta(){
+    //Desenare Vant
+
+    //Desenare Soseta Vant
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "lightgrey";//"#4d4d4d";
+    ctx.fillStyle = "#4d4d4d";
+
+    //desenare stalp soseta
+    if(selectorZi > orizont_regresie + orizont_arie){
+        ctx.setLineDash([1,2]);
+        ctx.beginPath()
+        ctx.moveTo(xStalpGR, yStalpGR);
+        ctx.lineTo(xStalpGR, yStalpGR - lungimeStalp - 3);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.setLineDash([]);
+    }
+
+    ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
+
+    //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
+    //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+    xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+    xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
+    ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+
+    ctx.lineWidth = 3;
+
+    ctx.textAlign = "center";
+
+    ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
+    if(vector_rToate[selectorZi] > 1){
+        ctx.strokeStyle = culoareCrestereMaro;
+        ctx.fillStyle = culoareCrestereMaro;
+        ctx.fillText("accelerare", xStalpGR, yStalpGR + 28);
+        //ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
+    }
+    else{
+        ctx.strokeStyle = culoareScadere;
+        ctx.fillStyle = culoareScadere;
+        ctx.fillText("frânare", xStalpGR, yStalpGR + 28);
+        ctx.fillText("manuală", xStalpGR, yStalpGR + 38);
+    }
+
+    if(selectorZi > orizont_regresie + orizont_arie){
+        //desenare arc deschidere
+        ctx.beginPath();
+        ctx.moveTo(xStalpGR, yStalpGR);
+        ctx.arc(xStalpGR, yStalpGR, lungimeStalp/2, (xsos * Math.PI * 2 / 360) - Math.PI/2, 0);
+        ctx.closePath();
+        ctx.fill();
+
+        //desenare cerc capat pendul
+        //ctx.fillStyle = "white";
+        //ctx.fillStyle = "#4d4d4d";
+        ctx.beginPath();
+        ctx.arc(xStalpGR + xsoseta, yStalpGR - ysoseta, 3, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.closePath();
+
+        //desenare soseta
+        ctx.moveTo(xStalpGR, yStalpGR);
+        ctx.lineTo(xStalpGR + xsoseta, yStalpGR - ysoseta);
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.closePath();
+
+        //desenare cerc baza pendul
+        ctx.fillStyle = "white";//"#4d4d4d";
+        ctx.beginPath();
+        ctx.arc(xStalpGR, yStalpGR, 2, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
     }
 }
 
