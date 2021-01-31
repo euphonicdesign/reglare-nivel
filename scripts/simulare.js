@@ -5286,13 +5286,13 @@ function desenarePendulEvenimente(){
     if(vector_rToate[selectorZi] > 1){
         ctx.strokeStyle = culoareCrestereMaro;
         ctx.fillStyle = culoareCrestereMaro;
-        ctx.fillText("accelerare", xStalpG, yStalpG + 16);
+        ctx.fillText("accelerare", xStalpG, yStalpG + 18);
         //ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
     }
     else{
         ctx.strokeStyle = culoareScadere;
         ctx.fillStyle = culoareScadere;
-        ctx.fillText("frânare", xStalpG, yStalpG + 16);
+        ctx.fillText("frânare", xStalpG, yStalpG + 18);
     }
 
     if(selectorZi > orizont_regresie + orizont_arie){
@@ -5331,43 +5331,45 @@ function desenarePendulEvenimente(){
         ctx.fill();
     }
 
-    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     if(vector_rToate[selectorZi] > 0){
         ctx.fillStyle = culoareCrestereMaro;
         ctx.textAlign = "right";
-        ctx.fillText(Math.round(medieCumulativToate[selectorZi]), xStalpG - 6, yStalpG + 26);
+        ctx.fillText(Math.round(medieCumulativToate[selectorZi]), 22, yStalpG + 18);
+        ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
         if(factor_ampMediu < 1){
             ctx.fillStyle = culoareScadere;
             ctx.textAlign = "center";
-            ctx.fillText(" - ", xStalpG - 1, yStalpG + 26);
+            ctx.fillText(" - ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
-            ctx.fillText(" + ", xStalpG - 1, yStalpG + 26);
+            ctx.fillText(" + ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
         }
     }
     else{
         ctx.fillStyle = culoareCrestereMaro;
         ctx.textAlign = "right";
-        ctx.fillText(Math.round(medieCumulativToate[selectorZi]), xStalpG - 6, yStalpG + 26);
+        ctx.fillText(Math.round(medieCumulativToate[selectorZi]), 22, yStalpG + 18);
+        ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
         if(factor_ampMediu < 1){
             ctx.fillStyle = culoareScadere;
             ctx.textAlign = "center";
-            ctx.fillText(" - ", xStalpG - 1, yStalpG + 26);
+            ctx.fillText(" - ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
-            ctx.fillText(" + ", xStalpG - 1, yStalpG + 26);
+            ctx.fillText(" + ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
         }
     }
 }
