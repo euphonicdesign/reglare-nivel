@@ -5217,47 +5217,43 @@ function desenareEvenimente(){
 }
 
 function desenarePendulEvenimente(){
-    //Desenare Vant
 
-
-    ctx.textAlign = "center";
-    if(pulsatie_2){
-      ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
-      //ctx.fillStyle = culoarePunctValoriGrafic_3;;
-      if(culoare_pulsatie == culoareMaro){
-          ctx.fillStyle = "rgba(204,153,102,0.8)";
-          ctx.fillText("\u21E8", xStalpG - 2*lungimeStalp, yStalpG);
-          ctx.fillText(" \u21E8", xStalpG - 2*lungimeStalp, yStalpG);
+    if(selectorZi > orizont_regresie + orizont_arie){
+      //Desenare Vant
+      ctx.textAlign = "center";
+      if(pulsatie_2){
+        ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
+        //ctx.fillStyle = culoarePunctValoriGrafic_3;;
+        if(culoare_pulsatie == culoareMaro){
+            ctx.fillStyle = "rgba(204,153,102,0.8)";
+            ctx.fillText("\u21E8", xStalpG - 2*lungimeStalp, yStalpG);
+            ctx.fillText(" \u21E8", xStalpG - 2*lungimeStalp, yStalpG);
+        }
+        else {
+            ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
+            ctx.fillText("\u21E6", xStalpG - 2*lungimeStalp, yStalpG);
+            ctx.fillText("\u21E6 ", xStalpG - 2*lungimeStalp, yStalpG);
+        }
       }
       else {
-          ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
-          ctx.fillText("\u21E6", xStalpG - 2*lungimeStalp, yStalpG);
-          ctx.fillText("\u21E6 ", xStalpG - 2*lungimeStalp, yStalpG);
+        ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
+        if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+            ctx.fillStyle = "rgba(204,153,102,0.8)";
+            ctx.fillText("\u21E8", xStalpG - 2*lungimeStalp, yStalpG);
+        }
+        else{
+            ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
+            ctx.fillText("\u21E6", xStalpG - 2*lungimeStalp, yStalpG);
+        }
       }
-    }
-    else {
-      ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
-      if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
-          ctx.fillStyle = "rgba(204,153,102,0.8)";
-          ctx.fillText("\u21E8", xStalpG - 2*lungimeStalp, yStalpG);
-      }
-      else{
-          ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
-          ctx.fillText("\u21E6", xStalpG - 2*lungimeStalp, yStalpG);
-      }
-    }
 
 
-    //Desenare Soseta Vant
-    ctx.lineJoin = "round";
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = "lightgrey";//"#4d4d4d";
-    ctx.fillStyle = "#4d4d4d";
+      //Desenare Soseta Vant
+      ctx.lineJoin = "round";
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "lightgrey";//"#4d4d4d";
+      ctx.fillStyle = "#4d4d4d";
 
-
-
-    //desenare stalp soseta
-    if(selectorZi > orizont_regresie + orizont_arie){
       ctx.setLineDash([1,2]);
       ctx.beginPath()
       ctx.moveTo(xStalpG, yStalpG);
@@ -5265,68 +5261,66 @@ function desenarePendulEvenimente(){
       ctx.closePath();
       ctx.stroke();
       ctx.setLineDash([]);
-    }
 
-    ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
+      ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
 
-    //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
-    //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-    xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-    xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
-    ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+      //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
+      //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+      xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+      xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
+      ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
 
-    ctx.lineWidth = 3;
+      ctx.lineWidth = 3;
 
-    ctx.textAlign = "center";
+      ctx.textAlign = "center";
 
-    ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-    if(vector_rToate[selectorZi] > 1){
-        ctx.strokeStyle = culoareCrestereMaro;
-        ctx.fillStyle = culoareCrestereMaro;
-        ctx.fillText("accelerare", xStalpG, yStalpG + 18);
-        //ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
-    }
-    else{
-        ctx.strokeStyle = culoareScadere;
-        ctx.fillStyle = culoareScadere;
-        ctx.fillText("frânare", xStalpG, yStalpG + 18);
-        ctx.fillText("manuală", xStalpG, yStalpG + 28);
-    }
+      ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+      if(vector_rToate[selectorZi] > 1){
+          ctx.strokeStyle = culoareCrestereMaro;
+          ctx.fillStyle = culoareCrestereMaro;
+          ctx.fillText("accelerare", xStalpG, yStalpG + 18);
+          //ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
+      }
+      else{
+          ctx.strokeStyle = culoareScadere;
+          ctx.fillStyle = culoareScadere;
+          ctx.fillText("frânare", xStalpG, yStalpG + 18);
+          ctx.fillText("manuală", xStalpG, yStalpG + 28);
+      }
 
-    if(selectorZi > orizont_regresie + orizont_arie){
-        //desenare arc deschidere
-        ctx.beginPath();
-        ctx.moveTo(xStalpG, yStalpG);
-        ctx.arc(xStalpG, yStalpG, lungimeStalp/2, (xsos * Math.PI * 2 / 360) - Math.PI/2, 0);
-        ctx.closePath();
-        ctx.fill();
+      //desenare arc deschidere
+      ctx.beginPath();
+      ctx.moveTo(xStalpG, yStalpG);
+      ctx.arc(xStalpG, yStalpG, lungimeStalp/2, (xsos * Math.PI * 2 / 360) - Math.PI/2, 0);
+      ctx.closePath();
+      ctx.fill();
 
-        //desenare cerc capat pendul
-        //ctx.fillStyle = "white";
-        //ctx.fillStyle = "#4d4d4d";
-        ctx.beginPath();
-        ctx.arc(xStalpG + xsoseta, yStalpG - ysoseta, 3, 0, 2 * Math.PI);
-        ctx.closePath();
-        ctx.fill();
+      //desenare cerc capat pendul
+      //ctx.fillStyle = "white";
+      //ctx.fillStyle = "#4d4d4d";
+      ctx.beginPath();
+      ctx.arc(xStalpG + xsoseta, yStalpG - ysoseta, 3, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
 
-        ctx.beginPath();
-        ctx.closePath();
+      ctx.beginPath();
+      ctx.closePath();
 
-        //desenare soseta
-        ctx.moveTo(xStalpG, yStalpG);
-        ctx.lineTo(xStalpG + xsoseta, yStalpG - ysoseta);
-        ctx.stroke();
+      //desenare soseta
+      ctx.moveTo(xStalpG, yStalpG);
+      ctx.lineTo(xStalpG + xsoseta, yStalpG - ysoseta);
+      ctx.stroke();
 
 
-        ctx.beginPath();
-        ctx.closePath();
+      ctx.beginPath();
+      ctx.closePath();
 
-        //desenare cerc baza pendul
-        ctx.fillStyle = "white";//"#4d4d4d";
-        ctx.beginPath();
-        ctx.arc(xStalpG, yStalpG, 2, 0, 2 * Math.PI);
-        ctx.closePath();
-        ctx.fill();
+      //desenare cerc baza pendul
+      ctx.fillStyle = "white";//"#4d4d4d";
+      ctx.beginPath();
+      ctx.arc(xStalpG, yStalpG, 2, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
     }
 
     //ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
@@ -5390,35 +5384,34 @@ function desenarePendulEvenimenteRacheta(){
         ctx.closePath();
         ctx.stroke();
         ctx.setLineDash([]);
-    }
 
-    ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
 
-    //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
-    //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-    xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-    xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
-    ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+        ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
 
-    ctx.lineWidth = 3;
+        //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
+        //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
+        xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+        xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
+        ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
 
-    ctx.textAlign = "center";
+        ctx.lineWidth = 3;
 
-    ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
-    if(vector_rToate[selectorZi] > 1){
-        ctx.strokeStyle = culoareCrestereMaro;
-        ctx.fillStyle = culoareCrestereMaro;
-        ctx.fillText("accelerare", xStalpGR, yStalpGR + 28);
-        //ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
-    }
-    else{
-        ctx.strokeStyle = culoareScadere;
-        ctx.fillStyle = culoareScadere;
-        ctx.fillText("frânare", xStalpGR, yStalpGR + 28);
-        ctx.fillText("manuală", xStalpGR, yStalpGR + 38);
-    }
+        ctx.textAlign = "center";
 
-    if(selectorZi > orizont_regresie + orizont_arie){
+        ctx.font = "italic 11px Helvetica, system-ui, Arial, sans-serif";
+        if(vector_rToate[selectorZi] > 1){
+            ctx.strokeStyle = culoareCrestereMaro;
+            ctx.fillStyle = culoareCrestereMaro;
+            ctx.fillText("accelerare", xStalpGR, yStalpGR + 28);
+            //ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
+        }
+        else{
+            ctx.strokeStyle = culoareScadere;
+            ctx.fillStyle = culoareScadere;
+            ctx.fillText("frânare", xStalpGR, yStalpGR + 28);
+            ctx.fillText("manuală", xStalpGR, yStalpGR + 38);
+        }
+
         //desenare arc deschidere
         ctx.beginPath();
         ctx.moveTo(xStalpGR, yStalpGR);
@@ -5452,7 +5445,7 @@ function desenarePendulEvenimenteRacheta(){
         ctx.arc(xStalpGR, yStalpGR, 2, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
-    }
+  }
 }
 
 
