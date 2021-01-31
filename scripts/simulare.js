@@ -5369,14 +5369,45 @@ function desenarePendulEvenimente(){
 function desenarePendulEvenimenteRacheta(){
     //Desenare Vant
 
-    //Desenare Soseta Vant
-    ctx.lineJoin = "round";
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = "lightgrey";//"#4d4d4d";
-    ctx.fillStyle = "#4d4d4d";
+
 
     //desenare stalp soseta
     if(selectorZi > orizont_regresie + orizont_arie){
+        //Desenare Vant
+        ctx.textAlign = "center";
+        if(pulsatie_2){
+          ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
+          //ctx.fillStyle = culoarePunctValoriGrafic_3;;
+          if(culoare_pulsatie == culoareMaro){
+              ctx.fillStyle = "rgba(204,153,102,0.8)";
+              ctx.fillText("\u21E8", xStalpGR, yStalpGR - 22);
+              ctx.fillText(" \u21E8", xStalpGR, yStalpGR - 22);
+          }
+          else {
+              ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
+              ctx.fillText("\u21E6", xStalpGR, yStalpGR - 22);
+              ctx.fillText("\u21E6 ", xStalpGR, yStalpGR - 22);
+          }
+        }
+        else {
+          ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
+          if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
+              ctx.fillStyle = "rgba(204,153,102,0.8)";
+              ctx.fillText("\u21E8", xStalpGR, yStalpGR - 22);
+          }
+          else{
+              ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
+              ctx.fillText("\u21E6", xStalpGR, yStalpGR - 22);
+          }
+        }
+
+
+        //Desenare Soseta Vant
+        ctx.lineJoin = "round";
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "lightgrey";//"#4d4d4d";
+        ctx.fillStyle = "#4d4d4d";
+
         ctx.setLineDash([1,2]);
         ctx.beginPath()
         ctx.moveTo(xStalpGR, yStalpGR);
