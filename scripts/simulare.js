@@ -5333,14 +5333,14 @@ function desenarePendulEvenimente(){
             ctx.textAlign = "center";
             ctx.fillText(" - ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi", 22 + 20, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
             ctx.fillText(" + ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi", 22 + 20, yStalpG + 18);
         }
     }
     else{
@@ -5353,14 +5353,14 @@ function desenarePendulEvenimente(){
             ctx.textAlign = "center";
             ctx.fillText(" - ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi", 22 + 20, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
             ctx.fillText(" + ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi", 22 + 20, yStalpG + 18);
         }
     }
 }
