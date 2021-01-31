@@ -202,7 +202,7 @@ var yTextZi = 50;
 var scalaInflamatieHarta = 2.2;
 
 var xScalaRadar = xTextZi;
-var yScalaRadar = yTextZi + 60;
+var yScalaRadar = yTextZi + 78;
 
 var xTextEveniment = xTextZi; //+ 130;
 var yTextEveniment = yTextZi + 20;
@@ -1583,9 +1583,6 @@ function start() {
       //numeArie = numeArii.data.value[arie].substring(0,3);
 
     }
-
-
-    //var valZiCurV = vector_coefA[selectorZi] * Math.pow(vector_r[selectorZi], (selectorZi-1));
 
 
     setare_mod();
@@ -3666,13 +3663,7 @@ function desenareSchemaRacheta(){
   ctx.fillStyle = "grey";
   //Factor amplificare
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-  factor_amp = data[selectorZi] / medieCumulativ[selectorZi];
-  if(selectorZi > 6){
-      factor_ampMediu = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7 / medieCumulativ[selectorZi];
-  }
-  else{
-      factor_ampMediu = factor_amp;
-  }
+
   //console.log(factor_ampMediu);
 
   //text accelerare
@@ -5342,14 +5333,14 @@ function desenarePendulEvenimente(){
             ctx.textAlign = "center";
             ctx.fillText(" - ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
             ctx.fillText(" + ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
         }
     }
     else{
@@ -5362,14 +5353,14 @@ function desenarePendulEvenimente(){
             ctx.textAlign = "center";
             ctx.fillText(" - ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
             ctx.fillText(" + ", 22 + 10, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , 22 + 20, yStalpG + 18);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + " / zi", 22 + 20, yStalpG + 18);
         }
     }
 }
@@ -9999,6 +9990,15 @@ function ActualizareSuprafataGrafica() {
             }
         }
 
+        //calcul factor amplificare
+        factor_amp = data[selectorZi] / medieCumulativ[selectorZi];
+        if(selectorZi > 6){
+            factor_ampMediu = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7 / medieCumulativ[selectorZi];
+        }
+        else{
+            factor_ampMediu = factor_amp;
+        }
+
         /*
         //pulsatie_3 = false;
         if(selectorZi % (orizont_regresie + orizont_arie) == 0){
@@ -10122,6 +10122,15 @@ function ActualizareSuprafataGraficaSingulara() {
         else{
           pulsatie_3 = false;
         }*/
+
+        //calcul factor amplificare
+        factor_amp = data[selectorZi] / medieCumulativ[selectorZi];
+        if(selectorZi > 6){
+            factor_ampMediu = (data[selectorZi] + data[selectorZi-1] + data[selectorZi-2] + data[selectorZi-3] + data[selectorZi-4] + data[selectorZi-5] + data[selectorZi-6])/7 / medieCumulativ[selectorZi];
+        }
+        else{
+            factor_ampMediu = factor_amp;
+        }
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
