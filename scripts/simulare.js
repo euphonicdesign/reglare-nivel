@@ -5280,21 +5280,20 @@ function desenarePendulEvenimente(){
 
     ctx.lineWidth = 3;
 
+    ctx.textAlign = "center";
+
     ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-    if(vector_r[selectorZi] > 1){
+    if(vector_rToate[selectorZi] > 1){
         ctx.strokeStyle = culoareCrestereMaro;
         ctx.fillStyle = culoareCrestereMaro;
         ctx.fillText("accelerare", xStalpG, yStalpG + 16);
+        //ctx.fillText("" + Math.floor((factor_ampMediu-1)*10)/10 + " °C", xIndicatorNivelReactie + 92, yIndicatorNivelReactie - 4);
     }
     else{
         ctx.strokeStyle = culoareScadere;
         ctx.fillStyle = culoareScadere;
         ctx.fillText("frânare", xStalpG, yStalpG + 16);
     }
-
-
-
-
 
     if(selectorZi > orizont_regresie + orizont_arie){
         //desenare arc deschidere
@@ -5330,6 +5329,46 @@ function desenarePendulEvenimente(){
         ctx.arc(xStalpG, yStalpG, 2, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
+    }
+
+    ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
+    if(vector_rToate[selectorZi] > 0){
+        ctx.fillStyle = culoareCrestereMaro;
+        ctx.textAlign = "right";
+        ctx.fillText(Math.round(medieCumulativToate[selectorZi]), xStalpG - 6, yStalpG + 26);
+        if(factor_ampMediu < 1){
+            ctx.fillStyle = culoareScadere;
+            ctx.textAlign = "center";
+            ctx.fillText(" - ", xStalpG - 1, yStalpG + 26);
+            ctx.textAlign = "left";
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+        }
+        else{
+            ctx.fillStyle = culoareCrestereMaro;
+            ctx.textAlign = "center";
+            ctx.fillText(" + ", xStalpG - 1, yStalpG + 26);
+            ctx.textAlign = "left";
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+        }
+    }
+    else{
+        ctx.fillStyle = culoareCrestereMaro;
+        ctx.textAlign = "right";
+        ctx.fillText(Math.round(medieCumulativToate[selectorZi]), xStalpG - 6, yStalpG + 26);
+        if(factor_ampMediu < 1){
+            ctx.fillStyle = culoareScadere;
+            ctx.textAlign = "center";
+            ctx.fillText(" - ", xStalpG - 1, yStalpG + 26);
+            ctx.textAlign = "left";
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+        }
+        else{
+            ctx.fillStyle = culoareCrestereMaro;
+            ctx.textAlign = "center";
+            ctx.fillText(" + ", xStalpG - 1, yStalpG + 26);
+            ctx.textAlign = "left";
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 , xStalpG + 4, yStalpG + 26);
+        }
     }
 }
 
