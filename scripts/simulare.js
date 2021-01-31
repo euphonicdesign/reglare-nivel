@@ -5257,13 +5257,15 @@ function desenarePendulEvenimente(){
 
 
     //desenare stalp soseta
-    ctx.setLineDash([1,2]);
-    ctx.beginPath()
-    ctx.moveTo(xStalpG, yStalpG);
-    ctx.lineTo(xStalpG, yStalpG - lungimeStalp - 3);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.setLineDash([]);
+    if(selectorZi > orizont_regresie + orizont_arie){
+      ctx.setLineDash([1,2]);
+      ctx.beginPath()
+      ctx.moveTo(xStalpG, yStalpG);
+      ctx.lineTo(xStalpG, yStalpG - lungimeStalp - 3);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
 
     ctx.strokeStyle = "white";//"lightgrey";//"#4d4d4d";
 
