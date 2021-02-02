@@ -5380,24 +5380,24 @@ function desenarePendulEvenimenteRacheta(){
           //ctx.fillStyle = culoarePunctValoriGrafic_3;;
           if(culoare_pulsatie == culoareMaro){
               ctx.fillStyle = "rgba(204,153,102,0.8)";
-              ctx.fillText("\u21E8", xStalpGR, yStalpGR - 22);
-              ctx.fillText(" \u21E8", xStalpGR, yStalpGR - 22);
+              ctx.fillText("\u21E8", xStalpGR + 20, yStalpGR - 4);
+              ctx.fillText(" \u21E8", xStalpGR + 20, yStalpGR - 4);
           }
           else {
               ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
-              ctx.fillText("\u21E6", xStalpGR, yStalpGR - 22);
-              ctx.fillText("\u21E6 ", xStalpGR, yStalpGR - 22);
+              ctx.fillText("\u21E6", xStalpGR + 20, yStalpGR - 4);
+              ctx.fillText("\u21E6 ", xStalpGR + 20, yStalpGR - 4);
           }
         }
         else {
           ctx.font = "bold 18px Helvetica, system-ui, Arial, sans-serif";
           if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
               ctx.fillStyle = "rgba(204,153,102,0.8)";
-              ctx.fillText("\u21E8", xStalpGR, yStalpGR - 22);
+              ctx.fillText("\u21E8", xStalpGR + 20, yStalpGR - 4);
           }
           else{
               ctx.fillStyle = "rgba(38,145,31,0.6)";//culoareScadere;
-              ctx.fillText("\u21E6", xStalpGR, yStalpGR - 22);
+              ctx.fillText("\u21E6", xStalpGR + 20, yStalpGR - 4);
           }
         }
 
