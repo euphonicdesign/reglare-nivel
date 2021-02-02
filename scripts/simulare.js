@@ -5400,44 +5400,47 @@ function desenarePendulEvenimenteRacheta(){
           }
         }
 
-        //vector franare reactie
-        ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
-        if(vectorDRToate[selectorZi] > 0){
-          ctx.strokeStyle = culoareCrestereVectorAvion;
-          ctx.fillStyle = culoareCrestereVectorAvion;
-          ctx.beginPath();
-          ctx.moveTo(xStalpGR, yStalpGR - 22);
-          ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22);
-          ctx.closePath();
-          ctx.stroke();
+        if(selectorZi > orizont_proiectie + orizont_regresie){
+            //vector franare reactie
+            ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
+            if(vectorDRToate[selectorZi] > 0){
+              ctx.strokeStyle = culoareCrestereVectorAvion;
+              ctx.fillStyle = culoareCrestereVectorAvion;
+              ctx.beginPath();
+              ctx.moveTo(xStalpGR, yStalpGR - 22);
+              ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22);
+              ctx.closePath();
+              ctx.stroke();
 
-          //cerculet capat proiectie
-          ctx.beginPath();
-          //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
-          ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22, 2, 0 * Math.PI, 2 * Math.PI);
-          ctx.closePath();
-          ctx.fill();
+              //cerculet capat proiectie
+              ctx.beginPath();
+              //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
+              ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22, 2, 0 * Math.PI, 2 * Math.PI);
+              ctx.closePath();
+              ctx.fill();
 
-          ctx.fillText("+a", xStalpGR + vectorDRToate[selectorZi] * 10, yStalpGR - 28);
+              ctx.fillText("+a", xStalpGR + vectorDRToate[selectorZi] * 10, yStalpGR - 28);
+            }
+            else{
+              ctx.strokeStyle = culoareScadereVectorAvion;
+              ctx.fillStyle = culoareScadereVectorAvion;
+              ctx.beginPath();
+              ctx.moveTo(xStalpGR, yStalpGR - 22);
+              ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22);
+              ctx.closePath();
+              ctx.stroke();
+
+              //cerculet capat proiectie
+              ctx.beginPath();
+              //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
+              ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22, 2, 0 * Math.PI, 2 * Math.PI);
+              ctx.closePath();
+              ctx.fill();
+
+              ctx.fillText("-f", xStalpGR + vectorDRToate[selectorZi] * 10, yStalpGR - 28);
+            }
         }
-        else{
-          ctx.strokeStyle = culoareScadereVectorAvion;
-          ctx.fillStyle = culoareScadereVectorAvion;
-          ctx.beginPath();
-          ctx.moveTo(xStalpGR, yStalpGR - 22);
-          ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22);
-          ctx.closePath();
-          ctx.stroke();
 
-          //cerculet capat proiectie
-          ctx.beginPath();
-          //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
-          ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR - 22, 2, 0 * Math.PI, 2 * Math.PI);
-          ctx.closePath();
-          ctx.fill();
-
-          ctx.fillText("-f", xStalpGR + vectorDRToate[selectorZi] * 10, yStalpGR - 28);
-        }
 
 
         //Desenare Soseta Vant
