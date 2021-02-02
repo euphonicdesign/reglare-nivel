@@ -5247,6 +5247,47 @@ function desenarePendulEvenimente(){
         }
       }
 
+      if(selectorZi > orizont_proiectie + orizont_regresie){
+          //vector franare reactie
+          ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
+          if(vectorDRToate[selectorZi] > 0){
+            ctx.strokeStyle = culoareCrestereVectorAvion;
+            ctx.fillStyle = culoareCrestereVectorAvion;
+            ctx.beginPath();
+            ctx.moveTo(xStalpG, yStalpG + 4);
+            ctx.lineTo(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 4);
+            ctx.closePath();
+            ctx.stroke();
+
+            //cerculet capat proiectie
+            ctx.beginPath();
+            //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
+            ctx.arc(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 4, 2, 0 * Math.PI, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fill();
+
+            //ctx.fillText("+a", xStalpG + vectorDRToate[selectorZi] * 10, yStalpG - 28);
+          }
+          else{
+            ctx.strokeStyle = culoareScadereVectorAvion;
+            ctx.fillStyle = culoareScadereVectorAvion;
+            ctx.beginPath();
+            ctx.moveTo(xStalpG, yStalpG + 4);
+            ctx.lineTo(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 4);
+            ctx.closePath();
+            ctx.stroke();
+
+            //cerculet capat proiectie
+            ctx.beginPath();
+            //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
+            ctx.arc(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 4, 2, 0 * Math.PI, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fill();
+
+            //ctx.fillText("-f", xStalpG + vectorDRToate[selectorZi] * 10, yStalpG - 28);
+          }
+      }
+
       //Desenare Soseta Vant
       ctx.lineJoin = "round";
       ctx.lineWidth = 2;
