@@ -9461,6 +9461,22 @@ function desenareGraficVertical(){
     ctx.strokeStyle = culoareTextCompensatorFill;
     ctx.fillText("+" + Math.round(proiectie) + "!", x_val_1, y_val_2 - 4);
 
+    //desenare linie temperatura grade
+    ctx.beginPath();
+    ctx.moveTo(x_ms_1, y_val_1-2);
+    ctx.lineTo(x_md_1, y_val_1-2);
+    ctx.strokeStyle = culoareCrestereMaro;
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
+
+    //text linie temperatura
+    ctx.textAlign = "center";
+    ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareCrestereMaro;
+    ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + "°", x_val_1, y_val_1 - 8);
+
+
     for (let i = 0; i <= selectorZi; i++) {
 
       //GRAFIC VERTICAL - UMPLERE
@@ -9507,6 +9523,7 @@ function desenareGraficVertical(){
           ctx.lineWidth = 2;
           ctx.closePath();
           ctx.stroke();
+
       }
       else{
 
