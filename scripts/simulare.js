@@ -9472,7 +9472,7 @@ function desenareGraficVertical(){
 
     //text linie temperatura
     ctx.textAlign = "center";
-    ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = culoareCrestereMaro;
     ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + "°", x_val_1, y_val_1 - 8);
 
