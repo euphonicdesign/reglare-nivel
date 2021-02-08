@@ -156,7 +156,7 @@ let data_30 = [
             0.159, 0.157, 0.153, 0.157, 0.165, 0.161, 0.16,
             0.145, 0.137, 0.134, 0.131, 0.125, 0.121, 0.128,
             0.129, 0.132, 0.132, 0.13, 0.12, 0.124, 0.122,
-            0.12, 0.117, 0.116, 
+            0.12, 0.117, 0.116,
 
 ];
 
@@ -349,6 +349,7 @@ let evenimente = [
               '10/1',
               '21/1',
               '25/1',
+              '8/2',
 ];
 
 let evenimente_actiuni = [
@@ -371,6 +372,7 @@ let evenimente_actiuni = [
               '10 Ian: ...', //19/12
               '21 Ian: ', //21/1
               '25 Ian: vectorizare', //21/1
+              '8 Feb: vectorizare', //21/1
 ];
 
 let info_date = [
@@ -393,6 +395,7 @@ let info_date = [
               '10/1',
               '21/1',
               '25/1',
+              '8/2',
 ];
 
 let info_explicatii = [
@@ -458,4 +461,6 @@ let info_explicatii = [
 
               'Rafale puternice de vânt din lateral și curenți ascendenți... \
               \nSuntem pe modul manual. Cutia a devenit disfuncțională...',
+
+              'Suntem pe modul manual...',
 ];
