@@ -1,0 +1,192 @@
+html {
+  /*font-size: 10px;*/
+  font-family: 'Open Sans', sans-serif;
+  background-color: #0d161c;
+  scroll-behavior: smooth;
+  /*background: url(tipar.png);*/
+}
+
+
+body {
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0px auto;
+  background-color: white;
+  position: relative;
+}
+
+header {
+  height: 240px;
+  margin-left: 32px;
+}
+
+footer {
+  height: 70px;
+  margin-left: : 32px;
+}
+
+main {
+  margin-left: 32px;
+  margin-right: 32px;
+  background: white;
+}
+
+section {
+  padding-bottom: 10px;
+}
+
+article {
+  background: #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+
+}
+
+header h1 {
+  font-size: 50px;
+  line-height: 100px;
+  margin: 0 0 0 0px;
+}
+
+header div{
+  margin: 0 0 0 0px;
+}
+
+header img {
+  width: 100px;
+  position: absolute;
+  right: 32px;
+  top: 32px;
+}
+
+h2 {
+  margin-top: 10px;
+}
+
+h3{
+  padding-top: 30px;
+}
+
+h4{
+  padding-top: 20px;
+}
+
+p {
+  line-height: 2;
+}
+
+.container_figuri {
+  display: flex;
+  flex-direction: column;
+}
+
+.container_imagini_orizontal{
+
+}
+
+.indentare1 {
+  margin-left: 22px;
+}
+
+.indentare2 {
+  margin-left: 38px;
+}
+
+
+.info {
+  font-style: italic;
+  color: grey;
+}
+
+.marcaj_verde{
+  color: green;
+}
+
+.marcaj_maro{
+  color: brown;
+}
+
+.marcaj_albastru{
+  color: blue;
+}
+
+.marcaj_albastru_deschis{
+  color: #005c99;
+}
+
+
+.marcaj_rosu{
+  color: red;
+}
+
+.marcaj_gri{
+  color: grey;
+}
+.marcaj_galben{
+  color: yellow;
+}
+
+a{
+  text-decoration: none;
+  height: 200%;
+}
+
+a:visited{
+  color: #333;
+}
+
+a:link{
+  color: #333;
+}
+
+a:active{
+  color: #333;
+}
+
+thead th:nth-child(2),
+tbody td:nth-child(2){
+  text-align: right;
+}
+
+thead th:nth-child(1),
+thead th:nth-child(3),
+tbody th:nth-child(1),
+tbody td:nth-child(3) {
+  text-align: left;
+}
+
+table caption {
+  text-align: left;
+}
+
+table{
+  border-top: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+  border-collapse: collapse;
+}
+
+tfoot {
+  border-top: 2px solid lightgrey;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+th, td {
+  padding: 10px;
+}
+
+.standardTable{
+  text-align: left;
+  font-size: 90%;
+}
+
+table.standardTable tr td{
+  text-align: left;
+}
+
+table.standardTable tr th{
+  vertical-align: top;
+}
