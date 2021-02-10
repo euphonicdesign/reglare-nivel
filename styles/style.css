@@ -107,6 +107,10 @@ img {
   max-width: 74px;
 }
 
+.im4 {
+  max-width: 58px;
+}
+
 .sectiunea1 img, .sectiunea1b img.im2{
   max-width: 40px;
   /*height: auto;*/
