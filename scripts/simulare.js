@@ -4731,6 +4731,13 @@ function desenareSchemaRacheta(){
     ctx.fill();
 
     ctx.fillText("v", xRacheta2 + 20, yElice2 - 19 - (factor_ampMediu-1) * orizont_proiectie);
+    ctx.fillText(Math.round(pr21*100), xRacheta2 + 20, yElice2 - 29 - (factor_ampMediu-1) * orizont_proiectie);
+
+    //proiectie
+    //pr21 = (medieCumulativToate[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100;
+    //ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+    //ctx.textAlign = "start";
+    //ctx.fillText("⇢ " + Math.round(pr21*100), xPotentiometru + 2* razaPotentiometru + 86, yPotentiometru - razaPotentiometru + 12);
   }
   else{
     ctx.strokeStyle = culoareScadereVectorAvion;
@@ -4749,6 +4756,7 @@ function desenareSchemaRacheta(){
     ctx.fill();
 
     ctx.fillText("v", xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie + 12);
+    ctx.fillText(Math.round(pr21*100), xRacheta2 + 20, yElice2 - (factor_ampMediu-1) * orizont_proiectie + 24);
   }
 
 
