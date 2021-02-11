@@ -9442,7 +9442,7 @@ function desenareGraficVertical(){
 
 
     if(selectorZi < pragGV1){
-        y_val_1 = inaltimeSuprafataGrafica - 178 - selectorZi;
+        y_val_1 = inaltimeSuprafataGrafica - 180 - selectorZi;
         y_val_2 = y_val_1 - intervalProiectie;
     } else{
         y_val_1 = inaltimeSuprafataGrafica - 178 - 2*pragGV1 + selectorZi;
@@ -9582,12 +9582,12 @@ function desenareGraficVertical(){
     //desenare linie temperatura grade
     ctx.beginPath();
     if (selectorZi<pragGV1){
-      ctx.moveTo(x_ms_1, y_val_1-1);
-      ctx.lineTo(x_md_1, y_val_1-1);
+      ctx.moveTo(x_ms_1, y_val_1);
+      ctx.lineTo(x_md_1, y_val_1);
     }
     else{
-      ctx.moveTo(x_ms_1, y_val_1+1);
-      ctx.lineTo(x_md_1, y_val_1+1);
+      ctx.moveTo(x_ms_1, y_val_1);
+      ctx.lineTo(x_md_1, y_val_1);
     }
 
     ctx.strokeStyle = culoareCrestereMaro;
