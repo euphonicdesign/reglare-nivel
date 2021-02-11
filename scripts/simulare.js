@@ -9552,8 +9552,15 @@ function desenareGraficVertical(){
 
     ctx.setLineDash([1, 16]);
     ctx.beginPath();
-    ctx.moveTo(x_ms_1, y_val_1);
-    ctx.lineTo(x_ms_1, y_val_2);
+    if(selectorZi>pragGV1){
+      ctx.moveTo(x_ms_1, y_val_1 + 2);
+      ctx.lineTo(x_ms_1, y_val_2 + 2);
+    }
+    else{
+      ctx.moveTo(x_ms_1, y_val_1);
+      ctx.lineTo(x_ms_1, y_val_2);
+    }
+
     ctx.strokeStyle = culoareLinieMedieGraficVertical;
     ctx.lineWidth = 2;
     ctx.closePath();
@@ -9561,8 +9568,14 @@ function desenareGraficVertical(){
 
     //linie medie dreapta
     ctx.beginPath();
-    ctx.moveTo(x_md_1, y_val_1);
-    ctx.lineTo(x_md_1, y_val_2);
+    if(selectorZi>pragGV1){
+      ctx.moveTo(x_md_1, y_val_1 + 2);
+      ctx.lineTo(x_md_1, y_val_2 + 2);
+    }
+    else{
+      ctx.moveTo(x_md_1, y_val_1);
+      ctx.lineTo(x_md_1, y_val_2);
+    }
     //ctx.strokeStyle = culoareLinieMedieGraficVertical;
     //ctx.lineWidth = 2;
     ctx.closePath();
@@ -9586,8 +9599,8 @@ function desenareGraficVertical(){
       ctx.lineTo(x_md_1, y_val_1);
     }
     else{
-      ctx.moveTo(x_ms_1, y_val_1);
-      ctx.lineTo(x_md_1, y_val_1);
+      ctx.moveTo(x_ms_1, y_val_1 + 2);
+      ctx.lineTo(x_md_1, y_val_1 + 2);
     }
 
     ctx.strokeStyle = culoareCrestereMaro;
