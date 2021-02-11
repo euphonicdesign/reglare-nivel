@@ -9582,12 +9582,12 @@ function desenareGraficVertical(){
     //desenare linie temperatura grade
     ctx.beginPath();
     if (selectorZi<pragGV1){
-      ctx.moveTo(x_ms_1, y_val_1-2);
-      ctx.lineTo(x_md_1, y_val_1-2);
+      ctx.moveTo(x_ms_1, y_val_1-1);
+      ctx.lineTo(x_md_1, y_val_1-1);
     }
     else{
-      ctx.moveTo(x_ms_1, y_val_1+2);
-      ctx.lineTo(x_md_1, y_val_1+2);
+      ctx.moveTo(x_ms_1, y_val_1+1);
+      ctx.lineTo(x_md_1, y_val_1+1);
     }
 
     ctx.strokeStyle = culoareCrestereMaro;
