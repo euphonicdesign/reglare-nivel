@@ -2302,7 +2302,7 @@ function actualizareTabelPozitii(){
 
   proiectie21 = vector_coefAToate[selectorZi] * Math.pow(vector_rToate[selectorZi], (selectorZi + orizont_proiectie -1));
   elementAvariiZilniceProiectie.textContent = Math.round(proiectie21);
-  elementPierderiZilniceProiectie.textContent = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]);
+  elementPierderiZilniceProiectie.textContent = (Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]) + "(" + Math.round(pr21*100) + ")");
   elementPierderiZilniceProiectie.style.width = Math.round(proiectie21 * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]/2) + "px";
   //elementPierderiZilniceProiectie.textContent = Math.round(dataCumulativ[selectorZi] + 180 * medieCumulativ[selectorZi]);
 
@@ -4204,7 +4204,7 @@ function desenareSchemaRacheta(){
 
 
   //proiectie21
-  pr21 = (medieCumulativToate[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100;
+  //pr21 = (medieCumulativToate[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100;
   ctx.lineWidth = 4;
   ctx.strokeStyle = culoareApaNivelNormal;
   ctx.beginPath();
@@ -10302,6 +10302,8 @@ function ActualizareSuprafataGrafica() {
             factor_ampMediu = factor_amp;
         }
 
+        pr21 = (medieCumulativToate[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100;
+
         /*
         //pulsatie_3 = false;
         if(selectorZi % (orizont_regresie + orizont_arie) == 0){
@@ -10434,6 +10436,8 @@ function ActualizareSuprafataGraficaSingulara() {
         else{
             factor_ampMediu = factor_amp;
         }
+
+        pr21 = (medieCumulativToate[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100;
 
         actualizareNivelApaInRezervorSiVaseComunicante(procentDinCapacitate);
         actualizareTabelZone();
