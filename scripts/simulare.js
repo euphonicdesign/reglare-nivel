@@ -11,6 +11,7 @@ var culoare_canvas = "#EFEFEF";
 
 var directieGraficVertical = 1;
 var pragGV1 = 322;
+var pragGO1 = 300;
 
 var limita_max_crestere_delta = 50;
 var limita_max_crestere_medie = 50;
@@ -9898,7 +9899,14 @@ function desenareGraficOrizontal(){
     //x_val_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
     y_val_1 = yGrafic_3;
 
-    x_val_1 = 10 + Math.floor(selectorZi);
+    if(selectorZi > pragGO1){
+        x_val_1 = 10 + pragGO1;
+    }
+    else{
+        x_val_1 = 10 + selectorZi;
+    }
+
+
     x_val_2 = x_val_1 + intervalProiectie2;
 
     //linie medie stanga
@@ -10088,7 +10096,13 @@ function desenareGraficOrizontal(){
       y_valoare_2 = y_valoare_2 - lungime_segment;
       //ySegmentDepasire = Math.round(y_val_1 + (25*scalaXTrend3Orizontal)/maxValue) - lungime_segment;
 
-      x_valoare = 10 + i;
+      if(selectorZi > pragGO1){
+        x_valoare = 10 + i + pragGO1 - selectorZi;
+      }
+      else{
+        x_valoare = 10 + i;
+      }
+
 
       ctx.setLineDash([]);
       ctx.beginPath();
