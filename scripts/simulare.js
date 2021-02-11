@@ -9,6 +9,9 @@ var contorLimitare2 = 0;
 
 var culoare_canvas = "#EFEFEF";
 
+var directieGraficVertical = 1;
+var pragGV1 = 322;
+
 var limita_max_crestere_delta = 50;
 var limita_max_crestere_medie = 50;
 var limita_max_pierderi = 50;
@@ -9436,8 +9439,17 @@ function desenareGraficVertical(){
 
     //desenare linie verticala medie
     x_val_1 = lungimeSuprafataGrafica - 95; //i*incrementX;
-    y_val_1 = inaltimeSuprafataGrafica - 178 - selectorZi;
-    y_val_2 = y_val_1 - intervalProiectie;
+
+
+    if(selectorZi < pragGV1){
+        y_val_1 = inaltimeSuprafataGrafica - 178 - selectorZi;
+        y_val_2 = y_val_1 - intervalProiectie;
+    } else{
+        y_val_1 = inaltimeSuprafataGrafica - 178 - 2*pragGV1 + selectorZi;
+        y_val_2 = y_val_1 + intervalProiectie;
+    }
+
+
     //y_val_2 = inaltimeSuprafataGrafica - scalaY - 100 - selectorZi - intervalProiectie;
 
     /*
@@ -9449,55 +9461,10 @@ function desenareGraficVertical(){
     ctx.closePath();
     ctx.stroke();*/
 
-    //linie medie stanga
-    lungime_segment_medie = Math.round( ((medieCumulativ[selectorZi]*scalaX)/maxValue) / 2 );
-    x_ms_1 = x_val_1 - lungime_segment_medie;
-    x_md_1 = x_val_1 + lungime_segment_medie;
-
-    ctx.setLineDash([1, 16]);
-    ctx.beginPath();
-    ctx.moveTo(x_ms_1, y_val_1);
-    ctx.lineTo(x_ms_1, y_val_2);
-    ctx.strokeStyle = culoareLinieMedieGraficVertical;
-    ctx.lineWidth = 2;
-    ctx.closePath();
-    ctx.stroke();
-
-    //linie medie dreapta
-    ctx.beginPath();
-    ctx.moveTo(x_md_1, y_val_1);
-    ctx.lineTo(x_md_1, y_val_2);
-    //ctx.strokeStyle = culoareLinieMedieGraficVertical;
-    //ctx.lineWidth = 2;
-    ctx.closePath();
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    //desenare text proiectie
-    proiectie = medieCumulativ[selectorZi] * intervalProiectie;
-
-    //Valoare cumulativa
-    ctx.textAlign = "center";
-    ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareTextCompensatorFill;
-    ctx.strokeStyle = culoareTextCompensatorFill;
-    ctx.fillText("+" + Math.round(proiectie) + "!", x_val_1, y_val_2 - 4);
-
-    //desenare linie temperatura grade
-    ctx.beginPath();
-    ctx.moveTo(x_ms_1, y_val_1-2);
-    ctx.lineTo(x_md_1, y_val_1-2);
-    ctx.strokeStyle = culoareCrestereMaro;
-    ctx.lineWidth = 2;
-    ctx.closePath();
-    ctx.stroke();
-
-    //text linie temperatura
-    ctx.textAlign = "center";
-    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
-    ctx.fillStyle = culoareCrestereMaro;
-    ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + "°", x_val_1, y_val_1 - 8);
-
+    //if(selectorZi > 121 && prag1depasit == false){
+      //pragGraficVerticalDepasit = true;
+      //directieGraficVertical *= -1;
+    //}
 
     for (let i = 0; i <= selectorZi; i++) {
 
@@ -9509,7 +9476,13 @@ function desenareGraficVertical(){
       x_valoare_1 = x_valoare_1 - lungime_segment; //i*incrementX;
       x_valoare_2 = x_valoare_2 - lungime_segment;
 
-      y_valoare = inaltimeSuprafataGrafica - 178 - i;
+      if(i < pragGV1){
+          y_valoare = inaltimeSuprafataGrafica - 178 - i;
+      } else{
+          y_valoare = inaltimeSuprafataGrafica - 178 - 2*pragGV1 + i;
+      }
+
+
 
       ctx.beginPath();
       ctx.moveTo(x_valoare_1, y_valoare);
@@ -9523,6 +9496,17 @@ function desenareGraficVertical(){
       else {
           ctx.strokeStyle = culoareLinieGraficVertical;
       }
+
+      //inversare culor cand se depaseste pragul
+      if(i > pragGV1){
+        if(ctx.strokeStyle == culoareApa){
+          ctx.strokeStyle = culoareLinieGraficVertical;
+        }
+        else{
+          ctx.strokeStyle = culoareApa;
+        }
+      }
+
       ctx.lineWidth = 2;
       ctx.closePath();
       ctx.stroke();
@@ -9560,6 +9544,63 @@ function desenareGraficVertical(){
       }
 
     }
+
+    //linie medie stanga
+    lungime_segment_medie = Math.round( ((medieCumulativ[selectorZi]*scalaX)/maxValue) / 2 );
+    x_ms_1 = x_val_1 - lungime_segment_medie;
+    x_md_1 = x_val_1 + lungime_segment_medie;
+
+    ctx.setLineDash([1, 16]);
+    ctx.beginPath();
+    ctx.moveTo(x_ms_1, y_val_1);
+    ctx.lineTo(x_ms_1, y_val_2);
+    ctx.strokeStyle = culoareLinieMedieGraficVertical;
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
+
+    //linie medie dreapta
+    ctx.beginPath();
+    ctx.moveTo(x_md_1, y_val_1);
+    ctx.lineTo(x_md_1, y_val_2);
+    //ctx.strokeStyle = culoareLinieMedieGraficVertical;
+    //ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    //desenare text proiectie
+    proiectie = medieCumulativ[selectorZi] * intervalProiectie;
+
+    //Valoare cumulativa
+    ctx.textAlign = "center";
+    ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareTextCompensatorFill;
+    ctx.strokeStyle = culoareTextCompensatorFill;
+    ctx.fillText("+" + Math.round(proiectie) + "!", x_val_1, y_val_2 - 4);
+
+    //desenare linie temperatura grade
+    ctx.beginPath();
+    if (selectorZi<pragGV1){
+      ctx.moveTo(x_ms_1, y_val_1-2);
+      ctx.lineTo(x_md_1, y_val_1-2);
+    }
+    else{
+      ctx.moveTo(x_ms_1, y_val_1+2);
+      ctx.lineTo(x_md_1, y_val_1+2);
+    }
+
+    ctx.strokeStyle = culoareCrestereMaro;
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    ctx.stroke();
+
+    //text linie temperatura
+    ctx.textAlign = "center";
+    ctx.font = "italic bold 16px Helvetica, system-ui, Arial, sans-serif";
+    ctx.fillStyle = culoareCrestereMaro;
+    ctx.fillText(Math.round(medieCumulativToate[selectorZi]) + "°", x_val_1, y_val_1 - 8);
+
 }
 
 function desenareIndicatorRezervor(){
