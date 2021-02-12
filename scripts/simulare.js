@@ -3530,12 +3530,12 @@ function desenareSchemaRacheta(){
 
 
   //E
-  text_initial = "";
+  text_initial = "ε ";
   eroare = data[selectorZi] - medieCumulativ[selectorZi];
   if (eroare > 0 ){
       ctx.fillStyle = culoareRosuTemperat;
       ctx.strokeStyle = culoareRosuTemperat;
-      text_initial = "+";
+      text_initial = "ε +";
   }
   else{
       ctx.fillStyle = "green";
