@@ -55,7 +55,7 @@ let data_10 = [
             65, 97, 77, 90, 91, 68, 71,
             67, 111, 87, 75, 73, 61, 72,
             80, 95, 79, 65, 77, 48, 41,
-            
+
 ];
 
 let data_20 = [
@@ -355,6 +355,7 @@ let evenimente = [
               '21/1',
               '25/1',
               '8/2',
+              '14/2',
 ];
 
 let evenimente_actiuni = [
@@ -378,6 +379,7 @@ let evenimente_actiuni = [
               '21 Ian: ', //21/1
               '25 Ian: vectorizare', //21/1
               '8 Feb: vectorizare', //21/1
+              '14 Feb: urmărire ref.d.',
 ];
 
 let info_date = [
@@ -401,6 +403,7 @@ let info_date = [
               '21/1',
               '25/1',
               '8/2',
+              '14/2',
 ];
 
 let info_explicatii = [
@@ -468,4 +471,8 @@ let info_explicatii = [
               \nSuntem pe modul manual. Cutia a devenit disfuncțională...',
 
               'Suntem pe modul manual...',
+
+              'S-a reatins referința dinamică după mai bine de 232 de zile..., \
+              \nînsă la un nivel aproape cvadruplu (58.5)... \
+              \nCost total al erorii de reglare pe acest interval de timp: 14018',
 ];
