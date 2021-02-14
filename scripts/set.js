@@ -379,7 +379,7 @@ let evenimente_actiuni = [
               '21 Ian: ', //21/1
               '25 Ian: vectorizare', //21/1
               '8 Feb: vectorizare', //21/1
-              '14 Feb: urmărire ref.d.',
+              '14 Feb: urmărire Ref. din.',
 ];
 
 let info_date = [
