@@ -474,5 +474,6 @@ let info_explicatii = [
 
               'S-a reatins referința dinamică după mai bine de 7 luni de zile..., \
               \nînsă la un nivel aproape cvadruplu (58.5)... \
-              \nCost total al erorii de reglare pe acest interval de timp: 14018',
+              \nCost total al erorii de reglare pe acest interval de timp: 14018 \
+              \nPentru ce?',
 ];
