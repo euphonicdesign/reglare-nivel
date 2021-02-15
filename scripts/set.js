@@ -1,3 +1,5 @@
+var _Flourish_data_column_names = {"data":{"label":"Județ","value":["București","Alba","Arad","Argeș","Bacău","Bihor","Bistrița-Năsăud","Botoșani","Brașov","Brăila","Buzău","Caraș-Severin","Călărași","Cluj","Constanța","Covasna","Dâmbovița","Dolj","Galați","Giurgiu","Gorj","Harghita","Hunedoara","Ialomița","Iași","Ilfov","Maramureș","Mehedinți","Mureș","Neamț","Olt","Prahova","Satu Mare","Sălaj","Sibiu","Suceava","Teleorman","Timiș","Tulcea","Vaslui","Vâlcea","Vrancea"]}};
+
 let data = [];
 let data_2 = [];
 let data_3 = [];
@@ -55,6 +57,7 @@ let data_10 = [
             65, 97, 77, 90, 91, 68, 71,
             67, 111, 87, 75, 73, 61, 72,
             80, 95, 79, 65, 77, 48, 41,
+            79, 
 
 ];
 
@@ -107,6 +110,7 @@ let data_20 = [
             1551, 2877, 3174, 2901, 2737, 2668, 1825,
             1313, 2676, 2752, 2668, 2580, 2611, 1975,
             1319, 2797, 3048, 2644, 2550, 2415, 1872,
+            1331,
 
           ];
 
