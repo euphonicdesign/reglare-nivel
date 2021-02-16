@@ -8,7 +8,7 @@
   <body>
     <header>
       <h1>Manual de utilizare</h1>
-      <div class="info">Ultima actualizare: februarie 2021 </div>
+      <div class="info">Ultima actualizare: 16 februarie 2021 </div>
       <div class="info">Accesare: <a href="https://euphonicdesign.github.io/reglare-nivel/" target="_blank">Sistem Reglare Nivel</a> </div>
       <div class="info">Autor: Un om </div>
       <div class="info">Muzică: <a href="https://youtu.be/1GPsepFmNes" target="_blank">liniștitoare...</a>
@@ -112,6 +112,9 @@
             </li>
 
             <li>Capitolul 15 - Concluzii</li>
+          </ol>
+          <ol>
+            <li>Anexa 1 - Algoritmi genetici</li>
           </ol>
         </article>
 
@@ -2869,6 +2872,57 @@
           <p>Acești copii au ajuns acum la vârsta majoratului și este momentul să dovedească faptul că au devenit oameni maturi și adulți care și-au păstrat inocența de copil <strong class="marcaj_verde"><em>intactă!</em></strong></p>
 
           <img src="./Flora-si-vegetatia-Romaniei.png" alt="Flora și vegetația României">
+
+        </article>
+
+        <article class="">
+          <h2>Anexa 1 - Algoritmi genetici</h2>
+
+          <p>In automatică (dar și în cadrul informaticii sau a științei calculatoarelor) se apelează uneori la tehnici euristice pentru identificarea soluției optimale (determinarea programului sau a algoritmului optimal). Acest lucru survine de multe ori atunci când găsirea soluției optimale pe cale clasică este prea costisitoare (timp, resurse, etc.) sau chiar imposibil de realizat.</p>
+
+          <p>Algoritmii genetici reprezintă o astfel de tehnică euristică. Acești algoritmi pot da naștere unui alt program care să fie chiar mai performant decât unul proiectat de un inginer în mod clasic, tradițional. </p>
+
+          <p>Acest nou program generat în mod automat de calculator uneori nici nu poate fi gândit de inginer folosind metodologia clasică, deși timpul generării este în mod semnificativ mai mic.</p>
+
+          <p>In ingineria reglării automate, putem apela la algoritmii genetici pentru a găsi acei parametrii ai compensatorului care să îndeplinească criteriile de performanță dorite. Ei sunt utili în mod special atunci când avem de reglat un sisteme complex cu mai mulți poli și unde găsirea pe cale matematică a parametrilor compensatorului devine un lucru dificil.</p>
+
+          <p><strong>Cum funcționează un algoritm genetic?</strong>  </p>
+
+
+          <p>Ideea este destul de simplă.</p>
+
+          <p>Alegem o structură de compensator și încercam să găsim valoarea optimală pentru fiecare parametru în parte astfel încat compensatorul să satisfacă criteriile de performanță. </p>
+
+          <p>Pentru un compensator de tip PID, vom avea 3 parametrii: K<sub>p</sub>, K<sub>i</sub>, K<sub>d</sub>. </p>
+
+          <p>Practic, încercăm să dăm valori diferite fiecărui parametru în parte și identificăm acele combinații de parametrii care ne oferă cea mai buna performanță în atingerea obiectivelor de reglare (timp tranzitoriu redus, suprareglaj redus, consum energetic redus, eroare staționară mică, etc.)</p>
+
+          <p>Un algoritm genetic poate genera în mod automat aceste combinații "candidat" folosind un mecanism similar cu cel întâlnit în biologie.</p>
+
+          <p>Se ia un set de valori inițiale pentru fiecare parametru în parte, iar apoi se produce o nouă generație de parametrii adăugand în mod aleatoriu cantități mai mici sau mai mari peste setul de valori inițiale (se introduc mici mutații).</p>
+
+          <p>Dacă performanța sistemului s-a îmbunătățit, se repeta procesul pornind de la generația nou descoperită (genele ei se transmit mai departe). </p>
+
+          <p>Dacă performanța nu se îmbunătățește, se renunță la acea generație (mutațiile care nu sunt viabile nu se reproduc) și se incearcă o altă combinație. </p>
+
+          <p>După câteva zeci de mii de generații, apare o combinație (variantă) nouă de parametrii care îndeplinește toate criteriile de performanță.</p>
+
+
+          <p><strong>Care sunt implicațiile?</strong> </p>
+
+          <p>Cam la fel este și cu agenții patogeni. Cu cât agentul patogen este lăsat să se reproducă mai mult în interiorul agenților umani avariați, cu atât cresc șansele ca după câteva zeci sau sute de mii de generații să apară o mutație, o varianta viabilă care să crească performanțele agentului patogen (în detrimentul agenților umani).</p>
+
+          <p>Unul din mecanismele prin care agentul patogen poate suferi mutații, este acela în care agentul întâlnește condiții de mediu diferite față de cele cu care era obișnuit în interiorul agenților umani avariați. Cu cât mediul este mai ostil, cu atât agentul patogen încearcă să își creeze noi mecanisme de supraviețuire și de reproducere.</p>
+
+          <p>Deși o parte din agenții umani încearcă să creeze condiții de mediu adverse care să îi apere pe termen scurt de efectele nocive în cazul unei potențiale avarii, acest lucru nu îl împiedică pe agentul patogen să continue să se multiplice în interiorul agentului uman avariat și să sufere mutații astfel încat să poată ocoli noile mecanisme de apărare instalate la o parte din agenții umani avariați.</p>
+
+          <p>Fără bariere fizice de protecție și de limitare a propagării, transmisia continuă din aproape în aproape, iar agentul patogen devine mai redutabil.</p>
+
+          <p>Pe măsura ce trec generațiile și agentul patogen se multiplică, acesta reușeste să găsească noi parametrii care să optimizeze funcția sa obiectiv, să găsească acei parametrii care să compenseze pentru mecanismele nou instalate la agenții umani avariați.</p>
+
+          <p> <strong>Ce e de făcut?</strong> </p>
+
+          <p>Cum obiectivele de reglare ale agentului patogen sunt în contradicție directă cu cele ale agenților umani conștienți, agenții umani conștienți fac tot ce pot pentru a limita reproducerile și propagarea agentului patogen, pentru a evita potențiale mutații care să facă din agentul patogen un adversar chiar mai puternic decât era la început.  </p>
 
         </article>
 
