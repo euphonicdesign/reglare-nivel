@@ -13,6 +13,8 @@ var directieGraficVertical = 1;
 var pragGV1 = 322;
 var pragGO1 = 300;
 
+var populatie_la_risc = 19173111/40;
+
 var limita_max_crestere_delta = 50;
 var limita_max_crestere_medie = 50;
 var limita_max_pierderi = 50;
@@ -8620,16 +8622,16 @@ function desenareGraficeTrenduri(){
 
 
   ctx.beginPath();
-  ctx.moveTo(10, yGrafic_1 + 0 );
-  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_1 + 0);
+  ctx.moveTo(10, yGrafic_1);
+  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_1);
   ctx.strokeStyle = culoarePunctValoriGrafic;//culoarePunctValoriGrafic;
   ctx.lineWidth = 1;
   ctx.closePath();
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.moveTo(10, yGrafic_2 + 0 );
-  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2 + 0);
+  ctx.moveTo(10, yGrafic_2);
+  ctx.lineTo(lungimeSuprafataGrafica-10, yGrafic_2);
   ctx.strokeStyle = culoarePunctValoriGrafic_3;//culoarePunctValoriGrafic;
   ctx.lineWidth = 1;
   ctx.closePath();
@@ -8794,7 +8796,7 @@ function desenareGraficeTrenduri(){
       crestere_variatie_2 = Math.floor(Math.round(data_2[selectorZi]/data_2[index1]*10))/10;
   }
   else{
-      procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) / 1 * 100);
+      procent_variatie_2 = Math.floor((data_2[selectorZi] - data_2[index1]) * 100);
       crestere_variatie_2 = Math.floor(Math.round(data_2[selectorZi]/1*10))/10;
   }
 
@@ -9635,7 +9637,7 @@ function desenareIndicatorRezervor(){
     ctx.fillStyle = "white";
 
     val_tot = dataCumulativ[selectorZi] + medieCumulativ[selectorZi] * factor_ampMediu * intervalProiectie2;
-    lungimeGolire = val_tot/(19173111/40) * lunIndRez; //25
+    lungimeGolire = val_tot/(populatie_la_risc) * lunIndRez; //25
     ctx.fillRect(xIndRez, yIndRez, latIndRez, lungimeGolire);
     ctx.strokeStyle = culoareApaNivelUltraCritic;
     ctx.lineWidth = 2;
