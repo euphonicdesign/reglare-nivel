@@ -14,6 +14,7 @@ var pragGV1 = 322;
 var pragGO1 = 300;
 
 var populatie_la_risc = 19173111/40;
+var multiplicatorPI = 2/360;
 
 var limita_max_crestere_delta = 50;
 var limita_max_crestere_medie = 50;
@@ -3860,10 +3861,10 @@ function desenareSchemaRacheta(){
 
   //desenare stalp soseta
   //xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 - 90;
-  xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+  xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135;
 
-  xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
-  ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
+  xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * multiplicatorPI);
+  ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * multiplicatorPI);
 
   if(selectorZi > orizont_regresie + orizont_arie){
 
@@ -3873,7 +3874,7 @@ function desenareSchemaRacheta(){
           ctx.fillStyle = "yellow";
           ctx.beginPath();
           ctx.moveTo(xStalpModReglare, yStalpModReglare);
-          ctx.arc(xStalpModReglare+1, yStalpModReglare-1, lungimeSosetaModReglare + 1, -(xsos * Math.PI * 2 / 360), 0 );
+          ctx.arc(xStalpModReglare+1, yStalpModReglare-1, lungimeSosetaModReglare + 1, -(xsos * Math.PI * multiplicatorPI), 0 );
           //ctx.moveTo(xStalpModReglare, yStalpModReglare - lungimeSosetaModReglare);
           ctx.closePath();
           ctx.fill();
@@ -3903,7 +3904,7 @@ function desenareSchemaRacheta(){
       //ctx.fillStyle = "white";//"#4d4d4d";
       ctx.beginPath();
       ctx.moveTo(xStalpModReglare, yStalpModReglare);
-      ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, -(xsos * Math.PI * 2 / 360));
+      ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, -(xsos * Math.PI * multiplicatorPI));
       ctx.moveTo(xStalpModReglare, yStalpModReglare);
       ctx.closePath();
       ctx.fill();
@@ -3966,7 +3967,7 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
     ctx.fillText("eliberare", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14);
-    ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+    ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 26);
     ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri + 2, 62, 28);
 
     ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
@@ -3990,7 +3991,7 @@ function desenareSchemaRacheta(){
     ctx.fillStyle = culoareTextZi;
     ctx.strokeStyle = culoareTextZi;
     ctx.fillText("eliberare", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14);
-    ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 14 + 12);
+    ctx.fillText("flapsuri", xIndicatorFlapsuri + 120, yIndicatorFlapsuri + 26);
     ctx.strokeRect(xIndicatorFlapsuri + 90, yIndicatorFlapsuri +2, 62, 28);
 
     ctx.font = "bold italic 11px Helvetica, system-ui, Arial, sans-serif";
@@ -4016,7 +4017,7 @@ function desenareSchemaRacheta(){
   if(vector_rToate[selectorZi] >= 1){
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
-    ctx.fillText("mărire", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("mărire", xIndicatorReactie + 120, yIndicatorReactie -18);
     ctx.fillText("viteză", xIndicatorReactie + 120, yIndicatorReactie -6);
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie -30, 62, 28);
   }
@@ -4025,7 +4026,7 @@ function desenareSchemaRacheta(){
     //ctx.strokeStyle = culoareTextZi;
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
-    ctx.fillText("încetinire", xIndicatorReactie + 120, yIndicatorReactie + 14 - 32);
+    ctx.fillText("încetinire", xIndicatorReactie + 120, yIndicatorReactie -18);
     ctx.fillText("viteză", xIndicatorReactie + 120, yIndicatorReactie -6);
     ctx.strokeRect(xIndicatorReactie + 90, yIndicatorReactie - 30, 62, 28);
   }
@@ -4036,14 +4037,14 @@ function desenareSchemaRacheta(){
     //ctx.strokeStyle = "hsla(182, 30%, 15%,90%)";//culoareRosuTemperat;
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
-    ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
+    ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura -18);
     ctx.fillText("siguranță", xIndicatorCentura + 120, yIndicatorCentura -6);
     ctx.strokeRect(xIndicatorCentura + 90, yIndicatorCentura -30, 62, 28);
   }
   else{
     ctx.fillStyle = culoareTextZi;
     ctx.strokeStyle = culoareTextZi;
-    ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura + 14 - 32);
+    ctx.fillText("centură", xIndicatorCentura + 120, yIndicatorCentura -18);
     ctx.fillText("siguranță", xIndicatorCentura + 120, yIndicatorCentura -6);
     ctx.strokeRect(xIndicatorCentura + 90, yIndicatorCentura - 30, 62, 28);
   }
@@ -4051,7 +4052,7 @@ function desenareSchemaRacheta(){
   if(vectorDRToate[selectorZi] < 0){
     ctx.fillStyle = culoareScadere;
     ctx.strokeStyle = culoareScadere;
-    ctx.fillText("frână", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
+    ctx.fillText("frână", xIndicatorFrana + 120, yIndicatorFrana -18);
     ctx.fillText("reacție", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana -30, 62, 28);
 
@@ -4074,7 +4075,7 @@ function desenareSchemaRacheta(){
     //ctx.strokeStyle = culoareTextZi;
     ctx.fillStyle = culoareRosuTemperat;
     ctx.strokeStyle = culoareRosuTemperat;
-    ctx.fillText("accelerare", xIndicatorFrana + 120, yIndicatorFrana + 14 - 32);
+    ctx.fillText("accelerare", xIndicatorFrana + 120, yIndicatorFrana -18);
     ctx.fillText("reacție", xIndicatorFrana + 120, yIndicatorFrana -6);
     ctx.strokeRect(xIndicatorFrana + 90, yIndicatorFrana - 30, 62, 28);
 
@@ -4645,13 +4646,13 @@ function desenareSchemaRacheta(){
           ctx.fillStyle = "#adad85";//"#4d4d4d";
           //racheta varf
           ctx.beginPath();
-          ctx.arc(xRacheta2 + rachetaLat - 1, yElice2 - rachetaH/2 + 1, 6/2, 0, 2*Math.PI);
+          ctx.arc(xRacheta2 + rachetaLat - 1, yElice2 - rachetaH/2 + 1, 3, 0, 2*Math.PI);
           ctx.closePath();
           ctx.fill();
 
           //racheta striatie baza
           ctx.beginPath();
-          ctx.arc(xRacheta2 + rachetaLat - 1, yRachetaCorp2 + rachetaH/3, 5/2, 0, 2*Math.PI);
+          ctx.arc(xRacheta2 + rachetaLat - 1, yRachetaCorp2 + rachetaH/3, 2.5, 0, 2*Math.PI);
           ctx.closePath();
           ctx.fill();
 
@@ -4893,7 +4894,7 @@ function desenareSchemaRacheta(){
   if(vector_rToate_normalizat[selectorZi] > 0){
       ctx.fillStyle = "yellow";
       ctx.beginPath();
-      ctx.fillRect(xRacheta2 - vector_rToate_normalizat[selectorZi]/100 * (rachetaLat + 2) / 2 - 0,
+      ctx.fillRect(xRacheta2 - vector_rToate_normalizat[selectorZi]/100 * (rachetaLat + 2) / 2,
                     yRachetaCorp2 - 7,
                     vector_rToate_normalizat[selectorZi]/100 * (rachetaLat + 2),
                     rachetaH/5
@@ -4998,7 +4999,7 @@ function desenareSchemaRacheta(){
 
   ctx.beginPath();
   ctx.moveTo(xElice1, yElice + 0 );
-  ctx.arc(xElice1, yElice, 10, unghiEliceRadiani + Math.PI, unghiEliceRadiani + Math.PI + Math.PI/4);
+  ctx.arc(xElice1, yElice, 10, unghiEliceRadiani + Math.PI, unghiEliceRadiani + 1.25 * Math.PI);
   ctx.closePath();
   ctx.fill();
 
@@ -5038,7 +5039,7 @@ function desenareSchemaRacheta(){
 
   ctx.beginPath();
   ctx.moveTo(xElice2, yElice + 0 );
-  ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 + Math.PI, unghiEliceRadiani2 + Math.PI + Math.PI/4);
+  ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 + Math.PI, unghiEliceRadiani2 + 1.25 * Math.PI);
   ctx.closePath();
   ctx.fill();
 
@@ -5197,7 +5198,7 @@ function desenareEvenimente(){
         ctx.textAlign = "start";
         //ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
         ctx.fillStyle = culoareCrestereMaro;
-        ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xCerculeteAcumulate + 42 + 8 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
+        ctx.fillText(zile_contor_vectorizare[selectorZi] + "\u279A", xCerculeteAcumulate + 50 + raza_cerculet, yCerculeteAcumulate + raza_cerculet);
 
 
 
@@ -5213,7 +5214,7 @@ function desenareEvenimente(){
             }
 
             ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
-            ctx.arc(xCerculeteAcumulate + 0 + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
+            ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, (raza_cerculet + 1), 0, 2 * Math.PI);
         }
         else {
             //schema reglare
@@ -5223,7 +5224,7 @@ function desenareEvenimente(){
             }
 
             ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
-            ctx.arc(xCerculeteAcumulate + 0 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
+            ctx.arc(xCerculeteAcumulate + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
         }
         ctx.fillStyle = culoareVerde;
         //ctx.arc(xCerculeteAcumulate + 40 + raza_cerculet, yCerculeteAcumulate, raza_cerculet, 0, 2 * Math.PI);
@@ -5335,9 +5336,9 @@ function desenarePendulEvenimente(){
 
       //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
       //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-      xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
-      xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
-      ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+      xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135;
+      xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * multiplicatorPI);
+      ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * multiplicatorPI);
 
       ctx.lineWidth = 3;
 
@@ -5360,7 +5361,7 @@ function desenarePendulEvenimente(){
       //desenare arc deschidere
       ctx.beginPath();
       ctx.moveTo(xStalpG, yStalpG);
-      ctx.arc(xStalpG, yStalpG, lungimeStalp/2, (xsos * Math.PI * 2 / 360) - Math.PI/2, 0);
+      ctx.arc(xStalpG, yStalpG, lungimeStalp/2, (xsos * Math.PI * multiplicatorPI) - Math.PI/2, 0);
       ctx.closePath();
       ctx.fill();
 
@@ -5401,14 +5402,14 @@ function desenarePendulEvenimente(){
         if(factor_ampMediu < 1){
             ctx.fillStyle = culoareScadere;
             ctx.textAlign = "center";
-            ctx.fillText(" - ", 22 + 12, yStalpG + 18);
+            ctx.fillText(" - ", 34, yStalpG + 18);
             ctx.textAlign = "left";
             ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
-            ctx.fillText(" + ", 22 + 12, yStalpG + 18);
+            ctx.fillText(" + ", 34, yStalpG + 18);
             ctx.textAlign = "left";
             ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
@@ -5421,14 +5422,14 @@ function desenarePendulEvenimente(){
         if(factor_ampMediu < 1){
             ctx.fillStyle = culoareScadere;
             ctx.textAlign = "center";
-            ctx.fillText(" - ", 22 + 12, yStalpG + 18);
+            ctx.fillText(" - ", 34, yStalpG + 18);
             ctx.textAlign = "left";
             ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
-            ctx.fillText(" + ", 22 + 12, yStalpG + 18);
+            ctx.fillText(" + ", 34, yStalpG + 18);
             ctx.textAlign = "left";
             ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
@@ -5533,8 +5534,8 @@ function desenarePendulEvenimenteRacheta(){
         //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
         //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
         xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135 //1.5 * 90;
-        xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
-        ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+        xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * multiplicatorPI);
+        ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * multiplicatorPI);
 
         ctx.lineWidth = 3;
 
@@ -5557,7 +5558,7 @@ function desenarePendulEvenimenteRacheta(){
         //desenare arc deschidere
         ctx.beginPath();
         ctx.moveTo(xStalpGR, yStalpGR);
-        ctx.arc(xStalpGR, yStalpGR, lungimeStalp/2, (xsos * Math.PI * 2 / 360) - Math.PI/2, 0);
+        ctx.arc(xStalpGR, yStalpGR, lungimeStalp/2, (xsos * Math.PI * multiplicatorPI) - Math.PI/2, 0);
         ctx.closePath();
         ctx.fill();
 
@@ -6504,8 +6505,8 @@ function desenarePendulModHarta(){
     //  xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
   //}
 
-  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * 2 / 360);
-  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * 2 / 360);
+  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * multiplicatorPI);
+  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * multiplicatorPI);
 
   ctx.lineWidth = 6 ;
 
@@ -6866,8 +6867,8 @@ function desenareRadarModRadar(){
       //xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
   }
 
-  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * 2 / 360);
-  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * 2 / 360);
+  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * multiplicatorPI);
+  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * multiplicatorPI);
 
   ctx.lineWidth = 6 ;
 
@@ -8276,8 +8277,8 @@ function desenareRadar(){
   //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
   //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
   xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 135;
-  xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
-  ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
+  xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * multiplicatorPI);
+  ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * multiplicatorPI);
 
   ctx.lineWidth = 3;
 
@@ -9844,7 +9845,7 @@ function desenareGraficSemnale(){
     ctx.fillText("=" + Math.round(val_tot), xProiectiiSemnale, yProiectiiSemnale + 33);
     ctx.font = "italic 10px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillStyle = "lightgrey";
-    ctx.fillText("(" + Math.floor((1 - val_tot/(19173111/40))*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
+    ctx.fillText("(" + Math.floor((1 - val_tot/(populatie_la_risc))*100000)/1000 + "%)", xProiectiiSemnale, yProiectiiSemnale + 44);
 
 
     //Afisare data
