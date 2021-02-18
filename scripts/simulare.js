@@ -3858,7 +3858,7 @@ function desenareSchemaRacheta(){
 
   //desenare stalp soseta
   //xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 - 90;
-  xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 + 0;
+  xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
 
   xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * 2 / 360);
   ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * 2 / 360);
@@ -5207,7 +5207,7 @@ function desenareEvenimente(){
             //schema reglare
             if(mod == MOD_REGULATOR){
               ctx.font = "bold 12px Helvetica, system-ui, Arial, sans-serif";
-              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 0, yCaleDir - 12);
+              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC, yCaleDir - 12);
             }
 
             ctx.font = "bold 15px Helvetica, system-ui, Arial, sans-serif";
@@ -5217,7 +5217,7 @@ function desenareEvenimente(){
             //schema reglare
             if(mod == MOD_REGULATOR){
               ctx.font = "bold 11px Helvetica, system-ui, Arial, sans-serif";
-              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC + 0, yCaleDir - 12);
+              ctx.fillText(zile_contor_limitare[selectorZi] + "\u2798", xBlocC, yCaleDir - 12);
             }
 
             ctx.font = "bold 14px Helvetica, system-ui, Arial, sans-serif";
@@ -5282,14 +5282,14 @@ function desenarePendulEvenimente(){
             ctx.fillStyle = culoareCrestereVectorAvion;
             ctx.beginPath();
             ctx.moveTo(xStalpG, yStalpG + 5);
-            ctx.lineTo(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 5);
+            ctx.lineTo(xStalpG + vectorDRToate[selectorZi] * 5000, yStalpG + 5);
             ctx.closePath();
             ctx.stroke();
 
             //cerculet capat proiectie
             ctx.beginPath();
             //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
-            ctx.arc(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 5, 2, 0 * Math.PI, 2 * Math.PI);
+            ctx.arc(xStalpG + vectorDRToate[selectorZi] * 5000, yStalpG + 5, 2, 0 * Math.PI, 2 * Math.PI);
             ctx.closePath();
             ctx.fill();
 
@@ -5300,14 +5300,14 @@ function desenarePendulEvenimente(){
             ctx.fillStyle = culoareScadereVectorAvion;
             ctx.beginPath();
             ctx.moveTo(xStalpG, yStalpG + 5);
-            ctx.lineTo(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 5);
+            ctx.lineTo(xStalpG + vectorDRToate[selectorZi] * 5000, yStalpG + 5);
             ctx.closePath();
             ctx.stroke();
 
             //cerculet capat proiectie
             ctx.beginPath();
             //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
-            ctx.arc(xStalpG + vectorDRToate[selectorZi] * 10000/2, yStalpG + 5, 2, 0 * Math.PI, 2 * Math.PI);
+            ctx.arc(xStalpG + vectorDRToate[selectorZi] * 5000, yStalpG + 5, 2, 0 * Math.PI, 2 * Math.PI);
             ctx.closePath();
             ctx.fill();
 
@@ -5401,14 +5401,14 @@ function desenarePendulEvenimente(){
             ctx.textAlign = "center";
             ctx.fillText(" - ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 22 + 20, yStalpG + 18);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
             ctx.fillText(" + ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 22 + 20, yStalpG + 18);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
     }
     else{
@@ -5421,14 +5421,14 @@ function desenarePendulEvenimente(){
             ctx.textAlign = "center";
             ctx.fillText(" - ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 22 + 20, yStalpG + 18);
+            ctx.fillText(-Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
         else{
             ctx.fillStyle = culoareCrestereMaro;
             ctx.textAlign = "center";
             ctx.fillText(" + ", 22 + 12, yStalpG + 18);
             ctx.textAlign = "left";
-            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 22 + 20, yStalpG + 18);
+            ctx.fillText(Math.floor((factor_ampMediu-1)*10)/10 + "° / zi₃", 42, yStalpG + 18);
         }
     }
 }
@@ -5476,14 +5476,14 @@ function desenarePendulEvenimenteRacheta(){
               ctx.fillStyle = culoareCrestereVectorAvion;
               ctx.beginPath();
               ctx.moveTo(xStalpGR, yStalpGR + 3);
-              ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR + 3);
+              ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 5000, yStalpGR + 3);
               ctx.closePath();
               ctx.stroke();
 
               //cerculet capat proiectie
               ctx.beginPath();
               //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
-              ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR + 3, 2, 0 * Math.PI, 2 * Math.PI);
+              ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 5000, yStalpGR + 3, 2, 0 * Math.PI, 2 * Math.PI);
               ctx.closePath();
               ctx.fill();
 
@@ -5494,14 +5494,14 @@ function desenarePendulEvenimenteRacheta(){
               ctx.fillStyle = culoareScadereVectorAvion;
               ctx.beginPath();
               ctx.moveTo(xStalpGR, yStalpGR + 3);
-              ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR + 3);
+              ctx.lineTo(xStalpGR + vectorDRToate[selectorZi] * 5000, yStalpGR + 3);
               ctx.closePath();
               ctx.stroke();
 
               //cerculet capat proiectie
               ctx.beginPath();
               //ctx.moveTo(xRacheta2 + rachetaLat - 1, yElice2 + 5);
-              ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 10000/2, yStalpGR + 3, 2, 0 * Math.PI, 2 * Math.PI);
+              ctx.arc(xStalpGR + vectorDRToate[selectorZi] * 5000, yStalpGR + 3, 2, 0 * Math.PI, 2 * Math.PI);
               ctx.closePath();
               ctx.fill();
 
@@ -5530,7 +5530,7 @@ function desenarePendulEvenimenteRacheta(){
 
         //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
         //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-        xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+        xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135 //1.5 * 90;
         xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
         ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
 
@@ -6336,9 +6336,9 @@ function desenareAvioaneHarta(){
           pozitieZone[zona][0]
           ctx.moveTo(pozitieZone[zona][0],pozitieZone[zona][1]);
           ctx.lineTo(pozitieZone[zona][0] +
-              + vectoriDateZone[zona].vectorDR[selectorZi] * 10000/2,
+              + vectoriDateZone[zona].vectorDR[selectorZi] * 5000,
             pozitieZone[zona][1] -
-            (vectoriDateZone[zona].vector_r[selectorZi]-1)*1000/2
+            (vectoriDateZone[zona].vector_r[selectorZi]-1)*500
           );
 
           /*
@@ -6358,9 +6358,9 @@ function desenareAvioaneHarta(){
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.arc(pozitieZone[zona][0] +
-            vectoriDateZone[zona].vectorDR[selectorZi] * 10000/2,
+            vectoriDateZone[zona].vectorDR[selectorZi] * 5000,
             pozitieZone[zona][1] -
-            (vectoriDateZone[zona].vector_r[selectorZi]-1)*1000/2,
+            (vectoriDateZone[zona].vector_r[selectorZi]-1)*500,
             2, 0, 2 * Math.PI);
           ctx.closePath();
           ctx.fill();
@@ -6494,7 +6494,7 @@ function desenarePendulModHarta(){
   //vectorXAvion[i] = xRadarModRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1ModRadar);
   //vectorYAvion[i] = yRadarModRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1ModRadar);
   //if(nrArie == 43){
-      xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+      xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135;
       //xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
   //}
   //else{
@@ -6856,11 +6856,11 @@ function desenareRadarModRadar(){
   //vectorXAvion[i] = xRadarModRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1ModRadar);
   //vectorYAvion[i] = yRadarModRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1ModRadar);
   if(nrArie == 43){
-      xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+      xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 135;
       //xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
   }
   else{
-      xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+      xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 135;
       //xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
   }
 
@@ -7057,7 +7057,7 @@ function desenareRadarModRadar(){
 
   ctx.lineWidth = 2;
   if(pulsatie_radar > 0){
-      ctx.fillStyle = "rgba(255,255,255," + (0.2 + 0.8 - 0.8 * (temporizare_pulsatie_radar-pulsatie_radar)/temporizare_pulsatie_radar) + ")";
+      ctx.fillStyle = "rgba(255,255,255," + (1 - 0.8 * (temporizare_pulsatie_radar-pulsatie_radar)/temporizare_pulsatie_radar) + ")";
       pulsatie_radar--;
       ctx.beginPath();
       ctx.arc(pulsatie_radar_x, pulsatie_radar_y , razaPunctAvion + (temporizare_pulsatie_radar - pulsatie_radar)/temporizare_pulsatie_radar * razaPunctAvion, 0, 2 * Math.PI);
@@ -7072,7 +7072,7 @@ function desenareRadarModRadar(){
     if(vectoriDateZone[nrArie].vectorXAvion[selectorZi]){
         for (let i = (selectorZi - 120); i < selectorZi; i++){
 
-            transp = 0.0 + i / selectorZi;
+            transp = i / selectorZi;
             nuantab = (255 - (( i + 160 - selectorZi) % 255));
             nuantar = 20;
             nuantag = 70;
@@ -7141,9 +7141,9 @@ function desenareRadarModRadar(){
           ctx.moveTo(vectoriDateZone[zona].vectorXAvion[selectorZi] + xRadarModRadar,
               vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar);
           ctx.lineTo(vectoriDateZone[zona].vectorXAvion[selectorZi] + xRadarModRadar +
-              + vectoriDateZone[zona].vectorDR[selectorZi] * 10000/2,
+              + vectoriDateZone[zona].vectorDR[selectorZi] * 5000,
             vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar -
-            (vectoriDateZone[zona].vector_r[selectorZi]-1)*1000/2
+            (vectoriDateZone[zona].vector_r[selectorZi]-1)*500
           );
           ctx.stroke();
 
@@ -7154,9 +7154,9 @@ function desenareRadarModRadar(){
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.arc(vectoriDateZone[zona].vectorXAvion[selectorZi] + xRadarModRadar +
-            vectoriDateZone[zona].vectorDR[selectorZi] * 10000/2,
+            vectoriDateZone[zona].vectorDR[selectorZi] * 5000,
             vectoriDateZone[zona].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar -
-            (vectoriDateZone[zona].vector_r[selectorZi]-1)*1000/2,
+            (vectoriDateZone[zona].vector_r[selectorZi]-1)*500,
             2, 0, 2 * Math.PI);
           ctx.closePath();
           ctx.fill();
@@ -7312,9 +7312,9 @@ function desenareRadarModRadar(){
     ctx.moveTo(vectoriDateZone[nrArie].vectorXAvion[selectorZi] + xRadarModRadar,
         vectoriDateZone[nrArie].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar);
     ctx.lineTo(vectoriDateZone[nrArie].vectorXAvion[selectorZi] + xRadarModRadar +
-        + vectoriDateZone[nrArie].vectorDR[selectorZi] * 10000/2,
+        + vectoriDateZone[nrArie].vectorDR[selectorZi] * 5000,
       vectoriDateZone[nrArie].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar -
-      (vectoriDateZone[nrArie].vector_r[selectorZi]-1)*1000/2
+      (vectoriDateZone[nrArie].vector_r[selectorZi]-1)*500
     );
     ctx.stroke();
 
@@ -7327,9 +7327,9 @@ function desenareRadarModRadar(){
 
     ctx.beginPath();
     ctx.arc(vectoriDateZone[nrArie].vectorXAvion[selectorZi] + xRadarModRadar +
-      vectoriDateZone[nrArie].vectorDR[selectorZi] * 10000/2,
+      vectoriDateZone[nrArie].vectorDR[selectorZi] * 5000,
       vectoriDateZone[nrArie].vectorYAvion[selectorZi]/scalaRadarY + yRadarModRadar -
-      (vectoriDateZone[nrArie].vector_r[selectorZi]-1)*1000/2,
+      (vectoriDateZone[nrArie].vector_r[selectorZi]-1)*500,
       3, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
@@ -7389,8 +7389,8 @@ function desenareRadarModRadar(){
 
       ctx.moveTo(xAvion,yAvion);
 
-      ctx.lineTo(xAvion + vectorDR[selectorZi] * 10000/2,
-        yAvion - (vector_r[selectorZi]-1)*1000/2);
+      ctx.lineTo(xAvion + vectorDR[selectorZi] * 5000,
+        yAvion - (vector_r[selectorZi]-1)*500);
       ctx.stroke();
 
       ctx.beginPath();
@@ -7401,8 +7401,8 @@ function desenareRadarModRadar(){
       ctx.fillStyle = culoareLinieGraficP;
 
       ctx.beginPath();
-      ctx.arc(xAvion + vectorDR[selectorZi] * 10000/2,
-        yAvion - (vector_r[selectorZi]-1)*1000/2,
+      ctx.arc(xAvion + vectorDR[selectorZi] * 5000,
+        yAvion - (vector_r[selectorZi]-1)*500,
         3, 0, 2 * Math.PI);
       ctx.closePath();
       ctx.fill();
@@ -7557,7 +7557,7 @@ function desenareAvioaneRegulator(){
                         nuantar = (255 - (( i + 90 - selectorZi) % 255));
                         nuantag = nuantar;
                         nuantab = nuantar;
-                        transp = 0.0 + i / (selectorZi) / 10;
+                        transp = i / (selectorZi) / 10;
                         ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
                       }
 
@@ -7580,7 +7580,7 @@ function desenareAvioaneRegulator(){
         if(vectoriDateZone[nrArie].vectorXAvionRegulator[selectorZi]){
             for (let i = (selectorZi - 120); i < selectorZi; i++){
 
-                transp = 0.0 + i / selectorZi;
+                transp = i / selectorZi;
                 nuantab = (255 - (( i + 160 - selectorZi) % 255));
                 nuantar = 20;
                 nuantag = 70;
@@ -7918,8 +7918,8 @@ function desenareAvioaneRegulator(){
 
           ctx.moveTo(xAvion,yAvion);
 
-          ctx.lineTo(xAvion + vectorDRToate[selectorZi] * 10000/2,
-            yAvion - (vector_rToate[selectorZi]-1)*1000/2);
+          ctx.lineTo(xAvion + vectorDRToate[selectorZi] * 5000,
+            yAvion - (vector_rToate[selectorZi]-1)*500);
           ctx.stroke();
 
           ctx.beginPath();
@@ -7930,8 +7930,8 @@ function desenareAvioaneRegulator(){
           //ctx.fillStyle = culoareLinieGraficP;
 
           ctx.beginPath();
-          ctx.arc(xAvion + vectorDRToate[selectorZi] * 10000/2,
-            yAvion - (vector_rToate[selectorZi]-1)*1000/2,
+          ctx.arc(xAvion + vectorDRToate[selectorZi] * 5000,
+            yAvion - (vector_rToate[selectorZi]-1)*500,
             razaCapatVectorRegulator, 0, 2 * Math.PI);
           ctx.closePath();
           ctx.fill();
@@ -8012,7 +8012,7 @@ function desenareAvioaneRegulator(){
               ctx.fillText(nume_zona, xAvion - 12, yAvion - 10);
           }
           else{
-              ctx.fillText(nume_zona, xAvion - 12, + 24);
+              ctx.fillText(nume_zona, xAvion - 12, 24);
           }
           //console.log(vectorXAvion[selectorZi] + " " + vectorYAvion[selectorZi]);
           //}
@@ -8273,7 +8273,7 @@ function desenareRadar(){
 
   //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
   //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
-  xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
+  xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 135;
   xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * 2 / 360);
   ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * 2 / 360);
 
@@ -8379,11 +8379,11 @@ function desenareRadar(){
         nuantar = (255 - (( i + 160 - selectorZi) % 255));
         nuantag = nuantar;
         nuantab = nuantar/2;
-        transp = 0.0 + i / selectorZi / 2;
+        transp = i / selectorZi / 2;
         ctx.fillStyle = "rgba(" + nuantar + "," + nuantag + "," + nuantab +", " + transp + ")";
 
         ctx.beginPath();
-        ctx.arc(vectorXAvion[i] + xRadar, vectorYAvion[i] +yRadar , 1 * (1 + 1 * (selectorZi-i)/selectorZi) + 1.0 * (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
+        ctx.arc(vectorXAvion[i] + xRadar, vectorYAvion[i] +yRadar , (1 + (selectorZi-i)/selectorZi) + (medieCumulativ[i]/scalaDimensiuneAvion), 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
       }
@@ -8429,7 +8429,7 @@ function desenareRadar(){
 
   ctx.lineWidth = 2;
   if(pulsatie_radar > 0){
-      ctx.fillStyle = "rgba(255,255,255," + (0.2 + 0.8 - 0.8 * (temporizare_pulsatie_radar-pulsatie_radar)/temporizare_pulsatie_radar) + ")";
+      ctx.fillStyle = "rgba(255,255,255," + (1 - 0.8 * (temporizare_pulsatie_radar-pulsatie_radar)/temporizare_pulsatie_radar) + ")";
       pulsatie_radar--;
       ctx.beginPath();
       ctx.arc(pulsatie_radar_x, pulsatie_radar_y , razaPunctAvion + (temporizare_pulsatie_radar - pulsatie_radar)/temporizare_pulsatie_radar * razaPunctAvion, 0, 2 * Math.PI);
@@ -8481,7 +8481,7 @@ function desenareNivelMagnificareGrafice(){
     ctx.fillText("\u2222:           ", xMagnificareGrafice, yMagnificareGrafice);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
-    ctx.fillText("" + Math.round(100 + scala_grafic_2 * 100 * maxValueGrafic2/1400)+ "%", xMagnificareGrafice, yMagnificareGrafice);
+    ctx.fillText("" + Math.round(100 + scala_grafic_2 * maxValueGrafic2/14)+ "%", xMagnificareGrafice, yMagnificareGrafice);
 
     ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
     ctx.fillText("\u2222:         ", xMagnificareGrafice2, yMagnificareGrafice2);
@@ -8497,7 +8497,7 @@ function desenareNivelMagnificareRadar(){
     ctx.fillText("\u2222:         ", xScalaRadar, yScalaRadar);
     ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
     //ctx.fillText("" + (100 + (100 - Math.round(scala_grafic_2*10000)/100)) + "%", xMagnificareGrafice, yMagnificareGrafice);
-    ctx.fillText("" + Math.floor(scalaRadarY*100)/100*100+ "%", xScalaRadar + 18, yScalaRadar);
+    ctx.fillText("" + Math.floor(scalaRadarY*100)+ "%", xScalaRadar + 18, yScalaRadar);
 
     /*
     ctx.font = "14px Helvetica, system-ui, Arial, sans-serif";
