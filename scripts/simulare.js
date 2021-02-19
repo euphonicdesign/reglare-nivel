@@ -2330,7 +2330,7 @@ function inserareTabelZone(){
 
   var totalZile = vectoriDateZone[0].vector_r.length-1;
 
-  var clasamentProiectie = clasamentAeronaveZileSortatProiectie[totalZile].clasament;
+  //var clasamentProiectie = clasamentAeronaveZileSortatProiectie[totalZile].clasament;
   //var clasamentMedie = clasamentAeronaveZileSortatMedie[totalZile].clasament;
 
   var valoareProiectie = 0;
@@ -2367,19 +2367,19 @@ function inserareTabelZone(){
     textHTML += "<div class='zona" + zona + " val_cl_r'>" + "#" + pozitieClasamentR + "</div>";
 
     //textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[zona].vector_r[totalZile]-1)*10000)/100 + "</div>";
-    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentProiectie[zona].arie].vector_r[totalZile]-1)*10000)/100 + "</div>";
+    textHTML += "<div class='zona" + zona + " val_r'>" + "R=" + Math.floor((vectoriDateZone[clasamentAeronaveZileSortatProiectie[totalZile].clasament[zona].arie].vector_r[totalZile]-1)*10000)/100 + "</div>";
 
     textHTML += "<div class='zona" + zona + " Me-Pr'>";
     //textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].medie);
-    textHTML += Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorMedieZiCurenta[totalZile]);
+    textHTML += Math.round(vectoriDateZone[clasamentAeronaveZileSortatProiectie[totalZile].clasament[zona].arie].vectorMedieZiCurenta[totalZile]);
 
     textHTML += "→";
     //textHTML += Math.round(clasamentAeronaveZile[totalZile].clasament[zona].proiectie);
-    textHTML += Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorProiectieZiCurenta[totalZile]);
+    textHTML += Math.round(vectoriDateZone[clasamentAeronaveZileSortatProiectie[totalZile].clasament[zona].arie].vectorProiectieZiCurenta[totalZile]);
     textHTML += "</div>";
 
     //textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(clasamentAeronaveZile[totalZile].clasament[zona].delta) + "</div>";
-    textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(vectoriDateZone[clasamentProiectie[zona].arie].vectorDeltaZiCurenta[totalZile]) + "</div>";
+    textHTML += "<div class='zona" + zona + " val_delta'>" + "D=" + Math.round(vectoriDateZone[clasamentAeronaveZileSortatProiectie[totalZile].clasament[zona].arie].vectorDeltaZiCurenta[totalZile]) + "</div>";
 
 
 
@@ -2419,14 +2419,14 @@ function inserareTabelZone(){
 function inserareTabelPozitii(){
   textHTML = "";
 
-  var totalZile = vectoriDateZone[0].vector_r.length-1;
-  //clasamentZone = clasamentAeronaveZile[totalZile].clasament;
-  clasamentZone = clasamentAeronaveZileSortatArie[totalZile].clasament;
+  totalZile = vectoriDateZone[0].vector_r.length-1;
+
+  //clasamentZone = clasamentAeronaveZileSortatArie[totalZile].clasament;
   //clasamentZone.sort(function(a, b){return a.proiectie - b.proiectie});
   //pauza = true;
 
 
-  for(let i=0; i<clasamentZone.length; i++){
+  for(let i=0; i<clasamentAeronaveZileSortatArie[totalZile].clasament.length; i++){
       textHTML +="<div class='pozitii zona " + i + "'>";
 
         //textHTML += "<div class='pozitii zona" + i + " avion'>";
@@ -2434,22 +2434,22 @@ function inserareTabelPozitii(){
         //textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " iProiectie'>";
         //textHTML += "" + Math.round(clasamentZone[i].proiectie);
-        textHTML += "" + Math.round(vectoriDateZone[clasamentZone[i].arie].vectorProiectieZiCurenta[totalZile]);
+        textHTML += "" + Math.round(vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[i].arie].vectorProiectieZiCurenta[totalZile]);
 
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " iDelta'>";
         //textHTML += "(+" + Math.round(clasamentZone[i].delta) + ")";
-        textHTML += "(+" + Math.round(vectoriDateZone[clasamentZone[i].arie].vectorDeltaZiCurenta[totalZile]) + ")";
+        textHTML += "(+" + Math.round(vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[i].arie].vectorDeltaZiCurenta[totalZile]) + ")";
         textHTML += "</div>";
 
         textHTML += "<div class='pozitii zona" + i + " iR'>";
         //textHTML += "+" + Math.round((clasamentZone[i].r-1)*100) + "%";
-        textHTML += "+" + Math.round((vectoriDateZone[clasamentZone[i].arie].vector_r[totalZile]-1)*100) + "%";
+        textHTML += "+" + Math.round((vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[i].arie].vector_r[totalZile]-1)*100) + "%";
 
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " iMedie'>";
         //textHTML += Math.round(clasamentZone[i].medie);
-        textHTML += Math.round(vectoriDateZone[clasamentZone[i].arie].vectorMedieZiCurenta[totalZile]);
+        textHTML += Math.round(vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[i].arie].vectorMedieZiCurenta[totalZile]);
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " segment_bara_medie'>";
         //textHTML += Math.round(clasamentZone[i].proiectie);
@@ -2459,12 +2459,12 @@ function inserareTabelPozitii(){
         textHTML += "</div>";
         textHTML += "<div class='pozitii zona" + i + " val_proiectie'>";
         //textHTML += Math.round(clasamentZone[i].medie + clasamentZone[i].proiectie);
-        textHTML += Math.round(vectoriDateZone[clasamentZone[i].arie].vectorMedieZiCurenta[totalZile] + vectoriDateZone[clasamentZone[i].arie].vectorProiectieZiCurenta[totalZile]);
+        textHTML += Math.round(vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[i].arie].vectorMedieZiCurenta[totalZile] + vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[i].arie].vectorProiectieZiCurenta[totalZile]);
         textHTML += "</div>";
 
         textHTML += "<div class='pozitii zona" + i + " nume'><a id='linkzona" + i + "' href='#' onclick='schimbareSelectieArie(" + i + ")'>";
         //textHTML += clasamentZone[i].nume;// + "✈";
-        textHTML += vectoriDateZone[clasamentZone[i].arie].nume;// + "✈";
+        textHTML += vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[i].arie].nume;// + "✈";
 
         textHTML += "</a></div>";
 
@@ -2495,8 +2495,8 @@ function inserareTabelPozitii(){
       //elementZona1.style.height = String(Math.abs(Math.round(clasamentZone[zona].proiectie))/4) + "px";
       //elementZona2.style.height = String(Math.abs(Math.round(clasamentZone[zona].medie))/4) + "px";
 
-      elementZona1.style.height = String(Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorProiectieZiCurenta[totalZile]))/4) + "px";
-      elementZona2.style.height = String(Math.abs(Math.round(vectoriDateZone[clasamentZone[zona].arie].vectorMedieZiCurenta[totalZile]))/4) + "px";
+      elementZona1.style.height = String(Math.abs(Math.round(vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[zona].arie].vectorProiectieZiCurenta[totalZile]))/4) + "px";
+      elementZona2.style.height = String(Math.abs(Math.round(vectoriDateZone[clasamentAeronaveZileSortatArie[totalZile].clasament[zona].arie].vectorMedieZiCurenta[totalZile]))/4) + "px";
       /*
       console.log("zona=" + zona);
       console.log("clasament[zona].zona=" + clasamentZone[zona].zona);
