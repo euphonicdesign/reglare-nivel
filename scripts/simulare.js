@@ -218,12 +218,12 @@ var yScalaRadar = yTextZi + 78;
 
 var xTextEveniment = xTextZi; //+ 130;
 var yTextEveniment = yTextZi + 20;
-var xCerculeteAcumulate = xTextZi + 0; //+ 130;
+var xCerculeteAcumulate = xTextZi  ; //+ 130;
 var yCerculeteAcumulate = yTextZi + 35;
 
 var xTextEveniment2 = xTextZi; //+ 130;
 var yTextEveniment2 = yTextEveniment + 26;
-var xCerculeteAcumulate2 = xTextZi + 0; //+ 130;
+var xCerculeteAcumulate2 = xTextZi  ; //+ 130;
 var yCerculeteAcumulate2 = yCerculeteAcumulate + 26;
 
 var xTextInfoExplicatii = xTextZi;
@@ -434,7 +434,7 @@ var razaCerc1Regulator = 18 + 4 * 5;
 var razaCerc2 = 12 + 2 * 5;
 var razaCerc3 = 5 + 1 + 1;
 var razaOrigineRadar = 4 + 1 + 1;
-var razaOrigineAeroport = 2 + 2 + 2 + 0;
+var razaOrigineAeroport = 2 + 2 + 2  ;
 
 var xRadar = xEntitate + 12;//lungimeSuprafataGrafica - 32;//30;//110;//200;
 var yRadar = 376 + 18; //120;//96;//76;
@@ -450,10 +450,10 @@ var razaCerc1ModRadar = (18 + 4 * 5) * 3;
 var razaCerc2ModRadar = (12 + 2 * 5) * 3;
 var razaCerc3ModRadar = (5 + 1 + 1);
 var razaOrigineRadarModRadar = (4 + 1 + 1) * 3;
-var razaOrigineAeroportModRadar = (2 + 2 + 2 + 0) * 3;
+var razaOrigineAeroportModRadar = (2 + 2 + 2  ) * 3;
 
 
-var razaPunctAvion = 3 + 1 + 1 + 0;
+var razaPunctAvion = 3 + 1 + 1  ;
 var razaPunctAvionMin = 4;
 var crestereDimensiuneAvion = 180;
 var scalaDimensiuneAvion = 10;
@@ -4997,13 +4997,13 @@ function desenareSchemaRacheta(){
   //desenare elice
   ctx.fillStyle = "lightblue";
   ctx.beginPath();
-  ctx.moveTo(xElice1, yElice + 0 );
+  ctx.moveTo(xElice1, yElice   );
   ctx.arc(xElice1, yElice, 10, unghiEliceRadiani, unghiEliceRadiani + Math.PI/4);
   ctx.closePath();
   ctx.fill();
 
   ctx.beginPath();
-  ctx.moveTo(xElice1, yElice + 0 );
+  ctx.moveTo(xElice1, yElice   );
   ctx.arc(xElice1, yElice, 10, unghiEliceRadiani + Math.PI, unghiEliceRadiani + 1.25 * Math.PI);
   ctx.closePath();
   ctx.fill();
@@ -5037,13 +5037,13 @@ function desenareSchemaRacheta(){
 
   ctx.fillStyle = "lightblue";
   ctx.beginPath();
-  ctx.moveTo(xElice2, yElice + 0 );
+  ctx.moveTo(xElice2, yElice   );
   ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 , unghiEliceRadiani2 + Math.PI/4);
   ctx.closePath();
   ctx.fill();
 
   ctx.beginPath();
-  ctx.moveTo(xElice2, yElice + 0 );
+  ctx.moveTo(xElice2, yElice   );
   ctx.arc(xElice2, yElice, 10, unghiEliceRadiani2 + Math.PI, unghiEliceRadiani2 + 1.25 * Math.PI);
   ctx.closePath();
   ctx.fill();
@@ -7042,8 +7042,8 @@ function desenareRadarModRadar(){
           distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
           dist1 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
-          distCos = Math.cos(radianiZi + 0) - cosAvion;
-          distSin = Math.sin(radianiZi + 0) - sinAvion;
+          distCos = Math.cos(radianiZi  ) - cosAvion;
+          distSin = Math.sin(radianiZi  ) - sinAvion;
           dist2 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
           //console.log("d1: " + dist1);
@@ -7282,7 +7282,7 @@ function desenareRadarModRadar(){
   //Desenare lumina rotativa
   ctx.fillStyle = culoareRadarLinieDetectieModRadar;
   ctx.beginPath();
-  ctx.moveTo(xRadarModRadar, yRadarModRadar + 0 );
+  ctx.moveTo(xRadarModRadar, yRadarModRadar   );
   ctx.arc(xRadarModRadar, yRadarModRadar, razaCerc1ModRadar, radianiZi, radianiZi + Math.PI/6);
 
   if(pulsatie_2){
@@ -8357,7 +8357,7 @@ function desenareRadar(){
 
   ctx.fillStyle = culoareRadarLinieDetectie;
   ctx.beginPath();
-  ctx.moveTo(xRadar, yRadar + 0 );
+  ctx.moveTo(xRadar, yRadar);
   ctx.arc(xRadar, yRadar, razaCerc1, radianiZi, radianiZi + Math.PI/6);
 
   if(pulsatie_2){
@@ -8414,8 +8414,8 @@ function desenareRadar(){
           distSin = Math.sin(radianiZi + Math.PI/6) - sinAvion;
           dist1 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
-          distCos = Math.cos(radianiZi + 0) - cosAvion;
-          distSin = Math.sin(radianiZi + 0) - sinAvion;
+          distCos = Math.cos(radianiZi  ) - cosAvion;
+          distSin = Math.sin(radianiZi  ) - sinAvion;
           dist2 = Math.sqrt(Math.pow(distCos, 2) + Math.pow(distSin, 2));
 
           //console.log("d1: " + dist1);
