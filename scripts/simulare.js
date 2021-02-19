@@ -17,6 +17,7 @@ var populatie_la_risc = 19173111/40;
 var multiplicatorPI = 2/360;
 
 var c2PI = 2 * Math.PI;
+var c2PIdiv360 = 2 * Math.PI / 360;
 
 var limita_max_crestere_delta = 50;
 var limita_max_crestere_medie = 50;
@@ -3347,8 +3348,8 @@ function desenareSchemaRacheta(){
   //vitezaElice = data[selectorZi]*2;
   vitezaElice = 34 * data[selectorZi] / medieCumulativ[selectorZi]; //factor amplificare
 
-  unghiEliceRadiani = unghiEliceRadiani  + c2PI / 360 * vitezaElice;
-  unghiEliceRadiani2 = unghiEliceRadiani2  - c2PI / 360 * vitezaElice;
+  unghiEliceRadiani = unghiEliceRadiani  + c2PIdiv360 * vitezaElice;
+  unghiEliceRadiani2 = unghiEliceRadiani2  - c2PIdiv360 * vitezaElice;
 
   if(unghiEliceRadiani/c2PI>1){
     unghiEliceRadiani -= c2PI;
@@ -4837,8 +4838,8 @@ function desenareSchemaRacheta(){
     yFlapsDr = yRachetaCorp2 - 5;
     lungimeFlaps = 14;
 
-    xPozFlapsDr = -Math.sin(3 * vector_rToate_normalizat[selectorZi]/10 * c2PI / 360) * lungimeFlaps;
-    yPozFlapsDr = Math.cos(3 * vector_rToate_normalizat[selectorZi]/10 * c2PI / 360) * lungimeFlaps;
+    xPozFlapsDr = -Math.sin(3 * vector_rToate_normalizat[selectorZi]/10 * c2PIdiv360) * lungimeFlaps;
+    yPozFlapsDr = Math.cos(3 * vector_rToate_normalizat[selectorZi]/10 * c2PIdiv360) * lungimeFlaps;
 
     if(vector_rToate_normalizat[selectorZi] < 0){
       ctx.strokeStyle = culoareScadereVectorAvion;
@@ -4860,8 +4861,8 @@ function desenareSchemaRacheta(){
     yFlapsSt = yRachetaCorp2 - 5;
     //lungimeFlaps = 14;
 
-    xPozFlapsSt = +Math.sin(3 * vector_rToate_normalizat[selectorZi]/10 * c2PI / 360) * lungimeFlaps;
-    yPozFlapsSt = Math.cos(3 * vector_rToate_normalizat[selectorZi]/10 * c2PI / 360) * lungimeFlaps;
+    xPozFlapsSt = +Math.sin(3 * vector_rToate_normalizat[selectorZi]/10 * c2PIdiv360) * lungimeFlaps;
+    yPozFlapsSt = Math.cos(3 * vector_rToate_normalizat[selectorZi]/10 * c2PIdiv360) * lungimeFlaps;
 
     if(vector_rToate_normalizat[selectorZi] < 0){
       ctx.strokeStyle = culoareScadereVectorAvion;
@@ -6930,7 +6931,7 @@ function desenareRadarModRadar(){
   //console.log("ysoseta: " + ysoseta);
 
   //Desenare Raza Radar
-  radianiZi = selectorZi * c2PI / 360 * vitezaRadar; //360/8 = 45
+  radianiZi = selectorZi * c2PIdiv360 * vitezaRadar; //360/8 = 45
   //grade = selectorZi * vitezaRadar;
   //console.log(grade);
 
@@ -8337,7 +8338,7 @@ function desenareRadar(){
   //console.log("ysoseta: " + ysoseta);
 
   //Desenare Raza Radar
-  radianiZi = selectorZi * c2PI / 360 * vitezaRadar; //360/8 = 45
+  radianiZi = selectorZi * c2PIdiv360 * vitezaRadar; //360/8 = 45
   //grade = selectorZi * vitezaRadar;
   //console.log(grade);
 
