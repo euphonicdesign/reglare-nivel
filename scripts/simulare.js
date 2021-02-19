@@ -3868,8 +3868,8 @@ function desenareSchemaRacheta(){
   //xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90 - 90;
   xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135;
 
-  xsoseta = lungimeSosetaModReglare * Math.cos(xsos * Math.PI * multiplicatorPI);
-  ysoseta = lungimeSosetaModReglare * Math.sin(xsos * Math.PI * multiplicatorPI);
+  xsoseta = lungimeSosetaModReglare * Math.cos(xsos * c2PIdiv360);
+  ysoseta = lungimeSosetaModReglare * Math.sin(xsos * c2PIdiv360);
 
   if(selectorZi > orizont_regresie + orizont_arie){
 
@@ -3879,7 +3879,7 @@ function desenareSchemaRacheta(){
           ctx.fillStyle = "yellow";
           ctx.beginPath();
           ctx.moveTo(xStalpModReglare, yStalpModReglare);
-          ctx.arc(xStalpModReglare+1, yStalpModReglare-1, lungimeSosetaModReglare + 1, -(xsos * Math.PI * multiplicatorPI), 0 );
+          ctx.arc(xStalpModReglare+1, yStalpModReglare-1, lungimeSosetaModReglare + 1, -(xsos * c2PIdiv360), 0 );
           //ctx.moveTo(xStalpModReglare, yStalpModReglare - lungimeSosetaModReglare);
           ctx.closePath();
           ctx.fill();
@@ -3909,7 +3909,7 @@ function desenareSchemaRacheta(){
       //ctx.fillStyle = "white";//"#4d4d4d";
       ctx.beginPath();
       ctx.moveTo(xStalpModReglare, yStalpModReglare);
-      ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, -(xsos * Math.PI * multiplicatorPI));
+      ctx.arc(xStalpModReglare, yStalpModReglare, lungimeSosetaModReglare, 0, -(xsos * c2PIdiv360));
       ctx.moveTo(xStalpModReglare, yStalpModReglare);
       ctx.closePath();
       ctx.fill();
@@ -5342,8 +5342,8 @@ function desenarePendulEvenimente(){
       //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
       //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
       xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135;
-      xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * multiplicatorPI);
-      ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * multiplicatorPI);
+      xsoseta = lungimeSoseta * Math.sin(xsos * c2PIdiv360);
+      ysoseta = lungimeSoseta * Math.cos(xsos * c2PIdiv360);
 
       ctx.lineWidth = 3;
 
@@ -5366,7 +5366,7 @@ function desenarePendulEvenimente(){
       //desenare arc deschidere
       ctx.beginPath();
       ctx.moveTo(xStalpG, yStalpG);
-      ctx.arc(xStalpG, yStalpG, lungimeStalp/2, (xsos * Math.PI * multiplicatorPI) - Math.PI/2, 0);
+      ctx.arc(xStalpG, yStalpG, lungimeStalp/2, (xsos * c2PIdiv360) - Math.PI/2, 0);
       ctx.closePath();
       ctx.fill();
 
@@ -5539,8 +5539,8 @@ function desenarePendulEvenimenteRacheta(){
         //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
         //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
         xsos = vector_rToate_normalizat[selectorZi] / scalaPozitieXAvion * 135 //1.5 * 90;
-        xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * multiplicatorPI);
-        ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * multiplicatorPI);
+        xsoseta = lungimeSoseta * Math.sin(xsos * c2PIdiv360);
+        ysoseta = lungimeSoseta * Math.cos(xsos * c2PIdiv360);
 
         ctx.lineWidth = 3;
 
@@ -5563,7 +5563,7 @@ function desenarePendulEvenimenteRacheta(){
         //desenare arc deschidere
         ctx.beginPath();
         ctx.moveTo(xStalpGR, yStalpGR);
-        ctx.arc(xStalpGR, yStalpGR, lungimeStalp/2, (xsos * Math.PI * multiplicatorPI) - Math.PI/2, 0);
+        ctx.arc(xStalpGR, yStalpGR, lungimeStalp/2, (xsos * c2PIdiv360) - Math.PI/2, 0);
         ctx.closePath();
         ctx.fill();
 
@@ -6510,8 +6510,8 @@ function desenarePendulModHarta(){
     //  xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
   //}
 
-  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * multiplicatorPI);
-  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * multiplicatorPI);
+  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * c2PIdiv360);
+  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * c2PIdiv360);
 
   ctx.lineWidth = 6 ;
 
@@ -6872,8 +6872,8 @@ function desenareRadarModRadar(){
       //xsos = vectoriDateZone[nrArie].vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 1.5 * 90;
   }
 
-  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * Math.PI * multiplicatorPI);
-  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * Math.PI * multiplicatorPI);
+  xsoseta = lungimeSosetaModRadar * Math.sin(xsos * c2PIdiv360);
+  ysoseta = lungimeSosetaModRadar * Math.cos(xsos * c2PIdiv360);
 
   ctx.lineWidth = 6 ;
 
@@ -8279,8 +8279,8 @@ function desenareRadar(){
   //vectorXAvion[i] = xRadar + vector_r_normalizat[i] / scalaPozitieXAvion * (razaCerc1);
   //vectorYAvion[i] = yRadar - vector_valZiCurenta[i] / maxRadarY /*maxValZiCur*/ * (razaCerc1);
   xsos = vector_r_normalizat[selectorZi] / scalaPozitieXAvion * 135;
-  xsoseta = lungimeSoseta * Math.sin(xsos * Math.PI * multiplicatorPI);
-  ysoseta = lungimeSoseta * Math.cos(xsos * Math.PI * multiplicatorPI);
+  xsoseta = lungimeSoseta * Math.sin(xsos * c2PIdiv360);
+  ysoseta = lungimeSoseta * Math.cos(xsos * c2PIdiv360);
 
   ctx.lineWidth = 3;
 
