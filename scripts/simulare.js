@@ -615,7 +615,7 @@ var yl2 = yLegenda + 30;
 var yl3 = yLegenda + 45;
 var yl4 = yLegenda + 60;
 var yl5 = yLegenda + 100;
-
+var xLegendaRisc = xLegenda + 90;
 
 //Schema Reglare
 var lungBloc = 40;
@@ -4329,8 +4329,8 @@ function desenareSchemaRacheta(){
       //ctx.fillStyle = culoareTextZi;
       ctx.fillStyle = "hsl(216, 60%, " +(55 - medieCumulativToate[selectorZi]) + "%)";
   }
-  treaptaViteza = 1 + Math.floor(medieCumulativToate[selectorZi]/25);
-  ctx.fillText("Tr." + treaptaViteza, xPotentiometru +42, yPotentiometru - razaPotentiometru - 0);
+  //treaptaViteza = (1 + Math.floor(medieCumulativToate[selectorZi]/25));
+  ctx.fillText("Tr." + (1 + Math.floor(medieCumulativToate[selectorZi]/25)), xPotentiometru +42, yPotentiometru - razaPotentiometru - 0);
   //ctx.fillText(treaptaViteza, xPotentiometru +58, yPotentiometru - razaPotentiometru - 18);
 
   ctx.font = "italic bold 12px Helvetica, system-ui, Arial, sans-serif";
@@ -5697,6 +5697,8 @@ function desenareCompensatorValori() {
     //ctx.font = "italic 12px system-ui, Arial, sans-serif";
     ctx.fillText("Grad de atenție:", xLegenda, yl3);
 
+    ctx.fillText("Grad risc:", xLegendaRisc, yl3);
+
     //Comanda ideala C
     //ctx.fillStyle = culoareTextCompensatorFill;
     //ctx.font = "italic 12px system-ui, Arial, sans-serif";
@@ -5708,6 +5710,8 @@ function desenareCompensatorValori() {
     else{
         ctx.fillText("Cᵢ=" + comandaIdeala[selectorZi], xLegenda, yl4);
     }
+
+    ctx.fillText("Gᵣ=" + (1 + Math.floor(medieCumulativToate[selectorZi]/25)), xLegendaRisc, yl4);
 
     //Afisare data - zi curenta
     /*
