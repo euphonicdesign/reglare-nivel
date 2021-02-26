@@ -5711,7 +5711,7 @@ function desenareCompensatorValori() {
         ctx.fillText("Cᵢ=" + comandaIdeala[selectorZi], xLegenda, yl4);
     }
 
-    ctx.fillText("Gᵣ=" + (1 + Math.floor(medieCumulativToate[selectorZi]/25 *10)/10), xLegendaRisc, yl4);
+    ctx.fillText("Gᵣ=" + (1 + Math.floor(medieCumulativToate[selectorZi]/25 *10)/10) + " ori", xLegendaRisc, yl4);
 
     //Afisare data - zi curenta
     /*
