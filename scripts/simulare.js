@@ -5697,7 +5697,7 @@ function desenareCompensatorValori() {
     //ctx.font = "italic 12px system-ui, Arial, sans-serif";
     ctx.fillText("Grad de atenție:", xLegenda, yl3);
 
-    ctx.fillText("Grad risc:", xLegendaRisc, yl3);
+    ctx.fillText("Gradul de risc:", xLegendaRisc, yl3);
 
     //Comanda ideala C
     //ctx.fillStyle = culoareTextCompensatorFill;
