@@ -3401,26 +3401,35 @@ function desenareSchemaRacheta(){
   ctx.closePath();
   ctx.stroke();
 
+
+  //ctx.setLineDash([2, 2]);
+  ctx.lineWidth = 4;
   if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] != culoareMaro){
       ctx.strokeStyle = "green";//culoareCrestereMaro;//"red";
       ctx.fillStyle = "green";//culoareCrestereMaro;//"red";
       //text_lim = "des";
+      ctx.moveTo(xBlocC + 21, yCaleDir - 24);
+      ctx.lineTo(xBlocC - 3, yCaleDir - 24);
+      //ctx.closePath();
+      ctx.stroke();
   }
   else{
-    ctx.strokeStyle = "grey";
-    ctx.fillStyle = "grey";
+    ctx.strokeStyle = culoareCrestereMaro;//"grey";
+    ctx.fillStyle = culoareCrestereMaro;//"grey";
+    ctx.moveTo(xBlocC + 42, yCaleDir - 24);
+    ctx.lineTo(xBlocC + 19, yCaleDir - 24);
+    //ctx.closePath();
+    ctx.stroke();
   }
-  ctx.setLineDash([2, 4]);
+
+  ctx.lineWidth = 2;
   //ctx.beginPath();
   ctx.moveTo(xBlocC + lungBloc/2, yCaleDir - 10);
   ctx.lineTo(xBlocC + lungBloc/2, yCaleDir - 22);
   //ctx.closePath();
   ctx.stroke();
-  ctx.moveTo(xBlocC + 21, yCaleDir - 22);
-  ctx.lineTo(xBlocC - 3, yCaleDir - 22);
-  //ctx.closePath();
-  ctx.stroke();
-  ctx.setLineDash([]);
+
+  //ctx.setLineDash([]);
   //ctx.lineWidth = 2;
 
 
