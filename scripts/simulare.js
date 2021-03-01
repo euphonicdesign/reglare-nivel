@@ -4700,7 +4700,7 @@ function desenareSchemaRacheta(){
   ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
   //ctx.fillStyle = culoareApaNivelNormal;
   ctx.textAlign = "center";
-  if (data[selectorZi] - medieCumulativ[selectorZi] > 0 ){
+  if (factor_ampMediu >= 1 ){
       ctx.fillStyle = culoareRosuTemperat;
       ctx.strokeStyle = culoareRosuTemperat;
   }
