@@ -4260,7 +4260,7 @@ function desenareSchemaRacheta(){
   //pr21 = (medieCumulativToate[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100;
   ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
   ctx.textAlign = "start";
-  ctx.fillText("⇢ " + Math.round(pr21*100), xPotentiometru + 2* razaPotentiometru + 86, yPotentiometru - razaPotentiometru + 12);
+  ctx.fillText("⇢ " + Math.round(pr21*100) + "("+proiectie21TermenScurt +")", xPotentiometru + 2* razaPotentiometru + 86, yPotentiometru - razaPotentiometru + 12);
 
   //desenare gradatii
   ctx.strokeStyle = culoareTextZi;
@@ -10340,6 +10340,8 @@ function ActualizareSuprafataGrafica() {
         }
 
         pr21 = (medieCumulativToate[selectorZi] + (factor_ampMediu-1)*orizont_proiectie )/100;
+        proiectie21TermenScurt = Math.round(vector_coefAToate[selectorZi] * Math.pow(vector_rToate[selectorZi], (selectorZi + orizont_proiectie -1)) * dataCumulativToate[selectorZi]/avariiCumulativToate[selectorZi]);
+
 
         /*
         //pulsatie_3 = false;
