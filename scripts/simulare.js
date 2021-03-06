@@ -180,6 +180,7 @@ let evenimente_tip = [
               culoareMaro, //8/2
               culoareVerde, //8/2
               culoareMaro, //20/2
+              culoareMaro, //5/3
 ];
 
 
