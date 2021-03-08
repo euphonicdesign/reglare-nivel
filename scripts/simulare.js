@@ -5642,12 +5642,18 @@ function desenareZiValoareTrenduri(){
     data_zi_luna = data_data[selectorZi].split("/");
     zi = data_zi_luna[0];
     luna = data_luni_lung[data_zi_luna[1]-1];
+    if(selectorZi > 284){
+      an = "2021";
+    }
+    else{
+      an = "2020";
+    }
     //ctx.fillText(zi + " " + luna, xLegenda, yl5);
 
     ctx.strokeText("Ziua " + selectorZi , xTextZi, yTextZi);
 
     ctx.font = "italic 16px Helvetica, Arial, sans-serif";
-    ctx.fillText( "(" + zi + " " + luna + ")", xTextZi + 75 + (String(selectorZi).length) * 18, yTextZi);
+    ctx.fillText( "(" + zi + " " + luna + " " + an + ")", xTextZi + 75 + (String(selectorZi).length) * 18, yTextZi);
 
 }
 
