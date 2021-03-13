@@ -60,7 +60,7 @@ let data_10 = [
             79, 81, 62, 71, 79, 57, 52,
             47, 119, 73, 81, 66, 54, 63,
             53, 106, 77, 98, 101, 69, 46,
-            63, 93, 100, 96, 108, 79, 
+            63, 93, 100, 96, 108, 79,
 
 
 
@@ -501,5 +501,6 @@ let info_explicatii = [
 
               'Aterizare ratată... Mai încercăm...',
 
-              '...',
+              'Roboții respectă logica binară...  \
+              \n"Roboții" în schimb, nu prea par să respecte logica elementară...',
 ];
