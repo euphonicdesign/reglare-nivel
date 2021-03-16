@@ -1,0 +1,252 @@
+html {
+  font-size: 22px;
+  font-family: 'EB Garamond', serif;
+  background-color: #0d161c;
+  scroll-behavior: smooth;
+  /*background: url(tipar.png);*/
+}
+
+
+body {
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0px auto;
+  background-color: white;
+  position: relative;
+}
+
+header {
+  height: 240px;
+  margin-left: 52px;
+}
+
+footer {
+  height: 70px;
+  margin-left: : 32px;
+}
+
+main {
+  margin-left: 32px;
+  margin-right: 32px;
+  background: white;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%;*/
+}
+
+section {
+  padding-bottom: 10px;
+}
+
+article {
+  /*background: #ccc;*/
+  padding: 20px;
+  margin-bottom: 20px;
+
+}
+
+header h1 {
+  font-size: 50px;
+  line-height: 100px;
+  margin: 0 0 0 0px;
+  padding-top: 20px;
+}
+
+header div{
+  margin: 0 0 0 0px;
+}
+
+header img {
+  width: 100px;
+  position: absolute;
+  right: 32px;
+  top: 32px;
+}
+
+h2 {
+  margin-top: 10px;
+}
+
+h3{
+  padding-top: 30px;
+}
+
+h4{
+  padding-top: 20px;
+}
+
+p {
+  line-height: 2;
+}
+
+.culoare{
+  color: hsl(200, 80%, 30%);
+}
+.culoare_calda{
+  color: orange;
+}
+
+.container_figuri {
+  display: flex;
+  flex-direction: column;
+}
+
+.container_imagini_orizontal{
+
+}
+
+.indentare1 {
+  margin-left: 22px;
+}
+
+.indentare2 {
+  margin-left: 38px;
+}
+
+
+.info {
+  font-style: italic;
+  color: grey;
+}
+
+.marcaj_verde{
+  color: green;
+}
+
+.marcaj_maro{
+  color: brown;
+}
+
+.marcaj_albastru{
+  color: blue;
+}
+
+.marcaj_albastru_deschis{
+  color: #005c99;
+}
+
+
+.marcaj_rosu{
+  color: red;
+}
+
+.marcaj_gri{
+  color: grey;
+}
+.marcaj_galben{
+  color: yellow;
+}
+
+a{
+  text-decoration: none;
+  height: 200%;
+}
+
+a:visited{
+  color: #333;
+}
+
+a:link{
+  color: #333;
+}
+
+a:active{
+  color: #333;
+}
+
+thead th:nth-child(2),
+tbody td:nth-child(2){
+  text-align: right;
+}
+
+thead th:nth-child(1),
+thead th:nth-child(3),
+tbody th:nth-child(1),
+tbody td:nth-child(3) {
+  text-align: left;
+}
+
+table caption {
+  text-align: left;
+}
+
+table{
+  border-top: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+  border-collapse: collapse;
+}
+
+tfoot {
+  border-top: 2px solid lightgrey;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+th, td {
+  padding: 10px;
+}
+
+.standardTable{
+  text-align: left;
+  font-size: 90%;
+}
+
+table.standardTable tr td{
+  text-align: left;
+}
+
+table.standardTable tr th{
+  vertical-align: top;
+}
+
+/*
+<h2>Capitolul 1 - Introducere</h2>
+<h2>Capitolul 2 - Concepte generale</h2>
+<h3>2.1 Reglarea proceselor din natură</h3>
+<h2>Capitolul 3 - Semnale și sisteme</h2>
+<h3>3.1 Concepte introductive de analiză matematică. Semnale.</h3>
+<h3>3.2 Cutii negre. Sisteme.</h3>
+
+<h3>3.3. Agenți patogeni contra agenți umani (conștienți)</h3>
+<h2>Capitolul 4 - Determinarea și analiza stării de sănătate a organismului</h2>
+<h3>4.1 Starea organismului. Semnale principale.</h3>
+<h3>4.2 Analiza și prelucrarea semnalelor</h3>
+<h4>4.2.1 Semnalul avariilor detectate</h4>
+<h4>4.2.2 Semnalul pierderilor</h4>
+<h3>4.3 Dinamica de propagare și de stingere a avariilor</h3>
+<h2>Capitolul 5 - Modelare sistemică</h2>
+<h3>5.1 Funcții de transfer</h3>
+<h3>5.2 Sisteme liniare de ordinul 1 și ordinul 2</h3>
+<h3>5.3 Transformata LaPlace. Translatarea semnalelor din domeniul timp în spațiul numerelor complexe.</h3>
+<h2>Capitolul 5 - Stabilizarea sistemului (organismului)</h2>
+<h3>5.1 Analiza răspunsului la impuls. Determinarea funcției de transfer (dinamice)</h3>
+<h3>5.2 Curbe (funcții) exponențiale. Factorul R.</h3>
+<h3>5.3 Stabilizare prin compensare externă</h3>
+<h3>5.4 Analiza algoritmului de reglare</h3>
+<h3>5.5 Concluzii și soluții pentru stabilizarea sistemului</h3>
+<h2>Capitolul 6 - Calcul predictiv</h2>
+<h3>6.1 Introducere</h3>
+<h3>6.2 Metoda regresiei liniare (celor mai mici pătrate) pentru semnalul avariilor detectate</h3>
+<h3>6.3 Calcul predictiv pentru semnalul pierderilor (temperatura organismului)</h3>
+<h2>Capitolul 7 - Translatare în spațiul bulgărilor de zăpadă</h2>
+<h2>Capitolul 8 - Translatare în spațiul dunelor de nisip</h2>
+<h2>Capitolul 9 - Translatare în spațiul aero-circular</h2>
+<h2>Capitolul 11 - Translatare în spațiul fotografic</h2>
+<h2>Capitolul 12 - Translatare în spațiul  în spațiul tehnologic (reglare nivel apă rezervor)</h2>
+<p><strong>Reglarea nivelului apei într-un rezervor</strong></p>
+<h2>Capitolul 13 - Translatarea analizei în spațiul aero-spațial ("inteligento-artificial")</h2>
+<h3>13.1 Racheta</h3>
+<h3>13.2 "Inteligența" Artificială și agrafele sale</h3>
+<h3>13.3 Robotul</h3>
+<h2>Capitolul 14 - Concluzii</h2>
+
+
+
+*/
