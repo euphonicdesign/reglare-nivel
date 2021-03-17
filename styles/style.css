@@ -55,13 +55,6 @@ h1 {
   text-shadow: 3px 3px 1px black;
 }
 
-img {
-  /*
-  display: block;
-  /*margin: 0 auto;*/
-  /*margin: 0 0;*/
-}
-
 .center {
   text-align: center;
 }
@@ -110,9 +103,13 @@ img {
   margin-right: 0px;
 }
 
+.padding {
+  padding-left: 8px;
+}
+
 .bloc-link-2{
   /*border: 2px solid green;*/
-  padding-left: 110px;
+  padding-left: 100px;
 }
 
 .bloc-link-1{
