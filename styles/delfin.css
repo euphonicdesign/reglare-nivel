@@ -6,6 +6,36 @@ html {
   /*background: url(tipar.png);*/
 }
 
+a{
+  text-decoration: none;
+  height: 200%;
+  color:#333;
+}
+
+h2 a{
+  color: hsl(200, 80%, 30%);
+}
+
+h3 a{
+  color: orange;
+}
+
+#cuprins a{
+  color: #000;
+}
+
+/*
+a:visited{
+  color: #333;
+}
+
+a:link{
+  color: #333;
+}
+
+a:active{
+  color: #333;
+}*/
 
 body {
 
@@ -142,22 +172,7 @@ p {
   color: yellow;
 }
 
-a{
-  text-decoration: none;
-  height: 200%;
-}
 
-a:visited{
-  color: #333;
-}
-
-a:link{
-  color: #333;
-}
-
-a:active{
-  color: #333;
-}
 
 thead th:nth-child(2),
 tbody td:nth-child(2){
