@@ -7677,12 +7677,23 @@ function desenareAvioaneRegulator(){
 
               if(zona == clasamentAeronaveZileSortatProiectie[clasamentAeronaveZileSortatProiectie.length-1].clasament[41].arie){
                   ctx.beginPath();
-                  ctx.arc(vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator
-                          /*- vectoriDateZone[zona].vectorDR[selectorZi]/vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]*100000*/
-                          + vectoriDateZone[zona].vectorDR[selectorZi] * 10000,
-                          vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]/scalaRadarYRegulator + yRadarModRadarRegulator,
-                          dimensiuneAvionRegulator * 1.3 + vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator ,
-                          0, c2PI);
+                  if(vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]/scalaRadarYRegulator + yRadarModRadarRegulator > 0){
+                      ctx.arc(vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator
+                              /*- vectoriDateZone[zona].vectorDR[selectorZi]/vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]*100000*/
+                              + vectoriDateZone[zona].vectorDR[selectorZi] * 10000,
+                              vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]/scalaRadarYRegulator + yRadarModRadarRegulator,
+                              dimensiuneAvionRegulator * 1.3 + vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator ,
+                              0, c2PI);
+                  }
+                  else{
+                    ctx.arc(vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator
+                            /*- vectoriDateZone[zona].vectorDR[selectorZi]/vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]*100000*/
+                            + vectoriDateZone[zona].vectorDR[selectorZi] * 10000,
+                            0,
+                            dimensiuneAvionRegulator * 1.3 + vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator ,
+                            0, c2PI);
+                  }
+
                   ctx.closePath();
                   ctx.fill();
                   ctx.stroke();
