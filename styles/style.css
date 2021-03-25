@@ -24,6 +24,10 @@ h2 a{
   /*color: hsl(200, 80%, 30%);*/
 }
 
+a.schimbare{
+  text-decoration: none;
+}
+
 h3 {
   font-size: 20px;
   /*text-align: center;*/
