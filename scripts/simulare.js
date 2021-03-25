@@ -3591,6 +3591,7 @@ function desenareSchemaRacheta(){
     else{
         ctx.fillStyle = "green";
         ctx.strokeStyle = "green";
+        text_initial = "3 ";
     }
     ctx.beginPath();
     ctx.moveTo(xElice1 - 18, yElice);
@@ -3651,13 +3652,25 @@ function desenareSchemaRacheta(){
   ctx.font = "italic bold 10px Helvetica, system-ui, Arial, sans-serif";
   ctx.fillText( "" + Math.round((data[selectorZi] - medieCumulativ[selectorZi])/medieCumulativ[selectorZi]*100) + "%" , xCercRef + 22, yCaleDir + 24);
 
-  ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-  ctx.fillText( "min", xCercRef + 23, yCaleDir - 18);
+  if (eroare > 0 ){
+      ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillText( "min", xCercRef + 23, yCaleDir - 18);
 
-  ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
-  ctx.textAlign = "start";
+      ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+      ctx.textAlign = "start";
 
-  ctx.fillText("ε(t)", xCercRef + 14, yCaleDir - 6);
+      ctx.fillText("ε(t)", xCercRef + 14, yCaleDir - 6);
+  }
+  else{
+      ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+      ctx.fillText( "max", xCercRef + 23, yCaleDir - 18);
+
+      ctx.font = "italic 12px Helvetica, system-ui, Arial, sans-serif";
+      ctx.textAlign = "start";
+
+      ctx.fillText("3(t)", xCercRef + 14, yCaleDir - 6);
+  }
+
   ctx.fillStyle = "grey";
   ctx.fillText("+", xCercRef - 4, yCaleDir + 8);
 
