@@ -7714,19 +7714,19 @@ function desenareAvioaneRegulator(){
                       ctx.font = "italic 14px Helvetica, system-ui, Arial, sans-serif";
                       if(evenimente_tip[zile_evenimente_actiuni[selectorZi]] == culoareMaro){
                           ctx.fillStyle = culoareCrestereMaro;
-                          ctx.fillText("++",
+                          ctx.fillText("Nu",
                                   vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator
                                   /*- vectoriDateZone[zona].vectorDR[selectorZi]/vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]*100000*/
-                                  + vectoriDateZone[zona].vectorDR[selectorZi] * 10000 + 6 + vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator,
+                                  + vectoriDateZone[zona].vectorDR[selectorZi] * 10000 + 10 + vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator,
                                   vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]/scalaRadarYRegulator + yRadarModRadarRegulator + 5 ,
                           )
                       }
                       else{
                           ctx.fillStyle = culoareScadere;
-                          ctx.fillText("--",
+                          ctx.fillText("Da",
                                   vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator
                                   /*- vectoriDateZone[zona].vectorDR[selectorZi]/vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]*100000*/
-                                  + vectoriDateZone[zona].vectorDR[selectorZi] * 10000 - 18 - vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator,
+                                  + vectoriDateZone[zona].vectorDR[selectorZi] * 10000 - 28 - vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator,
                                   vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]/scalaRadarYRegulator + yRadarModRadarRegulator + 3 ,
                           )
                       }
