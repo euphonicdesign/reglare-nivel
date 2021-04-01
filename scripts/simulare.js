@@ -7739,7 +7739,7 @@ function desenareAvioaneRegulator(){
                   ctx.textAlign = "center";
                   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
                   if(vectoriDateZone[zona].vectorDR[selectorZi] < 0){
-                      sens = " \u2199";//" \u2798";
+                      sens = " \u21D9";//" \u2199";//" \u2798";
                   }
                   else{
                       sens = " \u279A";
