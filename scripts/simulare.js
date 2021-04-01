@@ -7738,7 +7738,14 @@ function desenareAvioaneRegulator(){
                   //ctx.strokeStyle = culoarePuncteProiectieCrestere;
                   ctx.textAlign = "center";
                   ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
-                  ctx.fillText(Math.round(vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]),
+                  if(vectoriDateZone[zona].vectorDR[selectorZi] < 0){
+                      sens = " \u2199";//" \u2798";
+                  }
+                  else{
+                      sens = " \u279A";
+                  }
+
+                  ctx.fillText(Math.round(vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]) + sens,
                           vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator
                           /*- vectoriDateZone[zona].vectorDR[selectorZi]/vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]*100000*/
                           + vectoriDateZone[zona].vectorDR[selectorZi] * 10000 - vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]/crestereDimensiuneAvionRegulator,
