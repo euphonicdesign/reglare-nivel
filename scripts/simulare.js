@@ -7737,6 +7737,7 @@ function desenareAvioaneRegulator(){
                   ctx.fillStyle = culoarePuncteProiectieCrestere;//"white";
                   //ctx.strokeStyle = culoarePuncteProiectieCrestere;
                   ctx.textAlign = "center";
+                  ctx.font = "italic bold 14px Helvetica, system-ui, Arial, sans-serif";
                   ctx.fillText(Math.round(vectoriDateZone[zona].vectorProiectieZiCurenta[selectorZi]),
                           vectoriDateZone[zona].vectorXAvionRegulator[selectorZi] + xRadarModRadarRegulator
                           /*- vectoriDateZone[zona].vectorDR[selectorZi]/vectoriDateZone[zona].vectorYAvionRegulatorProiectie[selectorZi]*100000*/
