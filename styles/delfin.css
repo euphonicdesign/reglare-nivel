@@ -24,6 +24,10 @@ h3 a{
   color: green;
 }
 
+.cul_albastru {
+  color: hsl(205, 90%, 63%);
+}
+
 #cuprins a{
   color: #000;
 }
