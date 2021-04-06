@@ -104,8 +104,16 @@ h1 {
 
 }
 
-.sectiunea1b img.im2, .sectiunea1b img.im3{
+.sectiunea1b img.im2{
   max-width: 74px;
+  max-height: 42px;
+  /*height: auto;*/
+  /*border: 1px solid blue;*/
+  margin-right: 0px;
+}
+
+.sectiunea1b img.im3{
+  max-width: 60px;
   max-height: 42px;
   /*height: auto;*/
   /*border: 1px solid blue;*/
