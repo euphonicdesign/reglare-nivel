@@ -119,14 +119,21 @@ h1 {
   /*border: 1px solid blue;*/
   margin-right: 0px;
 }
+.sectiunea1b img.im4{
+  max-width: 58px;
+  max-height: 42px;
+  /*height: auto;*/
+  /*border: 1px solid blue;*/
+  margin-right: 0px;
+}
 
 .padding {
-  padding-left: 8px;
+  padding-left: 0px;
 }
 
 .bloc-link-2{
   /*border: 2px solid green;*/
-  padding-left: 100px;
+  padding-left: 80px;
 }
 
 .bloc-link-1{
