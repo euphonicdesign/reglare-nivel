@@ -133,13 +133,14 @@ h1 {
 
 .bloc-link-2{
   /*border: 2px solid green;*/
-  padding-left: 80px;
+  padding-left: 82px;
 }
 
 .bloc-link-1{
   display: inline-flex;
   /*border: 2px solid #333;*/
   align-items: center;
+  padding-left: 10px;
 }
 
 .separator {
