@@ -127,6 +127,10 @@ h1 {
   margin-right: 0px;
 }
 
+.chenar{
+  height: 400px;
+}
+
 .padding {
   padding-left: 0px;
 }
@@ -420,6 +424,14 @@ h1 {
   display: block;
   height: 200%;
 }
+
+.chenar a{
+  display: block;
+  text-align: center;
+  font-size: 2em;
+  margin-top: 30%;
+}
+
 
 #pozitii .nume a:visited{
   color: #333;
