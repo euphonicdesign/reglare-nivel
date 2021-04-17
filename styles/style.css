@@ -81,9 +81,14 @@ h1 {
   margin-top: 30%;
 }
 
-.da, .nu{
+.nu{
   font-size: 1.7em;
   color: grey;
+}
+
+.da{
+  font-size: 2em;
+  color: green;
 }
 
 .sectiunea1{
