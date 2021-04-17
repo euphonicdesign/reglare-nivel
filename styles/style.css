@@ -74,7 +74,7 @@ h1 {
 }
 
 .nunu{
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .dada{
@@ -118,6 +118,11 @@ h1 {
   max-width: 40px;
   /*height: auto;*/
   margin-right: 10px;
+
+}
+
+.imagine2{
+  max-height: 80px;
 
 }
 
