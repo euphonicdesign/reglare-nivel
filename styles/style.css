@@ -131,6 +131,10 @@ h1 {
   height: 400px;
 }
 
+.chenar a:visited{
+  color: #333;
+}
+
 .padding {
   padding-left: 0px;
 }
