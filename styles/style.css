@@ -73,6 +73,19 @@ h1 {
   margin-bottom: 10px;
 }
 
+.nunu{
+  margin-top: 100px;
+}
+
+.dada{
+  margin-top: 30%;
+}
+
+.da, .nu{
+  font-size: 1.7em;
+  color: grey;
+}
+
 .sectiunea1{
   margin-top: 40px;
   margin-bottom: 20px;
@@ -429,8 +442,6 @@ h1 {
 }
 
 .chenar a{
-  display: block;
-  text-align: center;
   font-size: 2em;
   margin-top: 30%;
 }
