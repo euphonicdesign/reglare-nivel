@@ -74,7 +74,7 @@ h1 {
 }
 
 .nunu{
-  margin-top: 60px;
+  margin-top: 160px;
 }
 
 .dada{
@@ -83,6 +83,11 @@ h1 {
 
 .nu{
   font-size: 1.7em;
+  color: grey;
+}
+
+.nu2{
+  font-size: 2em;
   color: grey;
 }
 
